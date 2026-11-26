@@ -231,6 +231,26 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:8px}
 .pq{margin:0 0 2px;font-weight:600}
 .ptip{margin:0 0 10px;font-size:13.5px;color:var(--muted)}
 .tx{white-space:pre-wrap;overflow-wrap:anywhere}
+.zl{display:flex;align-items:center;gap:8px;margin:12px 0 6px;font-size:14px;font-weight:700}
+.zl .left{font-weight:500;color:var(--muted)}
+.zn{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--primary);color:var(--primary-fg);font-size:12.5px;flex:none}
+.bz:empty{border:1.5px dashed var(--line-strong);border-radius:8px;min-height:48px;display:grid;place-items:center}
+.bz:empty::before{content:"Thả vào đây";font-size:13.5px;color:var(--muted)}
+.has-sel .bz:empty::before{content:"Chạm để thả vào đây";color:var(--primary);font-weight:600}
+.bin.over .bz:empty{border-color:var(--primary)}
+.answer .ak{margin:10px 0 14px}
+.ak-q{margin:0 0 6px;font-weight:600}
+.ak-bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:8px}
+.ak-bin{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:8px 12px}
+.ak-b{margin:0 0 4px;font-weight:700;color:var(--primary);font-size:14px}
+.ak-bin ul,.ak ol{margin:0;padding-left:1.3em}
+.ak-bin li,.ak ol li{margin:3px 0;font-size:14.5px}
+.ak-ok{list-style:none;padding:0;margin:0}
+.ak-ok li{display:flex;gap:6px;align-items:baseline;margin:4px 0;color:var(--ok);font-weight:600}
+.ak-ok li b{flex:none}
+.ak p.small{margin:6px 0 0;color:var(--fg)}
+details.more{margin-top:8px;border-top:1px solid color-mix(in oklch,var(--fg) 12%,transparent);padding-top:8px}
+details.more summary{cursor:pointer;font-weight:600;font-size:14px;color:var(--muted)}
 .pool{display:flex;flex-wrap:wrap;gap:8px;min-height:58px;padding:10px;border:1.5px dashed var(--line-strong);border-radius:var(--r-sm);background:var(--sunk);transition:border-color .15s,background .15s}
 .pool:not(:has(.chip))::after{content:"Đã xếp hết các mục.";color:var(--muted);font-size:14px;align-self:center;padding:0 4px}
 .bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:10px;margin-top:10px}
@@ -833,12 +853,28 @@ function listenView(el, l) {
 }
 
 /* ---------- bài tập tương tác: sort (kéo vào nhóm / ghép cặp), order (sắp xếp), choice (1 hoặc nhiều đáp án) ---------- */
+const SORT_TIP = "Kéo từng mục ở khung 1 thả vào nhóm đúng ở khung 2. Trên điện thoại: chạm vào mục, rồi chạm vào nhóm.";
+const SORT_TIP_SEL = "Đang cầm 1 mục. Giờ chạm vào nhóm muốn thả (chạm lại mục để bỏ chọn).";
+// đáp án sinh từ chính dữ liệu chấm: rõ ràng, không phụ thuộc số thứ tự trong đề
+function keyHtml(x) {
+  return x.auto.parts.map(p => {
+    const q = `<p class="ak-q tx">${esc(p.q)}</p>`;
+    if (p.kind === "sort") return `<div class="ak">${q}<div class="ak-bins">${p.bins.map((b, j) => {
+      const its = p.items.filter(it => it.a.indexOf(j) >= 0);
+      return `<div class="ak-bin"><p class="ak-b tx">${esc(b)}</p>${its.length ? `<ul>${its.map(it => `<li class="tx">${esc(it.t)}${it.a.length > 1 ? ` <span class="muted small">(chấp nhận cả: ${it.a.filter(z => z !== j).map(z => esc(p.bins[z])).join(", ")})</span>` : ""}</li>`).join("")}</ul>` : '<p class="muted small">Không có mục nào.</p>'}</div>`;
+    }).join("")}</div></div>`;
+    if (p.kind === "order") return `<div class="ak">${q}<ol>${p.items.map(t => `<li class="tx">${esc(t)}</li>`).join("")}</ol>${p.why ? `<p class="small tx">${esc(p.why)}</p>` : ""}</div>`;
+    return `<div class="ak">${q}<ul class="ak-ok">${p.answer.map(j => `<li class="tx">${ic("check")}<b>${"ABCDEFGH"[j]}.</b> ${esc(p.options[j])}</li>`).join("")}</ul>${p.why ? `<p class="small tx">${esc(p.why)}</p>` : ""}</div>`;
+  }).join("");
+}
 const chipHtml = (t, i) => `<button type="button" class="chip" data-i="${i}" aria-pressed="false"><span class="tx">${esc(t)}</span></button>`;
 function partHtml(p, k) {
   const head = tip => `<p class="pq tx">${esc(p.q)}</p><p class="ptip">${tip}</p>`;
   if (p.kind === "sort") {
-    return `<section class="part p-sort" data-k="${k}">${head("Kéo từng mục vào đúng nhóm. Trên điện thoại: chạm mục, rồi chạm nhóm.")}
+    return `<section class="part p-sort" data-k="${k}">${head(SORT_TIP)}
+      <p class="zl"><span class="zn">1</span>Các mục cần xếp <span class="left">· còn <b>${p.items.length}</b>/${p.items.length}</span></p>
       <div class="pool" data-bin="-1" tabindex="0" role="button" aria-label="Danh sách mục chưa xếp">${shuffle(p.items.map((_, i) => i)).map(i => chipHtml(p.items[i].t, i)).join("")}</div>
+      <p class="zl"><span class="zn">2</span>Thả vào đúng nhóm</p>
       <div class="bins">${p.bins.map((b, j) => `<div class="bin" data-bin="${j}" tabindex="0" role="button" aria-label="Thả vào nhóm ${esc(b)}"><p class="bl tx">${esc(b)}</p><div class="bz"></div></div>`).join("")}</div></section>`;
   }
   if (p.kind === "order") {
@@ -861,12 +897,18 @@ let dragEnded = 0;
 function selChip(sec, c) {
   $$(".chip[aria-pressed=true]", sec).forEach(x => { if (x !== c) x.setAttribute("aria-pressed", "false"); });
   if (c) c.setAttribute("aria-pressed", c.getAttribute("aria-pressed") === "true" ? "false" : "true");
-  sec.classList.toggle("has-sel", !!$(".chip[aria-pressed=true]", sec));
+  const on = !!$(".chip[aria-pressed=true]", sec);
+  sec.classList.toggle("has-sel", on);
+  $(".ptip", sec).textContent = on ? SORT_TIP_SEL : SORT_TIP;
+}
+function sortLeft(sec) {
+  const b = $(".left b", sec); if (b) b.textContent = $$(".pool .chip", sec).length;
 }
 function moveChip(c, dest) {
   (dest.classList.contains("pool") ? dest : $(".bz", dest)).appendChild(c);
   c.setAttribute("aria-pressed", "false");
   const sec = dest.closest(".part"); sec.classList.remove("has-sel");
+  $(".ptip", sec).textContent = SORT_TIP; sortLeft(sec);
 }
 // trả true nếu cú bấm thuộc phần làm bài tương tác
 function autoClick(e) {
@@ -951,6 +993,7 @@ function autoRedo(card, x) {
     if (p.kind === "sort") {
       const pool = $(".pool", sec);
       $$(".chip", sec).forEach(c => { if (all || c.classList.contains("wrong")) pool.appendChild(c); c.classList.remove("right", "wrong"); });
+      sortLeft(sec);
     } else if (p.kind === "order") {
       const ol = $(".ord", sec), lis = $$(".oi", sec);
       lis.forEach(li => li.classList.remove("right", "wrong"));
@@ -1061,10 +1104,11 @@ function exList(el, items, practice) {
       ${hints.length ? `<button class="btn" data-act="hint">${ic("bulb")}<span>Xem gợi ý 1/${hints.length}</span></button>` : ""}
       <button class="btn primary" data-act="check">${ic("check")}<span>Kiểm tra</span></button>
       <button class="btn" data-act="redo" hidden>${ic("redo")}<span>Làm lại</span></button>
-      <button class="btn ghost" data-act="ans" aria-expanded="false">${ic("eye")}<span>Xem đáp án mẫu</span></button>
+      <button class="btn ghost" data-act="ans" data-label="đáp án" aria-expanded="false">${ic("eye")}<span>Xem đáp án</span></button>
     </div>
     <p class="exres" aria-live="polite">${done ? "Bạn đã làm đúng hết bài này. Làm lại để ôn cũng được." : ""}</p>
-    <div class="answer prose" hidden><p class="lbl">Đáp án mẫu</p>${x.answer || ""}</div>`
+    <div class="answer" hidden><p class="lbl">Đáp án</p>${keyHtml(x)}
+      ${x.answer ? `<details class="more"><summary>Lời giải chi tiết (số thứ tự theo đề)</summary><div class="prose">${x.answer}</div></details>` : ""}</div>`
     : `${hints.map((h, j) => `<div class="hint prose" tabindex="-1" hidden><p class="lbl">Gợi ý ${j + 1}/${hints.length}</p>${h}</div>`).join("")}
     <label class="work"><span class="lbl">Bài làm của bạn <span class="saved" aria-live="polite"></span></span>
       <textarea rows="4" placeholder="Gõ câu trả lời ở đây. Bài làm tự lưu trên máy này." spellcheck="false">${esc(S.draft[x.id] || "")}</textarea></label>
@@ -1128,7 +1172,9 @@ function exList(el, items, practice) {
       else { b.remove(); hs[k].focus(); }
     } else if (act === "ans") {
       const a = $(".answer", card), show = a.hidden;
-      a.hidden = !show; b.setAttribute("aria-expanded", show); $("span", b).textContent = show ? "Ẩn đáp án mẫu" : "Xem đáp án mẫu";
+      const lb = b.dataset.label || "đáp án mẫu";
+      a.hidden = !show; b.setAttribute("aria-expanded", show); $("span", b).textContent = (show ? "Ẩn " : "Xem ") + lb;
+      if (show) a.scrollIntoView({block: "nearest", behavior: "smooth"});
     } else if (act === "done") {
       if (S.done[id]) delete S.done[id]; else S.done[id] = 1;
       save("done");
