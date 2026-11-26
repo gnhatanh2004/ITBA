@@ -893,6 +893,21 @@ function autoHtml(x) {
   const A = x.auto;
   return `${A.lead ? `<p class="lead-ex">${ic("cards")}<span>${esc(A.lead)}</span></p>` : ""}<div class="parts">${A.parts.map(partHtml).join("")}</div>`;
 }
+// ẩn danh sách trong đề khi các mục của nó đã nằm sẵn trong khung kéo thả / sắp xếp (tránh hiện 2 lần)
+function dedupeTask(card, x) {
+  const norm = s => fold(s).replace(/[^a-z0-9]+/g, " ").trim();
+  const pool = x.auto.parts.flatMap(p => p.kind === "sort" ? p.items.map(i => i.t) : p.kind === "order" ? p.items : []).map(norm).filter(Boolean);
+  const task = card.querySelector(":scope > div.prose");
+  if (!pool.length || !task) return;
+  const hit = t => t && pool.some(q => q === t || (Math.min(q.length, t.length) > 8 && (q.indexOf(t) >= 0 || t.indexOf(q) >= 0)));
+  let n = 0;
+  $$("ol, ul", task).forEach(list => {
+    const lis = Array.from(list.children).filter(li => li.tagName === "LI");
+    if (lis.length < 2 || lis.filter(li => hit(norm(li.textContent))).length / lis.length < 0.6) return;
+    list.hidden = true; n++;
+  });
+  if (n) task.insertAdjacentHTML("beforeend", '<p class="note2">Các mục cần làm nằm trong khung bên dưới.</p>');
+}
 let dragEnded = 0;
 function selChip(sec, c) {
   $$(".chip[aria-pressed=true]", sec).forEach(x => { if (x !== c) x.setAttribute("aria-pressed", "false"); });
@@ -1139,6 +1154,7 @@ function exList(el, items, practice) {
     }, 400);
   };
   const byId = Object.create(null); items.forEach(x => { byId[x.id] = x; });
+  $$(".ex", el).forEach(card => { const x = byId[card.dataset.id]; if (x && x.auto) dedupeTask(card, x); });
   dragSetup(el);
   el.onclick = e => {
     if (autoClick(e, byId)) return;
