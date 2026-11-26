@@ -88,99 +88,105 @@
       ]
     },
     "L11c-p1": {
-      "lead": "Sắp xếp các bước, chọn phạm vi, kéo từng ô vào đúng cột rồi chọn Gap đúng cho Doanh nghiệp A.",
+      "lead": "Trả lời từng câu theo 5 bước phân tích GAP cho Doanh nghiệp A.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp các bước làm phân tích GAP cho Doanh nghiệp A.",
-         "items": [
-           "Phạm vi: chia yêu cầu thành các lĩnh vực theo mong muốn của doanh nghiệp",
-           "As-Is: ghi lại hiện trạng từ đề bài",
-           "To-Be: ghi trạng thái doanh nghiệp mong muốn",
-           "GAP: so sánh từng dòng, ghi thứ còn thiếu (không ghi giải pháp)",
-           "Giải pháp: với mỗi Gap đề xuất hành động cụ thể, điền vào bảng 5 cột"
-         ],
-         "why": "Chốt phạm vi → Đang ở đâu → Muốn tới đâu → Thiếu gì → Làm gì."},
-        {"kind": "choice", "q": "2) Bước 1 chia yêu cầu của Doanh nghiệp A thành những lĩnh vực nào? (chọn tất cả ý đúng)",
+        {"kind": "choice", "q": "1) Bước 1 – Phạm vi: Doanh nghiệp A muốn có hệ thống tự động. Phạm vi phân tích gồm những lĩnh vực nào? (chọn tất cả ý đúng)",
          "options": [
-           "Quản lý đơn hàng",
            "Tuyển dụng nhân sự",
+           "Quản lý đơn hàng",
            "Quản lý kho",
            "Quảng cáo, marketing",
            "Thanh toán"
          ],
-         "answer": [0, 2, 4], "multi": true,
-         "why": "Doanh nghiệp muốn hệ thống quản lý đơn hàng, kho, thanh toán tự động, nên phạm vi gồm 3 lĩnh vực đó. Nhân sự và marketing không có trong đề."},
-        {"kind": "sort", "q": "3) Dòng Nhập đơn hàng và Tổng hợp, báo cáo: mỗi ô thuộc cột nào?",
-         "bins": ["As-Is", "To-Be", "Gap", "Action Plan"],
-         "items": [
-           {"t": "[Nhập đơn hàng] Nhập tay vào Excel, hay sai", "a": [0]},
-           {"t": "[Nhập đơn hàng] Nhập trên hệ thống, dữ liệu được kiểm tra", "a": [1]},
-           {"t": "[Nhập đơn hàng] Chưa có kiểm tra (validate) khi nhập", "a": [2]},
-           {"t": "[Nhập đơn hàng] Xây form nhập đơn có ràng buộc dữ liệu, chọn sản phẩm từ danh mục", "a": [3]},
-           {"t": "[Tổng hợp, báo cáo] Tổng hợp thủ công, mất thời gian", "a": [0]},
-           {"t": "[Tổng hợp, báo cáo] Báo cáo tự động, tức thời", "a": [1]},
-           {"t": "[Tổng hợp, báo cáo] Chưa có công cụ tổng hợp tự động", "a": [2]},
-           {"t": "[Tổng hợp, báo cáo] Xây chức năng báo cáo đơn hàng theo ngày/tháng", "a": [3]}
-         ]},
-        {"kind": "sort", "q": "4) Dòng Kho và Thanh toán: mỗi ô thuộc cột nào?",
-         "bins": ["As-Is", "To-Be", "Gap", "Action Plan"],
-         "items": [
-           {"t": "[Kho] Chưa quản lý tự động", "a": [0], "why": "Hiện trạng: đề chỉ nói doanh nghiệp đang dùng Excel."},
-           {"t": "[Kho] Tồn kho tự cập nhật theo đơn", "a": [1]},
-           {"t": "[Kho] Chưa liên kết đơn hàng với kho", "a": [2]},
-           {"t": "[Kho] Xây module kho: trừ tồn khi đơn xác nhận, cảnh báo hết hàng", "a": [3]},
-           {"t": "[Thanh toán] Chưa tự động", "a": [0], "why": "Hiện trạng: đề chỉ nói doanh nghiệp đang dùng Excel."},
-           {"t": "[Thanh toán] Ghi nhận, đối soát thanh toán tự động", "a": [1]},
-           {"t": "[Thanh toán] Chưa có ghi nhận thanh toán gắn với đơn", "a": [2]},
-           {"t": "[Thanh toán] Xây module thanh toán, tích hợp cổng thanh toán", "a": [3]}
-         ]},
-        {"kind": "choice", "q": "5) Dòng Độ chính xác số liệu: cột Gap ghi thế nào cho đúng?",
+         "answer": [1, 2, 4], "multi": true,
+         "why": "Phạm vi chia theo mong muốn của doanh nghiệp: quản lý đơn hàng, kho, thanh toán tự động. Nhân sự và marketing không có trong đề."},
+        {"kind": "choice", "q": "2) Bước 2 – As-Is: dòng Tổng hợp, báo cáo của Doanh nghiệp A, cột Current State ghi gì?",
          "options": [
-           "Sai sót, không logic",
-           "Số liệu đúng, nhất quán",
-           "Lưu dữ liệu tập trung; hệ thống tự tính tổng tiền",
-           "Dữ liệu rời rạc, tính toán bằng tay"
+           "Tổng hợp thủ công, mất thời gian",
+           "Báo cáo tự động, tức thời",
+           "Chưa có công cụ tổng hợp tự động",
+           "Xây chức năng báo cáo đơn hàng theo ngày/tháng"
+         ],
+         "answer": [0], "multi": false,
+         "why": "As-Is ghi việc đang làm, lấy từ đề (\"mất thời gian tổng hợp\"). \"Báo cáo tự động\" là To-Be, \"Chưa có công cụ…\" là Gap, \"Xây chức năng…\" là Action Plan."},
+        {"kind": "choice", "q": "3) Bước 3 – To-Be: dòng Kho của Doanh nghiệp A, cột Desired State ghi gì?",
+         "options": [
+           "Chưa quản lý tự động",
+           "Xây module kho: trừ tồn khi đơn xác nhận, cảnh báo hết hàng",
+           "Chưa liên kết đơn hàng với kho",
+           "Tồn kho tự cập nhật theo đơn"
          ],
          "answer": [3], "multi": false,
-         "why": "Gap ghi thứ còn thiếu. \"Sai sót, không logic\" là As-Is, \"Số liệu đúng, nhất quán\" là To-Be, \"Lưu dữ liệu tập trung…\" là giải pháp (Action Plan)."}
+         "why": "To-Be là trạng thái muốn đạt. \"Chưa quản lý tự động\" là As-Is, \"Chưa liên kết…\" là Gap, \"Xây module kho…\" là Action Plan."},
+        {"kind": "choice", "q": "4) Bước 4 – GAP: dòng Nhập đơn hàng có As-Is \"Nhập tay vào Excel, hay sai\" và To-Be \"Nhập trên hệ thống, dữ liệu được kiểm tra\". Cột Gap ghi gì?",
+         "options": [
+           "Cần mua phần mềm quản lý đơn hàng",
+           "Chưa có kiểm tra (validate) khi nhập",
+           "Xây form nhập đơn có ràng buộc dữ liệu, chọn sản phẩm từ danh mục",
+           "Lỗi nhập liệu khi dùng Excel"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Gap ghi phần còn thiếu giữa hai trạng thái. \"Cần mua phần mềm\" là ghi giải pháp vào Gap (lỗi hay gặp), \"Xây form…\" là Action Plan, \"Lỗi nhập liệu\" là vấn đề hiện tại (As-Is)."},
+        {"kind": "choice", "q": "5) Bước 5 – Giải pháp: dòng Độ chính xác số liệu có Gap \"Dữ liệu rời rạc, tính toán bằng tay\". Action Plan nào nhắm đúng Gap này?",
+         "options": [
+           "Chia file Excel nhỏ hơn cho từng phòng ban",
+           "Xây module thanh toán, tích hợp cổng thanh toán",
+           "Lưu dữ liệu tập trung; hệ thống tự tính tổng tiền",
+           "Số liệu đúng, nhất quán"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Action Plan phải lấp đúng Gap cùng dòng: lưu tập trung hết rời rạc, tự tính hết tính tay. Chia file Excel vẫn thủ công và còn rời rạc hơn; module thanh toán là giải pháp của dòng Thanh toán; \"Số liệu đúng, nhất quán\" là To-Be."}
       ]
     },
     "L11c-p2": {
-      "lead": "Sắp xếp các bước, kéo từng ô của bảng đặt đồ ăn vào đúng cột rồi chọn Gap đúng.",
+      "lead": "Trả lời từng câu theo 5 bước phân tích GAP cho hệ thống đặt đồ ăn.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp các bước phân tích GAP cho hệ thống đặt đồ ăn.",
-         "items": [
-           "Phạm vi: quy trình nhận đơn và theo dõi đơn",
-           "As-Is: đơn đến qua tin nhắn; chép tay; khách hỏi tình trạng phải nhắn tin",
-           "To-Be: khách đặt món trên app; đơn vào hệ thống; khách thấy trạng thái đơn",
-           "GAP: liệt kê thứ còn thiếu giữa hiện trạng và trạng thái mong muốn",
-           "Giải pháp: mỗi Gap một hành động"
-         ],
-         "why": "Chốt phạm vi → Đang ở đâu → Muốn tới đâu → Thiếu gì → Làm gì."},
-        {"kind": "sort", "q": "2) Mỗi ô của bảng thuộc cột nào?",
-         "bins": ["As-Is", "To-Be", "Gap", "Action Plan"],
-         "items": [
-           {"t": "[Nhận đơn] Qua tin nhắn, chép tay", "a": [0]},
-           {"t": "[Nhận đơn] Đặt món trên app", "a": [1]},
-           {"t": "[Nhận đơn] Chưa có thực đơn điện tử và chức năng đặt món", "a": [2]},
-           {"t": "[Nhận đơn] Xây chức năng Xem thực đơn, Đặt món", "a": [3]},
-           {"t": "[Xử lý đơn] Nhân viên đọc giấy", "a": [0]},
-           {"t": "[Xử lý đơn] Đơn hiện trên hệ thống cho nhân viên xác nhận", "a": [1]},
-           {"t": "[Xử lý đơn] Chưa có màn hình quản lý đơn", "a": [2]},
-           {"t": "[Xử lý đơn] Xây chức năng Xác nhận đơn hàng", "a": [3]},
-           {"t": "[Theo dõi đơn] Khách nhắn hỏi", "a": [0]},
-           {"t": "[Theo dõi đơn] Khách tự xem trạng thái", "a": [1]},
-           {"t": "[Theo dõi đơn] Chưa lưu và hiển thị trạng thái đơn", "a": [2]},
-           {"t": "[Theo dõi đơn] Thêm trạng thái cho Đơn hàng; thông báo khi trạng thái đổi", "a": [3]}
-         ]},
-        {"kind": "choice", "q": "3) Dòng Theo dõi đơn: cột Gap ghi thế nào cho đúng?",
+        {"kind": "choice", "q": "1) Bước 1 – Phạm vi: nhà hàng nên phân tích GAP cho phạm vi nào?",
          "options": [
-           "Chưa lưu và hiển thị trạng thái đơn",
-           "Khách nhắn hỏi",
-           "Thêm trạng thái cho Đơn hàng; thông báo khi trạng thái đổi",
-           "Khách tự xem trạng thái"
+           "Quản lý kho nguyên liệu của bếp",
+           "Tuyển và trả lương nhân viên giao hàng",
+           "Quy trình nhận đơn và theo dõi đơn",
+           "Chạy quảng cáo trên mạng xã hội"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Đề chỉ nói về cách nhận đơn và cách khách theo dõi đơn, mong muốn cũng xoay quanh hai việc đó. Kho, nhân sự, quảng cáo không có trong đề."},
+        {"kind": "choice", "q": "2) Bước 2 – As-Is: hiện trạng của nhà hàng gồm những điểm nào? (chọn tất cả ý đúng)",
+         "options": [
+           "Đơn đến qua tin nhắn mạng xã hội",
+           "Khách đặt món trên ứng dụng",
+           "Nhân viên chép đơn ra giấy",
+           "Chưa có màn hình quản lý đơn",
+           "Khách hỏi tình trạng đơn phải nhắn lại"
+         ],
+         "answer": [0, 2, 4], "multi": true,
+         "why": "As-Is là việc đang làm, lấy từ đề. \"Khách đặt món trên ứng dụng\" là To-Be, \"Chưa có màn hình quản lý đơn\" là Gap."},
+        {"kind": "choice", "q": "3) Bước 3 – To-Be: dòng Xử lý đơn, cột To-Be ghi gì?",
+         "options": [
+           "Đơn hiện trên hệ thống cho nhân viên xác nhận",
+           "Nhân viên đọc giấy",
+           "Chưa có màn hình quản lý đơn",
+           "Xây chức năng Xác nhận đơn hàng"
          ],
          "answer": [0], "multi": false,
-         "why": "Gap ghi thứ còn thiếu. \"Khách nhắn hỏi\" là As-Is, \"Khách tự xem trạng thái\" là To-Be, \"Thêm trạng thái…\" là giải pháp (Action Plan)."}
+         "why": "To-Be là trạng thái muốn đạt. \"Nhân viên đọc giấy\" là As-Is, \"Chưa có màn hình…\" là Gap, \"Xây chức năng…\" là Action Plan."},
+        {"kind": "choice", "q": "4) Bước 4 – GAP: dòng Nhận đơn có As-Is \"Qua tin nhắn, chép tay\" và To-Be \"Đặt món trên app\". Cột Gap ghi gì?",
+         "options": [
+           "Cần thuê công ty viết ứng dụng đặt món",
+           "Nhân viên chép đơn ra giấy",
+           "Xây chức năng Xem thực đơn, Đặt món",
+           "Chưa có thực đơn điện tử và chức năng đặt món"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Gap ghi phần còn thiếu. \"Cần thuê công ty…\" là ghi giải pháp vào Gap (lỗi hay gặp), \"Nhân viên chép đơn…\" là As-Is, \"Xây chức năng…\" là Action Plan."},
+        {"kind": "choice", "q": "5) Bước 5 – Giải pháp: dòng Theo dõi đơn có Gap \"Chưa lưu và hiển thị trạng thái đơn\". Action Plan nào nhắm đúng Gap này?",
+         "options": [
+           "Thuê thêm nhân viên trả lời tin nhắn hỏi đơn",
+           "Thêm trạng thái cho Đơn hàng; thông báo khi trạng thái đổi",
+           "Xây chức năng Xem thực đơn, Đặt món",
+           "Khách tự xem trạng thái"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Action Plan phải lấp đúng Gap cùng dòng. Thuê người trả lời tin nhắn thì khách vẫn phải nhắn hỏi, không đạt To-Be; \"Xem thực đơn, Đặt món\" là giải pháp của dòng Nhận đơn; \"Khách tự xem trạng thái\" là To-Be."}
       ]
     }
   }

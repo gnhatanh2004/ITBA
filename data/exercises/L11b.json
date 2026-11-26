@@ -193,98 +193,83 @@
       ]
     },
     "L11b-p1": {
-      "lead": "Sắp xếp các bước tìm đối tượng, kéo từng mục vào đúng nhóm, rồi chọn lý do.",
+      "lead": "Chọn 3 đối tượng của câu mô tả, rồi trả lời vì sao chọn và loại từng danh từ.",
       "parts": [
-        {"kind": "order", "q": "Sắp xếp các bước tìm đối tượng từ câu \"Khách hàng đặt món ăn qua ứng dụng\".",
-         "items": [
-           "Gạch chân danh từ trong câu mô tả: Khách hàng, món ăn, ứng dụng.",
-           "Hỏi \"Ai hoặc cái gì tham gia?\": Khách hàng là người tham gia, Món ăn là vật được đặt.",
-           "Loại danh từ quá chung: \"Ứng dụng\" chính là hệ thống đang phân tích.",
-           "Dựa vào quy trình nghiệp vụ để tìm đối tượng ẩn: Đơn hàng."
-         ]},
-        {"kind": "sort", "q": "Với hệ thống đặt món qua ứng dụng, mục nào là đối tượng?",
-         "bins": ["Là đối tượng", "Không phải đối tượng"],
-         "items": [
-           {"t": "Khách hàng", "a": [0]},
-           {"t": "Món ăn", "a": [0]},
-           {"t": "Đơn hàng", "a": [0], "why": "Đối tượng ẩn: không có sẵn trong câu nhưng có trong quy trình đặt món."},
-           {"t": "Ứng dụng", "a": [1], "why": "\"Ứng dụng\" chính là hệ thống đang phân tích, không phải một đối tượng bên trong nó."},
-           {"t": "Giỏ hàng", "a": [0]},
-           {"t": "Nhà hàng", "a": [0]},
-           {"t": "Thanh toán", "a": [0]}
-         ]},
-        {"kind": "choice", "q": "Vì sao \"Ứng dụng\" không được tính là đối tượng?",
+        {"kind": "choice", "q": "1) Với mô tả \"Khách hàng đặt món ăn qua ứng dụng\", 3 đối tượng cần liệt kê là gì?",
          "options": [
-           "Vì \"Ứng dụng\" không xuất hiện trong câu mô tả.",
-           "Vì \"Ứng dụng\" chính là hệ thống đang phân tích, không phải đối tượng bên trong nó.",
-           "Vì \"Ứng dụng\" là một hành vi của Khách hàng.",
-           "Vì \"Ứng dụng\" là thuộc tính của Món ăn."
+           "Khách hàng, Món ăn, Ứng dụng",
+           "Khách hàng, Món ăn, Đơn hàng",
+           "Khách hàng, Đặt món, Món ăn",
+           "Ứng dụng, Đơn hàng, Tên món"
          ],
          "answer": [1], "multi": false,
-         "why": "Bước 3: loại danh từ quá chung. \"Ứng dụng\" là chính hệ thống, nên không phải một đối tượng bên trong nó."},
-        {"kind": "choice", "q": "Đối tượng \"Đơn hàng\" được tìm ra bằng cách nào?",
+         "why": "3 đối tượng: Khách hàng (người tham gia), Món ăn (vật được đặt), Đơn hàng (đối tượng ẩn của quy trình). \"Ứng dụng\" là chính hệ thống, \"Đặt món\" là hành vi, \"Tên món\" là thuộc tính của Món ăn."},
+        {"kind": "choice", "q": "2) Vì sao \"Ứng dụng\" có trong câu nhưng không được tính là đối tượng?",
          "options": [
-           "Gạch chân, vì \"Đơn hàng\" là danh từ có sẵn trong câu mô tả.",
-           "Đây là Actor vì nó khởi tạo chức năng đặt món.",
-           "Loại bỏ \"Ứng dụng\" rồi đổi tên thành \"Đơn hàng\".",
-           "Dựa vào quy trình: \"Đặt món\" luôn sinh ra chứng từ ghi món nào, của ai, bao nhiêu tiền."
+           "Vì \"Ứng dụng\" là một hành vi của Khách hàng.",
+           "Vì \"Ứng dụng\" là thuộc tính của Món ăn.",
+           "Vì \"Ứng dụng\" là Actor ở ngoài hệ thống.",
+           "Vì \"Ứng dụng\" chính là hệ thống đang phân tích, không phải đối tượng bên trong nó."
          ],
          "answer": [3], "multi": false,
-         "why": "Đơn hàng là đối tượng ẩn: không có sẵn trong câu nhưng có trong quy trình nghiệp vụ đặt món."}
+         "why": "Danh từ quá chung bị loại. \"Ứng dụng\" chính là hệ thống đang phân tích, không phải một đối tượng bên trong nó."},
+        {"kind": "choice", "q": "3) \"Đơn hàng\" không có sẵn trong câu mô tả. Vì sao vẫn là đối tượng?",
+         "options": [
+           "Vì quy trình đặt món luôn sinh ra một chứng từ ghi món nào, của ai, bao nhiêu tiền.",
+           "Vì Đơn hàng là người dùng hệ thống để đặt món.",
+           "Vì mọi hệ thống đều phải có đối tượng tên Đơn hàng.",
+           "Vì Đơn hàng là tên khác của Ứng dụng."
+         ],
+         "answer": [0], "multi": false,
+         "why": "Đơn hàng là đối tượng ẩn: không có trong câu nhưng có trong quy trình nghiệp vụ \"đặt món\" (cách tìm đối tượng dựa vào quy trình)."},
+        {"kind": "choice", "q": "4) Ngoài 3 đối tượng trên, có thể kể thêm những đối tượng nào? (chọn tất cả ý đúng)",
+         "options": ["Giỏ hàng", "Đặt món", "Nhà hàng", "Tổng tiền", "Thanh toán", "Ứng dụng"],
+         "answer": [0, 2, 4], "multi": true,
+         "why": "Đáp án mẫu kể thêm Giỏ hàng, Nhà hàng, Thanh toán. \"Đặt món\" là hành vi/chức năng, \"Tổng tiền\" là thuộc tính của Đơn hàng, \"Ứng dụng\" là chính hệ thống."}
       ]
     },
     "L11b-p2": {
-      "lead": "Sắp xếp các bước, kéo từng mục vào đúng ô của bảng Đối tượng | Đặc điểm | Việc làm, rồi chọn nhận xét đúng.",
+      "lead": "Trả lời Khách hàng và Đơn hàng có thông tin gì, làm gì.",
       "parts": [
-        {"kind": "order", "q": "Sắp xếp các bước điền đặc điểm và hành vi cho Khách hàng và Đơn hàng.",
-         "items": [
-           "Kẻ bảng 3 cột: Đối tượng | Đặc điểm | Việc làm.",
-           "Với Khách hàng, hỏi \"Hệ thống cần biết gì về khách?\" để ra đặc điểm.",
-           "Hỏi \"Khách làm gì / được làm gì?\" để ra việc làm của Khách hàng.",
-           "Làm tương tự với Đơn hàng: thông tin rồi đến việc làm."
-         ]},
-        {"kind": "sort", "q": "Mỗi mục thuộc ô nào trong bảng của hệ thống đặt đồ ăn?",
-         "bins": ["Khách hàng – Đặc điểm", "Khách hàng – Việc làm", "Đơn hàng – Đặc điểm", "Đơn hàng – Việc làm"],
+        {"kind": "sort", "q": "1) Với Khách hàng, mỗi mục là đặc điểm (thông tin) hay việc làm (hành vi)?",
+         "bins": ["Đặc điểm (thông tin)", "Việc làm (hành vi)"],
          "items": [
            {"t": "Mã khách hàng", "a": [0]},
-           {"t": "Tên", "a": [0]},
            {"t": "Số điện thoại", "a": [0]},
            {"t": "Địa chỉ giao hàng", "a": [0]},
            {"t": "Đăng ký tài khoản", "a": [1]},
            {"t": "Đặt món", "a": [1]},
-           {"t": "Thanh toán", "a": [1]},
-           {"t": "Hủy đơn", "a": [1], "why": "Khách hàng chủ động hủy đơn; còn Đơn hàng thì \"được hủy\"."},
-           {"t": "Ngày giờ đặt", "a": [2]},
-           {"t": "Danh sách món", "a": [2]},
-           {"t": "Tổng tiền", "a": [2]},
-           {"t": "Trạng thái", "a": [2]},
-           {"t": "Được tạo", "a": [3]},
-           {"t": "Được xác nhận", "a": [3]},
-           {"t": "Được giao", "a": [3]},
-           {"t": "Được hủy", "a": [3]}
+           {"t": "Hủy đơn", "a": [1]}
          ]},
-        {"kind": "choice", "q": "Hành vi của Khách hàng và của Đơn hàng thường khác nhau thế nào?",
+        {"kind": "choice", "q": "2) Những mục nào là đặc điểm (thông tin) của Đơn hàng? (chọn tất cả ý đúng)",
+         "options": ["Mã đơn", "Được xác nhận", "Tổng tiền", "Đặt món", "Trạng thái", "Được giao"],
+         "answer": [0, 2, 4], "multi": true,
+         "why": "Đặc điểm của Đơn hàng: Mã đơn, Ngày giờ đặt, Danh sách món, Tổng tiền, Trạng thái. \"Được xác nhận\", \"Được giao\" là việc làm của Đơn hàng; \"Đặt món\" là việc làm của Khách hàng."},
+        {"kind": "choice", "q": "3) Dòng nào ghi đúng việc làm của Đơn hàng?",
          "options": [
-           "Khách hàng thường ở dạng chủ động (đặt, hủy); Đơn hàng thường ở dạng bị động (được tạo, được giao).",
-           "Khách hàng thường ở dạng bị động; Đơn hàng thường ở dạng chủ động.",
-           "Đơn hàng chỉ có đặc điểm, không có hành vi.",
-           "Cả hai giống nhau, đều chỉ có hành vi chủ động."
+           "Mã đơn, Ngày giờ đặt, Tổng tiền, Trạng thái",
+           "Đăng ký, Đặt món, Thanh toán",
+           "Được tạo, Được xác nhận, Được giao, Được hủy",
+           "Khách hàng, Món ăn, Nhà hàng"
          ],
-         "answer": [0], "multi": false,
-         "why": "Khách hàng chủ động đặt, hủy; Đơn hàng được tạo, được xác nhận, được giao, được hủy – giống \"Được mượn\" của Sách."}
+         "answer": [2], "multi": false,
+         "why": "Việc làm của Đơn hàng: Được tạo, Được xác nhận, Được giao, Được hủy. Dòng đầu là đặc điểm, dòng thứ hai là việc làm của Khách hàng, dòng cuối là các đối tượng."},
+        {"kind": "choice", "q": "4) Vì sao Khách hàng ghi \"Hủy đơn\" còn Đơn hàng ghi \"Được hủy\"?",
+         "options": [
+           "Vì Đơn hàng là Actor còn Khách hàng là Object.",
+           "Vì Khách hàng chủ động làm việc đó, còn Đơn hàng là thứ bị làm (dạng bị động, giống \"Được mượn\" của Sách).",
+           "Vì \"Hủy đơn\" là đặc điểm, còn \"Được hủy\" là hành vi.",
+           "Vì hai cách ghi giống nhau, chỉ khác cách viết."
+         ],
+         "answer": [1], "multi": false,
+         "why": "Hành vi của Khách hàng thường ở dạng chủ động (đặt, hủy); hành vi của Đơn hàng thường ở dạng bị động (được tạo, được giao) – giống \"Được mượn\" của Sách."}
       ]
     },
     "L11b-p3": {
-      "lead": "Sắp xếp các bước, ghép từng cặp đối tượng với quan hệ đúng, rồi chọn sơ đồ đúng.",
+      "lead": "Ghép mỗi cặp đối tượng với quan hệ, rồi chọn sơ đồ đúng.",
       "parts": [
-        {"kind": "order", "q": "Sắp xếp các bước xác định mối quan hệ giữa các đối tượng.",
-         "items": [
-           "Lấy Object List từ B1: Khách hàng, Món ăn, Đơn hàng.",
-           "Xét từng cặp đối tượng, hỏi \"Đối tượng này làm gì với đối tượng kia?\".",
-           "Vẽ: mỗi đối tượng một hộp, mỗi quan hệ một mũi tên có nhãn động từ."
-         ]},
-        {"kind": "sort", "q": "Ghép mỗi cặp (Từ → Đến) với quan hệ đúng.",
-         "bins": ["Tạo", "Thuộc về", "Chứa", "Chọn"],
+        {"kind": "sort", "q": "1) Đối tượng bên trái có quan hệ gì với đối tượng bên phải?",
+         "bins": ["Tạo", "Thuộc (về)", "Chứa", "Chọn"],
          "items": [
            {"t": "Khách hàng → Đơn hàng", "a": [0]},
            {"t": "Đơn hàng → Khách hàng", "a": [1]},
@@ -292,67 +277,74 @@
            {"t": "Món ăn → Đơn hàng", "a": [1], "why": "Món thuộc đơn."},
            {"t": "Khách hàng → Món ăn", "a": [3], "why": "Khách chọn món, thông qua đơn hàng."}
          ]},
-        {"kind": "choice", "q": "Sơ đồ Object Relationship rút gọn nào đúng?",
+        {"kind": "choice", "q": "2) Khách hàng chọn Món ăn thông qua đối tượng nào?",
+         "options": ["Nhà hàng", "Ứng dụng", "Đơn hàng", "Thanh toán"],
+         "answer": [2], "multi": false,
+         "why": "Khách hàng chọn món thông qua Đơn hàng: khách tạo đơn, đơn chứa món."},
+        {"kind": "choice", "q": "3) Sơ đồ Object Relationship rút gọn nào đúng?",
          "options": [
            "[Món ăn] --tạo--> [Đơn hàng] --chứa--> [Khách hàng]",
-           "[Khách hàng] --chứa--> [Đơn hàng] --tạo--> [Món ăn]",
            "[Khách hàng] --tạo--> [Đơn hàng] --chứa--> [Món ăn]",
+           "[Khách hàng] --chứa--> [Đơn hàng] --tạo--> [Món ăn]",
            "[Đơn hàng] --tạo--> [Khách hàng] --chứa--> [Món ăn]"
          ],
-         "answer": [2], "multi": false,
-         "why": "Khách hàng tạo Đơn hàng, Đơn hàng chứa Món ăn."},
-        {"kind": "choice", "q": "Khi vẽ sơ đồ Object Relationship, đối tượng và quan hệ được thể hiện thế nào?",
+         "answer": [1], "multi": false,
+         "why": "Khách hàng tạo Đơn hàng, Đơn hàng chứa Món ăn: [Khách hàng] --tạo--> [Đơn hàng] --chứa--> [Món ăn]."},
+        {"kind": "choice", "q": "4) Trên sơ đồ Object Relationship, mỗi quan hệ được vẽ thế nào?",
          "options": [
-           "Mỗi quan hệ một hộp, mỗi đối tượng một mũi tên.",
-           "Mỗi đối tượng một hộp, mỗi quan hệ một mũi tên có nhãn là thuộc tính (Tên, Tổng tiền).",
-           "Mỗi đối tượng một hộp, mỗi quan hệ một đường nối không có nhãn.",
-           "Mỗi đối tượng một hộp, mỗi quan hệ một mũi tên có nhãn động từ."
+           "Một hộp ghi tên quan hệ",
+           "Một mũi tên có nhãn là thuộc tính (Tên, Tổng tiền)",
+           "Một đường nối không có nhãn",
+           "Một mũi tên có nhãn động từ (tạo, chứa, chọn)"
          ],
          "answer": [3], "multi": false,
-         "why": "Bước 5: mỗi đối tượng một hộp, mỗi quan hệ một mũi tên có nhãn động từ (tạo, chứa, chọn)."}
+         "why": "Mỗi đối tượng là một hộp, mỗi quan hệ là một mũi tên có nhãn động từ."}
       ]
     },
     "L11b-p4": {
-      "lead": "Sắp xếp các bước tìm Actor, kéo mỗi mục vào đúng nhóm, rồi chọn điều kiện để là Actor.",
+      "lead": "Chọn 2 Actor của hệ thống đặt đồ ăn và lý do.",
       "parts": [
-        {"kind": "order", "q": "Sắp xếp các bước tìm Actor cho hệ thống đặt đồ ăn.",
-         "items": [
-           "Hỏi \"Ai dùng hệ thống?\": người đặt món là Khách hàng.",
-           "Hỏi \"Sau khi đơn được đặt, ai xử lý nó?\": Nhân viên nhà hàng nhận và xác nhận đơn.",
-           "Kiểm lại: Actor phải ở ngoài hệ thống và khởi tạo hoặc dùng chức năng."
-         ]},
-        {"kind": "sort", "q": "Trong hệ thống đặt đồ ăn, mục nào là Actor?",
-         "bins": ["Actor", "Không phải Actor (là Object)"],
-         "items": [
-           {"t": "Khách hàng", "a": [0]},
-           {"t": "Nhân viên nhà hàng", "a": [0]},
-           {"t": "Shipper (người giao hàng)", "a": [0]},
-           {"t": "Quản trị viên", "a": [0]},
-           {"t": "Cổng thanh toán (hệ thống bên ngoài)", "a": [0], "why": "Actor có thể là một hệ thống bên ngoài."},
-           {"t": "Đơn hàng", "a": [1]},
-           {"t": "Món ăn", "a": [1]}
-         ]},
-        {"kind": "choice", "q": "Khi kiểm lại, điều kiện nào cho biết một mục là Actor?",
+        {"kind": "choice", "q": "1) 2 Actor của hệ thống đặt đồ ăn là ai?",
          "options": [
-           "Là danh từ có trong câu mô tả.",
-           "Là chứng từ do quy trình nghiệp vụ sinh ra.",
-           "Ở ngoài hệ thống và khởi tạo hoặc dùng chức năng.",
-           "Có đặc điểm như mã, tên, trạng thái được hệ thống lưu."
+           "Khách hàng và Đơn hàng",
+           "Món ăn và Nhân viên nhà hàng",
+           "Đơn hàng và Món ăn",
+           "Khách hàng và Nhân viên nhà hàng"
          ],
-         "answer": [2], "multi": false,
-         "why": "Bước 3: Khách hàng và Nhân viên nhà hàng đều ở ngoài hệ thống và khởi tạo hoặc dùng chức năng; Đơn hàng, Món ăn là Object."}
+         "answer": [3], "multi": false,
+         "why": "Khách hàng đặt món; Nhân viên nhà hàng nhận và xác nhận đơn. Đơn hàng, Món ăn là Object."},
+        {"kind": "choice", "q": "2) Vì sao Nhân viên nhà hàng là Actor?",
+         "options": [
+           "Vì sau khi đơn được đặt, nhân viên nhà hàng nhận và xác nhận đơn: ở ngoài hệ thống và dùng chức năng.",
+           "Vì hệ thống lưu thông tin của nhân viên nhà hàng.",
+           "Vì nhân viên nhà hàng nằm trong hệ thống.",
+           "Vì nhân viên nhà hàng là thuộc tính của Đơn hàng."
+         ],
+         "answer": [0], "multi": false,
+         "why": "Hỏi \"Sau khi đơn được đặt, ai xử lý nó?\" → Nhân viên nhà hàng. Actor ở ngoài hệ thống và khởi tạo hoặc dùng chức năng. Hệ thống lưu thông tin là dấu hiệu của Object."},
+        {"kind": "choice", "q": "3) Vì sao Đơn hàng và Món ăn không phải Actor?",
+         "options": [
+           "Vì chúng không có thuộc tính.",
+           "Vì chúng nằm trong hệ thống, là Object, không dùng chức năng.",
+           "Vì chúng không xuất hiện trong quy trình đặt món.",
+           "Vì chúng là chức năng của hệ thống."
+         ],
+         "answer": [1], "multi": false,
+         "why": "Actor ở ngoài hệ thống và khởi tạo hoặc dùng chức năng. Đơn hàng, Món ăn nằm trong hệ thống nên là Object."},
+        {"kind": "choice", "q": "4) Có thể kể thêm những Actor nào? (chọn tất cả ý đúng)",
+         "options": ["Shipper (người giao hàng)", "Giỏ hàng", "Quản trị viên", "Tổng tiền", "Cổng thanh toán (hệ thống bên ngoài)", "Thực đơn"],
+         "answer": [0, 2, 4], "multi": true,
+         "why": "Đáp án mẫu kể thêm Shipper, Quản trị viên, Cổng thanh toán; actor có thể là hệ thống bên ngoài. Giỏ hàng, Thực đơn là Object; Tổng tiền là thuộc tính."}
       ]
     },
     "L11b-p5": {
-      "lead": "Sắp xếp các bước, kéo mỗi chức năng về Actor thực hiện, rồi chọn các chức năng đúng.",
+      "lead": "Chọn 3 chức năng, rồi trả lời mỗi chức năng của ai và suy ra từ đâu.",
       "parts": [
-        {"kind": "order", "q": "Sắp xếp các bước tìm chức năng cho hệ thống đặt đồ ăn.",
-         "items": [
-           "Lấy Actor (Khách hàng, Nhân viên nhà hàng) và Object (Món ăn, Đơn hàng) đã có.",
-           "Hỏi mỗi Actor làm gì với từng Object (Khách hàng với Món ăn, Đơn hàng; Nhân viên nhà hàng với Đơn hàng).",
-           "Đối chiếu với hành vi của Đơn hàng ở B2 để không bỏ sót."
-         ]},
-        {"kind": "sort", "q": "Mỗi chức năng do Actor nào thực hiện?",
+        {"kind": "choice", "q": "1) 3 chức năng của hệ thống đặt đồ ăn là gì? (chọn 3)",
+         "options": ["Tổng tiền", "Đặt món (tạo đơn hàng)", "Nhân viên nhà hàng", "Xác nhận đơn hàng", "Món ăn", "Thanh toán đơn hàng"],
+         "answer": [1, 3, 5], "multi": true,
+         "why": "3 chức năng: Đặt món, Xác nhận đơn hàng, Thanh toán đơn hàng. Tổng tiền là đặc điểm, Nhân viên nhà hàng là Actor, Món ăn là Object."},
+        {"kind": "sort", "q": "2) Mỗi chức năng do Actor nào thực hiện?",
          "bins": ["Khách hàng", "Nhân viên nhà hàng"],
          "items": [
            {"t": "Xem thực đơn / Chọn món", "a": [0]},
@@ -360,17 +352,24 @@
            {"t": "Thanh toán đơn hàng", "a": [0]},
            {"t": "Xác nhận đơn hàng", "a": [1]}
          ]},
-        {"kind": "choice", "q": "Những mục nào là chức năng của hệ thống đặt đồ ăn?",
+        {"kind": "choice", "q": "3) Chức năng \"Xác nhận đơn hàng\" được suy ra từ câu hỏi nào?",
          "options": [
-           "Tổng tiền",
-           "Đặt món (tạo đơn hàng)",
-           "Nhân viên nhà hàng",
-           "Xác nhận đơn hàng",
-           "Món ăn",
-           "Thanh toán đơn hàng"
+           "Ai hoặc cái gì tham gia?",
+           "Đơn hàng có thông tin gì?",
+           "Nhân viên nhà hàng làm gì với Đơn hàng?",
+           "Ai dùng hệ thống?"
          ],
-         "answer": [1, 3, 5], "multi": true,
-         "why": "3 chức năng: Đặt món, Xác nhận đơn hàng, Thanh toán đơn hàng. Tổng tiền là đặc điểm, Nhân viên nhà hàng là Actor, Món ăn là Object."}
+         "answer": [2], "multi": false,
+         "why": "Chức năng suy ra từ câu hỏi \"Actor làm gì với Object?\": Nhân viên nhà hàng làm gì với Đơn hàng → Xác nhận đơn hàng. Các câu còn lại là câu hỏi của B1, B2, B4."},
+        {"kind": "choice", "q": "4) Để không bỏ sót chức năng, đối chiếu với thứ gì đã có từ B2?",
+         "options": [
+           "Đặc điểm của Khách hàng (Tên, Số điện thoại)",
+           "Hành vi của Đơn hàng (Được tạo, Được xác nhận, Được giao, Được hủy)",
+           "Các danh từ bị loại khỏi Object List",
+           "Tên ứng dụng"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Mỗi hành vi của Object ở B2 thường gợi ra một chức năng, ví dụ \"Được hủy\" gợi ra \"Hủy đơn hàng\"."}
       ]
     }
   }

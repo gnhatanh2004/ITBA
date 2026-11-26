@@ -237,624 +237,197 @@
       ]
     },
     "L05-p1": {
-      "lead": "Xếp các bước lập plan, rồi kéo từng nội dung FoodNow vào đúng phạm vi, kỹ thuật và mục của template.",
+      "lead": "Chọn mục tiêu đạt, kéo chức năng vào phạm vi, ghép kỹ thuật với từng đối tượng, rồi chọn biện pháp cho rủi ro.",
       "parts": [
-        {
-          "kind": "order",
-          "q": "1) Sắp xếp các bước lập Elicitation activity plan cho FoodNow.",
-          "items": [
-            "Thông tin chung và 2–3 mục tiêu bắt đầu bằng động từ (hiểu, xác định, thu thập)",
-            "Phạm vi: phần trong và ngoài phạm vi",
-            "Stakeholder: bảng tên/vai trò, vai trò, mức độ liên quan, trách nhiệm trong buổi",
-            "Kỹ thuật cho từng nhóm stakeholder, rồi ghi thành dòng lịch",
-            "Tài nguyên, rủi ro kèm biện pháp, kết quả mong đợi"
-          ],
-          "why": "Mục tiêu viết trước vì mọi mục khác phục vụ mục tiêu; kỹ thuật chọn theo nhóm stakeholder rồi mới xếp lịch."
-        },
-        {
-          "kind": "sort",
-          "q": "2) Mục 3 – Phạm vi: chức năng nào trong phạm vi đợt đặt bàn online này?",
-          "bins": [
-            "Trong phạm vi",
-            "Ngoài phạm vi"
-          ],
-          "items": [
-            {
-              "t": "Đặt bàn",
-              "a": [
-                0
-              ]
-            },
-            {
-              "t": "Sửa bàn đã đặt",
-              "a": [
-                0
-              ]
-            },
-            {
-              "t": "Hủy bàn",
-              "a": [
-                0
-              ]
-            },
-            {
-              "t": "Nhắc lịch đặt bàn",
-              "a": [
-                0
-              ]
-            },
-            {
-              "t": "Đặt món trước",
-              "a": [
-                1
-              ]
-            },
-            {
-              "t": "Thanh toán",
-              "a": [
-                1
-              ]
-            },
-            {
-              "t": "Chương trình thành viên",
-              "a": [
-                1
-              ]
-            }
-          ]
-        },
-        {
-          "kind": "sort",
-          "q": "3) Mục 5 – Kỹ thuật: kéo mỗi hoạt động vào kỹ thuật đáp án mẫu chọn.",
-          "bins": [
-            "Observation",
-            "Interview",
-            "Survey",
-            "Prototype"
-          ],
-          "items": [
-            {
-              "t": "Xem lễ tân nhận đặt bàn ở quầy giờ cao điểm",
-              "a": [
-                0
-              ]
-            },
-            {
-              "t": "Trao đổi với quản lý nhà hàng để chốt quy định giữ bàn",
-              "a": [
-                1
-              ]
-            },
-            {
-              "t": "Hỏi kỳ vọng của khách hàng khi đặt online (đông người)",
-              "a": [
-                2
-              ],
-              "why": "Số đông thì dùng Survey."
-            },
-            {
-              "t": "Cho BA, quản lý, lễ tân xem và góp ý màn hình đặt bàn",
-              "a": [
-                3
-              ]
-            }
-          ]
-        },
-        {
-          "kind": "sort",
-          "q": "4) Kéo mỗi nội dung vào đúng mục của template.",
-          "bins": [
-            "2. Mục tiêu",
-            "4. Stakeholder",
-            "7. Tài nguyên",
-            "8. Rủi ro",
-            "9. Kết quả mong đợi"
-          ],
-          "items": [
-            {
-              "t": "Hiểu quy trình nhận đặt bàn qua điện thoại hiện tại",
-              "a": [
-                0
-              ]
-            },
-            {
-              "t": "Xác định pain points (bỏ bàn, trùng bàn)",
-              "a": [
-                0
-              ]
-            },
-            {
-              "t": "Nhân viên lễ tân – Cao – chia sẻ thao tác nhận đặt bàn",
-              "a": [
-                1
-              ]
-            },
-            {
-              "t": "Khách hàng thường xuyên – Trung bình – nêu kỳ vọng khi đặt online",
-              "a": [
-                1
-              ]
-            },
-            {
-              "t": "Phòng họp, máy chiếu; công cụ khảo sát online; công cụ vẽ wireframe",
-              "a": [
-                2
-              ]
-            },
-            {
-              "t": "Khách ít trả lời survey – Trung bình – mẫu nhỏ – câu hỏi ngắn, gửi qua kênh khách hay dùng",
-              "a": [
-                3
-              ]
-            },
-            {
-              "t": "Biên bản phỏng vấn; danh sách yêu cầu thô",
-              "a": [
-                4
-              ]
-            },
-            {
-              "t": "Sơ đồ quy trình As-Is; phản hồi về prototype",
-              "a": [
-                4
-              ]
-            }
-          ]
-        },
-        {
-          "kind": "choice",
-          "q": "5) Mục 8 – Rủi ro \"Lễ tân bận giờ cao điểm – Cao – thiếu thông tin\". Biện pháp nào theo đáp án mẫu?",
-          "options": [
-            "Yêu cầu lễ tân dừng việc để trả lời BA ngay giữa giờ cao điểm",
-            "Hẹn hỏi thêm lễ tân sau ca",
-            "Bỏ lễ tân, chỉ hỏi quản lý vì quản lý hiểu hết quy trình",
-            "Hạ mức độ xuống Thấp để không phải có biện pháp"
-          ],
-          "answer": [
-            1
-          ],
-          "multi": false,
-          "why": "Đáp án mẫu: hẹn hỏi thêm sau ca. Bắt dừng việc là can thiệp quá nhiều; bỏ lễ tân là bỏ người đại diện cho thao tác thật; hạ mức độ không giải quyết rủi ro."
-        }
+        {"kind": "choice", "q": "1) Mục 2 – Mục tiêu: những mục tiêu nào nên ghi trong plan khai thác đợt đầu cho chức năng đặt bàn online của FoodNow? (chọn tất cả ý đúng)",
+         "options": [
+           "Hiểu quy trình nhận đặt bàn qua điện thoại hiện tại",
+           "Thiết kế bảng dữ liệu đặt bàn và chọn công nghệ làm app",
+           "Xác định pain points của cách đặt bàn hiện tại (bỏ bàn, trùng bàn)",
+           "Bàn về chức năng đặt bàn",
+           "Thu thập yêu cầu cho chức năng đặt/hủy bàn online"
+         ],
+         "answer": [0, 2, 4], "multi": true,
+         "why": "Mục tiêu viết bắt đầu bằng động từ hiểu, xác định, thu thập, như đáp án mẫu. \"Thiết kế bảng dữ liệu, chọn công nghệ\" là giải pháp kỹ thuật, không phải mục tiêu khai thác. \"Bàn về chức năng đặt bàn\" là mục tiêu mơ hồ, không biết muốn đạt gì."},
+        {"kind": "sort", "q": "2) Mục 3 – Phạm vi: chức năng nào nằm trong phạm vi đợt đặt bàn online này, chức năng nào nằm ngoài?",
+         "bins": ["Trong phạm vi", "Ngoài phạm vi"],
+         "items": [
+           {"t": "Đặt bàn", "a": [0]},
+           {"t": "Sửa bàn đã đặt", "a": [0]},
+           {"t": "Hủy bàn", "a": [0]},
+           {"t": "Nhắc lịch đặt bàn", "a": [0]},
+           {"t": "Đặt món trước", "a": [1]},
+           {"t": "Thanh toán", "a": [1]},
+           {"t": "Chương trình thành viên", "a": [1]}
+         ]},
+        {"kind": "sort", "q": "3) Mục 5 – Kỹ thuật: mỗi đối tượng hoặc nội dung cần khai thác nên dùng kỹ thuật nào?",
+         "bins": ["Observation", "Interview", "Survey", "Prototype"],
+         "items": [
+           {"t": "Lễ tân nhận đặt bàn ở quầy giờ cao điểm", "a": [0], "why": "Xem thao tác thật tại quầy."},
+           {"t": "Quản lý nhà hàng chốt quy định giữ bàn", "a": [1]},
+           {"t": "Khách hàng nêu kỳ vọng khi đặt online (đông người)", "a": [2], "why": "Số đông thì dùng Survey."},
+           {"t": "Màn hình đặt bàn cần BA, quản lý, lễ tân xem và góp ý", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "4) Mục 8 – Rủi ro: \"Lễ tân bận giờ cao điểm – mức Cao – ảnh hưởng: thiếu thông tin\". Biện pháp nào nên ghi?",
+         "options": [
+           "Yêu cầu lễ tân dừng việc để trả lời BA ngay giữa giờ cao điểm",
+           "Bỏ lễ tân, chỉ hỏi quản lý vì quản lý hiểu hết quy trình",
+           "Hạ mức độ rủi ro xuống Thấp để không phải có biện pháp",
+           "Hẹn hỏi thêm lễ tân sau ca"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Đáp án mẫu: hẹn hỏi thêm sau ca. Bắt lễ tân dừng việc là làm gián đoạn công việc; bỏ lễ tân là mất người nắm thao tác nhận đặt bàn thật; hạ mức độ không xử lý được rủi ro."}
       ]
     },
     "L05-p2": {
-      "lead": "Xếp các bước, rồi kéo mục tiêu và câu hỏi vào đúng loại, chọn việc nên làm và gom kết quả.",
+      "lead": "Chọn mục tiêu buổi phỏng vấn, kéo câu hỏi vào đúng loại, chọn việc chuẩn bị và việc nên làm trong buổi, rồi gom kết quả.",
       "parts": [
-        {
-          "kind": "order",
-          "q": "1) Sắp xếp các bước chuẩn bị và tiến hành buổi phỏng vấn thủ thư.",
-          "items": [
-            "Mục tiêu: muốn biết gì, làm rõ gì, xác nhận gì",
-            "Chuẩn bị: background, mẫu sổ mượn trả, sổ ghi, xin phép ghi âm, gửi agenda",
-            "Soạn câu hỏi mở, câu sâu, câu đóng và câu kết",
-            "Trong buổi: hỏi mở rồi thu hẹp, tóm tắt từng phần",
-            "Sau buổi: gom 4 nhóm, gửi biên bản xác nhận, follow-up"
-          ],
-          "why": "Interview đi theo trước – trong – sau; mục tiêu luôn viết trước."
-        },
-        {
-          "kind": "sort",
-          "q": "2) Mục tiêu buổi phỏng vấn: kéo mỗi ý vào đúng câu hỏi mục tiêu.",
-          "bins": [
-            "Muốn biết",
-            "Làm rõ",
-            "Xác nhận"
-          ],
-          "items": [
-            {
-              "t": "Quy trình mượn trả hiện tại",
-              "a": [
-                0
-              ]
-            },
-            {
-              "t": "Cách xử lý sách quá hạn",
-              "a": [
-                1
-              ]
-            },
-            {
-              "t": "Số sách mượn tối đa và mức phạt",
-              "a": [
-                2
-              ]
-            }
-          ]
-        },
-        {
-          "kind": "sort",
-          "q": "3) Kéo mỗi câu hỏi vào đúng loại.",
-          "bins": [
-            "Câu mở",
-            "Câu sâu",
-            "Câu đóng (xác minh)",
-            "Câu kết"
-          ],
-          "items": [
-            {
-              "t": "Chị mô tả giúp em một lượt cho mượn sách từ đầu đến cuối?",
-              "a": [
-                0
-              ]
-            },
-            {
-              "t": "Một ngày làm việc của chị gồm những việc gì?",
-              "a": [
-                0
-              ]
-            },
-            {
-              "t": "Tại sao cuối tháng chị mới rà sách quá hạn?",
-              "a": [
-                1
-              ]
-            },
-            {
-              "t": "Tại sao phải ghi cả số điện thoại người mượn vào sổ?",
-              "a": [
-                1
-              ]
-            },
-            {
-              "t": "Có đúng là mỗi sinh viên mượn tối đa 3 cuốn không?",
-              "a": [
-                2
-              ]
-            },
-            {
-              "t": "Có đúng là quá hạn 7 ngày thì bị khóa thẻ không?",
-              "a": [
-                2
-              ]
-            },
-            {
-              "t": "Có điều gì em chưa hỏi mà chị nghĩ là quan trọng không?",
-              "a": [
-                3
-              ]
-            },
-            {
-              "t": "Em nên hỏi thêm ai?",
-              "a": [
-                3
-              ]
-            }
-          ]
-        },
-        {
-          "kind": "choice",
-          "q": "4) Bước chuẩn bị gồm những việc nào? (chọn tất cả ý đúng)",
-          "options": [
-            "Tìm hiểu background của thủ thư",
-            "Chọn sẵn một phần mềm thư viện để đề nghị thủ thư dùng ngay trong buổi",
-            "Xin mẫu sổ mượn trả hiện tại",
-            "Chuẩn bị sổ ghi, xin phép ghi âm",
-            "Gửi agenda trước cho thủ thư"
-          ],
-          "answer": [
-            0,
-            2,
-            3,
-            4
-          ],
-          "multi": true,
-          "why": "Theo bước 2: background, mẫu sổ, sổ ghi và xin phép ghi âm, gửi agenda. Chốt sẵn phần mềm là quyết định giải pháp tại chỗ – điều không nên làm khi interview."
-        },
-        {
-          "kind": "choice",
-          "q": "5) Trong buổi phỏng vấn, BA nên làm gì? (chọn tất cả ý đúng)",
-          "options": [
-            "Hỏi \"Chị muốn phần mềm tự nhắn tin nhắc trả sách đúng không?\" để thủ thư gật đầu nhanh",
-            "Hỏi câu mở trước rồi thu hẹp dần",
-            "Tóm tắt lại sau mỗi phần",
-            "Ngắt lời khi thủ thư nói lan man để kịp hết danh sách câu hỏi",
-            "Đổi câu trả lời định tính thành con số, ví dụ \"tra sổ lâu\" là bao nhiêu phút"
-          ],
-          "answer": [
-            1,
-            2,
-            4
-          ],
-          "multi": true,
-          "why": "Bước 4: hỏi mở rồi thu hẹp, tóm tắt sau mỗi phần, đổi định tính thành định lượng. Câu \"…đúng không?\" kiểu trên là câu dẫn dắt; ngắt lời là điều không nên làm."
-        },
-        {
-          "kind": "sort",
-          "q": "6) Sau buổi: gom thông tin vào 4 nhóm.",
-          "bins": [
-            "Quy trình",
-            "Pain point",
-            "Business rule",
-            "Yêu cầu tính năng"
-          ],
-          "items": [
-            {
-              "t": "Các bước mượn, trả, nhắc trả sách",
-              "a": [
-                0
-              ]
-            },
-            {
-              "t": "Tra sổ lâu",
-              "a": [
-                1
-              ]
-            },
-            {
-              "t": "Số sách mượn tối đa",
-              "a": [
-                2
-              ]
-            },
-            {
-              "t": "Quá hạn thì khóa thẻ",
-              "a": [
-                2
-              ]
-            },
-            {
-              "t": "Tra cứu tình trạng sách",
-              "a": [
-                3
-              ]
-            },
-            {
-              "t": "Danh sách sách quá hạn",
-              "a": [
-                3
-              ]
-            }
-          ]
-        }
+        {"kind": "choice", "q": "1) Bộ mục tiêu nào phù hợp cho buổi phỏng vấn thủ thư (muốn biết gì, làm rõ gì, xác nhận gì)?",
+         "options": [
+           "Thuyết phục thủ thư đồng ý dùng phần mềm mượn trả mà bên em đề xuất",
+           "Nói chuyện chung về hoạt động của thư viện",
+           "Biết quy trình mượn trả hiện tại; làm rõ cách xử lý sách quá hạn; xác nhận số sách mượn tối đa và mức phạt",
+           "Chốt cơ sở dữ liệu và giao diện của phần mềm mới"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Mục tiêu trả lời 3 câu: muốn biết gì, làm rõ gì, xác nhận gì. Thuyết phục dùng phần mềm và chốt cơ sở dữ liệu, giao diện là quyết định giải pháp, không phải khai thác nhu cầu; \"nói chuyện chung\" là mục tiêu mơ hồ."},
+        {"kind": "sort", "q": "2) Mỗi câu trong kịch bản phỏng vấn thủ thư thuộc loại câu hỏi nào?",
+         "bins": ["Câu mở", "Câu sâu", "Câu đóng (xác minh)", "Câu kết"],
+         "items": [
+           {"t": "Chị mô tả giúp em một lượt cho mượn sách từ đầu đến cuối?", "a": [0]},
+           {"t": "Một ngày làm việc của chị gồm những việc gì?", "a": [0]},
+           {"t": "Tại sao cuối tháng chị mới rà sách quá hạn?", "a": [1]},
+           {"t": "Tại sao phải ghi cả số điện thoại người mượn vào sổ?", "a": [1]},
+           {"t": "Có đúng là mỗi sinh viên mượn tối đa 3 cuốn không?", "a": [2]},
+           {"t": "Có đúng là quá hạn 7 ngày thì bị khóa thẻ không?", "a": [2]},
+           {"t": "Có điều gì em chưa hỏi mà chị nghĩ là quan trọng không?", "a": [3]},
+           {"t": "Em nên hỏi thêm ai?", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "3) Trước buổi phỏng vấn, BA cần chuẩn bị những gì? (chọn tất cả ý đúng)",
+         "options": [
+           "Chọn sẵn một phần mềm thư viện để đề nghị thủ thư dùng ngay trong buổi",
+           "Tìm hiểu background của thủ thư",
+           "Xin mẫu sổ mượn trả hiện tại",
+           "Chuẩn bị sổ ghi, xin phép ghi âm",
+           "Gửi agenda trước cho thủ thư"
+         ],
+         "answer": [1, 2, 3, 4], "multi": true,
+         "why": "Chuẩn bị gồm: background, mẫu sổ mượn trả, sổ ghi và xin phép ghi âm, gửi agenda trước. Chọn sẵn phần mềm là quyết định giải pháp tại chỗ, điều không nên làm khi interview."},
+        {"kind": "choice", "q": "4) Trong 45 phút phỏng vấn, BA nên làm những việc nào? (chọn tất cả ý đúng)",
+         "options": [
+           "Hỏi câu mở trước rồi thu hẹp dần",
+           "Hỏi \"Chị muốn phần mềm tự nhắn tin nhắc trả sách đúng không?\" để thủ thư gật đầu nhanh",
+           "Tóm tắt lại sau mỗi phần",
+           "Ngắt lời khi thủ thư nói lan man để kịp hết danh sách câu hỏi",
+           "Đổi câu trả lời định tính thành con số, ví dụ \"tra sổ lâu\" là bao nhiêu phút"
+         ],
+         "answer": [0, 2, 4], "multi": true,
+         "why": "Trong buổi: hỏi mở rồi thu hẹp, tóm tắt sau mỗi phần, đổi định tính thành con số. Câu \"…đúng không?\" kiểu trên là câu dẫn dắt, cài sẵn giải pháp; ngắt lời là điều không nên làm."},
+        {"kind": "sort", "q": "5) Sau buổi phỏng vấn, mỗi thông tin thu được thuộc nhóm nào?",
+         "bins": ["Quy trình", "Pain point", "Business rule", "Yêu cầu tính năng"],
+         "items": [
+           {"t": "Các bước mượn, trả, nhắc trả sách", "a": [0]},
+           {"t": "Tra sổ lâu", "a": [1]},
+           {"t": "Số sách mượn tối đa", "a": [2]},
+           {"t": "Quá hạn thì khóa thẻ", "a": [2]},
+           {"t": "Tra cứu tình trạng sách", "a": [3]},
+           {"t": "Danh sách sách quá hạn", "a": [3]}
+         ]}
       ]
     },
     "L05-p3": {
-      "lead": "Xếp các bước ghi note và các bước nhập kho, kéo thông tin vào đúng mục, rồi chọn cách xử lý điểm bất thường.",
+      "lead": "Kéo từng nội dung vào đúng mục của Observation note, chọn ngoại lệ, chọn các vấn đề, rồi chọn cách ghi điểm bất thường.",
       "parts": [
-        {
-          "kind": "order",
-          "q": "1) Sắp xếp các bước chuyển đoạn ghi nhanh thành Observation note.",
-          "items": [
-            "Điền mục 1 (thông tin chung) và mục 2 (mục tiêu, câu hỏi cần giải đáp)",
-            "Đặt tên quy trình và mô tả ngắn ở mục 3",
-            "Tách đoạn ghi thành các bước theo thứ tự, ghi dữ liệu vào/ra và ngoại lệ ở mục 4",
-            "Từ mục 4 rút ra vấn đề (mục 6), đề xuất (mục 7) và kế hoạch tiếp theo (mục 8)"
-          ],
-          "why": "Vấn đề, đề xuất phải rút ra từ các bước đã ghi ở mục 4 để có bằng chứng."
-        },
-        {
-          "kind": "order",
-          "q": "2) Mục 4: sắp xếp các bước nhận hàng thủ kho đã làm.",
-          "items": [
-            "Đếm thùng",
-            "So với phiếu giao trên giấy",
-            "Nhập số liệu vào Excel",
-            "Chụp phiếu gửi kế toán qua Zalo"
-          ],
-          "why": "Thiếu hàng → gọi nhà cung cấp, chờ 20 phút là ngoại lệ, ghi riêng ở mục 4, không phải bước chính."
-        },
-        {
-          "kind": "sort",
-          "q": "3) Kéo mỗi thông tin vào đúng mục của Observation note (template không có mục 5).",
-          "bins": [
-            "1. Thông tin chung",
-            "2. Mục tiêu",
-            "3. Tổng quan quy trình",
-            "4. Chi tiết các bước",
-            "6. Vấn đề",
-            "7. Đề xuất",
-            "8. Tổng kết, kế hoạch"
-          ],
-          "items": [
-            {
-              "t": "8h tại kho tổng; người quan sát: BA; người tham gia: thủ kho",
-              "a": [
-                0
-              ]
-            },
-            {
-              "t": "Vì sao nhận hàng chậm, số liệu đến kế toán bằng cách nào?",
-              "a": [
-                1
-              ]
-            },
-            {
-              "t": "Quy trình nhận hàng nhập kho: đối chiếu hàng thực nhận với phiếu giao, ghi nhận số liệu, báo kế toán",
-              "a": [
-                2
-              ]
-            },
-            {
-              "t": "Đầu vào: hàng, phiếu giao. Đầu ra: file Excel, ảnh phiếu",
-              "a": [
-                3
-              ]
-            },
-            {
-              "t": "Ngoại lệ: thiếu hàng → gọi nhà cung cấp, chờ 20 phút",
-              "a": [
-                3
-              ]
-            },
-            {
-              "t": "Số liệu nằm ở Excel và ảnh chat, dễ thất lạc",
-              "a": [
-                4
-              ]
-            },
-            {
-              "t": "Phiếu giao điện tử để đối chiếu tự động",
-              "a": [
-                5
-              ]
-            },
-            {
-              "t": "Ghi nhận thiếu hàng ngay trên hệ thống và gửi cho nhà cung cấp",
-              "a": [
-                5
-              ]
-            },
-            {
-              "t": "Hỏi lại thủ kho vì sao dùng Excel; quan sát thêm một ca khác",
-              "a": [
-                6
-              ]
-            }
-          ]
-        },
-        {
-          "kind": "choice",
-          "q": "4) Thủ kho nói thường nhập ngay vào phần mềm, nhưng hôm nay vẫn dùng Excel. BA nên ghi thế nào?",
-          "options": [
-            "Ghi quy trình là nhập vào phần mềm, vì thủ kho đã nói vậy",
-            "Bỏ qua, vì chỉ là chuyện của riêng hôm nay",
-            "Ghi thành vấn đề: nói một đằng, làm một nẻo – cần hỏi lại lý do; đưa việc hỏi lại vào kế hoạch tiếp theo",
-            "Kết luận ngay phần mềm bị lỗi và đề xuất thay phần mềm mới"
-          ],
-          "answer": [
-            2
-          ],
-          "multi": false,
-          "why": "Đáp án mẫu ghi đây là Vấn đề 3 và đưa \"hỏi lại thủ kho vì sao dùng Excel\" vào kế hoạch. Observation dùng để so \"người dùng nói\" với \"cách họ thực sự làm\"; chỉ nhìn mà không hỏi lại thì dễ hiểu sai."
-        }
+        {"kind": "sort", "q": "1) Mỗi nội dung sau ghi vào mục nào của Observation note nhập kho SolasMart?",
+         "bins": ["2. Mục tiêu, câu hỏi cần giải đáp", "3. Tổng quan quy trình", "4. Chi tiết các bước", "7. Đề xuất", "8. Tổng kết, kế hoạch"],
+         "items": [
+           {"t": "Vì sao nhận hàng chậm, số liệu đến kế toán bằng cách nào?", "a": [0]},
+           {"t": "Quy trình nhận hàng nhập kho: đối chiếu hàng với phiếu giao, ghi nhận số liệu, báo kế toán", "a": [1]},
+           {"t": "Đầu vào: hàng, phiếu giao. Đầu ra: file Excel, ảnh phiếu", "a": [2]},
+           {"t": "Phiếu giao điện tử để đối chiếu tự động", "a": [3]},
+           {"t": "Ghi nhận thiếu hàng ngay trên hệ thống và gửi cho nhà cung cấp", "a": [3]},
+           {"t": "Hỏi lại thủ kho vì sao dùng Excel; quan sát thêm một ca khác", "a": [4]},
+           {"t": "Xác nhận note với thủ kho", "a": [4]}
+         ]},
+        {"kind": "choice", "q": "2) Ở mục 4 (chi tiết các bước), việc nào trong đoạn ghi là ngoại lệ, không phải bước chính của quy trình nhận hàng?",
+         "options": [
+           "Đếm thùng",
+           "Thiếu 2 thùng → gọi điện cho nhà cung cấp, chờ 20 phút",
+           "Nhập số liệu vào Excel",
+           "Chụp phiếu gửi kế toán qua Zalo"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Bước chính: đếm thùng, so với phiếu giao giấy, nhập Excel, chụp phiếu gửi kế toán. Thiếu hàng chỉ xảy ra khi hàng không khớp phiếu nên ghi riêng là ngoại lệ."},
+        {"kind": "choice", "q": "3) Mục 6 – Vấn đề: những điểm nào là vấn đề rút ra từ buổi quan sát? (chọn tất cả ý đúng)",
+         "options": [
+           "Kho tổng nhận xe hàng lúc 8h",
+           "Đối chiếu thủ công, xử lý thiếu hàng tốn thời gian",
+           "Dùng phiếu giao điện tử để đối chiếu tự động",
+           "Số liệu nằm ở Excel và ảnh chat, dễ thất lạc",
+           "Thủ kho nói nhập phần mềm nhưng thực tế dùng Excel – cần hỏi lý do"
+         ],
+         "answer": [1, 3, 4], "multi": true,
+         "why": "Ba vấn đề của đáp án mẫu: đối chiếu thủ công tốn thời gian; số liệu ở Excel và ảnh chat dễ thất lạc; nói một đằng làm một nẻo. \"8h tại kho tổng\" là thông tin chung (mục 1); phiếu giao điện tử là đề xuất (mục 7), không phải vấn đề."},
+        {"kind": "choice", "q": "4) Thủ kho nói thường nhập ngay vào phần mềm, nhưng hôm nay vẫn dùng Excel. BA nên ghi điều này thế nào?",
+         "options": [
+           "Ghi thành vấn đề: nói một đằng, làm một nẻo – cần hỏi lại lý do; đưa việc hỏi lại vào kế hoạch tiếp theo",
+           "Ghi quy trình là nhập vào phần mềm, vì thủ kho đã nói vậy",
+           "Bỏ qua, vì chỉ là chuyện của riêng hôm nay",
+           "Kết luận ngay phần mềm bị lỗi và đề xuất thay phần mềm mới"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Đáp án mẫu ghi đây là Vấn đề 3 và đưa \"hỏi lại thủ kho vì sao dùng Excel\" vào kế hoạch. Observation dùng để so \"người dùng nói\" với \"cách họ thực sự làm\"; chỉ nhìn mà không hỏi lại thì dễ hiểu sai, còn tự kết luận phần mềm lỗi là đoán khi chưa hỏi."}
       ]
     },
     "L05-p4": {
-      "lead": "Xếp các bước chuẩn bị và agenda, kéo mục tiêu, vai trò, kỹ thuật vào đúng chỗ, rồi chọn cách tránh lỗi.",
+      "lead": "Chọn mục tiêu cần thống nhất và người tham gia, kéo mỗi người vào vai, chọn kỹ thuật cho phần chọn phương án, rồi chọn cách tránh lỗi.",
       "parts": [
-        {
-          "kind": "order",
-          "q": "1) Sắp xếp các bước chuẩn bị workshop.",
-          "items": [
-            "Viết mục tiêu: muốn biết gì, làm rõ gì, thống nhất gì",
-            "Chọn người tham gia (2–15 người), có người có quyền phê duyệt",
-            "Phân vai: điều phối, ghi chép, quan sát, xác nhận",
-            "Lên agenda kèm kỹ thuật hỗ trợ, gửi trước 2–3 ngày kèm dữ liệu",
-            "Lường trước lỗi phổ biến và cách tránh"
-          ],
-          "why": "Mục tiêu quyết định ai cần tham gia; có người rồi mới phân vai và lên agenda."
-        },
-        {
-          "kind": "sort",
-          "q": "2) Mục tiêu workshop: kéo mỗi ý vào đúng câu hỏi mục tiêu.",
-          "bins": [
-            "Muốn biết",
-            "Làm rõ",
-            "Thống nhất"
-          ],
-          "items": [
-            {
-              "t": "Thời điểm trừ tồn hiện tại của mỗi bên",
-              "a": [
-                0
-              ]
-            },
-            {
-              "t": "Hậu quả của từng cách: bán quá số tồn, giữ hàng ảo",
-              "a": [
-                1
-              ]
-            },
-            {
-              "t": "Một quy tắc trừ tồn chung",
-              "a": [
-                2
-              ]
-            }
-          ]
-        },
-        {
-          "kind": "sort",
-          "q": "3) Phân vai trong buổi: kéo mỗi người vào vai của họ.",
-          "bins": [
-            "Điều phối",
-            "Ghi chép",
-            "Quan sát",
-            "Xác nhận"
-          ],
-          "items": [
-            {
-              "t": "BA",
-              "a": [
-                0
-              ]
-            },
-            {
-              "t": "Người hỗ trợ",
-              "a": [
-                1
-              ]
-            },
-            {
-              "t": "Kế toán (theo dõi số liệu)",
-              "a": [
-                2
-              ]
-            },
-            {
-              "t": "Quản lý vận hành (người phê duyệt)",
-              "a": [
-                3
-              ]
-            }
-          ]
-        },
-        {
-          "kind": "order",
-          "q": "4) Sắp xếp agenda 60 phút.",
-          "items": [
-            "5 phút: nhắc mục tiêu",
-            "15 phút: mỗi bên trình bày quy trình, BA làm rõ",
-            "15 phút: liệt kê rủi ro của từng cách",
-            "15 phút: chọn phương án, dẫn về hướng chung",
-            "10 phút: đọc lại kết luận, phân việc"
-          ],
-          "why": "Nhắc mục tiêu trước, hiểu hiện trạng rồi mới bàn rủi ro và chọn; cuối buổi phải đọc lại kết luận để tránh mỗi bên tưởng đã chốt."
-        },
-        {
-          "kind": "sort",
-          "q": "5) Kỹ thuật hỗ trợ: phần nào dùng kỹ thuật nào?",
-          "bins": [
-            "Brainstorming",
-            "Dot Voting"
-          ],
-          "items": [
-            {
-              "t": "Liệt kê rủi ro của từng cách trừ tồn",
-              "a": [
-                0
-              ],
-              "why": "Cần nhiều ý nhanh."
-            },
-            {
-              "t": "Chọn một phương án trừ tồn",
-              "a": [
-                1
-              ],
-              "why": "Cần đồng thuận."
-            }
-          ]
-        },
-        {
-          "kind": "choice",
-          "q": "6) Việc nào giúp tránh lỗi phổ biến của workshop? (chọn tất cả ý đúng)",
-          "options": [
-            "Gửi trước dữ liệu đơn hàng cho người tham gia",
-            "Giữ người nói nhiều trong giới hạn thời gian",
-            "Mời toàn bộ nhân viên hai phòng (khoảng 30 người) cho đủ ý kiến",
-            "Xác nhận lại sau mỗi phần",
-            "Dành thời gian bàn trừ tồn ở bảng nào, gọi API nào",
-            "Không cần đọc lại kết luận nếu đã hết giờ"
-          ],
-          "answer": [
-            0,
-            1,
-            3
-          ],
-          "multi": true,
-          "why": "Đáp án mẫu: gửi dữ liệu trước, giữ người nói nhiều trong giờ, xác nhận sau mỗi phần, không sa vào giải pháp kỹ thuật. 30 người là nhóm quá đông (workshop 2–15 người); bàn bảng/API là quá tập trung vào giải pháp kỹ thuật; không đọc lại kết luận thì dễ hiểu sai, tưởng đã chốt."
-        }
+        {"kind": "choice", "q": "1) Workshop 60 phút giữa bán online và kho cần \"thống nhất\" được điều gì?",
+         "options": [
+           "Thời điểm trừ tồn hiện tại của mỗi bên",
+           "Bảng dữ liệu và API dùng để trừ tồn",
+           "Hậu quả của từng cách trừ tồn (bán quá số tồn, giữ hàng ảo)",
+           "Một quy tắc trừ tồn chung cho cả hai phòng"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Theo đáp án mẫu: muốn biết thời điểm trừ tồn hiện tại của mỗi bên, làm rõ hậu quả của từng cách, thống nhất một quy tắc trừ tồn. Bảng dữ liệu, API là giải pháp kỹ thuật, workshop không nên sa vào."},
+        {"kind": "choice", "q": "2) Danh sách người tham gia nào phù hợp cho workshop này?",
+         "options": [
+           "Trưởng phòng bán online, trưởng kho và BA; BA vừa điều phối vừa tự ghi chép",
+           "Trưởng phòng bán online, trưởng kho, kế toán, quản lý vận hành (người phê duyệt), BA, người ghi chép",
+           "Toàn bộ nhân viên hai phòng (khoảng 30 người) cùng BA",
+           "Trưởng phòng bán online, trưởng kho, kế toán, BA, người ghi chép; không mời quản lý vận hành"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Workshop cần 2–15 người và có người có quyền phê duyệt. Thiếu quản lý vận hành thì không ra được quyết định; 30 người là nhóm quá đông, khó điều phối; BA vừa điều phối vừa ghi chép thì không tập trung dẫn dắt, ghi thiếu."},
+        {"kind": "sort", "q": "3) Trong buổi workshop, mỗi người đảm nhận vai trò nào?",
+         "bins": ["Điều phối", "Ghi chép", "Quan sát", "Xác nhận quyết định"],
+         "items": [
+           {"t": "BA", "a": [0]},
+           {"t": "Người hỗ trợ", "a": [1]},
+           {"t": "Kế toán (theo dõi số liệu)", "a": [2]},
+           {"t": "Quản lý vận hành (người phê duyệt)", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "4) Trong agenda, phần 15 phút chọn một phương án trừ tồn nên dùng kỹ thuật hỗ trợ nào?",
+         "options": [
+           "Dot Voting",
+           "Brainstorming",
+           "Observation",
+           "Survey"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Chọn phương án cần đồng thuận nên dùng Dot Voting, có người kết nối dẫn về hướng chung. Brainstorming dùng ở phần liệt kê rủi ro của từng cách, khi cần nhiều ý nhanh. Observation và Survey là kỹ thuật khai thác riêng, không phải kỹ thuật hỗ trợ để chốt trong buổi workshop."},
+        {"kind": "choice", "q": "5) Những việc nào giúp workshop tránh lỗi phổ biến? (chọn tất cả ý đúng)",
+         "options": [
+           "Gửi lời mời và agenda sáng cùng ngày cho kịp",
+           "Gửi trước dữ liệu đơn hàng cho người tham gia",
+           "Dành thời gian bàn trừ tồn ở bảng nào, gọi API nào",
+           "Giữ người nói nhiều trong giới hạn thời gian",
+           "Xác nhận lại sau mỗi phần",
+           "Không cần đọc lại kết luận nếu đã hết giờ"
+         ],
+         "answer": [1, 3, 4], "multi": true,
+         "why": "Đáp án mẫu: gửi dữ liệu trước, giữ người nói nhiều trong giờ, xác nhận sau mỗi phần, không sa vào giải pháp kỹ thuật. Gửi lời mời cùng ngày thì người tham gia không kịp chuẩn bị (cần gửi trước 2–3 ngày); bàn bảng, API là quá tập trung vào giải pháp kỹ thuật; không đọc lại kết luận thì mỗi bên dễ tưởng ý mình đã được chốt."}
       ]
     }
   }

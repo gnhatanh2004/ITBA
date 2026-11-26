@@ -105,7 +105,7 @@ T4 đọc các bài trong lúc QA đang sửa. Nếu QA sửa nội dung câu h�
   - **Kiểm:** `exui.py` (scratchpad) 18/18 PASS; `listen.py` 26/26 PASS.
 
 - [x] **T10d** (26/11) Đáp án sinh từ dữ liệu chấm: nhóm → mục, thứ tự đúng, phương án đúng. Lời giải gốc gập ở dưới. Khung kéo thả có đánh số "1 Các mục cần xếp / 2 Thả vào đúng nhóm", ô trống ghi "Thả vào đây". Danh sách trong đề trùng với mục kéo thả được ẩn khi hiển thị.
-- [x] **T11** Tab Thực hành tương tác (prompt §8.1): 19 agent ghi thêm id `-p` vào `data/exercises/<ID>.json`. Kết quả 68/68 bài; các bước làm mẫu chuyển vào phần "Xem đáp án". Tổng cộng 191 bài tập và thực hành tương tác.
+- [x] **T11** Tab Thực hành tương tác (prompt §8.1). Bản đầu bị user chê vì toàn "sắp xếp các bước làm" và không trả lời thẳng câu hỏi; đã làm lại cả 68 bài theo §8.1 bản mới, `exercises.py` chặn kiểu sắp xếp bước làm: 19 agent ghi thêm id `-p` vào `data/exercises/<ID>.json`. Kết quả 68/68 bài; các bước làm mẫu chuyển vào phần "Xem đáp án". Tổng cộng 191 bài tập và thực hành tương tác.
 
 ## Ghi chú (điền trong lúc làm)
 

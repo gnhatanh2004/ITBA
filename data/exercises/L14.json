@@ -175,119 +175,100 @@
       ]
     },
     "L14-p1": {
-      "lead": "Dựng sơ đồ \"Đăng ký tài khoản\" bằng cách sắp xếp các bước, kéo Activity vào làn, ghép ngoại lệ với Branch và chọn nhánh lỗi đi đâu.",
+      "lead": "Trả lời từng câu hỏi về sơ đồ \"Đăng ký tài khoản\": làn, chỗ đặt Branch, nhánh lỗi đi đâu và có cần Fork/Join không.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp các bước làm theo đúng thứ tự.",
-         "items": [
-           "Xác định ai làm việc trong quy trình và vẽ 2 làn: Người dùng | Hệ thống",
-           "Đặt Start, chuyển mỗi bước của luồng chính thành một Activity bắt đầu bằng động từ, đặt đúng làn",
-           "Đặt Branch sau mỗi bước có kiểm tra hoặc có thể thất bại, ghi Guard cho mọi nhánh",
-           "Quyết định nhánh lỗi đi đâu: quay về bước nhập qua Merge hoặc tới End",
-           "Kiểm tra: mọi Branch có Guard, mọi đường tới End, không có Fork/Join"
-         ]},
-        {"kind": "sort", "q": "2) Mỗi Activity nằm ở làn nào?",
-         "bins": ["Người dùng", "Hệ thống"],
-         "items": [
-           {"t": "Truy cập trang Đăng ký tài khoản", "a": [0]},
-           {"t": "Nhập họ tên, email, mật khẩu, xác nhận mật khẩu", "a": [0]},
-           {"t": "Nhấn nút Đăng ký", "a": [0]},
-           {"t": "Kiểm tra dữ liệu đầu vào", "a": [1]},
-           {"t": "Hiển thị lỗi \"Email không hợp lệ\"", "a": [1]},
-           {"t": "Kiểm tra email đã tồn tại chưa", "a": [1]},
-           {"t": "Tạo tài khoản trạng thái Chưa kích hoạt", "a": [1]},
-           {"t": "Gửi email kích hoạt", "a": [1]},
-           {"t": "Hiển thị \"Đăng ký thành công. Vui lòng kiểm tra email để kích hoạt tài khoản\"", "a": [1]},
-           {"t": "Nhấn link kích hoạt trong email", "a": [0], "why": "Chủ ngữ là người dùng nên nằm ở làn Người dùng, dù diễn ra sau bước 8."},
-           {"t": "Kích hoạt tài khoản", "a": [1]},
-           {"t": "Hiển thị \"Tài khoản đã được kích hoạt thành công\"", "a": [1]}
-         ]},
-        {"kind": "order", "q": "3) Sắp xếp 10 Activity đầu của luồng chính (mọi bước đều thành công).",
-         "items": [
-           "Truy cập trang Đăng ký tài khoản",
-           "Nhập họ tên, email, mật khẩu, xác nhận mật khẩu",
-           "Nhấn nút Đăng ký",
-           "Kiểm tra dữ liệu đầu vào",
-           "Kiểm tra email đã tồn tại chưa",
-           "Tạo tài khoản trạng thái Chưa kích hoạt",
-           "Gửi email kích hoạt",
-           "Hiển thị \"Đăng ký thành công. Vui lòng kiểm tra email để kích hoạt tài khoản\"",
-           "Nhấn link kích hoạt trong email",
-           "Kích hoạt tài khoản"
+        {"kind": "choice", "q": "1) Sơ đồ \"Đăng ký tài khoản\" cần những swimlane nào?",
+         "options": [
+           "Người dùng | Quản trị viên | Hệ thống",
+           "Người dùng | Hệ thống",
+           "Chỉ một làn Hệ thống, vì hệ thống làm hầu hết các bước",
+           "Trang đăng ký | Email | Cơ sở dữ liệu"
          ],
-         "why": "Sau \"Kích hoạt tài khoản\" là \"Hiển thị Tài khoản đã được kích hoạt thành công\" rồi tới End."},
-        {"kind": "sort", "q": "4) Mỗi Guard thuộc Branch đặt sau Activity nào?",
+         "answer": [1], "multi": false,
+         "why": "Chỉ có hai đối tượng làm việc trong quy trình: người dùng (truy cập, nhập, nhấn Đăng ký, nhấn link) và hệ thống (kiểm tra, tạo tài khoản, gửi email, hiển thị). Quy trình không có quản trị viên; trang, email hay cơ sở dữ liệu không phải đối tượng thực hiện."},
+        {"kind": "sort", "q": "2) Mỗi ngoại lệ là một nhánh của Branch đặt ngay sau Activity nào?",
          "bins": ["Sau \"Kiểm tra dữ liệu đầu vào\"", "Sau \"Kiểm tra email đã tồn tại chưa\"", "Sau \"Gửi email kích hoạt\"", "Sau \"Nhấn link kích hoạt trong email\""],
          "items": [
-           {"t": "[Bỏ trống trường bắt buộc] (4a)", "a": [0]},
-           {"t": "[Email sai định dạng] (4b)", "a": [0]},
-           {"t": "[Mật khẩu không khớp] (4c)", "a": [0], "why": "Ba lỗi 4a, 4b, 4c có thể gom trong một Branch hoặc tách thành 3 hình thoi nối tiếp; cả hai cách đều đặt sau bước kiểm tra dữ liệu đầu vào."},
-           {"t": "[Đã tồn tại] (5a)", "a": [1]},
-           {"t": "[Gửi thất bại] (7a)", "a": [2]},
-           {"t": "[Quá 24 giờ] (8a)", "a": [3], "why": "Ngoại lệ 8a gắn với việc nhấn link kích hoạt, nên Branch đặt ngay sau bước nhấn link."}
+           {"t": "4a. Bỏ trống Họ tên / Email / Mật khẩu", "a": [0]},
+           {"t": "4b. Email sai định dạng", "a": [0]},
+           {"t": "4c. Mật khẩu và xác nhận mật khẩu không khớp", "a": [0], "why": "4a, 4b, 4c có thể gom trong một Branch hoặc tách thành 3 hình thoi nối tiếp; cả hai cách đều đặt sau bước kiểm tra dữ liệu đầu vào."},
+           {"t": "5a. Email đã được đăng ký", "a": [1]},
+           {"t": "7a. Gửi email kích hoạt thất bại", "a": [2]},
+           {"t": "8a. Nhấn link kích hoạt sau 24 giờ", "a": [3], "why": "Ngoại lệ 8a gắn với việc nhấn link kích hoạt, nên Branch đặt ngay sau bước nhấn link."}
          ]},
-        {"kind": "choice", "q": "5) Lỗi nhập liệu (4a, 4b, 4c, 5a) quay về bước nhập. Merge gom các mũi tên quay về đặt trước Activity nào?",
-         "options": ["Kiểm tra dữ liệu đầu vào", "Nhấn nút Đăng ký", "Nhập họ tên, email, mật khẩu, xác nhận mật khẩu", "Gửi email kích hoạt"],
-         "answer": [2], "multi": false,
-         "why": "Người dùng sửa được lỗi nhập liệu nên quay về bước nhập thông tin. Merge M1 đặt ngay trước Activity \"Nhập họ tên, email, mật khẩu, xác nhận mật khẩu\"."},
-        {"kind": "choice", "q": "6) Sau khi hiển thị lỗi 7a (gửi email kích hoạt thất bại) hoặc 8a (link hết hạn), luồng đi đâu?",
-         "options": ["Tới End", "Quay về Merge trước bước nhập thông tin để đăng ký lại", "Tới Join để chờ luồng còn lại", "Đi tiếp tới \"Kích hoạt tài khoản\""],
+        {"kind": "choice", "q": "3) Theo đáp án mẫu, sau khi báo lỗi nhập liệu (4a, 4b, 4c, 5a) luồng đi đâu, và dùng ký hiệu gì để gom các mũi tên quay về?",
+         "options": [
+           "Quay về Start, không cần ký hiệu gom",
+           "Quay về \"Nhập thông tin\" qua một Join (thanh ngang đậm) đặt trước bước đó",
+           "Đi tiếp sang \"Tạo tài khoản trạng thái Chưa kích hoạt\"",
+           "Quay về \"Nhập thông tin\" qua một Merge (hình thoi) đặt ngay trước bước đó"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Người dùng sửa được lỗi nhập liệu nên quay về bước nhập. Mỗi lần chỉ một mũi tên lỗi tới, nên gom bằng Merge (không chờ). Join chờ đủ mọi luồng vào nên sơ đồ sẽ kẹt."},
+        {"kind": "choice", "q": "4) Sau khi hiển thị lỗi 7a (gửi email kích hoạt thất bại) hoặc 8a (link kích hoạt hết hạn), luồng đi đâu?",
+         "options": [
+           "Tới End",
+           "Đi tiếp tới \"Kích hoạt tài khoản\"",
+           "Tới Join để chờ luồng còn lại",
+           "Đi tiếp tới \"Hiển thị Đăng ký thành công\""
+         ],
          "answer": [0], "multi": false,
-         "why": "Theo đáp án mẫu, lỗi 7a và 8a hiển thị thông báo rồi tới End. Sơ đồ không có Join vì không có việc nào chạy song song; nhánh lỗi cũng không được đi tiếp tới bước kích hoạt."}
+         "why": "Theo đáp án mẫu, hai lỗi này hiển thị thông báo rồi tới End. Nhánh lỗi không được đi tiếp vào luồng thành công, và sơ đồ không có Join."},
+        {"kind": "choice", "q": "5) Sơ đồ \"Đăng ký tài khoản\" có cần Fork / Join không?",
+         "options": [
+           "Có, vì quy trình có hai làn Người dùng và Hệ thống",
+           "Có, để gom các nhánh lỗi 4a, 4b, 4c",
+           "Không, vì không có việc nào chạy song song",
+           "Có, để tách việc tạo tài khoản và gửi email chạy song song"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Fork/Join chỉ dùng khi nhiều việc chạy cùng lúc. Ở đây các bước diễn ra lần lượt (tạo tài khoản xong mới gửi email); nhiều làn không có nghĩa là song song, và nhánh lỗi được gom bằng Merge."}
       ]
     },
     "L14-p2": {
-      "lead": "Dựng sơ đồ \"Đặt bàn\" FoodNow: sắp xếp các bước, kéo phần tử vào làn, sắp xếp luồng chính và chọn cách vẽ hai nhánh rẽ.",
+      "lead": "Trả lời từng câu hỏi về sơ đồ \"Đặt bàn\" FoodNow: Start, làn của mỗi Activity, nhánh hết bàn (4a) và nhánh từ chối (6b).",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp các bước làm theo đúng thứ tự.",
-         "items": [
-           "Vẽ 3 làn, đặt Start ở làn Khách hàng",
-           "Đặt các Activity của luồng chính vào đúng làn theo chủ ngữ",
-           "Sau \"Kiểm tra bàn trống\" đặt Branch [Còn bàn] / [Hết bàn]",
-           "Ở làn Nhân viên nhà hàng: \"Xem phiếu đặt bàn\" rồi Branch [Xác nhận] / [Từ chối]",
-           "Gom hai nhánh thông báo (bằng Merge hoặc mỗi nhánh một End) và kiểm tra mọi Branch có Guard"
-         ]},
-        {"kind": "sort", "q": "2) Mỗi phần tử nằm ở làn nào?",
+        {"kind": "choice", "q": "1) Start đặt ở làn nào?",
+         "options": ["Hệ thống", "Nhân viên nhà hàng", "Khách hàng", "Ngoài cả ba làn"],
+         "answer": [2], "multi": false,
+         "why": "Start đặt ở làn của đối tượng khởi động quy trình. Khách hàng bấm \"Đặt bàn\" đầu tiên."},
+        {"kind": "sort", "q": "2) Mỗi Activity nằm ở làn nào?",
          "bins": ["Khách hàng", "Hệ thống", "Nhân viên nhà hàng"],
          "items": [
-           {"t": "Start", "a": [0], "why": "Khách khởi động quy trình."},
            {"t": "Bấm \"Đặt bàn\"", "a": [0]},
            {"t": "Hiển thị form đặt bàn", "a": [1]},
            {"t": "Nhập ngày, giờ, số người và gửi yêu cầu", "a": [0]},
            {"t": "Kiểm tra bàn trống", "a": [1]},
-           {"t": "Báo hết chỗ và gợi ý khung giờ khác", "a": [1]},
            {"t": "Tạo phiếu \"Chờ xác nhận\" và gửi nhà hàng", "a": [1]},
            {"t": "Xem phiếu đặt bàn", "a": [2]},
-           {"t": "Branch [Xác nhận] / [Từ chối]", "a": [2], "why": "Nhân viên nhà hàng là người quyết định xác nhận hay từ chối."},
-           {"t": "Đổi trạng thái \"Đã xác nhận\", gửi mã đặt bàn cho khách", "a": [1]},
-           {"t": "Báo khách: nhà hàng từ chối", "a": [1]}
+           {"t": "Đổi trạng thái \"Đã xác nhận\", gửi mã đặt bàn cho khách", "a": [1], "why": "Nhân viên chỉ xác nhận; việc đổi trạng thái và gửi mã là của hệ thống."}
          ]},
-        {"kind": "order", "q": "3) Sắp xếp luồng chính khi còn bàn và nhà hàng xác nhận.",
-         "items": [
-           "Bấm \"Đặt bàn\"",
-           "Hiển thị form đặt bàn",
-           "Nhập ngày, giờ, số người và gửi yêu cầu",
-           "Kiểm tra bàn trống",
-           "Tạo phiếu \"Chờ xác nhận\" và gửi nhà hàng",
-           "Xem phiếu đặt bàn",
-           "Đổi trạng thái \"Đã xác nhận\", gửi mã đặt bàn cho khách"
-         ]},
-        {"kind": "choice", "q": "4) Nhánh [Hết bàn] (4a) sau \"Kiểm tra bàn trống\" đi đâu?",
+        {"kind": "choice", "q": "3) Nhánh hết bàn (4a) vẽ thế nào?",
          "options": [
-           "Tạo phiếu \"Chờ xác nhận\" và gửi nhà hàng",
-           "Fork tách việc báo khách và việc gửi nhà hàng chạy song song",
-           "Báo hết chỗ và gợi ý khung giờ khác, rồi tới End",
-           "Chuyển sang làn Nhân viên nhà hàng để xem phiếu"
+           "Sau \"Kiểm tra bàn trống\" đặt Fork: một nhánh báo hết chỗ, một nhánh tạo phiếu",
+           "Sau \"Kiểm tra bàn trống\" đặt Branch; [Hết bàn] → \"Báo hết chỗ và gợi ý khung giờ khác\" → End",
+           "Sau \"Tạo phiếu Chờ xác nhận\" đặt Branch; [Hết bàn] → \"Báo hết chỗ\" → End",
+           "Sau \"Kiểm tra bàn trống\" đặt Branch; [Hết bàn] → \"Tạo phiếu Chờ xác nhận và gửi nhà hàng\""
          ],
-         "answer": [2], "multi": false,
-         "why": "Hết bàn thì không tạo phiếu, không gửi nhà hàng. Hệ thống báo hết chỗ, gợi ý giờ khác rồi kết thúc."},
+         "answer": [1], "multi": false,
+         "why": "Kiểm tra bàn trống là chỗ có điều kiện nên đặt Branch ngay sau đó. Hết bàn thì không tạo phiếu: hệ thống báo hết chỗ, gợi ý giờ khác rồi kết thúc. Fork sai vì chỉ một nhánh được chạy."},
+        {"kind": "choice", "q": "4) Branch [Xác nhận] / [Từ chối] của nhánh 6b nằm ở làn nào và đặt sau Activity nào?",
+         "options": [
+           "Làn Hệ thống, sau \"Tạo phiếu Chờ xác nhận và gửi nhà hàng\"",
+           "Làn Khách hàng, sau \"Nhập ngày, giờ, số người và gửi yêu cầu\"",
+           "Làn Nhân viên nhà hàng, sau \"Đổi trạng thái Đã xác nhận\"",
+           "Làn Nhân viên nhà hàng, sau \"Xem phiếu đặt bàn\""
+         ],
+         "answer": [3], "multi": false,
+         "why": "Nhân viên nhà hàng xem phiếu rồi quyết định xác nhận hay từ chối, nên Branch nằm ở làn của nhân viên, ngay sau \"Xem phiếu đặt bàn\". Đổi trạng thái là kết quả của nhánh [Xác nhận], không đứng trước Branch."},
         {"kind": "choice", "q": "5) Hai nhánh thông báo sau [Xác nhận] / [Từ chối] kết thúc thế nào cho đúng? (chọn tất cả ý đúng)",
          "options": [
-           "Gom bằng Join (thanh ngang đậm) rồi tới End",
            "Gom bằng Merge rồi tới End",
-           "Nối \"Báo khách: nhà hàng từ chối\" vào \"Đổi trạng thái Đã xác nhận\"",
-           "Cho mỗi nhánh một End riêng"
+           "Gom bằng Join (thanh ngang đậm) rồi tới End",
+           "Cho mỗi nhánh một End riêng",
+           "Nối \"Báo khách: nhà hàng từ chối\" vào \"Đổi trạng thái Đã xác nhận\""
          ],
-         "answer": [1, 3], "multi": true,
+         "answer": [0, 2], "multi": true,
          "why": "Chỉ một nhánh chạy nên gom bằng Merge hoặc cho mỗi nhánh một End. Join chờ đủ cả hai luồng nên sơ đồ bị kẹt; nối nhánh từ chối vào bước xác nhận là sai nghiệp vụ."}
       ]
     }

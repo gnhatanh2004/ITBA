@@ -10,7 +10,7 @@ File gắn thêm cách làm cho bài tập đã có (không sửa data/lessons).
   part trắc nghiệm:                 {"kind": "choice", "q": "...", "options": [...], "answer": [chỉ số đúng...], "multi": false, "why": "..."}
 Mọi chuỗi là văn bản thường (giao diện tự escape), được xuống dòng bằng \\n.
 """
-import json, sys
+import json, re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -69,6 +69,8 @@ def check_part(w, p):
         if bins and items and all(isinstance(it, dict) and it.get("a") == [0] for it in items) and len(bins) > 1:
             e.append(f"{w}: mọi mục đều thuộc bin 0 – kiểm lại đáp án")
     elif k == "order":
+        if re.search(r"bước (làm|giải)|cách làm|làm mẫu|thứ tự làm|các bước (giải thích|chọn|lập|điền|phân tích|soát|vẽ|chuẩn bị)", p.get("q") or "", re.I):
+            e.append(f"{w}: không dùng order để sắp xếp các bước làm bài / lời giải mẫu (prompt §8.1)")
         items = p.get("items")
         if not isinstance(items, list) or not 3 <= len(items) <= 10 or not all(_s(x, 300) for x in items):
             e.append(f"{w}.items: 3–10 chuỗi theo đúng thứ tự, mỗi chuỗi ≤ 300 ký tự")

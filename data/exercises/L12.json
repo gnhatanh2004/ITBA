@@ -277,215 +277,205 @@
       ]
     },
     "L12-p1": {
-      "lead": "Kéo mỗi phần của quy trình đặt bàn FoodNow vào đúng thành phần, rồi phân loại đối tượng.",
+      "lead": "Trả lời từng câu để xác định 6 thành phần của quy trình đặt bàn FoodNow.",
       "parts": [
-        {"kind": "sort", "q": "1) Mỗi mục là thành phần nào của quy trình?",
-         "bins": ["Sự kiện", "Hoạt động", "Điểm quyết định", "Tác nhân", "Đối tượng", "Kết quả"],
-         "items": [
-           {"t": "Khách gửi yêu cầu đặt bàn", "a": [0], "why": "Sự kiện kích hoạt quy trình, xảy ra tức thì."},
-           {"t": "Khách nhận được xác nhận", "a": [0]},
-           {"t": "Chọn nhà hàng, giờ, số người", "a": [1]},
-           {"t": "Kiểm tra bàn trống", "a": [1]},
-           {"t": "Giữ bàn", "a": [1]},
-           {"t": "Gợi ý khung giờ khác", "a": [1]},
-           {"t": "Xem danh sách đặt bàn trong ngày", "a": [1]},
-           {"t": "Còn bàn trống không?", "a": [2]},
-           {"t": "Khách hàng", "a": [3]},
-           {"t": "Hệ thống FoodNow", "a": [3], "why": "Hệ thống phần mềm cũng là tác nhân."},
-           {"t": "Nhân viên nhà hàng", "a": [3]},
-           {"t": "Bản ghi giữ bàn", "a": [4]},
-           {"t": "Bàn ăn", "a": [4]},
-           {"t": "Bàn được giữ, khách có chỗ", "a": [5], "why": "Kết quả tích cực."},
-           {"t": "Không có bàn ở giờ đã chọn (khách nhận gợi ý giờ khác)", "a": [5], "why": "Kết quả tiêu cực."}
-         ]},
-        {"kind": "sort", "q": "2) Đối tượng nào là vật chất, đối tượng nào là phi vật chất?",
+        {"kind": "choice", "q": "1) Sự kiện nào kích hoạt (bắt đầu) quy trình đặt bàn?",
+         "options": [
+           "Hệ thống kiểm tra bàn trống",
+           "Khách gửi yêu cầu đặt bàn",
+           "Còn bàn trống không?",
+           "Nhân viên nhà hàng xem danh sách đặt bàn trong ngày"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Sự kiện xảy ra tức thì và kích hoạt quy trình: lúc khách gửi yêu cầu. Kiểm tra bàn trống, xem danh sách là hoạt động (tốn thời gian); \"Còn bàn trống không?\" là điểm quyết định."},
+        {"kind": "choice", "q": "2) Điểm quyết định của quy trình là gì?",
+         "options": [
+           "Khách chọn nhà hàng, giờ, số người",
+           "Hệ thống gửi xác nhận cho khách",
+           "Khách nhận được xác nhận",
+           "Còn bàn trống không?"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Chữ \"nếu\" (nếu còn bàn… nếu hết bàn…) là dấu hiệu của điểm quyết định: nó quyết định quy trình đi tiếp theo nhánh nào. Chọn nhà hàng, gửi xác nhận là hoạt động; khách nhận xác nhận là sự kiện."},
+        {"kind": "choice", "q": "3) Tác nhân của quy trình gồm những ai hoặc cái gì? (chọn tất cả ý đúng)",
+         "options": [
+           "Bàn ăn",
+           "Khách hàng",
+           "Danh sách đặt bàn",
+           "Hệ thống FoodNow",
+           "Nhân viên nhà hàng"
+         ],
+         "answer": [1, 3, 4], "multi": true,
+         "why": "Tác nhân là người, tổ chức hoặc hệ thống phần mềm thực hiện hoạt động: khách, hệ thống FoodNow, nhân viên nhà hàng. Bàn ăn và danh sách đặt bàn là đối tượng."},
+        {"kind": "sort", "q": "4) Kéo mỗi đối tượng của quy trình vào nhóm vật chất hoặc phi vật chất.",
          "bins": ["Vật chất", "Phi vật chất"],
          "items": [
            {"t": "Yêu cầu đặt bàn", "a": [1]},
-           {"t": "Bản ghi giữ bàn", "a": [1]},
+           {"t": "Bàn ăn", "a": [0], "why": "Bàn ăn là vật thật."},
+           {"t": "Bản ghi giữ bàn", "a": [1], "why": "Bản ghi điện tử là đối tượng phi vật chất."},
            {"t": "Tin xác nhận", "a": [1]},
-           {"t": "Danh sách đặt bàn", "a": [1]},
-           {"t": "Bàn ăn", "a": [0], "why": "Bàn ăn là vật thật; các mục còn lại là thông tin, bản ghi điện tử."}
+           {"t": "Danh sách đặt bàn", "a": [1]}
          ]},
-        {"kind": "choice", "q": "3) Khi đọc mô tả, dấu hiệu nào giúp tìm ra điểm quyết định?",
-         "options": ["Động từ chỉ việc tốn thời gian", "Chữ \"nếu\" trong mô tả", "Thời điểm xảy ra tức thì", "Tên người hoặc hệ thống thực hiện"],
-         "answer": [1], "multi": false,
-         "why": "Chữ \"nếu\" báo hiệu chỗ quy trình rẽ nhánh, ở đây là \"Còn bàn trống?\". Động từ tốn thời gian là hoạt động, thời điểm tức thì là sự kiện, người/hệ thống thực hiện là tác nhân."}
+        {"kind": "choice", "q": "5) Những mục nào là kết quả của quy trình? (chọn tất cả ý đúng)",
+         "options": [
+           "Hệ thống kiểm tra bàn trống",
+           "Bàn được giữ, khách có chỗ",
+           "Khách gửi yêu cầu đặt bàn",
+           "Không có bàn ở giờ đã chọn, khách nhận gợi ý giờ khác"
+         ],
+         "answer": [1, 3], "multi": true,
+         "why": "Kết quả có thể tích cực (bàn được giữ, khách có chỗ) hoặc tiêu cực (không có bàn ở giờ đã chọn). Kiểm tra bàn trống là hoạt động; khách gửi yêu cầu là sự kiện."}
       ]
     },
     "L12-p2": {
-      "lead": "Sắp xếp luồng chính của flowchart mượn sách, kéo mỗi phần tử vào đúng ký hiệu, rồi nối các nhánh.",
+      "lead": "Trả lời từng câu để mô tả flowchart mượn sách: ký hiệu của từng phần tử, các hình thoi và các nhánh.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp luồng chính (bạn đọc mượn được sách) theo đúng thứ tự.",
-         "items": [
-           "Bắt đầu: bạn đọc đưa thẻ và sách",
-           "Kiểm tra thẻ",
-           "Thẻ còn hạn? → Có",
-           "Kiểm tra số sách đang mượn",
-           "Đã mượn đủ 5 cuốn? → Không",
-           "Ghi phiếu mượn",
-           "Phiếu mượn",
-           "Giao sách cho bạn đọc",
-           "Kết thúc: bạn đọc nhận sách"
-         ]},
-        {"kind": "sort", "q": "2) Mỗi phần tử vẽ bằng ký hiệu nào?",
+        {"kind": "sort", "q": "1) Kéo mỗi phần tử của flowchart mượn sách vào ký hiệu dùng để vẽ nó.",
          "bins": ["Hình bo tròn (bắt đầu/kết thúc)", "Hình chữ nhật (một bước)", "Hình thoi (quyết định)", "Tài liệu (cạnh dưới lượn sóng)"],
          "items": [
            {"t": "Bắt đầu: bạn đọc đưa thẻ và sách", "a": [0]},
            {"t": "Kiểm tra thẻ", "a": [1]},
            {"t": "Thẻ còn hạn?", "a": [2]},
-           {"t": "Kiểm tra số sách đang mượn", "a": [1]},
-           {"t": "Đã mượn đủ 5 cuốn?", "a": [2]},
            {"t": "Từ chối cho mượn", "a": [1]},
+           {"t": "Đã mượn đủ 5 cuốn?", "a": [2]},
            {"t": "Ghi phiếu mượn", "a": [1]},
            {"t": "Phiếu mượn", "a": [3], "why": "Phiếu mượn là giấy tờ nên dùng ký hiệu Tài liệu."},
-           {"t": "Giao sách cho bạn đọc", "a": [1]},
            {"t": "Kết thúc: bạn đọc nhận sách", "a": [0]}
          ]},
-        {"kind": "sort", "q": "3) Mỗi nhánh ra khỏi hình thoi đi tới bước nào?",
-         "bins": ["Từ chối cho mượn", "Kiểm tra số sách đang mượn", "Ghi phiếu mượn"],
-         "items": [
-           {"t": "Thẻ còn hạn? = Không", "a": [0]},
-           {"t": "Thẻ còn hạn? = Có", "a": [1]},
-           {"t": "Đã mượn đủ 5 cuốn? = Có", "a": [0]},
-           {"t": "Đã mượn đủ 5 cuốn? = Không", "a": [2]}
-         ]},
-        {"kind": "choice", "q": "4) Khi kiểm lại flowchart, điều nào phải đúng? (chọn tất cả ý đúng)",
+        {"kind": "choice", "q": "2) Flowchart cần mấy hình thoi, mỗi hình chứa câu hỏi gì?",
          "options": [
-           "Mỗi mũi tên ra khỏi hình thoi đều có nhãn Có/Không",
-           "Hình chữ nhật \"Kiểm tra thẻ\" có hai mũi tên đi ra",
-           "Mọi nhánh đều tới một hình bo tròn kết thúc",
-           "Phiếu mượn vẽ bằng hình bình hành"
+           "Một: \"Thẻ còn hạn?\"",
+           "Hai: \"Kiểm tra thẻ\" và \"Kiểm tra số sách đang mượn\"",
+           "Hai: \"Thẻ còn hạn?\" và \"Đã mượn đủ 5 cuốn?\"",
+           "Ba: \"Thẻ còn hạn?\", \"Đã mượn đủ 5 cuốn?\" và \"Giao sách?\""
          ],
-         "answer": [0, 2], "multi": true,
+         "answer": [2], "multi": false,
+         "why": "Mỗi chữ \"nếu\" trong mô tả là một hình thoi chứa câu hỏi có/không: thẻ còn hạn không, đã mượn đủ 5 cuốn chưa. \"Kiểm tra thẻ\" là việc làm nên vẽ hình chữ nhật; giao sách không phải chỗ rẽ nhánh."},
+        {"kind": "choice", "q": "3) Từ hình thoi \"Thẻ còn hạn?\", nhánh Không đi tới đâu?",
+         "options": [
+           "Từ chối cho mượn, rồi Kết thúc",
+           "Kiểm tra số sách đang mượn",
+           "Ghi phiếu mượn",
+           "Quay lại Kiểm tra thẻ"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Theo đề, thẻ hết hạn thì từ chối. Chỉ nhánh Có (thẻ còn hạn) mới đi tiếp tới kiểm tra số sách đang mượn."},
+        {"kind": "choice", "q": "4) Từ hình thoi \"Đã mượn đủ 5 cuốn?\", nhánh Có đi tới đâu?",
+         "options": [
+           "Ghi phiếu mượn",
+           "Giao sách cho bạn đọc",
+           "Từ chối cho mượn, rồi Kết thúc",
+           "Quay lại Kiểm tra thẻ"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Đã mượn đủ 5 cuốn thì từ chối. Nhánh Không (chưa đủ) mới đi tới ghi phiếu mượn và giao sách."},
+        {"kind": "choice", "q": "5) Flowchart vẽ đúng phải thỏa những điều nào? (chọn tất cả ý đúng)",
+         "options": [
+           "Hình chữ nhật \"Kiểm tra thẻ\" có hai mũi tên đi ra",
+           "Mỗi mũi tên ra khỏi hình thoi đều có nhãn Có/Không",
+           "Phiếu mượn vẽ bằng hình bình hành",
+           "Mọi nhánh đều kết thúc ở một hình bo tròn"
+         ],
+         "answer": [1, 3], "multi": true,
          "why": "Đáp án mẫu kiểm: 2 hình thoi, mỗi hình có 2 nhánh có nhãn; mọi nhánh đều tới điểm kết thúc. Hình chữ nhật thường chỉ có một mũi tên đi ra (rẽ nhánh là việc của hình thoi); phiếu mượn là giấy tờ nên dùng ký hiệu Tài liệu."}
       ]
     },
     "L12-p3": {
-      "lead": "Dựng BPMN đặt đồ ăn bằng cách chọn pool/lane, sắp xếp luồng chính, rồi kéo task vào lane, loại task và loại flow.",
+      "lead": "Trả lời từng câu để mô tả BPMN đặt đồ ăn: pool, lane, gateway và loại flow.",
       "parts": [
-        {"kind": "choice", "q": "1) Vẽ pool và lane thế nào?",
+        {"kind": "choice", "q": "1) Sơ đồ chia pool và lane thế nào?",
          "options": [
            "Một pool, 4 lane: Khách hàng, Hệ thống, Nhà hàng, Tài xế",
-           "Một pool \"Nền tảng đặt đồ ăn\", không chia lane",
-           "Pool \"Khách hàng\" (black box) và pool \"Nền tảng đặt đồ ăn\" gồm 3 lane: Hệ thống, Nhà hàng, Tài xế"
+           "Pool \"Khách hàng\" (black box) và pool \"Nền tảng đặt đồ ăn\" gồm 3 lane: Hệ thống, Nhà hàng, Tài xế",
+           "Một pool \"Nền tảng đặt đồ ăn\", không chia lane"
          ],
-         "answer": [2], "multi": false,
-         "why": "Khách hàng là bên ngoài nên là pool riêng, chỉ cần vẽ black box. Hệ thống, Nhà hàng, Tài xế là lane trong pool chính; không chia lane thì không thể hiện được ai làm bước nào."},
-        {"kind": "order", "q": "2) Sắp xếp luồng chính (đơn hoàn tất) theo đúng thứ tự.",
-         "items": [
-           "Message Start Event \"Nhận đơn và thanh toán\"",
-           "Service Task \"Kiểm tra thanh toán\"",
-           "Exclusive Gateway \"Thanh toán thành công?\" → Có",
-           "Send Task \"Gửi đơn cho nhà hàng\"",
-           "User Task \"Xác nhận đơn\"",
-           "Exclusive Gateway \"Nhận đơn?\" → Có",
-           "Parallel Gateway tách: \"Nấu món\" và \"Tìm tài xế\" cùng lúc",
-           "Parallel Gateway gộp (chờ cả 2 nhánh)",
-           "Task \"Lấy món\"",
-           "Task \"Giao cho khách\""
-         ],
-         "why": "Sau \"Giao cho khách\" là End Event \"Đơn hoàn tất\"."},
-        {"kind": "sort", "q": "3) Mỗi task nằm ở lane nào?",
+         "answer": [1], "multi": false,
+         "why": "Khách hàng là bên ngoài nên là pool riêng, có thể vẽ black box. Hệ thống, Nhà hàng, Tài xế là lane trong pool chính. Không chia lane thì không thấy ai làm bước nào."},
+        {"kind": "sort", "q": "2) Kéo mỗi task vào lane thực hiện nó.",
          "bins": ["Hệ thống", "Nhà hàng", "Tài xế"],
          "items": [
            {"t": "Kiểm tra thanh toán", "a": [0]},
-           {"t": "Báo lỗi thanh toán", "a": [0]},
-           {"t": "Gửi đơn cho nhà hàng", "a": [0]},
            {"t": "Xác nhận đơn", "a": [1]},
-           {"t": "Báo hủy đơn, hoàn tiền", "a": [0]},
            {"t": "Nấu món", "a": [1]},
-           {"t": "Tìm tài xế", "a": [0]},
+           {"t": "Tìm tài xế", "a": [0], "why": "Hệ thống tìm tài xế (Service Task), không phải tài xế tự làm."},
            {"t": "Lấy món", "a": [2]},
            {"t": "Giao cho khách", "a": [2]}
          ]},
-        {"kind": "sort", "q": "4) Mỗi task là loại nào?",
-         "bins": ["Service Task", "Send Task", "User Task", "Manual Task"],
-         "items": [
-           {"t": "Kiểm tra thanh toán", "a": [0]},
-           {"t": "Báo lỗi thanh toán", "a": [1]},
-           {"t": "Gửi đơn cho nhà hàng", "a": [1]},
-           {"t": "Xác nhận đơn", "a": [2]},
-           {"t": "Báo hủy đơn, hoàn tiền", "a": [1]},
-           {"t": "Nấu món", "a": [3], "why": "Người làm thủ công, không dùng phần mềm."},
-           {"t": "Tìm tài xế", "a": [0], "why": "Hệ thống tự động làm."}
-         ]},
-        {"kind": "choice", "q": "5) Nhà hàng nấu món đồng thời hệ thống tìm tài xế; món xong và đã có tài xế mới lấy món. Dùng gateway nào?",
+        {"kind": "choice", "q": "3) \"Thanh toán thành công?\" và \"Nhà hàng nhận đơn?\" dùng loại gateway nào?",
+         "options": [
+           "Parallel Gateway",
+           "Inclusive Gateway",
+           "Event-based Gateway",
+           "Exclusive Gateway"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Mỗi câu hỏi chỉ đi theo đúng một nhánh (thành công hoặc lỗi; nhận hoặc từ chối) nên là Exclusive. Parallel kích hoạt mọi nhánh, Inclusive cho chọn một hoặc nhiều, Event-based chọn theo sự kiện đến trước."},
+        {"kind": "choice", "q": "4) Nhà hàng nấu món đồng thời hệ thống tìm tài xế; món xong và đã có tài xế mới lấy món. Tách và gộp bằng gateway nào?",
          "options": [
            "Exclusive Gateway tách, Exclusive Gateway gộp",
-           "Parallel Gateway tách, Parallel Gateway gộp",
            "Parallel Gateway tách, Exclusive Gateway gộp",
+           "Parallel Gateway tách, Parallel Gateway gộp",
            "Exclusive Gateway tách, Parallel Gateway gộp"
          ],
-         "answer": [1], "multi": false,
+         "answer": [2], "multi": false,
          "why": "Làm cùng lúc và chờ cả hai xong là Parallel tách, Parallel gộp. Exclusive cả hai thì chỉ một việc được làm; tách Parallel gộp Exclusive thì bước sau chạy nhiều lần; tách Exclusive gộp Parallel thì kẹt."},
-        {"kind": "sort", "q": "6) Mỗi kết nối vẽ bằng loại flow nào?",
+        {"kind": "sort", "q": "5) Mỗi kết nối vẽ bằng Sequence Flow hay Message Flow?",
          "bins": ["Sequence Flow", "Message Flow"],
          "items": [
-           {"t": "Khách hàng gửi đơn và thanh toán tới nền tảng", "a": [1]},
-           {"t": "\"Báo lỗi thanh toán\" gửi tới Khách hàng", "a": [1]},
-           {"t": "\"Gửi đơn cho nhà hàng\" (lane Hệ thống) đi tới \"Xác nhận đơn\" (lane Nhà hàng)", "a": [0], "why": "Giữa các lane trong cùng một pool dùng Sequence Flow."},
-           {"t": "Parallel Gateway gộp đi tới \"Lấy món\" (lane Tài xế)", "a": [0]},
-           {"t": "\"Giao cho khách\" tới pool Khách hàng", "a": [1]}
+           {"t": "Đơn và thanh toán từ pool Khách hàng tới Start Event \"Nhận đơn và thanh toán\"", "a": [1]},
+           {"t": "\"Gửi đơn cho nhà hàng\" (lane Hệ thống) tới \"Xác nhận đơn\" (lane Nhà hàng)", "a": [0], "why": "Giữa các lane trong cùng một pool dùng Sequence Flow."},
+           {"t": "\"Báo lỗi thanh toán\" tới pool Khách hàng", "a": [1]},
+           {"t": "Parallel Gateway gộp tới \"Lấy món\" (lane Tài xế)", "a": [0]},
+           {"t": "\"Giao cho khách\" tới pool Khách hàng", "a": [1], "why": "Thông báo gửi cho khách vượt ranh giới pool nên là Message Flow."}
          ]}
       ]
     },
     "L12-p4": {
-      "lead": "Xếp mỗi tình huống vào đúng nhóm ký hiệu, rồi chọn ký hiệu BPMN cụ thể.",
+      "lead": "Chọn ký hiệu BPMN cho từng tình huống bán hàng của SolasMart.",
       "parts": [
-        {"kind": "sort", "q": "1) Tình huống này vẽ bằng sự kiện, hoạt động, gateway hay dữ liệu?",
-         "bins": ["Sự kiện (tròn)", "Hoạt động (chữ nhật bo góc)", "Gateway (thoi)", "Dữ liệu"],
-         "items": [
-           {"t": "(a) Quy trình bắt đầu khi khách gửi đơn", "a": [0]},
-           {"t": "(b) Sau 24 giờ khách chưa thanh toán thì hủy đơn", "a": [0]},
-           {"t": "(c) Hệ thống tự tính tiền khuyến mãi", "a": [1]},
-           {"t": "(d) Giao bằng xe cửa hàng, qua đối tác, hoặc cả hai", "a": [2]},
-           {"t": "(e) Lưu đơn vào cơ sở dữ liệu bán hàng", "a": [3]},
-           {"t": "(f) Phát hiện gian lận thì dừng ngay toàn bộ quy trình", "a": [0]}
-         ]},
-        {"kind": "sort", "q": "2) Các tình huống sự kiện dùng event nào?",
+        {"kind": "sort", "q": "1) Kéo tình huống (a), (b), (f) vào loại event phù hợp.",
          "bins": ["Message Start Event", "Timer Start Event", "Timer Intermediate Event", "None End Event", "Terminate End Event"],
          "items": [
            {"t": "(a) Quy trình bắt đầu khi khách gửi đơn", "a": [0], "why": "Vòng tròn mảnh có phong bì rỗng: bắt đầu khi nhận tin nhắn."},
            {"t": "(b) Sau 24 giờ khách chưa thanh toán thì hủy đơn", "a": [2], "why": "Chờ thời gian giữa quy trình là Timer Intermediate Event; Timer Start Event chỉ ở điểm bắt đầu."},
-           {"t": "(f) Phát hiện gian lận thì dừng ngay toàn bộ quy trình", "a": [4], "why": "Terminate (chấm đen đặc) kết thúc ngay lập tức toàn bộ quy trình."}
+           {"t": "(f) Phát hiện gian lận thì dừng ngay toàn bộ quy trình", "a": [4], "why": "Terminate (chấm đen đặc) kết thúc ngay lập tức toàn bộ quy trình; None End Event chỉ kết thúc nhánh đó."}
          ]},
-        {"kind": "choice", "q": "3) (b) Đặt Timer Event \"24 giờ\" ở đâu để hủy đơn? (chọn tất cả ý đúng)",
+        {"kind": "choice", "q": "2) (b) Đặt Timer Event \"24 giờ\" ở đâu để hủy đơn? (chọn tất cả ý đúng)",
          "options": [
-           "Timer Start Event \"24 giờ\" ở đầu quy trình",
            "Boundary Timer Event dạng interrupting (viền liền) gắn trên task \"Chờ thanh toán\"",
+           "Timer Start Event \"24 giờ\" ở đầu quy trình",
            "Boundary Timer Event dạng non-interrupting (viền nét đứt) gắn trên task \"Chờ thanh toán\"",
-           "Sau Event-based Gateway, cạnh Message Event \"Nhận thanh toán\"",
-           "Parallel Gateway tách ra Message Event \"Nhận thanh toán\" và Timer Event \"24 giờ\""
+           "Parallel Gateway tách ra Message Event \"Nhận thanh toán\" và Timer Event \"24 giờ\"",
+           "Sau Event-based Gateway, cạnh Message Event \"Nhận thanh toán\""
+         ],
+         "answer": [0, 4], "multi": true,
+         "why": "Đáp án mẫu nêu hai cách: Boundary Timer Event interrupting (ngắt việc chờ để hủy đơn) hoặc đặt sau Event-based Gateway (sự kiện nào đến trước thì đi nhánh đó). Non-interrupting thì hoạt động vẫn chạy tiếp; Parallel kích hoạt mọi nhánh; Start Event chỉ ở điểm bắt đầu."},
+        {"kind": "choice", "q": "3) (c) Hệ thống tự tính tiền khuyến mãi: dùng loại task nào? (chọn tất cả ý đúng)",
+         "options": [
+           "Manual Task (bàn tay)",
+           "Service Task (bánh răng)",
+           "User Task (hình người)",
+           "Business Rule Task (bảng), nếu tính theo bảng quy tắc"
          ],
          "answer": [1, 3], "multi": true,
-         "why": "Đáp án mẫu nêu hai cách: Boundary Timer Event interrupting (ngắt việc chờ để hủy đơn) hoặc đặt sau Event-based Gateway (sự kiện nào đến trước thì đi nhánh đó). Non-interrupting thì hoạt động vẫn chạy tiếp; Parallel kích hoạt mọi nhánh; Start Event chỉ ở điểm bắt đầu."},
-        {"kind": "choice", "q": "4) (c) Hệ thống tự tính tiền khuyến mãi: dùng loại task nào? (chọn tất cả ý đúng)",
-         "options": [
-           "Service Task (bánh răng)",
-           "Manual Task (bàn tay)",
-           "Business Rule Task (bảng), nếu tính theo bảng quy tắc",
-           "User Task (hình người)"
-         ],
-         "answer": [0, 2], "multi": true,
          "why": "Hệ thống tự làm là Service Task; nếu tính theo bảng quy tắc thì dùng Business Rule Task. Manual Task là người làm thủ công, User Task là người làm với phần mềm."},
-        {"kind": "choice", "q": "5) (d) Giao bằng xe cửa hàng, qua đối tác, hoặc cả hai: tách và gộp bằng gateway nào?",
+        {"kind": "choice", "q": "4) (d) Giao bằng xe cửa hàng, qua đối tác, hoặc cả hai: tách và gộp bằng gateway nào?",
          "options": [
+           "Inclusive Gateway tách, Inclusive Gateway gộp",
            "Exclusive Gateway tách, Exclusive Gateway gộp",
            "Parallel Gateway tách, Parallel Gateway gộp",
-           "Inclusive Gateway tách, Inclusive Gateway gộp",
            "Inclusive Gateway tách, Parallel Gateway gộp"
          ],
-         "answer": [2], "multi": false,
+         "answer": [0], "multi": false,
          "why": "\"Một hoặc nhiều\" nhánh là Inclusive (thoi có vòng tròn), gộp lại cũng bằng Inclusive. Exclusive chỉ chọn một; Parallel bắt chạy cả hai; gộp bằng Parallel sẽ kẹt khi chỉ một nhánh chạy."},
-        {"kind": "choice", "q": "6) (e) Lưu đơn vào CSDL bán hàng vẽ thế nào?",
+        {"kind": "choice", "q": "5) (e) Lưu đơn vào cơ sở dữ liệu bán hàng vẽ bằng ký hiệu nào?",
          "options": [
            "Data Object (tờ giấy gấp góc) nối bằng Sequence Flow",
-           "Data Store (hình trụ) nối bằng Data Association",
            "Data Store (hình trụ) nối bằng Message Flow",
-           "Data Object (tờ giấy gấp góc) nối bằng Data Association"
+           "Data Object (tờ giấy gấp góc) nối bằng Data Association",
+           "Data Store (hình trụ) nối bằng Data Association"
          ],
-         "answer": [1], "multi": false,
+         "answer": [3], "multi": false,
          "why": "CSDL lưu lâu dài, tồn tại lâu hơn một lần chạy quy trình nên là Data Store; dữ liệu gắn với hoạt động bằng Data Association. Data Object chỉ sống trong một lần chạy; Sequence/Message Flow không dùng để nối dữ liệu."}
       ]
     }

@@ -327,11 +327,16 @@ Mỗi bài tập có 1–6 `parts`. Mọi chuỗi là văn bản thường, khô
 
 **Báo cáo cuối** (≤ 120 từ): số bài tập đã chuyển trên tổng số, dạng đã dùng, bài nào bỏ qua và chỗ nào không chắc.
 
-### 8.1. Bài thực hành (tab Thực hành, T11)
+### 8.1. Bài thực hành (tab Thực hành, T11 – bản làm lại)
 
-Tab Thực hành (`practice`, id `<ID>-p1`…) cũng làm tương tác như trên, với cùng schema và cùng luật đáp án.
-- **Ghi thêm** vào file có sẵn `data/exercises/<ID>.json`, trong cùng `items`, khóa là id bài thực hành. **Không sửa, không xóa** các mục `-x` đã có.
-- Bài thực hành không có gợi ý mà có `steps` (các bước làm mẫu) và `answer`. Đáp án đúng lấy từ `steps` và `answer`.
-- Các bước làm mẫu thường thành được một `order` ("Sắp xếp các bước làm"). Nội dung từng bước thì dùng `sort` hoặc `choice`, theo đúng nguyên tắc ở §8.
-- Bài kiểu "liên hệ thực tế, kể tên…" thì chuyển thành `sort` hoặc `choice` dựa trên ví dụ trong `answer`. Phương án nhiễu phải sai rõ theo bài học.
-- Giao diện hiện các bước làm mẫu trong phần "Xem đáp án" sau khi làm.
+Tab Thực hành (`practice`, id `<ID>-p1`…) cũng làm tương tác, cùng schema. Ghi vào `data/exercises/<ID>.json` trong cùng `items`, khóa là id bài thực hành. **Không sửa** các mục `-x`.
+
+Bản đầu bị user chê vì hai lỗi. Bản làm lại phải tránh cả hai:
+1. **Cấm sắp xếp "các bước làm / bước giải / cách làm mẫu".** `steps` là lời giải mẫu, không phải kiến thức. Thứ tự đó do người soạn đặt, bắt người học kéo các câu dài đổi chỗ là vô nghĩa. `order` chỉ dùng cho **trình tự có thật trong kiến thức của bài**: quy trình nghiệp vụ, luồng chính use case, các pha SDLC, vòng đời trạng thái, các bước trong một chuẩn mà bài dạy.
+2. **Cấm biến nguyên văn đề hoặc lời giải thành cục để kéo.** Mỗi phần phải là **một câu hỏi rõ ràng, trả lời trực tiếp một ý của câu hỏi gốc**, kèm phương án trả lời:
+   - Đề hỏi "kể tên / giải thích / chọn / đề xuất…" thì dùng `choice` với câu hỏi cụ thể. Phương án đúng lấy từ `answer` hoặc `steps`, phương án sai là lỗi điển hình mà bài dạy.
+   - Đề có việc phân loại hay ghép cặp thật (chức danh → hoạt động, thông tin → trường của template, thực thể → loại…) thì dùng `sort`. Mục ngắn (≤ 120 ký tự), nhóm là khái niệm rõ ràng, mỗi mục chỉ có một nhóm đúng hiển nhiên.
+   - Đề yêu cầu lập bảng hay viết tài liệu thì chọn 2–4 ý cốt lõi của bảng và hỏi bằng `choice` hoặc `sort` ngắn. Không cố chấm toàn bộ bảng.
+- `q` phải tự đủ nghĩa: người học đọc `q` là biết phải chọn hay kéo cái gì vào đâu.
+- Mỗi bài thực hành 2–5 phần. Ưu tiên `choice`.
+- Các bước làm mẫu vẫn hiện trong "Xem đáp án" sau khi làm; không cần đưa vào câu hỏi.

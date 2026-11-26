@@ -222,165 +222,37 @@
       ]
     },
     "L23-p1": {
-      "lead": "Sắp xếp các bước soát URL, chọn các lỗi, rồi chọn cách viết chuẩn RESTful.",
+      "lead": "Trả lời hai URL đúng hay sai, chỉ ra lỗi, rồi chọn cách viết chuẩn.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp các bước soát một URL theo chuẩn RESTful.",
-         "items": [
-           "Tách URL thành scheme, domain, path",
-           "Tìm tài nguyên (danh từ): văn bản đến – IncomingDocument",
-           "Tìm hành động (Create, Update): hành động phải do method thể hiện, không nằm trong path",
-           "Chọn method: tạo mới → POST; sửa toàn bộ → PUT",
-           "Viết lại path: danh từ số nhiều; thao tác với một văn bản thì thêm {id}",
-           "Soát chính tả trong path"
-         ]},
-        {"kind": "choice", "q": "2) Hai URL …/api/IncomingDocument/CreateIncommingDocument và …/UpdateIncommingDocument có những lỗi nào? (chọn tất cả ý đúng)",
-         "options": [
-           "Dùng scheme https",
-           "Động từ Create/Update nằm trong path",
-           "Sửa văn bản nhưng không chỉ ra văn bản nào ({id})",
-           "Path có tiền tố /api",
-           "\"Incomming\" sai chính tả, phải là \"Incoming\""
-         ],
-         "answer": [1, 2, 4], "multi": true,
-         "why": "3 lỗi: động từ nằm trong path; sửa văn bản mà thiếu {id}; \"Incomming\" sai chính tả. Scheme https và tiền tố /api vẫn giữ trong cách viết chuẩn. Hai URL vẫn chạy được nếu server cài như vậy, nhưng sai chuẩn RESTful."},
-        {"kind": "choice", "q": "3) Cách viết chuẩn cho \"Tạo mới văn bản\"?",
-         "options": [
-           "GET https://qlvbapi.vn/api/incoming-documents/create",
-           "PUT https://qlvbapi.vn/api/incoming-documents",
-           "POST https://qlvbapi.vn/api/incoming-documents",
-           "POST https://qlvbapi.vn/api/IncomingDocument/CreateIncomingDocument"
-         ],
-         "answer": [2], "multi": false,
-         "why": "Tạo mới dùng POST, path là danh từ số nhiều, không có động từ và không có {id}."},
-        {"kind": "choice", "q": "4) Cách viết chuẩn cho \"Sửa văn bản\"?",
-         "options": [
-           "PUT https://qlvbapi.vn/api/incoming-documents/{id}",
-           "PUT https://qlvbapi.vn/api/incoming-documents",
-           "POST https://qlvbapi.vn/api/incoming-documents/{id}/update",
-           "DELETE https://qlvbapi.vn/api/incoming-documents/{id}"
-         ],
-         "answer": [0], "multi": false,
-         "why": "Sửa toàn bộ dùng PUT (sửa một phần dùng PATCH), thêm {id} để chỉ ra văn bản nào. Không đưa động từ update vào path; DELETE là xóa."}
+        {"kind": "choice", "q": "1) Hai URL sau đúng hay sai theo chuẩn RESTful?\nTạo mới: https://qlvbapi.vn/api/IncomingDocument/CreateIncommingDocument\nSửa: https://qlvbapi.vn/api/IncomingDocument/UpdateIncommingDocument", "options": ["Đúng chuẩn, vì gọi vẫn chạy được", "Sai chuẩn RESTful, dù vẫn chạy được nếu server cài như vậy", "Sai chuẩn, vì dùng scheme https", "Đúng chuẩn, vì path có tiền tố /api"], "answer": [1], "multi": false, "why": "Chạy được hay không phụ thuộc server cài thế nào; nhưng cách đặt URL sai chuẩn RESTful. Scheme https và tiền tố /api không phải lỗi."},
+        {"kind": "choice", "q": "2) Hai URL đó sai ở những điểm nào? (chọn tất cả ý đúng)", "options": ["Động từ Create/Update nằm trong path", "Dùng scheme https", "Sửa văn bản nhưng không chỉ ra văn bản nào ({id})", "Path có tiền tố /api", "\"Incomming\" sai chính tả, phải là \"Incoming\""], "answer": [0, 2, 4], "multi": true, "why": "3 lỗi: hành động phải do method thể hiện, không nằm trong path; sửa một văn bản phải có {id}; \"Incomming\" sai chính tả. https và /api vẫn giữ trong cách viết chuẩn."},
+        {"kind": "choice", "q": "3) Sửa URL \"Tạo mới văn bản\" thế nào cho chuẩn?", "options": ["GET https://qlvbapi.vn/api/incoming-documents/create", "PUT https://qlvbapi.vn/api/incoming-documents", "POST https://qlvbapi.vn/api/IncomingDocument/CreateIncomingDocument", "POST https://qlvbapi.vn/api/incoming-documents"], "answer": [3], "multi": false, "why": "Tạo mới dùng POST; path là danh từ số nhiều, không có động từ, không có {id} vì văn bản chưa tồn tại."},
+        {"kind": "choice", "q": "4) Sửa URL \"Sửa văn bản\" thế nào cho chuẩn?", "options": ["PUT https://qlvbapi.vn/api/incoming-documents", "PUT https://qlvbapi.vn/api/incoming-documents/{id}", "POST https://qlvbapi.vn/api/incoming-documents/{id}/update", "DELETE https://qlvbapi.vn/api/incoming-documents/{id}"], "answer": [1], "multi": false, "why": "Sửa toàn bộ dùng PUT (sửa một phần dùng PATCH), thêm {id} để chỉ ra văn bản nào. Không đưa động từ update vào path; DELETE là xóa."}
       ]
     },
     "L23-p2": {
-      "lead": "Sắp xếp các bước, kéo từng phần vào đúng chỗ của request/response, rồi chọn URL, body và response code.",
+      "lead": "Chọn method và URL, header, body request và response cho API tạo đơn.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp các bước viết request và response tạo đơn.",
-         "items": [
-           "Chọn method",
-           "Viết URL",
-           "Viết header",
-           "Viết body JSON",
-           "Viết response (response code và body)",
-           "Kiểm tra cú pháp JSON"
-         ]},
-        {"kind": "sort", "q": "2) Mỗi phần này thuộc chỗ nào?",
-         "bins": ["Method", "URL", "Header", "Body", "Response code"],
-         "items": [
-           {"t": "POST", "a": [0]},
-           {"t": "https://api.example.com/orders", "a": [1]},
-           {"t": "Content-Type: application/json", "a": [2], "why": "Body là JSON."},
-           {"t": "Authorization: Bearer <token>", "a": [2], "why": "Cho server biết khách nào đặt."},
-           {"t": "{ \"address\": \"12 Lê Lợi\", \"items\": [ … ] }", "a": [3]},
-           {"t": "201 Created", "a": [4]}
-         ]},
-        {"kind": "choice", "q": "3) Method và URL nào đúng cho API tạo đơn?",
-         "options": [
-           "GET https://api.example.com/orders",
-           "POST https://api.example.com/createOrder",
-           "PUT https://api.example.com/orders/{id}",
-           "POST https://api.example.com/orders"
-         ],
-         "answer": [3], "multi": false,
-         "why": "Tạo mới đơn hàng dùng POST; tài nguyên là đơn hàng, danh từ số nhiều, không có động từ trong path."},
-        {"kind": "choice", "q": "4) Body request nào đúng cú pháp và đúng kiểu dữ liệu?",
-         "options": [
-           "{\n  \"address\": \"12 Lê Lợi\"\n  \"items\": [\n    { \"dishCode\": \"M01\", \"quantity\": 2 },\n    { \"dishCode\": \"M05\", \"quantity\": 1 }\n  ],\n  \"note\": null\n}",
-           "{\n  \"address\": \"12 Lê Lợi\",\n  \"items\": [\n    { \"dishCode\": \"M01\", \"quantity\": 2 },\n    { \"dishCode\": \"M05\", \"quantity\": 1 }\n  ],\n  \"note\": null\n}",
-           "{\n  \"address\": \"12 Lê Lợi\",\n  \"items\": [\n    { \"dishCode\": \"M01\", \"quantity\": \"2\" },\n    { \"dishCode\": \"M05\", \"quantity\": \"1\" }\n  ],\n  \"note\": null\n}",
-           "{\n  \"address\": \"12 Lê Lợi\",\n  \"items\": [\n    { \"dishCode\": \"M01\", \"quantity\": 2 },\n    { \"dishCode\": \"M05\", \"quantity\": 1 },\n  ],\n  \"note\": null\n}"
-         ],
-         "answer": [1], "multi": false,
-         "why": "Chuỗi trong nháy kép, số không nháy, các cặp cách nhau bởi dấu phẩy, không có dấu phẩy thừa ở cuối. Các bản còn lại thiếu dấu phẩy sau address, để số lượng trong nháy hoặc thừa dấu phẩy cuối mảng."},
-        {"kind": "choice", "q": "5) Tạo đơn thành công thì response code là gì?",
-         "options": [
-           "400 Bad Request",
-           "404 Not Found",
-           "201 Created",
-           "401 Unauthorized"
-         ],
-         "answer": [2], "multi": false,
-         "why": "Vừa tạo resource mới nên trả 201 Created, body trả mã đơn và trạng thái, ví dụ orderCode \"DH0001\", status \"Chờ xác nhận\", paid false."}
+        {"kind": "choice", "q": "1) Request tạo đơn dùng method và URL nào?", "options": ["GET https://api.example.com/orders", "POST https://api.example.com/orders", "POST https://api.example.com/createOrder", "PUT https://api.example.com/orders/{id}"], "answer": [1], "multi": false, "why": "Tạo mới đơn hàng dùng POST; tài nguyên là đơn hàng, danh từ số nhiều, không có động từ trong path."},
+        {"kind": "choice", "q": "2) Request tạo đơn cần những header nào? (chọn tất cả ý đúng)", "options": ["Content-Type: application/json – vì body là JSON", "Content-Type: application/xml – vì body là JSON", "Authorization: Bearer <token> – để server biết khách nào đặt", "Content-Length: 2 – vì khách đặt 2 phần cơm gà"], "answer": [0, 2], "multi": true, "why": "Content-Type báo kiểu dữ liệu của body đang gửi (JSON); Authorization mang token để biết khách nào đặt. Content-Length là độ dài body tính bằng byte, không phải số món."},
+        {"kind": "choice", "q": "3) Body request nào đúng cú pháp và đúng kiểu dữ liệu cho đơn 2 cơm gà (M01), 1 trà đá (M05), giao tới \"12 Lê Lợi\"?", "options": ["{\n  \"address\": \"12 Lê Lợi\",\n  \"items\": [\n    { \"dishCode\": \"M01\", \"quantity\": \"2\" },\n    { \"dishCode\": \"M05\", \"quantity\": \"1\" }\n  ],\n  \"note\": null\n}", "{\n  \"address\": \"12 Lê Lợi\"\n  \"items\": [\n    { \"dishCode\": \"M01\", \"quantity\": 2 },\n    { \"dishCode\": \"M05\", \"quantity\": 1 }\n  ],\n  \"note\": null\n}", "{\n  \"address\": \"12 Lê Lợi\",\n  \"items\": [\n    { \"dishCode\": \"M01\", \"quantity\": 2 },\n    { \"dishCode\": \"M05\", \"quantity\": 1 }\n  ],\n  \"note\": null\n}", "{\n  \"address\": \"12 Lê Lợi\",\n  \"items\": [\n    { \"dishCode\": \"M01\", \"quantity\": 2 },\n    { \"dishCode\": \"M05\", \"quantity\": 1 },\n  ],\n  \"note\": null\n}"], "answer": [2], "multi": false, "why": "Chuỗi trong nháy kép, số không nháy, các cặp cách nhau bởi dấu phẩy, không có dấu phẩy thừa ở cuối. Các bản còn lại để số lượng trong nháy, thiếu dấu phẩy sau address hoặc thừa dấu phẩy cuối mảng."},
+        {"kind": "choice", "q": "4) Response nào đúng khi tạo đơn thành công?", "options": ["404 Not Found\n\n{\n  \"orderCode\": \"DH0001\",\n  \"status\": \"Chờ xác nhận\",\n  \"paid\": false\n}", "201 Created\n\n{\n  \"orderCode\": \"DH0001\",\n  \"status\": \"Chờ xác nhận\",\n  \"paid\": \"false\"\n}", "400 Bad Request\n\n{\n  \"orderCode\": \"DH0001\",\n  \"status\": \"Chờ xác nhận\",\n  \"paid\": false\n}", "201 Created\n\n{\n  \"orderCode\": \"DH0001\",\n  \"status\": \"Chờ xác nhận\",\n  \"paid\": false\n}"], "answer": [3], "multi": false, "why": "Vừa tạo resource mới nên trả 201 Created; body trả mã đơn và trạng thái, paid là Boolean false (không nháy). 404, 400 là mã lỗi. Mã đơn là ví dụ."}
       ]
     },
     "L23-p3": {
-      "lead": "Sắp xếp 5 mục FSD, kéo nội dung vào đúng mục, sắp xếp luồng kiểm tra, rồi ghép trường hợp lỗi.",
+      "lead": "Kéo nội dung vào đúng mục FSD, chọn bước kiểm tra đầu tiên và dòng mã sách, rồi ghép trường hợp lỗi.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp 5 mục của mẫu FSD theo thứ tự viết.",
-         "items": ["Mô tả chung", "Luồng nghiệp vụ", "Đầu vào", "Đầu ra", "Danh sách mã lỗi"]},
-        {"kind": "sort", "q": "2) Nội dung này thuộc mục nào của đặc tả API tra cứu sách?",
-         "bins": ["Mô tả chung", "Luồng nghiệp vụ", "Đầu vào", "Đầu ra", "Danh sách mã lỗi"],
-         "items": [
-           {"t": "Mục đích: cho phép app của trường lấy thông tin một cuốn sách theo mã sách", "a": [0]},
-           {"t": "Đối tượng sử dụng: app đã được thư viện cấp mã ứng dụng", "a": [0]},
-           {"t": "Post-condition: trả về thông tin sách hoặc mã lỗi", "a": [0]},
-           {"t": "Bước: sách tồn tại và chưa bị thanh lý", "a": [1]},
-           {"t": "Mã sách – Require: Yes – Length: 5 – Chữ S và 4 chữ số, ví dụ S0001", "a": [2]},
-           {"t": "Mã ứng dụng – Require: Yes – Do thư viện cấp", "a": [2]},
-           {"t": "Author – Object gồm mã và tên tác giả", "a": [3]},
-           {"t": "Position – Danh sách kệ đang để sách", "a": [3]},
-           {"t": "Không có sách hoặc sách đã thanh lý → \"Không tìm thấy sách\"", "a": [4]}
-         ]},
-        {"kind": "order", "q": "3) Sắp xếp các bước của luồng nghiệp vụ.",
-         "items": [
-           "Mã ứng dụng tồn tại và đang hoạt động",
-           "Mã sách đúng định dạng",
-           "Sách tồn tại và chưa bị thanh lý",
-           "Trả về thông tin sách"
-         ]},
-        {"kind": "sort", "q": "4) Trường hợp này trả mô tả lỗi nào?",
-         "bins": ["Mã ứng dụng không hợp lệ", "Mã sách không đúng định dạng", "Không tìm thấy sách", "Thành công"],
-         "items": [
-           {"t": "Mã ứng dụng không tồn tại", "a": [0]},
-           {"t": "Mã ứng dụng ngừng hoạt động", "a": [0]},
-           {"t": "Mã sách sai định dạng", "a": [1]},
-           {"t": "Không có sách", "a": [2]},
-           {"t": "Sách đã thanh lý", "a": [2]},
-           {"t": "Trả được thông tin sách", "a": [3]}
-         ]}
+        {"kind": "sort", "q": "1) Trong đặc tả API tra cứu sách, nội dung này ghi vào mục nào của mẫu FSD?", "bins": ["Mô tả chung", "Luồng nghiệp vụ", "Đầu vào", "Đầu ra", "Danh sách mã lỗi"], "items": [{"t": "Mục đích: cho phép app của trường lấy thông tin một cuốn sách theo mã sách", "a": [0]}, {"t": "Đối tượng sử dụng: app đã được thư viện cấp mã ứng dụng", "a": [0]}, {"t": "Post-condition: trả về thông tin sách hoặc mã lỗi", "a": [0]}, {"t": "Kiểm tra sách tồn tại và chưa bị thanh lý", "a": [1]}, {"t": "Mã ứng dụng – Require: Yes – Do thư viện cấp", "a": [2]}, {"t": "Author – Object gồm mã và tên tác giả", "a": [3]}, {"t": "Position – Danh sách kệ đang để sách", "a": [3]}, {"t": "Không có sách hoặc sách đã thanh lý → \"Không tìm thấy sách\"", "a": [4]}]},
+        {"kind": "choice", "q": "2) Trong luồng nghiệp vụ của API tra cứu sách, bước kiểm tra nào làm đầu tiên?", "options": ["Sách tồn tại và chưa bị thanh lý", "Mã sách đúng định dạng", "Mã ứng dụng tồn tại và đang hoạt động", "Trả về thông tin sách"], "answer": [2], "multi": false, "why": "Kiểm tra bên gọi có hợp lệ trước (mã ứng dụng), rồi tới dữ liệu vào (định dạng mã sách), rồi sách có tồn tại không, cuối cùng mới trả kết quả."},
+        {"kind": "choice", "q": "3) Ở bảng đầu vào, dòng \"Mã sách\" ghi thế nào?", "options": ["Require: Yes – Length: 5 – Chữ S và 4 chữ số, ví dụ S0001", "Require: No – Length: 5 – Chữ S và 4 chữ số, ví dụ S0001", "Require: Yes – Do thư viện cấp", "Require: Yes – Object gồm mã và tên tác giả"], "answer": [0], "multi": false, "why": "API tra cứu theo mã sách nên mã sách bắt buộc (Yes), dài 5 ký tự: chữ S và 4 chữ số. \"Do thư viện cấp\" là ràng buộc của mã ứng dụng; Object tác giả là trường đầu ra Author."},
+        {"kind": "sort", "q": "4) Trong danh sách mã lỗi, trường hợp này có mô tả lỗi nào?", "bins": ["Mã ứng dụng không hợp lệ", "Mã sách không đúng định dạng", "Không tìm thấy sách", "Thành công"], "items": [{"t": "Mã ứng dụng không tồn tại", "a": [0]}, {"t": "Mã ứng dụng ngừng hoạt động", "a": [0]}, {"t": "Mã sách sai định dạng", "a": [1]}, {"t": "Không có sách", "a": [2]}, {"t": "Sách đã thanh lý", "a": [2]}, {"t": "Trả được thông tin sách", "a": [3]}]}
       ]
     },
     "L23-p4": {
-      "lead": "Sắp xếp các bước tách URL, kéo từng phần vào đúng tên, rồi chọn ý nghĩa của request.",
+      "lead": "Kéo từng phần của URL vào đúng tên, rồi chọn ý nghĩa của request GET.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp các bước tách URL.",
-         "items": [
-           "Lấy phần trước :// làm scheme",
-           "Đọc tên miền từ phải sang trái: top-level domain, second-level domain, subdomain",
-           "Lấy phần từ dấu / đầu tiên tới trước ? làm path",
-           "Lấy phần sau ? làm query param, các cặp nối bằng &"
-         ]},
-        {"kind": "sort", "q": "2) Trong https://shop.example.com/products?category=sua&page=2, mỗi phần là gì?",
-         "bins": ["Scheme", "Subdomain", "Second-level domain", "Top-level domain", "Subdirectory (path)", "Query param"],
-         "items": [
-           {"t": "https", "a": [0]},
-           {"t": "shop", "a": [1]},
-           {"t": "example", "a": [2]},
-           {"t": "com", "a": [3]},
-           {"t": "/products", "a": [4]},
-           {"t": "category=sua", "a": [5]},
-           {"t": "page=2", "a": [5]}
-         ]},
-        {"kind": "choice", "q": "3) Gửi URL này bằng GET nghĩa là gì?",
-         "options": [
-           "Thêm một sản phẩm mới vào nhóm \"sua\"",
-           "Xem chi tiết sản phẩm có id là 2",
-           "Lấy trang 2 của danh sách sản phẩm nhóm \"sua\"",
-           "Xóa trang 2 của danh sách sản phẩm"
-         ],
-         "answer": [2], "multi": false,
-         "why": "Path /products là danh sách sản phẩm; query param category=sua lọc theo nhóm, page=2 lấy trang 2. GET chỉ đọc dữ liệu, không thêm hay xóa."}
+        {"kind": "sort", "q": "1) Trong https://shop.example.com/products?category=sua&page=2, mỗi phần là gì?", "bins": ["Scheme", "Subdomain", "Second-level domain", "Top-level domain", "Subdirectory (path)", "Query param"], "items": [{"t": "https", "a": [0]}, {"t": "shop", "a": [1]}, {"t": "example", "a": [2]}, {"t": "com", "a": [3]}, {"t": "/products", "a": [4]}, {"t": "category=sua", "a": [5]}, {"t": "page=2", "a": [5]}]},
+        {"kind": "choice", "q": "2) Gửi URL https://shop.example.com/products?category=sua&page=2 bằng GET nghĩa là gì?", "options": ["Thêm một sản phẩm mới vào nhóm \"sua\"", "Lấy trang 2 của danh sách sản phẩm nhóm \"sua\"", "Xem chi tiết sản phẩm có id là 2", "Xóa trang 2 của danh sách sản phẩm"], "answer": [1], "multi": false, "why": "Path /products là danh sách sản phẩm; category=sua lọc theo nhóm, page=2 lấy trang 2. GET chỉ đọc dữ liệu, không thêm hay xóa."}
       ]
     }
   }

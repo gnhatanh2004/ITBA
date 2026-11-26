@@ -176,110 +176,36 @@
       ]
     },
     "L02-p1": {
-      "lead": "Sắp xếp các bước phân rã, rồi kéo từng phần của chức năng đặt bàn vào đúng chỗ.",
+      "lead": "Chọn client, server và đường truyền của chức năng đặt bàn, rồi kéo từng việc vào đúng tầng N-Tier.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp các bước làm theo đúng thứ tự.",
-         "items": ["Tìm client: ai gửi yêu cầu?", "Tìm server: ai nhận, xử lý và trả kết quả?", "Xác định đường truyền", "Liệt kê tầng presentation: những gì khách nhìn và bấm", "Liệt kê tầng business logic: các quy tắc", "Liệt kê tầng data access: các thao tác dữ liệu"]},
-        {"kind": "sort", "q": "2) Trong chức năng đặt bàn FoodNow, mỗi thứ là client, server hay đường truyền?",
-         "bins": ["Client", "Server", "Đường truyền"],
-         "items": [
-           {"t": "App/website FoodNow trên thiết bị của khách", "a": [0], "why": "Là bên gửi yêu cầu."},
-           {"t": "Máy chủ FoodNow", "a": [1], "why": "Là bên nhận, xử lý và trả kết quả."},
-           {"t": "Internet", "a": [2], "why": "Khách dùng điện thoại ở nhà nên đi qua Internet."}
-         ]},
-        {"kind": "sort", "q": "3) Mỗi việc thuộc tầng nào của N-Tier?",
-         "bins": ["Presentation", "Business logic", "Data access"],
-         "items": [
-           {"t": "Màn hình chọn nhà hàng, ngày giờ, số người", "a": [0]},
-           {"t": "Nút \"Đặt bàn\"", "a": [0]},
-           {"t": "Thông báo đặt bàn thành công/thất bại", "a": [0]},
-           {"t": "Kiểm tra còn bàn phù hợp số người tại giờ đó", "a": [1]},
-           {"t": "Chặn đặt giờ đã qua", "a": [1]},
-           {"t": "Tạo mã đặt bàn", "a": [1]},
-           {"t": "Đọc danh sách bàn và lịch đặt từ CSDL", "a": [2]},
-           {"t": "Ghi đơn đặt bàn mới vào CSDL", "a": [2]}
-         ]}
+        {"kind": "choice", "q": "1) Trong chức năng đặt bàn FoodNow, thành phần nào là client?", "options": ["Router Wi-Fi ở nhà của khách", "Đường mạng Internet", "App/website FoodNow trên thiết bị của khách", "CSDL lịch đặt bàn của nhà hàng"], "answer": [2], "multi": false, "why": "Client là bên gửi yêu cầu và nhận kết quả: app/website FoodNow trên thiết bị của khách. Router và Internet thuộc đường truyền, CSDL là nơi server đọc/ghi dữ liệu."},
+        {"kind": "choice", "q": "2) Trong chức năng đặt bàn FoodNow, thành phần nào là server?", "options": ["Máy chủ FoodNow", "Trình duyệt web trên laptop của khách", "Nhân viên nhà hàng nhận đặt bàn", "Đường mạng Internet"], "answer": [0], "multi": false, "why": "Server là bên nhận yêu cầu, xử lý (kiểm tra bàn trống, lưu đơn) và trả kết quả: máy chủ FoodNow. Trình duyệt của khách là client, Internet là đường truyền; nhân viên nhà hàng không phải thành phần của mô hình Client–Server."},
+        {"kind": "choice", "q": "3) Khách đặt bàn bằng điện thoại khi đang ở nhà. Yêu cầu đi tới máy chủ FoodNow qua đường truyền nào?", "options": ["LAN nội bộ của nhà hàng", "Internet", "Đi thẳng từ app vào CSDL, không cần đường truyền"], "answer": [1], "multi": false, "why": "Khách ở nhà, không nằm trong mạng nội bộ của FoodNow, nên yêu cầu đi qua Internet. LAN là mạng nội bộ; client luôn phải đi qua đường truyền mới tới được server."},
+        {"kind": "sort", "q": "4) Mỗi việc trong chức năng đặt bàn thuộc tầng nào của N-Tier?", "bins": ["Presentation", "Business logic", "Data access"], "items": [{"t": "Màn hình chọn nhà hàng, ngày giờ, số người", "a": [0]}, {"t": "Nút \"Đặt bàn\"", "a": [0]}, {"t": "Thông báo đặt bàn thành công/thất bại", "a": [0]}, {"t": "Kiểm tra còn bàn phù hợp số người tại giờ đó", "a": [1]}, {"t": "Chặn đặt giờ đã qua", "a": [1]}, {"t": "Tạo mã đặt bàn", "a": [1]}, {"t": "Đọc danh sách bàn và lịch đặt từ CSDL", "a": [2]}, {"t": "Ghi đơn đặt bàn mới vào CSDL", "a": [2]}]}
       ]
     },
     "L02-p2": {
-      "lead": "Ghép dấu hiệu với zone, rồi kéo 7 thành phần của SolasMart vào đúng zone.",
+      "lead": "Kéo các thành phần của SolasMart vào đúng zone, rồi chọn zone cho hai thành phần còn lại và lý do đặt website ở DMZ.",
       "parts": [
-        {"kind": "sort", "q": "1) Thành phần có đặc điểm này thì đặt ở zone nào?",
-         "bins": ["External/Internet Zone", "DMZ", "Internal Zone", "Database Zone", "Guest Zone", "Management Zone"],
-         "items": [
-           {"t": "Người ngoài Internet cần chạm trực tiếp, nhưng chỉ là trang web", "a": [1]},
-           {"t": "Xử lý nghiệp vụ, API", "a": [2]},
-           {"t": "Dữ liệu và file quan trọng", "a": [3]},
-           {"t": "Phục vụ khách vãng lai, không được vào mạng công ty", "a": [4]},
-           {"t": "Dùng để quản trị, giám sát, sao lưu", "a": [5]}
-         ]},
-        {"kind": "sort", "q": "2) Mỗi thành phần của SolasMart nằm ở zone nào?",
-         "bins": ["External/Internet Zone", "DMZ", "Internal Zone", "Database Zone", "Guest Zone", "Management Zone"],
-         "items": [
-           {"t": "(1) Website bán hàng online", "a": [1]},
-           {"t": "(2) Service xử lý đơn hàng", "a": [2]},
-           {"t": "(3) CSDL khách hàng", "a": [3]},
-           {"t": "(4) Wi-Fi cho khách tại cửa hàng", "a": [4]},
-           {"t": "(5) Công cụ giám sát máy chủ", "a": [5]},
-           {"t": "(6) Thư mục lưu file hóa đơn", "a": [3], "why": "Slide ghi ví dụ của Database Zone là \"Database, File\"."},
-           {"t": "(7) Công cụ sao lưu dữ liệu", "a": [5], "why": "Slide ghi ví dụ của Management Zone là \"Monitoring, Backup\"."}
-         ]}
+        {"kind": "sort", "q": "1) Mỗi thành phần của SolasMart nằm ở zone nào?", "bins": ["External/Internet Zone", "DMZ", "Internal Zone", "Database Zone", "Guest Zone", "Management Zone"], "items": [{"t": "(1) Website bán hàng online", "a": [1]}, {"t": "(2) Service xử lý đơn hàng", "a": [2]}, {"t": "(3) CSDL khách hàng", "a": [3]}, {"t": "(4) Wi-Fi cho khách tại cửa hàng", "a": [4], "why": "Guest Zone dành cho khách, không truy cập được mạng công ty."}, {"t": "(5) Công cụ giám sát máy chủ", "a": [5]}]},
+        {"kind": "choice", "q": "2) (6) Thư mục lưu file hóa đơn và (7) công cụ sao lưu dữ liệu lần lượt nằm ở zone nào?", "options": ["Internal Zone; Database Zone", "Management Zone; Database Zone", "Database Zone; Management Zone", "DMZ; Internal Zone"], "answer": [2], "multi": false, "why": "Slide ghi ví dụ của Database Zone là \"Database, File\" nên thư mục file hóa đơn thuộc Database Zone. Ví dụ của Management Zone là \"Monitoring, Backup\" nên công cụ sao lưu thuộc Management Zone."},
+        {"kind": "choice", "q": "3) Vì sao website bán hàng online đặt ở DMZ chứ không đặt ở Internal Zone?", "options": ["Vì DMZ là vùng tin cậy cao nhất trong mạng, nơi đặt các dữ liệu quan trọng nhất của công ty", "Vì khách từ Internet phải vào được website, nên đặt ở vùng trung gian giữa Internet và mạng nội bộ", "Vì DMZ là vùng dành riêng cho quản trị viên giám sát và sao lưu toàn bộ hệ thống", "Vì website phải chứa luôn CSDL khách hàng bên trong để trả lời khách nhanh hơn"], "answer": [1], "multi": false, "why": "Người ngoài Internet cần chạm trực tiếp vào website, nhưng chỉ là trang web, nên đặt ở DMZ: vùng trung gian, tin cậy thấp. Dữ liệu quan trọng nằm ở Database Zone, quản trị và giám sát ở Management Zone; website không chứa CSDL."}
       ]
     },
     "L02-p3": {
-      "lead": "Chọn cách xem IP của máy, rồi kéo từng địa chỉ vào đúng loại.",
+      "lead": "Chọn cách xem IP private và IP public, giải thích vì sao chúng khác nhau, rồi phân loại các địa chỉ.",
       "parts": [
-        {"kind": "sort", "q": "1) Mỗi cách làm dùng để xem IP nào?",
-         "bins": ["Xem IP private", "Xem IP public"],
-         "items": [
-           {"t": "Windows: mở cmd, gõ ipconfig", "a": [0]},
-           {"t": "Linux/macOS: mở terminal, gõ ifconfig", "a": [0]},
-           {"t": "Tìm dòng IPv4 Address, thường dạng 192.168.x.x", "a": [0]},
-           {"t": "Mở trình duyệt, vào whatismyipaddress.com", "a": [1]},
-           {"t": "Ghi lại IP và tên ISP hiển thị trên trang web", "a": [1]}
-         ]},
-        {"kind": "choice", "q": "2) Vì sao IP private và IP public của máy bạn khác nhau?",
-         "options": [
-           "Vì trang whatismyipaddress.com hiển thị sai",
-           "Vì nhiều thiết bị trong nhà dùng chung một IP public của router",
-           "Vì IP private chỉ có khi máy không kết nối Internet"
-         ],
-         "answer": [1], "multi": false,
-         "why": "Các thiết bị trong nhà mỗi máy có IP private riêng, nhưng ra Internet đều dùng chung IP public của router do ISP cấp."},
-        {"kind": "sort", "q": "3) Mỗi địa chỉ thuộc loại nào?",
-         "bins": ["IPv4 private", "IPv4 public", "IPv6"],
-         "items": [
-           {"t": "192.168.1.10", "a": [0], "why": "Nằm trong dải 192.168.x.x."},
-           {"t": "8.8.8.8", "a": [1]},
-           {"t": "172.20.5.1", "a": [0], "why": "Nằm trong dải 172.16–172.31."},
-           {"t": "172.40.1.1", "a": [1], "why": "172.40 nằm ngoài dải 172.16–172.31."},
-           {"t": "10.1.2.3", "a": [0], "why": "Nằm trong dải 10.x.x.x."},
-           {"t": "2001:0db8:85a3:0000:0000:8a2e:0370:7334", "a": [2], "why": "8 nhóm số cách bằng dấu hai chấm là IPv6."}
-         ]}
+        {"kind": "choice", "q": "1) Muốn biết IP private và IP public của máy đang dùng, cách nào đúng?", "options": ["IP private: mở cmd gõ ipconfig (Windows) hoặc terminal gõ ifconfig (Linux/macOS). IP public: vào trang whatismyipaddress.com", "IP private: vào trang whatismyipaddress.com. IP public: mở cmd gõ ipconfig (Windows) hoặc terminal gõ ifconfig (Linux/macOS)", "Cả hai: mở cmd gõ ipconfig (Windows), IP private và IP public cùng hiện ở dòng IPv4 Address, không cần vào trang web nào"], "answer": [0], "multi": false, "why": "ipconfig/ifconfig cho biết IP private của máy trong mạng nội bộ (dòng IPv4 Address, thường dạng 192.168.x.x). IP public là IP router dùng ra Internet, xem trên trang whatismyipaddress.com, trang này hiện cả tên ISP."},
+        {"kind": "choice", "q": "2) Vì sao IP private và IP public của máy bạn khác nhau?", "options": ["Vì trang whatismyipaddress.com đọc sai IP của máy, nên hiện ra một số khác", "Vì IP private chỉ có khi máy không kết nối Internet, có mạng thì đổi sang IP public", "Vì nhiều thiết bị trong nhà dùng chung một IP public của router do ISP cấp"], "answer": [2], "multi": false, "why": "Mỗi thiết bị trong nhà có IP private riêng, nhưng khi ra Internet đều đi qua router và dùng chung IP public do ISP cấp."},
+        {"kind": "sort", "q": "3) Mỗi địa chỉ thuộc loại nào?", "bins": ["IPv4 private", "IPv4 public", "IPv6"], "items": [{"t": "192.168.1.10", "a": [0], "why": "Nằm trong dải 192.168.x.x."}, {"t": "8.8.8.8", "a": [1], "why": "Nằm ngoài cả 3 dải private."}, {"t": "172.20.5.1", "a": [0], "why": "Nằm trong dải 172.16–172.31."}, {"t": "172.40.1.1", "a": [1], "why": "172.40 nằm ngoài dải 172.16–172.31."}, {"t": "10.1.2.3", "a": [0], "why": "Nằm trong dải 10.x.x.x."}, {"t": "2001:0db8:85a3:0000:0000:8a2e:0370:7334", "a": [2], "why": "8 nhóm số cách bằng dấu hai chấm là IPv6."}]}
       ]
     },
     "L02-p4": {
-      "lead": "Sắp xếp đường đi của yêu cầu trên mô hình logic, rồi chọn vai trò của Message Queue và Cache.",
+      "lead": "Xếp các khối theo đường đi của yêu cầu trên mô hình logic, rồi chọn vai trò của Message Queue và Cache.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp đường đi của một yêu cầu từ Website nghiệp vụ tới Database summary.",
-         "items": ["Website nghiệp vụ (WAN zone)", "Firewall thứ nhất", "Load balancer chia tải", "Web FE / Gateway", "Firewall thứ hai", "Service BE trong backend xử lý yêu cầu", "Đặt việc vào Message Queue", "Các service nghiệp vụ lấy việc ra xử lý, đọc Database nghiệp vụ", "Ghi kết quả vào Database summary"]},
-        {"kind": "choice", "q": "2) Message Queue có vai trò gì?",
-         "options": [
-           "Chia tải yêu cầu cho nhiều máy chủ web",
-           "Lưu tạm dữ liệu hay đọc để trả nhanh, giảm tải cho CSDL",
-           "Lọc, chặn lưu lượng giữa các vùng mạng",
-           "Hàng đợi giúp backend không phải chờ service xử lý xong; khi nhiều yêu cầu dồn tới, việc được xếp hàng và xử lý dần nên hệ thống không nghẽn"
-         ],
-         "answer": [3], "multi": false,
-         "why": "Message Queue là hàng đợi giữa backend và các service. Chia tải là việc của Load balancer, lưu tạm dữ liệu hay đọc là Cache, lọc lưu lượng giữa các zone là Firewall."},
-        {"kind": "choice", "q": "3) Cache (Redis) có vai trò gì?",
-         "options": [
-           "Lưu tạm dữ liệu hay đọc để trả nhanh, giảm tải cho CSDL",
-           "Xếp hàng các việc để service xử lý dần",
-           "Chia tải yêu cầu cho nhiều máy chủ web"
-         ],
-         "answer": [0], "multi": false,
-         "why": "Cache (Redis) lưu tạm dữ liệu hay đọc để trả nhanh, giảm tải cho CSDL. Xếp hàng việc là Message Queue, chia tải là Load balancer."}
+        {"kind": "order", "q": "1) Sắp xếp các khối mà một yêu cầu đi qua trên mô hình logic, từ Website nghiệp vụ tới Database summary.", "items": ["Website nghiệp vụ (WAN zone)", "Firewall ngoài", "Load balancer", "Web FE / Gateway", "Firewall trước Internal zone", "Service BE (backend)", "Message Queue", "Các service nghiệp vụ", "Database summary"], "why": "Theo mô hình logic: Website nghiệp vụ → Firewall → Load balancer chia tải → Web FE / Gateway → Firewall → Service BE xử lý → đặt việc vào Message Queue → các service nghiệp vụ lấy việc ra, đọc dữ liệu nghiệp vụ → ghi kết quả vào Database summary."},
+        {"kind": "choice", "q": "2) Trong luồng trên, Message Queue có vai trò gì?", "options": ["Chia đều yêu cầu cho nhiều máy chủ web để không máy nào bị quá tải", "Lưu tạm dữ liệu hay đọc để trả nhanh, giảm tải cho CSDL", "Lọc, chặn lưu lượng giữa các vùng mạng để chống truy cập trái phép", "Xếp hàng việc từ backend để service xử lý dần, không nghẽn khi yêu cầu dồn tới"], "answer": [3], "multi": false, "why": "Message Queue là hàng đợi: backend đặt việc vào rồi không phải chờ, các service lấy ra xử lý dần nên không nghẽn khi nhiều yêu cầu cùng lúc. Chia tải là Load balancer, lưu tạm dữ liệu hay đọc là Cache, lọc lưu lượng là Firewall."},
+        {"kind": "choice", "q": "3) Cache (Redis) trong khối Database system có vai trò gì?", "options": ["Xếp hàng việc từ backend để các service lấy ra xử lý dần", "Lưu tạm dữ liệu hay đọc để trả nhanh, giảm tải cho CSDL", "Chia đều yêu cầu cho nhiều máy chủ web để không máy nào quá tải", "Lưu bản sao lưu dài hạn của CSDL để khôi phục khi máy chính hỏng"], "answer": [1], "multi": false, "why": "Cache (Redis) là bộ nhớ đệm, lưu tạm dữ liệu hay đọc để trả nhanh và giảm tải cho CSDL. Xếp hàng việc là Message Queue, chia tải là Load balancer, sao lưu là DB Backup."}
       ]
     }
   }

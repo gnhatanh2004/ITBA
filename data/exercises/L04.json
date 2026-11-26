@@ -4,364 +4,1145 @@
     "L04-x1": {
       "lead": "Kéo mỗi stakeholder của app đặt đồ ăn vào đúng nhóm.",
       "parts": [
-        {"kind": "sort", "q": "Mỗi bên thuộc nhóm Primary, Secondary hay Key?",
-         "bins": ["Primary", "Secondary", "Key"],
-         "items": [
-           {"t": "(1) Khách đặt món", "a": [0], "why": "Dùng app trực tiếp, hưởng lợi trực tiếp."},
-           {"t": "(2) Giám đốc công ty, người duyệt ngân sách", "a": [2], "why": "Có quyền duyệt, chi tiền."},
-           {"t": "(3) Nhà hàng đối tác nhận đơn trên app", "a": [0], "why": "Dùng app trực tiếp để nhận đơn."},
-           {"t": "(4) Tài xế giao hàng dùng app tài xế", "a": [0], "why": "Dùng app tài xế hằng ngày."},
-           {"t": "(5) Ngân hàng cung cấp cổng thanh toán", "a": [1], "why": "Hỗ trợ, phối hợp, không dùng sản phẩm chính."},
-           {"t": "(6) Bộ phận IT vận hành máy chủ", "a": [1], "why": "Hỗ trợ vận hành, không dùng sản phẩm chính."},
-           {"t": "(7) Product Owner", "a": [2], "why": "Slide lấy PO làm ví dụ của Key: ra quyết định, phê duyệt."}
-         ]}
+        {
+          "kind": "sort",
+          "q": "Mỗi bên thuộc nhóm Primary, Secondary hay Key?",
+          "bins": [
+            "Primary",
+            "Secondary",
+            "Key"
+          ],
+          "items": [
+            {
+              "t": "(1) Khách đặt món",
+              "a": [
+                0
+              ],
+              "why": "Dùng app trực tiếp, hưởng lợi trực tiếp."
+            },
+            {
+              "t": "(2) Giám đốc công ty, người duyệt ngân sách",
+              "a": [
+                2
+              ],
+              "why": "Có quyền duyệt, chi tiền."
+            },
+            {
+              "t": "(3) Nhà hàng đối tác nhận đơn trên app",
+              "a": [
+                0
+              ],
+              "why": "Dùng app trực tiếp để nhận đơn."
+            },
+            {
+              "t": "(4) Tài xế giao hàng dùng app tài xế",
+              "a": [
+                0
+              ],
+              "why": "Dùng app tài xế hằng ngày."
+            },
+            {
+              "t": "(5) Ngân hàng cung cấp cổng thanh toán",
+              "a": [
+                1
+              ],
+              "why": "Hỗ trợ, phối hợp, không dùng sản phẩm chính."
+            },
+            {
+              "t": "(6) Bộ phận IT vận hành máy chủ",
+              "a": [
+                1
+              ],
+              "why": "Hỗ trợ vận hành, không dùng sản phẩm chính."
+            },
+            {
+              "t": "(7) Product Owner",
+              "a": [
+                2
+              ],
+              "why": "Slide lấy PO làm ví dụ của Key: ra quyết định, phê duyệt."
+            }
+          ]
+        }
       ]
     },
     "L04-x2": {
       "lead": "Chọn ô ma trận cho nhân viên HR, rồi kéo từng chiến lược vào đúng người.",
       "parts": [
-        {"kind": "choice", "q": "1) Nhân viên HR (Ảnh hưởng Thấp, Quan tâm Trung bình) dùng hệ thống hằng ngày. Chiến lược lấy theo ô nào của ma trận Power – Interest?",
-         "options": ["High Power – High Interest", "High Power – Low Interest", "Low Power – High Interest", "Low Power – Low Interest"],
-         "answer": [2], "multi": false,
-         "why": "Mức \"Trung bình\" không có ô riêng. Nhân viên HR dùng hệ thống hằng ngày, giống ví dụ \"nhân viên nghiệp vụ\" ở ô Low Power – High Interest: lắng nghe, thu thập ý kiến chi tiết, giữ trong vòng thông tin."},
-        {"kind": "sort", "q": "2) Mỗi chiến lược quản lý là của ai trong Stakeholder Register?",
-         "bins": ["Lê Văn C – IT Manager", "Phạm Thị D – Nhân viên HR", "Đặng Hoài E – Nhà cung cấp giải pháp chấm công", "Team Dev"],
-         "items": [
-           {"t": "Mời vào các buổi bàn về tích hợp, hạ tầng", "a": [0]},
-           {"t": "Hỏi ý kiến trước khi chốt giải pháp kỹ thuật; báo cáo tiến độ phần kỹ thuật", "a": [0]},
-           {"t": "Trao đổi cách tuần, Tech Lead phụ trách", "a": [0]},
-           {"t": "Lắng nghe, thu thập ý kiến chi tiết qua elicitation", "a": [1]},
-           {"t": "Giữ trong vòng thông tin để tăng mức độ chấp nhận", "a": [1]},
-           {"t": "Cập nhật thông tin khi cần; không cần tham gia elicitation nghiệp vụ", "a": [2]},
-           {"t": "Chỉ làm việc sâu khi đặc tả và kiểm thử kết nối API", "a": [2]},
-           {"t": "Trao đổi hằng ngày; giải thích yêu cầu", "a": [3]},
-           {"t": "Báo ngay khi yêu cầu thay đổi", "a": [3]}
-         ]}
+        {
+          "kind": "choice",
+          "q": "1) Nhân viên HR (Ảnh hưởng Thấp, Quan tâm Trung bình) dùng hệ thống hằng ngày. Chiến lược lấy theo ô nào của ma trận Power – Interest?",
+          "options": [
+            "High Power – High Interest",
+            "High Power – Low Interest",
+            "Low Power – High Interest",
+            "Low Power – Low Interest"
+          ],
+          "answer": [
+            2
+          ],
+          "multi": false,
+          "why": "Mức \"Trung bình\" không có ô riêng. Nhân viên HR dùng hệ thống hằng ngày, giống ví dụ \"nhân viên nghiệp vụ\" ở ô Low Power – High Interest: lắng nghe, thu thập ý kiến chi tiết, giữ trong vòng thông tin."
+        },
+        {
+          "kind": "sort",
+          "q": "2) Mỗi chiến lược quản lý là của ai trong Stakeholder Register?",
+          "bins": [
+            "Lê Văn C – IT Manager",
+            "Phạm Thị D – Nhân viên HR",
+            "Đặng Hoài E – Nhà cung cấp giải pháp chấm công",
+            "Team Dev"
+          ],
+          "items": [
+            {
+              "t": "Mời vào các buổi bàn về tích hợp, hạ tầng",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Hỏi ý kiến trước khi chốt giải pháp kỹ thuật; báo cáo tiến độ phần kỹ thuật",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Trao đổi cách tuần, Tech Lead phụ trách",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Lắng nghe, thu thập ý kiến chi tiết qua elicitation",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Giữ trong vòng thông tin để tăng mức độ chấp nhận",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Cập nhật thông tin khi cần; không cần tham gia elicitation nghiệp vụ",
+              "a": [
+                2
+              ]
+            },
+            {
+              "t": "Chỉ làm việc sâu khi đặc tả và kiểm thử kết nối API",
+              "a": [
+                2
+              ]
+            },
+            {
+              "t": "Trao đổi hằng ngày; giải thích yêu cầu",
+              "a": [
+                3
+              ]
+            },
+            {
+              "t": "Báo ngay khi yêu cầu thay đổi",
+              "a": [
+                3
+              ]
+            }
+          ]
+        }
       ]
     },
     "L04-x3": {
       "lead": "Kéo mỗi việc vào đúng 1 trong 6 lĩnh vực kiến thức.",
       "parts": [
-        {"kind": "sort", "q": "Việc này thuộc lĩnh vực kiến thức nào?",
-         "bins": ["Business Analysis Planning and Monitoring", "Elicitation and Collaboration", "Requirements Life Cycle Management", "Strategy Analysis", "Requirements Analysis and Design Definition (RADD)", "Solution Evaluation"],
-         "items": [
-           {"t": "(a) Vẽ quy trình đặt bàn của FoodNow", "a": [4], "why": "Mô hình hóa quy trình thuộc RADD."},
-           {"t": "(b) Lập ma trận truy vết yêu cầu", "a": [2], "why": "Truy vết yêu cầu."},
-           {"t": "(c) Phân tích quy trình bán hàng hiện tại của SolasMart (AS-IS)", "a": [3], "why": "Phân tích hiện trạng AS-IS."},
-           {"t": "(d) Chọn kỹ thuật khảo sát cho từng stakeholder", "a": [0], "why": "Lựa chọn kỹ thuật khảo sát là việc lập kế hoạch BA."},
-           {"t": "(e) Tổ chức workshop với thủ thư", "a": [1], "why": "Thực hiện khảo sát (workshop)."},
-           {"t": "(f) Ba tháng sau go-live, đo xem thời gian thanh toán tại quầy có giảm không", "a": [5], "why": "Đánh giá giải pháp sau khi triển khai, kiểm tra giá trị mang lại."},
-           {"t": "(g) Xử lý Change Request thêm báo cáo", "a": [2], "why": "Quản lý thay đổi."},
-           {"t": "(h) Xây dựng User Story", "a": [4], "why": "Xây dựng Use Case, User Story thuộc RADD."}
-         ]}
+        {
+          "kind": "sort",
+          "q": "Việc này thuộc lĩnh vực kiến thức nào?",
+          "bins": [
+            "Business Analysis Planning and Monitoring",
+            "Elicitation and Collaboration",
+            "Requirements Life Cycle Management",
+            "Strategy Analysis",
+            "Requirements Analysis and Design Definition (RADD)",
+            "Solution Evaluation"
+          ],
+          "items": [
+            {
+              "t": "(a) Vẽ quy trình đặt bàn của FoodNow",
+              "a": [
+                4
+              ],
+              "why": "Mô hình hóa quy trình thuộc RADD."
+            },
+            {
+              "t": "(b) Lập ma trận truy vết yêu cầu",
+              "a": [
+                2
+              ],
+              "why": "Truy vết yêu cầu."
+            },
+            {
+              "t": "(c) Phân tích quy trình bán hàng hiện tại của SolasMart (AS-IS)",
+              "a": [
+                3
+              ],
+              "why": "Phân tích hiện trạng AS-IS."
+            },
+            {
+              "t": "(d) Chọn kỹ thuật khảo sát cho từng stakeholder",
+              "a": [
+                0
+              ],
+              "why": "Lựa chọn kỹ thuật khảo sát là việc lập kế hoạch BA."
+            },
+            {
+              "t": "(e) Tổ chức workshop với thủ thư",
+              "a": [
+                1
+              ],
+              "why": "Thực hiện khảo sát (workshop)."
+            },
+            {
+              "t": "(f) Ba tháng sau go-live, đo xem thời gian thanh toán tại quầy có giảm không",
+              "a": [
+                5
+              ],
+              "why": "Đánh giá giải pháp sau khi triển khai, kiểm tra giá trị mang lại."
+            },
+            {
+              "t": "(g) Xử lý Change Request thêm báo cáo",
+              "a": [
+                2
+              ],
+              "why": "Quản lý thay đổi."
+            },
+            {
+              "t": "(h) Xây dựng User Story",
+              "a": [
+                4
+              ],
+              "why": "Xây dựng Use Case, User Story thuộc RADD."
+            }
+          ]
+        }
       ]
     },
     "L04-x4": {
       "lead": "Xếp 4 trường hợp vào hai nhóm, ghép nguyên nhân, rồi chọn cách phòng.",
       "parts": [
-        {"kind": "sort", "q": "1) Trường hợp nào là scope creep?",
-         "bins": ["Scope creep", "Không phải scope creep"],
-         "items": [
-           {"t": "(1) Chủ nhà hàng nhắn trực tiếp cho dev xin thêm \"gọi món trước\", dev làm luôn", "a": [0]},
-           {"t": "(2) Yêu cầu ghi \"nhắc lịch kịp thời\", sau đó khách đòi nhắc cả SMS và email trước 24 giờ và 2 giờ", "a": [0]},
-           {"t": "(3) PM nói \"khách là thượng đế\" nên nhận thêm tính năng đánh giá nhà hàng", "a": [0]},
-           {"t": "(4) Khách muốn thêm thanh toán đặt cọc, BA lập Change Request và Sponsor duyệt kèm thêm thời gian", "a": [1], "why": "Thay đổi có kiểm soát qua Change Request, được đánh giá và phê duyệt."}
-         ]},
-        {"kind": "sort", "q": "2) Mỗi trường hợp scope creep do nguyên nhân nào trên slide?",
-         "bins": ["Hiểu sai yêu cầu", "Yêu cầu không rõ ràng, mơ hồ", "Khách hàng thay đổi yêu cầu liên tục", "Không thống nhất Scope từ đầu", "Không có quy trình Change Request", "BA/PM quá chiều khách hàng", "Bối cảnh thay đổi", "Dự án kéo dài quá lâu"],
-         "items": [
-           {"t": "(1) Yêu cầu đi thẳng tới dev, dev làm luôn", "a": [4]},
-           {"t": "(2) Yêu cầu chỉ ghi \"nhắc lịch kịp thời\", không nói kênh và thời điểm, hai bên hiểu khác nhau", "a": [1, 0], "why": "\"Kịp thời\" không đo được, mơ hồ, dẫn đến hiểu sai."},
-           {"t": "(3) PM nhận thêm tính năng vì \"khách là thượng đế\"", "a": [5]}
-         ]},
-        {"kind": "choice", "q": "3) Cách viết yêu cầu nhắc lịch nào đo được, tránh hiểu sai?",
-         "options": ["Gửi nhắc qua SMS trước giờ đặt 2 giờ", "Nhắc lịch kịp thời cho khách", "Nhắc lịch nhanh chóng, thuận tiện", "Nhắc lịch khi cần thiết"],
-         "answer": [0], "multi": false,
-         "why": "Yêu cầu tốt nói rõ kênh và thời điểm nên đo được. \"Kịp thời\", \"nhanh chóng\", \"khi cần thiết\" mơ hồ, là nguyên nhân gây scope creep."},
-        {"kind": "choice", "q": "4) Những cách nào giúp phòng scope creep? (chọn tất cả ý đúng)",
-         "options": [
-           "Cho dev nhận yêu cầu trực tiếp từ khách để làm nhanh",
-           "Chốt scope bằng văn bản với khách hàng trước khi bắt đầu",
-           "Quy định mọi yêu cầu mới phải gửi BA và đi qua Change Request",
-           "Nhận ngay mọi yêu cầu mới để giữ quan hệ với khách",
-           "BA/PM ghi nhận và đánh giá tác động thay vì nhận ngay",
-           "Viết yêu cầu chung chung để sau này linh hoạt",
-           "Viết yêu cầu đo được"
-         ],
-         "answer": [1, 2, 4, 6], "multi": true,
-         "why": "Cách phòng theo bài: chốt scope bằng văn bản, viết yêu cầu rõ ràng đo được, có quy trình Change Request, biết nói \"ghi nhận và đánh giá\" thay vì \"OK làm luôn\". Các ý còn lại chính là nguyên nhân gây scope creep."}
+        {
+          "kind": "sort",
+          "q": "1) Trường hợp nào là scope creep?",
+          "bins": [
+            "Scope creep",
+            "Không phải scope creep"
+          ],
+          "items": [
+            {
+              "t": "(1) Chủ nhà hàng nhắn trực tiếp cho dev xin thêm \"gọi món trước\", dev làm luôn",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "(2) Yêu cầu ghi \"nhắc lịch kịp thời\", sau đó khách đòi nhắc cả SMS và email trước 24 giờ và 2 giờ",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "(3) PM nói \"khách là thượng đế\" nên nhận thêm tính năng đánh giá nhà hàng",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "(4) Khách muốn thêm thanh toán đặt cọc, BA lập Change Request và Sponsor duyệt kèm thêm thời gian",
+              "a": [
+                1
+              ],
+              "why": "Thay đổi có kiểm soát qua Change Request, được đánh giá và phê duyệt."
+            }
+          ]
+        },
+        {
+          "kind": "sort",
+          "q": "2) Mỗi trường hợp scope creep do nguyên nhân nào trên slide?",
+          "bins": [
+            "Hiểu sai yêu cầu",
+            "Yêu cầu không rõ ràng, mơ hồ",
+            "Khách hàng thay đổi yêu cầu liên tục",
+            "Không thống nhất Scope từ đầu",
+            "Không có quy trình Change Request",
+            "BA/PM quá chiều khách hàng",
+            "Bối cảnh thay đổi",
+            "Dự án kéo dài quá lâu"
+          ],
+          "items": [
+            {
+              "t": "(1) Yêu cầu đi thẳng tới dev, dev làm luôn",
+              "a": [
+                4
+              ]
+            },
+            {
+              "t": "(2) Yêu cầu chỉ ghi \"nhắc lịch kịp thời\", không nói kênh và thời điểm, hai bên hiểu khác nhau",
+              "a": [
+                1,
+                0
+              ],
+              "why": "\"Kịp thời\" không đo được, mơ hồ, dẫn đến hiểu sai."
+            },
+            {
+              "t": "(3) PM nhận thêm tính năng vì \"khách là thượng đế\"",
+              "a": [
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "q": "3) Cách viết yêu cầu nhắc lịch nào đo được, tránh hiểu sai?",
+          "options": [
+            "Gửi nhắc qua SMS trước giờ đặt 2 giờ",
+            "Nhắc lịch kịp thời cho khách",
+            "Nhắc lịch nhanh chóng, thuận tiện",
+            "Nhắc lịch khi cần thiết"
+          ],
+          "answer": [
+            0
+          ],
+          "multi": false,
+          "why": "Yêu cầu tốt nói rõ kênh và thời điểm nên đo được. \"Kịp thời\", \"nhanh chóng\", \"khi cần thiết\" mơ hồ, là nguyên nhân gây scope creep."
+        },
+        {
+          "kind": "choice",
+          "q": "4) Những cách nào giúp phòng scope creep? (chọn tất cả ý đúng)",
+          "options": [
+            "Cho dev nhận yêu cầu trực tiếp từ khách để làm nhanh",
+            "Chốt scope bằng văn bản với khách hàng trước khi bắt đầu",
+            "Quy định mọi yêu cầu mới phải gửi BA và đi qua Change Request",
+            "Nhận ngay mọi yêu cầu mới để giữ quan hệ với khách",
+            "BA/PM ghi nhận và đánh giá tác động thay vì nhận ngay",
+            "Viết yêu cầu chung chung để sau này linh hoạt",
+            "Viết yêu cầu đo được"
+          ],
+          "answer": [
+            1,
+            2,
+            4,
+            6
+          ],
+          "multi": true,
+          "why": "Cách phòng theo bài: chốt scope bằng văn bản, viết yêu cầu rõ ràng đo được, có quy trình Change Request, biết nói \"ghi nhận và đánh giá\" thay vì \"OK làm luôn\". Các ý còn lại chính là nguyên nhân gây scope creep."
+        }
       ]
     },
     "L04-x5": {
       "lead": "Gán chữ R/A/C/I cho từng việc, rồi chọn các dòng RACI hợp lệ.",
       "parts": [
-        {"kind": "sort", "q": "1) Mỗi mô tả ứng với vai trò nào trong RACI?",
-         "bins": ["R – Responsible", "A – Accountable", "C – Consulted", "I – Informed"],
-         "items": [
-           {"t": "Thu ngân trực tiếp làm UAT chức năng thanh toán tại quầy", "a": [0], "why": "Thu ngân là người dùng thật nên trực tiếp làm UAT."},
-           {"t": "Quản lý siêu thị ký xác nhận kết quả UAT", "a": [1]},
-           {"t": "Quản lý kho được hỏi ý kiến khi BA khảo sát quy trình nhập kho", "a": [2]},
-           {"t": "Tester chỉ cần biết kết quả khảo sát quy trình nhập kho", "a": [3]},
-           {"t": "BA trực tiếp viết tài liệu yêu cầu phần bán hàng online", "a": [0]},
-           {"t": "Ban Giám đốc được báo khi tài liệu yêu cầu bán hàng online đã duyệt", "a": [3]}
-         ]},
-        {"kind": "choice", "q": "2) Theo thông lệ, mỗi công việc trong bảng RACI nên có bao nhiêu người A?",
-         "options": ["Không cần người A", "Mỗi vai trò đều là A", "Đúng một người A", "Ít nhất hai người A để kiểm tra chéo"],
-         "answer": [2], "multi": false,
-         "why": "Mỗi việc chỉ nên có một A để rõ ai chịu trách nhiệm cuối cùng."},
-        {"kind": "choice", "q": "3) Những dòng RACI nào hợp lệ? (chọn tất cả ý đúng)",
-         "options": [
-           "Khảo sát quy trình nhập kho: BA = R, A; Quản lý kho = C; Quản lý siêu thị = I; Tester = I",
-           "Phê duyệt tài liệu yêu cầu bán hàng online: Quản lý siêu thị = A; Ban Giám đốc = A; BA = R; Quản lý kho = C",
-           "UAT thanh toán tại quầy: Thu ngân = R; Quản lý siêu thị = A; BA = C; Tester = C; Ban Giám đốc = I",
-           "UAT thanh toán tại quầy: Thu ngân = R; BA = C; Tester = C; Ban Giám đốc = I",
-           "Phê duyệt tài liệu yêu cầu bán hàng online: Quản lý siêu thị = A; BA = R; Quản lý kho = C; Ban Giám đốc = I; Tester = I"
-         ],
-         "answer": [0, 2, 4], "multi": true,
-         "why": "Các dòng hợp lệ có đúng một A. Dòng phê duyệt có cả Quản lý siêu thị và Ban Giám đốc là A (hai A); dòng UAT thiếu A nên không rõ ai ký xác nhận."}
+        {
+          "kind": "sort",
+          "q": "1) Mỗi mô tả ứng với vai trò nào trong RACI?",
+          "bins": [
+            "R – Responsible",
+            "A – Accountable",
+            "C – Consulted",
+            "I – Informed"
+          ],
+          "items": [
+            {
+              "t": "Thu ngân trực tiếp làm UAT chức năng thanh toán tại quầy",
+              "a": [
+                0
+              ],
+              "why": "Thu ngân là người dùng thật nên trực tiếp làm UAT."
+            },
+            {
+              "t": "Quản lý siêu thị ký xác nhận kết quả UAT",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Quản lý kho được hỏi ý kiến khi BA khảo sát quy trình nhập kho",
+              "a": [
+                2
+              ]
+            },
+            {
+              "t": "Tester chỉ cần biết kết quả khảo sát quy trình nhập kho",
+              "a": [
+                3
+              ]
+            },
+            {
+              "t": "BA trực tiếp viết tài liệu yêu cầu phần bán hàng online",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Ban Giám đốc được báo khi tài liệu yêu cầu bán hàng online đã duyệt",
+              "a": [
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "q": "2) Theo thông lệ, mỗi công việc trong bảng RACI nên có bao nhiêu người A?",
+          "options": [
+            "Không cần người A",
+            "Mỗi vai trò đều là A",
+            "Đúng một người A",
+            "Ít nhất hai người A để kiểm tra chéo"
+          ],
+          "answer": [
+            2
+          ],
+          "multi": false,
+          "why": "Mỗi việc chỉ nên có một A để rõ ai chịu trách nhiệm cuối cùng."
+        },
+        {
+          "kind": "choice",
+          "q": "3) Những dòng RACI nào hợp lệ? (chọn tất cả ý đúng)",
+          "options": [
+            "Khảo sát quy trình nhập kho: BA = R, A; Quản lý kho = C; Quản lý siêu thị = I; Tester = I",
+            "Phê duyệt tài liệu yêu cầu bán hàng online: Quản lý siêu thị = A; Ban Giám đốc = A; BA = R; Quản lý kho = C",
+            "UAT thanh toán tại quầy: Thu ngân = R; Quản lý siêu thị = A; BA = C; Tester = C; Ban Giám đốc = I",
+            "UAT thanh toán tại quầy: Thu ngân = R; BA = C; Tester = C; Ban Giám đốc = I",
+            "Phê duyệt tài liệu yêu cầu bán hàng online: Quản lý siêu thị = A; BA = R; Quản lý kho = C; Ban Giám đốc = I; Tester = I"
+          ],
+          "answer": [
+            0,
+            2,
+            4
+          ],
+          "multi": true,
+          "why": "Các dòng hợp lệ có đúng một A. Dòng phê duyệt có cả Quản lý siêu thị và Ban Giám đốc là A (hai A); dòng UAT thiếu A nên không rõ ai ký xác nhận."
+        }
       ]
     },
     "L04-x6": {
       "lead": "Kéo mỗi việc BA làm vào đúng sự việc, rồi chọn cách xử lý.",
       "parts": [
-        {"kind": "sort", "q": "1) Việc BA làm thuộc sự việc nào? (có việc đúng với hơn một sự việc, xếp vào một trong số đó là được)",
-         "bins": ["(1) Thuê đơn vị vận chuyển bên ngoài", "(2) Quản lý kho mới", "(3) Đề nghị chấm công vân tay"],
-         "items": [
-           {"t": "Thêm một dòng mới vào Stakeholder Register (Người quản lý: BA/Tech Lead; tần suất khi cần, dày hơn lúc làm tích hợp)", "a": [0]},
-           {"t": "Lên lịch làm việc về định dạng đơn và trạng thái giao", "a": [0]},
-           {"t": "Giảm ảnh hưởng và quan tâm của dòng \"Nhân viên giao hàng\", ghi chú vai trò thay đổi", "a": [0]},
-           {"t": "Cập nhật Tên; nâng Quan tâm lên Cao và Ảnh hưởng lên Cao/Trung bình", "a": [1]},
-           {"t": "Đổi chiến lược sang tham gia elicitation thường xuyên, hàng tuần", "a": [1]},
-           {"t": "Sắp xếp buổi giới thiệu và xác nhận lại các yêu cầu kho đã có", "a": [1], "why": "Tránh người mới phủ nhận yêu cầu cũ."},
-           {"t": "Giải thích phạm vi đã thống nhất; ghi nhận nhu cầu mới vào danh sách chờ", "a": [2]},
-           {"t": "Giữ nguyên dòng của người đề nghị trong Register", "a": [2]},
-           {"t": "Đi qua Change Request để Ban Giám đốc duyệt hoặc quyết định", "a": [0, 2], "why": "Kết nối đơn vị vận chuyển và chấm công đều là thay đổi phạm vi."}
-         ]},
-        {"kind": "choice", "q": "2) Đơn vị vận chuyển bên ngoài là stakeholder mới. BA phân loại họ vào nhóm nào?",
-         "options": ["Primary", "Secondary", "Key"],
-         "answer": [1], "multi": false,
-         "why": "Đáp án mẫu xếp đơn vị vận chuyển vào Secondary: phối hợp qua kết nối gửi đơn, không phải người duyệt hay chi tiền. BA quay lại Bước 1 để phân tích, rồi Bước 2 để lên lịch làm việc."},
-        {"kind": "choice", "q": "3) Trưởng ca đề nghị thêm chấm công vân tay vào hệ thống bán hàng. BA nên làm gì?",
-         "options": [
-           "Đồng ý làm luôn vì trưởng ca là người dùng hằng ngày",
-           "Bảo team dev thêm vào sprint hiện tại cho kịp",
-           "Từ chối và bỏ trưởng ca khỏi Stakeholder Register",
-           "Ghi nhận, giải thích phạm vi; nếu cần thì lập Change Request để Ban Giám đốc quyết định"
-         ],
-         "answer": [3], "multi": false,
-         "why": "Chấm công là quy trình nhân sự, ngoài phạm vi \"quản lý bán hàng và kho\". Đồng ý ngay là \"BA/PM quá chiều\", gây scope creep. Trưởng ca vẫn giữ nguyên dòng trong Register."}
+        {
+          "kind": "sort",
+          "q": "1) Việc BA làm thuộc sự việc nào? (có việc đúng với hơn một sự việc, xếp vào một trong số đó là được)",
+          "bins": [
+            "(1) Thuê đơn vị vận chuyển bên ngoài",
+            "(2) Quản lý kho mới",
+            "(3) Đề nghị chấm công vân tay"
+          ],
+          "items": [
+            {
+              "t": "Thêm một dòng mới vào Stakeholder Register (Người quản lý: BA/Tech Lead; tần suất khi cần, dày hơn lúc làm tích hợp)",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Lên lịch làm việc về định dạng đơn và trạng thái giao",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Giảm ảnh hưởng và quan tâm của dòng \"Nhân viên giao hàng\", ghi chú vai trò thay đổi",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Cập nhật Tên; nâng Quan tâm lên Cao và Ảnh hưởng lên Cao/Trung bình",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Đổi chiến lược sang tham gia elicitation thường xuyên, hàng tuần",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Sắp xếp buổi giới thiệu và xác nhận lại các yêu cầu kho đã có",
+              "a": [
+                1
+              ],
+              "why": "Tránh người mới phủ nhận yêu cầu cũ."
+            },
+            {
+              "t": "Giải thích phạm vi đã thống nhất; ghi nhận nhu cầu mới vào danh sách chờ",
+              "a": [
+                2
+              ]
+            },
+            {
+              "t": "Giữ nguyên dòng của người đề nghị trong Register",
+              "a": [
+                2
+              ]
+            },
+            {
+              "t": "Đi qua Change Request để Ban Giám đốc duyệt hoặc quyết định",
+              "a": [
+                0,
+                2
+              ],
+              "why": "Kết nối đơn vị vận chuyển và chấm công đều là thay đổi phạm vi."
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "q": "2) Đơn vị vận chuyển bên ngoài là stakeholder mới. BA phân loại họ vào nhóm nào?",
+          "options": [
+            "Primary",
+            "Secondary",
+            "Key"
+          ],
+          "answer": [
+            1
+          ],
+          "multi": false,
+          "why": "Đáp án mẫu xếp đơn vị vận chuyển vào Secondary: phối hợp qua kết nối gửi đơn, không phải người duyệt hay chi tiền. BA quay lại Bước 1 để phân tích, rồi Bước 2 để lên lịch làm việc."
+        },
+        {
+          "kind": "choice",
+          "q": "3) Trưởng ca đề nghị thêm chấm công vân tay vào hệ thống bán hàng. BA nên làm gì?",
+          "options": [
+            "Đồng ý làm luôn vì trưởng ca là người dùng hằng ngày",
+            "Bảo team dev thêm vào sprint hiện tại cho kịp",
+            "Từ chối và bỏ trưởng ca khỏi Stakeholder Register",
+            "Ghi nhận, giải thích phạm vi; nếu cần thì lập Change Request để Ban Giám đốc quyết định"
+          ],
+          "answer": [
+            3
+          ],
+          "multi": false,
+          "why": "Chấm công là quy trình nhân sự, ngoài phạm vi \"quản lý bán hàng và kho\". Đồng ý ngay là \"BA/PM quá chiều\", gây scope creep. Trưởng ca vẫn giữ nguyên dòng trong Register."
+        }
       ]
     },
     "L04-x7": {
       "lead": "Phân loại các bên của hệ thống thư viện, đặt vào ma trận, sắp thứ tự điền cột, rồi chọn rủi ro.",
       "parts": [
-        {"kind": "sort", "q": "1) Cột Phân loại: mỗi bên thuộc nhóm nào?",
-         "bins": ["Primary", "Secondary", "Key"],
-         "items": [
-           {"t": "Hiệu trưởng (duyệt ngân sách)", "a": [2]},
-           {"t": "Trưởng thư viện", "a": [0], "why": "Chủ nghiệp vụ, dùng và chịu ảnh hưởng trực tiếp, giống HR Manager → Primary trong template HRM."},
-           {"t": "Thủ thư", "a": [0]},
-           {"t": "Sinh viên", "a": [0]},
-           {"t": "Phòng IT của trường", "a": [1]},
-           {"t": "Phòng Tài chính (thu tiền phạt)", "a": [1]},
-           {"t": "Nhà cung cấp máy quét mã vạch", "a": [1]}
-         ]},
-        {"kind": "sort", "q": "2) Mỗi bên nằm ở ô nào của ma trận Power – Interest?",
-         "bins": ["High Power – High Interest", "High Power – Low Interest", "Low Power – High Interest", "Low Power – Low Interest"],
-         "items": [
-           {"t": "Hiệu trưởng: ảnh hưởng Cao, quan tâm Thấp", "a": [1], "why": "Báo cáo định kỳ, ngắn gọn, hàng tháng."},
-           {"t": "Trưởng thư viện: ảnh hưởng Cao, quan tâm Cao", "a": [0], "why": "Tham gia elicitation thường xuyên, duyệt trước khi đổi yêu cầu."},
-           {"t": "Thủ thư: ảnh hưởng Thấp, quan tâm Cao", "a": [2], "why": "Quan sát, lắng nghe, giữ thông tin."},
-           {"t": "Nhà cung cấp máy quét: ảnh hưởng Thấp, quan tâm Thấp", "a": [3], "why": "Cập nhật khi cần."}
-         ]},
-        {"kind": "order", "q": "3) Sắp xếp thứ tự nên điền các cột của Stakeholder Register.",
-         "items": ["Tên, Vai trò", "Phân loại", "Nhu cầu", "Mức độ ảnh hưởng, Mức độ quan tâm", "Chiến lược quản lý", "Tần suất trao đổi", "Người quản lý Stakeholder"],
-         "why": "Cột sau dựa vào cột trước: ảnh hưởng và quan tâm quyết định chiến lược, chiến lược quyết định tần suất."},
-        {"kind": "choice", "q": "4) Sinh viên đông nhưng quyền thấp. Cách thu ý kiến nào hợp lý?",
-         "options": ["Khảo sát bằng phiếu, cập nhật thông tin khi cần", "Mời toàn bộ sinh viên dự workshop hàng tuần", "Bỏ qua vì sinh viên không có quyền quyết định", "Chỉ hỏi Hiệu trưởng thay cho sinh viên"],
-         "answer": [0], "multi": false,
-         "why": "Số đông nên dùng phiếu khảo sát. Bỏ qua người dùng thì dễ thiếu yêu cầu, phát hiện muộn; Hiệu trưởng không dùng hệ thống nên không nói thay được."},
-        {"kind": "choice", "q": "5) Rủi ro nào xảy ra nếu bỏ sót phòng Tài chính? (chọn tất cả ý đúng)",
-         "options": [
-           "Máy quét mã vạch không tương thích với hệ thống",
-           "Thiếu yêu cầu về cách thu và đối soát tiền phạt, đến UAT mới phát hiện nên sửa tốn kém",
-           "Sinh viên không tra cứu được sách",
-           "Cách tính phạt mâu thuẫn với quy định tài chính, quyết định không được đúng người xác nhận",
-           "Thủ thư không mượn trả được bằng mã vạch"
-         ],
-         "answer": [1, 3], "multi": true,
-         "why": "Phòng Tài chính thu tiền phạt, nên bỏ sót họ làm thiếu yêu cầu phần phạt và đối soát, cách tính phạt không được xác nhận. Các ý còn lại liên quan nhà cung cấp, sinh viên, thủ thư, không phải phòng Tài chính."}
+        {
+          "kind": "sort",
+          "q": "1) Cột Phân loại: mỗi bên thuộc nhóm nào?",
+          "bins": [
+            "Primary",
+            "Secondary",
+            "Key"
+          ],
+          "items": [
+            {
+              "t": "Hiệu trưởng (duyệt ngân sách)",
+              "a": [
+                2
+              ]
+            },
+            {
+              "t": "Trưởng thư viện",
+              "a": [
+                0
+              ],
+              "why": "Chủ nghiệp vụ, dùng và chịu ảnh hưởng trực tiếp, giống HR Manager → Primary trong template HRM."
+            },
+            {
+              "t": "Thủ thư",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Sinh viên",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Phòng IT của trường",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Phòng Tài chính (thu tiền phạt)",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Nhà cung cấp máy quét mã vạch",
+              "a": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "sort",
+          "q": "2) Mỗi bên nằm ở ô nào của ma trận Power – Interest?",
+          "bins": [
+            "High Power – High Interest",
+            "High Power – Low Interest",
+            "Low Power – High Interest",
+            "Low Power – Low Interest"
+          ],
+          "items": [
+            {
+              "t": "Hiệu trưởng: ảnh hưởng Cao, quan tâm Thấp",
+              "a": [
+                1
+              ],
+              "why": "Báo cáo định kỳ, ngắn gọn, hàng tháng."
+            },
+            {
+              "t": "Trưởng thư viện: ảnh hưởng Cao, quan tâm Cao",
+              "a": [
+                0
+              ],
+              "why": "Tham gia elicitation thường xuyên, duyệt trước khi đổi yêu cầu."
+            },
+            {
+              "t": "Thủ thư: ảnh hưởng Thấp, quan tâm Cao",
+              "a": [
+                2
+              ],
+              "why": "Quan sát, lắng nghe, giữ thông tin."
+            },
+            {
+              "t": "Nhà cung cấp máy quét: ảnh hưởng Thấp, quan tâm Thấp",
+              "a": [
+                3
+              ],
+              "why": "Cập nhật khi cần."
+            }
+          ]
+        },
+        {
+          "kind": "order",
+          "q": "3) Sắp xếp thứ tự nên điền các cột của Stakeholder Register.",
+          "items": [
+            "Tên, Vai trò",
+            "Phân loại",
+            "Nhu cầu",
+            "Mức độ ảnh hưởng, Mức độ quan tâm",
+            "Chiến lược quản lý",
+            "Tần suất trao đổi",
+            "Người quản lý Stakeholder"
+          ],
+          "why": "Cột sau dựa vào cột trước: ảnh hưởng và quan tâm quyết định chiến lược, chiến lược quyết định tần suất."
+        },
+        {
+          "kind": "choice",
+          "q": "4) Sinh viên đông nhưng quyền thấp. Cách thu ý kiến nào hợp lý?",
+          "options": [
+            "Khảo sát bằng phiếu, cập nhật thông tin khi cần",
+            "Mời toàn bộ sinh viên dự workshop hàng tuần",
+            "Bỏ qua vì sinh viên không có quyền quyết định",
+            "Chỉ hỏi Hiệu trưởng thay cho sinh viên"
+          ],
+          "answer": [
+            0
+          ],
+          "multi": false,
+          "why": "Số đông nên dùng phiếu khảo sát. Bỏ qua người dùng thì dễ thiếu yêu cầu, phát hiện muộn; Hiệu trưởng không dùng hệ thống nên không nói thay được."
+        },
+        {
+          "kind": "choice",
+          "q": "5) Rủi ro nào xảy ra nếu bỏ sót phòng Tài chính? (chọn tất cả ý đúng)",
+          "options": [
+            "Máy quét mã vạch không tương thích với hệ thống",
+            "Thiếu yêu cầu về cách thu và đối soát tiền phạt, đến UAT mới phát hiện nên sửa tốn kém",
+            "Sinh viên không tra cứu được sách",
+            "Cách tính phạt mâu thuẫn với quy định tài chính, quyết định không được đúng người xác nhận",
+            "Thủ thư không mượn trả được bằng mã vạch"
+          ],
+          "answer": [
+            1,
+            3
+          ],
+          "multi": true,
+          "why": "Phòng Tài chính thu tiền phạt, nên bỏ sót họ làm thiếu yêu cầu phần phạt và đối soát, cách tính phạt không được xác nhận. Các ý còn lại liên quan nhà cung cấp, sinh viên, thủ thư, không phải phòng Tài chính."
+        }
       ]
     },
     "L04-p1": {
-      "lead": "Sắp xếp 4 chặng, kéo từng việc của dự án HRM vào đúng chặng, rồi sắp thứ tự 13 việc.",
+      "lead": "Sắp 13 bước tiếp cận dự án theo đúng trình tự, ghép việc cụ thể của dự án HRM vào bước, rồi phân biệt hai bước phạm vi.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp 4 chặng của hành trình BA từ khi nhận đến khi kết thúc dự án.",
-         "items": ["Chuẩn bị", "Khảo sát và phân tích", "Tài liệu và phát triển", "Kiểm thử và bàn giao"]},
-        {"kind": "sort", "q": "2) Mỗi việc cụ thể của dự án HRM thuộc chặng nào?",
-         "bins": ["Chuẩn bị", "Khảo sát và phân tích", "Tài liệu và phát triển", "Kiểm thử và bàn giao"],
-         "items": [
-           {"t": "Gặp cấp trên/Công ty A, hỏi mục tiêu (quản lý hồ sơ, chấm công, tuyển dụng…), ngân sách, thời hạn", "a": [0], "why": "Tiếp nhận yêu cầu."},
-           {"t": "Liệt kê Ban Lãnh đạo, Trưởng phòng nhân sự, nhân viên HR, bộ phận IT, nhân viên các phòng ban, nhà cung cấp máy chấm công", "a": [0], "why": "Xác định stakeholder."},
-           {"t": "Ghi các phân hệ dự kiến làm và không làm", "a": [0], "why": "Xác định phạm vi ban đầu."},
-           {"t": "Lên lịch phỏng vấn, workshop; chọn kỹ thuật cho từng nhóm", "a": [0], "why": "Lập kế hoạch phân tích."},
-           {"t": "Phỏng vấn Trưởng phòng nhân sự, quan sát nhân viên HR, đọc biểu mẫu hiện có", "a": [1], "why": "Thu thập thông tin."},
-           {"t": "Phân loại yêu cầu thành BR, FR, NFR", "a": [1], "why": "Xác định yêu cầu."},
-           {"t": "Vẽ quy trình tuyển dụng, chấm công; use case; mô hình dữ liệu", "a": [1], "why": "Mô hình hóa."},
-           {"t": "Chốt phạm vi chính thức với Trưởng phòng nhân sự, trình Ban Lãnh đạo", "a": [1], "why": "Chốt phạm vi là việc cuối của chặng Khảo sát và phân tích (việc 8)."},
-           {"t": "Viết BRD/SRS", "a": [2], "why": "Viết tài liệu."},
-           {"t": "Giải thích yêu cầu, trả lời câu hỏi của team phát triển", "a": [2], "why": "Làm việc với team phát triển."},
-           {"t": "Rà test case với tester", "a": [3], "why": "Hỗ trợ kiểm thử."},
-           {"t": "Nhân viên HR và Trưởng phòng nhân sự dùng thử hệ thống", "a": [3], "why": "UAT với khách hàng."},
-           {"t": "Ký biên bản, kết thúc dự án", "a": [3], "why": "Nghiệm thu."}
-         ]},
-        {"kind": "order", "q": "3) Sắp xếp 8 việc của hai chặng đầu (Chuẩn bị, Khảo sát và phân tích) theo đúng trình tự.",
-         "items": ["Tiếp nhận yêu cầu", "Xác định stakeholder", "Xác định phạm vi ban đầu", "Lập kế hoạch phân tích", "Thu thập thông tin", "Xác định yêu cầu", "Mô hình hóa", "Chốt phạm vi chính thức"],
-         "why": "Chuẩn bị: ai giao việc, ai liên quan, làm đến đâu, kế hoạch ra sao (việc 1–4). Khảo sát và phân tích: thu thập thông tin → xác định yêu cầu → mô hình hóa → chốt phạm vi (việc 5–8)."},
-        {"kind": "order", "q": "4) Sắp xếp 5 việc của hai chặng cuối theo đúng trình tự.",
-         "items": ["Viết tài liệu", "Làm việc với team phát triển", "Hỗ trợ kiểm thử", "UAT với khách hàng", "Nghiệm thu"],
-         "why": "Tài liệu và phát triển: viết tài liệu → làm việc với team phát triển (việc 9–10). Kiểm thử và bàn giao: hỗ trợ kiểm thử → UAT → nghiệm thu (việc 11–13)."}
+        {
+          "kind": "order",
+          "q": "1) Theo 13 bước tiếp cận dự án, BA làm các việc sau theo trình tự nào, từ khi nhận dự án HRM đến khi kết thúc?",
+          "items": [
+            "Tiếp nhận yêu cầu",
+            "Xác định stakeholder",
+            "Lập kế hoạch phân tích",
+            "Thu thập thông tin",
+            "Mô hình hóa",
+            "Xác định phạm vi (chốt chính thức)",
+            "Viết tài liệu",
+            "UAT với khách hàng",
+            "Nghiệm thu kết thúc dự án"
+          ],
+          "why": "Đây là thứ tự của 13 bước trên slide (đã lược bớt một số bước): chuẩn bị → khảo sát và phân tích → tài liệu → kiểm thử và bàn giao."
+        },
+        {
+          "kind": "sort",
+          "q": "2) Mỗi việc cụ thể của dự án HRM thuộc bước nào trong 13 bước?",
+          "bins": [
+            "Thu thập thông tin",
+            "Xác định yêu cầu",
+            "Mô hình hóa",
+            "Viết tài liệu",
+            "Làm việc với team phát triển",
+            "Hỗ trợ kiểm thử",
+            "UAT",
+            "Nghiệm thu"
+          ],
+          "items": [
+            {
+              "t": "Phỏng vấn Trưởng phòng nhân sự, quan sát nhân viên HR",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Đọc các biểu mẫu nhân sự hiện có",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Phân loại yêu cầu thành BR, FR, NFR",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Vẽ quy trình tuyển dụng, chấm công",
+              "a": [
+                2
+              ]
+            },
+            {
+              "t": "Soạn BRD/SRS",
+              "a": [
+                3
+              ]
+            },
+            {
+              "t": "Giải thích yêu cầu, trả lời câu hỏi của dev",
+              "a": [
+                4
+              ]
+            },
+            {
+              "t": "Rà test case cùng tester",
+              "a": [
+                5
+              ]
+            },
+            {
+              "t": "Nhân viên HR và Trưởng phòng nhân sự dùng thử hệ thống",
+              "a": [
+                6
+              ]
+            },
+            {
+              "t": "Ký biên bản, đóng dự án",
+              "a": [
+                7
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "q": "3) Bước 3 “Xác định phạm vi ban đầu” và bước 8 “Xác định phạm vi” khác nhau thế nào?",
+          "options": [
+            "Hai bước giống hệt nhau, bước 8 chỉ là làm lại bước 3",
+            "Bước 3 đã chốt chính thức, bước 8 chỉ còn ký biên bản nghiệm thu",
+            "Bước 3 là phạm vi sơ bộ để lập kế hoạch; bước 8 chốt phạm vi chính thức sau khi đã thu thập, phân tích, mô hình hóa (với HRM: chốt với Trưởng phòng nhân sự, trình Ban Lãnh đạo)",
+            "Bước 3 do team phát triển tự quyết, bước 8 mới cần BA"
+          ],
+          "answer": [
+            2
+          ],
+          "multi": false,
+          "why": "Bước 3 vạch ranh giới sơ bộ (các phân hệ dự kiến làm và không làm). Bước 8 chốt phạm vi đã được làm rõ, sau các bước 5–7."
+        }
       ]
     },
     "L04-p2": {
-      "lead": "Sắp xếp các bước phân tích, rồi kéo từng stakeholder HRM vào nhóm, ô ma trận và chiến lược.",
+      "lead": "Tìm stakeholder còn thiếu, phân loại, đặt Trưởng phòng nhân sự vào ma trận, rồi ghép chiến lược cho từng bên.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp các bước phân tích stakeholder từ đoạn mô tả.",
-         "items": ["Gạch chân danh từ chỉ người/nhóm", "Hỏi: ai quyết định, ai sử dụng, ai vận hành, ai bị ảnh hưởng", "Phân loại Primary/Secondary/Key", "Chấm ảnh hưởng và quan tâm, đặt vào ô ma trận", "Lấy chiến lược từ bảng 4 ô"]},
-        {"kind": "sort", "q": "2) Mỗi stakeholder thuộc nhóm Primary, Secondary hay Key?",
-         "bins": ["Primary", "Secondary", "Key"],
-         "items": [
-           {"t": "Ban Lãnh đạo (phê duyệt đầu tư dự án)", "a": [2]},
-           {"t": "Trưởng phòng nhân sự (quyết định chức năng, cũng là người dùng)", "a": [0, 2], "why": "Template mẫu xếp HR Manager là Primary; đoạn mô tả nói rõ Trưởng phòng quyết định chức năng nên xếp Key cũng hợp lý."},
-           {"t": "Nhân viên phòng nhân sự (trực tiếp dùng hệ thống, đoạn văn không nhắc)", "a": [0]},
-           {"t": "Nhân sự các phòng ban", "a": [0, 1], "why": "Primary nếu dùng các chức năng tự phục vụ, nếu không thì Secondary."},
-           {"t": "Bộ phận IT (đảm bảo hệ thống vận hành ổn định)", "a": [1]}
-         ]},
-        {"kind": "sort", "q": "3) Mỗi stakeholder nằm ở ô nào của ma trận Power – Interest?",
-         "bins": ["High Power – High Interest", "High Power – Low Interest", "Low Power – High Interest", "Low Power – Low Interest"],
-         "items": [
-           {"t": "Ban Lãnh đạo", "a": [1], "why": "Ảnh hưởng Cao, quan tâm Thấp."},
-           {"t": "Trưởng phòng nhân sự", "a": [0], "why": "Ảnh hưởng Cao, quan tâm Cao."},
-           {"t": "Nhân viên phòng nhân sự", "a": [2], "why": "Ảnh hưởng Thấp, quan tâm Cao."}
-         ]},
-        {"kind": "sort", "q": "4) Mỗi chiến lược quản lý là của ai?",
-         "bins": ["Ban Lãnh đạo", "Trưởng phòng nhân sự", "Nhân viên phòng nhân sự", "Nhân sự các phòng ban", "Bộ phận IT"],
-         "items": [
-           {"t": "Báo cáo định kỳ, ngắn gọn", "a": [0]},
-           {"t": "Chỉ liên hệ khi cần phê duyệt đầu tư hoặc có vấn đề nghiêm trọng", "a": [0]},
-           {"t": "Tham gia thường xuyên vào elicitation; báo cáo tiến độ liên tục", "a": [1]},
-           {"t": "Lấy ý kiến phê duyệt trước khi đổi yêu cầu", "a": [1]},
-           {"t": "Lắng nghe, thu thập ý kiến chi tiết; giữ trong vòng thông tin", "a": [2]},
-           {"t": "Thu thập nhu cầu qua Trưởng phòng nhân sự hoặc khảo sát; cập nhật thông tin khi cần", "a": [3]},
-           {"t": "Mời vào các buổi bàn về hạ tầng, tích hợp, vận hành; trao đổi cách tuần", "a": [4]}
-         ]}
+        {
+          "kind": "choice",
+          "q": "1) Đoạn mô tả không nhắc tới, nhưng vẫn nên thêm ai vào danh sách stakeholder của dự án HRM?",
+          "options": [
+            "Bộ phận IT",
+            "Nhân viên phòng nhân sự trực tiếp dùng hệ thống",
+            "Ban Lãnh đạo",
+            "Trưởng phòng nhân sự"
+          ],
+          "answer": [
+            1
+          ],
+          "multi": false,
+          "why": "Ba phương án còn lại đã có trong đoạn mô tả. Hỏi “Ai sử dụng hệ thống?” thì thấy thêm nhân viên phòng nhân sự."
+        },
+        {
+          "kind": "sort",
+          "q": "2) Mỗi bên thuộc nhóm Primary, Secondary hay Key?",
+          "bins": [
+            "Primary",
+            "Secondary",
+            "Key"
+          ],
+          "items": [
+            {
+              "t": "Ban Lãnh đạo (phê duyệt đầu tư dự án)",
+              "a": [
+                2
+              ],
+              "why": "Duyệt, chi tiền → Key."
+            },
+            {
+              "t": "Nhân viên phòng nhân sự",
+              "a": [
+                0
+              ],
+              "why": "Dùng hệ thống trực tiếp → Primary."
+            },
+            {
+              "t": "Bộ phận IT (đảm bảo hệ thống vận hành ổn định)",
+              "a": [
+                1
+              ],
+              "why": "Hỗ trợ vận hành → Secondary."
+            },
+            {
+              "t": "Trưởng phòng nhân sự (quyết định các chức năng)",
+              "a": [
+                2,
+                0
+              ],
+              "why": "Đáp án xếp Key vì quyết định chức năng; template mẫu xếp HR Manager là Primary. Cả hai đều chấp nhận."
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "q": "3) Trưởng phòng nhân sự quyết định chức năng và làm việc sát với các phòng ban. Đặt vào ô nào của ma trận Power – Interest?",
+          "options": [
+            "Low Power – Low Interest",
+            "High Power – Low Interest",
+            "Low Power – High Interest",
+            "High Power – High Interest"
+          ],
+          "answer": [
+            3
+          ],
+          "multi": false,
+          "why": "Ảnh hưởng Cao (quyết định chức năng) và Quan tâm Cao (trực tiếp dùng, làm việc sát) → High Power – High Interest."
+        },
+        {
+          "kind": "sort",
+          "q": "4) Mỗi chiến lược quản lý dành cho stakeholder nào?",
+          "bins": [
+            "Ban Lãnh đạo",
+            "Trưởng phòng nhân sự",
+            "Nhân viên phòng nhân sự",
+            "Nhân sự các phòng ban",
+            "Bộ phận IT"
+          ],
+          "items": [
+            {
+              "t": "Báo cáo định kỳ, ngắn gọn; chỉ liên hệ khi cần phê duyệt đầu tư hoặc có vấn đề nghiêm trọng",
+              "a": [
+                0
+              ],
+              "why": "Cao / Thấp."
+            },
+            {
+              "t": "Tham gia thường xuyên vào elicitation; lấy ý kiến phê duyệt trước khi đổi yêu cầu",
+              "a": [
+                1
+              ],
+              "why": "Cao / Cao."
+            },
+            {
+              "t": "Lắng nghe, thu thập ý kiến chi tiết; giữ trong vòng thông tin",
+              "a": [
+                2
+              ],
+              "why": "Thấp / Cao."
+            },
+            {
+              "t": "Thu thập nhu cầu qua Trưởng phòng nhân sự hoặc khảo sát",
+              "a": [
+                3
+              ],
+              "why": "Thấp / Trung bình."
+            },
+            {
+              "t": "Mời vào các buổi bàn về hạ tầng, tích hợp, vận hành",
+              "a": [
+                4
+              ],
+              "why": "Trung bình / Trung bình."
+            }
+          ]
+        }
       ]
     },
     "L04-p3": {
-      "lead": "Sắp xếp các bước điền Register, rồi kéo từng stakeholder SolasMart vào đúng ô của từng cột.",
+      "lead": "Điền thử vài cột cốt lõi của Stakeholder Register SolasMart: Phân loại, Nhu cầu, Chiến lược – Tần suất, Người quản lý.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp các bước điền Stakeholder Register.",
-         "items": ["Tìm stakeholder từ tài liệu quy trình", "Cột Tên, Vai trò", "Cột Phân loại", "Cột Nhu cầu", "Cột Ảnh hưởng, Quan tâm", "Cột Chiến lược, Tần suất", "Cột Người quản lý Stakeholder"]},
-        {"kind": "sort", "q": "2) Cột Phân loại: mỗi stakeholder thuộc nhóm nào?",
-         "bins": ["Primary", "Secondary", "Key"],
-         "items": [
-           {"t": "Ban Giám đốc SolasMart", "a": [2], "why": "Duyệt và chi tiền."},
-           {"t": "Quản lý siêu thị / Trưởng ca", "a": [0]},
-           {"t": "Thu ngân", "a": [0], "why": "Thao tác trên hệ thống mới."},
-           {"t": "Nhân viên CSKH / trực page", "a": [0]},
-           {"t": "Quản lý kho, nhân viên kho", "a": [0]},
-           {"t": "Kế toán", "a": [0], "why": "Đáp án mẫu xếp Primary: đối soát COD, đối chiếu phiếu nhập với hóa đơn."},
-           {"t": "Nhân viên giao hàng", "a": [1]},
-           {"t": "Nhà cung cấp", "a": [1], "why": "Hỗ trợ, bị ảnh hưởng gián tiếp."},
-           {"t": "Bộ phận kỹ thuật", "a": [1]},
-           {"t": "Team Dev", "a": [1]}
-         ]},
-        {"kind": "sort", "q": "3) Cột Nhu cầu: mỗi nhu cầu là của ai?",
-         "bins": ["Ban Giám đốc", "Quản lý siêu thị / Trưởng ca", "Thu ngân", "Nhân viên CSKH", "Quản lý kho, nhân viên kho", "Kế toán", "Nhân viên giao hàng", "Nhà cung cấp"],
-         "items": [
-           {"t": "Kiểm soát doanh thu, tồn kho; giảm thất thoát", "a": [0]},
-           {"t": "Xem báo cáo cuối ca, kiểm tra đơn hoàn, hủy, giao lỗi", "a": [1]},
-           {"t": "Tính tiền nhanh, chính xác; xử lý được barcode lỗi, nhiều phương thức thanh toán", "a": [2]},
-           {"t": "Xem tồn kho ngay, nhập đơn không qua Excel", "a": [3]},
-           {"t": "Nhập, xuất, kiểm kê chính xác; tồn kho cập nhật sau mỗi lần xuất", "a": [4]},
-           {"t": "Đối soát COD, đối chiếu phiếu nhập với hóa đơn", "a": [5]},
-           {"t": "Nhận đúng địa chỉ, SĐT; báo trạng thái giao", "a": [6]},
-           {"t": "Chứng từ nhập được đối chiếu nhanh, rõ ràng", "a": [7]}
-         ]},
-        {"kind": "sort", "q": "4) Cột Ảnh hưởng, Quan tâm: mỗi stakeholder nằm ở ô nào của ma trận?",
-         "bins": ["High Power – High Interest", "High Power – Low Interest", "Low Power – High Interest", "Low Power – Low Interest"],
-         "items": [
-           {"t": "Ban Giám đốc SolasMart", "a": [1], "why": "Ảnh hưởng Cao, quan tâm Thấp: báo cáo ngắn, hàng tháng."},
-           {"t": "Quản lý siêu thị / Trưởng ca", "a": [0], "why": "Ảnh hưởng Cao, quan tâm Cao: tham gia elicitation, hàng tuần."},
-           {"t": "Thu ngân", "a": [2], "why": "Ảnh hưởng Thấp, quan tâm Cao: lắng nghe, cách tuần."},
-           {"t": "Nhân viên CSKH / trực page", "a": [2], "why": "Ảnh hưởng Thấp, quan tâm Cao."},
-           {"t": "Nhà cung cấp", "a": [3], "why": "Ảnh hưởng Thấp, quan tâm Thấp: cập nhật khi cần thiết."}
-         ]},
-        {"kind": "sort", "q": "5) Cột Người quản lý Stakeholder: ai trong nhóm dự án giữ liên lạc?",
-         "bins": ["PM", "BA", "Tech Lead"],
-         "items": [
-           {"t": "Ban Giám đốc SolasMart", "a": [0]},
-           {"t": "Thu ngân", "a": [1]},
-           {"t": "Quản lý kho, nhân viên kho", "a": [1]},
-           {"t": "Kế toán", "a": [1]},
-           {"t": "Bộ phận kỹ thuật", "a": [2]},
-           {"t": "Team Dev", "a": [1, 2], "why": "Đáp án mẫu ghi BA/Tech Lead."}
-         ],
-         "why": "PM giữ liên lạc với Ban Giám đốc, BA với nghiệp vụ, Tech Lead với kỹ thuật."},
-        {"kind": "choice", "q": "6) Khách hàng mua hàng của SolasMart nên ghi vào Register thế nào?",
-         "options": [
-           "Không ghi vì khách hàng không thao tác trên hệ thống quản lý bán hàng và kho",
-           "Xếp Key vì khách hàng mang lại doanh thu",
-           "Ghi ở dạng nhóm, ảnh hưởng Thấp, quan tâm Trung bình, thu ý kiến qua khảo sát",
-           "Mời từng khách hàng tham gia workshop hàng tuần"
-         ],
-         "answer": [2], "multi": false,
-         "why": "Khách hàng bị ảnh hưởng trực tiếp bởi tốc độ thanh toán, giao hàng nên vẫn là stakeholder. Họ không duyệt hay chi tiền cho dự án nên không phải Key; số đông nên ghi dạng nhóm và thu ý kiến qua khảo sát."}
+        {
+          "kind": "sort",
+          "q": "1) Cột Phân loại: mỗi stakeholder của SolasMart thuộc nhóm nào?",
+          "bins": [
+            "Primary",
+            "Secondary",
+            "Key"
+          ],
+          "items": [
+            {
+              "t": "Ban Giám đốc SolasMart",
+              "a": [
+                2
+              ],
+              "why": "Duyệt và chi tiền."
+            },
+            {
+              "t": "Thu ngân",
+              "a": [
+                0
+              ],
+              "why": "Thao tác POS trên hệ thống mới."
+            },
+            {
+              "t": "Nhân viên CSKH / trực page",
+              "a": [
+                0
+              ],
+              "why": "Nhận đơn online trên hệ thống mới."
+            },
+            {
+              "t": "Quản lý kho, nhân viên kho",
+              "a": [
+                0
+              ],
+              "why": "Nhập, xuất, kiểm kê trên hệ thống mới."
+            },
+            {
+              "t": "Nhân viên giao hàng",
+              "a": [
+                1
+              ],
+              "why": "Bị ảnh hưởng gián tiếp."
+            },
+            {
+              "t": "Nhà cung cấp",
+              "a": [
+                1
+              ],
+              "why": "Hỗ trợ, ảnh hưởng gián tiếp."
+            },
+            {
+              "t": "Bộ phận kỹ thuật",
+              "a": [
+                1
+              ],
+              "why": "Hỗ trợ vận hành."
+            },
+            {
+              "t": "Team Dev",
+              "a": [
+                1
+              ],
+              "why": "Phía làm giải pháp."
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "q": "2) Cột Nhu cầu của nhân viên CSKH nên ghi gì?",
+          "options": [
+            "Trực page, nhận đơn qua Zalo, Facebook, điện thoại",
+            "Ảnh hưởng Thấp, quan tâm Cao",
+            "Xem tồn kho ngay, nhập đơn không qua Excel",
+            "Primary"
+          ],
+          "answer": [
+            2
+          ],
+          "multi": false,
+          "why": "Nhu cầu là điều stakeholder mong từ dự án, lấy từ điểm đau trong quy trình online (nhập đơn thủ công, hỏi tồn kho). Ghi nhiệm vụ hằng ngày, mức Cao/Thấp hay nhóm phân loại là lẫn sang cột khác."
+        },
+        {
+          "kind": "choice",
+          "q": "3) Ban Giám đốc (Ảnh hưởng Cao, Quan tâm Thấp): cột Chiến lược quản lý và Tần suất ghi gì?",
+          "options": [
+            "Tham gia thường xuyên vào elicitation; hàng tuần",
+            "Báo cáo định kỳ, ngắn gọn; chỉ liên hệ khi cần quyết định chiến lược; hàng tháng",
+            "Lắng nghe, quan sát tại nơi làm việc; cách tuần",
+            "Liên hệ thường xuyên"
+          ],
+          "answer": [
+            1
+          ],
+          "multi": false,
+          "why": "Ô Cao/Thấp: báo cáo ngắn gọn, không làm phiền bằng chi tiết, tần suất hàng tháng. “Thường xuyên” là lỗi không đo được."
+        },
+        {
+          "kind": "sort",
+          "q": "4) Cột Người quản lý Stakeholder: thành viên nào của nhóm dự án giữ liên lạc với bên này?",
+          "bins": [
+            "PM",
+            "BA",
+            "Tech Lead"
+          ],
+          "items": [
+            {
+              "t": "Ban Giám đốc SolasMart",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Thu ngân",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Quản lý kho, nhân viên kho",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Kế toán",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Bộ phận kỹ thuật",
+              "a": [
+                2
+              ]
+            }
+          ]
+        }
       ]
     },
     "L04-p4": {
-      "lead": "Sắp xếp các bước lập kế hoạch, rồi kéo từng stakeholder SolasMart vào ô ma trận, kỹ thuật và thời điểm.",
+      "lead": "Ghép kỹ thuật elicitation cho từng nhóm SolasMart, rồi chọn lý do và thời điểm làm việc.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp các bước lập kế hoạch tương tác.",
-         "items": ["Nhóm stakeholder theo ô ma trận", "Chọn kỹ thuật theo đặc điểm", "Xếp thời điểm theo 13 bước", "Ghi thành bảng Stakeholder – Kỹ thuật – Thời điểm – Mục tiêu"]},
-        {"kind": "sort", "q": "2) Bước 1: mỗi stakeholder thuộc ô nào của ma trận?",
-         "bins": ["High Power – High Interest", "High Power – Low Interest", "Low Power – High Interest", "Low Power – Low Interest"],
-         "items": [
-           {"t": "Quản lý siêu thị", "a": [0]},
-           {"t": "Ban Giám đốc", "a": [1]},
-           {"t": "Thu ngân", "a": [2]},
-           {"t": "Nhân viên CSKH", "a": [2]},
-           {"t": "Nhân viên kho", "a": [2]},
-           {"t": "Nhà cung cấp", "a": [3]}
-         ]},
-        {"kind": "sort", "q": "3) Bước 2: ghép mỗi stakeholder với kỹ thuật elicitation.",
-         "bins": ["Phỏng vấn ngắn", "Phỏng vấn sâu, workshop", "Quan sát tại quầy, phỏng vấn nhóm", "Quan sát, phân tích file Excel đơn hàng", "Workshop, phân tích phiếu nhập, xuất, kiểm kê"],
-         "items": [
-           {"t": "Ban Giám đốc", "a": [0], "why": "Người quyết định, ít thời gian nên phỏng vấn ngắn."},
-           {"t": "Quản lý siêu thị / Trưởng ca", "a": [1]},
-           {"t": "Thu ngân", "a": [2], "why": "Thao tác tay tại quầy nên quan sát tại chỗ."},
-           {"t": "Nhân viên CSKH", "a": [3], "why": "Đơn online đang ghi vào file Excel."},
-           {"t": "Quản lý kho, nhân viên kho", "a": [4]}
-         ]},
-        {"kind": "sort", "q": "4) Bước 3: mỗi hoạt động làm vào thời điểm nào?",
-         "bins": ["Đầu dự án (tuần đầu)", "Giai đoạn thu thập", "Trước khi chốt phạm vi"],
-         "items": [
-           {"t": "Gặp Sponsor (Ban Giám đốc) chốt mục tiêu, ngân sách", "a": [0]},
-           {"t": "Khảo sát người dùng", "a": [1]},
-           {"t": "Quan sát thu ngân tại quầy vào giờ đông và giờ vắng", "a": [1]},
-           {"t": "Phân tích file Excel đơn hàng cùng nhân viên CSKH", "a": [1]},
-           {"t": "Workshop với kho về quy trình nhập, xuất, kiểm kê", "a": [1]},
-           {"t": "Workshop xác nhận với Quản lý siêu thị", "a": [2]}
-         ]},
-        {"kind": "choice", "q": "5) Nhà cung cấp (ảnh hưởng Thấp, quan tâm Thấp) nên làm việc thế nào?",
-         "options": [
-           "Mời vào workshop quy trình kho hàng tuần",
-           "Không khảo sát sâu; khi cần thì hỏi về chứng từ giao hàng qua quản lý kho",
-           "Phỏng vấn sâu như Quản lý siêu thị",
-           "Quan sát tại chỗ vào giờ đông và giờ vắng"
-         ],
-         "answer": [1], "multi": false,
-         "why": "Ô Thấp/Thấp chỉ cần cập nhật khi cần. Đáp án mẫu: không khảo sát sâu, hỏi qua quản lý kho, mục tiêu là chứng từ giao hàng."}
+        {
+          "kind": "sort",
+          "q": "1) Mỗi kỹ thuật trong kế hoạch tương tác dành cho stakeholder nào?",
+          "bins": [
+            "Ban Giám đốc",
+            "Quản lý siêu thị / Trưởng ca",
+            "Thu ngân",
+            "Nhân viên CSKH",
+            "Quản lý kho, nhân viên kho",
+            "Nhà cung cấp"
+          ],
+          "items": [
+            {
+              "t": "Phỏng vấn ngắn",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Phỏng vấn sâu, workshop",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Quan sát tại quầy, phỏng vấn nhóm",
+              "a": [
+                2
+              ]
+            },
+            {
+              "t": "Quan sát, phân tích file Excel đơn hàng",
+              "a": [
+                3
+              ]
+            },
+            {
+              "t": "Workshop, phân tích phiếu nhập, xuất, kiểm kê",
+              "a": [
+                4
+              ]
+            },
+            {
+              "t": "Không khảo sát sâu; hỏi qua quản lý kho",
+              "a": [
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "q": "2) Vì sao chọn phỏng vấn ngắn cho Ban Giám đốc?",
+          "options": [
+            "Vì Ban Giám đốc thao tác hệ thống hằng ngày",
+            "Vì cần quan sát thao tác tay của Ban Giám đốc",
+            "Vì Ban Giám đốc không phải stakeholder",
+            "Vì là người quyết định nhưng ít thời gian"
+          ],
+          "answer": [
+            3
+          ],
+          "multi": false,
+          "why": "Người quyết định, ít thời gian → phỏng vấn ngắn. Mục tiêu là chốt mục tiêu, ngân sách, phê duyệt."
+        },
+        {
+          "kind": "choice",
+          "q": "3) Làm việc với Ban Giám đốc vào những thời điểm nào?",
+          "options": [
+            "Tuần đầu dự án và khi chốt phạm vi",
+            "Chỉ ở buổi UAT cuối dự án",
+            "Hằng ngày trong suốt giai đoạn thu thập",
+            "Chỉ khi nhà cung cấp có yêu cầu"
+          ],
+          "answer": [
+            0
+          ],
+          "multi": false,
+          "why": "Đầu dự án gặp Sponsor chốt mục tiêu; khi chốt phạm vi cần phê duyệt."
+        },
+        {
+          "kind": "choice",
+          "q": "4) Quan sát thu ngân vào lúc nào để thấy đủ tình huống ngoại lệ (barcode lỗi, POS treo)?",
+          "options": [
+            "Chỉ giờ vắng khách để không làm phiền",
+            "Sau khi đã chốt phạm vi",
+            "Giai đoạn thu thập, chọn cả giờ đông và giờ vắng",
+            "Trong buổi nghiệm thu"
+          ],
+          "answer": [
+            2
+          ],
+          "multi": false,
+          "why": "Thu ngân được quan sát trong giai đoạn thu thập, cả giờ đông lẫn giờ vắng, để thấy thao tác thật và các tình huống ngoại lệ."
+        }
       ]
     }
   }

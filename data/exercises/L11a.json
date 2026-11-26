@@ -269,18 +269,9 @@
       ]
     },
     "L11a-p1": {
-      "lead": "Sắp xếp các bước làm, kéo 8 câu vào FR / NFR / lẫn cả hai, rồi gắn nhóm cho phần NFR.",
+      "lead": "Kéo 8 câu vào FR / NFR / lẫn cả hai, gắn nhóm cho NFR, rồi chọn cách tách câu 6.",
       "parts": [
-        {"kind": "order", "q": "Sắp xếp các bước phân loại theo đúng thứ tự.",
-         "items": [
-           "Gạch chân động từ hành động trong từng câu",
-           "Với câu có động từ, hỏi xem có kèm tiêu chí chất lượng không",
-           "Xếp các câu chỉ nói về tốc độ, độ ổn định, an toàn vào NFR",
-           "Gắn nhóm cho từng NFR",
-           "Tách câu lẫn cả hai thành 1 FR và 1 NFR rồi viết bảng kết quả"
-         ],
-         "why": "Tìm động từ hành động trước để nhận ra FR, rồi mới xét tiêu chí chất lượng đi kèm, gắn nhóm NFR và tách câu lẫn."},
-        {"kind": "sort", "q": "Câu này là FR, NFR hay lẫn cả hai?",
+        {"kind": "sort", "q": "Câu yêu cầu này là FR, NFR hay lẫn cả hai?",
          "bins": ["FR", "NFR", "Lẫn cả FR và NFR"],
          "items": [
            {"t": "1. Thủ thư thêm sách mới vào danh mục.", "a": [0], "why": "Hành động của thủ thư."},
@@ -292,159 +283,141 @@
            {"t": "7. Mật khẩu của độc giả được lưu dạng mã hóa.", "a": [1]},
            {"t": "8. Thủ thư lập báo cáo số lượt mượn theo tháng.", "a": [0], "why": "Hành động của thủ thư."}
          ]},
-        {"kind": "sort", "q": "Phần NFR này thuộc nhóm nào?",
+        {"kind": "sort", "q": "Câu NFR (hoặc phần NFR) này thuộc nhóm nào?",
          "bins": ["Hiệu suất", "Độ ổn định / khả dụng", "Bảo mật", "UX"],
          "items": [
-           {"t": "Câu 4: Kết quả tìm kiếm hiển thị trong ≤ 2 giây với kho 100.000 đầu sách.", "a": [0]},
-           {"t": "Câu 5: Ngừng ngoài kế hoạch không quá 1 giờ mỗi tháng trong giờ mở cửa.", "a": [1]},
-           {"t": "Câu 7: Mật khẩu của độc giả được lưu dạng mã hóa.", "a": [2]},
-           {"t": "Câu 6 (phần NFR): Thao tác gia hạn không quá 3 lần bấm.", "a": [3], "why": "Tiêu chí dễ dùng."}
+           {"t": "Câu 4: kết quả tìm kiếm hiển thị trong ≤ 2 giây với kho 100.000 đầu sách", "a": [0]},
+           {"t": "Câu 5: ngừng ngoài kế hoạch không quá 1 giờ mỗi tháng trong giờ mở cửa", "a": [1]},
+           {"t": "Câu 7: mật khẩu của độc giả được lưu dạng mã hóa", "a": [2]},
+           {"t": "Câu 6 (phần NFR): thao tác gia hạn không quá 3 lần bấm", "a": [3], "why": "Tiêu chí dễ dùng."}
          ]},
-        {"kind": "sort", "q": "Tách câu 6: mỗi vế là FR hay NFR?",
-         "bins": ["FR", "NFR"],
-         "items": [
-           {"t": "Độc giả gia hạn mượn sách online.", "a": [0]},
-           {"t": "Thao tác gia hạn không quá 3 lần bấm.", "a": [1]}
-         ]}
+        {"kind": "choice", "q": "Câu 3 “Hệ thống tự gửi email nhắc khi sách sắp đến hạn trả” vì sao là FR?",
+         "options": [
+           "Vì câu bắt đầu bằng “Hệ thống”",
+           "Vì câu có con số đo được",
+           "Vì câu mô tả một hành vi cụ thể của hệ thống: gửi email nhắc",
+           "Vì câu nói về mức an toàn của dữ liệu độc giả"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Câu có động từ hành động “gửi” và mô tả việc hệ thống làm, nên là FR. Bắt đầu bằng “Hệ thống” không quyết định loại; câu 3 cũng không có con số hay nói về an toàn dữ liệu."},
+        {"kind": "choice", "q": "Tách câu 6 thành 1 FR và 1 NFR thế nào cho đúng?",
+         "options": [
+           "Không tách: câu 6 là FR vì có động từ “gia hạn”",
+           "FR: Độc giả gia hạn mượn sách online. NFR (UX): Thao tác gia hạn không quá 3 lần bấm.",
+           "FR: Thao tác gia hạn không quá 3 lần bấm. NFR (UX): Độc giả gia hạn mượn sách online.",
+           "Không tách: câu 6 là NFR vì có con số “3 lần bấm”"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Vế có hành động “gia hạn” là FR; vế “không quá 3 lần bấm” là tiêu chí dễ dùng, tức NFR nhóm UX. Câu lẫn cả hai phải tách ra, không xếp nguyên câu vào một loại."}
       ]
     },
     "L11a-p2": {
-      "lead": "Làm phân tích tổng quan quầy thu ngân SolasMart bằng cách sắp xếp, kéo thả và chọn.",
+      "lead": "Trả lời từng phần của bản phân tích tổng quan quầy thu ngân: User List, Function List, BFD.",
       "parts": [
-        {"kind": "order", "q": "Sắp xếp các bước phân tích tổng quan theo đúng thứ tự.",
-         "items": ["B1 – Yêu cầu thô", "B2 – User List", "B3 – Function List", "B4 – Permission Matrix", "B5 – BFD"],
-         "why": "Viết yêu cầu thô → gom vai trò → gom chức năng Level 1/Level 2 → phân quyền (hàng là chức năng, cột là vai trò) → vẽ BFD từ các khối Level 1."},
         {"kind": "sort", "q": "User List: nhiệm vụ này thuộc vai trò nào?",
          "bins": ["Thu ngân", "Nhân viên hỗ trợ quầy", "Trưởng ca / Quản lý quầy", "Tác nhân bên ngoài"],
          "items": [
            {"t": "Mở phiên (Start Transaction)", "a": [0]},
            {"t": "Quét hoặc nhập mã hàng", "a": [0]},
            {"t": "Thu tiền, in hóa đơn", "a": [0]},
-           {"t": "Kết thúc phiên", "a": [0]},
            {"t": "Cân hàng, in tem barcode", "a": [1]},
            {"t": "Xác nhận giá khi barcode sai giá", "a": [2]},
            {"t": "Giám sát các quầy", "a": [2]},
            {"t": "Khách hàng quét QR, nhập PIN", "a": [3], "why": "Khách hàng không đăng nhập POS, nên là tác nhân bên ngoài."},
            {"t": "Ngân hàng xác nhận giao dịch", "a": [3], "why": "Ngân hàng không đăng nhập POS, nên là tác nhân bên ngoài."}
          ]},
-        {"kind": "sort", "q": "Function List: chức năng Level 2 này thuộc nhóm Level 1 nào?",
+        {"kind": "sort", "q": "Function List: chức năng Level 2 này nằm dưới chức năng Level 1 nào?",
          "bins": ["Quản lý phiên giao dịch", "Quản lý giỏ hàng", "Quản lý hàng cân và giá", "Quản lý thanh toán", "Quản lý hóa đơn"],
          "items": [
-           {"t": "Đăng nhập POS", "a": [0]},
            {"t": "Bắt đầu phiên (Start Transaction)", "a": [0]},
            {"t": "Kết thúc phiên", "a": [0]},
            {"t": "Quét mã sản phẩm", "a": [1]},
-           {"t": "Nhập mã tay", "a": [1, 2], "why": "Đáp án mẫu đặt dưới Quản lý giỏ hàng; cách chia nhóm có thể khác miễn hợp lý, nên chấp nhận cả Quản lý hàng cân và giá."},
            {"t": "Thay đổi số lượng / bỏ sản phẩm", "a": [1]},
-           {"t": "Xác nhận giỏ hàng (tổng tiền, tổng số lượng)", "a": [1]},
            {"t": "Cân hàng, in tem barcode", "a": [2]},
            {"t": "Xác nhận giá", "a": [2]},
-           {"t": "Thanh toán tiền mặt (tính tiền thừa)", "a": [3]},
-           {"t": "Thanh toán thẻ", "a": [3]},
            {"t": "Thanh toán chuyển khoản QR", "a": [3]},
-           {"t": "Thanh toán kết hợp", "a": [3]},
-           {"t": "In hóa đơn", "a": [4]},
+           {"t": "Hủy giao dịch", "a": [3]},
            {"t": "In lại hóa đơn", "a": [4]}
          ]},
-        {"kind": "choice", "q": "Những mục nào được vẽ thành khối trên BFD? (chọn tất cả ý đúng)",
-         "options": ["Quản lý phiên giao dịch", "Quét mã sản phẩm", "Quản lý giỏ hàng", "Quản lý thanh toán", "Thanh toán thẻ", "Quản lý hàng cân và giá", "In lại hóa đơn", "Quản lý hóa đơn"],
-         "answer": [0, 2, 3, 5, 7], "multi": true,
+        {"kind": "choice", "q": "BFD: những mục nào được vẽ thành khối trên sơ đồ? (chọn tất cả ý đúng)",
+         "options": ["Quét mã sản phẩm", "Quản lý phiên giao dịch", "Quản lý giỏ hàng", "Thanh toán thẻ", "Quản lý thanh toán", "Quản lý hàng cân và giá", "In lại hóa đơn", "Quản lý hóa đơn"],
+         "answer": [1, 2, 4, 5, 7], "multi": true,
          "why": "BFD chỉ đưa các khối Level 1 lên sơ đồ. “Quét mã sản phẩm”, “Thanh toán thẻ”, “In lại hóa đơn” là Level 2, nằm trong Function List."},
-        {"kind": "order", "q": "Sắp xếp các khối theo chiều mũi tên chính trên BFD.",
-         "items": ["Quản lý phiên giao dịch", "Quản lý giỏ hàng", "Quản lý thanh toán", "Quản lý hóa đơn"],
-         "why": "Phải mở phiên mới thêm được hàng; Quản lý hàng cân và giá cung cấp dữ liệu (tem cân, giá xác nhận) cho giỏ hàng; thanh toán dùng tổng tiền của giỏ; hóa đơn lập từ giao dịch đã thanh toán."},
-        {"kind": "choice", "q": "Trên BFD, khối Quản lý thanh toán trao đổi hai chiều với ai?",
-         "options": ["Trưởng ca / Quản lý quầy", "Quản lý hàng cân và giá", "Ngân hàng (tác nhân bên ngoài)", "Quản lý phiên giao dịch"],
-         "answer": [2], "multi": false,
+        {"kind": "choice", "q": "BFD: khối Quản lý hàng cân và giá nối mũi tên vào khối nào?",
+         "options": ["Quản lý hóa đơn", "Quản lý phiên giao dịch", "Quản lý thanh toán", "Quản lý giỏ hàng"],
+         "answer": [3], "multi": false,
+         "why": "Tem cân và giá đã xác nhận cung cấp dữ liệu cho giỏ hàng, nên mũi tên đi từ Quản lý hàng cân và giá vào Quản lý giỏ hàng."},
+        {"kind": "choice", "q": "BFD: khối Quản lý thanh toán trao đổi hai chiều với ai?",
+         "options": ["Trưởng ca / Quản lý quầy", "Ngân hàng (tác nhân bên ngoài)", "Quản lý hàng cân và giá", "Quản lý phiên giao dịch"],
+         "answer": [1], "multi": false,
          "why": "Thanh toán gửi giao dịch sang ngân hàng và nhận xác nhận về, nên mũi tên hai chiều nối với tác nhân bên ngoài là Ngân hàng."}
       ]
     },
     "L11a-p3": {
-      "lead": "Sắp xếp các bước phân rã, kéo từng chức năng vào đúng tầng, rồi sắp các bước Đặt món.",
+      "lead": "Chọn chức năng cho từng tầng của cây Khách hàng, rồi chọn cách xử lý câu có tiêu chí chất lượng.",
       "parts": [
-        {"kind": "order", "q": "Sắp xếp các bước phân rã theo đúng thứ tự.",
-         "items": [
-           "Từ User Role “Khách hàng”, chọn các chức năng Level 1",
-           "Lấy Level 1 “Đặt món”, liệt kê các chức năng Level 2",
-           "Chọn chức năng Level 2 còn “to” (Xác nhận đơn) để phân rã ra Level 3",
-           "Kiểm tra chức năng con đủ làm xong chức năng cha và không lẫn NFR"
+        {"kind": "choice", "q": "Level 1 của vai trò Khách hàng gồm những chức năng nào? (chọn tất cả ý đúng)",
+         "options": ["Tìm món", "Quản lý tài khoản", "Gửi xác nhận cho khách", "Đặt món", "Thanh toán", "Theo dõi đơn hàng"],
+         "answer": [1, 3, 5], "multi": true,
+         "why": "Đáp án mẫu chọn 3 nhóm việc của khách hàng làm Level 1: Quản lý tài khoản, Đặt món, Theo dõi đơn hàng. “Tìm món”, “Thanh toán” là Level 2 dưới Đặt món; “Gửi xác nhận cho khách” là Level 3 dưới Xác nhận đơn."},
+        {"kind": "choice", "q": "Level 2 dưới “Đặt món” gồm những chức năng nào? (chọn tất cả ý đúng)",
+         "options": ["Quản lý tài khoản", "Tìm món", "Chỉnh sửa giỏ", "Ghi log hệ thống", "Chọn địa chỉ giao", "Theo dõi đơn hàng", "Xác nhận đơn", "Thêm vào giỏ"],
+         "answer": [1, 2, 4, 6, 7], "multi": true,
+         "why": "Level 2 của Đặt món: Tìm món, Thêm vào giỏ, Chỉnh sửa giỏ, Chọn địa chỉ giao, Thanh toán, Xác nhận đơn. “Quản lý tài khoản”, “Theo dõi đơn hàng” là Level 1 khác; “Ghi log hệ thống” là Level 3 dưới Xác nhận đơn."},
+        {"kind": "choice", "q": "Phân rã “Xác nhận đơn” ra Level 3 gồm những chức năng nào? (chọn tất cả ý đúng)",
+         "options": ["Tìm món", "Gửi thông báo cho nhà hàng", "Xác nhận đơn trong ≤ 3 giây", "Gửi xác nhận cho khách", "Ghi log hệ thống", "Theo dõi đơn hàng", "Cập nhật trạng thái đơn"],
+         "answer": [1, 3, 4, 6], "multi": true,
+         "why": "Khi xác nhận đơn, hệ thống gửi thông báo cho nhà hàng, gửi xác nhận cho khách, ghi log và cập nhật trạng thái đơn. “Xác nhận đơn trong ≤ 3 giây” là NFR; “Tìm món” là Level 2, “Theo dõi đơn hàng” là Level 1."},
+        {"kind": "choice", "q": "Câu “Xác nhận đơn trong ≤ 3 giây” đặt ở đâu?",
+         "options": [
+           "Đưa vào cây làm Level 3 dưới Xác nhận đơn",
+           "Đưa vào cây làm Level 2 dưới Đặt món",
+           "Không đưa vào cây; chuyển sang danh sách NFR (hiệu suất)",
+           "Bỏ đi vì không phải yêu cầu"
          ],
-         "why": "Đi từ trên xuống: User Role → Level 1 → Level 2 → Level 3, cuối cùng kiểm cây."},
-        {"kind": "sort", "q": "Mỗi mục nằm ở tầng nào của cây?",
-         "bins": ["Level 1 (dưới Khách hàng)", "Level 2 (dưới Đặt món)", "Level 3 (dưới Xác nhận đơn)", "Không đưa vào cây"],
-         "items": [
-           {"t": "Quản lý tài khoản", "a": [0]},
-           {"t": "Đặt món", "a": [0]},
-           {"t": "Theo dõi đơn hàng", "a": [0]},
-           {"t": "Tìm món", "a": [1]},
-           {"t": "Thêm vào giỏ", "a": [1]},
-           {"t": "Chỉnh sửa giỏ", "a": [1]},
-           {"t": "Chọn địa chỉ giao", "a": [1]},
-           {"t": "Thanh toán", "a": [1]},
-           {"t": "Xác nhận đơn", "a": [1]},
-           {"t": "Gửi thông báo cho nhà hàng", "a": [2]},
-           {"t": "Gửi xác nhận cho khách", "a": [2]},
-           {"t": "Ghi log hệ thống", "a": [2]},
-           {"t": "Cập nhật trạng thái đơn", "a": [2]},
-           {"t": "Xác nhận đơn trong ≤ 3 giây", "a": [3], "why": "Đây là NFR (hiệu suất), đưa sang danh sách NFR."}
-         ]},
-        {"kind": "order", "q": "Sắp xếp các chức năng Level 2 của “Đặt món” theo thứ tự khách làm.",
-         "items": ["Tìm món", "Thêm vào giỏ", "Chỉnh sửa giỏ", "Chọn địa chỉ giao", "Thanh toán", "Xác nhận đơn"],
-         "why": "Tìm món → Thêm vào giỏ → Chỉnh sửa giỏ → Chọn địa chỉ giao → Thanh toán → Xác nhận đơn."}
+         "answer": [2], "multi": false,
+         "why": "Đây là tiêu chí chất lượng (hiệu suất), tức NFR. Cây phân rã chỉ chứa chức năng, nên câu này chuyển sang danh sách NFR chứ không bỏ."}
       ]
     },
     "L11a-p4": {
-      "lead": "Sắp xếp các bước, chọn cách kẻ bảng, kéo từng ô vào ✅ / ❌ / 🔍, rồi xử lý ô đề chưa nói rõ.",
+      "lead": "Chọn cách kẻ bảng, kéo các ô chính vào ✅ / ❌ / 🔍, rồi chọn cách điền hai ô đặc biệt.",
       "parts": [
-        {"kind": "order", "q": "Sắp xếp các bước lập Permission Matrix theo đúng thứ tự.",
-         "items": [
-           "Kẻ bảng: hàng là chức năng, cột là vai trò",
-           "Đi từng hàng, đọc quy định để điền ✅ / ❌ / 🔍",
-           "Ghi chú cho ô có điều kiện",
-           "Rà theo cột: mỗi vai trò đủ quyền làm hết nhiệm vụ trong User List chưa"
-         ],
-         "why": "Kẻ bảng → điền từng hàng → ghi chú ô có điều kiện → rà theo cột."},
-        {"kind": "choice", "q": "Bảng Permission Matrix của FoodNow kẻ thế nào?",
+        {"kind": "choice", "q": "Permission Matrix của FoodNow kẻ hàng và cột thế nào?",
          "options": [
            "Hàng là 3 vai trò, cột là 6 chức năng",
-           "Hàng là 6 chức năng (từ B3), cột là 3 vai trò (từ B2)",
-           "Hàng là từng khách hàng cụ thể, cột là các nhà hàng"
+           "Hàng là từng khách hàng cụ thể, cột là các nhà hàng",
+           "Hàng là 6 chức năng (từ B3), cột là 3 vai trò (từ B2)"
          ],
-         "answer": [1], "multi": false,
+         "answer": [2], "multi": false,
          "why": "Hàng là chức năng lấy từ Function List (B3), cột là vai trò lấy từ User List (B2)."},
-        {"kind": "sort", "q": "Khách hàng và Nhân viên nhà hàng: ô này điền gì?",
+        {"kind": "sort", "q": "Theo quy định của đề, ô (vai trò – chức năng) này điền gì?",
          "bins": ["✅ Có quyền", "❌ Không có quyền", "🔍 Chỉ xem"],
          "items": [
-           {"t": "Khách hàng – Tìm nhà hàng", "a": [0]},
-           {"t": "Khách hàng – Đặt bàn", "a": [0]},
-           {"t": "Khách hàng – Hủy đặt bàn", "a": [0], "why": "✅ kèm ghi chú “chỉ đơn của mình”."},
-           {"t": "Khách hàng – Xác nhận đặt bàn", "a": [1]},
-           {"t": "Khách hàng – Cập nhật sơ đồ bàn", "a": [1]},
-           {"t": "Khách hàng – Xem báo cáo đặt bàn", "a": [1]},
-           {"t": "Nhân viên nhà hàng – Tìm nhà hàng", "a": [0]},
-           {"t": "Nhân viên nhà hàng – Đặt bàn", "a": [1]},
-           {"t": "Nhân viên nhà hàng – Hủy đặt bàn", "a": [1], "why": "Khách chỉ hủy được đặt bàn của mình; nhân viên không có quyền hủy."},
-           {"t": "Nhân viên nhà hàng – Xác nhận đặt bàn", "a": [0]},
+           {"t": "Nhân viên nhà hàng – Xác nhận đặt bàn", "a": [0], "why": "Quy định: nhân viên xác nhận đặt bàn."},
            {"t": "Nhân viên nhà hàng – Cập nhật sơ đồ bàn", "a": [2], "why": "Nhân viên xem được sơ đồ bàn, chỉ quản lý được sửa."},
-           {"t": "Nhân viên nhà hàng – Xem báo cáo đặt bàn", "a": [1], "why": "Chỉ quản lý được xem báo cáo."}
-         ]},
-        {"kind": "sort", "q": "Quản lý nhà hàng: ô này điền gì?",
-         "bins": ["✅ Có quyền", "❌ Không có quyền", "🔍 Chỉ xem"],
-         "items": [
-           {"t": "Quản lý nhà hàng – Tìm nhà hàng", "a": [0]},
-           {"t": "Quản lý nhà hàng – Đặt bàn", "a": [1]},
-           {"t": "Quản lý nhà hàng – Hủy đặt bàn", "a": [1]},
            {"t": "Quản lý nhà hàng – Cập nhật sơ đồ bàn", "a": [0], "why": "Chỉ quản lý được sửa sơ đồ bàn."},
-           {"t": "Quản lý nhà hàng – Xem báo cáo đặt bàn", "a": [0], "why": "Chỉ quản lý được xem báo cáo."}
+           {"t": "Khách hàng – Cập nhật sơ đồ bàn", "a": [1]},
+           {"t": "Quản lý nhà hàng – Xem báo cáo đặt bàn", "a": [0], "why": "Chỉ quản lý được xem báo cáo."},
+           {"t": "Nhân viên nhà hàng – Xem báo cáo đặt bàn", "a": [1], "why": "Chỉ quản lý được xem báo cáo."},
+           {"t": "Khách hàng – Xem báo cáo đặt bàn", "a": [1]}
          ]},
-        {"kind": "choice", "q": "Đề không nói Quản lý nhà hàng có xác nhận đặt bàn hay không. Xử lý ô này thế nào?",
+        {"kind": "choice", "q": "Ô Khách hàng – Hủy đặt bàn điền thế nào?",
+         "options": [
+           "✅ kèm ghi chú “chỉ đơn của mình”",
+           "❌, vì khách không được hủy",
+           "🔍, vì khách chỉ xem được đặt bàn",
+           "✅, không cần ghi chú"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Khách có quyền hủy nhưng có điều kiện, nên ghi ✅ kèm ghi chú “chỉ đơn của mình”. Ô có điều kiện phải ghi chú rõ."},
+        {"kind": "choice", "q": "Đề không nói Quản lý nhà hàng có xác nhận đặt bàn hay không. Ô này xử lý thế nào?",
          "options": [
            "Ghi ❌ vì đề không nhắc tới",
+           "Giả định ✅ (quản lý thường làm được việc của nhân viên) và hỏi lại stakeholder để chốt",
            "Bỏ hàng “Xác nhận đặt bàn” khỏi ma trận",
-           "Ghi ✅ và chốt luôn, không cần hỏi lại",
-           "Giả định ✅ (quản lý thường làm được việc của nhân viên) và hỏi lại stakeholder để chốt"
+           "Ghi ✅ và chốt luôn, không cần hỏi lại"
          ],
-         "answer": [3], "multi": false,
+         "answer": [1], "multi": false,
          "why": "Đáp án mẫu giả định quản lý có quyền xác nhận vì thường làm được việc của nhân viên, nhưng ghi rõ cần hỏi lại stakeholder để chốt."}
       ]
     }
