@@ -1,0 +1,225 @@
+{
+  "lesson": "L23",
+  "items": {
+    "L23-x1": {
+      "lead": "Kéo mỗi thao tác vào đúng method, rồi kéo vào đúng path.",
+      "parts": [
+        {"kind": "sort", "q": "1) Thao tác này dùng method nào?",
+         "bins": ["GET", "POST", "PUT", "PATCH", "DELETE"],
+         "items": [
+           {"t": "Xem danh sách sản phẩm", "a": [0]},
+           {"t": "Thêm một sản phẩm mới", "a": [1]},
+           {"t": "Chỉ đổi giá bán của một sản phẩm", "a": [3], "why": "Chỉ đổi một phần dữ liệu nên dùng PATCH."},
+           {"t": "Cập nhật lại toàn bộ thông tin một sản phẩm (tên, giá, mô tả, đơn vị tính)", "a": [2], "why": "Gửi lại đầy đủ bản ghi nên dùng PUT."},
+           {"t": "Xóa một sản phẩm nhập nhầm", "a": [4]},
+           {"t": "Xem chi tiết một sản phẩm", "a": [0]}
+         ]},
+        {"kind": "sort", "q": "2) Thao tác này dùng path nào theo chuẩn RESTful?",
+         "bins": ["/products", "/products/{id}"],
+         "items": [
+           {"t": "Xem danh sách sản phẩm", "a": [0]},
+           {"t": "Thêm một sản phẩm mới", "a": [0], "why": "Tạo mới thao tác trên cả tập nên không có id."},
+           {"t": "Chỉ đổi giá bán của một sản phẩm", "a": [1]},
+           {"t": "Cập nhật lại toàn bộ thông tin một sản phẩm", "a": [1]},
+           {"t": "Xóa một sản phẩm nhập nhầm", "a": [1]},
+           {"t": "Xem chi tiết một sản phẩm", "a": [1], "why": "Thao tác trên một bản ghi thì thêm {id}."}
+         ]}
+      ]
+    },
+    "L23-x2": {
+      "lead": "Kéo mỗi trường vào đúng kiểu dữ liệu JSON, rồi chọn kiểu cho số điện thoại.",
+      "parts": [
+        {"kind": "sort", "q": "1) Trường này có kiểu dữ liệu gì?\n{\n  \"orderCode\": \"DH0001\",\n  \"total\": 125000,\n  \"paid\": false,\n  \"voucher\": null,\n  \"customer\": { \"name\": \"Lan\", \"phone\": \"0912345678\" },\n  \"tags\": [\"giao nhanh\", \"không hành\"]\n}",
+         "bins": ["String", "Number", "Boolean", "Null", "Object", "Array"],
+         "items": [
+           {"t": "orderCode", "a": [0]},
+           {"t": "total", "a": [1]},
+           {"t": "paid", "a": [2]},
+           {"t": "voucher", "a": [3]},
+           {"t": "customer", "a": [4]},
+           {"t": "tags", "a": [5], "why": "Array chứa các string."}
+         ]},
+        {"kind": "choice", "q": "2) Trường phone \"0912345678\" có kiểu gì, và vì sao nên lưu như vậy?",
+         "options": [
+           "Number, vì số điện thoại toàn chữ số",
+           "Boolean, vì chỉ có hoặc không có số điện thoại",
+           "String, để không mất số 0 ở đầu",
+           "Array, vì gồm nhiều chữ số"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Giá trị nằm trong nháy kép nên là String. Số điện thoại nên lưu dạng chuỗi để không mất số 0 ở đầu."}
+      ]
+    },
+    "L23-x3": {
+      "lead": "Kéo mỗi tình huống vào đúng response code.",
+      "parts": [
+        {"kind": "sort", "q": "API thư viện nên trả response code nào?",
+         "bins": ["200 OK", "201 Created", "400 Bad Request", "401 Unauthorized", "403 Forbidden", "404 Not Found", "429 Too Many Requests", "500 Server Error"],
+         "items": [
+           {"t": "Thủ thư thêm sách mới thành công.", "a": [1], "why": "Vừa tạo resource mới."},
+           {"t": "Bạn đọc xem thông tin sách mã S9999, sách này không có.", "a": [5], "why": "Không tìm thấy resource."},
+           {"t": "Bạn đọc gọi API xóa sách (chỉ thủ thư được xóa).", "a": [4], "why": "Đã đăng nhập nhưng vai trò bạn đọc không có quyền xóa."},
+           {"t": "App gọi API mượn sách nhưng token đã hết hạn.", "a": [3], "why": "Token hết hạn nên không xác thực được."},
+           {"t": "Gửi yêu cầu mượn sách mà thiếu mã bạn đọc.", "a": [2], "why": "Request thiếu dữ liệu bắt buộc."},
+           {"t": "Một công cụ tự động gọi tra cứu liên tục, vượt hạn mức cho phép.", "a": [6], "why": "Vượt giới hạn số lần gọi."},
+           {"t": "Server bị lỗi khi ghi phiếu mượn.", "a": [7], "why": "Lỗi phía server."}
+         ]}
+      ]
+    },
+    "L23-x4": {
+      "lead": "Chọn đoạn JSON chuyển đúng từ XML, rồi chọn lý do JSON ngắn hơn.",
+      "parts": [
+        {"kind": "choice", "q": "1) Đoạn JSON nào chuyển đúng đoạn XML của đề, giữ đúng kiểu dữ liệu?",
+         "options": [
+           "{\n  \"Member\": {\n    \"Code\": \"BD001\",\n    \"Name\": \"Trần An\",\n    \"BorrowedBooks\": [\"S0001\", \"S0002\"],\n    \"Fine\": \"5000\"\n  }\n}",
+           "{\n  \"Member\": {\n    \"Code\": \"BD001\",\n    \"Name\": \"Trần An\",\n    \"BorrowedBooks\": [\"S0001\", \"S0002\"],\n    \"Fine\": 5000\n  }\n}",
+           "{\n  \"Member\": {\n    \"Code\": \"BD001\",\n    \"Name\": \"Trần An\",\n    \"BorrowedBooks\": \"S0001, S0002\",\n    \"Fine\": 5000\n  }\n}",
+           "{\n  \"Member\": {\n    \"Code\": \"BD001\",\n    \"Name\": \"Trần An\",\n    \"BorrowedBooks\": { \"Item\": \"S0001\", \"Item\": \"S0002\" },\n    \"Fine\": 5000\n  }\n}"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Các thẻ <Item> lặp lại thành một Array; mã sách là chuỗi, tiền phạt 5000 là Number (không có nháy). Bỏ lớp \"Member\" ngoài cùng cũng được chấp nhận nếu API quy ước object gốc chính là bạn đọc."},
+        {"kind": "choice", "q": "2) Vì sao bản JSON ngắn hơn bản XML?",
+         "options": [
+           "Vì JSON bỏ bớt dữ liệu",
+           "Vì JSON chỉ chứa được chuỗi",
+           "Vì JSON không có kiểu dữ liệu",
+           "Vì JSON không lặp tên thẻ đóng"
+         ],
+         "answer": [3], "multi": false,
+         "why": "XML viết thẻ mở và thẻ đóng <Tên>…</Tên> nên lặp tên; JSON dùng cặp khóa: giá trị với {} và []."}
+      ]
+    },
+    "L23-x5": {
+      "lead": "Chọn các lỗi cú pháp, chọn bản sửa đúng, rồi chọn nhận xét về PageNumber.",
+      "parts": [
+        {"kind": "choice", "q": "1) Những điểm nào là lỗi cú pháp JSON? (chọn tất cả ý đúng)\n{\n  'Code': \"S0003\",\n  \"Title\": \"Tắt đèn\"\n  \"PageNumber\": \"200 trang\",\n  \"Position\": [\"Kệ 2\", \"Kệ 4\",],\n  \"Status\": True\n}",
+         "options": [
+           "'Code' dùng nháy đơn",
+           "Giá trị \"Tắt đèn\" có dấu tiếng Việt",
+           "Thiếu dấu phẩy sau \"Title\": \"Tắt đèn\"",
+           "Position là một mảng chứa 2 chuỗi",
+           "Dấu phẩy thừa sau \"Kệ 4\" trong mảng",
+           "True viết hoa"
+         ],
+         "answer": [0, 2, 4, 5], "multi": true,
+         "why": "4 lỗi: khóa phải dùng nháy kép \"Code\"; thiếu dấu phẩy giữa hai cặp; dấu phẩy thừa cuối mảng; boolean phải viết thường true. Chuỗi có dấu tiếng Việt và mảng chứa chuỗi đều hợp lệ."},
+        {"kind": "choice", "q": "2) Bản sửa nào đúng cú pháp JSON?",
+         "options": [
+           "{\n  \"Code\": \"S0003\",\n  \"Title\": \"Tắt đèn\",\n  \"PageNumber\": 200,\n  \"Position\": [\"Kệ 2\", \"Kệ 4\",],\n  \"Status\": true\n}",
+           "{\n  \"Code\": \"S0003\",\n  \"Title\": \"Tắt đèn\",\n  \"PageNumber\": 200,\n  \"Position\": [\"Kệ 2\", \"Kệ 4\"],\n  \"Status\": True\n}",
+           "{\n  \"Code\": \"S0003\",\n  \"Title\": \"Tắt đèn\",\n  \"PageNumber\": 200,\n  \"Position\": [\"Kệ 2\", \"Kệ 4\"],\n  \"Status\": true\n}",
+           "{\n  'Code': 'S0003',\n  'Title': 'Tắt đèn',\n  'PageNumber': 200,\n  'Position': ['Kệ 2', 'Kệ 4'],\n  'Status': true\n}"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Bản đúng dùng nháy kép, đủ dấu phẩy, không có dấu phẩy thừa, boolean viết thường. Các bản còn lại vẫn còn dấu phẩy thừa, True viết hoa hoặc nháy đơn."},
+        {"kind": "choice", "q": "3) \"PageNumber\": \"200 trang\" thì sao?",
+         "options": [
+           "Hợp lệ nhưng là String; nếu cần tính toán thì nên là Number 200",
+           "Là lỗi cú pháp, JSON sẽ không đọc được",
+           "Là Boolean",
+           "Là Array vì có hai từ"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Chuỗi trong nháy kép là String hợp lệ, không phải lỗi cú pháp. Nếu cần tính toán số trang thì nên là Number 200."}
+      ]
+    },
+    "L23-x6": {
+      "lead": "Chọn method và URL, kéo từng nội dung vào đúng mục FSD, sắp xếp luồng, chọn response mẫu và response code.",
+      "parts": [
+        {"kind": "choice", "q": "1) Method và URL nào đạt chuẩn RESTful cho API kiểm tra tồn kho? (chọn tất cả ý đúng)",
+         "options": [
+           "POST /stocks/check-stock",
+           "GET /stores/{storeId}/products/{productId}/stock",
+           "GET /getStock?storeId=CH01&productId=SP001",
+           "GET /stocks?storeId=CH01&productId=SP001",
+           "DELETE /stores/{storeId}/products/{productId}/stock"
+         ],
+         "answer": [1, 3], "multi": true,
+         "why": "Chỉ đọc dữ liệu nên dùng GET; path là danh từ chỉ tài nguyên, không có động từ. \"getStock\", \"check-stock\" đưa động từ vào path; POST dùng để thêm mới, DELETE để xóa."},
+        {"kind": "sort", "q": "2) Nội dung này thuộc mục nào của đặc tả FSD?",
+         "bins": ["Mô tả chung", "Luồng nghiệp vụ", "Đầu vào", "Đầu ra", "Danh sách mã lỗi"],
+         "items": [
+           {"t": "Mục đích: cho website bán online biết số lượng tồn của một sản phẩm tại một cửa hàng", "a": [0]},
+           {"t": "Post-condition: trả về số lượng tồn hoặc mã lỗi; không thay đổi dữ liệu kho", "a": [0]},
+           {"t": "Bước: kiểm tra mã sản phẩm tồn tại và đang kinh doanh", "a": [1]},
+           {"t": "Mã cửa hàng – Require: Yes – Mã cửa hàng trên hệ thống SolasMart", "a": [2]},
+           {"t": "Số lượng tồn – số nguyên ≥ 0", "a": [3]},
+           {"t": "Thời điểm cập nhật – dd/mm/yyyy hh24:mi:ss", "a": [3]},
+           {"t": "Trường hợp: mã cửa hàng không tồn tại hoặc ngừng hoạt động → \"Mã cửa hàng không hợp lệ\"", "a": [4]}
+         ]},
+        {"kind": "order", "q": "3) Sắp xếp các bước của luồng nghiệp vụ.",
+         "items": [
+           "Kiểm tra token của bên gọi hợp lệ",
+           "Kiểm tra mã cửa hàng tồn tại và đang hoạt động",
+           "Kiểm tra mã sản phẩm tồn tại và đang kinh doanh",
+           "Lấy số lượng tồn hiện tại và trả về"
+         ]},
+        {"kind": "choice", "q": "4) Response JSON mẫu nào đúng khi thành công?",
+         "options": [
+           "{\n  \"storeId\": \"CH01\",\n  \"productId\": \"SP001\",\n  \"quantity\": \"25 cái\",\n  \"updatedAt\": \"25/11/2026 09:30:00\",\n  \"errorCode\": \"00\",\n  \"errorMessage\": \"Thành công\"\n}",
+           "{\n  \"storeId\": \"CH01\",\n  \"productId\": \"SP001\",\n  \"quantity\": 25,\n  \"updatedAt\": \"25/11/2026 09:30:00\",\n  \"errorCode\": \"00\",\n  \"errorMessage\": \"Thành công\",\n}",
+           "{\n  \"storeId\": \"CH01\",\n  \"productId\": \"SP001\",\n  \"quantity\": -25,\n  \"updatedAt\": \"25/11/2026 09:30:00\",\n  \"errorCode\": \"00\",\n  \"errorMessage\": \"Thành công\"\n}",
+           "{\n  \"storeId\": \"CH01\",\n  \"productId\": \"SP001\",\n  \"quantity\": 25,\n  \"updatedAt\": \"25/11/2026 09:30:00\",\n  \"errorCode\": \"00\",\n  \"errorMessage\": \"Thành công\"\n}"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Số lượng tồn là số nguyên ≥ 0 nên là Number 25, không có nháy và không âm. Bản có dấu phẩy thừa sau trường cuối sai cú pháp JSON. Mã, số lượng ở đây là ví dụ."},
+        {"kind": "sort", "q": "5) Tình huống này trả response code nào?",
+         "bins": ["200 OK", "201 Created", "401 Unauthorized", "403 Forbidden", "404 Not Found"],
+         "items": [
+           {"t": "Thành công", "a": [0], "why": "Lấy dữ liệu thành công, không tạo mới gì."},
+           {"t": "Sản phẩm không tồn tại", "a": [4]},
+           {"t": "Website gọi mà không có token", "a": [2], "why": "Chưa xác thực được bên gọi."}
+         ]}
+      ]
+    },
+    "L23-x7": {
+      "lead": "Chọn cách viết đầu vào/đầu ra, sắp xếp các bước kiểm tra, ghép mã lỗi và chọn rủi ro.",
+      "parts": [
+        {"kind": "choice", "q": "1) Với API do Momo định nghĩa, mục đầu vào/đầu ra trong FSD viết thế nào?",
+         "options": [
+           "BA tự lập bảng trường dữ liệu theo cách FoodNow muốn, Momo sẽ làm theo",
+           "Ghi \"tham khảo đặc tả API của Momo\" kèm đường dẫn tài liệu của đối tác",
+           "Bỏ trống, để dev tự tìm hiểu",
+           "Chép lại bảng đầu vào của API đặt bàn do FoodNow định nghĩa"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Khi đối tác đã quy định cấu trúc dữ liệu, BA không tự lập bảng trường dữ liệu mà dẫn tới tài liệu của đối tác và tuân theo họ."},
+        {"kind": "order", "q": "2) Sắp xếp các bước kiểm tra phía FoodNow trong luồng nghiệp vụ.",
+         "items": [
+           "Checksum hợp lệ: FoodNow mã hóa theo yêu cầu của Momo bằng key được cấp, kết quả phải bằng checksum đối tác gửi",
+           "Mã nhà hàng đang hoạt động và đã liên kết thanh toán với đối tác, mã chi nhánh đang hoạt động",
+           "Mã giao dịch tồn tại và khớp nhà hàng, chi nhánh",
+           "Số tiền Momo gửi bằng số tiền của mã giao dịch",
+           "Bàn đang ở trạng thái Chờ thanh toán"
+         ]},
+        {"kind": "choice", "q": "3) Danh sách mã lỗi của API này lấy theo ai?",
+         "options": [
+           "Theo HTTP status code chuẩn (400, 404…)",
+           "Theo dev FoodNow tự đặt",
+           "Theo yêu cầu của Momo",
+           "Theo nhà hàng"
+         ],
+         "answer": [2], "multi": false,
+         "why": "API do bên khác định nghĩa thì dùng mã lỗi do đối tác quy định, ví dụ 00 = không lỗi, 13, 21, 42."},
+        {"kind": "sort", "q": "4) Theo ví dụ trong FSD, trường hợp này trả mã lỗi nào?",
+         "bins": ["00", "13", "21", "42"],
+         "items": [
+           {"t": "Checksum sai", "a": [1]},
+           {"t": "Nhà hàng/chi nhánh không hợp lệ", "a": [1]},
+           {"t": "Mã giao dịch không tồn tại", "a": [3]},
+           {"t": "Số tiền không hợp lệ", "a": [2]},
+           {"t": "Không có lỗi", "a": [0]}
+         ]},
+        {"kind": "choice", "q": "5) Nếu đặc tả bỏ sót bước kiểm tra số tiền, rủi ro nghiệp vụ là gì?",
+         "options": [
+           "Hệ thống có thể ghi nhận \"đã thanh toán\" dù khách trả thiếu, gây thất thu và sai đối soát",
+           "Không có rủi ro vì checksum đã đảm bảo mọi thứ đúng",
+           "Khách không đặt được bàn",
+           "Momo sẽ từ chối gửi kết quả thanh toán"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Không đối chiếu số tiền Momo gửi với số tiền của mã giao dịch thì giao dịch trả thiếu vẫn được ghi nhận đã thanh toán, gây thất thu và sai đối soát."}
+      ]
+    }
+  }
+}

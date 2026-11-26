@@ -1,0 +1,297 @@
+{
+  "lesson": "L06",
+  "items": {
+    "L06-x1": {
+      "lead": "Chọn những điểm chưa tốt của câu, rồi chọn cách viết lại đạt.",
+      "parts": [
+        {"kind": "choice", "q": "a) Câu “Anh chị chốt cho em vấn đề này.” có những điểm chưa tốt nào? (chọn tất cả ý đúng)",
+         "options": [
+           "Câu quá dài, người đọc khó theo dõi",
+           "Dùng văn nói (“chốt”), giọng như ra lệnh",
+           "Không nêu cụ thể “vấn đề này” là vấn đề gì",
+           "Xưng hô “anh chị” – “em” với khách hàng",
+           "Không có hạn phản hồi và lý do cần xác nhận"
+         ],
+         "answer": [1, 2, 4], "multi": true,
+         "why": "Câu dùng văn nói, giọng ra lệnh; không nêu cụ thể vấn đề; không có hạn phản hồi và lý do. Câu rất ngắn, và cách xưng “anh/chị” – “em” vẫn được giữ trong câu viết lại."},
+        {"kind": "choice", "q": "b) Cách viết lại nào đạt cho email gửi khách hàng thư viện?",
+         "options": [
+           "Anh chị chốt giúp em vụ ngày sinh tác giả sớm nhé.",
+           "Nhờ anh/chị xác nhận giúp em vấn đề này trước 17h00 thứ Sáu.",
+           "Nhờ anh/chị xem xét và xác nhận giúp em: trường Ngày sinh của tác giả có bắt buộc nhập hay không. Nhờ anh/chị phản hồi trước 17h00 thứ Sáu để nhóm phát triển kịp hoàn thiện màn hình quản lý tác giả.",
+           "Nhờ anh/chị xem xét và xác nhận giúp em: trường Ngày sinh của tác giả có bắt buộc nhập hay không."
+         ],
+         "answer": [2], "multi": false,
+         "why": "Câu đạt phải lịch sự, nêu cụ thể vấn đề (ngày sinh tác giả có bắt buộc không), có hạn phản hồi và lý do. Các câu còn lại vẫn dùng văn nói, không nêu cụ thể vấn đề, hoặc thiếu hạn và lý do."}
+      ]
+    },
+    "L06-x2": {
+      "lead": "Sắp xếp công thức tiêu đề, rồi chọn tiêu đề đạt cho từng email.",
+      "parts": [
+        {"kind": "order", "q": "Sắp xếp các phần của tiêu đề email theo công thức trong bài.",
+         "items": ["[Loại việc]", "Nội dung cụ thể", "Dự án"],
+         "why": "Công thức: [Loại việc] + Nội dung cụ thể + Dự án."},
+        {"kind": "choice", "q": "(a) Sửa tiêu đề “Gửi anh tài liệu”.",
+         "options": [
+           "Gửi anh tài liệu SRS",
+           "[Bàn giao tài liệu] SRS v1.0 chức năng quản lý mượn trả – Dự án quản lý thư viện thông minh",
+           "[Bàn giao tài liệu] – Dự án quản lý thư viện thông minh",
+           "Tài liệu SRS v1.0 chức năng quản lý mượn trả"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Tiêu đề đạt có đủ loại việc, nội dung cụ thể (tài liệu nào, phiên bản, chức năng) và tên dự án. Các phương án khác thiếu từ khóa, thiếu nội dung cụ thể hoặc thiếu tên dự án."},
+        {"kind": "choice", "q": "(b) Sửa tiêu đề “Hỏi về đăng nhập”.",
+         "options": [
+           "[Câu hỏi làm rõ] Chức năng đăng nhập bằng email – Dự án quản lý thư viện thông minh",
+           "Hỏi về đăng nhập – Dự án quản lý thư viện thông minh",
+           "[Câu hỏi làm rõ] Đăng nhập",
+           "Anh ơi cho em hỏi chức năng đăng nhập với ạ"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Tiêu đề đạt có từ khóa loại việc, nêu cụ thể chức năng và có tên dự án. Các phương án khác chung chung, thiếu từ khóa hoặc tên dự án, hoặc dùng văn nói."},
+        {"kind": "choice", "q": "(c) Sửa tiêu đề “Báo cáo”.",
+         "options": [
+           "Báo cáo tuần",
+           "[Báo cáo] – Dự án quản lý thư viện thông minh",
+           "[Báo cáo tiến độ] Tuần 12 – Dự án quản lý thư viện thông minh",
+           "Báo cáo tiến độ tuần 12"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Tiêu đề đạt nói rõ loại báo cáo, kỳ báo cáo và tên dự án. Các phương án khác không nói báo cáo gì, kỳ nào, hoặc thiếu tên dự án."}
+      ]
+    },
+    "L06-x3": {
+      "lead": "Kéo mỗi yêu cầu vào đúng mức MoSCoW, rồi chọn căn cứ cho mức Won’t.",
+      "parts": [
+        {"kind": "sort", "q": "Mỗi yêu cầu của hệ thống thư viện thuộc mức nào?",
+         "bins": ["Must Have", "Should Have", "Could Have", "Won’t Have (this time)"],
+         "items": [
+           {"t": "(1) Mượn và trả sách", "a": [0], "why": "Nghiệp vụ chính, slide nêu đúng ví dụ này."},
+           {"t": "(2) Lưu nhật ký truy cập theo quy định bảo mật", "a": [0], "why": "Liên quan quy định, an toàn thông tin."},
+           {"t": "(3) Báo cáo sách mượn nhiều nhất theo tháng", "a": [1], "why": "Slide: báo cáo là Should Have; thiếu thì tổng hợp tay được."},
+           {"t": "(4) Đổi màu giao diện theo sở thích", "a": [2], "why": "Cải tiến nhỏ, không ảnh hưởng mục tiêu kinh doanh."},
+           {"t": "(5) Gửi OTP qua SMS khi chưa đăng ký brand_name, các bên đã thống nhất để sau", "a": [3], "why": "Đã thống nhất với Stakeholder không làm bản này."}
+         ]},
+        {"kind": "choice", "q": "Căn cứ để xếp (5) “Gửi OTP khi chưa có brand_name” vào Won’t Have là gì?",
+         "options": [
+           "BA thấy khó làm nên tự bỏ ra khỏi phạm vi",
+           "Yêu cầu bị xóa vĩnh viễn khỏi dự án",
+           "Đã thống nhất với Stakeholder không làm ở phiên bản này"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Won’t Have là mức các bên liên quan đã đồng ý không triển khai ở phiên bản hiện tại. Nó không phải bị xóa vĩnh viễn, và BA không tự quyết bỏ."}
+      ]
+    },
+    "L06-x4": {
+      "lead": "Chọn những điểm cần sửa trong RTM template, rồi chọn cách xử lý từng điểm.",
+      "parts": [
+        {"kind": "choice", "q": "1) Trong RTM template, những điểm nào là lỗi cần sửa? (chọn tất cả ý đúng)",
+         "options": [
+           "Dòng CR-…-005 (Won’t Have) để trống các cột thiết kế, task, testcase",
+           "Dòng CR-…-006 (Must Have, mã hóa dữ liệu nhạy cảm) chưa có tài liệu thiết kế, task, testcase",
+           "Dòng CR-…-001 ghi FSD-Login, task 4448, testcase TC001-005, kết quả Pass",
+           "Hai dòng cuối cùng có STT 5",
+           "Yêu cầu mã hóa dữ liệu nhạy cảm được phân loại Non-Function",
+           "Cột ID yêu cầu dùng mã CR-…, còn sheet Change Log dùng mã REQ-…"
+         ],
+         "answer": [1, 3, 5], "multi": true,
+         "why": "Lỗi: dòng Must Have CR-…-006 thiếu thiết kế, task, testcase (lỗ hổng truy vết); STT trùng số 5; mã ID không thống nhất giữa RTM (CR-…) và Change Log (REQ-…). Dòng Won’t Have để trống là hợp lý; dòng 1 điền đủ; mã hóa dữ liệu đúng là yêu cầu phi chức năng."},
+        {"kind": "choice", "q": "2) Với dòng CR-…-006 (Must Have) còn trống thiết kế và testcase, BA nên làm gì?",
+         "options": [
+           "Để trống vì yêu cầu phi chức năng không cần kiểm thử",
+           "Viết đặc tả bảo mật, tạo task, testcase NFR rồi điền vào RTM",
+           "Tự hạ xuống Won’t Have để không phải điền các cột",
+           "Xóa dòng này khỏi RTM cho gọn"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Yêu cầu bắt buộc mà chưa có thiết kế, chưa có test là lỗ hổng truy vết. Cần viết đặc tả bảo mật, tạo task và testcase NFR."},
+        {"kind": "choice", "q": "3) Sửa lỗi hai dòng cùng STT 5 thế nào?",
+         "options": [
+           "Đổi mã CR-…-006 thành CR-…-005 cho khớp STT",
+           "Xóa dòng CR-…-006 vì trùng số",
+           "Đổi STT dòng cuối thành 6"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Đây là lỗi đánh số, chỉ cần sửa STT dòng cuối thành 6. Mã ID phải duy nhất, không trùng, không đổi."},
+        {"kind": "choice", "q": "4) Cột ID yêu cầu dùng CR-…, sheet Change Log dùng REQ-…. Xử lý thế nào?",
+         "options": [
+           "Thống nhất một quy tắc mã để truy vết được giữa hai sheet",
+           "Giữ nguyên, mỗi sheet đặt mã theo cách riêng",
+           "Bỏ cột ID, dùng STT để truy vết"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Hai sheet dùng hai kiểu mã thì không truy vết được với nhau. Cần chọn một quy tắc mã và dùng thống nhất. STT không phải mã duy nhất (template còn đang trùng STT)."},
+        {"kind": "choice", "q": "5) Dòng CR-…-005 (Won’t Have) để trống các cột truy vết. BA nên lưu ý gì?",
+         "options": [
+           "Đây là lỗ hổng truy vết, phải bổ sung thiết kế và testcase ngay",
+           "Phải đổi ưu tiên thành Could Have để điền đủ các cột",
+           "Để trống là hợp lý; nên ghi chú lý do không làm"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Won’t Have đã thống nhất không làm ở phiên bản này nên để trống các cột thiết kế, task, test là hợp lý. Nên ghi chú lý do không làm."}
+      ]
+    },
+    "L06-x5": {
+      "lead": "Sắp xếp cấu trúc tên file, chọn tên đúng cho từng bản BRD, rồi chọn chỗ để bản cũ.",
+      "parts": [
+        {"kind": "order", "q": "Sắp xếp các phần của tên file theo cấu trúc trong bài.",
+         "items": ["Tên đơn vị", "Tên dự án", "Tên tài liệu", "Phiên bản", "Ngày"],
+         "why": "Cấu trúc: [Tên đơn vị]_[Tên dự án]_Tên tài liệu_[Phiên bản]_[Ngày]."},
+        {"kind": "choice", "q": "(a) Bản BRD đầu tiên, ngày 02/04/2025.",
+         "options": [
+           "XYZ_SolasMart_BRD_v1.0_02042025.docx",
+           "SolasMart_BRD_02042025.docx",
+           "XYZ_SolasMart_BRD_v0.1_02042025.docx",
+           "BRD_SolasMart_final.docx"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Phiên bản đầu tiên là v1.0, tên ghi đủ đơn vị, dự án, tài liệu, phiên bản, ngày."},
+        {"kind": "choice", "q": "(b) Bản BRD sửa chính tả, ngày 04/04/2025.",
+         "options": [
+           "XYZ_SolasMart_BRD_v2.0_04042025.docx",
+           "XYZ_SolasMart_BRD_v1.0_04042025.docx",
+           "XYZ_SolasMart_BRD_v1.1_04042025.docx"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Sửa chính tả là cập nhật nhỏ nên tăng số sau dấu chấm: v1.0 → v1.1. Giữ v1.0 là không ghi nhận thay đổi; v2.0 dành cho thay đổi lớn."},
+        {"kind": "choice", "q": "(c) Bản BRD bổ sung toàn bộ phần bán hàng online, ngày 20/04/2025.",
+         "options": [
+           "XYZ_SolasMart_BRD_v1.2_20042025.docx",
+           "XYZ_SolasMart_BRD_v2.0_20042025.docx",
+           "XYZ_SolasMart_BRD_v2.0_02042025.docx"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Bổ sung toàn bộ một phần nghiệp vụ là thay đổi nội dung quan trọng nên tăng số đầu: v2.0, kèm đúng ngày 20/04/2025."},
+        {"kind": "choice", "q": "Bản cũ để đâu? (chọn tất cả ý đúng)",
+         "options": [
+           "Xóa bản cũ để tránh nhầm lẫn",
+           "Chuyển vào thư mục Old_Versions (thủ công)",
+           "Ghi đè bản mới lên file cũ, giữ nguyên tên",
+           "Dựa vào lịch sử phiên bản của SharePoint/Google Drive"
+         ],
+         "answer": [1, 3], "multi": true,
+         "why": "Bản cũ được lưu lại: thủ công thì chuyển vào Old_Versions, tự động thì dựa vào lịch sử phiên bản của SharePoint/Google Drive. Thay đổi ghi bằng track changes hoặc comment."}
+      ]
+    },
+    "L06-x6": {
+      "lead": "Xử lý CR của SolasMart: chọn cách nhìn nhận, sắp xếp các bước, kéo việc cập nhật vào đúng chỗ và chọn email.",
+      "parts": [
+        {"kind": "choice", "q": "(1) Yêu cầu “thêm luôn giao hàng trong 2 giờ cho đơn online” là gì, Dev lead nên làm gì?",
+         "options": [
+           "Không phải CR vì chỉ gọi điện, chưa có văn bản; Dev lead làm luôn cho kịp",
+           "Là CR nhưng Giám đốc kinh doanh yêu cầu nên Dev lead làm luôn, bổ sung giấy tờ sau",
+           "Không phải CR vì CR chỉ do khách hàng đề xuất",
+           "Là CR (thay đổi phạm vi và nghiệp vụ, có thể cả timeline/effort); Dev lead không được làm luôn, phải qua quy trình quản lý thay đổi"
+         ],
+         "answer": [3], "multi": false,
+         "why": "CR có thể đến từ bất kỳ ai, nhưng phải đi qua quy trình quản lý thay đổi. Không ai được “làm luôn” khi chưa qua quy trình."},
+        {"kind": "order", "q": "(2) Sắp xếp các bước xử lý CR này.",
+         "items": [
+           "Tiếp nhận: lập phiếu, gán mã CR, người yêu cầu là Giám đốc kinh doanh",
+           "Phân tích: phạm vi bổ sung giao hàng 2 giờ, ảnh hưởng kho và đơn online",
+           "Ước lượng effort: ngày công, chi phí, lùi mốc, rủi ro",
+           "Phê duyệt: người có thẩm quyền quyết định, ghi lý do nếu từ chối",
+           "Triển khai",
+           "Nghiệm thu và theo dõi"
+         ],
+         "why": "Nhận – Hiểu – Đo – Duyệt – Làm – Kiểm. Phải ước lượng trước khi duyệt, vì người duyệt cần biết thay đổi tốn bao nhiêu."},
+        {"kind": "sort", "q": "(2) Mỗi phần của phiếu CR đi cùng bước nào?",
+         "bins": ["Tiếp nhận", "Phân tích + Ước lượng", "Phê duyệt", "Triển khai"],
+         "items": [
+           {"t": "Phần 1. Thông tin người yêu cầu", "a": [0]},
+           {"t": "Phần 2. Thông tin yêu cầu thay đổi", "a": [0]},
+           {"t": "Phần 3. Phân tích (phạm vi, kế hoạch, chi phí, rủi ro…)", "a": [1]},
+           {"t": "Phần 4. Quyết định xử lý", "a": [2]},
+           {"t": "Phần 5. Thông tin triển khai", "a": [3]}
+         ]},
+        {"kind": "sort", "q": "(3) Mỗi việc cập nhật ghi vào đâu?",
+         "bins": ["RTM", "Sheet Change Log (trong file RTM)", "BRD/SRS", "Thư mục 07. CHANGE LOGS (lưu file)"],
+         "items": [
+           {"t": "Thêm dòng mới cho yêu cầu giao hàng 2 giờ, nguồn: Giám đốc kinh doanh, ưu tiên theo MoSCoW đã thống nhất", "a": [0]},
+           {"t": "Cột thiết kế, task, testcase điền khi có", "a": [0]},
+           {"t": "Ghi ngày, ID, thay đổi, người thực hiện, trạng thái", "a": [1, 3]},
+           {"t": "Nếu duyệt: nâng lên phiên bản lớn (ví dụ v2.0), lưu bản cũ", "a": [2]},
+           {"t": "Lưu phiếu CR", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "(4) Email xác nhận CR nên có tiêu đề và người nhận thế nào?",
+         "options": [
+           "Tiêu đề: Yêu cầu mới. To: Dev lead. Cc: Giám đốc kinh doanh.",
+           "Tiêu đề: [Xác nhận Change Request] Giao hàng 2 giờ cho đơn online – Dự án SolasMart. To: Giám đốc kinh doanh. Cc: phía SolasMart trước, PM và Dev lead sau.",
+           "Tiêu đề: [Xác nhận Change Request] Giao hàng 2 giờ cho đơn online – Dự án SolasMart. To: Giám đốc kinh doanh, PM, Dev lead.",
+           "Tiêu đề: [Xác nhận Change Request] Giao hàng 2 giờ cho đơn online – Dự án SolasMart. To: Giám đốc kinh doanh. Cc: PM và Dev lead trước, phía SolasMart sau."
+         ],
+         "answer": [1], "multi": false,
+         "why": "Tiêu đề theo công thức [Loại việc] + nội dung + dự án. To chỉ một người chịu trách nhiệm cao nhất; cc xếp khách hàng trước, đơn vị triển khai sau."},
+        {"kind": "choice", "q": "(4) Nội dung email gồm những gì? (chọn tất cả ý đúng)",
+         "options": [
+           "Tóm tắt yêu cầu thay đổi",
+           "Thông báo Dev lead đã làm xong tính năng",
+           "Kết quả phân tích và ước lượng",
+           "Đề nghị xác nhận",
+           "Lời chào riêng từng người trong To và cc",
+           "Hạn phản hồi"
+         ],
+         "answer": [0, 2, 3, 5], "multi": true,
+         "why": "Email tóm tắt yêu cầu, kết quả phân tích và ước lượng, đề nghị xác nhận và hạn phản hồi. CR chưa duyệt thì chưa làm; lời chào chỉ dành cho 1 người ở vị trí cao nhất."}
+      ]
+    },
+    "L06-x7": {
+      "lead": "Kéo work item vào đúng loại và người làm, chọn tiêu chí chấp nhận, rồi phân biệt Priority với mức độ nghiêm trọng.",
+      "parts": [
+        {"kind": "sort", "q": "1) Mỗi work item của module “Quản lý đặt bàn” thuộc loại nào?",
+         "bins": ["Epic", "User Story", "Task"],
+         "items": [
+           {"t": "Quản lý đặt bàn", "a": [0], "why": "Epic nhóm các User Story liên quan."},
+           {"t": "Đặt bàn – Khách đặt bàn trực tuyến", "a": [1]},
+           {"t": "Đặt bàn – Khách hủy bàn", "a": [1]},
+           {"t": "Đặt bàn – Nhân viên xác nhận bàn", "a": [1]},
+           {"t": "Đặt bàn – Thiết kế màn hủy bàn", "a": [2]},
+           {"t": "Đặt bàn – API hủy bàn", "a": [2]},
+           {"t": "Đặt bàn – Testcase hủy bàn", "a": [2], "why": "Task là việc cụ thể trong sprint cho Dev, Tester, BA."}
+         ]},
+        {"kind": "sort", "q": "2) Mỗi Task con của “Khách hủy bàn” giao cho ai?",
+         "bins": ["BA", "Dev", "Tester"],
+         "items": [
+           {"t": "Đặt bàn – Thiết kế màn hủy bàn", "a": [0]},
+           {"t": "Đặt bàn – API hủy bàn", "a": [1]},
+           {"t": "Đặt bàn – Testcase hủy bàn", "a": [2]}
+         ]},
+        {"kind": "choice", "q": "3) Tiêu chí nào là Acceptance Criteria hợp lý cho User Story “Khách hủy bàn”? (chọn tất cả ý đúng)",
+         "options": [
+           "Màn hình hủy bàn đẹp, thân thiện",
+           "Khách chỉ hủy được bàn của chính mình",
+           "Hủy thành công thì trạng thái đổi sang Đã hủy và khách nhận email",
+           "Khách hủy được bàn của bất kỳ ai",
+           "Không hủy được bàn đã qua giờ đặt"
+         ],
+         "answer": [1, 2, 4], "multi": true,
+         "why": "Tiêu chí chấp nhận là điều kiện rõ ràng để coi là hoàn thành. “Đẹp, thân thiện” không kiểm tra được; cho hủy bàn của bất kỳ ai trái với tiêu chí chỉ hủy bàn của chính mình."},
+        {"kind": "choice", "q": "4) Task con “API hủy bàn” nối với User Story “Khách hủy bàn” qua trường nào?",
+         "options": [
+           "Iteration Path",
+           "Assigned To",
+           "Related Work (là con của User Story)",
+           "Acceptance Criteria"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Related Work dùng để gán link cha, con. Iteration Path là sprint, Assigned To là người phụ trách, Acceptance Criteria là điều kiện hoàn thành."},
+        {"kind": "sort", "q": "5) Mỗi ý dưới đây nói về Priority hay mức độ nghiêm trọng?",
+         "bins": ["Priority (mức độ ưu tiên)", "Mức độ nghiêm trọng"],
+         "items": [
+           {"t": "Sự cấp bách cần xử lý", "a": [0]},
+           {"t": "Mức ảnh hưởng đến hệ thống hoặc người dùng", "a": [1]},
+           {"t": "Task “API hủy bàn” cần cho bản demo tuần này", "a": [0]},
+           {"t": "Nếu chưa có API hủy bàn, khách vẫn gọi điện hủy được", "a": [1]}
+         ]},
+        {"kind": "choice", "q": "6) Task “API hủy bàn” cần cho bản demo tuần này, nhưng nếu chưa có thì khách vẫn gọi điện hủy được. Ghi thế nào?",
+         "options": [
+           "Priority 2, mức độ nghiêm trọng 1",
+           "Priority 1 (Cao), mức độ nghiêm trọng 2",
+           "Priority 4 (Rất thấp), mức độ nghiêm trọng 4"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Cần cho demo tuần này nên rất cấp bách: Priority 1. Chưa có thì vẫn có cách hủy bằng điện thoại nên ảnh hưởng chưa ở mức cao nhất: nghiêm trọng 2."}
+      ]
+    }
+  }
+}

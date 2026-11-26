@@ -1,0 +1,179 @@
+{
+  "lesson": "L02",
+  "items": {
+    "L02-x1": {
+      "lead": "Kéo mỗi nhu cầu vào đúng ngôn ngữ/công nghệ theo slide.",
+      "parts": [
+        {"kind": "sort", "q": "Nhu cầu này dùng ngôn ngữ/công nghệ nào?",
+         "bins": ["Python", "Java", "C#", "C/C++", "JavaScript/HTML/CSS"],
+         "items": [
+           {"t": "(1) Làm game bằng Unity", "a": [2], "why": "C# dùng cho game (Unity)."},
+           {"t": "(2) Phân tích dữ liệu, AI", "a": [0]},
+           {"t": "(3) App Android, hệ thống doanh nghiệp lớn", "a": [1]},
+           {"t": "(4) Phần mềm nhúng hiệu năng cao", "a": [3]},
+           {"t": "(5) Giao diện web chạy trên trình duyệt", "a": [4], "why": "Frontend dùng JavaScript, HTML, CSS."},
+           {"t": "(6) Web bằng ASP.NET", "a": [2], "why": "Unity và ASP.NET cùng dùng C# của Microsoft."}
+         ]}
+      ]
+    },
+    "L02-x2": {
+      "lead": "Kéo mỗi ý vào DNS hoặc DHCP, rồi chọn cách giải thích đúng cho chủ cửa hàng.",
+      "parts": [
+        {"kind": "sort", "q": "Ý này nói về giao thức nào?",
+         "bins": ["DNS", "DHCP"],
+         "items": [
+           {"t": "Gõ tên website là vào được, không cần nhớ số", "a": [0]},
+           {"t": "Tra tên website ra số IP rồi kết nối tới máy chủ", "a": [0]},
+           {"t": "Giống một cuốn danh bạ", "a": [0]},
+           {"t": "Khách bắt Wi-Fi là dùng được ngay, không ai phải cài gì", "a": [1]},
+           {"t": "Bộ phát tự cấp cho máy khách một IP còn trống", "a": [1]},
+           {"t": "Giống lễ tân phát số phòng", "a": [1]}
+         ]},
+        {"kind": "choice", "q": "Câu trả lời nào đúng và dễ hiểu cho chủ SolasMart?",
+         "options": [
+           "Khi anh/chị gõ tên website, DHCP tra tên ra số IP. Khi khách bắt Wi-Fi, DNS tự cấp IP cho máy khách.",
+           "Website lưu sẵn địa chỉ IP của từng khách nên không cần nhớ số. Khách vào Wi-Fi được ngay vì điện thoại tự cài phần mềm của cửa hàng.",
+           "Mỗi máy trên Internet có một dãy số gọi là địa chỉ IP. DNS như cuốn danh bạ: tra tên website ra số IP nên không cần nhớ số. Khi khách bắt Wi-Fi, bộ phát dùng DHCP tự cấp một IP còn trống, giống lễ tân phát số phòng, nên khách dùng được ngay.",
+           "Tên website chính là địa chỉ IP viết bằng chữ, máy tự đọc được. Wi-Fi dùng được ngay vì mọi máy đều có chung một IP."
+         ],
+         "answer": [2], "multi": false,
+         "why": "DNS đổi tên miền thành địa chỉ IP (danh bạ: tên → số); DHCP tự cấp IP cho thiết bị khi vào mạng (lễ tân phát số phòng). Phương án đầu đảo vai DNS và DHCP; hai phương án còn lại sai về cách IP hoạt động."}
+      ]
+    },
+    "L02-x3": {
+      "lead": "Kéo mỗi tình huống vào kiến trúc nên chọn, rồi chọn lý do và việc BA cần làm.",
+      "parts": [
+        {"kind": "sort", "q": "Tình huống này nên chọn kiến trúc nào?",
+         "bins": ["Monolithic", "Microservices"],
+         "items": [
+           {"t": "(a) Thư viện trường học: phần mềm mượn trả sách, 3 Dev, cần dùng trong 3 tháng", "a": [0], "why": "Dự án nhỏ, cần phát triển nhanh, triển khai đơn giản."},
+           {"t": "(b) Chuỗi bán lẻ toàn quốc: tách riêng bán online, kho, nhân sự; mỗi phần có team riêng, nâng cấp độc lập", "a": [1], "why": "Hệ thống lớn, cần mở rộng và nâng cấp từng phần độc lập; có nhiều team."},
+           {"t": "(c) Startup đặt đồ ăn muốn \"chịu được tải lớn sau này\", hiện chỉ có 2 Dev mới ra trường, chưa có hạ tầng triển khai tự động", "a": [0], "why": "Nên bắt đầu Monolithic, tổ chức code tách tầng rõ để sau này tách dần."}
+         ]},
+        {"kind": "choice", "q": "Vì sao tình huống (c) chưa nên chọn Microservices?",
+         "options": [
+           "Vì Monolithic chịu tải lớn tốt hơn Microservices",
+           "Vì Microservices đòi hỏi đội ngũ có kinh nghiệm và hạ tầng hiện đại, hai điều startup chưa có",
+           "Vì startup đặt đồ ăn sẽ không bao giờ cần mở rộng",
+           "Vì Microservices chỉ dùng được cho chuỗi bán lẻ"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Theo slide, Microservices hợp hệ thống lớn, yêu cầu mở rộng cao nhưng đòi hỏi đội ngũ có kinh nghiệm và hạ tầng hiện đại. Startup có mong muốn chịu tải lớn nhưng điều kiện thực tế chưa đáp ứng."},
+        {"kind": "choice", "q": "Với tình huống (c), BA nên làm những việc nào? (chọn tất cả ý đúng)",
+         "options": [
+           "Chọn Microservices ngay vì khách hàng muốn chịu được tải lớn",
+           "Đề xuất tổ chức code tách tầng rõ để sau này tách dần",
+           "Không nhắc gì tới chuyện chịu tải khi trao đổi với khách hàng",
+           "Ghi rõ rủi ro về đội ngũ và hạ tầng khi trao đổi với khách hàng"
+         ],
+         "answer": [1, 3], "multi": true,
+         "why": "Bắt đầu Monolithic tách tầng rõ để sau này tách dần, và BA nên ghi rõ rủi ro (đội ngũ, hạ tầng chưa đủ cho Microservices) khi trao đổi với khách hàng."}
+      ]
+    },
+    "L02-x4": {
+      "lead": "Kéo từng thành phần vào đúng zone, rồi chọn các yêu cầu phi chức năng viết đúng.",
+      "parts": [
+        {"kind": "sort", "q": "Thành phần của hệ thống đặt đồ ăn nằm ở zone nào?",
+         "bins": ["External/Internet Zone", "DMZ", "Internal Zone", "Database Zone", "Guest Zone", "Management Zone"],
+         "items": [
+           {"t": "Khách hàng truy cập từ Internet", "a": [0]},
+           {"t": "Website đặt món", "a": [1]},
+           {"t": "API xử lý đơn", "a": [2]},
+           {"t": "CSDL đơn hàng và khách hàng", "a": [3]},
+           {"t": "Công cụ sao lưu và giám sát", "a": [5]}
+         ]},
+        {"kind": "choice", "q": "Yêu cầu phi chức năng nào về bảo mật/triển khai viết đúng theo zone? (chọn tất cả ý đúng)",
+         "options": [
+           "Website đặt món đặt ở DMZ; không lưu dữ liệu khách hàng trên máy chủ web.",
+           "CSDL khách hàng đặt ở DMZ để website truy vấn nhanh hơn.",
+           "API xử lý đơn đặt ở Internal Zone, chỉ nhận yêu cầu đi qua Gateway và firewall từ DMZ.",
+           "Website kết nối thẳng vào CSDL đơn hàng từ Internet, không cần qua API.",
+           "CSDL đơn hàng và khách hàng đặt ở Database Zone, chỉ API nội bộ được kết nối; không mở truy cập trực tiếp từ Internet.",
+           "Trang quản trị cho nhân viên mở công khai trên Internet để ai cũng vào được.",
+           "Trang quản trị cho nhân viên chỉ truy cập được từ mạng nội bộ hoặc qua kênh riêng có firewall.",
+           "Công cụ sao lưu và giám sát đặt ở Management Zone, chỉ quản trị viên hệ thống truy cập."
+         ],
+         "answer": [0, 2, 4, 6, 7], "multi": true,
+         "why": "Dữ liệu quan trọng ở Database Zone, chỉ API nội bộ được kết nối; DMZ là vùng tin cậy thấp nên không chứa CSDL; trang quản trị và công cụ quản trị không mở ra Internet."}
+      ]
+    },
+    "L02-x5": {
+      "lead": "Kéo mỗi phần của hệ thống vào hệ quản trị CSDL phù hợp, rồi ghép lý do.",
+      "parts": [
+        {"kind": "sort", "q": "Phần này nên dùng hệ quản trị CSDL nào?",
+         "bins": ["MongoDB", "SQL Server", "PostgreSQL", "Redis", "SQLite"],
+         "items": [
+           {"t": "(a) Lịch sử tín hiệu thiết bị: rất nhiều bản ghi, cấu trúc hay thay đổi", "a": [0], "why": "Slide dùng \"CSDL lịch sử thiết bị (Mongo)\"."},
+           {"t": "(b) Dữ liệu tổng hợp để làm báo cáo, quan hệ nhiều bảng", "a": [1, 2], "why": "Một CSDL quan hệ dùng SQL như SQL Server hoặc PostgreSQL; slide dùng \"CSDL tổng hợp (SQL)\"."},
+           {"t": "(c) Lưu tạm dữ liệu hay đọc và phiên đăng nhập", "a": [3]},
+           {"t": "(d) App ngoại tuyến trên điện thoại của nhân viên kỹ thuật", "a": [4]}
+         ]},
+        {"kind": "sort", "q": "Lý do nào ứng với lựa chọn nào?",
+         "bins": ["MongoDB", "CSDL quan hệ (SQL Server/PostgreSQL)", "Redis", "SQLite"],
+         "items": [
+           {"t": "Lưu dạng JSON linh hoạt, hợp log nhiều và cấu trúc thay đổi", "a": [0]},
+           {"t": "Hỗ trợ tốt truy vấn phức tạp trên nhiều bảng", "a": [1]},
+           {"t": "Cực nhanh, dùng làm cache, lưu session", "a": [2]},
+           {"t": "Nhẹ, không cần server, dùng cho mobile app", "a": [3]}
+         ]}
+      ]
+    },
+    "L02-x6": {
+      "lead": "Chuẩn bị buổi họp kỹ thuật cho SolasMart: kéo thả mô hình và zone, chọn kiến trúc và câu hỏi.",
+      "parts": [
+        {"kind": "sort", "q": "1) Trong mô hình tổng thể, mỗi thành phần thuộc phần nào?",
+         "bins": ["Bên ngoài", "Phân hệ lõi", "Người dùng", "Dữ liệu"],
+         "items": [
+           {"t": "Cổng thanh toán (tích hợp qua API)", "a": [0]},
+           {"t": "Bán tại quầy (POS)", "a": [1]},
+           {"t": "Bán online", "a": [1]},
+           {"t": "Quản lý kho", "a": [1]},
+           {"t": "Quản lý nhân sự", "a": [1]},
+           {"t": "Khách online", "a": [2]},
+           {"t": "Thu ngân", "a": [2]},
+           {"t": "Nhân viên kho", "a": [2]},
+           {"t": "CSDL sản phẩm–tồn kho", "a": [3]},
+           {"t": "CSDL đơn hàng", "a": [3]},
+           {"t": "CSDL nhân viên", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "2) Nên gợi ý kiến trúc nào cho SolasMart?",
+         "options": [
+           "Monolithic, vì hệ thống nhỏ và ít phân hệ",
+           "Microservices bắt buộc, kể cả khi team chưa có kinh nghiệm và hạ tầng",
+           "Không cần gợi ý, kiến trúc nào cũng như nhau",
+           "Nghiêng về Microservices (hệ thống lớn, kênh online cần mở rộng riêng, phân hệ nâng cấp độc lập) với điều kiện team có kinh nghiệm và hạ tầng hiện đại; nếu chưa có thì bắt đầu Monolithic tách tầng rõ"
+         ],
+         "answer": [3], "multi": false,
+         "why": "SolasMart có nhiều phân hệ độc lập và kênh online cần chịu tải, hợp Microservices. Nhưng Microservices đòi hỏi đội ngũ có kinh nghiệm và hạ tầng hiện đại; thiếu thì bắt đầu Monolithic tách tầng rõ."},
+        {"kind": "sort", "q": "3) Mỗi thành phần của SolasMart nằm ở zone nào?",
+         "bins": ["External/Internet Zone", "DMZ", "Internal Zone", "Database Zone", "Guest Zone", "Management Zone"],
+         "items": [
+           {"t": "Website bán hàng", "a": [1]},
+           {"t": "API bán hàng", "a": [2]},
+           {"t": "API kho", "a": [2]},
+           {"t": "API nhân sự", "a": [2]},
+           {"t": "CSDL", "a": [3]},
+           {"t": "Server file", "a": [3]},
+           {"t": "Wi-Fi cho khách tại cửa hàng", "a": [4]},
+           {"t": "Giám sát hệ thống", "a": [5]},
+           {"t": "Sao lưu", "a": [5]},
+           {"t": "Khách mua online", "a": [0]},
+           {"t": "Cổng thanh toán bên ngoài", "a": [0]}
+         ]},
+        {"kind": "choice", "q": "4) Câu hỏi nào nên hỏi team kỹ thuật/hạ tầng trong buổi họp? (chọn tất cả ý đúng)",
+         "options": [
+           "Máy POS ở cửa hàng kết nối về server qua đường truyền nào, nằm zone nào, mất mạng thì bán tiếp được không?",
+           "Tháng tới cửa hàng nên chạy khuyến mãi giảm bao nhiêu phần trăm?",
+           "Cổng thanh toán tích hợp qua API nào, dữ liệu thẻ có đi qua hệ thống mình không?",
+           "Dùng hệ quản trị CSDL nào, sao lưu bao lâu một lần, khôi phục mất bao lâu?",
+           "Nên chọn màu gì cho logo mới của SolasMart?",
+           "Website bán online cần chịu bao nhiêu người cùng lúc mùa khuyến mãi, có load balancer không?",
+           "Ai được truy cập dữ liệu nhân sự, phân quyền thế nào?",
+           "Team dùng công nghệ (ngôn ngữ, nền tảng) gì cho web, app và backend?"
+         ],
+         "answer": [0, 2, 3, 5, 6, 7], "multi": true,
+         "why": "Câu hỏi cho team kỹ thuật/hạ tầng nên phủ mạng/zone, CSDL và sao lưu, tích hợp API, chịu tải, bảo mật và công nghệ. Mức khuyến mãi hay màu logo là câu hỏi nghiệp vụ/thương hiệu, không hỏi team kỹ thuật."}
+      ]
+    }
+  }
+}

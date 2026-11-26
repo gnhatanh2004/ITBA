@@ -1,0 +1,179 @@
+{
+  "lesson": "L07",
+  "items": {
+    "L07-x1": {
+      "lead": "Kéo mỗi phát biểu về hệ thống đặt đồ ăn vào đúng khái niệm BACCM.",
+      "parts": [
+        {"kind": "sort", "q": "Phát biểu này thuộc khái niệm nào?",
+         "bins": ["Need", "Stakeholder", "Context", "Solution", "Change", "Value"],
+         "items": [
+           {"t": "Khách hay bị giao sai món.", "a": [0], "why": "Need: một vấn đề cần giải quyết."},
+           {"t": "Shipper.", "a": [1], "why": "Stakeholder nhóm User."},
+           {"t": "Luật về an toàn thực phẩm.", "a": [2], "why": "Context: chính sách / luật pháp."},
+           {"t": "Ứng dụng đặt món có ảnh và ghi chú món.", "a": [3], "why": "Solution dạng công nghệ."},
+           {"t": "Nhân viên chuyển từ ghi đơn tay sang nhập đơn trên máy.", "a": [4], "why": "Change: việc chuyển đổi quy trình, vai trò, không phải bản thân giải pháp."},
+           {"t": "Giảm số đơn bị trả lại.", "a": [5], "why": "Value hữu hình, đo được bằng số liệu."},
+           {"t": "Đối thủ đã có tính năng theo dõi đơn.", "a": [2], "why": "Context: thị trường / đối thủ."},
+           {"t": "Khách cảm thấy yên tâm hơn khi đặt món.", "a": [5], "why": "Value vô hình, khó đo trực tiếp."}
+         ]}
+      ]
+    },
+    "L07-x2": {
+      "lead": "Kéo mỗi người của dự án thư viện vào đúng nhóm stakeholder.",
+      "parts": [
+        {"kind": "sort", "q": "Người này thuộc nhóm stakeholder nào?",
+         "bins": ["Business", "User", "Implementation"],
+         "items": [
+           {"t": "Hiệu trưởng", "a": [0]},
+           {"t": "Trưởng thư viện", "a": [0], "why": "Người ra quyết định kinh doanh, phê duyệt cho thư viện."},
+           {"t": "Thủ thư", "a": [1]},
+           {"t": "Sinh viên mượn sách", "a": [1]},
+           {"t": "Giảng viên mượn sách", "a": [1]},
+           {"t": "Công ty phần mềm (dev)", "a": [2]},
+           {"t": "Người kiểm thử", "a": [2]},
+           {"t": "Nhân viên IT của trường", "a": [2], "why": "Tham gia triển khai, vận hành (IT support)."}
+         ]}
+      ]
+    },
+    "L07-x3": {
+      "lead": "Xếp mỗi câu vào Need hoặc Solution, rồi tìm need đứng sau các solution.",
+      "parts": [
+        {"kind": "sort", "q": "1) Câu này là Need hay Solution?",
+         "bins": ["Need", "Solution"],
+         "items": [
+           {"t": "“Cần thêm chức năng gửi SMS nhắc lịch đặt bàn.”", "a": [1], "why": "Nói cách làm, không nói vấn đề."},
+           {"t": "“Khách hay quên giờ đã đặt bàn và không đến.”", "a": [0]},
+           {"t": "“Thuê thêm 2 thu ngân giờ cao điểm.”", "a": [1], "why": "Solution dạng thay đổi tổ chức / nhân sự."},
+           {"t": "“Quản lý không nắm được doanh thu từng cửa hàng theo ngày.”", "a": [0]},
+           {"t": "“Làm dashboard doanh thu.”", "a": [1]},
+           {"t": "“Nhiều đơn hàng online bị hủy vì hết hàng.”", "a": [0]}
+         ]},
+        {"kind": "sort", "q": "2) Ghép mỗi solution với need có thể đứng sau nó.",
+         "bins": ["Khách quên giờ đặt bàn, nhà hàng bị bàn trống", "Khách chờ thanh toán lâu giờ cao điểm", "Quản lý không nắm được doanh thu theo ngày"],
+         "items": [
+           {"t": "Cần thêm chức năng gửi SMS nhắc lịch đặt bàn", "a": [0]},
+           {"t": "Thuê thêm 2 thu ngân giờ cao điểm", "a": [1]},
+           {"t": "Làm dashboard doanh thu", "a": [2]}
+         ]},
+        {"kind": "choice", "q": "3) Cách viết nào là Need (không lẫn solution) đứng sau câu “Cần thêm chức năng gửi SMS nhắc lịch đặt bàn”?",
+         "options": [
+           "Cần gửi SMS tự động cho khách trước giờ hẹn",
+           "Cần ứng dụng đặt bàn có chức năng nhắc lịch",
+           "Khách quên giờ đặt bàn, nhà hàng bị bàn trống",
+           "Cần mua phần mềm đặt bàn mới"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Need trả lời “vấn đề gì”. Ba phương án còn lại đều nói cách làm (SMS, ứng dụng, phần mềm), tức là solution."},
+        {"kind": "choice", "q": "4) “Thuê thêm 2 thu ngân giờ cao điểm” là solution loại nào?",
+         "options": ["Thay đổi trong tổ chức (cơ cấu, vai trò, nhân sự)", "Công nghệ (phần mềm, ứng dụng)", "Quy trình (quy trình mới, tái thiết kế quy trình cũ)"],
+         "answer": [0], "multi": false,
+         "why": "Thêm người, thêm vai trò là thay đổi tổ chức / nhân sự. Solution không phải lúc nào cũng là phần mềm."}
+      ]
+    },
+    "L07-x4": {
+      "lead": "Kéo các value của SolasMart vào hữu hình hoặc vô hình, rồi ghép mỗi yếu tố với loại context.",
+      "parts": [
+        {"kind": "sort", "q": "(a) Value này hữu hình hay vô hình?",
+         "bins": ["Hữu hình", "Vô hình"],
+         "items": [
+           {"t": "Tăng doanh số", "a": [0]},
+           {"t": "Thêm số khách mua", "a": [0]},
+           {"t": "Giảm lượng hàng tồn nhờ bán thêm kênh", "a": [0]},
+           {"t": "Khách thấy tiện hơn", "a": [1]},
+           {"t": "Thương hiệu hiện đại hơn", "a": [1]}
+         ]},
+        {"kind": "sort", "q": "(b) Yếu tố này thuộc loại context nào?",
+         "bins": ["Chính sách / Luật", "Văn hóa", "Quy trình / Công nghệ", "Thị trường / Đối thủ", "Tài nguyên", "Con người"],
+         "items": [
+           {"t": "Quy định về thương mại điện tử, hóa đơn điện tử", "a": [0]},
+           {"t": "Khách quen trả tiền khi nhận hàng", "a": [1]},
+           {"t": "Quy trình kho hiện chỉ phục vụ bán tại quầy", "a": [2]},
+           {"t": "Đối thủ đã bán online, có giao nhanh", "a": [3]},
+           {"t": "Ngân sách, số xe giao hàng", "a": [4]},
+           {"t": "Nhân viên chưa có kinh nghiệm xử lý đơn online", "a": [5]}
+         ]}
+      ]
+    },
+    "L07-x5": {
+      "lead": "Tách need khỏi solution, kéo nội dung vào 6 khái niệm, rồi chọn solution.",
+      "parts": [
+        {"kind": "choice", "q": "1) Giám đốc yêu cầu “Mua phần mềm kho mới”. Need thật sự là gì?",
+         "options": [
+           "Cần mua phần mềm kho mới",
+           "Số tồn kho trên hệ thống phải khớp thực tế để không nhận đơn cho hàng đã hết",
+           "Cần thêm máy quét mã vạch cho kho",
+           "Cần làm lại website bán online"
+         ],
+         "answer": [1], "multi": false,
+         "why": "“Mua phần mềm kho mới” là solution được đề xuất. Need là vấn đề: tồn kho trên hệ thống lệch thực tế. Máy quét hay làm lại website cũng là cách làm, không phải need."},
+        {"kind": "sort", "q": "2) Mỗi nội dung thuộc khái niệm BACCM nào?",
+         "bins": ["Need", "Stakeholder", "Context", "Solution", "Change", "Value"],
+         "items": [
+           {"t": "Tồn kho trên hệ thống lệch thực tế; đơn online bị hủy vì hết hàng", "a": [0]},
+           {"t": "Giám đốc, thủ kho, nhân viên bán hàng, khách online, IT, nhà cung cấp phần mềm", "a": [1]},
+           {"t": "Phiếu nhập/xuất kho ghi tay rồi mới nhập máy cuối ngày; nhiều cửa hàng dùng chung kho; ngân sách có hạn", "a": [2], "why": "Đây là điều kiện hiện tại xung quanh need: quy trình, tài nguyên."},
+           {"t": "Mua phần mềm kho mới", "a": [3]},
+           {"t": "Ghi nhận nhập/xuất ngay khi phát sinh; thủ kho thêm việc quét mã; hệ thống đồng bộ tồn kho với kênh online", "a": [4], "why": "Change là các thay đổi quy trình, vai trò, hệ thống cần có để thực hiện giải pháp."},
+           {"t": "Giảm đơn hủy, giảm chênh lệch kiểm kê; khách online tin tưởng hơn", "a": [5]}
+         ]},
+        {"kind": "sort", "q": "3) Xếp stakeholder của tình huống vào đúng nhóm.",
+         "bins": ["Business", "User", "Implementation"],
+         "items": [
+           {"t": "Giám đốc", "a": [0]},
+           {"t": "Thủ kho", "a": [1]},
+           {"t": "Nhân viên bán hàng", "a": [1]},
+           {"t": "Khách online", "a": [1]},
+           {"t": "IT", "a": [2]},
+           {"t": "Nhà cung cấp phần mềm", "a": [2]}
+         ]},
+        {"kind": "choice", "q": "4) A: mua phần mềm kho mới. B: dùng máy quét ghi nhập/xuất ngay trên hệ thống hiện có, đồng bộ tồn kho cho web theo thời gian thực. Nên chọn gì trước?",
+         "options": [
+           "A, vì giám đốc đã yêu cầu mua phần mềm",
+           "A, vì phần mềm mới sẽ hết lệch kể cả khi quy trình vẫn ghi tay cuối ngày",
+           "B, vì không bao giờ nên mua phần mềm mới",
+           "B, vì nguyên nhân gốc nằm ở quy trình ghi chậm, chi phí thấp hơn, value đạt nhanh"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Nếu quy trình vẫn ghi tay cuối ngày thì phần mềm mới vẫn lệch. B xử lý đúng nguyên nhân gốc, rẻ hơn và cho value sớm. A không bị loại hẳn, chỉ cân nhắc sau."},
+        {"kind": "choice", "q": "5) Khi nào mới cân nhắc phương án A (mua phần mềm kho mới)?",
+         "options": [
+           "Khi giám đốc nhắc lại yêu cầu lần nữa",
+           "Ngay từ đầu, vì phần mềm mới luôn tốt hơn phần mềm cũ",
+           "Khi hệ thống hiện tại không hỗ trợ đồng bộ tồn kho (Context công nghệ)",
+           "Khi nhân viên kho muốn giao diện đẹp hơn"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Chọn solution dựa trên Context và Value. Chỉ khi Context công nghệ không cho phép đồng bộ thì mới cần phần mềm mới."}
+      ]
+    },
+    "L07-x6": {
+      "lead": "Ghép điều đã xảy ra với từng khái niệm, rồi chọn cách BA lẽ ra phải làm.",
+      "parts": [
+        {"kind": "sort", "q": "1) Nhận diện sai need ảnh hưởng tới khái niệm nào?",
+         "bins": ["Change", "Solution", "Stakeholder", "Value", "Context"],
+         "items": [
+           {"t": "Đổi giao diện app thay vì đổi quy trình xác nhận đặt bàn", "a": [0], "why": "Change là việc chuyển đổi được chọn làm; ở đây chọn sai việc cần đổi."},
+           {"t": "Giao diện mới được đưa vào nhưng không giải quyết việc khách không đến", "a": [1], "why": "Solution là cái được đưa vào để đáp ứng need; giao diện mới là cái sai."},
+           {"t": "Nhà hàng vẫn bị bàn trống; khách quen phải học giao diện mới", "a": [2], "why": "Nói về những người bị tác động."},
+           {"t": "Tỉ lệ khách không đến không giảm, tốn chi phí làm lại", "a": [3], "why": "Nói về lợi ích không đạt và chi phí."},
+           {"t": "Vấn đề nằm ở thói quen khách, không ở công nghệ", "a": [4]}
+         ]},
+        {"kind": "choice", "q": "2) Việc đầu tiên BA lẽ ra phải làm là gì?",
+         "options": [
+           "Khám phá và xác thực need trước: hỏi khách, xem dữ liệu đặt bàn",
+           "Làm lại giao diện thêm lần nữa cho đẹp hơn",
+           "Thêm nhiều tính năng mới để khách thích app hơn",
+           "Giữ need “khách không thích giao diện” và chờ vài tháng xem tỉ lệ có giảm"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Need là thứ BA cần khám phá, làm rõ, xác thực trước khi chọn solution. Các phương án còn lại vẫn bám vào need sai."},
+        {"kind": "sort", "q": "3) Ghép mỗi solution với need thật mà nó đáp ứng.",
+         "bins": ["Need thật là khách quên lịch", "Need thật là khách giữ chỗ nhiều nơi"],
+         "items": [
+           {"t": "Nhắc lịch trước giờ hẹn, yêu cầu khách xác nhận lại", "a": [0]},
+           {"t": "Đặt cọc khi đặt bàn", "a": [1]}
+         ]}
+      ]
+    }
+  }
+}

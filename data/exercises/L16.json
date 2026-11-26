@@ -1,0 +1,274 @@
+{
+  "lesson": "L16",
+  "items": {
+    "L16-x1": {
+      "lead": "Với mỗi câu, chọn cách viết đúng quy tắc dấu câu.",
+      "parts": [
+        {"kind": "choice", "q": "Câu 1: Hệ thống gửi email xác nhận .Khách hàng kiểm tra hộp thư.",
+         "options": [
+           "Hệ thống gửi email xác nhận .Khách hàng kiểm tra hộp thư.",
+           "Hệ thống gửi email xác nhận . Khách hàng kiểm tra hộp thư.",
+           "Hệ thống gửi email xác nhận. Khách hàng kiểm tra hộp thư.",
+           "Hệ thống gửi email xác nhận.Khách hàng kiểm tra hộp thư."
+         ],
+         "answer": [2], "multi": false,
+         "why": "Dấu chấm đặt sát từ cuối câu và cách câu sau một dấu cách: text._Text."},
+        {"kind": "choice", "q": "Câu 2: Các trạng thái gồm : Chờ xác nhận , Đang giao , Đã giao.",
+         "options": [
+           "Các trạng thái gồm: Chờ xác nhận, Đang giao, Đã giao.",
+           "Các trạng thái gồm : Chờ xác nhận, Đang giao, Đã giao.",
+           "Các trạng thái gồm:Chờ xác nhận,Đang giao,Đã giao.",
+           "Các trạng thái gồm: Chờ xác nhận , Đang giao , Đã giao."
+         ],
+         "answer": [0], "multi": false,
+         "why": "Dấu hai chấm và dấu phẩy đặt sát từ liền trước, cách từ liền sau một dấu cách. Sau dấu hai chấm là danh sách, không phải câu, nhưng “Chờ xác nhận” là tên trạng thái nên vẫn viết hoa như tên riêng."},
+        {"kind": "choice", "q": "Câu 3: Ngày hiệu lực 01 / 12 / 2025.",
+         "options": [
+           "Ngày hiệu lực 01 / 12 / 2025.",
+           "Ngày hiệu lực 01/ 12/ 2025.",
+           "Ngày hiệu lực 01 /12 /2025.",
+           "Ngày hiệu lực 01/12/2025."
+         ],
+         "answer": [3], "multi": false,
+         "why": "Dấu gạch xéo đặt sát từ liền trước và liền sau, không có dấu cách: text/text."},
+        {"kind": "choice", "q": "Câu 4: Bàn số 5 ( khu VIP ) đã được đặt.",
+         "options": [
+           "Bàn số 5 ( khu VIP ) đã được đặt.",
+           "Bàn số 5 (khu VIP) đã được đặt.",
+           "Bàn số 5(khu VIP)đã được đặt.",
+           "Bàn số 5 (khu VIP ) đã được đặt."
+         ],
+         "answer": [1], "multi": false,
+         "why": "Ngoặc có dấu cách với phần bên ngoài và không có dấu cách với phần bên trong: text_(text)_text."},
+        {"kind": "choice", "q": "Câu 5: Đơn hàng … đã bị hủy!",
+         "options": [
+           "Đơn hàng … đã bị hủy!",
+           "Đơn hàng…đã bị hủy!",
+           "Đơn hàng… đã bị hủy!",
+           "Đơn hàng… đã bị hủy !"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Trước dấu ba chấm không có dấu cách, sau dấu ba chấm có dấu cách. Dấu chấm than đặt sát từ cuối câu."}
+      ]
+    },
+    "L16-x2": {
+      "lead": "Kéo mỗi mục vào tài liệu thường chứa nó.",
+      "parts": [
+        {"kind": "sort", "q": "Theo template của khóa, mục này nằm ở BRD, SRS hay FSD?",
+         "bins": ["BRD", "SRS", "FSD"],
+         "items": [
+           {"t": "Roadmap sản phẩm", "a": [0]},
+           {"t": "Mô hình thực thể (ERD)", "a": [1]},
+           {"t": "Danh sách mã lỗi của API đặt bàn", "a": [2], "why": "SRS chỉ liệt kê API; FSD mới mô tả chi tiết đầu vào, đầu ra, mã lỗi."},
+           {"t": "Quy trình nghiệp vụ hiện tại và các vấn đề gặp phải", "a": [0]},
+           {"t": "Mô hình tổng quan sản phẩm", "a": [1]},
+           {"t": "Mô tả màn hình (STT – Tên – Loại – Req – Mô tả)", "a": [2]},
+           {"t": "Giả định và Rủi ro", "a": [0]},
+           {"t": "Danh sách tiến trình", "a": [1], "why": "SRS mục 9 liệt kê các tiến trình; FSD mới đặc tả từng tiến trình."},
+           {"t": "Data flow diagram của tiến trình charge phí", "a": [2]}
+         ]}
+      ]
+    },
+    "L16-x3": {
+      "lead": "Kéo mỗi chức năng SolasMart vào đúng dạng FSD, rồi ghép mục đặc trưng với dạng.",
+      "parts": [
+        {"kind": "sort", "q": "1) Chức năng này đặc tả theo dạng FSD nào?",
+         "bins": ["1 – Tìm kiếm/danh sách", "3 – Đầy đủ (phức tạp)", "4 – CRUD danh mục đầu vào", "5 – Import", "6 – Báo cáo, xuất excel", "7 – Tích hợp API với bên khác", "9 – API do bên khác đặc tả", "10 – Tiến trình đơn giản"],
+         "items": [
+           {"t": "Nhân viên quầy tra cứu sản phẩm theo mã vạch hoặc tên.", "a": [0]},
+           {"t": "Quản lý kho thêm/sửa/xóa danh mục đơn vị tính.", "a": [2]},
+           {"t": "Quản lý kho tải file excel danh sách hàng nhập.", "a": [3]},
+           {"t": "Giám đốc xem báo cáo doanh thu theo cửa hàng và xuất excel.", "a": [4]},
+           {"t": "Đơn online gọi đơn vị giao hàng để lấy phí ship.", "a": [5], "why": "Người dùng thao tác trên hệ thống mình, hệ thống mình gọi API của đối tác."},
+           {"t": "Ví điện tử gửi kết quả thanh toán về SolasMart theo format của ví.", "a": [6], "why": "Hệ thống khác gọi vào, format do đối tác quy định."},
+           {"t": "Mỗi đêm hệ thống tự khóa các phiếu giảm giá hết hạn.", "a": [7], "why": "Hệ thống tự chạy theo lịch, xử lý đơn giản."},
+           {"t": "Nhân viên quầy lập hóa đơn: quét hàng, áp khuyến mại, tính tiền, trừ tồn kho, in hóa đơn.", "a": [1], "why": "Server xử lý nhiều bước nên dùng dạng đầy đủ, có activity diagram."}
+         ]},
+        {"kind": "sort", "q": "2) Mục bắt buộc đặc trưng này thuộc dạng nào?",
+         "bins": ["1 – Tìm kiếm/danh sách", "3 – Đầy đủ (phức tạp)", "4 – CRUD danh mục đầu vào", "5 – Import", "6 – Báo cáo, xuất excel", "7 – Tích hợp API với bên khác", "9 – API do bên khác đặc tả", "10 – Tiến trình đơn giản"],
+         "items": [
+           {"t": "Business Rule nêu AND/OR, thứ tự sắp xếp, dữ liệu mặc định", "a": [0, 2], "why": "Đặc trưng của dạng 1. Dạng 4 cũng mô tả rule tìm kiếm/danh sách theo dạng 1."},
+           {"t": "Gộp 5 chức năng vào 1 mục; chỉ mô tả màn hình danh sách và màn hình thêm mới", "a": [2]},
+           {"t": "Quy định file import và file trả kết quả", "a": [3]},
+           {"t": "Công thức tính giá trị trên báo cáo, template excel mẫu", "a": [4]},
+           {"t": "Sequence diagram, mapping dữ liệu gửi đi và kết quả trả về", "a": [5]},
+           {"t": "Ghi rõ từng trường hợp trả mã lỗi nào theo yêu cầu đối tác", "a": [6]},
+           {"t": "Tần suất, điều kiện quét; luồng viết bằng chữ", "a": [7]},
+           {"t": "Activity diagram và mô tả các bước kiểm tra trên server", "a": [1]}
+         ]}
+      ]
+    },
+    "L16-x4": {
+      "lead": "Chọn nội dung quy định file, kéo trường vào đúng loại rule, rồi chọn cách trả kết quả và ghép lỗi.",
+      "parts": [
+        {"kind": "choice", "q": "1) Phần quy định chung về file import cần nêu những gì? (chọn tất cả ý đúng)",
+         "options": [
+           "Định dạng file (ví dụ xlsx)",
+           "Mã nguồn dùng để đọc file excel",
+           "Kích thước file tối đa (ví dụ 3MB)",
+           "Số dòng dữ liệu tối đa, không tính header (ví dụ 500 dòng)",
+           "Tên người đã soạn file trên máy của họ",
+           "Link tải file mẫu trên màn hình"
+         ],
+         "answer": [0, 2, 3, 5], "multi": true,
+         "why": "Màn hình import phải có chỗ tải file mẫu và quy định rõ định dạng, kích thước, số dòng trên file. Mã nguồn là việc của dev; tên người soạn file không ảnh hưởng xử lý."},
+        {"kind": "sort", "q": "2) Cột Business Rule (kiểm trên server) của từng trường ghi gì?",
+         "bins": ["Duy nhất trên hệ thống", "Phải tồn tại trong danh mục và đang hoạt động", "Không có rule nghiệp vụ, chỉ ràng buộc ở cột Mô tả"],
+         "items": [
+           {"t": "Mã sản phẩm", "a": [0]},
+           {"t": "Tên sản phẩm", "a": [2]},
+           {"t": "Đơn vị tính", "a": [1]},
+           {"t": "Giá bán", "a": [2], "why": "“Số nguyên dương” là ràng buộc định dạng, ghi ở cột Mô tả và ràng buộc."},
+           {"t": "Mã nhóm hàng", "a": [1]}
+         ]},
+        {"kind": "choice", "q": "3) Quy định file trả kết quả nào đúng?",
+         "options": [
+           "Không trả file, chỉ hiện thông báo “Import thất bại” trên màn hình",
+           "Trả file có tên do hệ thống sinh ngẫu nhiên, giữ nguyên các cột như file import",
+           "Trả file chỉ gồm các dòng thành công, bỏ các dòng lỗi",
+           "Cùng tên file đã import, thêm đuôi _result; bổ sung 2 cột Kết quả (Thành công/Thất bại) và Mô tả lỗi"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Phải quy định tên file trả ra; file trả ra thêm cột kết quả so với file import và ghi rõ mô tả lỗi từng dòng."},
+        {"kind": "sort", "q": "4) Ghép trường hợp lỗi với câu mô tả lỗi.",
+         "bins": ["[Danh sách trường] không được để trống", "Mã sản phẩm đã tồn tại trên hệ thống", "Đơn vị tính/Mã nhóm hàng không hợp lệ", "Giá bán không hợp lệ"],
+         "items": [
+           {"t": "Bỏ trống trường bắt buộc", "a": [0]},
+           {"t": "Mã sản phẩm đã có trên hệ thống", "a": [1]},
+           {"t": "Đơn vị tính hoặc nhóm hàng không có trong danh mục", "a": [2]},
+           {"t": "Giá bán không phải số nguyên dương", "a": [3]}
+         ]}
+      ]
+    },
+    "L16-x5": {
+      "lead": "Ghép công thức với giá trị trên báo cáo, rồi chọn điều kiện lọc và các rule còn thiếu.",
+      "parts": [
+        {"kind": "sort", "q": "1) Công thức này tính giá trị nào trên báo cáo?",
+         "bins": ["Số hóa đơn", "Tổng tiền hàng", "Tổng giảm giá", "Doanh thu thuần"],
+         "items": [
+           {"t": "Đếm số hóa đơn thỏa điều kiện lọc theo từng ca", "a": [0]},
+           {"t": "Tổng (số lượng × đơn giá) các dòng hàng trên hóa đơn thỏa điều kiện lọc", "a": [1]},
+           {"t": "Tổng tiền khuyến mại đã áp trên các hóa đơn thỏa điều kiện lọc", "a": [2]},
+           {"t": "Tổng tiền hàng – Tổng giảm giá", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "2) Rule lọc dữ liệu nào đúng?",
+         "options": [
+           "Lấy mọi hóa đơn của cửa hàng đã chọn, kể cả hóa đơn chưa thanh toán hoặc đã hủy",
+           "Lấy hóa đơn trạng thái Đã thanh toán, thuộc cửa hàng đã chọn, ngày lập trong khoảng từ ngày – đến ngày, thuộc ca đã chọn (Tất cả thì lấy mọi ca)",
+           "Lấy hóa đơn trong khoảng từ ngày – đến ngày, bỏ qua cửa hàng và ca",
+           "Lấy hóa đơn Đã thanh toán của tất cả cửa hàng, không giới hạn ngày lập"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Business Rule phải nói rõ lấy dữ liệu theo điều kiện nào, khớp đủ các đầu vào báo cáo: cửa hàng, từ ngày, đến ngày, ca. Chỉ hóa đơn Đã thanh toán mới tính doanh thu."},
+        {"kind": "choice", "q": "3) Ngoài công thức, bảng Business Rule cần có thêm những rule nào? (chọn tất cả ý đúng)",
+         "options": [
+           "Kiểm tra độ dài tối đa và định dạng ô Từ ngày",
+           "User có quyền xem báo cáo, đang hoạt động và thuộc cửa hàng đã chọn",
+           "Màu nền và cỡ chữ của lưới báo cáo",
+           "Xuất excel theo template mẫu đính kèm, các cột giống lưới trên màn hình",
+           "Thông báo khi không có dữ liệu trong khoảng thời gian đã chọn"
+         ],
+         "answer": [1, 3, 4], "multi": true,
+         "why": "Đáp án mẫu có rule quyền (BR6), xuất excel theo template (BR7) và thông báo khi không có dữ liệu (BR1). Kiểm tra định dạng, độ dài thuộc Mô tả màn hình, không thuộc Business Rule; màu, cỡ chữ không phải rule nghiệp vụ."}
+      ]
+    },
+    "L16-x6": {
+      "lead": "Kéo từng nội dung vào đúng tài liệu, rồi chọn dạng FSD và luồng kiểm tra.",
+      "parts": [
+        {"kind": "sort", "q": "1) Nội dung này thuộc BRD, SRS hay FSD?",
+         "bins": ["BRD", "SRS", "FSD"],
+         "items": [
+           {"t": "FR-PV-010 – ưu tiên 1 – Thanh toán QR tại bàn; ràng buộc: chỉ áp dụng cho đơn đang Chờ thanh toán", "a": [0]},
+           {"t": "NFR: kết quả thanh toán hiển thị trên app phục vụ trong vòng vài giây sau khi ví xác nhận", "a": [0]},
+           {"t": "Mobile app phục vụ thêm chức năng “Tạo QR thanh toán”", "a": [1]},
+           {"t": "Phân hệ API có “API cập nhật kết quả thanh toán” cho cổng thanh toán gọi vào", "a": [1]},
+           {"t": "Mô hình tổng quan có khối cổng thanh toán bên ngoài", "a": [1]},
+           {"t": "Biểu đồ trạng thái Đặt bàn: Chờ thanh toán → Đã thanh toán", "a": [1]},
+           {"t": "Kiểm tra trên server: đơn đang Chờ thanh toán, thuộc nhà hàng của user, nhà hàng và user đang hoạt động", "a": [2]},
+           {"t": "Mapping kết quả trả về từ ví: thành công/thất bại/timeout", "a": [2]},
+           {"t": "Bảng trường hợp → mã lỗi theo quy định của ví", "a": [2]}
+         ]},
+        {"kind": "choice", "q": "2) Chức năng “Tạo QR” có thể đặc tả theo dạng FSD nào? (chọn tất cả ý đúng)",
+         "options": [
+           "Dạng 1 – Tìm kiếm/danh sách",
+           "Dạng 3 – Đầy đủ (phức tạp)",
+           "Dạng 7 – Tích hợp API với bên khác",
+           "Dạng 9 – API do bên khác đặc tả",
+           "Dạng 10 – Tiến trình đơn giản"
+         ],
+         "answer": [1, 2], "multi": true,
+         "why": "NV phục vụ thao tác, server xử lý nhiều bước nên dùng dạng 3; vì có gọi sang ví nên cũng có thể đặc tả theo dạng 7. Không phải tìm kiếm, không phải API bên khác gọi vào, không phải tiến trình chạy ngầm."},
+        {"kind": "choice", "q": "3) Chức năng “Nhận kết quả thanh toán” thuộc dạng nào?",
+         "options": [
+           "Dạng 7 – Tích hợp API với bên khác",
+           "Dạng 8 – API do mình định nghĩa đặc tả",
+           "Dạng 10 – Tiến trình đơn giản",
+           "Dạng 9 – API do bên khác đặc tả"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Ví gọi vào FoodNow theo format của ví: mình cung cấp API nhưng đầu vào, đầu ra, mã lỗi do đối tác định nghĩa."},
+        {"kind": "choice", "q": "4) Luồng kiểm tra của API nhận kết quả thanh toán gồm những bước nào? (chọn tất cả ý đúng)",
+         "options": [
+           "Checksum hợp lệ",
+           "Đơn đang ở trạng thái Đã thanh toán",
+           "Mã nhà hàng/chi nhánh hợp lệ",
+           "Mã giao dịch tồn tại",
+           "NV phục vụ đang đăng nhập trên app",
+           "Số tiền khớp",
+           "Đơn đang ở trạng thái Chờ thanh toán"
+         ],
+         "answer": [0, 2, 3, 5, 6], "multi": true,
+         "why": "Theo đáp án mẫu: checksum, mã nhà hàng/chi nhánh, mã giao dịch tồn tại, số tiền khớp, đơn đang Chờ thanh toán. Đơn đã thanh toán thì không nhận kết quả nữa; API do ví gọi vào nên không dựa vào việc NV đăng nhập."}
+      ]
+    },
+    "L16-x7": {
+      "lead": "Điền bảng Mô tả chung bằng kéo thả, rồi chọn và sắp xếp các phần còn lại của FSD tiến trình.",
+      "parts": [
+        {"kind": "sort", "q": "1) Mỗi nội dung điền vào dòng nào của bảng Mô tả chung?",
+         "bins": ["Tên", "Mục đích", "Tần suất", "Điều kiện quét", "Post-condition"],
+         "items": [
+           {"t": "Tiến trình tự hủy đặt bàn", "a": [0]},
+           {"t": "Giải phóng bàn khi khách đặt trước không tới", "a": [1]},
+           {"t": "Ví dụ: 5 phút/lần trong giờ mở cửa", "a": [2]},
+           {"t": "Đặt bàn ở trạng thái Đặt bàn thành công, có giờ hẹn + X phút nhỏ hơn thời gian hiện tại; X theo cấu hình từng nhà hàng", "a": [3]},
+           {"t": "Đặt bàn chuyển sang Đã hủy, bàn trở về trống", "a": [4]}
+         ]},
+        {"kind": "choice", "q": "2) Có cần vẽ state diagram cho tiến trình này không?",
+         "options": [
+           "Bắt buộc vẽ, vì mọi tiến trình đều phải có state diagram",
+           "Cần vẽ, vì tiến trình đi qua đủ 5 trạng thái của Đặt bàn",
+           "Không cần: tiến trình chỉ chuyển một trạng thái (Đặt bàn thành công → Đã hủy), không đi qua tối thiểu 3 trạng thái; ghi N/A và dẫn tới biểu đồ trạng thái Đặt bàn trong SRS",
+           "Không cần, vì tiến trình không làm thay đổi trạng thái nào"
+         ],
+         "answer": [2], "multi": false,
+         "why": "State diagram nên vẽ khi tiến trình đi qua tối thiểu 3 trạng thái. Tiến trình này chỉ chuyển Đặt bàn thành công → Đã hủy."},
+        {"kind": "order", "q": "3) Sắp xếp các bước của luồng hoạt động.",
+         "items": [
+           "Lấy cấu hình X của từng nhà hàng",
+           "Quét đặt bàn thỏa điều kiện",
+           "Cập nhật trạng thái Đã hủy (lý do “Tự hủy do khách không tới”) và giải phóng các bàn trong lượt đặt"
+         ],
+         "why": "Cần X trước mới quét được đặt bàn quá giờ hẹn + X phút; quét xong mới cập nhật trạng thái và giải phóng bàn. Tiến trình đơn giản nên luồng chỉ cần viết bằng chữ."},
+        {"kind": "choice", "q": "4) Data flow diagram: tiến trình đọc dữ liệu từ những kho nào? (chọn tất cả ý đúng)",
+         "options": [
+           "Đặt bàn",
+           "Yêu cầu thanh toán",
+           "Chi tiết bàn",
+           "Danh mục gói sản phẩm",
+           "Config nhà hàng"
+         ],
+         "answer": [0, 2, 4], "multi": true,
+         "why": "Đọc từ Đặt bàn, Chi tiết bàn và Config nhà hàng (lấy X). Yêu cầu thanh toán và Danh mục gói sản phẩm thuộc tiến trình tạo yêu cầu thanh toán."},
+        {"kind": "choice", "q": "5) Sau khi xử lý, tiến trình ghi dữ liệu vào những kho nào? (chọn tất cả ý đúng)",
+         "options": [
+           "Config nhà hàng",
+           "Đặt bàn (trạng thái)",
+           "Yêu cầu thanh toán",
+           "Chi tiết bàn (giải phóng bàn)"
+         ],
+         "answer": [1, 3], "multi": true,
+         "why": "Tiến trình cập nhật trạng thái Đặt bàn và giải phóng bàn ở Chi tiết bàn. Config nhà hàng chỉ được đọc để lấy X; tiến trình không tạo yêu cầu thanh toán."}
+      ]
+    }
+  }
+}

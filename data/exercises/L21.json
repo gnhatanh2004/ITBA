@@ -1,0 +1,312 @@
+{
+  "lesson": "L21",
+  "items": {
+    "L21-x1": {
+      "lead": "Kéo mỗi trường vào kiểu SQL Server phù hợp nhất.",
+      "parts": [
+        {"kind": "sort", "q": "a) Trường số và trạng thái: chọn kiểu nào?",
+         "bins": ["TINYINT", "SMALLINT", "DECIMAL(p,s), ví dụ DECIMAL(12,2)", "BIT", "FLOAT (hoặc REAL)"],
+         "items": [
+           {"t": "Tuổi nhân viên", "a": [0], "why": "TINYINT 0 → 255, 1 byte: vừa đủ cho tuổi."},
+           {"t": "Năm xuất bản sách", "a": [1], "why": "SMALLINT -32,768 → 32,767: bảng tra ghi dùng cho năm."},
+           {"t": "Giá bán món ăn", "a": [2], "why": "Tiền cần chính xác tuyệt đối nên dùng DECIMAL, không dùng FLOAT."},
+           {"t": "Trạng thái còn hàng / hết hàng", "a": [3], "why": "Chỉ có 2 giá trị nên dùng BIT."},
+           {"t": "Nhiệt độ đo từ cảm biến cho báo cáo khoa học", "a": [4], "why": "Tính toán khoa học dùng số xấp xỉ FLOAT; REAL nếu không cần chính xác cao."}
+         ]},
+        {"kind": "sort", "q": "b) Trường chuỗi và ngày giờ: chọn kiểu nào?",
+         "bins": ["NVARCHAR(100)", "CHAR(6)", "VARCHAR(255)", "DATE", "TIME"],
+         "items": [
+           {"t": "Tên khách hàng có dấu", "a": [0], "why": "Có dấu tiếng Việt cần Unicode (N), độ dài thay đổi (VAR)."},
+           {"t": "Mã bưu điện 6 ký tự", "a": [1], "why": "Mã có độ dài cố định dùng CHAR."},
+           {"t": "Email", "a": [2], "why": "Độ dài thay đổi, không dấu nên dùng VARCHAR."},
+           {"t": "Ngày sinh", "a": [3], "why": "Chỉ cần ngày, không cần giờ."},
+           {"t": "Giờ mở cửa nhà hàng", "a": [4], "why": "Chỉ cần giờ, không cần ngày."}
+         ]}
+      ]
+    },
+    "L21-x2": {
+      "lead": "Kéo mỗi mô tả vào nguyên tắc thiết kế bị vi phạm.",
+      "parts": [
+        {"kind": "sort", "q": "Mô tả này vi phạm nguyên tắc nào trong 7 nguyên tắc?",
+         "bins": ["#1 Tránh dư thừa", "#2 Khóa chính bắt buộc", "#3 Hiểu đúng giá trị NULL", "#4 Tính nguyên tố", "#5 Chọn đúng loại dữ liệu", "#6 Đánh index", "#7 Che giấu thông tin nhạy cảm"],
+         "items": [
+           {"t": "Bảng khách hàng có cột ho_ten_dia_chi chứa \"Trần B – 12 Lê Lợi, Huế\".", "a": [3], "why": "Gộp tên và địa chỉ vào một cột; địa chỉ cũng chưa tách."},
+           {"t": "Bảng lich_su_dang_nhap không có khóa chính.", "a": [1]},
+           {"t": "Cột mat_khau lưu nguyên văn \"abc123\".", "a": [6], "why": "Mật khẩu phải lưu dạng băm, không lưu dạng đọc được."},
+           {"t": "Tên nhà cung cấp lưu ở bảng NhaCungCap và lặp lại trong mọi dòng của bảng PhieuNhap.", "a": [0], "why": "Không thuộc ngoại lệ vì tên nhà cung cấp không cần giữ theo thời điểm, trừ khi nghiệp vụ yêu cầu."},
+           {"t": "Cột ngay_dat kiểu NVARCHAR(50), có dòng ghi \"hôm qua\".", "a": [4], "why": "Nên là DATE, sẽ chặn được dữ liệu không hợp lệ."},
+           {"t": "Bảng 5 triệu đơn hàng, ngày nào cũng tìm theo số điện thoại nhưng cột này không có chỉ mục.", "a": [5]}
+         ]}
+      ]
+    },
+    "L21-x3": {
+      "lead": "Xét từng cột phụ thuộc vào phần nào của khóa, rồi chọn cách tách đúng.",
+      "parts": [
+        {"kind": "choice", "q": "1) ChiTietHD(ma_hd, ma_sp, ten_sp, don_vi_tinh, so_luong, don_gia_ban, ngay_lap_hd), khóa chính (ma_hd, ma_sp). Bảng đạt 2NF chưa?",
+         "options": [
+           "Đạt 2NF vì khóa chính ghép từ hai cột",
+           "Chưa đạt 2NF vì có cột chỉ phụ thuộc một phần của khóa chính (phụ thuộc bộ phận)",
+           "Đạt 2NF vì mọi ô đã nguyên tử",
+           "Chưa đạt 2NF vì bảng không có khóa chính"
+         ],
+         "answer": [1], "multi": false,
+         "why": "ten_sp, don_vi_tinh chỉ phụ thuộc ma_sp; ngay_lap_hd chỉ phụ thuộc ma_hd. Đó là phụ thuộc bộ phận nên chưa đạt 2NF. Ô nguyên tử chỉ là điều kiện của 1NF."},
+        {"kind": "sort", "q": "2) Mỗi cột không khóa phụ thuộc vào phần nào của khóa?",
+         "bins": ["Chỉ ma_hd", "Chỉ ma_sp", "Cả (ma_hd, ma_sp)"],
+         "items": [
+           {"t": "ten_sp", "a": [1]},
+           {"t": "don_vi_tinh", "a": [1]},
+           {"t": "ngay_lap_hd", "a": [0]},
+           {"t": "so_luong", "a": [2]},
+           {"t": "don_gia_ban (giá tại thời điểm bán)", "a": [2], "why": "Giá tại thời điểm bán phụ thuộc cả hóa đơn lẫn sản phẩm."}
+         ]},
+        {"kind": "choice", "q": "3) Cách tách nào đạt 2NF đúng theo bài?",
+         "options": [
+           "SanPham(ma_sp, ten_sp)\nChiTietHD(ma_hd, ma_sp, don_vi_tinh, so_luong, don_gia_ban, ngay_lap_hd)",
+           "SanPham(ma_sp, ten_sp, don_vi_tinh)\nChiTietHD(ma_hd, ma_sp, so_luong, don_gia_ban, ngay_lap_hd)",
+           "SanPham(ma_sp, ten_sp, don_vi_tinh)\nHoaDon(ma_hd, ngay_lap_hd)\nChiTietHD(ma_hd, ma_sp, so_luong, don_gia_ban)",
+           "SanPham(ma_sp, ten_sp, don_vi_tinh, don_gia_ban)\nHoaDon(ma_hd, ngay_lap_hd)\nChiTietHD(ma_hd, ma_sp, so_luong)"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Cột chỉ phụ thuộc ma_sp về SanPham, cột chỉ phụ thuộc ma_hd về HoaDon, ChiTietHD giữ so_luong và don_gia_ban. Hai cách đầu còn để don_vi_tinh hoặc ngay_lap_hd trong ChiTietHD. Cách cuối chuyển don_gia_ban sang SanPham nên mất giá đã bán của hóa đơn cũ."},
+        {"kind": "choice", "q": "4) SanPham đã có giá niêm yết, vì sao vẫn giữ don_gia_ban trong ChiTietHD?",
+         "options": [
+           "Vì don_gia_ban chỉ phụ thuộc ma_sp",
+           "Vì 2NF yêu cầu mọi cột giá phải nằm ở bảng chi tiết",
+           "Vì bảng mapping không được có khóa chính",
+           "Vì đây là lưu giá trị tại thời điểm xảy ra, một ngoại lệ dư thừa được chấp nhận"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Nguyên tắc #1 cho phép dư thừa khi lưu giá trị tại thời điểm xảy ra: sau này đổi giá niêm yết thì hóa đơn cũ vẫn giữ đúng giá đã bán."}
+      ]
+    },
+    "L21-x4": {
+      "lead": "Ghép mỗi câu SQL với lỗi của nó, rồi chọn câu đã sửa đúng.",
+      "parts": [
+        {"kind": "sort", "q": "1) Mỗi câu mắc lỗi gì?",
+         "bins": ["Thiếu WHERE nên tác động mọi dòng", "So sánh với NULL bằng dấu =", "Đặt hàm tổng hợp trong WHERE thay vì HAVING", "Chuỗi Unicode thiếu tiền tố N"],
+         "items": [
+           {"t": "UPDATE customers SET phone = '0909000111';\n(ý định: sửa số của khách 15)", "a": [0]},
+           {"t": "SELECT * FROM customers WHERE email = NULL;\n(ý định: khách chưa có email)", "a": [1]},
+           {"t": "SELECT customer_id, COUNT(*) FROM orders WHERE COUNT(*) > 5 GROUP BY customer_id;", "a": [2]},
+           {"t": "INSERT INTO dishes (name, price) VALUES ('Phở bò', 45000);\n(cột name là NVARCHAR, lưu xong bị mất dấu)", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "2) Sửa câu UPDATE thế nào để chỉ đổi số của khách 15?",
+         "options": [
+           "UPDATE customers SET phone = '0909000111', customer_id = 15;",
+           "UPDATE customers SET phone = '0909000111' WHERE customer_id = 15;",
+           "UPDATE customers WHERE customer_id = 15 SET phone = '0909000111';"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Cú pháp là UPDATE … SET … WHERE điều kiện. Cách đầu không có WHERE nên vẫn sửa mọi dòng, còn đổi luôn customer_id. Cách cuối đặt WHERE trước SET là sai cú pháp."},
+        {"kind": "choice", "q": "3) Câu nào lấy đúng khách chưa có email?",
+         "options": [
+           "SELECT * FROM customers WHERE email = 'NULL';",
+           "SELECT * FROM customers WHERE email = '';",
+           "SELECT * FROM customers WHERE email IS NOT NULL;",
+           "SELECT * FROM customers WHERE email IS NULL;"
+         ],
+         "answer": [3], "multi": false,
+         "why": "So sánh với NULL phải dùng IS NULL. 'NULL' là chuỗi chữ, '' là chuỗi rỗng, NULL khác chuỗi rỗng. IS NOT NULL lấy ngược lại: khách đã có email."},
+        {"kind": "choice", "q": "4) Câu nào lấy đúng khách có hơn 5 đơn?",
+         "options": [
+           "SELECT customer_id, COUNT(*) FROM orders\nGROUP BY customer_id\nWHERE COUNT(*) > 5;",
+           "SELECT customer_id, COUNT(*) FROM orders\nWHERE customer_id > 5\nGROUP BY customer_id;",
+           "SELECT customer_id, COUNT(*) AS so_don\nFROM orders\nGROUP BY customer_id\nHAVING COUNT(*) > 5;",
+           "SELECT customer_id, COUNT(*) FROM orders\nHAVING COUNT(*) > 5\nGROUP BY customer_id;"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Điều kiện trên hàm tổng hợp đặt ở HAVING, sau GROUP BY. WHERE lọc dòng trước khi nhóm nên không chứa COUNT(*). customer_id > 5 lọc theo mã khách, không phải số đơn. HAVING đặt trước GROUP BY là sai thứ tự."},
+        {"kind": "choice", "q": "5) Sửa câu INSERT thế nào để tên món giữ được dấu?",
+         "options": [
+           "INSERT INTO dishes (name, price) VALUES (N'Phở bò', 45000);",
+           "INSERT INTO dishes (name, price) VALUES ('Phở bò', N'45000');",
+           "Đổi cột name sang VARCHAR(100) rồi chạy lại câu cũ"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Chuỗi Unicode cần tiền tố N đặt trước chuỗi tiếng Việt. Đặt N vào giá trị giá thì tên vẫn mất dấu. VARCHAR không hỗ trợ Unicode nên càng không lưu được dấu."}
+      ]
+    },
+    "L21-x5": {
+      "lead": "Với mỗi yêu cầu, chọn câu SQL đúng trên bảng customers và orders.",
+      "parts": [
+        {"kind": "choice", "q": "1) Danh sách thành phố khác nhau có khách hàng.",
+         "options": [
+           "SELECT city FROM customers;",
+           "SELECT COUNT(city) FROM customers;",
+           "SELECT DISTINCT city FROM customers;",
+           "SELECT DISTINCT * FROM customers;"
+         ],
+         "answer": [2], "multi": false,
+         "why": "DISTINCT loại giá trị trùng trên cột city. Không có DISTINCT thì thành phố lặp lại; COUNT chỉ ra một con số; DISTINCT * lọc trùng cả dòng nên vẫn ra từng khách."},
+        {"kind": "choice", "q": "2) 3 đơn có giá trị lớn nhất.",
+         "options": [
+           "SELECT TOP (3) * FROM orders ORDER BY total_amount DESC;",
+           "SELECT TOP (3) * FROM orders ORDER BY total_amount ASC;",
+           "SELECT TOP (3) * FROM orders;",
+           "SELECT MAX(total_amount) FROM orders;"
+         ],
+         "answer": [0], "multi": false,
+         "why": "TOP (3) lấy 3 dòng đầu sau khi ORDER BY giảm dần (DESC). ASC ra 3 đơn nhỏ nhất; không ORDER BY thì 3 dòng bất kỳ; MAX chỉ trả một giá trị."},
+        {"kind": "choice", "q": "3) Khách chưa từng đặt đơn nào. (chọn tất cả câu đúng)",
+         "options": [
+           "SELECT c.customer_id, c.full_name\nFROM customers c\nINNER JOIN orders o ON o.customer_id = c.customer_id\nWHERE o.order_id IS NULL;",
+           "SELECT c.customer_id, c.full_name\nFROM customers c\nLEFT JOIN orders o ON o.customer_id = c.customer_id\nWHERE o.order_id IS NULL;",
+           "SELECT c.customer_id, c.full_name\nFROM customers c\nLEFT JOIN orders o ON o.customer_id = c.customer_id\nWHERE o.order_id = NULL;",
+           "SELECT customer_id, full_name FROM customers\nWHERE customer_id NOT IN (SELECT customer_id FROM orders);"
+         ],
+         "answer": [1, 3], "multi": true,
+         "why": "LEFT JOIN giữ mọi khách, khách không có đơn thì cột bên orders nhận NULL, lọc bằng IS NULL. Cách NOT IN cũng được. INNER JOIN chỉ giữ khách có đơn nên không ra dòng nào; = NULL sai vì phải dùng IS NULL."},
+        {"kind": "choice", "q": "4) Giá trị đơn trung bình của khách ở \"Hà Nội\".",
+         "options": [
+           "SELECT AVG(total_amount) AS gia_tri_tb\nFROM orders\nWHERE city = N'Hà Nội';",
+           "SELECT SUM(o.total_amount) AS gia_tri_tb\nFROM orders o\nINNER JOIN customers c ON c.customer_id = o.customer_id\nWHERE c.city = N'Hà Nội';",
+           "SELECT AVG(o.total_amount) AS gia_tri_tb\nFROM orders o\nINNER JOIN customers c ON c.customer_id = o.customer_id\nWHERE c.city = 'Hà Nội';",
+           "SELECT AVG(o.total_amount) AS gia_tri_tb\nFROM orders o\nINNER JOIN customers c ON c.customer_id = o.customer_id\nWHERE c.city = N'Hà Nội';"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Bảng orders không có cột city nên phải JOIN với customers, rồi dùng AVG. SUM ra tổng chứ không phải trung bình. Chuỗi có dấu cần tiền tố N: N'Hà Nội'."},
+        {"kind": "choice", "q": "5) Khách có tên bắt đầu bằng \"Nguyễn\".",
+         "options": [
+           "SELECT * FROM customers WHERE full_name LIKE N'%Nguyễn';",
+           "SELECT * FROM customers WHERE full_name LIKE N'Nguyễn%';",
+           "SELECT * FROM customers WHERE full_name = N'Nguyễn%';",
+           "SELECT * FROM customers WHERE full_name LIKE N'%Nguyễn%';"
+         ],
+         "answer": [1], "multi": false,
+         "why": "LIKE N'Nguyễn%': bắt đầu bằng \"Nguyễn\", % là chuỗi bất kỳ phía sau. '%Nguyễn' là kết thúc bằng, '%Nguyễn%' là chứa ở bất kỳ đâu. Dấu = so sánh nguyên văn, không hiểu ký tự %."}
+      ]
+    },
+    "L21-x6": {
+      "lead": "Đánh giá dạng chuẩn, ghép bất thường, rồi tách bảng và chọn kiểu dữ liệu.",
+      "parts": [
+        {"kind": "sort", "q": "1) NhanVien(ma_nv, ho_ten, ma_cua_hang, ten_cua_hang, dia_chi_cua_hang, ma_quan_ly_cua_hang, luong) đạt dạng chuẩn nào?",
+         "bins": ["Đạt", "Không đạt"],
+         "items": [
+           {"t": "1NF", "a": [0], "why": "Các ô đều nguyên tử."},
+           {"t": "2NF", "a": [0], "why": "Khóa chính chỉ một cột thì không có phụ thuộc bộ phận."},
+           {"t": "3NF", "a": [1], "why": "Có phụ thuộc bắc cầu qua ma_cua_hang."}
+         ]},
+        {"kind": "choice", "q": "2) Vì sao bảng không đạt 3NF?",
+         "options": [
+           "Có cột chỉ phụ thuộc một phần của khóa chính",
+           "ma_nv → ma_cua_hang → ten_cua_hang, dia_chi_cua_hang, ma_quan_ly_cua_hang: phụ thuộc bắc cầu",
+           "Cột luong chưa nguyên tử",
+           "Bảng không có khóa chính"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Thông tin cửa hàng phụ thuộc ma_nv qua ma_cua_hang, tức phụ thuộc bắc cầu. Khóa chính chỉ một cột nên không có phụ thuộc bộ phận; luong là giá trị nguyên tử; ma_nv là khóa chính."},
+        {"kind": "sort", "q": "3) Mỗi tình huống là bất thường loại nào?",
+         "bins": ["Bất thường khi sửa", "Bất thường khi thêm", "Bất thường khi xóa"],
+         "items": [
+           {"t": "Cửa hàng có 30 nhân viên đổi địa chỉ: phải sửa 30 dòng, sót một dòng là dữ liệu mâu thuẫn.", "a": [0]},
+           {"t": "Mở cửa hàng mới chưa có nhân viên: không có dòng nào để lưu thông tin cửa hàng.", "a": [1]},
+           {"t": "Xóa nhân viên cuối cùng của cửa hàng: mất luôn thông tin cửa hàng.", "a": [2]}
+         ]},
+        {"kind": "sort", "q": "4) Tách đạt 3NF: mỗi cột nằm ở bảng nào?",
+         "bins": ["CuaHang", "NhanVien"],
+         "items": [
+           {"t": "ma_cua_hang (khóa chính)", "a": [0]},
+           {"t": "ten_cua_hang", "a": [0]},
+           {"t": "dia_chi", "a": [0]},
+           {"t": "ma_quan_ly (khóa ngoại trỏ tới NhanVien)", "a": [0], "why": "Mỗi cửa hàng có một quản lý nên lưu ở CuaHang."},
+           {"t": "ma_nv (khóa chính)", "a": [1]},
+           {"t": "ho_ten", "a": [1]},
+           {"t": "ma_cua_hang (khóa ngoại)", "a": [1], "why": "Nhân viên trỏ tới cửa hàng mình làm việc."},
+           {"t": "luong", "a": [1]}
+         ]},
+        {"kind": "sort", "q": "5) Chọn kiểu dữ liệu cho mỗi cột.",
+         "bins": ["CHAR(5)", "NVARCHAR(n)", "INT", "DECIMAL(12,2)"],
+         "items": [
+           {"t": "ma_cua_hang (mã độ dài cố định 5 ký tự)", "a": [0]},
+           {"t": "ten_cua_hang", "a": [1]},
+           {"t": "dia_chi", "a": [1]},
+           {"t": "ho_ten", "a": [1]},
+           {"t": "ma_nv", "a": [2]},
+           {"t": "ma_quan_ly", "a": [2], "why": "Khóa ngoại trỏ tới ma_nv nên cùng kiểu INT."},
+           {"t": "luong", "a": [3], "why": "Tiền dùng DECIMAL."}
+         ]},
+        {"kind": "choice", "q": "6) Cột luong cần xử lý thế nào?",
+         "options": [
+           "Đánh index vì là cột số",
+           "Đánh index và cho mọi nhân viên xem để minh bạch",
+           "Không cần xử lý gì thêm",
+           "Không cần index vì ít tra cứu theo lương, nhưng cần phân quyền xem vì là thông tin nhạy cảm"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Index dành cho cột hay dùng để tìm, lọc, nối bảng; lương ít được tra cứu. Lương là thông tin nhạy cảm nên áp dụng nguyên tắc #7: phân quyền ai được xem."}
+      ]
+    },
+    "L21-x7": {
+      "lead": "Sắp 8 bước thiết kế, kéo cột vào bảng và kiểu dữ liệu, rồi chọn các quyết định đúng.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp 8 bước của quy trình thiết kế database.",
+         "items": ["Xác định mục đích", "Thu thập thông tin", "Chia thông tin thành các bảng", "Chuyển thông tin thành cột", "Chỉ định khóa chính", "Thiết lập quan hệ giữa các bảng", "Tinh chỉnh thiết kế", "Áp dụng các quy tắc chuẩn hóa"],
+         "why": "Mục đích → Thông tin → Bảng → Cột → Khóa → Quan hệ → Tinh chỉnh → Chuẩn hóa."},
+        {"kind": "sort", "q": "2) Mỗi cột thuộc bảng nào?",
+         "bins": ["NhanVien", "CaLamViec", "SanPham", "KhuyenMai", "ThanhVien", "HoaDon", "ChiTietHD", "ThanhToan"],
+         "items": [
+           {"t": "mat_khau_hash (mật khẩu đăng nhập của thu ngân)", "a": [0]},
+           {"t": "bat_dau, ket_thuc (giờ bắt đầu, kết thúc ca)", "a": [1]},
+           {"t": "ma_vach (mã vạch quét ở quầy)", "a": [2]},
+           {"t": "gia_niem_yet", "a": [2]},
+           {"t": "phan_tram, tu_ngay, den_ngay", "a": [3]},
+           {"t": "diem (điểm tích lũy)", "a": [4]},
+           {"t": "so_dien_thoai của thành viên", "a": [4]},
+           {"t": "thoi_diem lập hóa đơn", "a": [5]},
+           {"t": "tong_tien của hóa đơn", "a": [5]},
+           {"t": "so_luong của từng sản phẩm trên hóa đơn", "a": [6]},
+           {"t": "don_gia (giá lúc bán)", "a": [6]},
+           {"t": "tien_giam của từng dòng sản phẩm", "a": [6]},
+           {"t": "hinh_thuc (tiền mặt hoặc thẻ)", "a": [7]},
+           {"t": "so_the_4_cuoi", "a": [7]}
+         ]},
+        {"kind": "sort", "q": "3) Chọn kiểu dữ liệu cho mỗi cột.",
+         "bins": ["BIGINT", "TINYINT", "DECIMAL(p,s)", "CHAR(n)", "VARCHAR(n)", "NVARCHAR(n)", "DATETIME2"],
+         "items": [
+           {"t": "ma_hd (chuỗi nhiều cửa hàng, hóa đơn tăng rất nhanh nhiều năm)", "a": [0]},
+           {"t": "hinh_thuc (1 = tiền mặt, 2 = thẻ)", "a": [1]},
+           {"t": "gia_niem_yet", "a": [2]},
+           {"t": "phan_tram khuyến mãi (có thể lẻ, ví dụ 12.50)", "a": [2]},
+           {"t": "ma_vach (13 ký tự)", "a": [3]},
+           {"t": "so_the_4_cuoi", "a": [3]},
+           {"t": "so_dien_thoai (độ dài không cố định)", "a": [4]},
+           {"t": "ten_sp", "a": [5]},
+           {"t": "ho_ten thành viên", "a": [5]},
+           {"t": "bat_dau ca", "a": [6]},
+           {"t": "thoi_diem lập hóa đơn", "a": [6]}
+         ]},
+        {"kind": "sort", "q": "4) Cột này là dư thừa có chủ đích hay cần đánh index?",
+         "bins": ["Dư thừa có chủ đích", "Cần đánh index"],
+         "items": [
+           {"t": "HoaDon.tong_tien", "a": [0], "why": "Tối ưu báo cáo, không phải cộng lại chi tiết mỗi lần."},
+           {"t": "ChiTietHD.don_gia", "a": [0], "why": "Giá trị tại thời điểm bán."},
+           {"t": "ChiTietHD.tien_giam", "a": [0], "why": "Giá trị tại thời điểm bán."},
+           {"t": "SanPham.ma_vach", "a": [1], "why": "Quét mã liên tục."},
+           {"t": "ThanhVien.so_dien_thoai", "a": [1], "why": "Tra cứu thành viên."},
+           {"t": "HoaDon.thoi_diem", "a": [1], "why": "Báo cáo theo ngày."}
+         ]},
+        {"kind": "choice", "q": "5) Xử lý dữ liệu nhạy cảm thế nào là đúng? (chọn tất cả ý đúng)",
+         "options": [
+           "Lưu số thẻ đầy đủ để tiện đối soát",
+           "Mật khẩu nhân viên lưu dạng băm",
+           "Lưu mật khẩu nguyên văn để thu ngân lấy lại khi quên",
+           "Chỉ lưu 4 số cuối của thẻ",
+           "Số điện thoại thành viên cần phân quyền xem"
+         ],
+         "answer": [1, 3, 4], "multi": true,
+         "why": "Nguyên tắc #7: mật khẩu lưu dạng băm, không lưu số thẻ đầy đủ mà chỉ 4 số cuối, số điện thoại thành viên phân quyền xem."},
+        {"kind": "choice", "q": "6) Để bảng đạt 3NF và dùng NULL đúng, quyết định nào đúng? (chọn tất cả ý đúng)",
+         "options": [
+           "HoaDon.ma_tv để NULL khi khách vãng lai",
+           "Khóa chính ma_hd được để NULL khi hóa đơn chưa thanh toán",
+           "ChiTietHD.ma_km để NULL khi không có khuyến mãi",
+           "HoaDon lưu thêm tên nhân viên và tên thành viên",
+           "HoaDon không chứa tên nhân viên, lấy qua ma_ca → CaLamViec → NhanVien"
+         ],
+         "answer": [0, 2, 4], "multi": true,
+         "why": "ma_tv và ma_km là khóa ngoại tùy chọn nên được NULL; khóa chính không bao giờ NULL. Để đạt 3NF, tên sản phẩm chỉ ở SanPham, tên thành viên chỉ ở ThanhVien, tên nhân viên lấy qua ca làm việc."}
+      ]
+    }
+  }
+}

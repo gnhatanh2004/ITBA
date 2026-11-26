@@ -1,0 +1,251 @@
+{
+  "lesson": "L09",
+  "items": {
+    "L09-x1": {
+      "lead": "Kéo 13 tài liệu SolasMart vào đúng loại, rồi chọn loại còn trống và ý nghĩa của nó.",
+      "parts": [
+        {"kind": "sort", "q": "1) Mỗi tài liệu thuộc loại nào trên slide?",
+         "bins": ["Tài liệu nghiệp vụ", "Tài liệu hệ thống", "Tài liệu pháp lý", "Báo cáo vận hành"],
+         "items": [
+           {"t": "Quy định vận hành", "a": [0], "why": "Quy chế/quy định là tài liệu nghiệp vụ."},
+           {"t": "Quy định quản lý nhân sự", "a": [0]},
+           {"t": "Quy định quản lý kho", "a": [0]},
+           {"t": "Quy trình bán hàng tại quầy", "a": [0]},
+           {"t": "Quy trình bán hàng trực tuyến", "a": [0]},
+           {"t": "Quy trình nhập kho", "a": [0]},
+           {"t": "Phiếu nhập kho", "a": [0], "why": "Biểu mẫu nội bộ là tài liệu nghiệp vụ."},
+           {"t": "Phiếu xuất kho", "a": [0]},
+           {"t": "Phiếu kiểm kê kho", "a": [0]},
+           {"t": "Phiếu hủy hàng", "a": [0]},
+           {"t": "Báo cáo cuối ca tại quầy", "a": [3]},
+           {"t": "Báo cáo cuối ca online", "a": [3]},
+           {"t": "File Excel tồn kho (sổ nhập – xuất – danh mục)", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "2) Loại tài liệu nào không có tài liệu nào trong bộ 13 file? (chọn tất cả ý đúng)",
+         "options": ["Tài liệu nghiệp vụ", "Tài liệu pháp lý", "Báo cáo vận hành", "Tài liệu hệ thống"],
+         "answer": [1, 3], "multi": true,
+         "why": "10 tài liệu nghiệp vụ (6 quy định/quy trình + 4 phiếu) và 3 báo cáo vận hành. Không có BRD, SRS, DB nào, cũng không có văn bản luật."},
+        {"kind": "choice", "q": "3) Hai loại còn trống cho BA biết gì? (chọn tất cả ý đúng)",
+         "options": [
+           "Tài liệu nghiệp vụ đã đủ nên BA không cần phỏng vấn ai nữa",
+           "SolasMart chưa có phần mềm quản lý, khớp câu \"Vì chưa có hệ thống\" trong quy trình bán online",
+           "SolasMart không phải tuân theo văn bản luật nào",
+           "Nếu dự án đụng tới hóa đơn, lao động… BA phải tự thu thập thêm văn bản luật"
+         ],
+         "answer": [1, 3], "multi": true,
+         "why": "Không có tài liệu hệ thống nghĩa là chưa có hệ thống cũ. Không có văn bản luật trong bộ tài liệu không có nghĩa là không phải tuân theo luật, BA phải tự tìm thêm. Đọc tài liệu xong BA vẫn phải đi xác nhận với stakeholder."}
+      ]
+    },
+    "L09-x2": {
+      "lead": "Lập bảng actor bằng kéo thả: xếp actor theo quy trình, rồi ghép việc chính với actor.",
+      "parts": [
+        {"kind": "sort", "q": "1) Mỗi actor xuất hiện ở quy trình nào?",
+         "bins": ["Chỉ Tại quầy", "Chỉ Online", "Chỉ Nhập kho", "Tại quầy + Online", "Online + Nhập kho", "Cả ba quy trình"],
+         "items": [
+           {"t": "Khách hàng", "a": [3]},
+           {"t": "Thu ngân", "a": [0]},
+           {"t": "Nhân viên hỗ trợ quầy", "a": [0]},
+           {"t": "Trưởng ca / Quản lý quầy", "a": [3], "why": "Ở quầy: xác nhận giá sai. Ở online (Bước 10): kiểm tra đơn hoàn, hủy, giao lỗi."},
+           {"t": "Nhân viên CSKH", "a": [1]},
+           {"t": "Nhân viên kho", "a": [4, 5], "why": "Chính ở Online và Nhập kho; ở Tại quầy chỉ được nhắc khi hỏi kho kiểm giá, tem."},
+           {"t": "Nhân viên giao hàng", "a": [1]},
+           {"t": "Kế toán", "a": [4]},
+           {"t": "Quản lý kho", "a": [2]},
+           {"t": "Nhà cung cấp (NCC)", "a": [2]},
+           {"t": "Ngân hàng", "a": [0], "why": "Được nhắc trong bước thu tiền chuyển khoản dù không có trong mục \"Các bên tham gia\"."}
+         ]},
+        {"kind": "sort", "q": "2) Quy trình bán tại quầy: việc này do ai làm?",
+         "bins": ["Khách hàng", "Thu ngân", "Nhân viên hỗ trợ quầy", "Trưởng ca / Quản lý quầy", "Ngân hàng"],
+         "items": [
+           {"t": "Mua hàng, chọn phương thức thanh toán", "a": [0]},
+           {"t": "Quét mã, thu tiền, in hóa đơn", "a": [1]},
+           {"t": "Đổi sản phẩm thiếu tem, cân hàng, mang sản phẩm thay", "a": [2]},
+           {"t": "Xác nhận giá khi POS hiện sai giá", "a": [3]},
+           {"t": "Xác nhận giao dịch chuyển khoản", "a": [4]}
+         ]},
+        {"kind": "sort", "q": "3) Quy trình online và nhập kho: việc này do ai làm?",
+         "bins": ["Khách hàng", "Nhân viên CSKH", "Nhân viên kho", "Nhân viên giao hàng", "Kế toán", "Quản lý kho", "Nhà cung cấp (NCC)", "Trưởng ca / Quản lý quầy"],
+         "items": [
+           {"t": "Gửi yêu cầu đặt hàng, nhận hàng", "a": [0]},
+           {"t": "Nhận đơn, kiểm tồn, báo giá, nhập Excel, chuyển đơn cho kho", "a": [1]},
+           {"t": "Soạn hàng cho đơn online", "a": [2]},
+           {"t": "Kiểm chứng từ, kiểm hàng, lập phiếu nhập kho", "a": [2]},
+           {"t": "Giao hàng cho khách, thu COD", "a": [3]},
+           {"t": "Đối soát COD cuối ngày", "a": [4]},
+           {"t": "Xử lý chứng từ không khớp, chênh lệch số lượng khi nhập", "a": [4]},
+           {"t": "Ký phiếu nhập kho", "a": [5]},
+           {"t": "Chở hàng tới kho, cung cấp hóa đơn và phiếu giao hàng", "a": [6]},
+           {"t": "Cuối ngày kiểm tra đơn hoàn, hủy, giao lỗi", "a": [7]}
+         ]}
+      ]
+    },
+    "L09-x3": {
+      "lead": "Chọn quy tắc kiểm được, ghép con số với quy tắc, rồi chỉ ra chỗ trùng và chỗ mâu thuẫn.",
+      "parts": [
+        {"kind": "choice", "q": "1) Câu nào là quy tắc nghiệp vụ kiểm được (có con số, điều kiện hoặc \"phải/không được\")? (chọn tất cả ý đúng)",
+         "options": [
+           "Không cho người khác dùng tài khoản hoặc mã thu ngân.",
+           "Nhân viên cần có thái độ làm việc tốt.",
+           "Chỉ xuất hàng khi có Phiếu xuất kho hợp lệ và được phê duyệt.",
+           "Kho nên được giữ gọn gàng, ngăn nắp.",
+           "Hàng nhập trước xuất trước.",
+           "Tiền thừa/thiếu cuối ca phải lập biên bản xác nhận.",
+           "Thu ngân làm việc cẩn thận, nhanh nhẹn."
+         ],
+         "answer": [0, 2, 4, 5], "multi": true,
+         "why": "Quy tắc kiểm được thì đọc xong có thể kiểm đúng/sai. \"Thái độ tốt\", \"gọn gàng\", \"cẩn thận\" không có con số hay điều kiện nên không kiểm được."},
+        {"kind": "sort", "q": "2) Ghép mỗi quy tắc với con số đúng trong các quy định.",
+         "bins": ["15 phút", "20%", "1 ngày", "3 ngày", "30 ngày", "2 tiếng", "24 giờ", "12 tháng"],
+         "items": [
+           {"t": "Có mặt trước giờ làm …", "a": [0]},
+           {"t": "Không để kệ trống quá … diện tích", "a": [1]},
+           {"t": "Nghỉ phép báo trước ít nhất …", "a": [3]},
+           {"t": "Nghỉ cá nhân báo trước …", "a": [2]},
+           {"t": "Nghỉ ốm đột xuất báo quản lý trước …", "a": [5]},
+           {"t": "Nhân viên thử việc nghỉ việc báo trước …", "a": [3]},
+           {"t": "Nhân viên chính thức nghỉ việc báo trước …", "a": [4]},
+           {"t": "Kiểm kê xong, báo chênh lệch trong …", "a": [6]},
+           {"t": "Chứng từ kho lưu theo tháng, tối thiểu …", "a": [7]}
+         ]},
+        {"kind": "choice", "q": "3) Chỗ nào là trùng lặp nhất quán giữa ba quy định?",
+         "options": [
+           "Mức xử lý vi phạm giống nhau ở cả ba quy định",
+           "Nghỉ việc báo trước 30 ngày cho cả thử việc và chính thức",
+           "\"Có mặt trước giờ làm 15 phút\" có ở cả Quy định vận hành, nhân sự và kho, cùng con số"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Giờ có mặt trước ca lặp lại ở cả ba quy định với cùng con số 15 phút. Mức xử lý vi phạm thì khác nhau; thử việc chỉ báo trước 3 ngày."},
+        {"kind": "choice", "q": "4) Chỗ nào là mâu thuẫn giữa các quy định?",
+         "options": [
+           "Mức xử lý vi phạm: Quy định vận hành 3 mức, Quy định nhân sự 4 mức, Quy định kho cho lỗi sắp xếp hàng lần 3 đã chấm dứt hợp đồng",
+           "Giờ có mặt trước ca mỗi quy định ghi một con số khác nhau",
+           "Nhân viên thử việc báo nghỉ việc trước 3 ngày, còn nhân viên chính thức báo trước 30 ngày"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Ba quy định xử lý vi phạm theo ba cách khác nhau. Giờ có mặt thì nhất quán 15 phút. Thử việc và chính thức là hai trường hợp khác nhau nên hai thời hạn không mâu thuẫn."},
+        {"kind": "order", "q": "5) Sắp xếp 4 mức xử lý vi phạm của Quy định nhân sự từ nhẹ đến nặng.",
+         "items": ["Nhắc bằng lời", "Nhắc nhở kèm biên bản", "Cảnh cáo bằng văn bản", "Xem xét chấm dứt hợp đồng"]},
+        {"kind": "choice", "q": "6) Gặp mâu thuẫn về mức xử lý vi phạm, BA nên làm gì?",
+         "options": [
+           "Tự chọn quy định nghiêm nhất để đưa vào hệ thống",
+           "Bỏ qua vì xử lý vi phạm không liên quan tới hệ thống",
+           "Lấy theo Quy định nhân sự vì đó là bộ phận nhân sự viết",
+           "Ghi nhận mâu thuẫn và hỏi bộ phận nhân sự quy định nào được áp dụng"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Ở bước phân tích, BA ghi lại thông tin mâu thuẫn và liên hệ các bên liên quan để làm rõ, không tự chọn một bên."}
+      ]
+    },
+    "L09-x4": {
+      "lead": "Xếp 4 tài liệu theo kết quả kiểm số, chỉ ra chỗ lệch, rồi chọn câu hỏi gửi stakeholder.",
+      "parts": [
+        {"kind": "sort", "q": "1) Kiểm cộng trừ xong, mỗi tài liệu thuộc nhóm nào?",
+         "bins": ["Khớp", "Số khớp nhưng lý do sai", "Số bị lệch"],
+         "items": [
+           {"t": "Báo cáo cuối ca tại quầy", "a": [0], "why": "85 + 35 + 12 = 132 đơn; 42.500.000 + 21.800.000 + 9.200.000 = 73.500.000; tiền mặt 42.500.000 + ứng đầu ca 2.000.000 = 44.500.000, chênh lệch 0."},
+           {"t": "Báo cáo cuối ca online", "a": [0], "why": "48 + 10 + 5 + 3 = 66 đơn; tổng 43.900.000; phí ship 3.800.000 − 3.200.000 = +600.000."},
+           {"t": "Phiếu kiểm kê kho", "a": [1], "why": "1.000 − 900 = 100 (giảm 100) nhưng cột lý do ghi \"Nguyên vẹn\"."},
+           {"t": "Phiếu hủy hàng", "a": [2], "why": "Dòng 1 và dòng tổng ghi sai giá trị."}
+         ]},
+        {"kind": "choice", "q": "2) Phiếu hủy hàng lệch ở đâu? (chọn tất cả ý đúng)",
+         "options": [
+           "Dòng 2 ghi sai giá trị hủy",
+           "Dòng 1: 1.000 × 90.000 = 90.000.000 nhưng phiếu ghi 9.000.000",
+           "Tổng ghi 165.000.000 trong khi hai dòng như đang ghi cộng lại chỉ 84.000.000",
+           "Không lệch, chỉ khác nhau do làm tròn"
+         ],
+         "answer": [1, 2], "multi": true,
+         "why": "Lấy số lượng × giá nhập trên phiếu nhập kho: dòng 1 phải là 90.000.000. Nếu sửa dòng 1 thì tổng mới ra 165.000.000, tức dòng 2 không sai."},
+        {"kind": "choice", "q": "3) Phiếu kiểm kê kho có vấn đề gì?",
+         "options": [
+           "Phép trừ 1.000 − 900 tính sai",
+           "Chênh lệch giảm 100 nhưng cột lý do ghi \"Nguyên vẹn\"",
+           "Chênh lệch là tăng 100 chứ không phải giảm"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Số tính đúng (giảm 100), nhưng lý do \"Nguyên vẹn\" không giải thích được vì sao thiếu 100 túi thịt gà."},
+        {"kind": "choice", "q": "4) Câu nào nên gửi stakeholder cho các chỗ lệch? (chọn tất cả ý đúng)",
+         "options": [
+           "\"100 túi thịt gà thiếu do đâu, đã báo cáo trong 24h chưa?\"",
+           "\"Báo cáo tại quầy có đúng 132 đơn không?\"",
+           "\"Giá trị hủy dòng 1 đúng là bao nhiêu?\"",
+           "\"Em sửa luôn lý do kiểm kê thành 'Thiếu' nhé?\"",
+           "\"Giá trị hủy tính theo giá nhập hay giá bán?\"",
+           "\"Phí ship online lời 600.000 là do ai tính sai?\""
+         ],
+         "answer": [0, 2, 4], "multi": true,
+         "why": "Mỗi chỗ lệch cần một câu hỏi làm rõ. Báo cáo tại quầy và phí ship online đã khớp nên không phải chỗ lệch. BA không tự sửa tài liệu mà hỏi bên liên quan."},
+        {"kind": "choice", "q": "5) Hai báo cáo cuối ca đều khớp số. Điều gì vẫn cần để ý?",
+         "options": [
+           "Không còn gì, số đã khớp thì báo cáo đúng",
+           "Số đơn hai báo cáo phải bằng nhau nhưng lại khác nhau",
+           "Hai báo cáo ghi cùng hai người nhưng cho hai vai trò khác nhau"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Báo cáo khớp số vẫn có thể có vấn đề khác: cùng hai người, một bản ghi là thu ngân, bản kia ghi là CSKH. Tại quầy và online là hai kênh nên số đơn không cần bằng nhau."}
+      ]
+    },
+    "L09-x5": {
+      "lead": "Dựng hồ sơ phát hiện bằng cách sắp xếp, chọn và kéo thả thay vì viết.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp 3 bước làm Document Analysis.",
+         "items": ["Chuẩn bị: thu thập, đánh giá nguồn tài liệu", "Phân tích – đánh giá: hồ sơ tổng hợp, ghi nhận vấn đề", "Ghi nhận phát hiện: chọn mức chi tiết cho người nhận"]},
+        {"kind": "choice", "q": "2) Ý nào đưa vào tóm tắt As-is cho Ban Giám đốc? (chọn tất cả ý đúng)",
+         "options": [
+           "Bán tại quầy dùng máy POS, thanh toán tiền mặt, thẻ, chuyển khoản/QR.",
+           "Nên mua ngay một phần mềm ERP để thay Excel.",
+           "Bán online nhận đơn từ 7 kênh, xử lý thủ công bằng Excel và Zalo nhóm.",
+           "Bước 3 bán tại quầy: barcode không đọc được thì nhập mã tay; POS treo thì đổi máy hoặc reset.",
+           "Kho tổng quản lý bằng phiếu giấy và file Excel.",
+           "Chưa có tài liệu hệ thống nào (BRD, SRS, DB).",
+           "Tài liệu có một số mâu thuẫn và số liệu sai cần làm rõ."
+         ],
+         "answer": [0, 2, 4, 5, 6], "multi": true,
+         "why": "Ban Giám đốc cần bức tranh hiện trạng ngắn gọn. Đề xuất mua phần mềm là giải pháp, không phải hiện trạng; từng ngoại lệ của một bước là mức chi tiết cho đội phát triển."},
+        {"kind": "sort", "q": "3) Mỗi phát hiện là pain point hay yêu cầu ẩn?",
+         "bins": ["Pain point", "Yêu cầu ẩn"],
+         "items": [
+           {"t": "Kiểm tồn kho thủ công, kho trả lời chậm", "a": [0]},
+           {"t": "Nhập đơn online thủ công vào Excel", "a": [0]},
+           {"t": "Sản phẩm hết nhưng page chưa cập nhật", "a": [0]},
+           {"t": "Phiếu và Excel kho tính tay, có số sai", "a": [0]},
+           {"t": "Hai cách đánh mã chứng từ (NK20201020-1 và PNK-0001)", "a": [0]},
+           {"t": "Lưu chứng từ kho theo tháng, tối thiểu 12 tháng", "a": [1]},
+           {"t": "Mỗi thu ngân một tài khoản riêng, không dùng chung", "a": [1]},
+           {"t": "Thu hồi tài khoản hệ thống khi nhân viên nghỉ việc", "a": [1]},
+           {"t": "Không cho xuất kho khi phiếu xuất chưa được phê duyệt", "a": [1]},
+           {"t": "Ghi nhận và báo cáo chênh lệch kiểm kê trong 24h", "a": [1]}
+         ]},
+        {"kind": "sort", "q": "4) Trích nguồn: mỗi phát hiện lấy từ tài liệu nào?",
+         "bins": ["Quy trình bán hàng trực tuyến", "Phiếu hủy hàng, Excel kho", "Quy định quản lý kho", "Quy định vận hành", "Quy định quản lý nhân sự"],
+         "items": [
+           {"t": "Kiểm tồn kho thủ công, kho trả lời chậm", "a": [0], "why": "Bước 2."},
+           {"t": "Nhập đơn online thủ công vào Excel", "a": [0], "why": "Bước 4."},
+           {"t": "Sản phẩm hết nhưng page chưa cập nhật", "a": [0], "why": "Bước 2."},
+           {"t": "Phiếu và Excel kho tính tay, có số sai", "a": [1], "why": "Phiếu hủy hàng, Excel PNK-0003."},
+           {"t": "Lưu chứng từ kho theo tháng, tối thiểu 12 tháng", "a": [2]},
+           {"t": "Không cho xuất kho khi phiếu xuất chưa được phê duyệt", "a": [2], "why": "Quy định kho mục 6."},
+           {"t": "Ghi nhận và báo cáo chênh lệch kiểm kê trong 24h", "a": [2]},
+           {"t": "Mỗi thu ngân một tài khoản riêng, không dùng chung", "a": [3], "why": "Quy định vận hành mục 8."},
+           {"t": "Thu hồi tài khoản hệ thống khi nhân viên nghỉ việc", "a": [4], "why": "Quy định nhân sự mục 8."}
+         ]},
+        {"kind": "sort", "q": "5) Buổi phỏng vấn đầu tiên: câu hỏi này gửi ai?",
+         "bins": ["Trưởng ca / Quản lý quầy", "Quản lý kho", "Kế toán", "Nhân sự", "CSKH"],
+         "items": [
+           {"t": "Bước 8 \"Kết thúc phiên giao dịch\" gồm việc gì?", "a": [0]},
+           {"t": "Tồn kho được trừ khi nào khi bán tại quầy?", "a": [0]},
+           {"t": "Ai duyệt hủy hóa đơn?", "a": [0]},
+           {"t": "Mẫu phiếu năm 2020 còn dùng không?", "a": [1]},
+           {"t": "\"Gần hết hạn\" là bao nhiêu ngày?", "a": [1]},
+           {"t": "Thủ kho và Quản lý kho là một hay hai người?", "a": [1]},
+           {"t": "Hủy hàng ghi bằng phiếu hủy hay phiếu xuất?", "a": [1]},
+           {"t": "Giá trị hủy tính theo giá nào?", "a": [2]},
+           {"t": "Quy tắc đánh mã chứng từ nào là chuẩn?", "a": [2]},
+           {"t": "Có cần ô số PO trên phiếu nhập không?", "a": [2]},
+           {"t": "Áp dụng mức xử lý vi phạm 3 mức hay 4 mức?", "a": [3]},
+           {"t": "Hai nhân viên ca 2 có kiêm cả thu ngân không?", "a": [4]}
+         ]}
+      ]
+    }
+  }
+}

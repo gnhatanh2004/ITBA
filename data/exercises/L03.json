@@ -1,0 +1,143 @@
+{
+  "lesson": "L03",
+  "items": {
+    "L03-x1": {
+      "lead": "Sắp xếp 6 bước SDLC, rồi kéo mỗi kết quả vào đúng bước.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước theo đúng thứ tự SDLC.",
+         "items": ["Lập kế hoạch", "Phân tích", "Thiết kế", "Lập trình", "Kiểm thử", "Bảo trì"],
+         "why": "Mẹo nhớ: Kế – Phân – Thiết – Lập – Kiểm – Bảo. Biết làm gì, cần gì, làm thế nào, rồi mới làm, thử và giữ cho chạy tốt."},
+        {"kind": "sort", "q": "2) Kết quả chính này thuộc bước nào?",
+         "bins": ["Kiểm thử", "Thiết kế", "Bảo trì", "Lập kế hoạch", "Lập trình", "Phân tích"],
+         "items": [
+           {"t": "Master plan, kế hoạch quản trị rủi ro, quy định dự án", "a": [3]},
+           {"t": "Biên bản khảo sát, BRD, SRS", "a": [5]},
+           {"t": "Tài liệu kiến trúc, tài liệu CSDL", "a": [1]},
+           {"t": "Mã nguồn hoạt động đúng yêu cầu", "a": [4]},
+           {"t": "Báo cáo kiểm thử", "a": [0]},
+           {"t": "Phần mềm vận hành ổn định, được cập nhật định kỳ", "a": [2]}
+         ]}
+      ]
+    },
+    "L03-x2": {
+      "lead": "Kéo mỗi ý vào đúng ô ưu hoặc nhược điểm.",
+      "parts": [
+        {"kind": "sort", "q": "Ý này là ưu hay nhược điểm của mô hình nào?",
+         "bins": ["Ưu Waterfall", "Nhược Waterfall", "Ưu Agile", "Nhược Agile"],
+         "items": [
+           {"t": "Tài liệu rõ ràng", "a": [0]},
+           {"t": "Giao sản phẩm sớm và liên tục", "a": [2]},
+           {"t": "Phát hiện lỗi muộn", "a": [1], "why": "Kiểm thử chỉ bắt đầu sau khi lập trình xong toàn bộ."},
+           {"t": "Khó kiểm soát tổng thể", "a": [3]},
+           {"t": "Lập kế hoạch dễ dàng", "a": [0]},
+           {"t": "Tạo động lực cho team", "a": [2]},
+           {"t": "Không có phần mềm chạy sớm", "a": [1]},
+           {"t": "Yêu cầu khách hàng tham gia thường xuyên", "a": [3]}
+         ]}
+      ]
+    },
+    "L03-x3": {
+      "lead": "Ghép mỗi tình huống FoodNow với tuyên ngôn Agile, rồi chọn các cách làm đi ngược tuyên ngôn.",
+      "parts": [
+        {"kind": "sort", "q": "1) Tình huống này cho thấy nhóm làm theo tuyên ngôn nào?",
+         "bins": ["Cá nhân và sự tương hỗ hơn quy trình và công cụ", "Sản phẩm dùng được hơn tài liệu", "Cộng tác với khách hàng hơn đàm phán hợp đồng", "Phản hồi với thay đổi hơn bám kế hoạch"],
+         "items": [
+           {"t": "Dev thấy chỗ chưa rõ về giờ mở cửa nhà hàng, gọi BA trao đổi ngay thay vì chờ mở phiếu yêu cầu qua công cụ.", "a": [0]},
+           {"t": "Sau 2 tuần, nhóm cho quản lý nhà hàng dùng thử chức năng đặt bàn chạy được, thay vì gửi bản đặc tả 50 trang.", "a": [1]},
+           {"t": "Nhà hàng muốn đổi cách xác nhận đặt bàn, hai bên ngồi bàn cách làm, không tranh cãi \"hợp đồng không ghi\".", "a": [2]},
+           {"t": "Khách phản hồi muốn chọn vị trí bàn; PO đưa vào backlog và xếp ưu tiên cao cho Sprint sau dù kế hoạch ban đầu không có.", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "2) Cách làm nào đi ngược tuyên ngôn Agile? (chọn tất cả ý đúng)",
+         "options": [
+           "Dev gặp chỗ chưa rõ nhưng chờ mở phiếu yêu cầu qua công cụ, không hỏi BA",
+           "Cho quản lý nhà hàng dùng thử chức năng đặt bàn đã chạy được sau 2 tuần",
+           "Gửi nhà hàng bản đặc tả 50 trang thay cho việc dùng thử sản phẩm",
+           "Nhà hàng muốn đổi cách xác nhận đặt bàn, nhóm từ chối vì \"hợp đồng không ghi\"",
+           "PO đưa yêu cầu chọn vị trí bàn vào backlog dù kế hoạch ban đầu không có",
+           "Bỏ qua phản hồi muốn chọn vị trí bàn, không đưa vào backlog, vì kế hoạch ban đầu không có"
+         ],
+         "answer": [0, 2, 3, 5], "multi": true,
+         "why": "Agile coi trọng vế trái hơn: cá nhân và sự tương hỗ, sản phẩm dùng được, cộng tác với khách hàng, phản hồi với thay đổi. Chờ công cụ, gửi tài liệu thay sản phẩm, bám hợp đồng, bám kế hoạch là chọn vế phải."}
+      ]
+    },
+    "L03-x4": {
+      "lead": "Kéo mỗi tình huống vào trụ cột hoặc giá trị Scrum mà nó thể hiện.",
+      "parts": [
+        {"kind": "sort", "q": "Tình huống này thể hiện trụ cột hay giá trị Scrum nào?",
+         "bins": ["Minh bạch", "Thanh tra", "Thích nghi", "Cam kết", "Tập trung", "Cởi mở", "Tôn trọng", "Dũng cảm"],
+         "items": [
+           {"t": "Cả nhóm dùng chung một bảng công việc, ai cũng thấy việc nào đang làm, việc nào bị chặn.", "a": [0], "why": "Minh bạch: mọi người nhìn thấy và hiểu giống nhau."},
+           {"t": "Một dev nói thẳng trong Daily Scrum rằng mình ước tính sai, task sẽ trễ 2 ngày.", "a": [7, 5], "why": "Dũng cảm: dám nói sự thật. Cũng thể hiện Cởi mở."},
+           {"t": "Sau Retrospective, nhóm đổi cách review code vì thấy cách cũ làm chậm.", "a": [2], "why": "Thích nghi: điều chỉnh kịp thời."},
+           {"t": "Trong Sprint, nhóm từ chối nhận thêm việc ngoài Sprint Backlog để giữ mục tiêu Sprint.", "a": [4], "why": "Tập trung vào công việc của Sprint."},
+           {"t": "Mỗi ngày nhóm xem lại burndown chart để biết tiến độ.", "a": [1], "why": "Thanh tra: thường xuyên kiểm tra công việc."}
+         ]}
+      ]
+    },
+    "L03-x5": {
+      "lead": "Chọn mô hình cho hai dự án, rồi kéo lý do và việc của BA vào đúng dự án.",
+      "parts": [
+        {"kind": "choice", "q": "1) Mỗi dự án của SolasMart nên dùng mô hình nào?",
+         "options": [
+           "A: Waterfall; B: Agile (Scrum)",
+           "Cả hai: Waterfall",
+           "A: Agile (Scrum); B: Waterfall",
+           "Cả hai: Agile (Scrum)"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Dự án A trùng các dòng \"Không phù hợp\" của Waterfall (chưa rõ giải pháp, cần ra mắt sớm, khách tham gia thường xuyên) nên chọn Agile. Dự án B trùng các dòng \"Phù hợp\" của Waterfall và nhược điểm của Agile nên chọn Waterfall."},
+        {"kind": "sort", "q": "2) Đặc điểm này là lý do chọn mô hình cho dự án nào?",
+         "bins": ["Dự án A → Agile (Scrum)", "Dự án B → Waterfall"],
+         "items": [
+           {"t": "Chưa rõ giải pháp tối ưu, mang tính thử nghiệm", "a": [0]},
+           {"t": "Yêu cầu rõ ràng, ổn định (mẫu báo cáo theo quy định nhà nước)", "a": [1]},
+           {"t": "Cần ra mắt sớm để lấy phản hồi người dùng", "a": [0]},
+           {"t": "Ngân sách cố định", "a": [1], "why": "Agile không phù hợp dự án cố định về chi phí."},
+           {"t": "Khách hàng (đội marketing) tham gia góp ý thường xuyên", "a": [0]},
+           {"t": "Không cần khách hàng tham gia liên tục (kế toán chỉ rảnh lúc đầu và lúc nghiệm thu)", "a": [1], "why": "Agile lại cần khách hàng tham gia thường xuyên."}
+         ]},
+        {"kind": "sort", "q": "3) Việc chính này BA làm ở dự án nào?",
+         "bins": ["Dự án A (Agile)", "Dự án B (Waterfall)"],
+         "items": [
+           {"t": "Hỗ trợ PO viết và làm rõ các mục trong Product Backlog", "a": [0]},
+           {"t": "Khảo sát kỹ quy định thuế với kế toán", "a": [1]},
+           {"t": "Làm rõ yêu cầu từng Sprint", "a": [0]},
+           {"t": "Viết BRD/SRS đầy đủ và chốt trước khi thiết kế", "a": [1]},
+           {"t": "Ghi nhận phản hồi sau mỗi Sprint Review", "a": [0]},
+           {"t": "Tham gia kiểm thử, đối chiếu từng mẫu báo cáo", "a": [1]}
+         ]}
+      ]
+    },
+    "L03-x6": {
+      "lead": "Chọn những điểm sai, sắp xếp cách xử lý đúng, rồi kéo mỗi việc cho đúng người.",
+      "parts": [
+        {"kind": "choice", "q": "1) Điểm nào sai so với khung Scrum? (chọn tất cả ý đúng)",
+         "options": [
+           "Sprint kéo dài 2 tuần",
+           "Dev tự nhận việc mới giữa Sprint, bỏ dở task đang làm, làm lệch Sprint Backlog",
+           "Chủ nhà hàng muốn có tính năng \"giao hàng hẹn giờ\"",
+           "Yêu cầu đi thẳng tới dev, vòng qua PO là người quản lý Product Backlog",
+           "Phần việc nhóm đã cam kết bị thay đổi ngay trong Sprint đang chạy"
+         ],
+         "answer": [1, 3, 4], "multi": true,
+         "why": "Trong Sprint, ngày kết thúc và phần việc đã cam kết không thay đổi; PO là người quản lý Product Backlog. Sprint 2 tuần nằm trong khoảng 1–4 tuần, và khách hàng có yêu cầu mới là đầu vào bình thường của Product Backlog."},
+        {"kind": "order", "q": "2) Sắp xếp cách xử lý đúng theo thứ tự.",
+         "items": [
+           "Dev báo yêu cầu cho PO",
+           "PO đưa \"giao hàng hẹn giờ\" vào Product Backlog và xếp ưu tiên",
+           "Nếu quan trọng, mục này được chọn ở Sprint Planning của Sprint sau"
+         ],
+         "why": "Yêu cầu mới đi qua PO vào Product Backlog, không chen vào Sprint đang chạy."},
+        {"kind": "sort", "q": "3) Việc này do ai làm?",
+         "bins": ["Product Owner", "Scrum Master", "BA", "Dev"],
+         "items": [
+           {"t": "Báo yêu cầu mới cho PO thay vì tự nhận làm", "a": [3]},
+           {"t": "Đưa yêu cầu vào Product Backlog và xếp ưu tiên", "a": [0]},
+           {"t": "Nhắc lại quy tắc với các bên để Sprint không bị chen ngang", "a": [1], "why": "Scrum Master gỡ trở ngại cho nhóm."},
+           {"t": "Làm rõ với chủ nhà hàng: đặt trước tối thiểu bao lâu, khung giờ nào, có phí không, ảnh hưởng tới bếp ra sao", "a": [2]},
+           {"t": "Viết yêu cầu thành mục backlog có tiêu chí chấp nhận", "a": [2, 0], "why": "Đáp án mẫu giao cho BA, để PO xếp ưu tiên và nhóm ước tính được. BA thường hỗ trợ PO viết mục backlog nên chọn PO cũng được chấp nhận."}
+         ]}
+      ]
+    }
+  }
+}

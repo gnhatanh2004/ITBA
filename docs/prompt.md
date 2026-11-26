@@ -277,3 +277,52 @@ Mỗi agent viết kịch bản đọc cho 1 bài. File ra: `data/narration/<ID>
 **Tự kiểm:** `python -B script/narrate.py --check <ID>` tới khi in `OK`. **Không chạy** sinh audio, việc đó mình làm sau.
 
 **Báo cáo cuối** (≤ 120 từ): số đoạn, số điểm hỏi, ước số phút, chỗ nào không chắc.
+
+## 8. Prompt riêng – agent bài tập tương tác (T10)
+
+User không muốn phải viết nhiều. Mỗi agent chuyển **mọi** bài tập của 1 bài thành dạng làm bằng chạm, kéo, có chấm tự động. File ra là `data/exercises/<ID>.json` (case study khóa học là `CS.json`, bài tập lấy từ `course.json` → `case_study.exercises`). Bản mẫu đã duyệt là `data/exercises/L01.json`, đọc nó trước khi làm.
+
+**Không sửa** `data/lessons/*.json` và `course.json`. Đề (`task`), gợi ý và đáp án mẫu vẫn hiện như cũ. File mới chỉ gắn thêm phần làm bài vào dưới đề.
+
+**Schema:**
+```json
+{ "lesson": "L05", "items": {
+  "L05-x2": { "lead": "1 câu hướng dẫn ngắn",
+    "parts": [
+      { "kind": "sort", "q": "câu hỏi", "bins": ["nhóm A", "nhóm B"],
+        "items": [ { "t": "mục cần xếp", "a": [0], "why": "vì sao (không bắt buộc)" } ] },
+      { "kind": "order", "q": "câu hỏi", "items": ["bước 1", "bước 2", "bước 3"], "why": "…" },
+      { "kind": "choice", "q": "câu hỏi", "options": ["…", "…"], "answer": [1], "multi": false, "why": "giải thích (bắt buộc)" }
+    ] } } }
+```
+
+| Dạng | Dùng cho | Luật |
+|---|---|---|
+| `sort` | Phân loại, xếp vào nhóm, ghép cặp (matching) | 2–8 `bins`, 2–16 `items`. `a` là mảng chỉ số bin đúng; mục có nhiều đáp án chấp nhận được thì ghi cả. Người học kéo mục vào bin. |
+| `order` | Sắp xếp thứ tự (các bước, quy trình) | 3–10 mục, ghi theo **đúng** thứ tự. Giao diện tự xáo. |
+| `choice` | Trắc nghiệm 1 hoặc nhiều đáp án | 2–8 phương án. `multi: true` khi chọn nhiều. `why` bắt buộc. |
+
+Mỗi bài tập có 1–6 `parts`. Mọi chuỗi là văn bản thường, không HTML. Được xuống dòng bằng `\n`, dùng cho đoạn code, JSON hay SQL ngắn.
+
+**Cách chuyển:**
+- **Bài phân loại, ghép, chọn, sắp xếp** thì chuyển thẳng sang `sort`, `order` hoặc `choice`, giữ đủ mọi mục của đề.
+- **Bài phải viết** (tìm lỗi, viết lại cho đúng, lập bảng, đặc tả, thiết kế ERD, viết SQL…) thì tách thành các phần chọn được. Ví dụ:
+  - *Tìm lỗi*: `choice` multi "Những điểm nào là lỗi?". Phương án đúng là các lỗi trong đáp án mẫu, phương án sai là những điểm trong đề thật sự không sai. Thêm `choice` "Sửa lỗi X thế nào cho đúng?".
+  - *Viết lại / viết yêu cầu*: `choice` "Cách viết nào đạt?". Phương án đúng lấy từ đáp án mẫu, phương án sai mắc lỗi điển hình mà bài dạy, như mơ hồ, không đo được hoặc lẫn giải pháp.
+  - *Lập bảng* (RACI, stakeholder, GAP, đặc tả use case, ERD): `sort` ghép từng ô hoặc dòng với giá trị đúng, như vai trò R/A/C/I, trường đặc tả hay cardinality. Nếu có thứ tự thì thêm `order`.
+  - *Viết SQL, JSON*: `choice` chọn câu lệnh hoặc đoạn đúng. Phương án sai mắc lỗi thật: thiếu WHERE, sai kiểu dữ liệu, thiếu dấu phẩy…
+- `lead` nói ngắn người học sẽ làm gì, ví dụ: "Kéo mỗi câu vào đúng loại, rồi chọn cách sửa."
+
+**Luật đáp án (quan trọng nhất):**
+- Đáp án đúng lấy từ `answer` (đáp án mẫu) và nội dung bài. **Không tự giải lại** rồi ra kết quả khác đáp án mẫu.
+- Phương án nhiễu phải **sai rõ ràng** theo bài học, không được là ý cũng đúng mà đáp án mẫu không nhắc tới.
+- Mục mà đáp án mẫu nói "tùy", "có thể" hay hai cách đều được thì ghi cả hai chỉ số trong `a`, hoặc bỏ mục đó.
+- Chuyển một bài mà không chắc đáp án thì bỏ phần đó. Chấm sai còn tệ hơn không chấm.
+- Mỗi bài tập của bài phải có mục trong `items`. Bài thật sự không chuyển được thì bỏ qua và ghi vào báo cáo; giao diện sẽ hiện ô tự viết.
+- Đáp án đúng của `choice` không được luôn nằm ở cùng một vị trí; trộn vị trí giữa các câu. Không có phương án "Tất cả đều đúng".
+
+**Độ dài:** đề trong `q` ngắn gọn. Mục `sort` ≤ 400 ký tự, phương án `choice` ≤ 500 ký tự.
+
+**Tự kiểm:** `python -B script/exercises.py --check <ID>` tới khi in `OK (n/n …)`.
+
+**Báo cáo cuối** (≤ 120 từ): số bài tập đã chuyển trên tổng số, dạng đã dùng, bài nào bỏ qua và chỗ nào không chắc.

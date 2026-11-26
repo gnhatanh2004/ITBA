@@ -1,0 +1,138 @@
+{
+  "lesson": "L13b",
+  "items": {
+    "L13b-x1": {
+      "lead": "Kéo mỗi câu của Use Case \"Đổi mật khẩu\" vào đúng trường của bảng đặc tả.",
+      "parts": [
+        {"kind": "sort", "q": "Mỗi câu thuộc trường nào?",
+         "bins": ["Use Case ID", "Goal", "Trigger", "Pre-Condition", "Post-Condition", "Exception Flow", "Business Rules", "Non-Functional Requirement"],
+         "items": [
+           {"t": "Người dùng đã đăng nhập.", "a": [3], "why": "Trạng thái phải đúng trước khi Use Case bắt đầu."},
+           {"t": "Người dùng bấm \"Đổi mật khẩu\" trong trang Tài khoản.", "a": [2], "why": "Hành động kích hoạt Use Case."},
+           {"t": "Mật khẩu mới phải có ít nhất 8 ký tự, gồm chữ và số.", "a": [6], "why": "Luật nghiệp vụ hệ thống phải tuân thủ."},
+           {"t": "Mật khẩu cũ được thay bằng mật khẩu mới; các phiên đăng nhập khác bị đăng xuất.", "a": [4], "why": "Trạng thái hệ thống sau khi xong."},
+           {"t": "3a. Mật khẩu cũ nhập sai, hệ thống báo lỗi.", "a": [5], "why": "Tình huống lỗi, rẽ ra ở bước 3."},
+           {"t": "UC07.", "a": [0]},
+           {"t": "Mật khẩu được lưu dạng mã hóa.", "a": [7], "why": "Yêu cầu về bảo mật là NFR."},
+           {"t": "Người dùng bảo vệ được tài khoản bằng mật khẩu mới.", "a": [1], "why": "Điều Actor muốn đạt được."}
+         ]}
+      ]
+    },
+    "L13b-x2": {
+      "lead": "Chọn các lỗi trong bản đặc tả \"Hủy đơn hàng\", rồi kéo nội dung đã sửa vào đúng trường.",
+      "parts": [
+        {"kind": "choice", "q": "1) Những điểm nào là lỗi trong bản đặc tả? (chọn tất cả ý đúng)",
+         "options": [
+           "Use Case ID UC05 trùng với mã của \"Đặt món\"",
+           "Tên Use Case \"Hủy đơn hàng\" viết dạng động từ + đối tượng",
+           "Trigger và Pre-Condition bị đổi chỗ cho nhau",
+           "Post-Condition \"Khách hàng bấm Xác nhận hủy\" là một hành động, không phải trạng thái",
+           "Nhánh được ghi dạng \"3a\" (số bước + chữ cái)",
+           "\"Nhà hàng đã nhận đơn nên không hủy được\" được xếp vào Alternative Flow",
+           "Luật \"hủy trước 5 phút kể từ khi đặt thì không mất phí\" viết lẫn trong bước 3 của Main Flow"
+         ],
+         "answer": [0, 2, 3, 5, 6], "multi": true,
+         "why": "Có 5 lỗi: ID trùng; Trigger (hành động) và Pre-Condition (trạng thái) đổi chỗ; Post-Condition viết thành hành động; nhánh làm Goal không đạt bị xếp vào Alternative; luật nghiệp vụ nằm trong bước. Tên dạng động từ + đối tượng và cách đánh số \"3a\" theo bước rẽ là đúng cách viết."},
+        {"kind": "choice", "q": "2) Vì sao \"Nhà hàng đã nhận đơn nên không hủy được\" phải là Exception Flow?",
+         "options": [
+           "Vì nhánh đó rẽ ra ở bước 3 của luồng chính",
+           "Vì nhà hàng không phải Actor chính",
+           "Vì khi nhà hàng đã nhận đơn thì Goal (hủy đơn) không đạt được",
+           "Vì Alternative Flow chỉ dùng cho lỗi của hệ thống"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Exception là trường hợp dẫn tới không đạt được kết quả. Alternative là cách làm khác mà kết quả vẫn giống luồng chính. Vị trí bước rẽ chỉ quyết định cách đánh số, không quyết định loại luồng."},
+        {"kind": "sort", "q": "3) Sau khi sửa, mỗi nội dung nằm ở trường nào?",
+         "bins": ["Use Case ID", "Trigger", "Pre-Condition", "Post-Condition", "Main Flow", "Exception Flow", "Business Rules"],
+         "items": [
+           {"t": "UC06 (mã mới, không trùng)", "a": [0]},
+           {"t": "Khách hàng bấm \"Hủy đơn\"", "a": [1], "why": "Hành động kích hoạt."},
+           {"t": "Đơn đang ở trạng thái \"Chờ nhà hàng nhận\"", "a": [2], "why": "Trạng thái phải đúng từ trước."},
+           {"t": "Đơn chuyển sang trạng thái Đã hủy; nhà hàng nhận được thông báo hủy", "a": [3], "why": "Post-Condition là trạng thái sau khi xong."},
+           {"t": "3. Hệ thống tính phí hủy theo BR1", "a": [4], "why": "Bước chỉ dẫn tới luật, không chép luật vào bước."},
+           {"t": "Nhà hàng đã nhận đơn nên không hủy được", "a": [5]},
+           {"t": "Hủy trước 5 phút kể từ khi đặt thì không mất phí", "a": [6]}
+         ]}
+      ]
+    },
+    "L13b-x3": {
+      "lead": "Dựng đặc tả \"Thanh toán tại quầy\" của SolasMart: kéo nội dung vào đúng trường, sắp xếp luồng chính, rồi tách nhánh thay thế và ngoại lệ.",
+      "parts": [
+        {"kind": "sort", "q": "1) Nhóm nhận diện: mỗi nội dung thuộc trường nào?",
+         "bins": ["Use Case Name", "Use Case ID", "Description", "Actor", "Priority"],
+         "items": [
+           {"t": "Thanh toán tại quầy", "a": [0]},
+           {"t": "UC-POS-01", "a": [1]},
+           {"t": "Thu ngân quét hàng của khách, thu tiền theo phương thức khách chọn và in hóa đơn trên máy POS.", "a": [2]},
+           {"t": "Thu ngân (chính); Khách hàng; Trưởng ca; Ngân hàng / cổng thanh toán (hệ thống ngoài)", "a": [3]},
+           {"t": "High", "a": [4]}
+         ]},
+        {"kind": "sort", "q": "2) Điều kiện và ràng buộc: mỗi nội dung thuộc trường nào?",
+         "bins": ["Goal", "Trigger", "Pre-Condition", "Post-Condition", "Frequency of Use", "Business Rules", "Non-Functional Requirement", "Related Documents"],
+         "items": [
+           {"t": "Hoàn tất giao dịch bán hàng chính xác, nhanh, thu đủ tiền", "a": [0]},
+           {"t": "Thu ngân bấm \"Start Transaction\" trên POS", "a": [1], "why": "Thao tác bắt đầu trên POS."},
+           {"t": "Thu ngân đã đăng nhập POS; máy quét và máy in hoạt động", "a": [2], "why": "Trạng thái máy POS phải đúng từ trước."},
+           {"t": "Giao dịch được lưu; tồn kho giảm theo số hàng đã bán; hóa đơn đã in", "a": [3]},
+           {"t": "Rất cao, liên tục trong giờ mở cửa", "a": [4]},
+           {"t": "Giá bán lấy theo dữ liệu giá trên hệ thống; giá sai phải được trưởng ca xác nhận", "a": [5]},
+           {"t": "Hàng cân phải có tem barcode trước khi thanh toán", "a": [5]},
+           {"t": "Quét và hiển thị một món gần như tức thì để giảm thời gian chờ", "a": [6], "why": "Yêu cầu về tốc độ là NFR."},
+           {"t": "Giao dịch không được mất khi POS treo", "a": [6]},
+           {"t": "Quy trình bán hàng tại quầy SolasMart; sơ đồ quy trình bán hàng", "a": [7]}
+         ]},
+        {"kind": "order", "q": "3) Sắp xếp các bước của Main Flow (khách trả tiền mặt) theo đúng thứ tự.",
+         "items": [
+           "Thu ngân bấm \"Start Transaction\"",
+           "Thu ngân quét barcode từng món",
+           "POS hiển thị tên hàng, giá, số lượng, khuyến mãi",
+           "Thu ngân đọc lại tổng tiền, khách kiểm tra màn hình",
+           "Khách chọn thanh toán tiền mặt",
+           "Thu ngân nhận tiền, nhập số tiền, POS tính tiền thừa",
+           "POS lưu giao dịch, cập nhật tồn kho, in hóa đơn",
+           "Thu ngân giao hóa đơn và hàng, kết thúc phiên"
+         ],
+         "why": "Luồng chính bắt đầu từ Trigger và đi theo kịch bản thành công thường gặp nhất; các bước xen kẽ Actor làm, hệ thống phản hồi."},
+        {"kind": "sort", "q": "4) Theo quy ước của bài: cách làm khác hợp lệ ghi vào Alternative, tình huống lỗi ghi vào Exception (kể cả khi xử lý xong vẫn bán được hàng). Mỗi nhánh thuộc loại nào?",
+         "bins": ["Alternative Flow", "Exception Flow"],
+         "items": [
+           {"t": "2a. Hàng cân chưa có tem: nhân viên hỗ trợ cân, in tem, quay về bước 2", "a": [0]},
+           {"t": "4a. Khách bỏ bớt hoặc đổi sản phẩm: thu ngân cập nhật giỏ, quay về bước 4", "a": [0]},
+           {"t": "5a. Khách trả bằng thẻ: khách chạm thẻ/nhập PIN, máy in slip, sang bước 7", "a": [0]},
+           {"t": "5b. Khách chuyển khoản: thu ngân nhập số tiền, khách quét QR, chờ ngân hàng xác nhận, sang bước 7", "a": [0]},
+           {"t": "5c. Kết hợp tiền mặt, thẻ và chuyển khoản", "a": [0]},
+           {"t": "2b. Barcode không đọc được: thu ngân nhập mã tay, quay về bước 3", "a": [1]},
+           {"t": "3a. Barcode sai giá: gọi trưởng ca xác nhận giá với kho hoặc kiểm tra tại kệ", "a": [1]},
+           {"t": "5d. Máy POS thẻ bị treo: chuyển sang thanh toán QR hoặc máy khác", "a": [1]},
+           {"t": "5e. Khách không đủ tiền mặt: đổi phương thức thanh toán hoặc hủy giao dịch", "a": [1]},
+           {"t": "6a. Giao dịch thẻ/chuyển khoản thất bại: thu ngân kiểm tra lại hoặc chuyển phương thức; không được thì hủy giao dịch", "a": [1]},
+           {"t": "7a. Máy in hết giấy hoặc hóa đơn mờ: thay giấy, in lại", "a": [1]}
+         ]}
+      ]
+    },
+    "L13b-x4": {
+      "lead": "Kéo mỗi câu vào Trigger hoặc Pre-Condition, rồi chọn Use Case có thể không cần Pre-Condition.",
+      "parts": [
+        {"kind": "sort", "q": "1) Câu nào là Trigger, câu nào là Pre-Condition?",
+         "bins": ["Trigger", "Pre-Condition"],
+         "items": [
+           {"t": "Rút tiền ATM: khách hàng cắm thẻ vào máy", "a": [0]},
+           {"t": "Rút tiền ATM: máy ATM đang hoạt động và còn tiền", "a": [1]},
+           {"t": "Rút tiền ATM: thẻ còn hiệu lực", "a": [1]},
+           {"t": "Xem danh sách sách: người dùng mở trang \"Danh sách sách\"", "a": [0]},
+           {"t": "Gửi báo cáo tự động: đến 23:00", "a": [0], "why": "Trigger có thể là sự kiện thời gian, không cần người bấm nút."},
+           {"t": "Gửi báo cáo tự động: đã cấu hình danh sách người nhận báo cáo", "a": [1]}
+         ]},
+        {"kind": "choice", "q": "2) Use Case nào có thể không cần Pre-Condition?",
+         "options": [
+           "Rút tiền tại cây ATM, vì khách đã cầm thẻ trong tay",
+           "Xem danh sách sách trên website thư viện công khai, vì ai cũng xem được",
+           "Gửi báo cáo tự động lúc 23:00, vì không có người bấm nút",
+           "Không Use Case nào, vì Use Case nào cũng phải có Pre-Condition"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Use Case có thể không có Pre-Condition nhưng thường phải có Trigger. Trang công khai không cần điều kiện gì trước, chỉ cần hành động mở trang. ATM cần máy hoạt động, thẻ còn hiệu lực; báo cáo tự động cần đã cấu hình người nhận."}
+      ]
+    }
+  }
+}

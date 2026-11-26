@@ -1,0 +1,240 @@
+{
+  "lesson": "L05",
+  "items": {
+    "L05-x1": {
+      "lead": "Chọn cách hiểu đúng về thu thập yêu cầu, rồi làm thử với ví dụ mua điện thoại cho bố mẹ.",
+      "parts": [
+        {"kind": "choice", "q": "1) Thu thập (khai thác) yêu cầu là gì?",
+         "options": [
+           "Hỏi khách hàng rồi ghi lại nguyên văn lời họ nói, chuyển thẳng cho đội phát triển",
+           "Đề xuất sẵn một giải pháp kỹ thuật rồi xin khách hàng đồng ý",
+           "Tìm hiểu và làm rõ người dùng thật sự cần gì, vì sao cần, giới hạn là gì; hỏi, nghe, xác minh để mọi bên hiểu giống nhau",
+           "Làm đúng theo lời người trả tiền, không cần hỏi thêm ai"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Elicitation không chỉ là \"hỏi và ghi chép\" mà là cả quá trình giao tiếp, lắng nghe, phân tích, xác minh để mọi bên hiểu giống nhau."},
+        {"kind": "choice", "q": "2) Giúp bố mẹ mua điện thoại: câu hỏi nào giúp ra nhu cầu thật? (chọn tất cả ý đúng)",
+         "options": [
+           "Bố mẹ dùng điện thoại để làm gì (gọi, xem video)?",
+           "Bố mẹ muốn mua máy đời mới nhất đúng không?",
+           "Ngân sách khoảng bao nhiêu?",
+           "Chữ trên màn hình có cần to không?",
+           "Con chọn máy con đang dùng cho bố mẹ nhé?",
+           "Có cần pin dùng lâu không?"
+         ],
+         "answer": [0, 2, 3, 5], "multi": true,
+         "why": "Hỏi mục đích dùng, ngân sách, cỡ chữ, thời lượng pin là hỏi nhu cầu. Hai câu còn lại gợi ý sẵn đáp án mình muốn nghe (câu dẫn dắt)."},
+        {"kind": "choice", "q": "3) Bố mẹ nói \"mua máy tốt\". Bước tiếp theo nên làm gì?",
+         "options": [
+           "Mua máy đắt nhất vì máy đắt là máy tốt",
+           "Hỏi tiếp \"tốt là sao\" để ra tiêu chí cụ thể, cuối cùng tóm tắt lại để bố mẹ xác nhận trước khi mua",
+           "Ghi \"máy tốt\" rồi tự chọn theo ý mình"
+         ],
+         "answer": [1], "multi": false,
+         "why": "\"Tốt\" là lời mơ hồ, phải hỏi tiếp để ra tiêu chí đo được, rồi tóm tắt để xác nhận: chuẩn bị – hỏi – xác nhận."}
+      ]
+    },
+    "L05-x2": {
+      "lead": "Kéo mỗi câu hỏi vào đúng loại, rồi chọn cách hỏi mở cho câu 6.",
+      "parts": [
+        {"kind": "sort", "q": "Câu hỏi này thuộc loại nào?",
+         "bins": ["Câu hỏi mở", "Câu hỏi sâu", "Câu hỏi đóng (xác minh)", "Câu hỏi dẫn dắt (nên tránh)"],
+         "items": [
+           {"t": "1. Anh mô tả giúp em cách cửa hàng nhận hàng đổi trả?", "a": [0]},
+           {"t": "2. Tại sao phải có chữ ký quản lý mới được đổi trả?", "a": [1]},
+           {"t": "3. Có đúng là chỉ đổi trả trong 7 ngày không?", "a": [2], "why": "Câu đóng dùng để xác minh một business rule."},
+           {"t": "4. Anh muốn có nút đổi trả một chạm trên app không?", "a": [3], "why": "Vừa gợi ý sẵn giải pháp, vừa khiến người nghe dễ gật đầu."},
+           {"t": "5. Vì sao khách thường quay lại sau 3 ngày?", "a": [1]},
+           {"t": "6. Hệ thống có cần in phiếu đổi trả không?", "a": [2, 3], "why": "Là câu đóng, hợp lệ nếu dùng để xác nhận chi tiết đã nghe; nếu hỏi khi chưa ai nhắc tới việc in phiếu thì dễ thành câu dẫn dắt."}
+         ]},
+        {"kind": "choice", "q": "Nếu chưa ai nhắc tới việc in phiếu, nên thay câu 6 bằng câu hỏi mở nào?",
+         "options": [
+           "Anh đồng ý là hệ thống cần in phiếu đổi trả chứ?",
+           "Hệ thống in phiếu bằng máy in nhiệt được không anh?",
+           "Sau khi đổi trả, khách và cửa hàng cần giữ lại giấy tờ gì?",
+           "Có in phiếu đổi trả không, có hay không?"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Câu mở để người nói tự mô tả nhu cầu. Các câu còn lại là câu đóng hoặc gợi ý sẵn giải pháp in phiếu."}
+      ]
+    },
+    "L05-x3": {
+      "lead": "Kéo mỗi tình huống vào kỹ thuật chính phù hợp, rồi chọn lý do cho tình huống 4.",
+      "parts": [
+        {"kind": "sort", "q": "Tình huống này nên dùng kỹ thuật chính nào?",
+         "bins": ["Survey & Questionnaire", "Observation", "Workshop", "Interview", "Document Analysis"],
+         "items": [
+           {"t": "1. Hệ thống đặt đồ ăn cần biết thói quen đặt món của khoảng 1.000 khách.", "a": [0], "why": "Số lượng stakeholder lớn."},
+           {"t": "2. Đầu bếp nói \"cứ làm như bình thường\", không kể được các bước chế biến.", "a": [1], "why": "Stakeholder không mô tả được việc mình làm, công việc mang tính thao tác."},
+           {"t": "3. Ba trưởng bộ phận cần chốt phạm vi phiên bản đầu tiên.", "a": [2], "why": "Cần đồng thuận nhanh giữa nhiều bên, giai đoạn đầu xác định phạm vi."},
+           {"t": "4. Cần hiểu quy trình xử lý khiếu nại liên quan đến dữ liệu cá nhân khách hàng.", "a": [3], "why": "Chủ đề nhạy cảm, riêng tư."},
+           {"t": "5. Chủ cửa hàng bận, nhưng có sẵn bộ quy định bán hàng bằng văn bản.", "a": [4], "why": "Đọc tài liệu trước, sau đó call ngắn để xác nhận, vì stakeholder không có thời gian."}
+         ]},
+        {"kind": "choice", "q": "Vì sao tình huống 4 không chọn Workshop hay Observation?",
+         "options": [
+           "Vì quy trình khiếu nại quá đơn giản",
+           "Vì có quá nhiều người liên quan",
+           "Vì không có tài liệu nào về quy trình",
+           "Vì chủ đề nhạy cảm, riêng tư (dữ liệu cá nhân khách hàng), cả hai kỹ thuật đều không phù hợp"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Workshop không nên dùng với chủ đề nhạy cảm cá nhân; Observation không phù hợp khi công việc mang tính nhạy cảm. Interview nói riêng nên phù hợp hơn."}
+      ]
+    },
+    "L05-x4": {
+      "lead": "Chọn các lỗi trong buổi interview, ghép mỗi lỗi với cách sửa, rồi chọn câu mở đầu đúng.",
+      "parts": [
+        {"kind": "choice", "q": "BA: \"Chị muốn hệ thống tự gửi email nhắc trả sách đúng không?\"\nThủ thư: \"Ờ… chắc vậy. Thật ra vấn đề là…\"\nBA: \"Vâng, vậy em ghi là gửi email. Bên em sẽ dùng Gmail API luôn.\"\n(Hết buổi, BA không đọc lại ghi chép, không gửi biên bản.)\n\n1) Những điểm nào là lỗi của BA? (chọn tất cả ý đúng)",
+         "options": [
+           "Mở đầu bằng câu dẫn dắt \"muốn… đúng không?\"",
+           "Chọn phỏng vấn thủ thư, người trực tiếp nhắc người mượn trả sách",
+           "Ngắt lời khi thủ thư đang nói \"vấn đề là…\"",
+           "Quyết định giải pháp tại chỗ (Gmail API)",
+           "Thủ thư bắt đầu nói ra vấn đề thật",
+           "Không đào sâu, chỉ ghi nhận bề mặt",
+           "Không tóm tắt, không xác minh, không gửi biên bản"
+         ],
+         "answer": [0, 2, 3, 5, 6], "multi": true,
+         "why": "Năm lỗi theo danh sách \"không nên làm\" và \"lỗi phổ biến\" của interview. Phỏng vấn thủ thư là chọn đúng người; thủ thư nói ra vấn đề thật là điều tốt, không phải lỗi."},
+        {"kind": "sort", "q": "2) Mỗi lỗi sửa thế nào?",
+         "bins": [
+           "Bắt đầu bằng câu mở",
+           "Lắng nghe nhiều hơn nói, để người nói hết ý rồi hỏi sâu",
+           "Chỉ ghi nhận nhu cầu; giải pháp bàn sau với đội kỹ thuật",
+           "Hỏi \"tại sao\" tới nguyên nhân gốc",
+           "Tóm tắt sau mỗi phần, gửi biên bản để xác nhận, follow-up"
+         ],
+         "items": [
+           {"t": "Mở đầu bằng câu dẫn dắt", "a": [0]},
+           {"t": "Ngắt lời khi thủ thư đang nói", "a": [1], "why": "Lỗi ở đây là không để người nói hết ý; sửa bằng cách lắng nghe trước."},
+           {"t": "Quyết định giải pháp tại chỗ (Gmail API)", "a": [2]},
+           {"t": "Không đào sâu, chỉ ghi nhận bề mặt", "a": [3], "why": "Lỗi ở đây là dừng ở bề mặt; sửa bằng cách hỏi \"tại sao\" tới gốc, ví dụ vì sao người mượn quên trả."},
+           {"t": "Không tóm tắt, không xác minh, không gửi biên bản", "a": [4]}
+         ]},
+        {"kind": "choice", "q": "3) Câu mở đầu nào nên dùng thay cho câu dẫn dắt?",
+         "options": [
+           "Chị muốn hệ thống gửi SMS nhắc trả sách đúng không?",
+           "Chị mô tả cách đang nhắc người mượn trả sách?",
+           "Bên em dùng Gmail API để nhắc trả sách được không chị?",
+           "Chị có muốn nhắc qua email không?"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Câu mở để thủ thư mô tả quy trình hiện tại. Các câu còn lại đều cài sẵn giải pháp (SMS, email, Gmail API)."}
+      ]
+    },
+    "L05-x5": {
+      "lead": "Chọn câu hỏi định lượng đúng, rồi sắp chuỗi hỏi \"tại sao\" cho từng câu nói của stakeholder.",
+      "parts": [
+        {"kind": "choice", "q": "1) Stakeholder nói: \"Ứng dụng đặt món chậm quá.\" Câu hỏi nào chuyển sang định lượng?",
+         "options": [
+           "Anh thấy chậm nhiều không?",
+           "Anh có muốn bên em nâng cấp máy chủ cho nhanh hơn không?",
+           "Chậm là mất bao nhiêu giây từ lúc bấm đặt đến khi thấy xác nhận? Xảy ra vào giờ nào?",
+           "Ứng dụng chậm thật à anh?"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Định lượng là hỏi bao lâu, bao nhiêu, khi nào. \"Chậm nhiều không\" vẫn không đo được; câu nâng cấp máy chủ là gợi ý sẵn giải pháp."},
+        {"kind": "order", "q": "2) Sắp chuỗi hỏi \"tại sao\" cho câu \"Ứng dụng đặt món chậm quá\" theo đúng mạch hỏi – đáp.",
+         "items": ["Tại sao anh thấy chậm?", "Vì phải chờ xác nhận lâu.", "Tại sao phải chờ?", "Vì nhà hàng xác nhận đơn bằng tay."],
+         "why": "Mỗi câu \"tại sao\" hỏi tiếp vào câu trả lời ngay trước, không đổi chủ đề. Đây là ví dụ; thực tế phải dựa trên câu trả lời thật của stakeholder."},
+        {"kind": "choice", "q": "3) Chuỗi hỏi: \"Tại sao anh thấy chậm?\" → \"Vì phải chờ xác nhận lâu.\" → \"Tại sao phải chờ?\" → \"Vì nhà hàng xác nhận đơn bằng tay.\"\nGốc rễ của \"chậm\" là gì?",
+         "options": [
+           "Quy trình nhà hàng xác nhận đơn bằng tay",
+           "Tốc độ của ứng dụng",
+           "Máy chủ quá tải"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Theo chuỗi \"tại sao\", gốc rễ là quy trình xác nhận đơn, không phải tốc độ ứng dụng. Chuỗi này là ví dụ của đáp án mẫu."},
+        {"kind": "choice", "q": "4) Stakeholder nói: \"Khách hay phàn nàn về giao hàng.\" Câu hỏi nào chuyển sang định lượng?",
+         "options": [
+           "Khách phàn nàn có nhiều không anh?",
+           "Có nên đổi sang đơn vị giao hàng khác không?",
+           "Anh thấy giao hàng tệ lắm đúng không?",
+           "Mỗi tuần có bao nhiêu phàn nàn về giao hàng, trên tổng bao nhiêu đơn? Phàn nàn chủ yếu về trễ hay sai món?"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Có số lượng, tỉ lệ trên tổng đơn và loại phàn nàn nên đo được. Các câu còn lại không đo được, gợi ý giải pháp hoặc dẫn dắt."},
+        {"kind": "order", "q": "5) Sắp chuỗi hỏi \"tại sao\" cho câu \"Khách hay phàn nàn về giao hàng\" theo đúng mạch hỏi – đáp.",
+         "items": ["Tại sao giao trễ?", "Vì tài xế phải chờ món.", "Tại sao phải chờ?", "Vì bếp không biết thời điểm tài xế tới."],
+         "why": "Mỗi câu \"tại sao\" hỏi tiếp vào câu trả lời trước. Đây là ví dụ; thực tế phải dựa trên câu trả lời thật của stakeholder."}
+      ]
+    },
+    "L05-x6": {
+      "lead": "Lập kế hoạch khai thác cho SolasMart bằng cách ghép, sắp xếp và chọn.",
+      "parts": [
+        {"kind": "sort", "q": "1) Mỗi điểm đã biết nên dùng kỹ thuật nào?",
+         "bins": ["Survey", "Observation (chủ động, có hỏi lại)", "Workshop đồng thuận có người phê duyệt", "Interview ngắn hoặc call, gửi tài liệu trước", "Document Analysis"],
+         "items": [
+           {"t": "(a) Khoảng 120 nhân viên bán hàng ở nhiều cửa hàng", "a": [0]},
+           {"t": "(b) Thủ kho làm khác quy trình văn bản", "a": [1]},
+           {"t": "(c) Bán online và kho mâu thuẫn về cách trừ tồn", "a": [2]},
+           {"t": "(d) Giám đốc vận hành rất bận", "a": [3]},
+           {"t": "(e) Có sẵn quy định bán hàng và HDSD phần mềm cũ", "a": [4]}
+         ]},
+        {"kind": "order", "q": "2) Sắp 5 hoạt động Elicitation theo luồng trên slide.",
+         "items": ["Prepare for Elicitation", "Conduct Elicitation", "Confirm Elicitation Results", "Communicate Business Analysis Information", "Manage Stakeholder Collaboration"],
+         "why": "Chuẩn bị – Làm – Xác nhận – Truyền đạt – Giữ quan hệ. BABOK không bắt buộc tuần tự; Manage Stakeholder Collaboration diễn ra suốt dự án."},
+        {"kind": "sort", "q": "3) Mỗi việc trong kế hoạch SolasMart thuộc hoạt động nào?",
+         "bins": ["Prepare", "Conduct", "Confirm", "Communicate", "Manage Collaboration"],
+         "items": [
+           {"t": "Lập activity plan", "a": [0]},
+           {"t": "Đọc quy định bán hàng và HDSD phần mềm cũ (e)", "a": [0], "why": "Đọc tài liệu trước để không hỏi câu thể hiện chưa có sự chuẩn bị."},
+           {"t": "Soạn phiếu survey và câu hỏi phỏng vấn", "a": [0]},
+           {"t": "Gửi survey cho nhân viên bán hàng (a)", "a": [1]},
+           {"t": "Quan sát thủ kho làm việc (b)", "a": [1]},
+           {"t": "Phỏng vấn giám đốc vận hành (d)", "a": [1]},
+           {"t": "Tổ chức workshop giữa bán online và kho (c)", "a": [1]},
+           {"t": "Gửi biên bản; review với chính nguồn và với nguồn khác", "a": [2]},
+           {"t": "Dùng sơ đồ quy trình để xác minh", "a": [2]},
+           {"t": "Gửi yêu cầu đã chốt đến sponsor, dev, tester bằng tài liệu rõ ràng", "a": [3]},
+           {"t": "Lập kế hoạch tương tác, giữ kết nối với giám đốc vận hành và hai trưởng bộ phận", "a": [4]}
+         ]},
+        {"kind": "sort", "q": "4) Mỗi rủi ro nên xử lý bằng biện pháp nào?",
+         "bins": ["Hẹn sớm, gửi tài liệu trước", "Workshop đồng thuận", "Thông báo trước, quan sát nhiều ca, xác nhận lại sau"],
+         "items": [
+           {"t": "Giám đốc vận hành bận (mức Cao)", "a": [0]},
+           {"t": "Mâu thuẫn giữa bán online và kho (mức Trung bình)", "a": [1]},
+           {"t": "Thủ kho đổi hành vi khi bị quan sát (mức Trung bình)", "a": [2]}
+         ]},
+        {"kind": "choice", "q": "5) Đâu là output của các hoạt động khai thác này? (chọn tất cả ý đúng)",
+         "options": [
+           "Biên bản phỏng vấn / workshop",
+           "Mã nguồn chức năng trừ tồn kho",
+           "Observation note và kết quả survey",
+           "Danh sách yêu cầu thô",
+           "Kết quả kiểm thử hiệu năng hệ thống",
+           "Sơ đồ quy trình As-Is và tài liệu pain points",
+           "Phản hồi của stakeholder"
+         ],
+         "answer": [0, 2, 3, 5, 6], "multi": true,
+         "why": "Output gồm biên bản, Observation note, kết quả survey, danh sách yêu cầu thô, sơ đồ quy trình As-Is, tài liệu pain points, phản hồi stakeholder. Mã nguồn và kết quả kiểm thử là việc của dev và tester."}
+      ]
+    },
+    "L05-x7": {
+      "lead": "Ghép mỗi lỗi của workshop FoodNow với cách làm lại.",
+      "parts": [
+        {"kind": "sort", "q": "Mỗi lỗi nên làm lại thế nào?",
+         "bins": [
+           "Viết mục tiêu: muốn biết gì, làm rõ gì, thống nhất gì",
+           "Giữ 2–15 người, mời đúng người",
+           "Gửi agenda, timeline trước 2–3 ngày",
+           "Mời người có quyền phê duyệt",
+           "Giao ghi chú cho người hỗ trợ",
+           "Quản lý thời gian, dùng Dot Voting để mọi người cùng có tiếng nói",
+           "Đưa về nghiệp vụ, để phần kỹ thuật cho đội dev",
+           "Xác nhận sau mỗi phần, gửi biên bản"
+         ],
+         "items": [
+           {"t": "Mục tiêu mơ hồ (\"bàn về đặt bàn\")", "a": [0], "why": "Hậu quả: lan man, không đạt kết quả."},
+           {"t": "Mời 20 người", "a": [1], "why": "Hậu quả: nhóm quá đông, khó điều phối."},
+           {"t": "Gửi lời mời sáng cùng ngày", "a": [2], "why": "Hậu quả: người tham gia không chuẩn bị."},
+           {"t": "Không có quản lý cấp trên", "a": [3], "why": "Hậu quả: không ra được quyết định."},
+           {"t": "BA vừa điều phối vừa tự ghi chép", "a": [4], "why": "Hậu quả: không tập trung dẫn dắt, ghi thiếu."},
+           {"t": "Một trưởng ca nói gần hết thời gian", "a": [5], "why": "Hậu quả: người nói nhiều lấn át, nhóm mệt mỏi."},
+           {"t": "Nhóm tranh luận nên dùng database nào", "a": [6], "why": "Hậu quả: quá tập trung vào giải pháp kỹ thuật."},
+           {"t": "Cuối buổi không ai đọc lại kết luận", "a": [7], "why": "Hậu quả: mỗi bên tưởng ý mình đã được chốt."}
+         ]}
+      ]
+    }
+  }
+}

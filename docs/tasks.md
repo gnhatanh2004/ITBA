@@ -92,6 +92,18 @@ T4 đọc các bài trong lúc QA đang sửa. Nếu QA sửa nội dung câu h�
 - [x] **T9d** 18 agent viết kịch bản L02…L23 theo `prompt.md` §7, cả 19 bài `--check` OK. Bảng `PRON` bổ sung chữ viết tắt agent báo thiếu.
 - [x] **T9e** (26/11) `python -B script/narrate.py` sinh audio 18 bài rồi chạy `build.py`. Phụ đề khi số câu TTS lệch được nội suy mốc theo độ dài câu, vẫn hiện chữ gốc. **Kiểm:** "Dữ liệu OK (19 bài có Nghe giảng)", `listen.py` PASS.
 
+## Pha 5: Bài tập tương tác (prompt §8)
+
+- [x] **T10a** (26/11) `script/exercises.py`: `--check <ID>`. `build.py` gắn `data/exercises/<ID>.json` vào bài tập dưới khóa `auto` và không sửa `data/lessons`.
+- [x] **T10b** Pilot `L01.json`, giao diện tab Bài tập:
+  - kéo thả vào nhóm / ghép cặp (`sort`): chuột kéo ngay; cảm ứng giữ 0,2 giây rồi kéo, hoặc chạm mục rồi chạm nhóm;
+  - sắp xếp (`order`): kéo hoặc nút lên/xuống;
+  - trắc nghiệm 1 hoặc nhiều đáp án (`choice`).
+  - Kiểm tra chấm từng mục: mục sai tô đỏ kèm đáp án đúng; "Sửa chỗ sai" chỉ trả lại phần sai. Đúng hết thì tính "Đã làm".
+  - Bài không có file tương tác thì hiện ô tự viết, tự lưu, nộp, so đáp án mẫu và tự chấm.
+- [x] **T10c** 19 agent chuyển L02…L23 và case study (`CS.json`). Kết quả: 123/123 bài tập có dạng tương tác, `--check` OK cả 20 file.
+  - **Kiểm:** `exui.py` (scratchpad) 18/18 PASS; `listen.py` 26/26 PASS.
+
 ## Ghi chú (điền trong lúc làm)
 
 - 26/11: Agent chạm giới hạn 5 giờ của API, được cho chạy tiếp sau khi giới hạn reset.

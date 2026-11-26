@@ -1,0 +1,127 @@
+{
+  "lesson": "L01",
+  "items": {
+    "L01-x1": {
+      "lead": "Kéo từng việc vào đúng nhóm.",
+      "parts": [
+        {"kind": "sort", "q": "Việc nào nằm trong 10 công việc thường làm của IT BA theo slide?",
+         "bins": ["Việc của IT BA", "Không phải việc của IT BA"],
+         "items": [
+           {"t": "Viết tài liệu nghiệp vụ", "a": [0]},
+           {"t": "Viết code chức năng thanh toán", "a": [1], "why": "Việc của lập trình viên."},
+           {"t": "Quản lý yêu cầu thay đổi", "a": [0]},
+           {"t": "Hướng dẫn sử dụng, hỗ trợ người dùng", "a": [0]},
+           {"t": "Cấu hình máy chủ cơ sở dữ liệu", "a": [1], "why": "Việc của quản trị hệ thống / DevOps."},
+           {"t": "Quản lý quan hệ với các Stakeholders", "a": [0]},
+           {"t": "Thiết kế giao diện, hệ thống", "a": [0]},
+           {"t": "Chạy kiểm thử hiệu năng tự động", "a": [1], "why": "Việc của tester. BA có thể hỗ trợ nhưng không làm thay."}
+         ]}
+      ]
+    },
+    "L01-x2": {
+      "lead": "Ghép mỗi tình huống với một năng lực cốt lõi.",
+      "parts": [
+        {"kind": "sort", "q": "Tình huống nào thể hiện năng lực nào?",
+         "bins": ["Critical and Analytical Thinking", "Business Domain", "Interaction Skills", "Communication Skills", "Tools & Technology", "Behavioural Characteristics"],
+         "items": [
+           {"t": "BA dùng phần mềm vẽ sơ đồ để mô tả quy trình đặt bàn của FoodNow.", "a": [4]},
+           {"t": "BA hiểu quy định nhập – xuất kho của ngành bán lẻ nên hỏi đúng chỗ.", "a": [1]},
+           {"t": "BA điều phối cuộc họp khi thủ thư và ban giám hiệu tranh cãi về số sách được mượn.", "a": [2], "why": "Interaction là làm việc, điều phối giữa người với người."},
+           {"t": "BA hỏi \"vì sao\" nhiều lần để tìm nguyên nhân gốc khiến đơn hàng bị sai.", "a": [0]},
+           {"t": "BA thừa nhận đã ghi sai yêu cầu và chủ động báo cho khách hàng.", "a": [5], "why": "Behavioural Characteristics là phẩm chất: trung thực, trách nhiệm, đáng tin cậy."},
+           {"t": "BA viết email tóm tắt cuộc họp rõ ràng, đúng trọng tâm.", "a": [3], "why": "Communication là truyền đạt bằng lời nói, chữ viết."}
+         ]}
+      ]
+    },
+    "L01-x3": {
+      "lead": "Kéo mỗi việc của dự án FoodNow vào đúng knowledge area của BABOK v3.",
+      "parts": [
+        {"kind": "sort", "q": "Việc này thuộc knowledge area nào?",
+         "bins": ["Business Analysis Planning and Monitoring", "Elicitation and Collaboration", "Requirements Life Cycle Management", "Strategy Analysis", "Requirements Analysis and Design Definition", "Solution Evaluation"],
+         "items": [
+           {"t": "Lập danh sách những ai cần phỏng vấn và lịch phỏng vấn.", "a": [0]},
+           {"t": "Phỏng vấn quản lý nhà hàng về cách giữ bàn hiện tại.", "a": [1]},
+           {"t": "Phân tích vì sao nhà hàng mất khách giờ cao điểm và đề xuất hướng thay đổi.", "a": [3]},
+           {"t": "Vẽ sơ đồ quy trình đặt bàn mới và viết đặc tả màn hình chọn giờ.", "a": [4]},
+           {"t": "Nhà hàng muốn thêm đặt cọc: đánh giá ảnh hưởng và cập nhật yêu cầu đã duyệt.", "a": [2]},
+           {"t": "Sau 2 tháng, đo tỉ lệ khách đặt bàn mà không tới (no-show) để xem giải pháp có hiệu quả.", "a": [5]}
+         ]}
+      ]
+    },
+    "L01-x4": {
+      "lead": "Xếp 5 người vào hai nhóm, rồi chọn lý do.",
+      "parts": [
+        {"kind": "sort", "q": "Theo định nghĩa của IIBA, ai đang làm công việc Business Analysis?",
+         "bins": ["Đang làm BA", "Chưa làm BA"],
+         "items": [
+           {"t": "Chị A, trưởng phòng nhân sự: tìm hiểu vì sao nhân viên nghỉ việc nhiều, đề xuất đổi quy trình đánh giá.", "a": [0]},
+           {"t": "Anh B, lập trình viên: viết code theo đặc tả có sẵn, không làm việc với người dùng.", "a": [1]},
+           {"t": "Chị C, Product Owner: gặp khách hàng, chọn tính năng ưu tiên cho app bán online.", "a": [0]},
+           {"t": "Anh D, nhân viên kho: nhập hàng theo phiếu, không tham gia cải tiến.", "a": [1]},
+           {"t": "Anh E, quản lý cửa hàng: thấy khách chờ lâu, đề xuất thêm máy tự thanh toán và hướng dẫn nhân viên dùng.", "a": [0]}
+         ]},
+        {"kind": "choice", "q": "Điều gì quyết định một người có đang làm Business Analysis theo IIBA?",
+         "options": ["Chức danh có chữ \"Business Analyst\"", "Có làm việc trong phòng IT", "Xác định nhu cầu và đề xuất giải pháp để tạo thay đổi", "Có viết tài liệu cho dự án"],
+         "answer": [2], "multi": false,
+         "why": "IIBA nói \"no matter their job title or organizational role\": không dựa vào chức danh mà dựa vào việc làm. A, C, E xác định vấn đề và đề xuất giải pháp; B, D chỉ làm theo yêu cầu có sẵn."}
+      ]
+    },
+    "L01-x5": {
+      "lead": "Ghép hiện tượng với khung tranh, rồi chọn những việc BA nên làm.",
+      "parts": [
+        {"kind": "sort", "q": "a) Mỗi hiện tượng ứng với khung nào trong tranh cái xích đu?",
+         "bins": ["How the customer explained it", "How the project leader understood it", "How the programmer wrote it", "How the sales executive described it", "How the customer was billed", "What the customer really needed"],
+         "items": [
+           {"t": "Ban giám hiệu nói chung chung \"cần phần mềm quản lý sách\"", "a": [0]},
+           {"t": "Trưởng dự án hiểu là danh mục sách", "a": [1]},
+           {"t": "Lập trình viên làm trang liệt kê sách", "a": [2]},
+           {"t": "Kinh doanh hứa có cả đọc sách online", "a": [3]},
+           {"t": "Tiền dự án vượt ngân sách", "a": [4]},
+           {"t": "Thủ thư cần mượn/trả sách", "a": [5]}
+         ]},
+        {"kind": "choice", "q": "b) BA nên làm những việc nào để tránh lệch như trên? (chọn tất cả ý đúng)",
+         "options": [
+           "Phỏng vấn cả thủ thư và bạn đọc, không chỉ ban giám hiệu",
+           "Làm theo đúng lời ban giám hiệu vì họ là người trả tiền",
+           "Hỏi \"quản lý sách\" gồm những việc gì hằng ngày để ra nhu cầu thật",
+           "Để lập trình viên tự hiểu yêu cầu cho nhanh",
+           "Viết phạm vi rõ và cho ban giám hiệu, thủ thư xác nhận một bản duy nhất",
+           "Đánh giá ảnh hưởng chi phí trước khi nhận thêm tính năng đọc online",
+           "Để kinh doanh hứa thêm tính năng với khách rồi tính sau"
+         ],
+         "answer": [0, 2, 4, 5], "multi": true,
+         "why": "Lắng nghe mọi stakeholder bị ảnh hưởng, thấu hiểu nhu cầu thật (mượn, trả, tra cứu, báo quá hạn), thống nhất một cách hiểu (bài học 6 hay 9) và quản lý thay đổi để không vượt ngân sách."}
+      ]
+    },
+    "L01-x6": {
+      "lead": "Dựng khung làm việc cho dự án bán online của SolasMart bằng cách sắp xếp, kéo thả và chọn.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp 4 bước của chu trình BA theo đúng thứ tự.",
+         "items": ["Business Objective", "Stakeholders", "Solutions", "Transition"]},
+        {"kind": "sort", "q": "2) Mỗi việc của dự án SolasMart thuộc bước nào?",
+         "bins": ["Business Objective", "Stakeholders", "Solutions", "Transition"],
+         "items": [
+           {"t": "Có thêm doanh thu từ kênh online, phục vụ khách không tới cửa hàng", "a": [0]},
+           {"t": "Liệt kê ban giám đốc, bán hàng, kho, kế toán, khách hàng, đội IT, đơn vị giao hàng", "a": [1]},
+           {"t": "So sánh tự làm website, dùng sàn thương mại điện tử hay kết hợp", "a": [2]},
+           {"t": "Chạy thử với một nhóm sản phẩm, đào tạo nhân viên kho, mở rộng dần", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "3) Việc nào là việc của IT BA trong dự án này? (chọn tất cả ý đúng)",
+         "options": [
+           "Phỏng vấn bán hàng, kho về quy trình hiện tại",
+           "Viết code trang thanh toán",
+           "Phác màn hình giỏ hàng, đặt hàng",
+           "Cấu hình máy chủ web",
+           "Quản lý yêu cầu thay đổi khi ban giám đốc muốn thêm khuyến mãi riêng cho online",
+           "Viết tài liệu yêu cầu cho đội IT"
+         ],
+         "answer": [0, 2, 4, 5], "multi": true,
+         "why": "Thu thập yêu cầu, thiết kế giao diện, quản lý yêu cầu thay đổi, viết tài liệu nghiệp vụ đều thuộc 10 việc của IT BA. Viết code và cấu hình máy chủ là việc của dev và DevOps."},
+        {"kind": "choice", "q": "4) Bán tại quầy và bán online có thể \"giành\" hàng trong kho. Năng lực nào giúp BA điều phối các bộ phận có lợi ích khác nhau?",
+         "options": ["Tools & Technology", "Interaction Skills", "Communication Skills", "Business Domain"],
+         "answer": [1], "multi": false,
+         "why": "Interaction Skills là làm việc và điều phối giữa người với người. Communication là truyền đạt bằng lời nói, chữ viết; Business Domain là hiểu ngành bán lẻ."}
+      ]
+    }
+  }
+}

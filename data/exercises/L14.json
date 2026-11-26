@@ -1,0 +1,178 @@
+{
+  "lesson": "L14",
+  "items": {
+    "L14-x1": {
+      "lead": "Kéo mỗi ký hiệu vào đúng tên, rồi xếp tên Activity vào nhóm đạt / chưa đạt.",
+      "parts": [
+        {"kind": "sort", "q": "Phần 1. Mỗi ký hiệu là thành phần nào của Activity Diagram?",
+         "bins": ["Start", "Activity", "Branch", "Fork", "Join", "End", "Note/comment", "Swimlane"],
+         "items": [
+           {"t": "Hình tròn tô đen, chỉ có mũi tên đi ra.", "a": [0]},
+           {"t": "Hình chữ nhật bo tròn góc có chữ bên trong.", "a": [1]},
+           {"t": "Hình thoi, một mũi tên vào, hai mũi tên ra có nhãn [Đúng] / [Sai].", "a": [2], "why": "Nhãn trong ngoặc vuông là Guard Expression."},
+           {"t": "Thanh ngang đậm, hai mũi tên vào, một mũi tên ra.", "a": [4], "why": "Nhiều luồng vào, một luồng ra là Join. Fork thì ngược lại: một vào, nhiều ra."},
+           {"t": "Hình tròn đen có vòng tròn bao ngoài.", "a": [5]},
+           {"t": "Hình tờ giấy gấp một góc.", "a": [6]},
+           {"t": "Các cột dọc, mỗi cột có tên một đối tượng.", "a": [7]}
+         ]},
+        {"kind": "sort", "q": "Phần 2. Tên Activity nào đặt đúng cách, tên nào chưa?",
+         "bins": ["Đặt tên đúng", "Đặt tên chưa đúng"],
+         "items": [
+           {"t": "Thông tin đơn hàng", "a": [1], "why": "Thiếu động từ."},
+           {"t": "Xem thông tin đơn hàng", "a": [0]},
+           {"t": "Email xác nhận", "a": [1], "why": "Thiếu động từ."},
+           {"t": "Gửi email xác nhận", "a": [0]},
+           {"t": "Bước 2", "a": [1], "why": "Không nói việc gì được làm."},
+           {"t": "Nhập số tiền", "a": [0]},
+           {"t": "Số dư tài khoản", "a": [1], "why": "Thiếu động từ."},
+           {"t": "Kiểm tra số dư tài khoản", "a": [0]}
+         ]}
+      ]
+    },
+    "L14-x2": {
+      "lead": "Kéo mỗi tình huống vào Branch hoặc Fork, rồi chọn các lỗi trong sơ đồ \"Đăng nhập\" và cách sửa.",
+      "parts": [
+        {"kind": "sort", "q": "Phần 1. Mỗi tình huống dùng Branch hay Fork?",
+         "bins": ["Branch", "Fork"],
+         "items": [
+           {"t": "Nếu đơn trên 500.000đ thì miễn phí giao, ngược lại tính phí giao.", "a": [0]},
+           {"t": "Sau khi duyệt hồ sơ nhân viên mới, phòng IT cấp tài khoản và phòng hành chính cấp thẻ cùng lúc.", "a": [1], "why": "Hai việc cùng chạy. Nếu cần chờ cả hai xong thì gom bằng Join."},
+           {"t": "Khách chọn thanh toán bằng tiền mặt hoặc thẻ.", "a": [0]},
+           {"t": "Sau khi thư viện nhận sách trả, hệ thống cập nhật trạng thái sách và đồng thời gửi email cảm ơn bạn đọc.", "a": [1]}
+         ]},
+        {"kind": "choice", "q": "Phần 2. Những điểm nào trong sơ đồ \"Đăng nhập\" là lỗi? (chọn tất cả ý đúng)",
+         "options": [
+           "Ghi Guard [Đúng] / [Sai] trên hai mũi tên ra sau \"Kiểm tra mật khẩu\"",
+           "Dùng thanh ngang đậm cho chỗ rẽ theo điều kiện [Đúng] / [Sai]",
+           "Gom nhánh [Đúng] và nhánh [Sai] bằng một thanh ngang đậm rồi tới End",
+           "Đặt tên Activity là \"Kiểm tra mật khẩu\"",
+           "Sơ đồ không có Start",
+           "Mọi Activity nằm chung một làn dù có cả người dùng và hệ thống",
+           "Đặt tên Activity là \"Trang chủ\""
+         ],
+         "answer": [1, 2, 4, 5, 6], "multi": true,
+         "why": "Lỗi: dùng Fork cho điều kiện, dùng Join gom hai nhánh của Branch, thiếu Start, thiếu Swimlane, \"Trang chủ\" chưa phải tên Activity. Guard [Đúng]/[Sai] là cần có, còn \"Kiểm tra mật khẩu\" đã bắt đầu bằng động từ."},
+        {"kind": "choice", "q": "Sửa chỗ rẽ [Đúng] / [Sai] sau \"Kiểm tra mật khẩu\" thế nào?",
+         "options": [
+           "Giữ thanh ngang đậm, chỉ bỏ nhãn [Đúng] / [Sai]",
+           "Thay bằng hai Activity nối tiếp nhau",
+           "Thay bằng Branch (hình thoi) với Guard [Đúng] / [Sai]",
+           "Thay bằng Join (thanh ngang đậm, nhiều vào một ra)"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Thanh đậm là Fork: mọi nhánh cùng chạy. Rẽ theo điều kiện, chỉ một nhánh đi tiếp, thì phải dùng Branch có Guard."},
+        {"kind": "choice", "q": "Vì sao gom hai nhánh [Đúng] / [Sai] bằng thanh ngang đậm là sai, và sửa thế nào?",
+         "options": [
+           "Join chờ đủ cả hai luồng nhưng chỉ một luồng chạy, nên sơ đồ bị kẹt. Dùng Merge (hình thoi) hoặc cho mỗi nhánh một End.",
+           "Join chạy cả hai nhánh song song nên người dùng vừa vào trang chủ vừa thấy lỗi. Dùng Fork thay cho Join.",
+           "Không sai, chỉ cần thêm Guard trên thanh đậm để Join biết nhánh nào tới.",
+           "Thanh đậm chỉ được đặt ở đầu sơ đồ. Chuyển nó lên ngay sau Start."
+         ],
+         "answer": [0], "multi": false,
+         "why": "Join chờ tất cả luồng vào. Sau Branch chỉ một nhánh chạy, nên Join không bao giờ đủ luồng. Merge không chờ: luồng nào tới thì đi tiếp."},
+        {"kind": "choice", "q": "Đổi tên \"Trang chủ\" thành gì cho đúng cách đặt tên Activity?",
+         "options": ["Trang chủ hệ thống", "Màn hình trang chủ", "Hiển thị trang chủ", "Bước trang chủ"],
+         "answer": [2], "multi": false,
+         "why": "Tên Activity nên bắt đầu bằng động từ và đủ nghĩa. Các phương án còn lại vẫn là danh từ."}
+      ]
+    },
+    "L14-x3": {
+      "lead": "Kéo các Activity vào đúng làn, sắp xếp hai kịch bản rút tiền ATM, rồi chọn phần song song.",
+      "parts": [
+        {"kind": "sort", "q": "Mỗi Activity của sơ đồ ATM nằm ở làn nào?",
+         "bins": ["Customer", "ATM Machine", "Bank"],
+         "items": [
+           {"t": "Insert Card", "a": [0]},
+           {"t": "Enter PIN", "a": [0]},
+           {"t": "Authorize", "a": [2]},
+           {"t": "Enter Amount", "a": [0]},
+           {"t": "Check Account Balance", "a": [2]},
+           {"t": "Take Money From Slot", "a": [0]},
+           {"t": "Debit Account", "a": [2]},
+           {"t": "Show Balance", "a": [1]},
+           {"t": "Eject Card", "a": [1]},
+           {"t": "Take Card", "a": [0]}
+         ]},
+        {"kind": "order", "q": "Kịch bản 1: PIN đúng nhưng số tiền muốn rút lớn hơn số dư. Sắp xếp các Activity theo thứ tự.",
+         "items": ["Insert Card", "Enter PIN", "Authorize", "Enter Amount", "Check Account Balance", "Show Balance", "Eject Card", "Take Card"],
+         "why": "Nhánh [Balance < Amount] đi vào Merge ngay trên \"Show Balance\", bỏ qua Fork/Join."},
+        {"kind": "order", "q": "Kịch bản 2: PIN đúng và đủ số dư. Sắp xếp theo thứ tự.",
+         "items": ["Insert Card", "Enter PIN", "Authorize", "Enter Amount", "Check Account Balance", "Fork tách Take Money From Slot và Debit Account chạy song song", "Join gom hai luồng song song", "Show Balance", "Eject Card", "Take Card"],
+         "why": "Sau Check Account Balance, nhánh [Balance >= Amount] đi vào Fork. Join chờ cả hai việc xong rồi mới tới Show Balance."},
+        {"kind": "choice", "q": "Ở kịch bản 2, hai Activity nào chạy song song? (chọn 2)",
+         "options": ["Check Account Balance", "Take Money From Slot", "Show Balance", "Debit Account", "Eject Card"],
+         "answer": [1, 3], "multi": true,
+         "why": "Fork tách hai việc: khách lấy tiền (Take Money From Slot, làn Customer) và ngân hàng trừ tiền (Debit Account, làn Bank)."},
+        {"kind": "choice", "q": "Vì sao \"Show Balance\" chỉ bắt đầu khi cả hai việc song song đã xong?",
+         "options": [
+           "Vì nó đứng sau Merge, mà Merge chờ đủ mọi luồng vào",
+           "Vì nó nằm cùng làn Bank với \"Debit Account\"",
+           "Vì nó đứng sau Join. Join chờ cả việc khách lấy tiền và việc ngân hàng trừ tiền xong mới cho đi tiếp, nên số dư hiển thị là số dư đã trừ",
+           "Vì Branch [Balance >= Amount] chỉ cho một nhánh chạy"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Join (thanh đậm) chờ đủ tất cả luồng vào. Merge không chờ. \"Show Balance\" nằm ở làn ATM Machine, không phải làn Bank."}
+      ]
+    },
+    "L14-x4": {
+      "lead": "Dựng sơ đồ \"Bán hàng tại quầy\" của SolasMart bằng cách kéo Activity vào làn, sắp xếp luồng chính và chọn ký hiệu.",
+      "parts": [
+        {"kind": "sort", "q": "1) Mỗi Activity nằm ở làn nào?",
+         "bins": ["Khách hàng", "Thu ngân", "Máy POS", "Nhân viên hỗ trợ"],
+         "items": [
+           {"t": "Đưa hàng lên quầy", "a": [0]},
+           {"t": "Bấm \"Start Transaction\"", "a": [1]},
+           {"t": "Cân hàng và in tem barcode", "a": [3]},
+           {"t": "Quét mã sản phẩm", "a": [1]},
+           {"t": "Hiển thị tên hàng, giá, số lượng, khuyến mãi", "a": [2]},
+           {"t": "Đọc lại tổng tiền, tổng số lượng", "a": [1]},
+           {"t": "Kiểm tra màn hình và chọn phương thức thanh toán", "a": [0]},
+           {"t": "Nhận tiền, đếm, trả tiền thừa", "a": [1]},
+           {"t": "Chạm thẻ / nhập PIN", "a": [0]},
+           {"t": "Quét QR chuyển khoản", "a": [0]},
+           {"t": "In hóa đơn", "a": [2]},
+           {"t": "Giao hóa đơn, túi hàng và kết thúc phiên", "a": [1]},
+           {"t": "Hủy giao dịch", "a": [1]}
+         ]},
+        {"kind": "order", "q": "2) Sắp xếp luồng chính khi mọi món đã có mã và khách trả tiền mặt thành công.",
+         "items": ["Đưa hàng lên quầy", "Bấm \"Start Transaction\"", "Quét mã sản phẩm", "Hiển thị tên hàng, giá, số lượng, khuyến mãi", "Đọc lại tổng tiền, tổng số lượng", "Kiểm tra màn hình và chọn phương thức thanh toán", "Nhận tiền, đếm, trả tiền thừa", "In hóa đơn", "Giao hóa đơn, túi hàng và kết thúc phiên"]},
+        {"kind": "choice", "q": "3) Vòng lặp quét từng món vẽ thế nào?",
+         "options": [
+           "Fork ra nhiều nhánh quét song song, rồi gom bằng Join",
+           "Sau mỗi món đặt Branch [Còn hàng chưa quét] / [Đã quét hết]; nhánh còn hàng quay về Merge đặt trước bước quét",
+           "Vẽ mỗi món hàng thành một Activity riêng nối tiếp nhau",
+           "Sau mỗi món đặt Join để quay lại bước quét"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Vòng lặp dùng Branch hỏi còn hàng hay hết, quay lại bằng Merge (B2 về M1). Các món được quét lần lượt, không song song."},
+        {"kind": "choice", "q": "4) Chọn phương thức thanh toán (tiền mặt, thẻ, chuyển khoản) vẽ thế nào?",
+         "options": [
+           "Fork 3 nhánh, gom lại bằng Join",
+           "Branch 3 nhánh, gom lại bằng Join",
+           "Ba Activity thanh toán nối tiếp nhau",
+           "Branch 3 nhánh có Guard [Tiền mặt] / [Thẻ] / [Chuyển khoản], gom lại bằng Merge"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Khách chỉ chọn một phương thức nên dùng Branch. Gom bằng Join sẽ chờ cả ba nhánh trong khi chỉ một nhánh chạy, sơ đồ bị kẹt."},
+        {"kind": "choice", "q": "5) Thanh toán thất bại thì luồng đi đâu? (chọn tất cả ý đúng)",
+         "options": [
+           "In hóa đơn như bình thường",
+           "Quay lại chọn phương thức thanh toán",
+           "Quay lại quét mã sản phẩm từ đầu",
+           "Hủy giao dịch rồi tới End"
+         ],
+         "answer": [1, 3], "multi": true,
+         "why": "Branch B4 có hai lối ra khi thất bại: [Thất bại, đổi phương thức] về M2 để chọn lại, [Thất bại, khách hủy] tới \"Hủy giao dịch\" rồi End. Chỉ nhánh [Thành công] mới tới \"In hóa đơn\"."},
+        {"kind": "choice", "q": "6) Sơ đồ này có cần Fork / Join không?",
+         "options": [
+           "Có, vì quy trình có nhiều làn",
+           "Có, để gom ba nhánh thanh toán",
+           "Không, vì các bước diễn ra lần lượt",
+           "Có, để tách việc quét mã và việc hiển thị giá"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Fork/Join chỉ dùng khi nhiều việc chạy song song. Ở đây các bước diễn ra lần lượt; nhiều làn không có nghĩa là song song, và nhánh thanh toán được gom bằng Merge."}
+      ]
+    }
+  }
+}

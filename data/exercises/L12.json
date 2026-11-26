@@ -1,0 +1,280 @@
+{
+  "lesson": "L12",
+  "items": {
+    "L12-x1": {
+      "lead": "Kéo mỗi quy trình vào đúng loại.",
+      "parts": [
+        {"kind": "sort", "q": "Quy trình này là Core, Supporting hay Management?",
+         "bins": ["Core Process", "Supporting Process", "Management Process"],
+         "items": [
+           {"t": "Xử lý thanh toán cho khách", "a": [0]},
+           {"t": "Trả lương nhân viên", "a": [1], "why": "Thuộc quản lý nhân sự/tài chính, hỗ trợ Core chạy."},
+           {"t": "Lập kế hoạch năm", "a": [2]},
+           {"t": "Giao hàng cho khách", "a": [0]},
+           {"t": "Bảo trì hệ thống máy tính nội bộ", "a": [1], "why": "Hệ thống nội bộ giúp Core vận hành, khách không trực tiếp nhận giá trị."},
+           {"t": "Phân tích KPI bán hàng", "a": [2], "why": "Giám sát, đánh giá hoạt động là việc của Management Process."}
+         ]}
+      ]
+    },
+    "L12-x2": {
+      "lead": "Kéo mỗi hình Flowchart vào đúng ý nghĩa.",
+      "parts": [
+        {"kind": "sort", "q": "Hình này có ý nghĩa gì?",
+         "bins": ["Tài liệu", "Trì hoãn / chờ đợi", "Một bước", "Quyết định", "Liên kết đến trang / sơ đồ khác", "Bắt đầu / kết thúc", "Đầu vào / đầu ra"],
+         "items": [
+           {"t": "Hình chữ nhật", "a": [2]},
+           {"t": "Hình thoi", "a": [3]},
+           {"t": "Hình chữ D", "a": [1], "why": "Hình D giống chữ \"Delay\"."},
+           {"t": "Hình bình hành", "a": [6]},
+           {"t": "Hình chữ nhật có cạnh dưới lượn sóng", "a": [0]},
+           {"t": "Hình tròn nhỏ", "a": [4], "why": "Hình tròn nhỏ để nối (connector), còn hình elip để mở/đóng quy trình."},
+           {"t": "Hình elip", "a": [5]}
+         ]}
+      ]
+    },
+    "L12-x3": {
+      "lead": "Dựng bảng mô tả quy trình nghỉ phép bằng cách kéo thả: người thực hiện, hệ thống hỗ trợ, rồi input/output và kết quả.",
+      "parts": [
+        {"kind": "sort", "q": "1) Cột \"Người thực hiện\": ai làm hoạt động này?",
+         "bins": ["Nhân viên", "Trưởng phòng", "Phòng nhân sự", "Hệ thống"],
+         "items": [
+           {"t": "Tạo đơn nghỉ phép", "a": [0]},
+           {"t": "Duyệt hoặc từ chối đơn", "a": [1]},
+           {"t": "(Nếu duyệt) Cập nhật số ngày phép còn lại", "a": [2]},
+           {"t": "Gửi email thông báo duyệt", "a": [3], "why": "Email gửi tự động nên người thực hiện là chính hệ thống: tác nhân có thể là hệ thống phần mềm."},
+           {"t": "(Nếu từ chối) Gửi email kèm lý do", "a": [3]}
+         ]},
+        {"kind": "sort", "q": "2) Cột \"Hệ thống hỗ trợ\": hoạt động này dùng gì?",
+         "bins": ["Phần mềm nhân sự", "Email"],
+         "items": [
+           {"t": "Tạo đơn nghỉ phép", "a": [0]},
+           {"t": "Duyệt hoặc từ chối đơn", "a": [0]},
+           {"t": "(Nếu duyệt) Cập nhật số ngày phép còn lại", "a": [0]},
+           {"t": "Gửi email thông báo duyệt", "a": [1]},
+           {"t": "(Nếu từ chối) Gửi email kèm lý do", "a": [1]}
+         ]},
+        {"kind": "sort", "q": "3) Mỗi mục là input, output hay kết quả của quy trình?",
+         "bins": ["Input", "Output", "Kết quả tích cực", "Kết quả tiêu cực"],
+         "items": [
+           {"t": "Đơn nghỉ phép", "a": [0], "why": "Input là thứ đi vào quy trình."},
+           {"t": "Quyết định duyệt/từ chối", "a": [1]},
+           {"t": "Email thông báo", "a": [1]},
+           {"t": "Nhân viên được nghỉ, số phép cập nhật đúng", "a": [2]},
+           {"t": "Đơn bị từ chối", "a": [3]}
+         ]}
+      ]
+    },
+    "L12-x4": {
+      "lead": "Xem sơ đồ Sales – Finance – Warehouse (slide tr.17) rồi chọn đáp án cho từng câu.",
+      "parts": [
+        {"kind": "choice", "q": "1) Bộ phận nào gửi hóa đơn?",
+         "options": ["Sales", "Finance", "Warehouse"],
+         "answer": [1], "multi": false,
+         "why": "Task Send Invoice nằm ở lane Finance."},
+        {"kind": "choice", "q": "2) Task nào do hệ thống tự làm, dựa vào đâu để biết?",
+         "options": [
+           "Receive Order – biểu tượng hình người",
+           "Fulfill Order – có dấu [+]",
+           "Check Credit – biểu tượng bánh răng",
+           "Send Invoice – biểu tượng hình người"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Bánh răng là Service Task: hệ thống/dịch vụ tự động làm. Hình người là User Task (người làm với phần mềm), [+] là Sub-Process."},
+        {"kind": "choice", "q": "3) Có mấy đường dẫn tới End Event \"Order failed\"?",
+         "options": [
+           "Một: \"Credit OK?\" = no",
+           "Một: \"Out of stock?\" = yes",
+           "Ba: \"Credit OK?\" = no, \"Out of stock?\" = yes và \"Out of stock?\" = no",
+           "Hai: \"Credit OK?\" = no và \"Out of stock?\" = yes"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Hai đường: tín dụng không đạt, hoặc hết hàng. \"Out of stock?\" = no dẫn tới Send Invoice rồi \"Order complete\"."},
+        {"kind": "choice", "q": "4) Vì sao \"Fulfill Order\" có dấu [+]?",
+         "options": [
+           "Là Sub-Process: quy trình con, có thể mở ra xem chi tiết các bước",
+           "Task được lặp lại tới khi thỏa điều kiện",
+           "Nhiều phiên bản của task chạy song song",
+           "Task do hệ thống tự động làm"
+         ],
+         "answer": [0], "multi": false,
+         "why": "[+] là Sub-Process Marker. Lặp lại là Loop Marker (mũi tên vòng), chạy song song nhiều phiên bản là Parallel MI Marker (|||), hệ thống tự làm là Service Task (bánh răng)."},
+        {"kind": "choice", "q": "5) Các mũi tên nối giữa các lane là loại flow nào?",
+         "options": ["Message Flow", "Data Association", "Sequence Flow", "Association"],
+         "answer": [2], "multi": false,
+         "why": "Các lane cùng nằm trong một pool nên dùng Sequence Flow; Message Flow chỉ dùng giữa các pool."}
+      ]
+    },
+    "L12-x5": {
+      "lead": "Chọn những điểm sai trong mô tả, rồi kéo mỗi lỗi vào cách sửa đúng.",
+      "parts": [
+        {"kind": "choice", "q": "1) Những điểm nào trong mô tả là lỗi? (chọn tất cả ý đúng)",
+         "options": [
+           "Pool \"SolasMart\" chia thành 2 lane: Thu ngân, Kho",
+           "Lane Thu ngân gửi Message Flow sang lane Kho để yêu cầu lấy hàng",
+           "Sau \"Quét mã hàng\", dùng Parallel Gateway để chọn trả tiền mặt hoặc thẻ",
+           "Hai nhánh thanh toán gộp lại bằng Parallel Gateway trước \"In hóa đơn\"",
+           "Task \"In hóa đơn\" được vẽ bằng hình tròn viền đậm",
+           "Nhánh \"Thẻ bị từ chối\" kết thúc lơ lửng, không có End Event"
+         ],
+         "answer": [1, 2, 3, 4, 5], "multi": true,
+         "why": "Các bộ phận của cùng một công ty là lane trong một pool, nên chia lane Thu ngân, Kho là đúng. Lỗi nằm ở: Message Flow giữa 2 lane cùng pool, Parallel cho lựa chọn \"hoặc\", gộp bằng Parallel khi chỉ 1 nhánh chạy, task vẽ bằng hình tròn viền đậm (End Event), nhánh không có kết thúc."},
+        {"kind": "sort", "q": "2) Kéo mỗi lỗi vào cách sửa đúng.",
+         "bins": [
+           "Dùng Sequence Flow",
+           "Tách bằng Exclusive Gateway \"Hình thức thanh toán?\"",
+           "Gộp bằng Exclusive Gateway (hoặc nối thẳng)",
+           "Vẽ bằng hình chữ nhật bo góc",
+           "Thêm End Event \"Thanh toán thất bại\" hoặc quay lại bước chọn hình thức thanh toán"
+         ],
+         "items": [
+           {"t": "Message Flow giữa lane Thu ngân và lane Kho", "a": [0], "why": "Message Flow chỉ dùng giữa hai pool."},
+           {"t": "Parallel Gateway để chọn tiền mặt hoặc thẻ", "a": [1], "why": "Parallel kích hoạt mọi nhánh, nghĩa là khách trả cả tiền mặt lẫn thẻ."},
+           {"t": "Gộp hai nhánh thanh toán bằng Parallel Gateway", "a": [2]},
+           {"t": "Task \"In hóa đơn\" vẽ bằng hình tròn viền đậm", "a": [3], "why": "Hình tròn viền đậm là End Event."},
+           {"t": "Nhánh \"Thẻ bị từ chối\" không có End Event", "a": [4]}
+         ]},
+        {"kind": "choice", "q": "3) Vì sao gộp hai nhánh thanh toán bằng Parallel Gateway làm quy trình bị lỗi?",
+         "options": [
+           "Parallel Gateway không bao giờ được dùng để gộp luồng",
+           "Parallel gộp sẽ cho \"In hóa đơn\" chạy hai lần",
+           "Parallel gộp chờ cả 2 nhánh, mà chỉ 1 nhánh chạy nên quy trình bị kẹt"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Khi gộp, Parallel chờ mọi nhánh vào hoàn tất. Khách chỉ trả một cách nên nhánh kia không bao giờ tới. Parallel vẫn được dùng để gộp các nhánh do Parallel tách ra; chạy nhiều lần là lỗi ngược lại (tách Parallel, gộp Exclusive)."}
+      ]
+    },
+    "L12-x6": {
+      "lead": "Dựng BPMN cho quy trình bán online SolasMart bằng cách kéo thả và chọn: pool/lane, loại task, gateway, flow, event và data.",
+      "parts": [
+        {"kind": "sort", "q": "1) Mỗi bên là pool hay lane, vẽ thế nào?",
+         "bins": ["Pool dạng black box", "Pool dạng white box", "Lane trong pool SolasMart"],
+         "items": [
+           {"t": "Khách hàng", "a": [0]},
+           {"t": "SolasMart", "a": [1]},
+           {"t": "Đơn vị vận chuyển", "a": [0], "why": "Đối tác bên ngoài là pool riêng; chỉ cần tên, không vẽ bên trong."},
+           {"t": "Hệ thống web", "a": [2]},
+           {"t": "Kho", "a": [2]},
+           {"t": "Kế toán", "a": [2]}
+         ]},
+        {"kind": "sort", "q": "2) Mỗi task là loại nào?",
+         "bins": ["Service Task", "Send Task", "Manual Task", "User Task"],
+         "items": [
+           {"t": "Kiểm tra tồn kho", "a": [0]},
+           {"t": "Báo hết hàng", "a": [1]},
+           {"t": "Tạo đơn hàng", "a": [0]},
+           {"t": "Hủy đơn", "a": [0]},
+           {"t": "Báo hủy đơn", "a": [1]},
+           {"t": "Đóng gói hàng", "a": [2]},
+           {"t": "Xuất hóa đơn điện tử", "a": [3]},
+           {"t": "Bàn giao cho đơn vị vận chuyển", "a": [1], "why": "Gửi tin nhắn (Message Flow) sang pool Đơn vị vận chuyển."},
+           {"t": "Cập nhật trạng thái đơn", "a": [0]}
+         ]},
+        {"kind": "choice", "q": "3) Sau khi tạo đơn, chờ khách chuyển khoản hoặc hết 24 giờ, cái nào đến trước. Vẽ thế nào?",
+         "options": [
+           "Parallel Gateway tách ra Message Event \"Nhận chuyển khoản\" và Timer Event \"24 giờ\"",
+           "Event-based Gateway, theo sau là Message Intermediate Event \"Nhận chuyển khoản\" và Timer Intermediate Event \"24 giờ\"",
+           "Inclusive Gateway tách ra Message Event và Timer Event",
+           "Timer Start Event \"24 giờ\" ở đầu quy trình"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Event-based Gateway: nhánh nào có sự kiện xảy ra trước thì đi nhánh đó, theo sau luôn là catching event. Parallel kích hoạt mọi nhánh; Timer Start Event là điểm bắt đầu, không phải chờ giữa quy trình."},
+        {"kind": "choice", "q": "4) Kho đóng gói, đồng thời kế toán xuất hóa đơn; cả hai xong mới bàn giao. Dùng gateway nào?",
+         "options": [
+           "Exclusive Gateway tách, Parallel Gateway gộp",
+           "Parallel Gateway tách, Exclusive Gateway gộp",
+           "Exclusive Gateway tách, Exclusive Gateway gộp",
+           "Parallel Gateway tách, Parallel Gateway gộp"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Làm cùng lúc và chờ cả hai xong là Parallel tách và gộp cân nhau. Tách Parallel gộp Exclusive thì bước sau chạy nhiều lần; tách Exclusive gộp Parallel thì kẹt; Exclusive cả hai thì chỉ một việc được làm."},
+        {"kind": "sort", "q": "5) Mỗi kết nối vẽ bằng gì?",
+         "bins": ["Sequence Flow", "Message Flow", "Data Association"],
+         "items": [
+           {"t": "Khách hàng gửi đơn đặt hàng tới SolasMart", "a": [1]},
+           {"t": "\"Kiểm tra tồn kho\" đi tới gateway \"Còn hàng?\"", "a": [0]},
+           {"t": "SolasMart báo hết hàng cho khách", "a": [1]},
+           {"t": "\"Kiểm tra tồn kho\" đọc CSDL tồn kho", "a": [2]},
+           {"t": "Parallel Gateway gộp đi tới \"Bàn giao cho đơn vị vận chuyển\" (lane Kho)", "a": [0], "why": "Các lane cùng một pool nối bằng Sequence Flow."},
+           {"t": "Kho bàn giao hàng cho đơn vị vận chuyển", "a": [1]},
+           {"t": "Đơn vị vận chuyển báo giao thành công", "a": [1]}
+         ]},
+        {"kind": "sort", "q": "6) Mỗi phần tử là loại event hay data nào?",
+         "bins": ["Start Event", "Intermediate Event", "End Event", "Data Object", "Data Store"],
+         "items": [
+           {"t": "Nhận đơn đặt hàng", "a": [0], "why": "Message Start Event, kích hoạt bởi Message Flow từ Khách hàng."},
+           {"t": "Nhận chuyển khoản", "a": [1]},
+           {"t": "24 giờ", "a": [1]},
+           {"t": "Nhận báo giao thành công", "a": [1]},
+           {"t": "Đơn không thực hiện được", "a": [2]},
+           {"t": "Đơn bị hủy", "a": [2]},
+           {"t": "Đơn hoàn tất", "a": [2], "why": "3 End Event ứng với 3 kết quả của quy trình."},
+           {"t": "CSDL tồn kho", "a": [4]},
+           {"t": "Đơn hàng", "a": [3]},
+           {"t": "Hóa đơn", "a": [3]}
+         ]}
+      ]
+    },
+    "L12-x7": {
+      "lead": "Chuyển flowchart tuyển dụng sang BPMN: chọn pool/lane, ký hiệu, gateway, rồi kéo các nhánh về đúng đích.",
+      "parts": [
+        {"kind": "choice", "q": "1) HR và Hiring Manager cùng một công ty. Vẽ pool, lane thế nào?",
+         "options": [
+           "Hai pool HR và Hiring Manager, nối bằng Message Flow",
+           "Một pool \"Công ty\", hai lane HR và Hiring Manager",
+           "Một pool \"Công ty\", không chia lane"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Các vai trò trong cùng một công ty là lane trong một pool, nối bằng Sequence Flow. Không chia lane thì không thể hiện được ai làm bước nào."},
+        {"kind": "sort", "q": "2) Mỗi bước nằm ở lane nào?",
+         "bins": ["HR", "Hiring Manager"],
+         "items": [
+           {"t": "Start Event \"Có vị trí cần tuyển\" (Open Role)", "a": [1]},
+           {"t": "Đăng tin tuyển dụng", "a": [0]},
+           {"t": "Xem hồ sơ", "a": [1]},
+           {"t": "Đăng lại tin", "a": [0]},
+           {"t": "Xếp lịch phỏng vấn điện thoại", "a": [0]},
+           {"t": "Gateway \"Ứng viên mạnh?\"", "a": [1]},
+           {"t": "Xếp lịch phỏng vấn trực tiếp", "a": [0]},
+           {"t": "Gateway \"Đưa offer?\"", "a": [1]},
+           {"t": "Yêu cầu tuyển", "a": [0]}
+         ]},
+        {"kind": "choice", "q": "3) Bước \"Wait 5 days\" (hình chữ D) đổi thành ký hiệu BPMN nào?",
+         "options": [
+           "Timer Start Event \"5 ngày\"",
+           "Message Intermediate Event \"5 ngày\"",
+           "Timer Intermediate Event \"5 ngày\"",
+           "Giữ hình chữ D (Delay) như flowchart"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Chờ một khoảng thời gian giữa quy trình là Timer Intermediate Event. Start Event chỉ ở điểm bắt đầu; Message là chờ tin nhắn; BPMN không có hình chữ D."},
+        {"kind": "choice", "q": "4) Các hình thoi có/không của flowchart đổi thành gateway nào?",
+         "options": ["Parallel Gateway", "Exclusive Gateway", "Event-based Gateway"],
+         "answer": [1], "multi": false,
+         "why": "Mỗi câu hỏi chỉ đi theo đúng một nhánh trả lời nên là Exclusive Gateway. Parallel kích hoạt mọi nhánh; Event-based chọn theo sự kiện đến trước."},
+        {"kind": "sort", "q": "5) Mỗi nhánh đi tới đâu?",
+         "bins": ["Timer Event \"5 ngày\"", "Đăng lại tin", "Xếp lịch phỏng vấn điện thoại", "Xếp lịch phỏng vấn trực tiếp", "Xem lại ghi chú phỏng vấn điện thoại", "Yêu cầu tuyển, rồi End Event \"Đã tuyển\""],
+         "items": [
+           {"t": "Đăng lại tin (xong)", "a": [0], "why": "Đăng lại tin rồi quay về chờ 5 ngày."},
+           {"t": "\"Đủ hồ sơ?\" = Không", "a": [1]},
+           {"t": "\"Đủ hồ sơ?\" = Có", "a": [2]},
+           {"t": "\"Ứng viên mạnh?\" = Không", "a": [1]},
+           {"t": "\"Ứng viên mạnh?\" = Có", "a": [3]},
+           {"t": "\"Đưa offer?\" = Có", "a": [5]},
+           {"t": "\"Đưa offer?\" = Not Sold on Candidate", "a": [3]},
+           {"t": "\"Đưa offer?\" = Không", "a": [4]},
+           {"t": "\"Có ứng viên dự phòng mạnh?\" = Có", "a": [3]},
+           {"t": "\"Có ứng viên dự phòng mạnh?\" = Không", "a": [1]}
+         ]},
+        {"kind": "choice", "q": "6) Quy trình BPMN này có bao nhiêu End Event?",
+         "options": [
+           "Một: \"Đã tuyển\", vì các nhánh khác đều quay vòng",
+           "Hai: \"Đã tuyển\" và \"Không tuyển được\"",
+           "Mỗi lần \"Đăng lại tin\" là một End Event",
+           "Không có End Event vì quy trình lặp lại"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Flowchart gốc chỉ có một điểm kết thúc \"Ask HR to hire\"; các nhánh khác đều quay vòng về đăng lại tin hoặc phỏng vấn lại."}
+      ]
+    }
+  }
+}

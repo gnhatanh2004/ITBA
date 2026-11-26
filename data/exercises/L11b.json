@@ -1,0 +1,196 @@
+{
+  "lesson": "L11b",
+  "items": {
+    "L11b-x1": {
+      "lead": "Kéo mỗi mục của hệ thống thư viện vào Object, Actor hoặc cả hai.",
+      "parts": [
+        {"kind": "sort", "q": "Với hệ thống quản lý thư viện, mỗi mục là Object, Actor hay cả hai?",
+         "bins": ["Object", "Actor", "Cả Object và Actor"],
+         "items": [
+           {"t": "Sách", "a": [0]},
+           {"t": "Phiếu mượn", "a": [0]},
+           {"t": "Thành viên", "a": [2], "why": "Hệ thống lưu thông tin thành viên (Object), và thành viên mượn sách (Actor)."},
+           {"t": "Nhân viên thư viện", "a": [1, 2], "why": "Nhân viên dùng hệ thống nên là Actor. Nếu hệ thống quản lý cả hồ sơ nhân viên thì còn là Object."},
+           {"t": "Hệ thống gửi email thông báo (bên ngoài)", "a": [1], "why": "Actor có thể là một hệ thống bên ngoài tương tác với hệ thống của mình."}
+         ]}
+      ]
+    },
+    "L11b-x2": {
+      "lead": "Kéo từng danh từ trong mô tả FoodNow vào đúng nhóm, rồi chọn lý do bị loại.",
+      "parts": [
+        {"kind": "sort", "q": "\"Khách hàng chọn nhà hàng, chọn bàn trống theo ngày giờ và gửi yêu cầu đặt bàn. Nhân viên nhà hàng duyệt yêu cầu và xếp bàn cho khách.\" Mỗi danh từ thuộc nhóm nào?",
+         "bins": ["Chỉ Object", "Chỉ Actor", "Cả Object và Actor", "Bị loại (thuộc tính / trạng thái)"],
+         "items": [
+           {"t": "Khách hàng", "a": [2], "why": "Có trong cả Object List và danh sách Actor."},
+           {"t": "Nhà hàng", "a": [0]},
+           {"t": "Bàn", "a": [0]},
+           {"t": "Yêu cầu đặt bàn (phiếu đặt bàn)", "a": [0]},
+           {"t": "Nhân viên nhà hàng", "a": [1]},
+           {"t": "Ngày giờ", "a": [3]},
+           {"t": "Bàn trống", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "Vì sao \"ngày giờ\" và \"bàn trống\" bị loại khỏi Object List?",
+         "options": [
+           "Cả hai là actor ở ngoài hệ thống",
+           "Cả hai là chức năng của hệ thống",
+           "\"Ngày giờ\" là thuộc tính của Yêu cầu đặt bàn; \"bàn trống\" là trạng thái của Bàn",
+           "\"Ngày giờ\" là thuộc tính của Nhà hàng; \"bàn trống\" là một đối tượng riêng"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Không phải danh từ nào cũng là đối tượng. \"Ngày giờ\" là thông tin của Yêu cầu đặt bàn, còn \"bàn trống\" chỉ trạng thái của Bàn."}
+      ]
+    },
+    "L11b-x3": {
+      "lead": "Kéo từng đặc điểm và việc làm vào đúng đối tượng.",
+      "parts": [
+        {"kind": "sort", "q": "1) Mỗi đặc điểm (thông tin) thuộc đối tượng nào?",
+         "bins": ["Nhà hàng", "Bàn", "Yêu cầu đặt bàn"],
+         "items": [
+           {"t": "Mã nhà hàng", "a": [0]},
+           {"t": "Địa chỉ", "a": [0]},
+           {"t": "Giờ mở cửa", "a": [0]},
+           {"t": "Số bàn", "a": [1]},
+           {"t": "Số ghế", "a": [1]},
+           {"t": "Trạng thái (trống/đã đặt)", "a": [1]},
+           {"t": "Mã yêu cầu", "a": [2]},
+           {"t": "Ngày giờ đến", "a": [2]},
+           {"t": "Số khách", "a": [2]}
+         ]},
+        {"kind": "sort", "q": "2) Mỗi việc làm (hành vi) thuộc đối tượng nào?",
+         "bins": ["Nhà hàng", "Bàn", "Yêu cầu đặt bàn"],
+         "items": [
+           {"t": "Được tìm kiếm", "a": [0]},
+           {"t": "Được xếp cho khách", "a": [1]},
+           {"t": "Được giải phóng", "a": [1]},
+           {"t": "Được duyệt", "a": [2]},
+           {"t": "Được hủy", "a": [2]}
+         ]}
+      ]
+    },
+    "L11b-x4": {
+      "lead": "Ghép mỗi cặp đối tượng với động từ quan hệ, rồi sắp sơ đồ rút gọn và chọn.",
+      "parts": [
+        {"kind": "sort", "q": "1) Đối tượng bên trái làm gì với đối tượng bên phải?",
+         "bins": ["Tạo", "Thuộc về", "Ghi nhận", "Có (chứa)", "Gửi tới"],
+         "items": [
+           {"t": "Khách hàng → Yêu cầu đặt bàn", "a": [0]},
+           {"t": "Yêu cầu đặt bàn → Khách hàng", "a": [1]},
+           {"t": "Yêu cầu đặt bàn → Bàn", "a": [2, 3], "why": "Đáp án mẫu ghi \"Ghi nhận\"; \"Chứa\" cũng chấp nhận được, giống Phiếu mượn chứa Sách."},
+           {"t": "Nhà hàng → Bàn", "a": [3]},
+           {"t": "Yêu cầu đặt bàn → Nhà hàng", "a": [4]}
+         ]},
+        {"kind": "order", "q": "2) Sắp xếp sơ đồ rút gọn, bắt đầu từ Khách hàng.",
+         "items": ["Khách hàng", "Yêu cầu đặt bàn", "Bàn", "Nhà hàng"],
+         "why": "[Khách hàng] --- [Yêu cầu đặt bàn] --- [Bàn] --- [Nhà hàng]."},
+        {"kind": "choice", "q": "3) Đối tượng nào đóng vai trò nối người với vật, giống Phiếu mượn trong ví dụ thư viện?",
+         "options": ["Nhà hàng", "Bàn", "Khách hàng", "Yêu cầu đặt bàn"],
+         "answer": [3], "multi": false,
+         "why": "Yêu cầu đặt bàn thuộc về Khách hàng và ghi nhận Bàn, như Phiếu mượn thuộc về Thành viên và chứa Sách."},
+        {"kind": "choice", "q": "4) Quan hệ giữa các đối tượng nên mô tả bằng gì?",
+         "options": ["Danh từ chỉ thuộc tính", "Động từ (Tạo, Chứa, Ghi nhận…)", "Tên actor", "Số lượng bản ghi"],
+         "answer": [1], "multi": false,
+         "why": "B3 dùng động từ để mô tả quan hệ; mỗi quan hệ là một mũi tên có nhãn động từ."}
+      ]
+    },
+    "L11b-x5": {
+      "lead": "Làm đủ 5 output cho hệ thống đặt đồ ăn bằng kéo thả, chọn và sắp xếp.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp 5 output của phương pháp hướng đối tượng theo đúng thứ tự.",
+         "items": ["Object List", "Danh sách chi tiết Object", "Sơ đồ Object Relationship", "Danh sách Actor", "Danh sách chức năng"]},
+        {"kind": "sort", "q": "2) B1 và B4: mỗi mục là Object, Actor hay cả hai?",
+         "bins": ["Chỉ Object", "Chỉ Actor", "Cả Object và Actor"],
+         "items": [
+           {"t": "Khách hàng", "a": [2], "why": "Có trong cả Object List và danh sách Actor."},
+           {"t": "Nhà hàng", "a": [0]},
+           {"t": "Món ăn", "a": [0]},
+           {"t": "Giỏ hàng", "a": [0], "why": "Đối tượng ẩn của quy trình đặt món."},
+           {"t": "Đơn hàng", "a": [0]},
+           {"t": "Nhân viên nhà hàng", "a": [1]},
+           {"t": "Shipper", "a": [1]},
+           {"t": "Cổng thanh toán", "a": [1], "why": "Hệ thống bên ngoài tương tác với hệ thống nên là actor."}
+         ]},
+        {"kind": "sort", "q": "3) B2: mỗi đặc điểm hoặc việc làm thuộc đối tượng nào?",
+         "bins": ["Khách hàng", "Món ăn", "Giỏ hàng", "Đơn hàng", "Thanh toán"],
+         "items": [
+           {"t": "SĐT, Địa chỉ", "a": [0]},
+           {"t": "Đăng ký", "a": [0]},
+           {"t": "Mã món, Giá", "a": [1]},
+           {"t": "Được chọn", "a": [1]},
+           {"t": "Danh sách món, Tạm tính", "a": [2]},
+           {"t": "Thêm món, Xóa món", "a": [2]},
+           {"t": "Mã đơn, Thời gian, Tổng tiền", "a": [3]},
+           {"t": "Được xác nhận, Được giao", "a": [3]},
+           {"t": "Mã giao dịch, Số tiền, Phương thức", "a": [4]},
+           {"t": "Được ghi nhận", "a": [4]}
+         ]},
+        {"kind": "choice", "q": "4) B3: những quan hệ nào đúng? (chọn tất cả ý đúng)",
+         "options": [
+           "Khách hàng sở hữu Giỏ hàng",
+           "Món ăn sở hữu Khách hàng",
+           "Nhà hàng cung cấp Món ăn",
+           "Thanh toán ghi nhận Đơn hàng",
+           "Giỏ hàng cung cấp Nhà hàng",
+           "Đơn hàng chứa Món ăn",
+           "Món ăn tạo Thanh toán"
+         ],
+         "answer": [0, 2, 3, 5], "multi": true,
+         "why": "Đáp án: Khách hàng sở hữu Giỏ hàng; Giỏ hàng chứa Món ăn; Khách hàng tạo Đơn hàng; Đơn hàng chứa Món ăn; Nhà hàng cung cấp Món ăn; Thanh toán ghi nhận Đơn hàng. Các ý còn lại đảo ngược hoặc gán sai động từ."},
+        {"kind": "choice", "q": "5) B5: mục nào là chức năng của hệ thống? (chọn tất cả ý đúng)",
+         "options": ["Tổng tiền", "Xem thực đơn", "Thêm món vào giỏ", "Shipper", "Giỏ hàng", "Cập nhật trạng thái giao", "Hủy đơn"],
+         "answer": [1, 2, 5, 6], "multi": true,
+         "why": "Chức năng đặt tên dạng động từ + danh từ, suy ra từ \"Actor làm gì với Object?\". Tổng tiền là thuộc tính, Shipper là actor, Giỏ hàng là object."}
+      ]
+    },
+    "L11b-x6": {
+      "lead": "Kéo từng mục của bản nháp vào đúng nhóm, rồi chọn cách sửa và bản đúng.",
+      "parts": [
+        {"kind": "sort", "q": "1) Mục nào trong bản nháp đặt đúng chỗ, mục nào sai?",
+         "bins": ["Đúng chỗ", "Sai chỗ"],
+         "items": [
+           {"t": "Object: Sách", "a": [0]},
+           {"t": "Object: Tiêu đề", "a": [1]},
+           {"t": "Object: Ngày mượn", "a": [1]},
+           {"t": "Object: Mượn sách", "a": [1]},
+           {"t": "Actor: Phiếu mượn", "a": [1]},
+           {"t": "Actor: Nhân viên", "a": [0]}
+         ]},
+        {"kind": "sort", "q": "2) Các mục đặt sai thực ra là gì?",
+         "bins": ["Thuộc tính của Sách", "Thuộc tính của Phiếu mượn", "Hành vi / chức năng", "Object (nằm trong hệ thống)"],
+         "items": [
+           {"t": "Tiêu đề", "a": [0]},
+           {"t": "Ngày mượn", "a": [1]},
+           {"t": "Mượn sách", "a": [2]},
+           {"t": "Phiếu mượn", "a": [3], "why": "Phiếu mượn nằm trong hệ thống nên là Object, không phải Actor."}
+         ]},
+        {"kind": "choice", "q": "3) Bản nháp còn thiếu gì? (chọn tất cả ý đúng)",
+         "options": [
+           "Thiếu actor Sách",
+           "Thiếu Thành viên trong Object List",
+           "Thiếu Tác giả trong Object List",
+           "Thiếu actor Thành viên",
+           "Thiếu Phiếu mượn trong Object List"
+         ],
+         "answer": [1, 3, 4], "multi": true,
+         "why": "Object List phải có Thành viên và Phiếu mượn; danh sách Actor thiếu Thành viên. Sách nằm trong hệ thống nên không phải actor; Tác giả là thuộc tính của Sách."},
+        {"kind": "choice", "q": "4) Sửa lỗi \"liệt kê chức năng ngay từ đầu\" thế nào cho đúng?",
+         "options": [
+           "Liệt kê chức năng ở B5, sau khi có Object và Actor, bằng câu hỏi \"Actor làm gì với Object?\"",
+           "Giữ chức năng ở đầu vì OOA bắt đầu từ câu hỏi \"hệ thống làm gì?\"",
+           "Liệt kê chức năng ngay sau B1, trước khi xác định thuộc tính và Actor",
+           "Bỏ danh sách chức năng vì OOA chỉ cần Object List"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Chức năng được suy ra ở B5 từ Actor và Object. OOA bắt đầu từ câu hỏi \"hệ thống gồm những thứ gì?\", rồi mới suy ra chức năng."},
+        {"kind": "choice", "q": "5) Bản viết lại nào đúng?",
+         "options": [
+           "Object List: Sách, Tiêu đề, Thành viên, Phiếu mượn. Actor: Thành viên, Nhân viên. Chức năng: Tạo phiếu mượn, Xem thông tin sách.",
+           "Object List: Sách, Thành viên. Actor: Thành viên, Nhân viên, Phiếu mượn. Chức năng: Tạo phiếu mượn, Xem thông tin sách.",
+           "Object List: Sách, Thành viên, Phiếu mượn. Actor: Thành viên, Nhân viên. Chức năng: Tạo phiếu mượn, Xem thông tin sách.",
+           "Object List: Sách, Phiếu mượn, Mượn sách. Actor: Nhân viên. Chức năng: Tạo phiếu mượn, Xem thông tin sách."
+         ],
+         "answer": [2], "multi": false,
+         "why": "Object List gồm Sách, Thành viên, Phiếu mượn; Actor gồm Thành viên, Nhân viên. Tiêu đề là thuộc tính, Phiếu mượn không phải actor, Mượn sách là chức năng."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,272 @@
+{
+  "lesson": "L11a",
+  "items": {
+    "L11a-x1": {
+      "lead": "Kéo từng câu yêu cầu của FoodNow vào FR hoặc NFR.",
+      "parts": [
+        {"kind": "sort", "q": "Câu nào là FR, câu nào là NFR?",
+         "bins": ["FR", "NFR"],
+         "items": [
+           {"t": "1. Khách hàng tìm nhà hàng theo khu vực.", "a": [0]},
+           {"t": "2. Khách hàng chọn ngày, giờ và số người để đặt bàn.", "a": [0]},
+           {"t": "3. Trang kết quả tìm kiếm hiển thị trong ≤ 2 giây.", "a": [1], "why": "Hiệu suất."},
+           {"t": "4. Hệ thống gửi SMS xác nhận sau khi nhà hàng nhận đặt bàn.", "a": [0], "why": "Bắt đầu bằng “Hệ thống” nhưng có hành động cụ thể “gửi SMS”, nên là FR."},
+           {"t": "5. Hệ thống phục vụ 5000 người dùng đồng thời vào tối thứ Bảy.", "a": [1], "why": "Hiệu suất, ổn định."},
+           {"t": "6. Mật khẩu tài khoản khách hàng được lưu dạng mã hóa.", "a": [1], "why": "Bảo mật."},
+           {"t": "7. Quản lý nhà hàng cập nhật sơ đồ bàn.", "a": [0]},
+           {"t": "8. Ứng dụng chạy được trên Android và iOS phiên bản mới nhất.", "a": [1], "why": "Nói về nền tảng chạy được: tiêu chuẩn kỹ thuật."},
+           {"t": "9. Khách hàng hủy đặt bàn trước giờ hẹn.", "a": [0]},
+           {"t": "10. Hệ thống hoạt động 99,5% thời gian mỗi tháng.", "a": [1], "why": "Khả dụng."}
+         ]}
+      ]
+    },
+    "L11a-x2": {
+      "lead": "Kéo mỗi NFR của SolasMart vào đúng nhóm.",
+      "parts": [
+        {"kind": "sort", "q": "Câu NFR này thuộc nhóm nào?",
+         "bins": ["Hiệu suất", "Bảo mật", "Độ ổn định / khả dụng", "Khả năng mở rộng", "UX", "Tiêu chuẩn kỹ thuật"],
+         "items": [
+           {"t": "1. Máy POS hiện giá trong ≤ 1 giây sau mỗi lần quét.", "a": [0]},
+           {"t": "2. Dữ liệu thẻ của khách không được lưu trên máy POS.", "a": [1]},
+           {"t": "3. Khi mất mạng, quầy vẫn bán được và đồng bộ lại khi có mạng, không mất hóa đơn.", "a": [2], "why": "Độ ổn định: không mất dữ liệu khi có sự cố."},
+           {"t": "4. Mở thêm siêu thị mới chỉ cần cấu hình, không sửa phần mềm.", "a": [3]},
+           {"t": "5. Nút thanh toán đủ lớn và đặt cùng vị trí trên mọi màn hình để thu ngân bấm nhanh.", "a": [4]},
+           {"t": "6. Website bán online chạy được trên Chrome, Edge, Safari phiên bản mới nhất.", "a": [5]}
+         ]}
+      ]
+    },
+    "L11a-x3": {
+      "lead": "Sắp xếp 5 đầu ra theo thứ tự các bước, rồi chọn bước tùy chọn.",
+      "parts": [
+        {"kind": "order", "q": "Sắp xếp đầu ra theo đúng thứ tự 5 bước phân tích tổng quan theo hướng chức năng.",
+         "items": ["Danh sách yêu cầu thô", "User List", "Function List", "Permission Matrix", "BFD"],
+         "why": "B1 yêu cầu thô → B2 User List → B3 Function List → B4 Permission Matrix → B5 BFD. Phải biết “ai” trước khi biết “ai được làm gì”."},
+        {"kind": "choice", "q": "Đầu ra của bước nào được slide ghi là tùy chọn (Optional)?",
+         "options": ["User List", "BFD", "Function List", "Permission Matrix", "Danh sách yêu cầu thô"],
+         "answer": [1], "multi": false,
+         "why": "Slide ghi B5 (vẽ BFD) là Optional, nhưng bài thực hành cuối buổi vẫn yêu cầu nộp BFD."}
+      ]
+    },
+    "L11a-x4": {
+      "lead": "Kéo từng vế của 4 câu vào FR hoặc NFR, rồi gắn nhóm cho phần NFR.",
+      "parts": [
+        {"kind": "sort", "q": "Mỗi vế dưới đây là phần FR hay phần NFR?",
+         "bins": ["FR", "NFR"],
+         "items": [
+           {"t": "Câu 1: Khách hàng xem vị trí shipper trên bản đồ", "a": [0]},
+           {"t": "Câu 1: Vị trí cập nhật tối thiểu mỗi 10 giây", "a": [1]},
+           {"t": "Câu 2: Hệ thống thông báo đơn mới cho nhà hàng bằng âm thanh", "a": [0]},
+           {"t": "Câu 2: Thông báo đến trong ≤ 5 giây sau khi khách đặt", "a": [1]},
+           {"t": "Câu 3: Khách hàng thanh toán bằng thẻ", "a": [0]},
+           {"t": "Câu 3: Số thẻ được mã hóa", "a": [1]},
+           {"t": "Câu 4: Khách hàng lọc món theo giá", "a": [0]},
+           {"t": "Câu 4: Trang lọc hiển thị và thao tác được trên màn hình điện thoại nhỏ", "a": [1]}
+         ]},
+        {"kind": "sort", "q": "Phần NFR của mỗi câu thuộc nhóm nào?",
+         "bins": ["Hiệu suất", "Bảo mật", "UX", "Tiêu chuẩn kỹ thuật"],
+         "items": [
+           {"t": "Vị trí shipper cập nhật tối thiểu mỗi 10 giây", "a": [0]},
+           {"t": "Thông báo đơn mới đến trong ≤ 5 giây", "a": [0]},
+           {"t": "Số thẻ được mã hóa", "a": [1]},
+           {"t": "Trang lọc hiển thị và thao tác được trên màn hình điện thoại nhỏ", "a": [2, 3], "why": "Đáp án mẫu ghi UX / tiêu chuẩn kỹ thuật, nên chấp nhận cả hai."}
+         ]}
+      ]
+    },
+    "L11a-x5": {
+      "lead": "Gắn nhóm cho 4 câu NFR mơ hồ, rồi chọn cách viết lại đo được.",
+      "parts": [
+        {"kind": "sort", "q": "Câu NFR mơ hồ này thuộc nhóm nào?",
+         "bins": ["Hiệu suất", "Độ ổn định / khả dụng", "Bảo mật", "Khả năng mở rộng"],
+         "items": [
+           {"t": "1. Tìm sách phải nhanh.", "a": [0]},
+           {"t": "2. Hệ thống không được hay sập.", "a": [1]},
+           {"t": "3. Dữ liệu độc giả phải an toàn.", "a": [2]},
+           {"t": "4. Sau này thư viện mở thêm cơ sở thì hệ thống vẫn dùng được.", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "Câu 1 “Tìm sách phải nhanh”: cách viết lại nào đạt?",
+         "options": [
+           "Tìm sách phải thật nhanh, độc giả không phải chờ lâu.",
+           "Độc giả tìm sách theo tên tác giả.",
+           "Kết quả tìm sách hiển thị trong ≤ 2 giây với kho 100.000 đầu sách và 300 người tìm cùng lúc.",
+           "Hệ thống tìm sách nhanh hơn hệ thống cũ."
+         ],
+         "answer": [2], "multi": false,
+         "why": "NFR phải có con số và điều kiện đo: bao nhiêu giây, với bao nhiêu đầu sách, bao nhiêu người cùng lúc. “Thật nhanh”, “nhanh hơn hệ thống cũ” vẫn không kiểm được; “tìm sách theo tên tác giả” là FR. Con số là ví dụ, con số thật phải chốt với stakeholder."},
+        {"kind": "choice", "q": "Câu 2 “Hệ thống không được hay sập”: cách viết lại nào đạt?",
+         "options": [
+           "Hệ thống sẵn sàng 99,5% thời gian trong giờ mở cửa mỗi tháng.",
+           "Hệ thống phải chạy ổn định, hiếm khi sập.",
+           "Hệ thống gửi email báo cho quản trị khi bị sập.",
+           "Hệ thống phải ổn định nhất có thể."
+         ],
+         "answer": [0], "multi": false,
+         "why": "Có tỉ lệ phần trăm và khoảng thời gian đo nên tester kiểm được. “Hiếm khi sập”, “ổn định nhất có thể” vẫn mơ hồ; “gửi email báo” là một hành động, tức FR."},
+        {"kind": "choice", "q": "Câu 3 “Dữ liệu độc giả phải an toàn”: cách viết lại nào đạt?",
+         "options": [
+           "Dữ liệu độc giả phải được bảo vệ thật kỹ.",
+           "Thủ thư khóa tài khoản độc giả vi phạm nội quy.",
+           "Hệ thống bảo mật tuyệt đối dữ liệu độc giả.",
+           "Mật khẩu độc giả lưu dạng mã hóa; dữ liệu truyền qua kết nối mã hóa."
+         ],
+         "answer": [3], "multi": false,
+         "why": "Nói rõ cái gì được bảo vệ và bằng cách nào nên kiểm được. “Bảo vệ thật kỹ”, “bảo mật tuyệt đối” không kiểm được; “khóa tài khoản” là hành động của thủ thư, tức FR."},
+        {"kind": "choice", "q": "Câu 4 “Mở thêm cơ sở vẫn dùng được”: cách viết lại nào đạt?",
+         "options": [
+           "Hệ thống phải dễ mở rộng khi thư viện lớn lên.",
+           "Thêm cơ sở mới chỉ bằng cấu hình, hỗ trợ tối thiểu 10 cơ sở mà không giảm hiệu suất đã cam kết.",
+           "Thủ thư tạo cơ sở mới trong hệ thống.",
+           "Hệ thống dùng được cho nhiều cơ sở."
+         ],
+         "answer": [1], "multi": false,
+         "why": "Có con số (tối thiểu 10 cơ sở) và điều kiện (chỉ cấu hình, không giảm hiệu suất) nên đo được. “Dễ mở rộng”, “nhiều cơ sở” không có con số; “thủ thư tạo cơ sở mới” là FR."}
+      ]
+    },
+    "L11a-x6": {
+      "lead": "Kéo mỗi yêu cầu thô vào vai trò cần nó, rồi chọn cách xử lý hai điểm khó.",
+      "parts": [
+        {"kind": "sort", "q": "Ai là người cần tính năng này?",
+         "bins": ["Thủ thư", "Độc giả", "Ban giám đốc", "Quản trị hệ thống"],
+         "items": [
+           {"t": "1. “Tôi muốn thêm sách mới và sửa thông tin sách.” (thủ thư nói)", "a": [0]},
+           {"t": "2. “Độc giả cần tìm sách và xem sách còn hay hết.”", "a": [1]},
+           {"t": "3. “Thủ thư cho mượn và nhận trả sách.”", "a": [0]},
+           {"t": "4. “Ban giám đốc muốn xem báo cáo lượt mượn mỗi tháng.”", "a": [2]},
+           {"t": "5. “Độc giả muốn gia hạn sách online.”", "a": [1]},
+           {"t": "6. “Cần người tạo tài khoản cho thủ thư mới và khóa tài khoản người nghỉ việc.”", "a": [3], "why": "Câu 6 không nói rõ ai, nên đặt vai trò Quản trị hệ thống."}
+         ]},
+        {"kind": "choice", "q": "Theo gợi ý câu hỏi của slide, Ban giám đốc là loại vai trò nào?",
+         "options": ["Người tạo / cập nhật thông tin", "Người chỉ đọc / giám sát", "Người quản trị tài khoản"],
+         "answer": [1], "multi": false,
+         "why": "Ban giám đốc chỉ xem báo cáo lượt mượn, không tạo hay sửa dữ liệu: đó là vai trò “chỉ đọc / giám sát”."},
+        {"kind": "choice", "q": "Câu 6 không nói rõ ai tạo và khóa tài khoản. BA nên làm gì?",
+         "options": [
+           "Bỏ câu 6 khỏi danh sách vì không rõ người làm",
+           "Gán cho Độc giả",
+           "Đặt vai trò Quản trị hệ thống và ghi chú hỏi lại stakeholder",
+           "Gán luôn cho Thủ thư, không cần hỏi lại"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Đáp án mẫu đặt vai trò Quản trị hệ thống cho câu 6 và ghi chú để hỏi lại stakeholder, không tự quyết hay bỏ yêu cầu."}
+      ]
+    },
+    "L11a-x7": {
+      "lead": "Kéo các chức năng vào đúng tầng của cây “Quản lý mượn trả”, rồi chọn cách kiểm cây.",
+      "parts": [
+        {"kind": "sort", "q": "Mỗi mục nằm ở đâu trong cây phân rã?",
+         "bins": ["Level 2 (dưới Quản lý mượn trả)", "Level 3 (dưới Nhận trả sách)", "Không đưa vào cây"],
+         "items": [
+           {"t": "Cho mượn sách", "a": [0]},
+           {"t": "Gia hạn mượn", "a": [0]},
+           {"t": "Nhận trả sách", "a": [0]},
+           {"t": "Theo dõi sách quá hạn", "a": [0]},
+           {"t": "Quét mã sách", "a": [1]},
+           {"t": "Kiểm tra hạn trả", "a": [1]},
+           {"t": "Tính phí trễ hạn (nếu có)", "a": [1]},
+           {"t": "Cập nhật trạng thái sách", "a": [1]},
+           {"t": "Trả sách trong ≤ 3 giây", "a": [2], "why": "Đây là NFR (hiệu suất), không đưa vào cây chức năng."}
+         ]},
+        {"kind": "choice", "q": "Kiểm cây phân rã thế nào là đạt?",
+         "options": [
+           "Mọi chức năng Level 2 đều phải phân rã đến Level 3",
+           "Mỗi nút trong cây ghi kèm thời gian xử lý tối đa",
+           "Cây phải có đúng 4 chức năng Level 2 như đáp án mẫu",
+           "Các chức năng con cộng lại đủ để làm xong chức năng cha, và không có NFR trong cây"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Đáp án mẫu nhắc hai điểm kiểm: chức năng con cộng lại đủ làm xong chức năng cha; không đưa NFR vào cây. Level 3 chỉ phân rã khi cần, và cách đặt tên, số chức năng có thể khác."}
+      ]
+    },
+    "L11a-x8": {
+      "lead": "Ghép mỗi điểm trong bản nộp với lỗi của nó, rồi với cách sửa.",
+      "parts": [
+        {"kind": "sort", "q": "Điểm này sai ở đâu theo bài học?",
+         "bins": ["NFR bị đưa vào Function List", "Đảo hàng và cột của Permission Matrix", "BFD có Level 2/3 và logic xử lý", "Tên khối viết tắt", "Lẫn nội dung của phân tích chi tiết"],
+         "items": [
+           {"t": "Function List có dòng “Hệ thống phản hồi trong ≤ 2 giây”.", "a": [0]},
+           {"t": "Permission Matrix: hàng là Khách hàng, Nhà hàng, Shipper; cột là các chức năng.", "a": [1]},
+           {"t": "BFD có 14 khối, gồm cả “Nhập mã giảm giá”, “Kiểm tra điều kiện mã: đơn ≥ 100.000đ”.", "a": [2]},
+           {"t": "Một khối BFD tên “QL ĐH”.", "a": [3]},
+           {"t": "Phần phân tích tổng quan có kèm Wireframe màn hình giỏ hàng.", "a": [4]}
+         ]},
+        {"kind": "sort", "q": "Sửa mỗi điểm thế nào cho đúng?",
+         "bins": ["Chuyển sang danh sách NFR", "Đổi lại: hàng là chức năng, cột là User Role", "Chỉ giữ khối Level 1; điều kiện đưa vào Business Rules", "Viết đầy đủ “Quản lý đơn hàng”", "Để sang giai đoạn phân tích chi tiết"],
+         "items": [
+           {"t": "Dòng “Hệ thống phản hồi trong ≤ 2 giây” trong Function List", "a": [0], "why": "Đây là NFR (hiệu suất), không phải chức năng."},
+           {"t": "Permission Matrix lấy vai trò làm hàng, chức năng làm cột", "a": [1], "why": "Slide quy định hàng là chức năng (B3), cột là User Role (B2)."},
+           {"t": "BFD 14 khối có “Nhập mã giảm giá”, “đơn ≥ 100.000đ”", "a": [2], "why": "BFD chỉ vẽ Level 1, không mô tả logic; điều kiện đưa vào Business Rules khi phân tích chi tiết."},
+           {"t": "Khối BFD tên “QL ĐH”", "a": [3], "why": "Lưu ý khi vẽ BFD: tránh viết tắt."},
+           {"t": "Wireframe màn hình giỏ hàng trong phân tích tổng quan", "a": [4], "why": "Wireframe thuộc phân tích chi tiết; phân tích tổng quan không đi vào giao diện."}
+         ]}
+      ]
+    },
+    "L11a-x9": {
+      "lead": "Làm bản phân tích tổng quan kênh online SolasMart bằng cách kéo thả, sắp xếp và chọn.",
+      "parts": [
+        {"kind": "sort", "q": "1) User List: mỗi yêu cầu thô thuộc vai trò nào, hay là NFR?",
+         "bins": ["Khách hàng", "Nhân viên kho", "Nhân viên CSKH", "Quản lý", "NFR, không đưa vào Function List"],
+         "items": [
+           {"t": "“Khách muốn xem sản phẩm, thêm vào giỏ và đặt hàng trên website.”", "a": [0]},
+           {"t": "“Khách cần thanh toán online hoặc trả tiền khi nhận hàng, và xem đơn đang ở đâu.”", "a": [0]},
+           {"t": "“Nhân viên kho nhận đơn, soạn hàng và cập nhật trạng thái đơn.”", "a": [1]},
+           {"t": "“Nhân viên chăm sóc khách hàng xử lý yêu cầu hủy đơn.”", "a": [2]},
+           {"t": "“Quản lý xem báo cáo doanh thu online, chỉnh giá và khuyến mãi.”", "a": [3]},
+           {"t": "“Website phải chịu được đợt khuyến mãi lớn, trang không được chậm quá 3 giây.”", "a": [4]},
+           {"t": "“Thông tin thanh toán của khách phải an toàn.”", "a": [4]}
+         ]},
+        {"kind": "sort", "q": "2) Function List: chức năng Level 2 này thuộc nhóm Level 1 nào?",
+         "bins": ["Quản lý sản phẩm", "Quản lý khuyến mãi", "Quản lý giỏ hàng và đặt hàng", "Quản lý thanh toán", "Quản lý đơn hàng", "Báo cáo doanh thu"],
+         "items": [
+           {"t": "Xem sản phẩm", "a": [0]},
+           {"t": "Cập nhật giá", "a": [0]},
+           {"t": "Tạo khuyến mãi", "a": [1]},
+           {"t": "Thêm vào giỏ", "a": [2]},
+           {"t": "Đặt hàng", "a": [2]},
+           {"t": "Thanh toán online", "a": [3]},
+           {"t": "Thanh toán khi nhận hàng", "a": [3]},
+           {"t": "Nhận đơn", "a": [4]},
+           {"t": "Soạn hàng", "a": [4]},
+           {"t": "Cập nhật trạng thái", "a": [4]},
+           {"t": "Theo dõi đơn", "a": [4]},
+           {"t": "Hủy đơn", "a": [4]},
+           {"t": "Xem báo cáo doanh thu online", "a": [5]}
+         ]},
+        {"kind": "sort", "q": "3) Permission Matrix: điền quyền cho từng ô (vai trò – chức năng).",
+         "bins": ["✅ Có quyền", "❌ Không có quyền", "🔍 Chỉ xem"],
+         "items": [
+           {"t": "Khách hàng – Đặt hàng", "a": [0]},
+           {"t": "Nhân viên kho – Đặt hàng", "a": [1]},
+           {"t": "Nhân viên kho – Cập nhật trạng thái đơn", "a": [0]},
+           {"t": "Khách hàng – Cập nhật trạng thái đơn", "a": [1]},
+           {"t": "Khách hàng – Theo dõi đơn", "a": [2]},
+           {"t": "Nhân viên CSKH – Theo dõi đơn", "a": [2]},
+           {"t": "Quản lý – Theo dõi đơn", "a": [2]},
+           {"t": "Nhân viên CSKH – Hủy đơn", "a": [0]},
+           {"t": "Quản lý – Hủy đơn", "a": [0], "why": "Đáp án mẫu cho cả Nhân viên CSKH và Quản lý quyền hủy đơn."},
+           {"t": "Nhân viên kho – Hủy đơn", "a": [1]},
+           {"t": "Quản lý – Cập nhật giá, khuyến mãi", "a": [0]},
+           {"t": "Nhân viên CSKH – Cập nhật giá, khuyến mãi", "a": [1]},
+           {"t": "Quản lý – Xem báo cáo doanh thu", "a": [0]},
+           {"t": "Khách hàng – Xem báo cáo doanh thu", "a": [1]}
+         ]},
+        {"kind": "choice", "q": "4) Những mục nào được vẽ thành khối trên BFD? (chọn tất cả ý đúng)",
+         "options": ["Quản lý sản phẩm", "Soạn hàng", "Quản lý thanh toán", "Thêm vào giỏ", "Báo cáo doanh thu", "Cập nhật giá", "Quản lý đơn hàng"],
+         "answer": [0, 2, 4, 6], "multi": true,
+         "why": "BFD chỉ vẽ các khối Level 1. “Soạn hàng”, “Thêm vào giỏ”, “Cập nhật giá” là Level 2, nằm trong Function List. Cổng thanh toán là tác nhân bên ngoài, nối với khối Quản lý thanh toán."},
+        {"kind": "order", "q": "5) Sắp xếp các khối theo chiều mũi tên trên BFD.",
+         "items": ["Quản lý giỏ hàng và đặt hàng", "Quản lý thanh toán", "Quản lý đơn hàng", "Báo cáo doanh thu"],
+         "why": "Quản lý sản phẩm và Quản lý khuyến mãi cùng cấp dữ liệu cho giỏ hàng; sau đó giỏ hàng → thanh toán (trao đổi với cổng thanh toán) → đơn hàng → báo cáo doanh thu."},
+        {"kind": "choice", "q": "6) Những câu NFR nào viết đạt? (chọn tất cả ý đúng)",
+         "options": [
+           "Website phải chịu được đợt khuyến mãi lớn.",
+           "Mỗi trang tải trong ≤ 3 giây khi có [số người dùng đồng thời cần chốt với stakeholder] trong đợt khuyến mãi.",
+           "Thông tin thanh toán của khách phải an toàn.",
+           "Mỗi trang tải trong ≤ 3 giây khi có 100.000 người dùng đồng thời (con số BA tự đặt, không hỏi stakeholder).",
+           "Dữ liệu thanh toán được mã hóa khi truyền, không lưu số thẻ đầy đủ.",
+           "Khách hàng thanh toán online qua cổng thanh toán."
+         ],
+         "answer": [1, 4], "multi": true,
+         "why": "NFR đạt phải kiểm được: hiệu suất có số giây và điều kiện tải; bảo mật nói rõ mã hóa, không lưu số thẻ đầy đủ. Số người dùng đồng thời chưa có trong yêu cầu thô nên BA phải hỏi lại stakeholder thay vì tự đặt. “Chịu được khuyến mãi lớn”, “phải an toàn” còn mơ hồ; câu thanh toán qua cổng là FR."}
+      ]
+    }
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "lesson": "L13a",
+  "items": {
+    "L13a-x1": {
+      "lead": "Kéo từng biểu đồ vào nhóm tĩnh hoặc động.",
+      "parts": [
+        {"kind": "sort", "q": "Biểu đồ này thuộc nhóm nào?",
+         "bins": ["Structure (tĩnh)", "Behavior (động)"],
+         "items": [
+           {"t": "Activity", "a": [1]},
+           {"t": "Class", "a": [0]},
+           {"t": "State", "a": [1]},
+           {"t": "Object", "a": [0]},
+           {"t": "Use Case", "a": [1]},
+           {"t": "Component", "a": [0]},
+           {"t": "Sequence", "a": [1]}
+         ]}
+      ]
+    },
+    "L13a-x2": {
+      "lead": "Kéo mỗi tên vào Primary, Secondary hoặc \"không ghi làm actor\", rồi chọn lý do.",
+      "parts": [
+        {"kind": "sort", "q": "Trong hệ thống quản lý thư viện, mỗi tên sau được ghi thế nào?",
+         "bins": ["Primary actor", "Secondary actor", "Không ghi làm tên actor"],
+         "items": [
+           {"t": "Thủ thư", "a": [0]},
+           {"t": "Người đọc", "a": [0]},
+           {"t": "Giám đốc thư viện", "a": [0]},
+           {"t": "Máy đọc mã vạch", "a": [1], "why": "Cung cấp dịch vụ cho hệ thống."},
+           {"t": "Hệ thống email", "a": [1], "why": "Cung cấp dịch vụ gửi email nhắc hạn cho hệ thống."},
+           {"t": "Ông Minh", "a": [2], "why": "Là một người cụ thể; phải ghi vai trò \"Giám đốc thư viện\"."}
+         ]},
+        {"kind": "choice", "q": "Vì sao không ghi \"ông Minh\" làm actor?",
+         "options": [
+           "Vì ông Minh không dùng hệ thống thường xuyên",
+           "Vì actor là vai trò (role), không phải một người cụ thể",
+           "Vì giám đốc là secondary actor",
+           "Vì tên người phải đặt bên trong khung hệ thống"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Actor là role. Ghi vai trò \"Giám đốc thư viện\" thay cho tên người cụ thể."}
+      ]
+    },
+    "L13a-x3": {
+      "lead": "Kéo mỗi cặp vào đúng loại quan hệ, rồi chọn các mũi tên vẽ đúng hướng.",
+      "parts": [
+        {"kind": "sort", "q": "Cặp này có quan hệ gì?",
+         "bins": ["include", "extend", "generalization", "Không có quan hệ"],
+         "items": [
+           {"t": "1. \"Rút tiền\" và \"Xác thực mã PIN\" ở cây ATM", "a": [0], "why": "Luôn phải xác thực."},
+           {"t": "2. \"Áp mã giảm giá\" và \"Thanh toán đơn hàng\" (khách có thể nhập mã hoặc không)", "a": [1], "why": "Tùy chọn, chỉ khi đang thanh toán."},
+           {"t": "3. \"Thanh toán bằng ví điện tử\" và \"Thanh toán\"", "a": [2], "why": "Là một dạng cụ thể của Thanh toán."},
+           {"t": "4. Actor \"Quản trị viên\" và actor \"Nhân viên\" (quản trị viên làm được mọi việc của nhân viên, thêm quyền quản trị)", "a": [2], "why": "Generalization giữa actor."},
+           {"t": "5. \"Xem thực đơn\" và \"Chuẩn bị món ăn\"", "a": [3], "why": "Hai chức năng của hai actor khác nhau, không cái nào là phần bắt buộc hay tùy chọn của cái kia."}
+         ]},
+        {"kind": "choice", "q": "Những mũi tên nào vẽ đúng hướng? (chọn tất cả ý đúng)",
+         "options": [
+           "Xác thực mã PIN → Rút tiền («include»)",
+           "Rút tiền → Xác thực mã PIN («include»)",
+           "Áp mã giảm giá → Thanh toán đơn hàng («extend»)",
+           "Thanh toán đơn hàng → Áp mã giảm giá («extend»)",
+           "Thanh toán → Thanh toán bằng ví điện tử (generalization)",
+           "Thanh toán bằng ví điện tử → Thanh toán (generalization)",
+           "Quản trị viên → Nhân viên (generalization)",
+           "Nhân viên → Quản trị viên (generalization)"
+         ],
+         "answer": [1, 2, 5, 6], "multi": true,
+         "why": "Include: gốc → con. Extend: con (phần tùy chọn) → gốc. Generalization: con → cha, đầu mũi tên tam giác rỗng."}
+      ]
+    },
+    "L13a-x4": {
+      "lead": "Kéo mỗi chuyển đổi vào trạng thái nó dẫn tới, rồi chọn các trạng thái cuối.",
+      "parts": [
+        {"kind": "sort", "q": "Chuyển đổi này đưa Phiếu mượn sang trạng thái nào?",
+         "bins": ["Mới tạo", "Đang mượn", "Quá hạn", "Hoàn thành", "Đã hủy"],
+         "items": [
+           {"t": "Từ Start – Thủ thư: Tạo phiếu", "a": [0]},
+           {"t": "Từ Mới tạo – Thủ thư: Cấp phát", "a": [1]},
+           {"t": "Từ Mới tạo – Thủ thư: Hủy phiếu (sách đã hết)", "a": [4]},
+           {"t": "Từ Đang mượn – Người đọc: Trả sách", "a": [3]},
+           {"t": "Từ Đang mượn – Hệ thống: Đánh dấu quá hạn", "a": [2]},
+           {"t": "Từ Quá hạn – Người đọc: Trả sách", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "Những trạng thái nào là trạng thái cuối (nối tới End)? (chọn tất cả ý đúng)",
+         "options": ["Mới tạo", "Hoàn thành", "Đang mượn", "Quá hạn", "Đã hủy"],
+         "answer": [1, 4], "multi": true,
+         "why": "Hoàn thành và Đã hủy nối tới End. Quá hạn không phải trạng thái cuối vì vẫn còn đường đi tới Hoàn thành."}
+      ]
+    },
+    "L13a-x5": {
+      "lead": "Ghép mỗi điểm trong sơ đồ với lỗi của nó, rồi chọn cách sửa đúng.",
+      "parts": [
+        {"kind": "sort", "q": "Điểm này sai ở đâu?",
+         "bins": ["Actor là người cụ thể và nằm trong khung", "Use case là chi tiết giao diện", "Extend sai hướng và sai vai", "Dùng extend cho bước luôn xảy ra", "Vẽ thứ tự bước trong Use Case Diagram"],
+         "items": [
+           {"t": "Actor \"Anh Tuấn – đầu bếp\" đặt bên trong khung hệ thống", "a": [0]},
+           {"t": "Use case \"Nút Đặt món màu cam\"", "a": [1]},
+           {"t": "\"Xem giỏ hàng\" «extend» \"Cập nhật số lượng\", mũi tên từ Xem giỏ hàng tới Cập nhật số lượng", "a": [2]},
+           {"t": "\"Đặt món\" «extend» \"Thanh toán\" dù đơn nào cũng phải thanh toán", "a": [3]},
+           {"t": "\"Bước 1 rồi bước 2 rồi bước 3 của thanh toán\" vẽ thành 3 elip nối nhau bằng mũi tên", "a": [4]}
+         ]},
+        {"kind": "choice", "q": "Sửa actor \"Anh Tuấn – đầu bếp\" thế nào?",
+         "options": [
+           "Ghi \"Anh Tuấn\", đặt bên ngoài khung hệ thống",
+           "Ghi \"Đầu bếp\", vẫn đặt bên trong khung hệ thống",
+           "Ghi \"Đầu bếp\", đặt bên ngoài system boundary"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Actor phải là vai trò và nằm ngoài khung hệ thống."},
+        {"kind": "choice", "q": "Sửa use case \"Nút Đặt món màu cam\" thế nào?",
+         "options": ["Đặt món", "Nút Đặt món", "Màn hình Đặt món màu cam"],
+         "answer": [0], "multi": false,
+         "why": "Use case là chức năng, không phải chi tiết giao diện như nút hay màu."},
+        {"kind": "choice", "q": "Sửa quan hệ giữa \"Xem giỏ hàng\" và \"Cập nhật số lượng\" thế nào?",
+         "options": [
+           "\"Xem giỏ hàng\" «include» \"Cập nhật số lượng\"",
+           "\"Cập nhật số lượng\" «extend» \"Xem giỏ hàng\", mũi tên từ Cập nhật số lượng về Xem giỏ hàng",
+           "\"Cập nhật số lượng\" «extend» \"Xem giỏ hàng\", mũi tên từ Xem giỏ hàng tới Cập nhật số lượng"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Cập nhật số lượng mới là phần tùy chọn, nên nó extend Xem giỏ hàng; mũi tên extend đi từ phần tùy chọn về use case gốc."},
+        {"kind": "choice", "q": "Sửa quan hệ giữa \"Đặt món\" và \"Thanh toán\" thế nào?",
+         "options": [
+           "\"Thanh toán\" «extend» \"Đặt món\"",
+           "Generalization: Thanh toán → Đặt món",
+           "\"Đặt món\" «include» \"Thanh toán\""
+         ],
+         "answer": [2], "multi": false,
+         "why": "Thanh toán luôn xảy ra nên phải là include."},
+        {"kind": "choice", "q": "Sửa 3 elip \"bước 1, bước 2, bước 3 của thanh toán\" thế nào?",
+         "options": [
+           "Giữ 3 elip, đánh số 1, 2, 3 cho rõ thứ tự",
+           "Gộp thành một use case \"Thanh toán\"; các bước viết trong đặc tả use case hoặc vẽ bằng Activity Diagram",
+           "Nối 3 elip bằng «include» theo đúng thứ tự bước"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Use Case Diagram không vẽ thứ tự bước. Thứ tự bước thuộc đặc tả use case hoặc Activity Diagram."}
+      ]
+    },
+    "L13a-x6": {
+      "lead": "Dựng actor, use case và State Diagram cho đặt bàn FoodNow bằng kéo thả và chọn.",
+      "parts": [
+        {"kind": "sort", "q": "(1) Mỗi actor là Primary hay Secondary?",
+         "bins": ["Primary actor", "Secondary actor"],
+         "items": [
+           {"t": "Khách hàng", "a": [0]},
+           {"t": "Nhân viên nhà hàng", "a": [0]},
+           {"t": "Nhà cung cấp SMS", "a": [1], "why": "Hệ thống bên ngoài cung cấp dịch vụ gửi SMS."}
+         ]},
+        {"kind": "sort", "q": "(2a) Use case này nối với actor nào?",
+         "bins": ["Khách hàng", "Nhân viên nhà hàng", "Nhà cung cấp SMS"],
+         "items": [
+           {"t": "Đăng nhập", "a": [0]},
+           {"t": "Tìm nhà hàng", "a": [0]},
+           {"t": "Đặt bàn", "a": [0]},
+           {"t": "Đặt món trước", "a": [0]},
+           {"t": "Hủy đặt bàn", "a": [0]},
+           {"t": "Xác nhận đặt bàn", "a": [1]},
+           {"t": "Từ chối đặt bàn", "a": [1]},
+           {"t": "Check-in khách", "a": [1]},
+           {"t": "Gửi thông báo", "a": [2]}
+         ]},
+        {"kind": "sort", "q": "(2b) Quan hệ giữa hai use case là gì?",
+         "bins": ["include", "extend"],
+         "items": [
+           {"t": "Đặt món trước – Đặt bàn", "a": [1], "why": "Đặt món trước là tùy chọn: Đặt món trước «extend» Đặt bàn."},
+           {"t": "Xác nhận đặt bàn – Gửi thông báo", "a": [0]},
+           {"t": "Từ chối đặt bàn – Gửi thông báo", "a": [0]},
+           {"t": "Hủy đặt bàn – Gửi thông báo", "a": [0]},
+           {"t": "Check-in khách – Gửi thông báo", "a": [0], "why": "Mỗi lần đổi trạng thái đều gửi SMS, nên các use case này «include» Gửi thông báo."}
+         ]},
+        {"kind": "sort", "q": "(3a) Chuyển đổi này đi ra từ trạng thái nào của đối tượng Đặt bàn?",
+         "bins": ["Start", "Chờ xác nhận", "Đã xác nhận"],
+         "items": [
+           {"t": "Khách hàng: Gửi yêu cầu đặt bàn → Chờ xác nhận", "a": [0]},
+           {"t": "Nhân viên: Xác nhận → Đã xác nhận", "a": [1]},
+           {"t": "Nhân viên: Từ chối (hết bàn) → Bị từ chối", "a": [1]},
+           {"t": "Khách hàng: Hủy → Đã hủy", "a": [1, 2], "why": "Hủy đi ra được từ cả Chờ xác nhận và Đã xác nhận."},
+           {"t": "Nhân viên: Check-in → Đã đến", "a": [2]},
+           {"t": "Hệ thống: Quá giờ hẹn 30 phút → Không đến", "a": [2]}
+         ]},
+        {"kind": "choice", "q": "(3b) Khách được hủy từ những trạng thái nào? (chọn tất cả ý đúng)",
+         "options": ["Bị từ chối", "Chờ xác nhận", "Đã đến", "Đã xác nhận", "Không đến"],
+         "answer": [1, 3], "multi": true,
+         "why": "Đề nói khách được hủy khi yêu cầu còn \"Chờ xác nhận\" hoặc \"Đã xác nhận\"."},
+        {"kind": "choice", "q": "(3c) Những trạng thái nào là trạng thái cuối (nối tới End)? (chọn tất cả ý đúng)",
+         "options": ["Bị từ chối", "Chờ xác nhận", "Đã hủy", "Đã xác nhận", "Đã đến", "Không đến"],
+         "answer": [0, 2, 4, 5], "multi": true,
+         "why": "Có 4 trạng thái cuối: Bị từ chối, Đã hủy, Đã đến, Không đến. Chờ xác nhận và Đã xác nhận vẫn còn chuyển tiếp ra ngoài."}
+      ]
+    }
+  }
+}

@@ -405,6 +405,24 @@ def attach_listen(c, lessons):
     return n
 
 
+def attach_exercises(c, lessons, course=None):
+    """Gắn cách làm tương tác (data/exercises/<ID>.json) vào bài tập; trả số bài tập được gắn."""
+    import exercises as ex
+    n = 0
+    targets = [(d["id"], d.get("exercises") or []) for d in lessons]
+    if course:
+        targets.append(("CS", (course.get("case_study") or {}).get("exercises") or []))
+    for lid, arr in targets:
+        if not (ex.EX_DIR / f"{lid}.json").exists():
+            continue
+        errs = ex.check(lid)
+        for e in errs:
+            c.err("data/exercises", e)
+        if not errs:
+            n += ex.attach(lid, arr)
+    return n
+
+
 def report(c, ok_msg="OK"):
     if c.errors:
         print(f"{len(c.errors)} lỗi:")
@@ -432,6 +450,7 @@ def preview():
     for d in lessons:
         c.lesson(d, quota=False)
     attach_listen(c, lessons)
+    attach_exercises(c, lessons)
     if report(c, f"{len(lessons)} bài OK"):
         return 1
     course = {"title": "IT Business Analyst – Khóa học tương tác (bản xem trước)",
@@ -462,7 +481,8 @@ def build():
         cq = c.course(course, lessons) or []
     c.near_dupes([q for d in lessons for q in d.get("quiz") or []] + cq)
     n_listen = attach_listen(c, lessons)
-    if report(c, f"Dữ liệu OK ({n_listen} bài có Nghe giảng)"):
+    n_ex = attach_exercises(c, lessons, course)
+    if report(c, f"Dữ liệu OK ({n_listen} bài có Nghe giảng, {n_ex} bài tập tương tác)"):
         return 1
     render(course, lessons, OUT)
     return 0

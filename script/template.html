@@ -49,7 +49,7 @@ a{color:var(--primary);text-underline-offset:.2em;text-decoration-thickness:1px}
 a:hover{color:var(--primary-hover)}
 :focus-visible{outline:2.5px solid var(--focus);outline-offset:2px;border-radius:6px}
 [tabindex="-1"]:focus{outline:none}
-button,input,select{font:inherit;color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
 h1,h2,h3{line-height:1.3;text-wrap:balance;letter-spacing:-.015em}
 h1{font-size:clamp(1.6rem,1.2rem + 1.4vw,2.1rem);font-weight:700;margin:.15em 0 .35em;letter-spacing:-.025em}
 h2{font-size:1.3rem;font-weight:700;margin:2em 0 .55em}
@@ -224,6 +224,66 @@ figcaption{font-size:13.5px;color:var(--muted);margin-top:8px}
 .hint,.answer{border-radius:var(--r-sm);padding:12px 16px;margin:12px 0}
 .hint{background:var(--note-bg)}
 .answer{background:var(--tip-bg)}
+/* bài tập tương tác */
+.lead-ex{display:flex;gap:8px;align-items:flex-start;font-weight:600;margin:18px 0 4px;color:var(--primary)}
+.lead-ex svg.i{margin-top:.25em}
+.part{margin:12px 0;padding:14px 16px 16px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--bg)}
+.pq{margin:0 0 2px;font-weight:600}
+.ptip{margin:0 0 10px;font-size:13.5px;color:var(--muted)}
+.tx{white-space:pre-wrap;overflow-wrap:anywhere}
+.pool{display:flex;flex-wrap:wrap;gap:8px;min-height:58px;padding:10px;border:1.5px dashed var(--line-strong);border-radius:var(--r-sm);background:var(--sunk);transition:border-color .15s,background .15s}
+.pool:not(:has(.chip))::after{content:"Đã xếp hết các mục.";color:var(--muted);font-size:14px;align-self:center;padding:0 4px}
+.bins{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:10px;margin-top:10px}
+.bin{display:flex;flex-direction:column;border:1.5px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);padding:8px;min-height:88px;cursor:pointer;transition:border-color .15s,background .15s}
+.bin .bl{margin:2px 4px 8px;font-size:13.5px;font-weight:700;color:var(--primary);line-height:1.35}
+.bz{display:flex;flex-direction:column;gap:6px;flex:1}
+.has-sel .bin,.has-sel .pool{border-color:var(--primary);border-style:dashed}
+.bin.over,.pool.over{background:var(--primary-soft);border-color:var(--primary)}
+.chip{display:block;text-align:left;max-width:100%;padding:8px 12px;border:1.5px solid var(--line-strong);border-radius:10px;background:var(--surface);color:var(--fg);font-size:14.5px;line-height:1.45;cursor:grab;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;box-shadow:0 1px 2px oklch(30% .02 235 / .08)}
+.chip[aria-pressed=true]{border-color:var(--primary);background:var(--primary-soft);box-shadow:0 0 0 3px color-mix(in oklch,var(--primary) 28%,transparent)}
+.chip.dragging,.oi.dragging{opacity:.35}
+.drag-ghost{position:fixed;z-index:50;pointer-events:none;margin:0;box-shadow:var(--shadow-lg);transform:rotate(1.5deg);opacity:.96;list-style:none}
+.chip.right,.oi.right{border-color:var(--ok-line);background:var(--ok-bg)}
+.chip.wrong,.oi.wrong{border-color:var(--bad-line);background:var(--bad-bg)}
+.fix{display:block;margin-top:4px;font-size:13px;font-weight:600;color:var(--bad);white-space:normal}
+.ord{list-style:none;margin:0;padding:0;display:grid;gap:6px;counter-reset:o}
+.oi{counter-increment:o;display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;align-items:center;gap:4px 8px;padding:4px 4px 4px 10px;border:1.5px solid var(--line-strong);border-radius:10px;background:var(--surface);cursor:grab;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;line-height:1.45;font-size:15px}
+.oi::before{content:counter(o);font-weight:700;font-size:13px;color:var(--muted);min-width:1.1em}
+.oi .fix{grid-column:3/-1;margin:0 0 6px}
+.grip{color:var(--muted);display:flex}
+.mv{display:flex}
+.mv .btn{min-height:44px;min-width:40px;padding:0;border-radius:8px}
+.p-choice .opt{margin:6px 0}
+.p-choice.multi .opt .mk{border-radius:7px}
+.pwhy{margin-top:10px;padding:10px 14px;border-radius:var(--r-sm);background:var(--sunk);font-size:14.5px}
+.pwhy .lbl{margin-bottom:2px}
+.pwhy p{margin:0}
+.locked .chip,.locked .oi,.locked .bin,.locked .pool{cursor:default}
+.locked .mv{visibility:hidden}
+.exres{margin:4px 0 0;font-weight:600}
+.exres:empty{display:none}
+.exres.ok{color:var(--ok)}
+.exres.bad{color:var(--bad)}
+/* bài tự viết (bài chưa có dạng tương tác) */
+.work{display:block;margin:16px 0 0}
+.work textarea{display:block;width:100%;min-height:110px;padding:10px 12px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);font-size:16px;line-height:1.55;resize:vertical;field-sizing:content}
+.work textarea:focus{border-color:var(--primary);outline:none;box-shadow:0 0 0 3px var(--primary-soft)}
+.saved{font-weight:400}
+.cmp{display:grid;gap:12px;margin-top:6px}
+@media (min-width:760px){.cmp{grid-template-columns:1fr 1fr}.selfg{grid-column:1/-1}}
+.cmp-mine{border-radius:var(--r-sm);padding:12px 16px;background:var(--sunk)}
+.mine{white-space:pre-wrap}
+.cmp .answer{margin:0}
+.tag.g-ok{background:var(--ok-bg);color:var(--ok)}
+.tag.g-part{background:var(--warn-bg);color:var(--fg)}
+.tag.g-bad{background:var(--bad-bg);color:var(--bad)}
+.btn.g-ok[aria-pressed=true]{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.btn.g-part[aria-pressed=true]{background:var(--warn-bg);border-color:var(--mark-strong)}
+.btn.g-bad[aria-pressed=true]{background:var(--bad-bg);border-color:var(--bad);color:var(--bad)}
+@media (max-width:700px){
+  .part{padding:12px 12px 14px;margin-left:-4px;margin-right:-4px}
+  .bins{grid-template-columns:1fr}
+}
 .steps{counter-reset:s;list-style:none;padding-left:0!important}
 .steps li{counter-increment:s;position:relative;padding-left:40px;margin:12px 0}
 .steps li::before{content:counter(s);position:absolute;left:0;top:.1em;width:26px;height:26px;border-radius:50%;background:var(--primary-soft);color:var(--primary);font-size:13px;font-weight:700;display:grid;place-items:center}
@@ -455,13 +515,16 @@ const ICONS = {
   play: '<path d="M7 4.5v15l12-7.5z"/>', pause: '<rect x="6" y="4.5" width="4" height="15" rx="1"/><rect x="14" y="4.5" width="4" height="15" rx="1"/>',
   ear: '<path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="5" height="7" rx="2"/><rect x="16" y="14" width="5" height="7" rx="2"/>',
   ask: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><path d="M12 17.2v.1"/>', redo: '<path d="M4 12a8 8 0 1 0 2.4-5.7L4 8.5"/><path d="M4 4v4.5h4.5"/>',
-  filter: '<path d="M4 5h16l-6 7.5V19l-4 2v-8.5z"/>', home: '<path d="M4 11 12 4l8 7"/><path d="M6 9.5V20h12V9.5"/>'
+  filter: '<path d="M4 5h16l-6 7.5V19l-4 2v-8.5z"/>',
+  up: '<path d="M6 15l6-6 6 6"/>', down: '<path d="M6 9l6 6 6-6"/>',
+  grip: '<path d="M9 6h.01M15 6h.01M9 12h.01M15 12h.01M9 18h.01M15 18h.01" stroke-width="3"/>', home: '<path d="M4 11 12 4l8 7"/><path d="M6 9.5V20h12V9.5"/>'
 };
 const ic = (n, label) => `<svg class="i" viewBox="0 0 24 24"${label ? ` role="img" aria-label="${label}"` : ' aria-hidden="true"'}>${ICONS[n] || ""}</svg>`;
 const fold = s =>String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/đ/g, "d");
 
 /* ---------- tiến độ (localStorage, khóa itba:v1:*) ---------- */
-const STORE = ["ok", "done", "fc", "wrong", "best"], S = {};
+// draft: bài làm tự viết của bài tập; grade: tự chấm (ok | part | bad)
+const STORE = ["ok", "done", "fc", "wrong", "best", "draft", "grade"], S = {};
 let onSave = () => {};
 function load(k) {
   try { const v = JSON.parse(localStorage.getItem("itba:v1:" + k)); return v && typeof v === "object" && !Array.isArray(v) ? v : {}; }
@@ -769,29 +832,295 @@ function listenView(el, l) {
   startCover();
 }
 
-/* thực hành (steps) và bài tập (hints mở dần) */
+/* ---------- bài tập tương tác: sort (kéo vào nhóm / ghép cặp), order (sắp xếp), choice (1 hoặc nhiều đáp án) ---------- */
+const chipHtml = (t, i) => `<button type="button" class="chip" data-i="${i}" aria-pressed="false"><span class="tx">${esc(t)}</span></button>`;
+function partHtml(p, k) {
+  const head = tip => `<p class="pq tx">${esc(p.q)}</p><p class="ptip">${tip}</p>`;
+  if (p.kind === "sort") {
+    return `<section class="part p-sort" data-k="${k}">${head("Kéo từng mục vào đúng nhóm. Trên điện thoại: chạm mục, rồi chạm nhóm.")}
+      <div class="pool" data-bin="-1" tabindex="0" role="button" aria-label="Danh sách mục chưa xếp">${shuffle(p.items.map((_, i) => i)).map(i => chipHtml(p.items[i].t, i)).join("")}</div>
+      <div class="bins">${p.bins.map((b, j) => `<div class="bin" data-bin="${j}" tabindex="0" role="button" aria-label="Thả vào nhóm ${esc(b)}"><p class="bl tx">${esc(b)}</p><div class="bz"></div></div>`).join("")}</div></section>`;
+  }
+  if (p.kind === "order") {
+    let o = shuffle(p.items.map((_, i) => i));
+    if (o.every((v, i) => v === i)) o.reverse();
+    return `<section class="part p-order" data-k="${k}">${head("Kéo để đổi thứ tự, hoặc dùng nút lên / xuống.")}
+      <ol class="ord">${o.map(i => `<li class="oi" data-i="${i}"><span class="grip" aria-hidden="true">${ic("grip")}</span><span class="tx">${esc(p.items[i])}</span>
+        <span class="mv"><button type="button" class="btn ghost" data-mv="-1" aria-label="Đưa lên">${ic("up")}</button><button type="button" class="btn ghost" data-mv="1" aria-label="Đưa xuống">${ic("down")}</button></span></li>`).join("")}</ol>
+      <div class="pwhy prose" hidden></div></section>`;
+  }
+  return `<section class="part p-choice${p.multi ? " multi" : ""}" data-k="${k}">${head(p.multi ? "Chọn tất cả phương án đúng." : "Chọn 1 phương án.")}
+    ${p.options.map((o, j) => `<button type="button" class="opt" data-o="${j}" aria-pressed="false"><span class="mk">${"ABCDEFGH"[j]}</span><span class="ot tx">${esc(o)}</span><span class="st"></span></button>`).join("")}
+    <div class="pwhy prose" hidden></div></section>`;
+}
+function autoHtml(x) {
+  const A = x.auto;
+  return `${A.lead ? `<p class="lead-ex">${ic("cards")}<span>${esc(A.lead)}</span></p>` : ""}<div class="parts">${A.parts.map(partHtml).join("")}</div>`;
+}
+let dragEnded = 0;
+function selChip(sec, c) {
+  $$(".chip[aria-pressed=true]", sec).forEach(x => { if (x !== c) x.setAttribute("aria-pressed", "false"); });
+  if (c) c.setAttribute("aria-pressed", c.getAttribute("aria-pressed") === "true" ? "false" : "true");
+  sec.classList.toggle("has-sel", !!$(".chip[aria-pressed=true]", sec));
+}
+function moveChip(c, dest) {
+  (dest.classList.contains("pool") ? dest : $(".bz", dest)).appendChild(c);
+  c.setAttribute("aria-pressed", "false");
+  const sec = dest.closest(".part"); sec.classList.remove("has-sel");
+}
+// trả true nếu cú bấm thuộc phần làm bài tương tác
+function autoClick(e) {
+  const t = e.target, sec = t.closest(".part"); if (!sec) return false;
+  if (Date.now() - dragEnded < 80 || sec.closest(".ex").classList.contains("locked")) return true;
+  const c = t.closest(".chip"), mv = t.closest("[data-mv]"), o = t.closest(".opt");
+  if (c) {
+    // đang cầm 1 mục mà chạm vào mục khác nằm trong nhóm → thả vào nhóm đó
+    const s = $(".chip[aria-pressed=true]", sec), home = c.closest(".bin");
+    if (s && s !== c && home) moveChip(s, home); else selChip(sec, c);
+    return true;
+  }
+  const dz = t.closest(".bin, .pool");
+  if (dz) { const s = $(".chip[aria-pressed=true]", sec); if (s) moveChip(s, dz); return true; }
+  if (mv) {
+    const li = mv.closest(".oi"), d = +mv.dataset.mv, sib = d < 0 ? li.previousElementSibling : li.nextElementSibling;
+    if (sib) { d < 0 ? sib.before(li) : sib.after(li); mv.focus(); }
+    return true;
+  }
+  if (o) {
+    const multi = sec.classList.contains("multi"), on = o.getAttribute("aria-pressed") !== "true";
+    if (!multi) $$(".opt", sec).forEach(b => b.setAttribute("aria-pressed", "false"));
+    o.setAttribute("aria-pressed", String(multi ? on : true));
+    return true;
+  }
+  return true;
+}
+function autoCheck(card, x) {
+  const res = $(".exres", card), secs = $$(".part", card);
+  let miss = 0;
+  secs.forEach(sec => {
+    const p = x.auto.parts[+sec.dataset.k];
+    if (p.kind === "sort") miss += $$(".pool .chip", sec).length;
+    else if (p.kind === "choice" && !$(".opt[aria-pressed=true]", sec)) miss++;
+  });
+  if (miss) { res.className = "exres bad"; res.textContent = `Còn ${miss} chỗ chưa làm. Làm hết rồi bấm Kiểm tra.`; return; }
+  let right = 0, total = 0;
+  const fix = (el, s) => el.insertAdjacentHTML("beforeend", `<small class="fix">${s}</small>`);
+  secs.forEach(sec => {
+    const p = x.auto.parts[+sec.dataset.k], why = $(".pwhy", sec);
+    if (p.kind === "sort") {
+      $$(".bin .chip", sec).forEach(c => {
+        const it = p.items[+c.dataset.i], ok = it.a.indexOf(+c.closest(".bin").dataset.bin) >= 0;
+        total++; if (ok) right++;
+        c.classList.add(ok ? "right" : "wrong");
+        if (!ok) fix(c, `Đúng: ${it.a.map(j => esc(p.bins[j])).join(" hoặc ")}${it.why ? ". " + esc(it.why) : ""}`);
+      });
+    } else if (p.kind === "order") {
+      $$(".oi", sec).forEach((li, pos) => {
+        const ok = +li.dataset.i === pos; total++; if (ok) right++;
+        li.classList.add(ok ? "right" : "wrong");
+        if (!ok) fix(li, `Vị trí đúng: ${+li.dataset.i + 1}`);
+      });
+    } else {
+      const pick = $$(".opt[aria-pressed=true]", sec).map(b => +b.dataset.o), ok = pick.length === p.answer.length && p.answer.every(a => pick.indexOf(a) >= 0);
+      total++; if (ok) right++;
+      $$(".opt", sec).forEach(b => {
+        const j = +b.dataset.o, isA = p.answer.indexOf(j) >= 0, isP = pick.indexOf(j) >= 0;
+        if (isA) { b.classList.add("right"); $(".st", b).innerHTML = `${ic("check")}${isP ? "Đúng" : "Đáp án đúng, bạn chưa chọn"}`; }
+        else if (isP) { b.classList.add("wrong"); $(".st", b).innerHTML = `${ic("x")}Bạn chọn · sai`; }
+      });
+    }
+    if (why && p.why) { why.innerHTML = `<p class="lbl">Giải thích</p><p class="tx">${esc(p.why)}</p>`; why.hidden = false; }
+  });
+  const all = right === total;
+  card.classList.add("locked"); card.classList.toggle("allok", all);
+  $("[data-act=check]", card).hidden = true;
+  const redo = $("[data-act=redo]", card); redo.hidden = false; $("span", redo).textContent = all ? "Làm lại từ đầu" : "Sửa chỗ sai";
+  res.className = "exres " + (all ? "ok" : "bad");
+  res.textContent = all ? `Đúng hết ${right}/${total}. Bài đã tính vào tiến độ.` : `Đúng ${right}/${total}. Chỗ sai tô đỏ kèm đáp án đúng. Bấm "Sửa chỗ sai" để làm lại phần sai.`;
+  if (all) {
+    S.done[x.id] = 1; S.grade[x.id] = "ok"; save("done"); save("grade");
+    card.classList.add("done");
+  }
+}
+function autoRedo(card, x) {
+  const all = card.classList.contains("allok");
+  $$(".fix", card).forEach(f => f.remove());
+  $$(".pwhy", card).forEach(w => { w.hidden = true; });
+  $$(".part", card).forEach(sec => {
+    const p = x.auto.parts[+sec.dataset.k];
+    if (p.kind === "sort") {
+      const pool = $(".pool", sec);
+      $$(".chip", sec).forEach(c => { if (all || c.classList.contains("wrong")) pool.appendChild(c); c.classList.remove("right", "wrong"); });
+    } else if (p.kind === "order") {
+      const ol = $(".ord", sec), lis = $$(".oi", sec);
+      lis.forEach(li => li.classList.remove("right", "wrong"));
+      if (all) { let o = shuffle(lis); if (o.every((li, i) => +li.dataset.i === i)) o.reverse(); o.forEach(li => ol.appendChild(li)); }
+    } else {
+      $$(".opt", sec).forEach(b => {
+        if (all || b.classList.contains("wrong")) b.setAttribute("aria-pressed", "false");
+        b.classList.remove("right", "wrong"); $(".st", b).innerHTML = "";
+      });
+    }
+  });
+  card.classList.remove("locked", "allok");
+  $("[data-act=check]", card).hidden = false; $("[data-act=redo]", card).hidden = true;
+  const res = $(".exres", card); res.textContent = ""; res.className = "exres";
+}
+// kéo thả bằng pointer events: chuột kéo ngay, cảm ứng giữ 0,2 giây rồi kéo (chạm nhanh vẫn để cuộn trang)
+function dragSetup(root) {
+  let st = null;
+  const end = drop => {
+    if (!st) return;
+    clearTimeout(st.timer);
+    if (st.active) {
+      if (drop && st.el.classList.contains("chip")) {
+        const g = st.ghost; g.hidden = true;
+        const dz = (document.elementFromPoint(drop.x, drop.y) || document.body).closest(".bin, .pool");
+        if (dz && dz.closest(".part") === st.sec) moveChip(st.el, dz);
+      }
+      st.ghost.remove(); st.el.classList.remove("dragging");
+      $$(".over", st.sec).forEach(z => z.classList.remove("over"));
+      dragEnded = Date.now();
+    }
+    st = null;
+  };
+  const begin = (x, y) => {
+    const r = st.el.getBoundingClientRect(), g = st.el.cloneNode(true);
+    g.classList.add("drag-ghost"); g.removeAttribute("data-i"); g.style.width = r.width + "px";
+    st.dx = x - r.left; st.dy = y - r.top; st.ghost = g; st.active = true;
+    g.style.left = r.left + "px"; g.style.top = r.top + "px";
+    document.body.appendChild(g); st.el.classList.add("dragging");
+    if (st.el.classList.contains("chip")) selChip(st.sec, null);
+  };
+  root.addEventListener("pointerdown", e => {
+    const it = e.target.closest(".chip, .oi");
+    if (!it || e.button > 0 || e.target.closest("[data-mv]") || it.closest(".ex").classList.contains("locked")) return;
+    st = {el: it, sec: it.closest(".part"), x0: e.clientX, y0: e.clientY, touch: e.pointerType !== "mouse", active: false};
+    if (st.touch) st.timer = setTimeout(() => { if (st && !st.active) { begin(st.x0, st.y0); if (navigator.vibrate) navigator.vibrate(10); } }, 200);
+  });
+  const move = e => {
+    if (!st) return;
+    const dist = Math.hypot(e.clientX - st.x0, e.clientY - st.y0);
+    if (!st.active) {
+      if (st.touch) { if (dist > 8) end(); return; }
+      if (dist < 5) return;
+      begin(st.x0, st.y0);
+    }
+    st.ghost.style.left = e.clientX - st.dx + "px"; st.ghost.style.top = e.clientY - st.dy + "px";
+    if (e.clientY < 70) scrollBy(0, -14); else if (e.clientY > innerHeight - 70) scrollBy(0, 14);
+    if (st.el.classList.contains("chip")) {
+      st.ghost.hidden = true;
+      const dz = (document.elementFromPoint(e.clientX, e.clientY) || document.body).closest(".bin, .pool");
+      st.ghost.hidden = false;
+      $$(".over", st.sec).forEach(z => { if (z !== dz) z.classList.remove("over"); });
+      if (dz && dz.closest(".part") === st.sec) dz.classList.add("over");
+    } else {
+      const ol = st.el.parentNode, sib = $$(".oi", ol).filter(li => li !== st.el);
+      const nxt = sib.find(li => { const r = li.getBoundingClientRect(); return e.clientY < r.top + r.height / 2; });
+      if (nxt) { if (st.el.nextElementSibling !== nxt) ol.insertBefore(st.el, nxt); } else if (ol.lastElementChild !== st.el) ol.appendChild(st.el);
+    }
+  };
+  const onUp = e => end({x: e.clientX, y: e.clientY}), onCancel = () => end();
+  const noScroll = e => { if (st && st.active) e.preventDefault(); };
+  window.addEventListener("pointermove", move);
+  window.addEventListener("pointerup", onUp);
+  window.addEventListener("pointercancel", onCancel);
+  document.addEventListener("touchmove", noScroll, {passive: false});
+  root.addEventListener("contextmenu", e => { if (e.target.closest(".chip, .oi")) e.preventDefault(); });
+  root.addEventListener("keydown", e => {
+    if ((e.key === "Enter" || e.key === " ") && e.target.matches(".bin, .pool")) { e.preventDefault(); e.target.click(); }
+  });
+  cleanup.push(() => {
+    window.removeEventListener("pointermove", move); window.removeEventListener("pointerup", onUp);
+    window.removeEventListener("pointercancel", onCancel); document.removeEventListener("touchmove", noScroll);
+    if (st && st.ghost) st.ghost.remove();
+  });
+}
+
+/* thực hành (steps, tự đánh dấu) và bài tập (gợi ý mở dần → tự làm → nộp → so đáp án mẫu → tự chấm) */
+const GRADE = {ok: "Đúng hết", part: "Đúng một phần", bad: "Chưa đúng"};
+const GRADE_NOTE = {ok: "Tốt lắm. Bài này đã tính vào tiến độ.", part: "Đã tính vào tiến độ. Đọc lại phần còn thiếu trong đáp án mẫu nhé.",
+  bad: "Chưa tính vào tiến độ. Xem gợi ý, sửa bài làm rồi nộp lại."};
 function exList(el, items, practice) {
   if (!items || !items.length) return empty(el);
+  const gradeHtml = id => { const g = S.grade[id]; return g ? `<span class="tag g-${g}">Tự chấm: ${GRADE[g]}</span>` : ""; };
   el.innerHTML = items.map(x => {
     const hints = x.hints || [], done = !!S.done[x.id];
     return `<article class="card ex${done ? " done" : ""}" data-id="${esc(x.id)}">
     <h2>${esc(x.title)} ${x.level ? `<span class="tag${x.level === "kho" ? " lv-apdung" : ""}">${esc(XLEVEL[x.level] || x.level)}</span>` : ""}<span class="done-badge">${ic("check")}Đã làm</span></h2>
     <div class="prose">${x.task || ""}</div>
-    ${practice ? `<h3>Các bước làm mẫu</h3><ol class="steps prose">${(x.steps || []).map(s => `<li>${s}</li>`).join("")}</ol>`
-      : hints.map((h, j) => `<div class="hint prose" tabindex="-1" hidden><p class="lbl">Gợi ý ${j + 1}/${hints.length}</p>${h}</div>`).join("")}
+    ${practice ? `<h3>Các bước làm mẫu</h3><ol class="steps prose">${(x.steps || []).map(s => `<li>${s}</li>`).join("")}</ol>
     <div class="row">
-      ${!practice && hints.length ? `<button class="btn" data-act="hint">${ic("bulb")}<span>Xem gợi ý 1/${hints.length}</span></button>` : ""}
       <button class="btn" data-act="ans" aria-expanded="false">${ic("eye")}<span>Xem đáp án mẫu</span></button>
       <button class="btn" data-act="done" aria-pressed="${done}">${ic("check")}<span>${done ? "Đã làm" : "Đánh dấu đã làm"}</span></button>
     </div>
-    <div class="answer prose" hidden><p class="lbl">Đáp án mẫu</p>${x.answer || ""}</div>
+    <div class="answer prose" hidden><p class="lbl">Đáp án mẫu</p>${x.answer || ""}</div>`
+    : x.auto ? `${hints.map((h, j) => `<div class="hint prose" tabindex="-1" hidden><p class="lbl">Gợi ý ${j + 1}/${hints.length}</p>${h}</div>`).join("")}
+    ${autoHtml(x)}
+    <div class="row">
+      ${hints.length ? `<button class="btn" data-act="hint">${ic("bulb")}<span>Xem gợi ý 1/${hints.length}</span></button>` : ""}
+      <button class="btn primary" data-act="check">${ic("check")}<span>Kiểm tra</span></button>
+      <button class="btn" data-act="redo" hidden>${ic("redo")}<span>Làm lại</span></button>
+      <button class="btn ghost" data-act="ans" aria-expanded="false">${ic("eye")}<span>Xem đáp án mẫu</span></button>
+    </div>
+    <p class="exres" aria-live="polite">${done ? "Bạn đã làm đúng hết bài này. Làm lại để ôn cũng được." : ""}</p>
+    <div class="answer prose" hidden><p class="lbl">Đáp án mẫu</p>${x.answer || ""}</div>`
+    : `${hints.map((h, j) => `<div class="hint prose" tabindex="-1" hidden><p class="lbl">Gợi ý ${j + 1}/${hints.length}</p>${h}</div>`).join("")}
+    <label class="work"><span class="lbl">Bài làm của bạn <span class="saved" aria-live="polite"></span></span>
+      <textarea rows="4" placeholder="Gõ câu trả lời ở đây. Bài làm tự lưu trên máy này." spellcheck="false">${esc(S.draft[x.id] || "")}</textarea></label>
+    <div class="row">
+      ${hints.length ? `<button class="btn" data-act="hint">${ic("bulb")}<span>Xem gợi ý 1/${hints.length}</span></button>` : ""}
+      <button class="btn primary" data-act="submit" aria-expanded="false">${ic("eye")}<span>Nộp và so đáp án</span></button>
+      <span class="gstat">${gradeHtml(x.id)}</span>
+    </div>
+    <div class="cmp" hidden>
+      <div class="cmp-mine"><p class="lbl">Bài làm của bạn</p><div class="mine"></div></div>
+      <div class="answer prose"><p class="lbl">Đáp án mẫu</p>${x.answer || ""}</div>
+      <div class="selfg"><p class="lbl">So với đáp án mẫu, bạn tự chấm bài mình:</p>
+        <div class="row">${Object.keys(GRADE).map(g => `<button class="btn g-${g}" data-act="grade" data-g="${g}" aria-pressed="${S.grade[x.id] === g}">${GRADE[g]}</button>`).join("")}</div>
+        <p class="gnote small" aria-live="polite">${S.grade[x.id] ? GRADE_NOTE[S.grade[x.id]] : ""}</p></div>
+    </div>`}
     ${src(x.src)}</article>`;
   }).join("");
   enhance(el);
+  // lưu nháp: ghi thẳng localStorage (không vẽ lại thanh bên mỗi lần gõ phím)
+  let tmr = 0;
+  el.oninput = e => {
+    const ta = e.target; if (ta.tagName !== "TEXTAREA") return;
+    const card = ta.closest(".ex"), id = card.dataset.id;
+    clearTimeout(tmr);
+    tmr = setTimeout(() => {
+      if (ta.value.trim()) S.draft[id] = ta.value; else delete S.draft[id];
+      try { localStorage.setItem("itba:v1:draft", JSON.stringify(S.draft)); $(".saved", card).textContent = "· đã lưu"; } catch (err) { $(".saved", card).textContent = "· không lưu được trên trình duyệt này"; }
+    }, 400);
+  };
+  const byId = Object.create(null); items.forEach(x => { byId[x.id] = x; });
+  dragSetup(el);
   el.onclick = e => {
+    if (autoClick(e, byId)) return;
     const b = e.target.closest("button[data-act]"); if (!b) return;
     const card = b.closest(".ex"), id = card.dataset.id, act = b.dataset.act;
-    if (act === "hint") {
+    if (act === "check") autoCheck(card, byId[id]);
+    else if (act === "redo") autoRedo(card, byId[id]);
+    else if (act === "submit") {
+      const c = $(".cmp", card), show = c.hidden, v = $("textarea", card).value.trim();
+      if (show) {
+        const m = $(".mine", card);
+        m.textContent = v || "Bạn chưa viết gì. Vẫn có thể so đáp án rồi tự chấm.";
+        m.classList.toggle("muted", !v);
+      }
+      c.hidden = !show; b.setAttribute("aria-expanded", show); $("span", b).textContent = show ? "Ẩn đáp án" : "Nộp và so đáp án";
+      if (show) c.scrollIntoView({block: "nearest", behavior: "smooth"});
+    } else if (act === "grade") {
+      const g = b.dataset.g;
+      S.grade[id] = g; save("grade");
+      if (g === "bad") delete S.done[id]; else S.done[id] = 1;
+      save("done");
+      $$("[data-act=grade]", card).forEach(x => x.setAttribute("aria-pressed", x === b));
+      $(".gnote", card).textContent = GRADE_NOTE[g];
+      $(".gstat", card).innerHTML = gradeHtml(id);
+      card.classList.toggle("done", !!S.done[id]);
+    } else if (act === "hint") {
       const hs = $$(".hint", card), k = hs.findIndex(h => h.hidden);
       if (k < 0) return;
       hs[k].hidden = false;

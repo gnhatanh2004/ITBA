@@ -1,0 +1,91 @@
+{
+  "lesson": "L11c",
+  "items": {
+    "L11c-x1": {
+      "lead": "Kéo mỗi câu vào đúng cột của bảng phân tích GAP.",
+      "parts": [
+        {"kind": "sort", "q": "Doanh nghiệp A: câu này thuộc cột nào của template?",
+         "bins": ["As-Is", "To-Be", "Gap", "Action Plan"],
+         "items": [
+           {"t": "Đơn hàng được nhập tay vào Excel.", "a": [0], "why": "Mô tả việc đang làm hiện tại."},
+           {"t": "Tồn kho tự cập nhật khi có đơn hàng mới.", "a": [1], "why": "Trạng thái doanh nghiệp muốn đạt."},
+           {"t": "Chưa có liên kết giữa đơn hàng và kho.", "a": [2], "why": "Chỉ ra phần còn thiếu."},
+           {"t": "Xây module kho trừ tồn khi đơn được xác nhận.", "a": [3], "why": "Hành động cụ thể sẽ làm để lấp Gap."},
+           {"t": "Tổng hợp số liệu mất nhiều thời gian.", "a": [0], "why": "Vấn đề đang gặp ở hiện tại."},
+           {"t": "Chưa có công cụ tổng hợp tự động.", "a": [2], "why": "Chỉ ra phần còn thiếu, không ghi giải pháp."}
+         ]}
+      ]
+    },
+    "L11c-x2": {
+      "lead": "Ghép mỗi requirement với Gap mà nó lấp, rồi chọn cách viết requirement đạt.",
+      "parts": [
+        {"kind": "sort", "q": "Requirement này lấp Gap nào của Doanh nghiệp A?",
+         "bins": ["Chưa có kiểm tra khi nhập", "Chưa có công cụ tổng hợp tự động", "Chưa liên kết đơn hàng với kho", "Chưa ghi nhận thanh toán gắn với đơn"],
+         "items": [
+           {"t": "Hệ thống phải tự trừ tồn kho khi đơn hàng được xác nhận.", "a": [2]},
+           {"t": "Hệ thống phải ghi nhận trạng thái thanh toán của từng đơn hàng.", "a": [3]},
+           {"t": "Hệ thống phải kiểm tra các trường bắt buộc và định dạng số lượng, giá khi nhập đơn hàng.", "a": [0]},
+           {"t": "Người quản lý có thể xem báo cáo tổng đơn hàng và doanh thu theo ngày, tháng.", "a": [1]}
+         ]},
+        {"kind": "choice", "q": "Với Gap \"Chưa liên kết đơn hàng với kho\", câu nào là một requirement viết đạt?",
+         "options": [
+           "Đơn hàng được nhập tay vào Excel.",
+           "Kho chưa được quản lý tự động.",
+           "Hệ thống phải tự trừ tồn kho khi đơn hàng được xác nhận.",
+           "Hệ thống phải tốt hơn Excel."
+         ],
+         "answer": [2], "multi": false,
+         "why": "Requirement nói hệ thống phải làm gì để hết chỗ thiếu. Câu 1 và 2 chỉ mô tả hiện trạng (As-Is), câu 4 chung chung, không nói hệ thống làm gì."}
+      ]
+    },
+    "L11c-x3": {
+      "lead": "Sắp xếp 5 bước, kéo từng ô vào đúng cột, rồi chọn Gap và requirement đúng cho thư viện.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp 5 bước phân tích GAP theo đúng thứ tự.",
+         "items": [
+           "Xác định phạm vi phân tích (Area of Focus)",
+           "Xác định trạng thái hiện tại (As-Is)",
+           "Xác định trạng thái mong muốn (To-Be)",
+           "Xác định GAP",
+           "Đề xuất giải pháp (Action Plan)"
+         ],
+         "why": "Đang ở đâu → Muốn tới đâu → Thiếu gì → Làm gì, sau khi đã chốt phạm vi."},
+        {"kind": "sort", "q": "2) Mỗi ô của bảng thư viện thuộc cột nào?",
+         "bins": ["As-Is", "To-Be", "Gap", "Action Plan"],
+         "items": [
+           {"t": "[Tra cứu sách] Phải đến thư viện hỏi", "a": [0]},
+           {"t": "[Tra cứu sách] Tra cứu online", "a": [1]},
+           {"t": "[Tra cứu sách] Chưa có dữ liệu sách số hóa và trang tra cứu", "a": [2]},
+           {"t": "[Tra cứu sách] Nhập danh mục sách; xây chức năng tìm kiếm, xem tình trạng sách", "a": [3]},
+           {"t": "[Mượn – trả] Ghi sổ", "a": [0]},
+           {"t": "[Mượn – trả] Tạo phiếu mượn trên hệ thống", "a": [1]},
+           {"t": "[Mượn – trả] Chưa có chức năng phiếu mượn điện tử", "a": [2]},
+           {"t": "[Mượn – trả] Xây chức năng Tạo phiếu mượn, Ghi nhận trả sách", "a": [3]},
+           {"t": "[Báo cáo] Đếm tay cuối tháng", "a": [0]},
+           {"t": "[Báo cáo] Báo cáo lượt mượn tự động", "a": [1]},
+           {"t": "[Báo cáo] Chưa có dữ liệu mượn tập trung và chức năng báo cáo", "a": [2]},
+           {"t": "[Báo cáo] Xây báo cáo lượt mượn theo tháng từ dữ liệu phiếu mượn", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "3) Cột Gap của dòng Báo cáo ghi thế nào cho đúng?",
+         "options": [
+           "Cần mua phần mềm làm báo cáo",
+           "Chưa có dữ liệu mượn tập trung và chức năng báo cáo",
+           "Đếm tay cuối tháng",
+           "Báo cáo lượt mượn tự động"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Gap ghi phần còn thiếu. \"Cần mua phần mềm\" là ghi giải pháp vào Gap (lỗi hay gặp); \"Đếm tay cuối tháng\" là As-Is; \"Báo cáo lượt mượn tự động\" là To-Be."},
+        {"kind": "choice", "q": "4) Câu nào là requirement rút ra từ Gap của bảng? (chọn tất cả ý đúng)",
+         "options": [
+           "Thành viên phải đến thư viện để hỏi sách còn hay không.",
+           "Thủ thư đếm tay số lượt mượn vào cuối tháng.",
+           "Thành viên có thể tìm sách theo tên, tác giả và xem sách còn hay đã được mượn.",
+           "Thủ thư ghi mượn – trả vào sổ.",
+           "Hệ thống phải tự tổng hợp số lượt mượn theo tháng từ các phiếu mượn."
+         ],
+         "answer": [2, 4], "multi": true,
+         "why": "Requirement viết từ Gap, nói hệ thống phải làm gì. Ba câu còn lại chỉ chép lại hiện trạng (As-Is), không phải yêu cầu cho hệ thống mới."}
+      ]
+    }
+  }
+}
