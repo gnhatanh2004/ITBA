@@ -1,0 +1,1331 @@
+{
+ "id": "L09",
+ "session": 9,
+ "module": "M3",
+ "title": "Phân tích tài liệu (Document Analysis)",
+ "goals": [
+  "Nêu được khái niệm Document Analysis và các loại tài liệu BA có thể phân tích",
+  "Giải thích được 6 mục đích của Document Analysis",
+  "Thực hiện được 3 bước: Chuẩn bị, Phân tích – đánh giá, Ghi nhận phát hiện",
+  "Rút được actor, quy trình, quy tắc nghiệp vụ, biểu mẫu và vấn đề từ bộ tài liệu SolasMart",
+  "Phát hiện được thông tin mâu thuẫn, trùng lặp, lỗ hổng và biết cần hỏi lại stakeholder điều gì"
+ ],
+ "sources": [
+  {
+   "file": "9. Document Analysis.pdf",
+   "pages": "1-10"
+  },
+  {
+   "file": "Quy trinh ban hang tai quay.docx",
+   "pages": "toàn văn"
+  },
+  {
+   "file": "Tai lieu SolasMart (13 file)",
+   "pages": "toàn văn"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L09-t1",
+   "h": "Document Analysis là gì",
+   "html": "<p><b>Document Analysis (phân tích tài liệu)</b> là kỹ thuật <b>thu thập, đọc, phân loại và phân tích</b> các tài liệu <b>hiện có</b> của tổ chức để hiểu <b>quy trình, quy định, dữ liệu và yêu cầu nghiệp vụ</b> mà không cần hỏi trực tiếp Stakeholder (bên liên quan).</p><p>Bốn động từ trong định nghĩa chính là chuỗi việc BA làm:</p><ul><li><b>Thu thập</b>: gom tài liệu từ các bộ phận.</li><li><b>Đọc</b>: đọc kỹ, ghi chú.</li><li><b>Phân loại</b>: xếp tài liệu theo loại và chủ đề.</li><li><b>Phân tích</b>: rút ra thông tin, tìm điểm mâu thuẫn và thiếu sót.</li></ul><p>Bốn thứ BA muốn hiểu: <b>quy trình</b> (việc diễn ra theo thứ tự nào), <b>quy định</b> (luật lệ phải tuân theo), <b>dữ liệu</b> (thông tin nào được ghi lại, ở đâu) và <b>yêu cầu nghiệp vụ</b> (tổ chức cần gì).</p><p class=\"tip\">\"Không cần hỏi trực tiếp\" nghĩa là ở bước này BA tự đọc, chưa chiếm thời gian của stakeholder. Sau đó BA vẫn mang kết quả đi xác nhận và hỏi lại chỗ chưa rõ.</p><p class=\"note\">Theo BABOK v3, Document Analysis là một kỹ thuật khai thác yêu cầu (Elicitation technique). Slide xếp nó là bước giúp \"chuẩn bị dữ liệu cho Elicitation\". Hai cách nhìn không mâu thuẫn: thường BA phân tích tài liệu trước, rồi mới phỏng vấn hay workshop.</p>",
+   "src": "9. Document Analysis.pdf tr.4"
+  },
+  {
+   "id": "L09-t2",
+   "h": "Các loại tài liệu và hình thức tài liệu",
+   "html": "<p>Tài liệu có thể là:</p><table><thead><tr><th>Loại</th><th>Ví dụ trên slide</th><th>Ví dụ trong case SolasMart</th></tr></thead><tbody><tr><td>Tài liệu nghiệp vụ</td><td>Cơ cấu tổ chức, quy chế/quy định, biểu mẫu nội bộ…</td><td>Quy định vận hành, Quy định quản lý nhân sự, Quy định quản lý kho, các quy trình bán hàng và nhập kho, Phiếu nhập/xuất/kiểm kê/hủy hàng</td></tr><tr><td>Tài liệu hệ thống</td><td>Tài liệu thiết kế hệ thống cũ: BRD, SRS, API, DB, Log…</td><td>Chưa có (SolasMart đang làm thủ công bằng Excel, Zalo). Đây cũng là một phát hiện.</td></tr><tr><td>Tài liệu pháp lý</td><td>Các văn bản luật</td><td>Không có trong bộ tài liệu; chỉ được nhắc tới (\"phép năm theo luật\", \"không tuyển lao động chưa đủ tuổi\")</td></tr><tr><td>Báo cáo vận hành</td><td>Báo cáo định kỳ của doanh nghiệp</td><td>Báo cáo cuối ca tại quầy, Báo cáo cuối ca kênh online, file Excel tồn kho</td></tr><tr><td>…</td><td colspan=\"2\">Danh sách mở: bất cứ tài liệu nào giúp hiểu nghiệp vụ</td></tr></tbody></table><p>Về <b>hình thức</b>, tài liệu không chỉ là văn bản. Nó có thể là <b>văn bản, hình ảnh, video, audio, website, file thiết kế, database, log…</b> Ví dụ: ảnh chụp màn hình phần mềm cũ, video quay cảnh thu ngân làm việc, trang Fanpage bán hàng đều là \"tài liệu\".</p>",
+   "src": "9. Document Analysis.pdf tr.4"
+  },
+  {
+   "id": "L09-t3",
+   "h": "Mục đích của Document Analysis",
+   "html": "<p>Slide nêu 6 mục đích:</p><ol><li><b>Hiểu bối cảnh hệ thống</b>: hiện trạng (As-is), các quy trình, Pain point (điểm đau, vấn đề người dùng đang gặp)… Ví dụ: đọc quy trình bán online thấy nhân viên phải \"kiểm tra tồn kho thủ công\" và \"nhập đơn vào file Excel\".</li><li><b>Chuẩn bị dữ liệu cho Elicitation</b> (khai thác yêu cầu): BA đến buổi phỏng vấn với câu hỏi cụ thể thay vì hỏi chung chung.</li><li><b>Xác thực thông tin với Stakeholder</b>: đối chiếu điều stakeholder nói với điều tài liệu ghi.</li><li><b>Phát hiện ra các yêu cầu ẩn</b>: những yêu cầu không ai nói ra nhưng nằm trong quy định. Ví dụ: \"chứng từ kho lưu tối thiểu 12 tháng\" thành yêu cầu lưu trữ dữ liệu.</li><li><b>Tiết kiệm được thời gian</b>: của cả BA và stakeholder, vì không phải hỏi lại những điều đã có sẵn.</li><li><b>Tăng độ tin cậy với Stakeholder</b>: BA hiểu nghiệp vụ trước khi gặp, nói đúng ngôn ngữ của họ.</li></ol><p class=\"tip\">Mẹo nhớ: <b>\"Hiểu – Chuẩn bị – Xác thực – Phát hiện – Tiết kiệm – Tin cậy\"</b>.</p>",
+   "src": "9. Document Analysis.pdf tr.5"
+  },
+  {
+   "id": "L09-t4",
+   "h": "Ba bước thực hiện Document Analysis",
+   "html": "<p>Document Analysis gồm 3 bước nối tiếp nhau:</p>{{img:L09-img1}}<table><thead><tr><th>Bước</th><th>Câu hỏi chính</th><th>Đầu ra</th></tr></thead><tbody><tr><td>1. Chuẩn bị</td><td>Có những tài liệu nào? Tài liệu nào đáng dùng?</td><td>Danh sách tài liệu đã được đánh giá</td></tr><tr><td>2. Phân tích – đánh giá</td><td>Tài liệu nói gì? Chỗ nào mâu thuẫn, trùng, thiếu?</td><td>Hồ sơ tổng hợp và danh sách vấn đề</td></tr><tr><td>3. Ghi nhận phát hiện</td><td>Trình bày cho ai, dưới dạng nào?</td><td>Phát hiện đã ghi lại, có thể kèm sơ đồ, bảng</td></tr></tbody></table><p class=\"note\">Cột \"Câu hỏi chính\" và \"Đầu ra\" là phần giải thích thêm để dễ nhớ, slide chỉ nêu tên 3 bước.</p>",
+   "src": "9. Document Analysis.pdf tr.6"
+  },
+  {
+   "id": "L09-t5",
+   "h": "Bước 1 – Chuẩn bị",
+   "html": "<p>Bước chuẩn bị có 3 việc:</p><ul><li><b>Thu thập tài liệu</b>: xin tài liệu từ các bộ phận liên quan.</li><li><b>Đánh giá nguồn tài liệu</b>: xác định tài liệu có:<ul><li><b>quan trọng</b> (liên quan đến phạm vi dự án),</li><li><b>xác đáng</b> (nội dung đúng chủ đề cần tìm),</li><li><b>mới nhất</b> (bản đang dùng, không phải bản cũ),</li><li><b>có tính xác thực</b> (đúng là tài liệu chính thức của tổ chức),</li><li><b>đáng tin cậy</b> (số liệu, nội dung có tin được không)?</li></ul></li><li><b>Đánh giá tính dễ hiểu</b>: nội dung có dễ hiểu để <b>truyền đạt cho các Stakeholder</b> khi cần không?</li></ul><p>Ví dụ SolasMart: các phiếu kho mẫu ghi ngày 20-10-2020, còn báo cáo cuối ca và file Excel ghi năm 2025. BA cần hỏi: mẫu phiếu năm 2020 còn đang dùng không?</p>",
+   "src": "9. Document Analysis.pdf tr.7"
+  },
+  {
+   "id": "L09-t6",
+   "h": "Bước 2 – Phân tích và đánh giá",
+   "html": "<p>Bước này có 3 việc:</p><ul><li><b>Hệ thống hóa tài liệu</b>: phân chia nội dung theo <b>chủ đề</b> và <b>phạm vi nghiệp vụ</b>. Ví dụ SolasMart: nhóm Bán hàng, nhóm Kho, nhóm Nhân sự – vận hành.</li><li><b>Tạo hồ sơ tổng hợp</b>: phân chia các loại tài liệu, có thể dùng <b>bảng phân tích</b> với 4 cột:<table><thead><tr><th>Chủ đề</th><th>Nguồn gốc thông tin</th><th>Loại thông tin</th><th>Trích dẫn tài liệu gốc</th></tr></thead><tbody><tr><td>Xử lý barcode lỗi</td><td>Quy trình bán hàng tại quầy, Bước 3</td><td>Quy tắc xử lý ngoại lệ</td><td>\"Barcode không đọc được: Nhập mã tay.\"</td></tr></tbody></table></li><li><b>Ghi nhận vấn đề</b>:<ul><li>Ghi lại thông tin <b>mâu thuẫn</b> hoặc <b>bị trùng lặp</b>. BA cần <b>liên hệ với các bên liên quan để làm sáng tỏ</b>, không tự chọn một bên.</li><li>Ghi nhận các <b>lỗ hổng thông tin</b> (chỗ còn thiếu) và <b>hạn chế</b> liên quan đến từng chủ đề.</li></ul></li></ul><p class=\"tip\">Cột \"Trích dẫn tài liệu gốc\" giúp truy lại nguồn khi stakeholder hỏi \"lấy ở đâu ra?\".</p>",
+   "src": "9. Document Analysis.pdf tr.8"
+  },
+  {
+   "id": "L09-t7",
+   "h": "Bước 3 – Ghi nhận các phát hiện",
+   "html": "<p>Khi ghi lại phát hiện, BA cân nhắc 2 điều:</p><ul><li>Nội dung và <b>mức độ chi tiết</b> có phù hợp với <b>đối tượng tiếp nhận dự kiến</b> không. Ví dụ: Ban Giám đốc cần tóm tắt vấn đề; đội phát triển cần từng bước và từng ngoại lệ.</li><li>Tài liệu có nên được <b>chuyển đổi thành công cụ hỗ trợ trực quan</b> như <b>đồ thị, mô hình, luồng quy trình</b> hoặc <b>bảng quyết định</b> để giúp hiểu tốt hơn không. Ví dụ: 8 bước bán hàng tại quầy dễ hiểu hơn khi vẽ thành luồng quy trình; các mức xử lý vi phạm dễ đọc hơn khi đưa vào bảng.</li></ul>",
+   "src": "9. Document Analysis.pdf tr.9"
+  },
+  {
+   "id": "L09-t8",
+   "h": "Rút gì ra từ một tài liệu nghiệp vụ",
+   "html": "<p>Slide nói BA phân tích tài liệu để hiểu quy trình, quy định, dữ liệu và yêu cầu. Khi đọc thực tế, BA thường rút ra 5 nhóm thông tin sau:</p><table><thead><tr><th>Nhóm</th><th>Tìm ở đâu</th><th>Ví dụ SolasMart</th></tr></thead><tbody><tr><td><b>Actor</b> (người/bộ phận tham gia)</td><td>Mục \"Các bên tham gia\", chữ ký trên biểu mẫu</td><td>Khách hàng, Thu ngân, Nhân viên hỗ trợ quầy, Trưởng ca</td></tr><tr><td><b>Quy trình</b> (các bước)</td><td>Mục \"Quy trình chi tiết\"</td><td>8 bước bán hàng tại quầy</td></tr><tr><td><b>Business rule</b> (quy tắc nghiệp vụ)</td><td>Câu có \"phải\", \"không được\", \"chỉ khi\", con số giới hạn</td><td>\"Chỉ xuất hàng khi có Phiếu xuất kho hợp lệ\"</td></tr><tr><td><b>Biểu mẫu và dữ liệu</b></td><td>Phiếu, báo cáo, file Excel</td><td>Phiếu nhập kho: mã phiếu, NCC, mặt hàng, số lượng, giá</td></tr><tr><td><b>Vấn đề</b> (pain point, mâu thuẫn, thiếu)</td><td>Bước làm thủ công, ngoại lệ, số liệu lệch</td><td>Nhập đơn online thủ công vào Excel</td></tr></tbody></table><p>Ngoài ra, BA chú ý các <b>Exception</b> (tình huống ngoại lệ): chúng thường biến thành yêu cầu cho hệ thống mới. Ví dụ \"POS bị treo\" dẫn tới yêu cầu \"giao dịch dở dang phải được lưu lại\".</p><p class=\"note\">Bảng 5 nhóm này là cách làm thực tế bổ sung theo BABOK v3, slide không liệt kê; nó chi tiết hóa ý \"hiểu quy trình, quy định, dữ liệu và yêu cầu nghiệp vụ\".</p>",
+   "src": "9. Document Analysis.pdf tr.4; Quy trinh ban hang tai quay.docx; Quy dinh Quan ly kho.docx"
+  },
+  {
+   "id": "L09-t9",
+   "h": "Điểm mạnh, hạn chế và khi nào dùng",
+   "html": "<p>Phần này bổ sung theo BABOK v3 để người mới biết khi nào nên dùng kỹ thuật.</p><table><thead><tr><th>Điểm mạnh</th><th>Hạn chế</th></tr></thead><tbody><tr><td><ul><li>Không chiếm thời gian của stakeholder ở giai đoạn đầu</li><li>Thông tin có sẵn, có căn cứ để trích dẫn</li><li>Giúp BA hiểu nghiệp vụ trước khi phỏng vấn</li></ul></td><td><ul><li>Tài liệu có thể cũ, không khớp thực tế</li><li>Tài liệu có thể thiếu, mâu thuẫn, viết khó hiểu</li><li>Đọc nhiều tài liệu tốn công</li><li>Không cho biết điều người dùng <i>thực sự</i> làm hay mong muốn</li></ul></td></tr></tbody></table><p><b>Nên dùng khi</b>: bắt đầu dự án, cần hiểu hiện trạng (As-is); tổ chức có nhiều quy định, biểu mẫu; thay thế hệ thống cũ (có BRD, SRS, DB, log).</p><p class=\"warn\">Đừng coi tài liệu là sự thật tuyệt đối. Điều ghi trên giấy có thể khác điều đang làm. Vì vậy slide nhấn mạnh việc xác thực thông tin và liên hệ stakeholder để làm sáng tỏ.</p>",
+   "src": "9. Document Analysis.pdf tr.5, tr.8"
+  }
+ ],
+ "examples": [
+  {
+   "id": "L09-e1",
+   "title": "Bước 1 và 2: hệ thống hóa 13 tài liệu SolasMart",
+   "html": "<p>Bối cảnh: SolasMart là siêu thị bán lẻ (cơ sở Hà Đông) có bán tại quầy, bán online, kho tổng và quản lý nhân sự. BA nhận 13 file. Việc đầu tiên là xếp chúng theo chủ đề và loại tài liệu.</p><table><thead><tr><th>Chủ đề (phạm vi nghiệp vụ)</th><th>Tài liệu</th><th>Loại</th><th>Loại thông tin chính</th></tr></thead><tbody><tr><td rowspan=\"4\">Bán hàng</td><td>Quy trình bán hàng tại quầy</td><td>Nghiệp vụ</td><td>Actor, 8 bước, ngoại lệ</td></tr><tr><td>Quy trình bán hàng qua kênh trực tuyến</td><td>Nghiệp vụ</td><td>Actor, 10 bước, kênh nhận đơn, ngoại lệ giao hàng</td></tr><tr><td>Báo cáo cuối ca tại quầy</td><td>Báo cáo vận hành</td><td>Doanh thu theo hình thức thanh toán, sự cố, tiền mặt cuối ca</td></tr><tr><td>Báo cáo cuối ca kênh online</td><td>Báo cáo vận hành</td><td>Đơn theo trạng thái, phí ship, sự cố</td></tr><tr><td rowspan=\"7\">Kho</td><td>Quy định quản lý kho tổng</td><td>Nghiệp vụ</td><td>Quy tắc nhập, xuất, kiểm kê, hủy, lưu chứng từ</td></tr><tr><td>Quy trình nhập kho tổng</td><td>Nghiệp vụ</td><td>Actor, 7 bước, đối chiếu PO</td></tr><tr><td>Phiếu nhập kho</td><td>Biểu mẫu</td><td>Trường dữ liệu nhập hàng, chữ ký</td></tr><tr><td>Phiếu xuất kho</td><td>Biểu mẫu</td><td>Trường dữ liệu xuất hàng</td></tr><tr><td>Phiếu kiểm kê kho</td><td>Biểu mẫu</td><td>Tồn hệ thống, tồn thực tế, chênh lệch</td></tr><tr><td>Phiếu hủy hàng</td><td>Biểu mẫu</td><td>Lý do hủy, giá trị hủy</td></tr><tr><td>Danh sách sản phẩm trong kho chính (Excel)</td><td>Báo cáo vận hành / dữ liệu</td><td>Sổ nhập, xuất, danh mục hàng, nhà cung cấp</td></tr><tr><td rowspan=\"2\">Nhân sự – vận hành</td><td>Quy định chung về vận hành</td><td>Nghiệp vụ</td><td>Giờ làm, tác phong, tiền mặt, bảo mật, sự cố</td></tr><tr><td>Quy định quản lý nhân sự</td><td>Nghiệp vụ</td><td>Tuyển dụng, chấm công, nghỉ phép, kỷ luật, KPI</td></tr></tbody></table><p>Nhận xét: bộ tài liệu <b>không có tài liệu hệ thống</b> (BRD, SRS, DB). Điều này khớp với câu \"Vì chưa có hệ thống, nhân viên phải nhập đơn thủ công\" trong quy trình bán online. Đây là một phát hiện về hiện trạng.</p>",
+   "src": "9. Document Analysis.pdf tr.4, tr.8; Tai lieu SolasMart (13 file)"
+  },
+  {
+   "id": "L09-e2",
+   "title": "Bước 1: đánh giá nguồn tài liệu SolasMart",
+   "html": "<p>Áp 5 tiêu chí đánh giá nguồn (quan trọng, xác đáng, mới nhất, xác thực, đáng tin cậy) lên một số tài liệu:</p><table><thead><tr><th>Tài liệu</th><th>Điểm cần lưu ý</th><th>Tiêu chí bị ảnh hưởng</th><th>Việc BA làm</th></tr></thead><tbody><tr><td>4 phiếu kho (nhập, xuất, kiểm kê, hủy)</td><td>Ngày trên phiếu là 20-10-2020, trong khi báo cáo và Excel là năm 2025</td><td>Mới nhất</td><td>Hỏi Quản lý kho: mẫu phiếu này còn dùng không, có bản mới không?</td></tr><tr><td>Phiếu hủy hàng</td><td>Tổng giá trị hủy ghi 165.000.000, nhưng cộng hai dòng chỉ được 9.000.000 + 75.000.000 = 84.000.000</td><td>Đáng tin cậy</td><td>Chỉ dùng phiếu để lấy <b>cấu trúc trường</b>, không dùng số liệu</td></tr><tr><td>File Excel kho chính</td><td>Tổng giá trị PNK-0003 ghi 720, sheet Nhập kho ghi thành tiền 720.000</td><td>Đáng tin cậy</td><td>Ghi nhận lỗi, hỏi kế toán số đúng</td></tr><tr><td>Quy trình bán hàng tại quầy</td><td>Có tiêu đề \"SIÊU THỊ SOLASMART\", có mục đích, các bên tham gia, từng bước</td><td>Quan trọng, xác đáng, dễ hiểu</td><td>Dùng làm tài liệu chính cho phạm vi bán tại quầy</td></tr></tbody></table><p class=\"tip\">Tài liệu có số liệu sai vẫn có ích: nó cho biết cấu trúc biểu mẫu, và chính lỗi đó là bằng chứng cho pain point \"tính tay dễ sai\".</p>",
+   "src": "9. Document Analysis.pdf tr.7; Phiếu hủy hàng.docx; Danh sach san pham trong kho chinh.xlsx; Phieu nhap kho.docx"
+  },
+  {
+   "id": "L09-e3",
+   "title": "Bước 2: ghi nhận vấn đề trong bộ tài liệu SolasMart",
+   "html": "<p>Bảng vấn đề BA ghi lại khi đọc chéo các tài liệu:</p><table><thead><tr><th>Loại</th><th>Vấn đề</th><th>Nguồn</th><th>Cần hỏi ai</th></tr></thead><tbody><tr><td>Mâu thuẫn</td><td>Mức xử lý vi phạm: Quy định vận hành có 3 mức (nhắc nhở → biên bản → kỷ luật); Quy định nhân sự có 4 mức (nhắc bằng lời → nhắc + biên bản → cảnh cáo văn bản → xem xét chấm dứt hợp đồng)</td><td>Quy định vận hành mục 13; Quy định nhân sự mục 6.2</td><td>Quản lý siêu thị / Nhân sự</td></tr><tr><td>Mâu thuẫn</td><td>Hai báo cáo cuối ca cùng ngày 02/02/2025, cùng Ca 2, cùng hai người Nguyễn Thu Hà và Nguyễn Thị Ngân, một bản ghi là \"Thu ngân\", bản kia là \"Nhân viên chăm sóc khách hàng\"</td><td>Báo cáo cuối ca tại quầy; Báo cáo cuối ca online</td><td>Trưởng ca: một người kiêm hai vai trò hay báo cáo điền nhầm?</td></tr><tr><td>Trùng lặp</td><td>Phiếu hủy hàng có ô lựa chọn \"Hết hạn\" xuất hiện 2 lần</td><td>Phiếu hủy hàng</td><td>Thủ kho</td></tr><tr><td>Trùng lặp</td><td>Phiếu giao hàng được kiểm ở cả Bước 1 và Bước 2 của quy trình nhập kho</td><td>Quy trình nhập kho</td><td>Quản lý kho</td></tr><tr><td>Lỗ hổng</td><td>Bước 8 \"Kết thúc phiên giao dịch\" không có mô tả; mục đích nói \"kiểm soát tồn kho\" nhưng không bước nào trừ tồn</td><td>Quy trình bán hàng tại quầy</td><td>Trưởng ca / Quản lý quầy</td></tr><tr><td>Lỗ hổng</td><td>\"Từ chối nhận hàng nếu gần hết hạn\" nhưng không nói bao nhiêu ngày là \"gần hết hạn\"</td><td>Quy định quản lý kho mục 5</td><td>Quản lý kho</td></tr><tr><td>Lỗ hổng</td><td>Quy trình nhập kho đối chiếu với PO, nhưng Phiếu nhập kho không có ô số PO</td><td>Quy trình nhập kho Bước 4; Phiếu nhập kho</td><td>Kế toán</td></tr><tr><td>Hạn chế</td><td>Bán online kiểm tồn thủ công, nhập đơn vào Excel, chuyển đơn qua Zalo nhóm</td><td>Quy trình bán online Bước 2, 4, 5</td><td>CSKH, Kho</td></tr></tbody></table><p class=\"note\">BA không tự quyết bên nào đúng. Slide yêu cầu \"liên hệ với các bên liên quan để làm sáng tỏ\".</p>",
+   "src": "9. Document Analysis.pdf tr.8; Quy dinh van hanh.docx; Quy dinh quan ly nhan su.docx; Bao cao cuoi ca tai quay.docx; Bao cao cuoi ca tai ban online.docx; Phiếu hủy hàng.docx; Quy trinh nhap kho.docx; Quy trinh ban hang tai quay.docx"
+  },
+  {
+   "id": "L09-e4",
+   "title": "Bước 3: chuyển quy trình bán tại quầy thành bảng luồng trực quan",
+   "html": "<p>Văn bản quy trình dài và trộn bước chính với ngoại lệ. Theo Bước 3, BA chuyển nó thành bảng luồng để stakeholder đọc nhanh:</p><table><thead><tr><th>Bước</th><th>Ai làm</th><th>Việc chính</th><th>Ngoại lệ → xử lý</th></tr></thead><tbody><tr><td>1</td><td>Khách hàng</td><td>Đặt hàng lên băng chuyền/quầy</td><td>Thiếu tem giá → NV hỗ trợ đổi sản phẩm, hết thì hỏi kho; Hàng hỏng → hỏi khách đổi hay bỏ</td></tr><tr><td>2</td><td>Thu ngân</td><td>Chào khách, bấm \"Start Transaction\", đếm hàng</td><td>POS chưa đăng nhập → login lại</td></tr><tr><td>3</td><td>Thu ngân, POS</td><td>Quét barcode; POS hiện tên, giá, số lượng, khuyến mãi</td><td>Hàng cân chưa cân → NV hỗ trợ cân; Barcode không đọc → nhập tay; Sai giá → gọi trưởng ca; POS treo → đổi máy/reset</td></tr><tr><td>4</td><td>Thu ngân, Khách</td><td>Đọc tổng tiền, khách xem màn hình</td><td>Bỏ bớt → sửa số lượng; Đổi sản phẩm → NV mang hàng mới, cập nhật POS</td></tr><tr><td>5</td><td>Khách</td><td>Chọn tiền mặt / thẻ / chuyển khoản / kết hợp</td><td>Máy thẻ treo → QR hoặc máy khác; Không đủ tiền → hủy hoặc đổi phương thức</td></tr><tr><td>6</td><td>Thu ngân, Khách</td><td>Thu tiền và xác nhận theo từng phương thức</td><td>Giao dịch thất bại → kiểm tra lại hoặc đổi phương thức</td></tr><tr><td>7</td><td>Thu ngân, POS</td><td>In hóa đơn, giao túi hàng, chào khách</td><td>Hết giấy → thay giấy; Hóa đơn mờ → in lại</td></tr><tr><td>8</td><td>Thu ngân</td><td>Kết thúc phiên giao dịch</td><td>(tài liệu không mô tả)</td></tr></tbody></table><p>Với Ban Giám đốc, BA chỉ cần 3 dòng: quy trình có 8 bước, 13 tình huống ngoại lệ được ghi rõ, và 2 lỗ hổng (bước 8 trống, không có bước cập nhật tồn kho). Đây là ý \"mức độ chi tiết phù hợp với đối tượng tiếp nhận\".</p>",
+   "src": "9. Document Analysis.pdf tr.9; Quy trinh ban hang tai quay.docx"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L09-p1",
+   "title": "Phân tích tài liệu \"Quy trình bán hàng tại quầy\"",
+   "task": "<p>Đọc tài liệu \"Quy trình bán hàng tại quầy\" của SolasMart. Rút ra: (1) actor, (2) các bước chính, (3) quy tắc nghiệp vụ, (4) dữ liệu hệ thống cần hiển thị hoặc lưu, (5) vấn đề và câu hỏi cần làm rõ.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Chuẩn bị.</b> Kiểm tra nguồn: tài liệu có tên siêu thị, tên quy trình, có mục đích. Ghi lại 4 mục đích: tính tiền chính xác, nhanh; giảm thời gian chờ; kiểm soát tồn kho; thu chi minh bạch. Mục đích sẽ dùng để kiểm xem các bước có đáp ứng không.</p>",
+    "<p><b>Bước 2 – Rút actor.</b> Đọc mục \"Các bên tham gia\": Khách hàng, Thu ngân, Nhân viên hỗ trợ quầy, Trưởng ca/Quản lý quầy. Đọc thêm trong các bước để tìm bên được nhắc nhưng chưa liệt kê: <b>bộ phận kho</b> (Bước 1: kiểm tra giá), <b>ngân hàng</b> (Bước 6.3: xác nhận chuyển khoản), và hệ thống <b>POS</b>.</p>",
+    "<p><b>Bước 3 – Rút các bước chính.</b> Chép tên 8 bước, tách riêng phần \"Trường hợp ngoại lệ\" ra cột khác (như ví dụ L09-e4).</p>",
+    "<p><b>Bước 4 – Rút quy tắc nghiệp vụ.</b> Tìm câu có tính bắt buộc hoặc điều kiện: \"Khách phải cân trước ở quầy cân, đã in tem barcode\"; \"Nếu cần PIN: khách tự nhập\"; \"Barcode sai giá: gọi trưởng ca để xác nhận giá\".</p>",
+    "<p><b>Bước 5 – Rút dữ liệu.</b> Tìm danh từ là thông tin: POS hiển thị tên hàng, giá, số lượng, khuyến mãi; tổng tiền, tổng số lượng; phương thức thanh toán; hóa đơn, slip thẻ.</p>",
+    "<p><b>Bước 6 – Ghi nhận vấn đề.</b> So các bước với 4 mục đích. Mục đích \"kiểm soát tồn kho\" không có bước nào đáp ứng. Bước 8 không có nội dung. Ghi thành câu hỏi cho Trưởng ca.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Nhóm</th><th>Kết quả</th></tr></thead><tbody><tr><td>Actor</td><td>Khách hàng, Thu ngân, Nhân viên hỗ trợ quầy, Trưởng ca/Quản lý quầy; bên ngoài liệt kê: Bộ phận kho, Ngân hàng; hệ thống POS và máy quét barcode</td></tr><tr><td>Bước chính</td><td>1 Đưa hàng lên quầy → 2 Bắt đầu phiên (Start Transaction) → 3 Quét mã → 4 Xác nhận giỏ hàng → 5 Chọn phương thức → 6 Thu tiền và xác nhận → 7 In hóa đơn, giao hàng → 8 Kết thúc phiên</td></tr><tr><td>Quy tắc nghiệp vụ</td><td>Hàng cân phải có tem barcode trước khi thanh toán; giá sai phải do trưởng ca xác nhận; thanh toán được kết hợp tiền mặt, thẻ, chuyển khoản; chuyển khoản phải chờ ngân hàng xác nhận; khách tự nhập PIN</td></tr><tr><td>Dữ liệu</td><td>Mã sản phẩm (barcode), tên hàng, giá, số lượng, khuyến mãi, tổng tiền, tổng số lượng, phương thức thanh toán, số tiền khách đưa, tiền thừa, hóa đơn</td></tr><tr><td>Vấn đề / câu hỏi</td><td>(1) Bước 8 làm gì? (2) Tồn kho được trừ khi nào, ai làm? (3) \"Hủy giao dịch\" có cần trưởng ca duyệt không? (4) Sau khi \"nhập mã tay\" có ghi lại lý do không?</td></tr></tbody></table>",
+   "src": "Quy trinh ban hang tai quay.docx; 9. Document Analysis.pdf tr.7-8"
+  },
+  {
+   "id": "L09-p2",
+   "title": "Tìm pain point và yêu cầu ẩn ở kênh bán online",
+   "task": "<p>Dùng \"Quy trình bán hàng qua kênh trực tuyến\" và \"Báo cáo cuối ca qua kênh online\". Liệt kê pain point của hiện trạng (As-is) và yêu cầu ẩn cho hệ thống bán online tương lai.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Gạch chân mọi chỗ làm thủ công hoặc dùng công cụ rời rạc: \"kiểm tra tồn kho thủ công\", \"nhập đơn thủ công vào file Excel\", \"gửi đơn cho kho qua Zalo nhóm\", 7 kênh nhận đơn khác nhau.</p>",
+    "<p><b>Bước 2.</b> Gạch chân các ngoại lệ: kho trả lời chậm; sản phẩm hết nhưng page chưa cập nhật; khách không nghe máy; sai địa chỉ; đổi giờ giao; hủy đột xuất; khách không nhận hàng.</p>",
+    "<p><b>Bước 3.</b> Đọc báo cáo cuối ca: 66 đơn tạo, 48 hoàn tất, 10 đang giao, 5 hủy, 3 chờ xác nhận; sự cố: khách đổi ý 2, hàng hết 1, không liên lạc được 1, sai địa chỉ 1. Ghi nhận báo cáo theo dõi trạng thái đơn và phí ship.</p>",
+    "<p><b>Bước 4.</b> Với mỗi pain point, viết một yêu cầu ẩn dạng \"Hệ thống cần…\". Mỗi yêu cầu phải truy được về một câu trong tài liệu.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Pain point (nguồn)</th><th>Yêu cầu ẩn đề xuất</th></tr></thead><tbody><tr><td>Kiểm tồn thủ công, kho trả lời chậm (Bước 2)</td><td>Hệ thống cho CSKH xem tồn kho theo thời gian thực</td></tr><tr><td>Sản phẩm hết nhưng page chưa cập nhật (Bước 2)</td><td>Trạng thái hết hàng tự đồng bộ lên kênh bán</td></tr><tr><td>Nhập đơn thủ công vào Excel (Bước 4)</td><td>Tạo đơn trên hệ thống với các trường: mã đơn, tên khách, SĐT, địa chỉ, kênh đặt, danh sách sản phẩm, tổng tiền, ghi chú</td></tr><tr><td>Chuyển đơn qua Zalo nhóm (Bước 5)</td><td>Kho nhận đơn và cập nhật trạng thái soạn hàng trên hệ thống</td></tr><tr><td>Đơn có nhiều trạng thái, phải tổng hợp cuối ngày (Bước 9, 10; báo cáo)</td><td>Đơn có vòng đời trạng thái: chờ xác nhận, đang giao, hoàn tất, hủy; báo cáo cuối ca tự sinh</td></tr><tr><td>Khách không nghe máy: sau 15 phút hàng quay về kho (Bước 8)</td><td>Ghi nhận lần giao thất bại và lý do; đưa hàng về tồn kho</td></tr><tr><td>Kế toán đối soát COD cuối ngày (Bước 10)</td><td>Theo dõi tiền COD theo shipper và theo đơn</td></tr></tbody></table><p class=\"note\">Đây là yêu cầu đề xuất để mang đi xác nhận với CSKH, kho và kế toán, chưa phải yêu cầu đã chốt.</p>",
+   "src": "Quy trinh ban hang qua kenh truc tuyen.docx; Bao cao cuoi ca tai ban online.docx; 9. Document Analysis.pdf tr.5"
+  },
+  {
+   "id": "L09-p3",
+   "title": "Đối chiếu quy định kho với biểu mẫu và file Excel",
+   "task": "<p>Đọc \"Quy định quản lý kho tổng\", \"Quy trình nhập kho\", 4 phiếu kho và file Excel \"Danh sách sản phẩm trong kho chính\". Lập bảng: quy tắc → biểu mẫu/dữ liệu nào chứng minh quy tắc đó → có khớp không.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Liệt kê quy tắc trong Quy định quản lý kho có liên quan đến chứng từ: nhập phải có phiếu/chứng từ; chỉ xuất khi có phiếu xuất hợp lệ và có phê duyệt; kiểm kê có tối thiểu thủ kho + kế toán; hủy hàng phải có phiếu đề nghị, biên bản, ảnh; chứng từ lưu tối thiểu 12 tháng.</p>",
+    "<p><b>Bước 2.</b> Với mỗi quy tắc, tìm biểu mẫu tương ứng và xem có trường hoặc chữ ký nào chứng minh không.</p>",
+    "<p><b>Bước 3.</b> Đối chiếu dữ liệu giữa các nguồn: mã phiếu trên docx và trên Excel; ngày; tổng tiền.</p>",
+    "<p><b>Bước 4.</b> Ghi kết quả \"Khớp\" / \"Lệch\" / \"Thiếu\", và câu hỏi cần làm rõ.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Quy tắc</th><th>Bằng chứng trong biểu mẫu</th><th>Kết quả</th></tr></thead><tbody><tr><td>Nhập hàng phải có phiếu nhập/chứng từ NCC</td><td>Phiếu nhập kho có \"Số chứng từ NCC\", chữ ký Người giao hàng, Quản lý kho, Kế toán</td><td>Khớp. Thiếu ô số PO dù quy trình đối chiếu PO</td></tr><tr><td>Chỉ xuất khi có phiếu xuất hợp lệ, có phê duyệt</td><td>Phiếu xuất kho có Bộ phận yêu cầu, Mục đích xuất, chữ ký Quản lý kho, Quản lý siêu thị, Kế toán</td><td>Khớp. Không có chữ ký người nhận dù ghi chú \"Nhận đủ\"</td></tr><tr><td>Kiểm kê có tối thiểu thủ kho + kế toán; báo chênh lệch trong 24h</td><td>Phiếu kiểm kê có \"Thành phần kiểm kê\", chữ ký Quản lý kho, Kế toán, cột Lý do chênh lệch</td><td>Lệch: dòng chênh lệch 100 ghi lý do \"Nguyên vẹn\". Hỏi: thủ kho và quản lý kho có phải một người?</td></tr><tr><td>Hủy hàng phải có phiếu đề nghị hủy, biên bản, ảnh</td><td>Phiếu hủy hàng có lý do, giá trị hủy, chữ ký Người đề nghị, Thủ kho, Kế toán. Excel ghi hủy bằng phiếu xuất PXK-0003 \"Xuất hủy\"</td><td>Lệch: hai cách ghi nhận hủy; tổng giá trị hủy sai; không có ô ảnh/biên bản</td></tr><tr><td>Mã chứng từ thống nhất</td><td>Docx: NK20201020-1, XK20201020-1. Excel: PNK-0001, PXK-0001</td><td>Lệch: hai quy tắc đánh mã</td></tr><tr><td>Ngày nhập ghi dd/mm/yyyy (ghi chú trong Excel)</td><td>Excel ghi 2025-02-01; phiếu ghi 20-10-2020</td><td>Lệch định dạng</td></tr></tbody></table>",
+   "src": "Quy dinh Quan ly kho.docx; Quy trinh nhap kho.docx; Phieu nhap kho.docx; Phieu xuat kho.docx; Phieu kiem ke kho.docx; Phiếu hủy hàng.docx; Danh sach san pham trong kho chinh.xlsx"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L09-x1",
+   "title": "Phân loại tài liệu SolasMart",
+   "level": "de",
+   "task": "<p>Xếp 13 tài liệu SolasMart vào các loại tài liệu trên slide: tài liệu nghiệp vụ, tài liệu hệ thống, tài liệu pháp lý, báo cáo vận hành. Loại nào không có tài liệu nào? Điều đó cho BA biết gì?</p>",
+   "hints": [
+    "<p>Quy chế/quy định và biểu mẫu nội bộ thuộc tài liệu nghiệp vụ.</p>",
+    "<p>Báo cáo cuối ca là báo cáo vận hành. Tìm xem có BRD, SRS, DB nào không.</p>"
+   ],
+   "answer": "<ul><li><b>Tài liệu nghiệp vụ</b> (10): Quy định vận hành, Quy định quản lý nhân sự, Quy định quản lý kho, Quy trình bán hàng tại quầy, Quy trình bán hàng trực tuyến, Quy trình nhập kho, và 4 biểu mẫu nội bộ: Phiếu nhập kho, Phiếu xuất kho, Phiếu kiểm kê kho, Phiếu hủy hàng.</li><li><b>Báo cáo vận hành</b> (3): Báo cáo cuối ca tại quầy, Báo cáo cuối ca online, file Excel tồn kho (sổ nhập – xuất – danh mục).</li><li><b>Tài liệu hệ thống</b>: không có.</li><li><b>Tài liệu pháp lý</b>: không có.</li></ul><p>Không có tài liệu hệ thống cho thấy SolasMart chưa có phần mềm quản lý (khớp câu \"Vì chưa có hệ thống\" trong quy trình bán online). Không có văn bản luật nên nếu dự án đụng tới hóa đơn, lao động… BA phải tự thu thập thêm.</p><p class=\"note\">Tổng: 6 quy định/quy trình + 4 phiếu = 10 tài liệu nghiệp vụ, + 3 báo cáo/dữ liệu = 13.</p>",
+   "src": "9. Document Analysis.pdf tr.4; Tai lieu SolasMart (13 file)"
+  },
+  {
+   "id": "L09-x2",
+   "title": "Liệt kê actor của ba quy trình",
+   "level": "de",
+   "task": "<p>Từ ba quy trình của SolasMart (bán tại quầy, bán online, nhập kho), lập bảng actor: tên actor, xuất hiện ở quy trình nào, làm việc gì chính.</p>",
+   "hints": [
+    "<p>Bắt đầu từ mục \"Các bên tham gia\" của từng quy trình.</p>",
+    "<p>Đọc tiếp trong các bước để tìm bên được nhắc nhưng không liệt kê (kho, ngân hàng, trưởng ca/quản lý).</p>"
+   ],
+   "answer": "<table><thead><tr><th>Actor</th><th>Quy trình</th><th>Việc chính</th></tr></thead><tbody><tr><td>Khách hàng</td><td>Tại quầy, Online</td><td>Mua hàng, chọn phương thức thanh toán / gửi yêu cầu đặt hàng, nhận hàng</td></tr><tr><td>Thu ngân</td><td>Tại quầy</td><td>Quét mã, thu tiền, in hóa đơn</td></tr><tr><td>Nhân viên hỗ trợ quầy</td><td>Tại quầy</td><td>Đổi sản phẩm thiếu tem, cân hàng, mang sản phẩm thay</td></tr><tr><td>Trưởng ca / Quản lý quầy</td><td>Tại quầy, Online (Bước 10)</td><td>Xác nhận giá sai; kiểm tra đơn hoàn, hủy, giao lỗi</td></tr><tr><td>Nhân viên CSKH</td><td>Online</td><td>Nhận đơn, kiểm tồn, báo giá, nhập Excel, chuyển đơn cho kho</td></tr><tr><td>Nhân viên kho</td><td>Online, Nhập kho (và Tại quầy khi kiểm giá)</td><td>Soạn hàng; kiểm chứng từ, kiểm hàng, lập phiếu nhập</td></tr><tr><td>Nhân viên giao hàng</td><td>Online</td><td>Giao hàng, thu COD</td></tr><tr><td>Kế toán</td><td>Online, Nhập kho</td><td>Đối soát COD; xử lý chứng từ không khớp, chênh lệch số lượng</td></tr><tr><td>Quản lý kho</td><td>Nhập kho</td><td>Ký phiếu nhập kho</td></tr><tr><td>Nhà cung cấp (NCC)</td><td>Nhập kho</td><td>Giao hàng, cung cấp hóa đơn và phiếu giao hàng</td></tr><tr><td>Ngân hàng</td><td>Tại quầy</td><td>Xác nhận giao dịch chuyển khoản</td></tr></tbody></table>",
+   "src": "Quy trinh ban hang tai quay.docx; Quy trinh ban hang qua kenh truc tuyen.docx; Quy trinh nhap kho.docx"
+  },
+  {
+   "id": "L09-x3",
+   "title": "Rút quy tắc nghiệp vụ từ các quy định",
+   "level": "tb",
+   "task": "<p>Từ Quy định vận hành, Quy định quản lý nhân sự và Quy định quản lý kho, rút ít nhất 10 quy tắc nghiệp vụ có thể kiểm được (có con số, điều kiện hoặc \"phải/không được\"). Chỉ ra 1 chỗ trùng lặp nhất quán và 1 chỗ mâu thuẫn giữa các quy định.</p>",
+   "hints": [
+    "<p>Tìm các con số: phút, ngày, lần, %, tháng.</p>",
+    "<p>So mục \"Xử lý vi phạm\" của Quy định vận hành với mục \"Mức xử lý\" của Quy định nhân sự.</p>",
+    "<p>Giờ có mặt trước ca xuất hiện ở cả ba quy định.</p>"
+   ],
+   "answer": "<p><b>Quy tắc</b> (ví dụ 12 quy tắc):</p><ol><li>Có mặt trước giờ làm 15 phút.</li><li>Không cho người khác dùng tài khoản hoặc mã thu ngân.</li><li>Tiền thừa/thiếu cuối ca phải lập biên bản xác nhận.</li><li>Không để kệ trống quá 20% diện tích; kiểm tra hạn sử dụng mỗi ca.</li><li>Nghỉ phép báo trước ít nhất 3 ngày; nghỉ cá nhân báo trước 1 ngày.</li><li>Nghỉ ốm đột xuất báo quản lý trước 2 tiếng; ốm từ 2 ngày trở lên cần giấy y tế.</li><li>Nghỉ việc báo trước 3 ngày (thử việc) hoặc 30 ngày (chính thức).</li><li>Chỉ làm thêm giờ khi có yêu cầu hoặc đồng ý bằng văn bản/tin nhắn của quản lý.</li><li>Chỉ xuất hàng khi có Phiếu xuất kho hợp lệ và được phê duyệt.</li><li>Kiểm kê định kỳ 1 lần/tháng, tối thiểu thủ kho + kế toán, báo chênh lệch trong 24h.</li><li>Hàng nhập trước xuất trước.</li><li>Chứng từ kho lưu theo tháng, tối thiểu 12 tháng.</li></ol><p><b>Trùng lặp nhất quán</b>: \"có mặt trước 15 phút\" có ở cả Quy định vận hành, Quy định nhân sự và Quy định kho, cùng con số.</p><p><b>Mâu thuẫn</b>: Quy định vận hành xử lý vi phạm 3 mức (nhắc nhở → biên bản → kỷ luật tùy mức độ); Quy định nhân sự 4 mức (nhắc bằng lời → nhắc + biên bản → cảnh cáo văn bản → xem xét chấm dứt hợp đồng); Quy định kho với lỗi sắp xếp hàng thì lần 3 đã chấm dứt hợp đồng. BA ghi nhận và hỏi bộ phận nhân sự quy định nào được áp dụng.</p>",
+   "src": "Quy dinh van hanh.docx; Quy dinh quan ly nhan su.docx; Quy dinh Quan ly kho.docx; 9. Document Analysis.pdf tr.8"
+  },
+  {
+   "id": "L09-x4",
+   "title": "Kiểm tra số liệu trong báo cáo và biểu mẫu",
+   "level": "tb",
+   "task": "<p>Kiểm tra cộng trừ trong: Báo cáo cuối ca tại quầy, Báo cáo cuối ca online, Phiếu kiểm kê kho, Phiếu hủy hàng. Báo cáo nào khớp, chỗ nào lệch? Với mỗi chỗ lệch, viết một câu hỏi gửi stakeholder.</p>",
+   "hints": [
+    "<p>Cộng số đơn và doanh thu theo từng hình thức thanh toán; cộng tiền mặt thu + tiền ứng đầu ca.</p>",
+    "<p>Phiếu hủy: lấy số lượng × giá nhập trên phiếu nhập kho (90.000 và 50.000) rồi so với giá trị hủy.</p>"
+   ],
+   "answer": "<ul><li><b>Báo cáo tại quầy: khớp.</b> 85 + 35 + 12 = 132 đơn; 42.500.000 + 21.800.000 + 9.200.000 = 73.500.000; tiền mặt 42.500.000 + ứng đầu ca 2.000.000 = 44.500.000, chênh lệch 0.</li><li><b>Báo cáo online: khớp.</b> 48 + 10 + 5 + 3 = 66 đơn; 32.400.000 + 6.800.000 + 3.200.000 + 1.500.000 = 43.900.000; phí ship 3.800.000 − 3.200.000 = +600.000.</li><li><b>Phiếu kiểm kê: số khớp, lý do sai.</b> 1.000 − 900 = 100 (chênh lệch giảm 100) nhưng cột lý do ghi \"Nguyên vẹn\". Câu hỏi: \"100 túi thịt gà thiếu do đâu, đã báo cáo trong 24h chưa?\"</li><li><b>Phiếu hủy hàng: lệch.</b> Dòng 1: 1.000 × 90.000 = 90.000.000 nhưng ghi 9.000.000. Tổng ghi 165.000.000 trong khi hai dòng cộng lại là 84.000.000 (nếu sửa dòng 1 thì mới ra 165.000.000). Câu hỏi: \"Giá trị hủy dòng 1 đúng là bao nhiêu? Giá trị hủy tính theo giá nhập hay giá bán?\"</li></ul><p class=\"tip\">Báo cáo khớp số vẫn có thể có vấn đề khác: hai báo cáo cuối ca ghi cùng hai người cho hai vai trò khác nhau.</p>",
+   "src": "Bao cao cuoi ca tai quay.docx; Bao cao cuoi ca tai ban online.docx; Phieu kiem ke kho.docx; Phiếu hủy hàng.docx; Phieu nhap kho.docx"
+  },
+  {
+   "id": "L09-x5",
+   "title": "Hồ sơ phát hiện Document Analysis cho dự án SolasMart",
+   "level": "kho",
+   "task": "<p>SolasMart muốn xây hệ thống quản lý bán hàng và kho. Bạn là BA, chưa được gặp ai, chỉ có 13 tài liệu. Hãy viết hồ sơ phát hiện gồm: (1) tóm tắt hiện trạng As-is cho Ban Giám đốc (≤ 5 ý), (2) 5 pain point có trích nguồn, (3) 5 yêu cầu ẩn, (4) danh sách câu hỏi cho buổi phỏng vấn đầu tiên, nhóm theo người được hỏi.</p>",
+   "hints": [
+    "<p>Làm lần lượt 3 bước: chuẩn bị (đánh giá nguồn) → phân tích (hồ sơ tổng hợp, vấn đề) → ghi nhận phát hiện (chọn mức chi tiết cho Ban Giám đốc).</p>",
+    "<p>Yêu cầu ẩn thường nằm trong quy định có con số: thời hạn lưu chứng từ, tần suất kiểm kê, phân quyền tài khoản thu ngân, thu hồi tài khoản khi nghỉ việc.</p>",
+    "<p>Câu hỏi nên xuất phát từ các mâu thuẫn và lỗ hổng bạn đã ghi.</p>"
+   ],
+   "answer": "<p><b>(1) As-is cho Ban Giám đốc</b></p><ul><li>Bán tại quầy dùng máy POS, thanh toán tiền mặt, thẻ, chuyển khoản/QR.</li><li>Bán online nhận đơn từ 7 kênh (Zalo OA, Zalo cá nhân, Fanpage, điện thoại, bình luận, Messenger, SMS), xử lý thủ công bằng Excel và Zalo nhóm.</li><li>Kho tổng quản lý bằng phiếu giấy và file Excel.</li><li>Chưa có tài liệu hệ thống nào (BRD, SRS, DB).</li><li>Tài liệu có một số mâu thuẫn và số liệu sai cần làm rõ.</li></ul><p><b>(2) Pain point</b></p><ol><li>Kiểm tồn kho thủ công, kho trả lời chậm (Quy trình online, Bước 2).</li><li>Nhập đơn online thủ công vào Excel (Bước 4).</li><li>Sản phẩm hết nhưng page chưa cập nhật (Bước 2).</li><li>Phiếu và Excel kho tính tay, có số sai (Phiếu hủy hàng, Excel PNK-0003).</li><li>Hai cách đánh mã chứng từ (NK20201020-1 và PNK-0001).</li></ol><p><b>(3) Yêu cầu ẩn</b></p><ol><li>Lưu chứng từ kho theo tháng, tối thiểu 12 tháng (Quy định kho).</li><li>Mỗi thu ngân một tài khoản riêng, không dùng chung (Quy định vận hành mục 8).</li><li>Thu hồi tài khoản hệ thống khi nhân viên nghỉ việc (Quy định nhân sự mục 8).</li><li>Không cho xuất kho khi phiếu xuất chưa được phê duyệt (Quy định kho mục 6).</li><li>Ghi nhận và báo cáo chênh lệch kiểm kê trong 24h (Quy định kho).</li></ol><p><b>(4) Câu hỏi</b></p><ul><li><i>Trưởng ca/Quản lý quầy</i>: Bước 8 \"Kết thúc phiên giao dịch\" gồm việc gì? Tồn kho được trừ khi nào? Ai duyệt hủy hóa đơn?</li><li><i>Quản lý kho</i>: Mẫu phiếu năm 2020 còn dùng không? \"Gần hết hạn\" là bao nhiêu ngày? Thủ kho và Quản lý kho là một hay hai người? Hủy hàng ghi bằng phiếu hủy hay phiếu xuất?</li><li><i>Kế toán</i>: Giá trị hủy tính theo giá nào? Quy tắc đánh mã chứng từ nào là chuẩn? Có cần ô số PO trên phiếu nhập?</li><li><i>Nhân sự</i>: Áp dụng mức xử lý vi phạm 3 mức hay 4 mức?</li><li><i>CSKH</i>: Hai nhân viên ca 2 có kiêm cả thu ngân không?</li></ul>",
+   "src": "9. Document Analysis.pdf tr.5-9; Tai lieu SolasMart (13 file)"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L09-f1",
+   "front": "Document Analysis (phân tích tài liệu)",
+   "back": "<p>Kỹ thuật thu thập, đọc, phân loại, phân tích tài liệu hiện có của tổ chức để hiểu quy trình, quy định, dữ liệu, yêu cầu nghiệp vụ mà chưa cần hỏi trực tiếp stakeholder.</p><p>Mẹo: 4 động từ \"Thu – Đọc – Phân loại – Phân tích\".</p>"
+  },
+  {
+   "id": "L09-f2",
+   "front": "Bốn loại tài liệu được nêu trên slide",
+   "back": "<p>Tài liệu nghiệp vụ, tài liệu hệ thống, tài liệu pháp lý, báo cáo vận hành (và các loại khác).</p><p>Ví dụ SolasMart: Quy định kho (nghiệp vụ), Báo cáo cuối ca (vận hành).</p>"
+  },
+  {
+   "id": "L09-f3",
+   "front": "Tài liệu nghiệp vụ",
+   "back": "<p>Tài liệu mô tả cách tổ chức vận hành: cơ cấu tổ chức, quy chế/quy định, biểu mẫu nội bộ.</p><p>Ví dụ: Quy trình bán hàng tại quầy, Phiếu nhập kho của SolasMart.</p>"
+  },
+  {
+   "id": "L09-f4",
+   "front": "Tài liệu hệ thống",
+   "back": "<p>Tài liệu thiết kế của hệ thống cũ: BRD, SRS, API, DB, Log…</p><p>SolasMart không có loại này vì chưa có hệ thống, đang dùng Excel và Zalo.</p>"
+  },
+  {
+   "id": "L09-f5",
+   "front": "Hình thức của tài liệu",
+   "back": "<p>Không chỉ văn bản: hình ảnh, video, audio, website, file thiết kế, database, log…</p><p>Ví dụ: ảnh chụp màn hình POS, trang Fanpage bán hàng.</p>"
+  },
+  {
+   "id": "L09-f6",
+   "front": "6 mục đích của Document Analysis",
+   "back": "<p>Hiểu bối cảnh (As-is, quy trình, pain point); chuẩn bị cho Elicitation; xác thực với stakeholder; phát hiện yêu cầu ẩn; tiết kiệm thời gian; tăng độ tin cậy với stakeholder.</p>"
+  },
+  {
+   "id": "L09-f7",
+   "front": "As-is (hiện trạng)",
+   "back": "<p>Cách tổ chức đang làm việc ở thời điểm hiện tại, trước khi có giải pháp mới.</p><p>Ví dụ: SolasMart nhận đơn online qua Zalo, nhập tay vào Excel.</p>"
+  },
+  {
+   "id": "L09-f8",
+   "front": "Pain point (điểm đau)",
+   "back": "<p>Vấn đề, khó khăn mà người dùng hoặc tổ chức đang gặp trong hiện trạng.</p><p>Ví dụ: CSKH phải hỏi kho để biết còn hàng không, kho trả lời chậm.</p>"
+  },
+  {
+   "id": "L09-f9",
+   "front": "Yêu cầu ẩn",
+   "back": "<p>Yêu cầu không ai nói ra khi hỏi nhưng nằm sẵn trong quy định, biểu mẫu.</p><p>Ví dụ: \"chứng từ kho lưu tối thiểu 12 tháng\" → hệ thống phải lưu dữ liệu ≥ 12 tháng.</p>"
+  },
+  {
+   "id": "L09-f10",
+   "front": "3 bước thực hiện Document Analysis",
+   "back": "<p>1. Chuẩn bị → 2. Phân tích – đánh giá → 3. Ghi nhận phát hiện.</p><p>Mẹo: \"Gom – Mổ – Ghi\".</p>"
+  },
+  {
+   "id": "L09-f11",
+   "front": "Bước Chuẩn bị gồm những việc gì?",
+   "back": "<p>Thu thập tài liệu; đánh giá nguồn tài liệu; đánh giá tính dễ hiểu (có truyền đạt được cho stakeholder không).</p>"
+  },
+  {
+   "id": "L09-f12",
+   "front": "5 tiêu chí đánh giá nguồn tài liệu",
+   "back": "<p>Quan trọng, xác đáng, mới nhất, có tính xác thực, đáng tin cậy.</p><p>Ví dụ: phiếu kho mẫu năm 2020 cần hỏi xem có còn là bản mới nhất.</p>"
+  },
+  {
+   "id": "L09-f13",
+   "front": "Hệ thống hóa tài liệu",
+   "back": "<p>Phân chia nội dung theo chủ đề và phạm vi nghiệp vụ.</p><p>Ví dụ SolasMart: nhóm Bán hàng, Kho, Nhân sự – vận hành.</p>"
+  },
+  {
+   "id": "L09-f14",
+   "front": "Hồ sơ tổng hợp (bảng phân tích)",
+   "back": "<p>Bảng phân chia tài liệu theo 4 cột: chủ đề, nguồn gốc thông tin, loại thông tin, trích dẫn tài liệu gốc.</p><p>Cột trích dẫn giúp truy lại nguồn khi bị hỏi.</p>"
+  },
+  {
+   "id": "L09-f15",
+   "front": "Gặp thông tin mâu thuẫn hoặc trùng lặp, BA làm gì?",
+   "back": "<p>Ghi lại và liên hệ các bên liên quan để làm sáng tỏ. Không tự chọn một phiên bản.</p><p>Ví dụ: mức kỷ luật 3 mức hay 4 mức ở SolasMart → hỏi Nhân sự.</p>"
+  },
+  {
+   "id": "L09-f16",
+   "front": "Lỗ hổng thông tin",
+   "back": "<p>Chỗ tài liệu thiếu, chưa nói rõ. BA ghi nhận theo từng chủ đề cùng các hạn chế.</p><p>Ví dụ: Bước 8 quy trình bán tại quầy không có mô tả.</p>"
+  },
+  {
+   "id": "L09-f17",
+   "front": "Bước Ghi nhận phát hiện: BA cân nhắc 2 điều gì?",
+   "back": "<p>(1) Nội dung và mức chi tiết có hợp với đối tượng tiếp nhận không. (2) Có nên chuyển thành công cụ trực quan: đồ thị, mô hình, luồng quy trình, bảng quyết định.</p>"
+  },
+  {
+   "id": "L09-f18",
+   "front": "Business rule (quy tắc nghiệp vụ)",
+   "back": "<p>Quy định bắt buộc mà nghiệp vụ phải tuân theo, thường có \"phải\", \"không được\", \"chỉ khi\" hoặc con số.</p><p>Ví dụ: \"Chỉ xuất hàng khi có Phiếu xuất kho hợp lệ\".</p>"
+  },
+  {
+   "id": "L09-f19",
+   "front": "Exception (tình huống ngoại lệ)",
+   "back": "<p>Trường hợp lệch khỏi luồng bình thường và cách xử lý.</p><p>Ví dụ: \"Barcode không đọc được: nhập mã tay\". Ngoại lệ thường thành yêu cầu cho hệ thống mới.</p>"
+  },
+  {
+   "id": "L09-f20",
+   "front": "Hạn chế lớn nhất của Document Analysis",
+   "back": "<p>Tài liệu có thể cũ, thiếu hoặc không khớp với điều mọi người thực sự làm. Vì vậy phải xác thực lại với stakeholder.</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L09-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo định nghĩa trên slide, Document Analysis giúp BA hiểu những gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Cảm xúc và mức độ hài lòng của từng người dùng cuối"
+    },
+    {
+     "id": "b",
+     "t": "Năng lực kỹ thuật của đội phát triển"
+    },
+    {
+     "id": "c",
+     "t": "Quy trình, quy định, dữ liệu và yêu cầu nghiệp vụ"
+    },
+    {
+     "id": "d",
+     "t": "Ngân sách và tiến độ của dự án"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide định nghĩa Document Analysis là phân tích tài liệu hiện có \"để hiểu quy trình, quy định, dữ liệu và yêu cầu nghiệp vụ\".</p>",
+   "why_wrong": {
+    "a": "Cảm xúc người dùng khó đọc được từ tài liệu; đó là việc của phỏng vấn, khảo sát.",
+    "b": "Năng lực đội phát triển không phải đối tượng của kỹ thuật này.",
+    "d": "Ngân sách, tiến độ là việc quản lý dự án, không nằm trong định nghĩa."
+   },
+   "src": "9. Document Analysis.pdf tr.4"
+  },
+  {
+   "id": "L09-q2",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Theo slide, tài liệu dùng cho Document Analysis có thể ở những hình thức nào? (chọn các đáp án đúng)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chỉ văn bản đã được ký duyệt"
+    },
+    {
+     "id": "b",
+     "t": "Video và audio"
+    },
+    {
+     "id": "c",
+     "t": "Chỉ tài liệu do BA tự soạn ra"
+    },
+    {
+     "id": "d",
+     "t": "Database và log"
+    }
+   ],
+   "answer": [
+    "b",
+    "d"
+   ],
+   "explain": "<p>Slide ghi: tài liệu có thể là văn bản, hình ảnh, video, audio, website, file thiết kế, database, log… Không giới hạn ở văn bản.</p>",
+   "why_wrong": {
+    "a": "Slide không giới hạn ở văn bản, càng không đòi phải được ký duyệt.",
+    "c": "Kỹ thuật phân tích tài liệu hiện có của tổ chức, không phải tài liệu BA tự viết."
+   },
+   "src": "9. Document Analysis.pdf tr.4"
+  },
+  {
+   "id": "L09-q3",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>BRD, SRS, API, DB, Log của hệ thống cũ thuộc loại tài liệu nào theo slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tài liệu nghiệp vụ"
+    },
+    {
+     "id": "b",
+     "t": "Tài liệu hệ thống"
+    },
+    {
+     "id": "c",
+     "t": "Tài liệu pháp lý"
+    },
+    {
+     "id": "d",
+     "t": "Báo cáo vận hành"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide xếp \"tài liệu thiết kế hệ thống cũ (BRD, SRS, Api, DB, Log…)\" vào nhóm tài liệu hệ thống.</p>",
+   "why_wrong": {
+    "a": "Tài liệu nghiệp vụ là cơ cấu tổ chức, quy chế, biểu mẫu nội bộ.",
+    "c": "Tài liệu pháp lý là các văn bản luật.",
+    "d": "Báo cáo vận hành là báo cáo hoạt động, ví dụ báo cáo cuối ca."
+   },
+   "src": "9. Document Analysis.pdf tr.4"
+  },
+  {
+   "id": "L09-q4",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Thứ tự đúng của các bước thực hiện Document Analysis là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phân tích – đánh giá → Chuẩn bị → Ghi nhận phát hiện"
+    },
+    {
+     "id": "b",
+     "t": "Chuẩn bị → Ghi nhận phát hiện → Phân tích – đánh giá"
+    },
+    {
+     "id": "c",
+     "t": "Thu thập → Phỏng vấn → Ghi nhận phát hiện"
+    },
+    {
+     "id": "d",
+     "t": "Chuẩn bị → Phân tích – đánh giá → Ghi nhận phát hiện"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Sơ đồ trên slide: 1. Chuẩn bị → 2. Phân tích – đánh giá → 3. Ghi nhận phát hiện. Mẹo: Gom – Mổ – Ghi.</p>",
+   "why_wrong": {
+    "a": "Phải chuẩn bị (thu thập, đánh giá nguồn) trước khi phân tích.",
+    "b": "Chỉ ghi nhận phát hiện sau khi đã phân tích.",
+    "c": "Phỏng vấn không phải một bước của Document Analysis."
+   },
+   "src": "9. Document Analysis.pdf tr.6"
+  },
+  {
+   "id": "L09-q5",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Bước 1 \"Chuẩn bị\" gồm những việc nào? (chọn các đáp án đúng)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thu thập tài liệu"
+    },
+    {
+     "id": "b",
+     "t": "Tạo hồ sơ tổng hợp"
+    },
+    {
+     "id": "c",
+     "t": "Đánh giá nguồn tài liệu"
+    },
+    {
+     "id": "d",
+     "t": "Chuyển tài liệu thành bảng quyết định"
+    },
+    {
+     "id": "e",
+     "t": "Đánh giá tính dễ hiểu"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Slide bước 1 có 3 việc: thu thập tài liệu, đánh giá nguồn tài liệu, đánh giá tính dễ hiểu.</p>",
+   "why_wrong": {
+    "b": "Tạo hồ sơ tổng hợp thuộc bước 2 Phân tích và đánh giá.",
+    "d": "Chuyển sang công cụ trực quan là điều cân nhắc ở bước 3 Ghi nhận phát hiện."
+   },
+   "src": "9. Document Analysis.pdf tr.7"
+  },
+  {
+   "id": "L09-q6",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, bảng phân tích trong hồ sơ tổng hợp có thể dựa trên những tiêu chí nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tên tài liệu, số trang, ngày ban hành, người ký duyệt, nơi lưu bản gốc giấy"
+    },
+    {
+     "id": "b",
+     "t": "Chủ đề, nguồn gốc thông tin, loại thông tin, trích dẫn tài liệu gốc"
+    },
+    {
+     "id": "c",
+     "t": "Yêu cầu, mức MoSCoW, trạng thái, người duyệt"
+    },
+    {
+     "id": "d",
+     "t": "Chủ đề, người phụ trách, hạn chót, mức ưu tiên"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide: \"có thể sử dụng bảng phân tích dựa trên: chủ đề, nguồn gốc thông tin, loại thông tin, trích dẫn tài liệu gốc\".</p>",
+   "why_wrong": {
+    "a": "Đây là thông tin quản lý văn thư, không phải 4 tiêu chí slide nêu.",
+    "c": "Đây là các cột kiểu ma trận quản lý yêu cầu, không phải hồ sơ tổng hợp.",
+    "d": "Đây là cột của bảng phân công việc, không phải bảng phân tích tài liệu."
+   },
+   "src": "9. Document Analysis.pdf tr.8"
+  },
+  {
+   "id": "L09-q7",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>\"Tăng độ tin cậy với Stakeholder\" là một trong các mục đích của Document Analysis được nêu trên slide.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Mục đích cuối cùng trong danh sách 6 mục đích trên slide là \"Tăng độ tin cậy với Stakeholder\": BA hiểu nghiệp vụ trước khi gặp họ.</p>",
+   "why_wrong": {
+    "s": "Slide liệt kê rõ ý này trong phần Mục đích."
+   },
+   "src": "9. Document Analysis.pdf tr.5"
+  },
+  {
+   "id": "L09-q8",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Ở bước Ghi nhận phát hiện, slide gợi ý có thể chuyển tài liệu thành công cụ hỗ trợ trực quan nào sau đây?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phiếu khảo sát"
+    },
+    {
+     "id": "b",
+     "t": "Biên bản họp"
+    },
+    {
+     "id": "c",
+     "t": "Bảng quyết định"
+    },
+    {
+     "id": "d",
+     "t": "Hợp đồng dịch vụ"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide nêu: đồ thị, mô hình, luồng quy trình, hoặc bảng quyết định.</p>",
+   "why_wrong": {
+    "a": "Phiếu khảo sát là công cụ khai thác thông tin, không phải hình thức trình bày phát hiện.",
+    "b": "Biên bản họp ghi lại cuộc họp, không phải công cụ trực quan.",
+    "d": "Hợp đồng không liên quan đến việc trình bày phát hiện."
+   },
+   "src": "9. Document Analysis.pdf tr.9"
+  },
+  {
+   "id": "L09-q9",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Tiêu chí nào <b>KHÔNG</b> nằm trong việc đánh giá nguồn tài liệu ở bước Chuẩn bị?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Được nhiều nhân viên đọc nhất"
+    },
+    {
+     "id": "b",
+     "t": "Có tính xác thực (đúng là tài liệu chính thức)"
+    },
+    {
+     "id": "c",
+     "t": "Mới nhất"
+    },
+    {
+     "id": "d",
+     "t": "Đáng tin cậy"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Slide nêu 5 tiêu chí: quan trọng, xác đáng, mới nhất, có tính xác thực, đáng tin cậy. Số người đọc không phải tiêu chí.</p>",
+   "why_wrong": {
+    "b": "Tính xác thực là một tiêu chí slide nêu.",
+    "c": "Mới nhất là một tiêu chí slide nêu.",
+    "d": "Đáng tin cậy là một tiêu chí slide nêu."
+   },
+   "src": "9. Document Analysis.pdf tr.7"
+  },
+  {
+   "id": "L09-q10",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Cụm \"mà không cần hỏi trực tiếp stakeholders\" trong định nghĩa Document Analysis nên hiểu thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "BA không cần gặp stakeholder trong suốt dự án"
+    },
+    {
+     "id": "b",
+     "t": "Tài liệu luôn đúng hơn lời stakeholder nên không cần hỏi lại"
+    },
+    {
+     "id": "c",
+     "t": "Chỉ được hỏi stakeholder cấp quản lý"
+    },
+    {
+     "id": "d",
+     "t": "BA tự đọc trước, sau đó vẫn xác nhận lại với stakeholder"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Lúc phân tích, BA tự đọc mà chưa chiếm thời gian của stakeholder. Nhưng chính slide nêu mục đích \"xác thực thông tin với Stakeholder\" và yêu cầu liên hệ bên liên quan khi có mâu thuẫn.</p>",
+   "why_wrong": {
+    "a": "Slide vẫn yêu cầu liên hệ stakeholder để làm sáng tỏ thông tin.",
+    "b": "Tài liệu có thể cũ, sai; vì vậy mới có bước đánh giá nguồn.",
+    "c": "Định nghĩa không nói gì về cấp bậc stakeholder."
+   },
+   "src": "9. Document Analysis.pdf tr.4-5, tr.8"
+  },
+  {
+   "id": "L09-q11",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao Document Analysis giúp \"chuẩn bị dữ liệu cho Elicitation\"?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "BA đến buổi phỏng vấn với hiểu biết nền và câu hỏi cụ thể"
+    },
+    {
+     "id": "b",
+     "t": "Nó thay thế hoàn toàn phỏng vấn và workshop"
+    },
+    {
+     "id": "c",
+     "t": "Nó tạo ra bản đặc tả yêu cầu cuối cùng để khách hàng ký duyệt ngay"
+    },
+    {
+     "id": "d",
+     "t": "Nó giúp ước lượng chi phí phát triển phần mềm"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Đọc tài liệu trước giúp BA biết hiện trạng và chỗ còn thiếu, nên các buổi khai thác sau đó hỏi đúng trọng tâm.</p>",
+   "why_wrong": {
+    "b": "Chuẩn bị cho Elicitation nghĩa là đi trước, không thay thế các kỹ thuật khác.",
+    "c": "Kết quả phân tích tài liệu còn phải xác thực, chưa phải đặc tả cuối cùng.",
+    "d": "Ước lượng chi phí không phải mục đích slide nêu."
+   },
+   "src": "9. Document Analysis.pdf tr.5"
+  },
+  {
+   "id": "L09-q12",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Việc \"đánh giá tính dễ hiểu\" ở bước Chuẩn bị nhằm trả lời câu hỏi nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tài liệu có phải bản mới nhất không?"
+    },
+    {
+     "id": "b",
+     "t": "Nội dung có dễ truyền đạt lại cho stakeholder khi cần không?"
+    },
+    {
+     "id": "c",
+     "t": "Tài liệu do phòng ban nào ban hành và ai là người đã ký duyệt?"
+    },
+    {
+     "id": "d",
+     "t": "Tài liệu có quan trọng với phạm vi dự án không?"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide: \"Xác định xem nội dung có dễ hiểu để truyền đạt cho các Stakeholder khi cần thiết không?\"</p>",
+   "why_wrong": {
+    "a": "\"Mới nhất\" thuộc tiêu chí đánh giá nguồn tài liệu.",
+    "c": "Nơi ban hành liên quan tới tính xác thực, không phải tính dễ hiểu.",
+    "d": "\"Quan trọng\" thuộc tiêu chí đánh giá nguồn tài liệu."
+   },
+   "src": "9. Document Analysis.pdf tr.7"
+  },
+  {
+   "id": "L09-q13",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Khi hai tài liệu mâu thuẫn nhau, BA nên chọn tài liệu mới hơn và bỏ qua tài liệu cũ mà không cần hỏi ai.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Slide yêu cầu ghi lại thông tin mâu thuẫn và \"liên hệ với các bên liên quan để làm sáng tỏ\". BA không tự quyết bên nào đúng.</p>",
+   "why_wrong": {
+    "d": "Tài liệu mới hơn chưa chắc đúng hơn; chỉ stakeholder mới xác nhận được."
+   },
+   "src": "9. Document Analysis.pdf tr.8"
+  },
+  {
+   "id": "L09-q14",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Ví dụ nào thể hiện đúng nhất một <i>yêu cầu ẩn</i> phát hiện được nhờ Document Analysis?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khách hàng nói thẳng trong buổi phỏng vấn rằng muốn đặt hàng qua ứng dụng trên điện thoại di động"
+    },
+    {
+     "id": "b",
+     "t": "Đội phát triển đề xuất dùng SQL Server cho hệ thống mới"
+    },
+    {
+     "id": "c",
+     "t": "Quy định kho ghi chứng từ lưu tối thiểu 12 tháng, nên hệ thống phải lưu dữ liệu đủ lâu"
+    },
+    {
+     "id": "d",
+     "t": "Ban Giám đốc gửi email yêu cầu dự án xong trước cuối năm"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Yêu cầu ẩn là điều không ai nói ra nhưng nằm sẵn trong tài liệu. Quy định lưu chứng từ ≥ 12 tháng là ví dụ điển hình.</p>",
+   "why_wrong": {
+    "a": "Yêu cầu đã được nói thẳng trong phỏng vấn, không phải yêu cầu ẩn.",
+    "b": "Đây là đề xuất kỹ thuật, không phải yêu cầu nghiệp vụ rút từ tài liệu.",
+    "d": "Đây là ràng buộc được nêu trực tiếp, không cần phân tích tài liệu mới thấy."
+   },
+   "src": "9. Document Analysis.pdf tr.5; Quy dinh Quan ly kho.docx"
+  },
+  {
+   "id": "L09-q15",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Trong việc \"Ghi nhận vấn đề\" ở bước Phân tích và đánh giá, BA ghi lại những gì? (chọn các đáp án đúng)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thông tin mâu thuẫn hoặc bị trùng lặp"
+    },
+    {
+     "id": "b",
+     "t": "Cách sửa lỗi trong mã nguồn của hệ thống cũ"
+    },
+    {
+     "id": "c",
+     "t": "Lỗ hổng thông tin theo từng chủ đề"
+    },
+    {
+     "id": "d",
+     "t": "Hạn chế liên quan đến từng chủ đề"
+    },
+    {
+     "id": "e",
+     "t": "Mức lương và phụ cấp của từng stakeholder"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Slide: ghi lại thông tin mâu thuẫn hoặc trùng lặp; ghi nhận lỗ hổng thông tin và hạn chế liên quan đến từng chủ đề.</p>",
+   "why_wrong": {
+    "b": "Sửa mã nguồn là việc của lập trình viên, không thuộc phân tích tài liệu.",
+    "e": "Lương của stakeholder không liên quan và còn là thông tin cần bảo mật."
+   },
+   "src": "9. Document Analysis.pdf tr.8"
+  },
+  {
+   "id": "L09-q16",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao ở bước Ghi nhận phát hiện, BA phải cân nhắc mức độ chi tiết theo đối tượng tiếp nhận?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Để giảm số trang in, tiết kiệm chi phí văn phòng phẩm cho dự án"
+    },
+    {
+     "id": "b",
+     "t": "Mỗi người đọc cần mức thông tin khác nhau"
+    },
+    {
+     "id": "c",
+     "t": "Vì mọi báo cáo phát hiện chỉ được dài tối đa một trang"
+    },
+    {
+     "id": "d",
+     "t": "Để giấu bớt các vấn đề khỏi Ban Giám đốc"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Ban Giám đốc cần tóm tắt vấn đề, đội phát triển cần từng bước và ngoại lệ. Slide hỏi: nội dung và mức chi tiết có phù hợp với đối tượng tiếp nhận dự kiến không.</p>",
+   "why_wrong": {
+    "a": "Chi phí in không phải lý do slide nêu.",
+    "c": "Slide không quy định độ dài báo cáo.",
+    "d": "Mục tiêu là giúp người đọc hiểu, không phải che giấu vấn đề."
+   },
+   "src": "9. Document Analysis.pdf tr.9"
+  },
+  {
+   "id": "L09-q17",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Document Analysis chỉ dùng được khi tổ chức đã có một hệ thống phần mềm cũ để đọc BRD, SRS hoặc database.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Tài liệu hệ thống chỉ là một loại. Tài liệu nghiệp vụ (quy định, biểu mẫu) và báo cáo vận hành vẫn phân tích được. SolasMart chưa có hệ thống nhưng vẫn có 13 tài liệu để phân tích.</p>",
+   "why_wrong": {
+    "d": "Slide liệt kê cả tài liệu nghiệp vụ, pháp lý, báo cáo vận hành, không chỉ tài liệu hệ thống."
+   },
+   "src": "9. Document Analysis.pdf tr.4"
+  },
+  {
+   "id": "L09-q18",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Cột \"Trích dẫn tài liệu gốc\" trong bảng phân tích có tác dụng chính là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Làm cho hồ sơ dài hơn và trông chuyên nghiệp hơn khi trình bày"
+    },
+    {
+     "id": "b",
+     "t": "Thay thế cho việc xác thực lại với stakeholder"
+    },
+    {
+     "id": "c",
+     "t": "Truy ngược về nguồn khi cần kiểm chứng"
+    },
+    {
+     "id": "d",
+     "t": "Ghi tên BA đã đọc tài liệu đó"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Trích dẫn giúp BA và stakeholder biết thông tin lấy từ đâu, để kiểm lại hoặc so sánh khi có mâu thuẫn.</p>",
+   "why_wrong": {
+    "a": "Độ dài không phải mục tiêu của bảng phân tích.",
+    "b": "Trích dẫn không thay được xác thực; slide vẫn yêu cầu liên hệ stakeholder.",
+    "d": "Cột này ghi nội dung nguồn, không ghi người đọc."
+   },
+   "src": "9. Document Analysis.pdf tr.8"
+  },
+  {
+   "id": "L09-q19",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>\"Hệ thống hóa tài liệu\" khác \"Tạo hồ sơ tổng hợp\" ở điểm nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hệ thống hóa thuộc bước Ghi nhận phát hiện, còn hồ sơ tổng hợp thuộc bước Chuẩn bị tài liệu"
+    },
+    {
+     "id": "b",
+     "t": "Hai việc giống hệt nhau, chỉ khác tên gọi"
+    },
+    {
+     "id": "c",
+     "t": "Hệ thống hóa chia nội dung theo chủ đề; hồ sơ tổng hợp là bảng ghi nguồn, loại thông tin, trích dẫn"
+    },
+    {
+     "id": "d",
+     "t": "Hệ thống hóa là xóa bớt các tài liệu cũ, còn hồ sơ tổng hợp là in lại toàn bộ tài liệu mới để lưu trữ"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Cả hai cùng ở bước 2. Hệ thống hóa: phân chia nội dung theo chủ đề và phạm vi nghiệp vụ. Hồ sơ tổng hợp: phân chia các loại tài liệu, dùng bảng chủ đề – nguồn gốc – loại thông tin – trích dẫn.</p>",
+   "why_wrong": {
+    "a": "Cả hai việc đều thuộc bước 2 Phân tích và đánh giá.",
+    "b": "Slide tách thành hai gạch đầu dòng với nội dung khác nhau.",
+    "d": "Không có việc xóa hay in tài liệu trong slide."
+   },
+   "src": "9. Document Analysis.pdf tr.8"
+  },
+  {
+   "id": "L09-q20",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Đâu là hạn chế của Document Analysis? (chọn các đáp án đúng)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bắt buộc stakeholder phải ngồi cùng khi BA đọc tài liệu"
+    },
+    {
+     "id": "b",
+     "t": "Tài liệu có thể đã cũ, không còn được áp dụng"
+    },
+    {
+     "id": "c",
+     "t": "Không bao giờ phát hiện được yêu cầu mới"
+    },
+    {
+     "id": "d",
+     "t": "Điều ghi trong tài liệu có thể khác điều mọi người thực sự làm"
+    }
+   ],
+   "answer": [
+    "b",
+    "d"
+   ],
+   "explain": "<p>Tài liệu có thể lỗi thời hoặc không khớp thực tế. Vì vậy slide yêu cầu đánh giá nguồn (mới nhất, đáng tin cậy) và xác thực với stakeholder.</p>",
+   "why_wrong": {
+    "a": "Ngược lại, kỹ thuật này làm được mà chưa cần hỏi stakeholder.",
+    "c": "Phát hiện yêu cầu ẩn là một mục đích của kỹ thuật này."
+   },
+   "src": "9. Document Analysis.pdf tr.5, tr.7"
+  },
+  {
+   "id": "L09-q21",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong quy trình bán hàng online của SolasMart, chi tiết nào cho thấy rõ nhất một pain point của hiện trạng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khách gửi địa chỉ giao hàng và số điện thoại liên hệ"
+    },
+    {
+     "id": "b",
+     "t": "Nhân viên giao hàng gọi cho khách trước khi giao"
+    },
+    {
+     "id": "c",
+     "t": "Nhân viên CSKH gửi tin nhắn cảm ơn sau khi giao thành công"
+    },
+    {
+     "id": "d",
+     "t": "CSKH kiểm tra tồn kho thủ công bằng cách hỏi kho"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Kiểm tồn thủ công làm chậm trả lời khách; chính tài liệu ghi ngoại lệ \"Kho trả lời chậm\". Đây là pain point của As-is.</p>",
+   "why_wrong": {
+    "a": "Đây là dữ liệu đầu vào bình thường của đơn hàng.",
+    "b": "Đây là bước làm tốt để tránh giao hụt, không phải điểm đau.",
+    "c": "Đây là bước chăm sóc khách, không phải khó khăn."
+   },
+   "src": "Quy trinh ban hang qua kenh truc tuyen.docx; 9. Document Analysis.pdf tr.5"
+  },
+  {
+   "id": "L09-q22",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA nhận 4 mẫu phiếu kho SolasMart ghi ngày 20-10-2020, trong khi báo cáo cuối ca và file Excel đều ghi năm 2025. Theo bước Chuẩn bị, BA nên làm gì trước?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hỏi Quản lý kho xem mẫu phiếu này còn dùng không"
+    },
+    {
+     "id": "b",
+     "t": "Loại bỏ ngay vì tài liệu cũ không còn giá trị gì cho dự án"
+    },
+    {
+     "id": "c",
+     "t": "Dùng số liệu trên phiếu làm tồn kho hiện tại"
+    },
+    {
+     "id": "d",
+     "t": "Tự sửa ngày trên phiếu thành năm 2025"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Đây là tiêu chí \"mới nhất\" khi đánh giá nguồn. BA cần xác nhận tài liệu còn hiệu lực, không tự kết luận.</p>",
+   "why_wrong": {
+    "b": "Mẫu cũ vẫn có thể đang dùng, hoặc vẫn có ích để hiểu cấu trúc biểu mẫu.",
+    "c": "Số liệu năm 2020 không phản ánh tồn kho hiện tại.",
+    "d": "BA không được tự sửa tài liệu gốc của tổ chức."
+   },
+   "src": "9. Document Analysis.pdf tr.7; Phieu nhap kho.docx"
+  },
+  {
+   "id": "L09-q23",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Quy định vận hành SolasMart xử lý vi phạm theo 3 mức, còn Quy định quản lý nhân sự lại có 4 mức. BA nên xử lý thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chọn Quy định nhân sự vì chi tiết hơn"
+    },
+    {
+     "id": "b",
+     "t": "Chọn Quy định vận hành vì nó áp dụng cho toàn bộ nhân viên"
+    },
+    {
+     "id": "c",
+     "t": "Ghi nhận mâu thuẫn, hỏi bộ phận nhân sự quy định nào áp dụng"
+    },
+    {
+     "id": "d",
+     "t": "Bỏ qua vì hệ thống mới không liên quan đến chuyện kỷ luật nhân viên"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide: thông tin mâu thuẫn phải được ghi lại và BA liên hệ các bên liên quan để làm sáng tỏ.</p>",
+   "why_wrong": {
+    "a": "Chi tiết hơn không có nghĩa là đúng; BA không tự quyết.",
+    "b": "Phạm vi rộng hơn không chứng minh quy định đó đang được áp dụng.",
+    "d": "Mâu thuẫn vẫn phải ghi nhận; phạm vi dự án chưa được chốt."
+   },
+   "src": "9. Document Analysis.pdf tr.8; Quy dinh van hanh.docx; Quy dinh quan ly nhan su.docx"
+  },
+  {
+   "id": "L09-q24",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Phiếu hủy hàng SolasMart có dòng 1 giá trị hủy 9.000.000, dòng 2 là 75.000.000, nhưng tổng ghi 165.000.000. BA ghi nhận phát hiện này thế nào là đúng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Lỗi đánh máy nhỏ, sửa im lặng rồi dùng tiếp"
+    },
+    {
+     "id": "b",
+     "t": "Thông tin mâu thuẫn trong tài liệu, cần hỏi thủ kho hoặc kế toán"
+    },
+    {
+     "id": "c",
+     "t": "Một yêu cầu chức năng đã được stakeholder xác nhận"
+    },
+    {
+     "id": "d",
+     "t": "Số liệu đáng tin cậy, dùng luôn để tính tổng chi phí hủy hàng của siêu thị"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>9.000.000 + 75.000.000 = 84.000.000, không bằng 165.000.000. Đây là thông tin mâu thuẫn, ghi vào danh sách vấn đề và hỏi người có thẩm quyền.</p>",
+   "why_wrong": {
+    "a": "BA không biết số nào sai nên không thể tự sửa.",
+    "c": "Đây là số liệu trên biểu mẫu, không phải yêu cầu.",
+    "d": "Số liệu tự mâu thuẫn thì không đáng tin cậy."
+   },
+   "src": "9. Document Analysis.pdf tr.8; Phiếu hủy hàng.docx"
+  },
+  {
+   "id": "L09-q25",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Đọc \"Quy trình bán hàng tại quầy\", BA thấy mục \"Các bên tham gia\" chỉ có Khách hàng, Thu ngân, Nhân viên hỗ trợ quầy, Trưởng ca/Quản lý quầy. Những bên nào <i>được nhắc trong các bước</i> nhưng chưa có trong danh sách đó? (chọn các đáp án đúng)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bộ phận kho"
+    },
+    {
+     "id": "b",
+     "t": "Nhân viên giao hàng"
+    },
+    {
+     "id": "c",
+     "t": "Ngân hàng"
+    },
+    {
+     "id": "d",
+     "t": "Kế toán"
+    },
+    {
+     "id": "e",
+     "t": "Nhà cung cấp"
+    }
+   ],
+   "answer": [
+    "a",
+    "c"
+   ],
+   "explain": "<p>Bước 1: hết sản phẩm thì \"trao đổi với bộ phận kho để kiểm tra giá\". Bước 6.3: \"chờ xác nhận từ ngân hàng\". Rút actor phải đọc cả các bước, không chỉ mục liệt kê.</p>",
+   "why_wrong": {
+    "b": "Nhân viên giao hàng thuộc quy trình bán online.",
+    "d": "Kế toán xuất hiện ở quy trình online và nhập kho, không có trong quy trình tại quầy.",
+    "e": "Nhà cung cấp thuộc quy trình nhập kho."
+   },
+   "src": "Quy trinh ban hang tai quay.docx"
+  },
+  {
+   "id": "L09-q26",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Câu nào trong bộ tài liệu SolasMart là một quy tắc nghiệp vụ (business rule)?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Siêu thị SolasMart – Cơ sở Hà Đông"
+    },
+    {
+     "id": "b",
+     "t": "Thu ngân chào khách và bắt đầu phiên thanh toán"
+    },
+    {
+     "id": "c",
+     "t": "Giúp quá trình bán hàng được chuyên nghiệp"
+    },
+    {
+     "id": "d",
+     "t": "Không để kệ trống quá 20% diện tích"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Quy tắc nghiệp vụ là ràng buộc phải tuân theo, thường có \"không được\", \"phải\" hoặc con số. \"Không để kệ trống quá 20%\" có cả hai.</p>",
+   "why_wrong": {
+    "a": "Đây là thông tin chung về địa điểm.",
+    "b": "Đây là một bước của quy trình, không phải ràng buộc.",
+    "c": "Đây là mục đích của quy trình bán online."
+   },
+   "src": "Quy dinh van hanh.docx; 9. Document Analysis.pdf tr.4"
+  },
+  {
+   "id": "L09-q27",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Quy trình bán tại quầy có 8 bước, ngoại lệ viết đan xen trong văn bản. BA cần trình bày cho đội phát triển. Theo gợi ý ở bước Ghi nhận phát hiện, cách nào phù hợp nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Gửi nguyên văn file Word, không chỉnh sửa gì để giữ đúng tài liệu gốc"
+    },
+    {
+     "id": "b",
+     "t": "Vẽ luồng quy trình, tách nhánh ngoại lệ ở từng bước"
+    },
+    {
+     "id": "c",
+     "t": "Tóm thành một câu \"Thu ngân tính tiền cho khách\""
+    },
+    {
+     "id": "d",
+     "t": "Chỉ gửi danh sách tên các actor"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide gợi ý chuyển tài liệu thành luồng quy trình, mô hình, bảng quyết định… Đội phát triển cần mức chi tiết cao, gồm cả ngoại lệ.</p>",
+   "why_wrong": {
+    "a": "Văn bản trộn bước và ngoại lệ khó đọc; bước 3 khuyên cân nhắc hình thức trực quan.",
+    "c": "Quá sơ sài, không hợp với đội phát triển cần chi tiết.",
+    "d": "Thiếu toàn bộ luồng và ngoại lệ."
+   },
+   "src": "9. Document Analysis.pdf tr.9; Quy trinh ban hang tai quay.docx"
+  },
+  {
+   "id": "L09-q28",
+   "type": "tf",
+   "level": "apdung",
+   "q": "<p>Trong Báo cáo cuối ca tại quầy ngày 02/02/2025, tổng số đơn (132) và tổng doanh thu (73.500.000) khớp với tổng của từng hình thức thanh toán.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>85 + 35 + 12 = 132 đơn; 42.500.000 + 21.800.000 + 9.200.000 = 73.500.000. Kiểm cộng trừ là một cách đánh giá độ tin cậy của tài liệu.</p>",
+   "why_wrong": {
+    "s": "Cộng lại thì cả số đơn và doanh thu đều khớp."
+   },
+   "src": "Bao cao cuoi ca tai quay.docx"
+  },
+  {
+   "id": "L09-q29",
+   "type": "tf",
+   "level": "apdung",
+   "q": "<p>Quy định kho SolasMart ghi \"từ chối nhận hàng nếu gần hết hạn\". Vì quy tắc đã có trong tài liệu nên BA không cần hỏi thêm gì về nó.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Tài liệu không nói bao nhiêu ngày thì là \"gần hết hạn\". Đây là lỗ hổng thông tin cần ghi nhận và hỏi Quản lý kho, vì hệ thống cần một con số cụ thể.</p>",
+   "why_wrong": {
+    "d": "Quy tắc thiếu ngưỡng cụ thể nên chưa dùng được; slide yêu cầu ghi nhận lỗ hổng thông tin."
+   },
+   "src": "Quy dinh Quan ly kho.docx; 9. Document Analysis.pdf tr.8"
+  },
+  {
+   "id": "L09-q30",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Quy định vận hành SolasMart ghi: \"Không cho người khác sử dụng tài khoản hoặc mã thu ngân\". BA rút ra yêu cầu ẩn nào cho hệ thống POS mới?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Cả ca dùng chung một tài khoản để đổi người nhanh hơn"
+    },
+    {
+     "id": "b",
+     "t": "POS không cần đăng nhập nữa để giảm thời gian chờ của khách hàng"
+    },
+    {
+     "id": "c",
+     "t": "Chỉ trưởng ca có tài khoản, các thu ngân dùng chung"
+    },
+    {
+     "id": "d",
+     "t": "Mỗi thu ngân có tài khoản riêng, giao dịch ghi theo người làm"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Cấm dùng chung tài khoản nghĩa là hệ thống phải phân biệt từng thu ngân. Điều này cũng giúp quy trách nhiệm tiền trong két theo ca.</p>",
+   "why_wrong": {
+    "a": "Dùng chung tài khoản vi phạm trực tiếp quy định.",
+    "b": "Quy trình hiện tại còn có bước login lại khi POS chưa đăng nhập.",
+    "c": "Thu ngân dùng tài khoản của trưởng ca cũng là dùng tài khoản người khác."
+   },
+   "src": "Quy dinh van hanh.docx; Quy trinh ban hang tai quay.docx"
+  }
+ ],
+ "summary": {
+  "points": [
+   "Document Analysis: thu thập, đọc, phân loại, phân tích tài liệu hiện có để hiểu quy trình, quy định, dữ liệu, yêu cầu mà chưa cần hỏi stakeholder.",
+   "Tài liệu gồm: nghiệp vụ, hệ thống, pháp lý, báo cáo vận hành…; hình thức: văn bản, hình ảnh, video, audio, website, file thiết kế, database, log.",
+   "6 mục đích: hiểu bối cảnh (As-is, pain point), chuẩn bị cho Elicitation, xác thực với stakeholder, phát hiện yêu cầu ẩn, tiết kiệm thời gian, tăng độ tin cậy.",
+   "3 bước: Chuẩn bị → Phân tích – đánh giá → Ghi nhận phát hiện.",
+   "Chuẩn bị: thu thập; đánh giá nguồn (quan trọng, xác đáng, mới nhất, xác thực, đáng tin cậy); đánh giá tính dễ hiểu.",
+   "Phân tích – đánh giá: hệ thống hóa theo chủ đề; hồ sơ tổng hợp (chủ đề, nguồn gốc, loại thông tin, trích dẫn); ghi nhận mâu thuẫn, trùng lặp, lỗ hổng, hạn chế.",
+   "Ghi nhận phát hiện: mức chi tiết hợp đối tượng; cân nhắc chuyển thành đồ thị, mô hình, luồng quy trình, bảng quyết định.",
+   "Mâu thuẫn trong tài liệu thì hỏi stakeholder, BA không tự chọn bên đúng."
+  ],
+  "html": "<table><thead><tr><th>Bước</th><th>Việc làm</th><th>Áp vào SolasMart</th></tr></thead><tbody><tr><td>1. Chuẩn bị</td><td>Thu thập; đánh giá nguồn; đánh giá tính dễ hiểu</td><td>13 file; phiếu kho năm 2020 cần hỏi còn dùng không</td></tr><tr><td>2. Phân tích – đánh giá</td><td>Hệ thống hóa; hồ sơ tổng hợp; ghi nhận vấn đề</td><td>3 nhóm Bán hàng – Kho – Nhân sự; mâu thuẫn mức kỷ luật; phiếu hủy sai tổng</td></tr><tr><td>3. Ghi nhận phát hiện</td><td>Mức chi tiết theo người đọc; chuyển sang hình thức trực quan</td><td>Bảng luồng 8 bước bán tại quầy; tóm tắt As-is cho Ban Giám đốc</td></tr></tbody></table><p>Bài sau (Yêu cầu chức năng/phi chức năng, Phân tích GAP) dùng chính các phát hiện này làm đầu vào.</p>"
+ },
+ "images": [
+  {
+   "id": "L09-img1",
+   "path": "data/pages/9. Document Analysis/p-006.jpg",
+   "caption": "3 bước thực hiện Document Analysis",
+   "crop": [
+    0.05,
+    0.25,
+    0.97,
+    0.75
+   ]
+  }
+ ]
+}

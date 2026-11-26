@@ -1,0 +1,330 @@
+{
+ "lesson": "L16",
+ "chunks": [
+  {
+   "id": "L16-n1",
+   "ref": "L16-t1",
+   "say": "Chào bạn, mình bắt đầu buổi mười sáu: các loại tài liệu BA. Buổi này gồm ba phần. Phần một là các loại tài liệu BA, trọng tâm là BRD, SRS và FSD. Phần hai là cách viết từng tài liệu theo template của khóa, trong đó FSD có mười một dạng chức năng. Phần ba là một số lưu ý khi trình bày văn bản và đặt dấu câu. Cuối buổi, bạn sẽ biết một yêu cầu nên nằm ở tài liệu nào và viết ra sao.",
+   "show": {
+    "h": "Buổi 16: Các loại tài liệu BA",
+    "points": [
+     "Phần 1: Các loại tài liệu BA, trọng tâm BRD · SRS · FSD",
+     "Phần 2: Cách viết theo template, FSD có 11 dạng chức năng",
+     "Phần 3: Lưu ý trình bày và dấu câu"
+    ]
+   }
+  },
+  {
+   "id": "L16-n2",
+   "ref": "L16-t2",
+   "say": "Trước hết, vì sao tài liệu quan trọng? Tài liệu là sản phẩm hữu hình của BA, người khác đánh giá năng lực tư duy, phân tích và giao tiếp của bạn chủ yếu qua tài liệu bạn viết ra. Tài liệu có ba mục tiêu, nhớ gọn là dịch, thống nhất và làm căn cứ: dịch ngôn ngữ nghiệp vụ sang ngôn ngữ kỹ thuật, giúp các bên hiểu đúng và đủ yêu cầu, và làm căn cứ cho thiết kế, phát triển, kiểm thử, nghiệm thu. Slide giới thiệu năm loại tài liệu: BRD là tài liệu yêu cầu nghiệp vụ, SRS là đặc tả yêu cầu phần mềm, FSD là đặc tả yêu cầu chức năng, Test Case là tài liệu kiểm thử, và User manual là hướng dẫn sử dụng. Test Case viết sau khi có đặc tả chức năng, còn User manual viết gần lúc bàn giao, dành cho người dùng cuối. Slide chỉ nêu tên hai loại này, bài học bổ sung thêm URD, tức tài liệu yêu cầu người dùng, và đặc tả use case theo kiến thức chuẩn.",
+   "show": {
+    "h": "Tài liệu BA: mục tiêu và các loại chính",
+    "points": [
+     "Tài liệu = sản phẩm hữu hình của BA",
+     "3 mục tiêu: Dịch · Thống nhất · Làm căn cứ",
+     "5 loại: BRD · SRS · FSD · Test Case · User manual",
+     "Bổ sung ngoài slide: URD, đặc tả use case"
+    ]
+   }
+  },
+  {
+   "id": "L16-n3",
+   "ref": "L16-t3",
+   "say": "Giờ so sánh ba tài liệu trọng tâm. BRD, Business Requirement Document, do BA tạo cùng khách hàng, đầu vào là thông tin khảo sát, phỏng vấn người dùng và mục tiêu kinh doanh; người dùng là khách hàng, quản lý cấp cao và BA; nó trả lời câu hỏi doanh nghiệp cần gì, và được tạo ở giai đoạn phân tích. SRS, Software Requirement Specification, có đầu vào là BRD cùng các yêu cầu phát sinh, dành cho quản lý dự án và team dự án, trả lời câu hỏi hệ thống sẽ làm gì, và được tạo sau khi BRD được phê duyệt. FSD, Functional Specifications Document, có đầu vào là SRS và bản thiết kế, dành cho team dự án, trả lời câu hỏi mỗi chức năng hoạt động ra sao, ở giai đoạn thiết kế chi tiết. Slide nêu thêm các tên khác của FSD là FRS, FS hoặc PS. Như vậy ba tài liệu nối thành chuỗi BRD, SRS, FSD: đầu ra của tài liệu trước là đầu vào của tài liệu sau, càng về sau càng chi tiết. Mẹo nhớ: BRD hỏi cần gì, SRS hỏi làm gì, FSD hỏi làm thế nào.",
+   "show": {
+    "h": "So sánh BRD, SRS và FSD",
+    "points": [
+     "BRD: Cần gì? · BA + Khách hàng · giai đoạn phân tích",
+     "SRS: Làm gì? · đầu vào BRD + yêu cầu phát sinh · sau khi BRD duyệt",
+     "FSD: Làm thế nào? · đầu vào SRS + bản thiết kế · thiết kế chi tiết",
+     "FSD còn gọi là FRS · FS · PS",
+     "Chuỗi BRD → SRS → FSD: càng về sau càng chi tiết"
+    ],
+    "img": "L16-img1"
+   },
+   "ask": [
+    "L16-q2",
+    "L16-q3",
+    "L16-q6"
+   ]
+  },
+  {
+   "id": "L16-n4",
+   "ref": "L16-e1",
+   "say": "Xem một ví dụ để thấy chuỗi này chạy thế nào. Nhà hàng FoodNow muốn khách đặt bàn qua đối tác như Pasgo, không phải gọi điện. Trong BRD, nhu cầu này là một yêu cầu chức năng: cho phép tiếp nhận đặt bàn từ đối tác đặt chỗ, người đọc là chủ nhà hàng và quản lý. Trong SRS, mô hình tổng quan có khối hệ thống đặt bàn bên ngoài, danh sách API có dòng API đặt bàn, và có biểu đồ trạng thái Đặt bàn. Trong FSD, đây là một API do mình định nghĩa, có luồng kiểm tra, bảng đầu vào, đầu ra và danh sách mã lỗi, người đọc là dev và tester. Lưu ý thêm, slide năm gọi FSD là Functional Requirements Document, slide sáu ghi Functional Specifications Documents, hai tên chỉ cùng một tài liệu. Theo kiến thức chuẩn thì không có bộ tài liệu cố định, nhiều công ty gộp SRS với FSD làm một, còn khóa này tách hai tài liệu theo mức chi tiết.",
+   "show": {
+    "h": "Một nhu cầu đi qua BRD → SRS → FSD",
+    "points": [
+     "Nhu cầu: khách đặt bàn qua đối tác (Pasgo)",
+     "BRD: một yêu cầu chức năng, người đọc là chủ nhà hàng, quản lý",
+     "SRS: khối hệ thống bên ngoài, dòng API đặt bàn, trạng thái Đặt bàn",
+     "FSD: API dạng 8 · luồng, đầu vào/đầu ra, mã lỗi · cho dev, tester",
+     "Không có bộ tài liệu cố định; nhiều nơi gộp SRS + FSD"
+    ]
+   },
+   "ask": [
+    "L16-q46",
+    "L16-q47"
+   ]
+  },
+  {
+   "id": "L16-n5",
+   "ref": "L16-t4",
+   "say": "Bước sang cách viết. Cả ba template BRD, SRS, FSD đều mở đầu bằng các phần quản lý tài liệu giống nhau. Trang bìa ghi loại tài liệu, tên dự án, tên tài liệu, kèm mã dự án, mã tài liệu, phiên bản, nơi và năm ban hành. Tiếp theo là bảng lịch sử thay đổi bốn cột: ngày, phiên bản, người thực hiện, mô tả; mỗi lần sửa tài liệu thì thêm một dòng. Rồi tới bảng phê duyệt gồm họ tên, chức danh, chữ ký và ngày của những người duyệt, như trưởng phòng nghiệp vụ, giám đốc khối công nghệ thông tin, trưởng dự án. Cuối cùng là mục lục. Lịch sử thay đổi giúp truy được ai sửa gì, khi nào, còn bảng phê duyệt là bằng chứng các bên đã đồng ý, rất quan trọng khi có tranh cãi về phạm vi.",
+   "show": {
+    "h": "Phần đầu chung của các template",
+    "points": [
+     "Trang bìa: tên dự án, mã dự án, mã tài liệu, phiên bản",
+     "Lịch sử thay đổi: Ngày · Phiên bản · Người thực hiện · Mô tả",
+     "Phê duyệt: Họ tên · Chức danh · Chữ ký · Ngày",
+     "Mục lục",
+     "Lịch sử → truy vết; Phê duyệt → bằng chứng đã đồng ý"
+    ]
+   }
+  },
+  {
+   "id": "L16-n6",
+   "ref": "L16-t5",
+   "say": "Giờ là cấu trúc BRD, gồm chín mục. Ba mục đầu là phần nền: tài liệu liên quan, quy định về hình vẽ, và bảng thuật ngữ, từ viết tắt. Mục bốn, Tổng quan, là phần quan trọng nhất, gồm mục đích của hệ thống, phạm vi dự án, giả định và rủi ro. Phạm vi phải ghi cả việc nằm trong và việc không nằm trong dự án, để tránh scope bị thay đổi liên tục hay bị đòi thêm chức năng ngoài dự án ban đầu. Giả định là những thông tin được coi là đúng, không cần chứng minh, nhưng có ảnh hưởng tới kết quả dự án, còn rủi ro là những gì có thể ảnh hưởng xấu tới kết quả đó. Tiếp theo, mục năm là danh sách đối tượng người dùng, mục sáu là quy trình nghiệp vụ hiện tại kèm danh sách vấn đề và đề xuất giải pháp, rồi tới quy trình đề xuất, mục bảy là các vấn đề khác, mục tám là Roadmap chia theo từng Phase. Mục chín là danh sách yêu cầu, gồm yêu cầu chức năng có mã, độ ưu tiên, mô tả, ràng buộc, và yêu cầu phi chức năng như thời gian xử lý, sao lưu dữ liệu, mã hóa mật khẩu. Đọc BRD theo mạch: vì sao làm, ai dùng, đang làm và sẽ làm thế nào, làm theo thứ tự nào, và cần những gì.",
+   "show": {
+    "h": "Cấu trúc BRD theo template",
+    "points": [
+     "1–3. Tài liệu liên quan · Quy định hình vẽ · Thuật ngữ",
+     "4. Tổng quan: Mục đích · Phạm vi (cả phần không làm) · Giả định · Rủi ro",
+     "5. Người dùng · 6. Quy trình As-is + vấn đề → To-be · 7. Vấn đề khác",
+     "8. Roadmap theo Phase · 9. Yêu cầu FR / NFR",
+     "Mạch đọc: vì sao → ai → thế nào → thứ tự → cần gì"
+    ]
+   },
+   "ask": [
+    "L16-q7",
+    "L16-q8",
+    "L16-q9"
+   ]
+  },
+  {
+   "id": "L16-n7",
+   "ref": "L16-t6",
+   "say": "Tiếp theo là SRS, cũng gồm chín mục, nhưng nhìn từ phía hệ thống. Mục một là mục đích dự án, ghi rõ giai đoạn đầu tập trung vào gì và không bao gồm gì. Mục hai và ba là thuật ngữ và nguồn tham khảo, tức các tài liệu làm căn cứ phân tích. Mục bốn là danh sách đối tượng người dùng, mỗi đối tượng làm gì trên hệ thống. Mục năm là mô hình tổng quan sản phẩm, gồm actor, các ứng dụng, hệ thống lõi và hệ thống bên ngoài, như hình của FoodNow: nhân viên phục vụ dùng Mobile app, nhân viên nhà hàng dùng web quản lý, còn hệ thống lõi nối với cổng thanh toán và hệ thống đặt bàn bên ngoài. Mục sáu là quy trình nghiệp vụ đề xuất, mục bảy là mô hình thực thể ERD, mục tám là biểu đồ trạng thái cho các thực thể có vòng đời. Mục chín là biểu đồ phân rã chức năng, gồm ba danh sách: chức năng hệ thống theo từng kênh, danh sách API, và danh sách tiến trình.",
+   "show": {
+    "h": "Cấu trúc SRS theo template",
+    "points": [
+     "1. Mục đích (gồm gì, không gồm gì) · 2. Thuật ngữ · 3. Nguồn tham khảo",
+     "4. Người dùng · 5. Mô hình tổng quan sản phẩm",
+     "6. Quy trình đề xuất · 7. ERD · 8. Biểu đồ trạng thái",
+     "9. Phân rã chức năng: Chức năng · API · Tiến trình"
+    ],
+    "img": "L16-img3"
+   }
+  },
+  {
+   "id": "L16-n8",
+   "ref": "L16-e3",
+   "say": "Cùng xem mục chín trong SRS mẫu của FoodNow. Hệ thống được chia thành năm phân hệ: Mobile app phục vụ, Web quản lý nhà hàng, Web admin, API và Tiến trình. Ba phân hệ đầu là các ứng dụng có người dùng, còn API và Tiến trình được tách thành hai phân hệ riêng. Mỗi phân hệ có một bảng danh sách chức năng gồm số thứ tự, tên chức năng và ý nghĩa, thêm cột actor khi nhiều actor dùng chung. Còn ở mục tám, biểu đồ trạng thái của thực thể Đặt bàn đi từ đặt bàn thành công, sang chờ phục vụ, đang phục vụ, chờ thanh toán, rồi đã thanh toán, kèm nhánh đã hủy khi khách hủy hoặc quá giờ không tới. Thực thể nào có vòng đời như vậy thì bạn thể hiện ở biểu đồ trạng thái. Slide ghi mục chín có ba tiểu mục, còn template FoodNow tách nhỏ hơn nên API và tiến trình nằm ở mục chín chấm năm và chín chấm sáu, nhưng cấu trúc ý vẫn giống nhau.",
+   "show": {
+    "h": "SRS FoodNow: phân hệ và trạng thái",
+    "points": [
+     "5 phân hệ: Mobile app phục vụ · Web quản lý nhà hàng · Web admin · API · Tiến trình",
+     "Mỗi phân hệ: bảng STT · Chức năng · Ý nghĩa (+ Actor)",
+     "Đặt bàn: thành công → chờ phục vụ → đang phục vụ → chờ thanh toán → đã thanh toán",
+     "Nhánh Đã hủy: KH hủy hoặc quá X giờ không tới",
+     "Slide: mục 9 có 3 tiểu mục; template tách tới 9.6"
+    ],
+    "img": "L16-img4"
+   },
+   "ask": [
+    "L16-q13",
+    "L16-q14",
+    "L16-q15"
+   ]
+  },
+  {
+   "id": "L16-n9",
+   "ref": "L16-t7",
+   "say": "Giờ tới phần dài nhất: FSD. FSD đặc tả từng chức năng, và slide chia chức năng thành mười một dạng, xếp vào ba nhóm. Nhóm thứ nhất có bảy dạng, actor là End user, tức người dùng thao tác trên giao diện: tìm kiếm danh sách, đơn giản, đầy đủ, CRUD của danh mục đầu vào, Import, báo cáo xuất excel, và tích hợp API với bên khác, dạng này dù có chữ API nhưng vẫn do người dùng thao tác. Nhóm thứ hai là dạng API, khi hệ thống khác gọi vào, gồm API do mình định nghĩa đặc tả và API do bên khác đặc tả. Nhóm thứ ba là dạng tiến trình, hệ thống tự chạy ngầm, gồm tiến trình đơn giản và tiến trình phức tạp. Để chọn nhóm, hãy hỏi: ai kích hoạt chức năng? Người dùng bấm trên màn hình thì là End user, hệ thống khác gọi sang thì là API, hệ thống tự chạy theo lịch thì là tiến trình. Lưu ý dạng ba có hai tên, slide chín gọi là chức năng phức tạp, slide mười hai gọi là chức năng đầy đủ, nhưng chỉ là một dạng.",
+   "show": {
+    "h": "FSD: 11 dạng chức năng chia 3 nhóm",
+    "points": [
+     "End user (1–7): Tìm kiếm · Đơn giản · Đầy đủ · CRUD · Import · Báo cáo · Tích hợp API",
+     "API (8–9): do mình đặc tả · do bên khác đặc tả",
+     "Tiến trình (10–11): đơn giản · phức tạp",
+     "Hỏi: ai kích hoạt? Người bấm · Hệ thống khác gọi · Tự chạy theo lịch"
+    ],
+    "img": "L16-img2"
+   },
+   "ask": [
+    "L16-q16",
+    "L16-q17"
+   ]
+  },
+  {
+   "id": "L16-n10",
+   "ref": "L16-t8",
+   "say": "Chức năng End user trong template FSD dùng lặp lại ba loại bảng, hiểu ba bảng này là viết được phần lớn FSD. Bảng thứ nhất là Mô tả chung, gồm tên chức năng, mô tả, tác nhân, điều kiện kích hoạt, điều kiện trước, điều kiện sau, luồng cơ bản, luồng thay thế và luồng ngoại lệ; đây chính là một bản đặc tả use case rút gọn, mục nào không có thì ghi là không áp dụng. Bảng thứ hai là Mô tả màn hình, đi kèm ảnh mockup có đánh số từng control, với các cột số thứ tự, tên, loại control, có bắt buộc nhập hay không, và mô tả định dạng, giá trị mặc định, độ dài tối đa. Bảng thứ ba là Business Rule, gồm mã rule, tên rule, chi tiết và câu thông báo, ghi những gì server kiểm tra, và nếu hợp lệ thì server xử lý những gì. Phân vai cho rõ: kiểm tra định dạng, độ dài, bắt buộc nhập nằm ở Mô tả màn hình, còn kiểm tra nghiệp vụ trên server nằm ở Business Rule.",
+   "show": {
+    "h": "FSD: 3 bảng dùng chung cho chức năng End user",
+    "points": [
+     "Mô tả chung: tác nhân, điều kiện, luồng cơ bản/thay thế/ngoại lệ (≈ use case), trống ghi N/A",
+     "Mô tả màn hình: STT · Tên · Loại · Req* · Mô tả",
+     "Business Rule: ID · Rule · Chi tiết rule · Thông báo",
+     "Format, maxlength, require → Mô tả màn hình; rule server → Business Rule"
+    ]
+   }
+  },
+  {
+   "id": "L16-n11",
+   "ref": "L16-t9",
+   "say": "Dạng một là tìm kiếm, danh sách, gồm bốn mục: mô tả chung, màn hình, mô tả màn hình và Business Rule. Khi chọn tiêu chí tìm kiếm, hãy xem người dùng thường có sẵn thông tin gì và tìm trong ngữ cảnh nào, tránh đưa ra quá nhiều ô tìm. Business Rule phải nêu được ba điều: tìm thỏa mọi điều kiện hay chỉ một trong các điều kiện, kết quả sắp xếp theo thứ tự nào, và màn hình mặc định hiển thị dữ liệu gì khi chưa tìm. Dạng hai là chức năng đơn giản, cũng bốn mục như vậy: actor nhập form rồi gửi đi, server kiểm tra, hợp lệ thì lưu, không hợp lệ thì không lưu. Vì luồng chỉ gồm các bước cơ bản ở client và server, nên không cần vẽ activity diagram, chỉ cần mô tả Business Rule, và nếu có công thức thì nói rõ cách lấy từng đầu vào. Ví dụ chức năng Đặt bàn trong template: ô họ tên bắt buộc, tối đa năm mươi ký tự, chỉ gồm chữ và khoảng trắng, các ràng buộc này nằm ở Mô tả màn hình. Còn điều kiện xác định bàn trống và câu thông báo khi bàn đã có người đặt thì nằm ở Business Rule.",
+   "show": {
+    "h": "Dạng 1 Tìm kiếm/danh sách · Dạng 2 Đơn giản",
+    "points": [
+     "Dạng 1: chọn tiêu chí vừa đủ, theo ngữ cảnh người dùng",
+     "Rule: AND hay OR · thứ tự sắp xếp · dữ liệu mặc định",
+     "Dạng 2: nhập form → server validate → lưu / không lưu",
+     "Không cần activity diagram; có công thức thì nêu cách lấy đầu vào",
+     "Họ tên ≤ 50 ký tự → Mô tả màn hình; bàn trống → Business Rule"
+    ]
+   },
+   "ask": [
+    "L16-q19",
+    "L16-q20",
+    "L16-q21"
+   ]
+  },
+  {
+   "id": "L16-n12",
+   "ref": "L16-t11",
+   "say": "Dạng ba là chức năng đầy đủ, có thêm mục activity diagram, tức luồng hoạt động, nằm giữa mô tả chung và màn hình. Khi client và server trao đổi nhiều bước, hoặc server xử lý nhiều bước, thì nên vẽ activity diagram rồi mô tả từng bước. Nguyên tắc kiểm tra trên server là: server nhận thông tin nào mà nó có thì kiểm tra lại thông tin đó, để chắc dữ liệu hiện tại vẫn thỏa yêu cầu xử lý. Ví dụ chức năng tạo Momo QR, server kiểm tra mã đặt bàn đang ở trạng thái chờ thanh toán, thuộc đúng nhà hàng của người đang đăng nhập, và nhà hàng vẫn đang hoạt động, mỗi trường hợp sai có một câu thông báo riêng. Dạng bốn là CRUD của danh mục đầu vào, tức thêm, xem, sửa, xóa các dữ liệu nền như danh mục bàn. Vì rule thường lặp nhau, bạn không cần viết tách từng chức năng, mà gộp cả năm chức năng tìm kiếm, thêm mới, chỉnh sửa, xem chi tiết và xóa vào một mục. Chỉ cần mô tả màn hình danh sách và màn hình thêm mới, vì xem chi tiết chỉ là bản chỉ đọc, còn chỉnh sửa hiện sẵn giá trị hiện tại.",
+   "show": {
+    "h": "Dạng 3 Đầy đủ · Dạng 4 CRUD danh mục",
+    "points": [
+     "Dạng 3: thêm Activity diagram khi nhiều bước client ↔ server",
+     "Server nhận thông tin nào mình có → kiểm tra lại",
+     "VD Tạo Momo QR: Chờ thanh toán · đúng nhà hàng · đang hoạt động",
+     "Dạng 4 CRUD: gộp 5 chức năng vào 1 mục",
+     "Chỉ mô tả màn hình Danh sách + Thêm mới"
+    ]
+   },
+   "ask": [
+    "L16-q23",
+    "L16-q24",
+    "L16-q26"
+   ]
+  },
+  {
+   "id": "L16-n13",
+   "ref": "L16-t13",
+   "say": "Dạng năm là Import thông tin. Màn hình phải có chỗ tải file mẫu, và quy định rõ định dạng file, kích thước file, số dòng tối đa. Bạn mô tả từng trường trong file: có bắt buộc không, độ dài tối đa, định dạng, tập giá trị cho phép. Phần hay bị quên là quy định file trả kết quả: tên file trả ra, thường thêm cột kết quả và cột mô tả lỗi, kèm danh sách từng trường hợp lỗi. Ví dụ trong template, file import danh sách nhà hàng là file excel tối đa ba megabyte, năm trăm dòng, file trả ra giữ tên gốc và thêm hậu tố result. Dạng sáu là báo cáo, xuất excel: hỏi rõ stakeholder thường báo cáo theo đầu vào nào và muốn đầu ra ra sao, rồi nói rõ cách tính từng giá trị, lấy dữ liệu theo điều kiện nào, công thức gì. Khi xuất excel phải có template mẫu cho đội code, file xuất thường giống y giao diện, trường nào khác thì mô tả cụ thể lấy từ trường nào hoặc công thức nào. Ví dụ hệ số quay vòng bàn bằng tổng số khách được phục vụ trong kỳ chia cho số chỗ ngồi của nhà hàng.",
+   "show": {
+    "h": "Dạng 5 Import · Dạng 6 Báo cáo, xuất excel",
+    "points": [
+     "Dạng 5: file mẫu · định dạng, kích thước, số dòng",
+     "Mô tả trường: Require · Maxlength · định dạng · giá trị cho phép",
+     "File kết quả: tên gốc + _result, thêm cột Kết quả, Mô tả lỗi",
+     "Dạng 6: hỏi đầu vào/đầu ra; nêu điều kiện lấy dữ liệu, công thức",
+     "Xuất excel: template mẫu; cột khác giao diện → ghi nguồn/công thức"
+    ]
+   },
+   "ask": [
+    "L16-q27",
+    "L16-q30"
+   ]
+  },
+  {
+   "id": "L16-n14",
+   "ref": "L16-t15",
+   "say": "Dạng bảy là tích hợp API với bên khác. Người dùng vẫn thao tác trên hệ thống mình, nhưng hệ thống mình phải gọi API của đối tác, ví dụ lấy phí vận chuyển từ đơn vị giao hàng. Các mục gồm mô tả chung, sequence diagram, activity diagram, màn hình và mô tả màn hình. Nên vẽ sequence diagram để thấy rõ luồng tích hợp giữa hai bên, và nếu một use case có nhiều lần tương tác với đối tác thì tách thành các use case con. Khi mô tả activity diagram, bạn cần nắm thông tin gửi sang lấy từ trường nào, thực thể nào bên mình, tham số gửi đối tác ứng với dữ liệu nào, và khi có kết quả trả về thì mapping lại xem trường hợp nào là thành công, thất bại hay timeout. Trong sequence diagram của template, luồng đi từ shop, qua client, tới server rồi sang đơn vị vận chuyển, và server luôn mapping địa bàn sang tên địa bàn của đơn vị vận chuyển trước khi gửi. Template tách use case đặt vận chuyển thành ba use case con: lấy phí, gửi yêu cầu vận chuyển và in nhãn đơn hàng.",
+   "show": {
+    "h": "Dạng 7: Tích hợp API với bên khác",
+    "points": [
+     "User thao tác trên hệ thống mình, hệ thống mình gọi API đối tác",
+     "Sequence diagram cho luồng 2 bên; nhiều tương tác → tách use case con",
+     "Mapping: trường, thực thể bên mình ↔ tham số đối tác",
+     "Kết quả trả về: thành công · thất bại · timeout",
+     "VD: Shop → Client → Server → Đơn vị vận chuyển"
+    ],
+    "img": "L16-img6"
+   },
+   "ask": [
+    "L16-q31",
+    "L16-q32",
+    "L16-q33"
+   ]
+  },
+  {
+   "id": "L16-n15",
+   "ref": "L16-t16",
+   "say": "Nhóm API có hai dạng, và cả hai đều là hệ thống mình cung cấp API cho đối tác gọi vào. Dạng tám là API do mình định nghĩa đặc tả, nghĩa là mình quy định tham số và mã lỗi, các mục gồm mô tả chung, luồng hoạt động, thông tin đầu vào, thông tin đầu ra và danh sách mã lỗi. Đầu vào cần lưu ý mã đối tác, mã định danh địa điểm và mã yêu cầu, còn đầu ra gồm mã xử lý bên mình, mã đối tác, mã định danh địa điểm, mã lỗi và mô tả lỗi. Ví dụ API đặt bàn cho đối tác như Pasgo, bảng mã lỗi liệt kê từng trường hợp, kể cả trường hợp thành công. Dạng chín là API do bên khác đặc tả: mình vẫn cung cấp API, nhưng đối tác đã định nghĩa trước đầu vào, đầu ra và mã lỗi, ví dụ Momo gửi kết quả thanh toán về theo format của họ, nên danh sách lỗi phải ghi rõ từng trường hợp trả về mã lỗi nào theo quy định của đối tác. Phân biệt với dạng bảy: dạng bảy là mình đi gọi đối tác, còn dạng tám và chín là đối tác gọi vào mình. Có hai chỗ slide lệch template: slide ghi mục tám chấm hai là activity diagram, template gọi là luồng nghiệp vụ, và danh sách ở slide hai mươi nhảy từ chín chấm ba sang chín chấm năm, thực tế chỉ có bốn tiểu mục.",
+   "show": {
+    "h": "Dạng 8, 9: API cho đối tác gọi vào",
+    "points": [
+     "Dạng 8: mình quy định tham số, mã lỗi · Đầu vào · Đầu ra · Mã lỗi",
+     "Đầu ra: mã xử lý · mã đối tác · mã địa điểm · mã lỗi · mô tả lỗi",
+     "Dạng 9: đối tác định nghĩa sẵn → ghép từng trường hợp với mã lỗi của họ",
+     "Dạng 7 mình gọi đi; dạng 8, 9 đối tác gọi vào"
+    ]
+   },
+   "ask": [
+    "L16-q35",
+    "L16-q36",
+    "L16-q37"
+   ]
+  },
+  {
+   "id": "L16-n16",
+   "ref": "L16-t18",
+   "say": "Hai dạng cuối là tiến trình, tức chức năng hệ thống tự chạy ngầm theo lịch, không có người bấm. Cả tiến trình đơn giản và phức tạp có cùng bộ mục: mô tả chung, State diagram, Activity diagram và Data flow diagram. State diagram nên vẽ khi tiến trình đi qua tối thiểu ba trạng thái, ví dụ quét các yêu cầu ở một trạng thái, trường hợp này thì chuyển sang trạng thái thứ hai, trường hợp kia thì chuyển sang trạng thái thứ ba. Ở luồng hoạt động, tiến trình đơn giản chỉ cần mô tả các bước bằng chữ, còn tiến trình phức tạp thì vẽ lưu đồ. Data flow diagram mô tả dữ liệu lấy ở đâu, và xử lý xong thì lưu vào đâu. Bảng mô tả chung của tiến trình có thêm tần suất chạy và điều kiện quét dữ liệu, ví dụ tiến trình tạo yêu cầu thanh toán chạy mỗi ngày một lần lúc một giờ sáng. Trong hình, tiến trình đọc dữ liệu từ các kho nhà hàng, gói sản phẩm, chương trình khuyến mãi, rồi ghi kết quả vào kho yêu cầu thanh toán.",
+   "show": {
+    "h": "Dạng 10, 11: Tiến trình xử lý",
+    "points": [
+     "Tiến trình: hệ thống tự chạy theo lịch, không người bấm",
+     "State diagram: khi qua ≥ 3 trạng thái",
+     "Luồng: đơn giản → mô tả bằng chữ; phức tạp → vẽ lưu đồ",
+     "Data flow diagram: lấy dữ liệu ở đâu, lưu vào đâu",
+     "Mô tả chung có Tần suất + Điều kiện quét dữ liệu"
+    ],
+    "img": "L16-img7"
+   },
+   "ask": [
+    "L16-q39",
+    "L16-q40",
+    "L16-q41"
+   ]
+  },
+  {
+   "id": "L16-n17",
+   "ref": "L16-t19",
+   "say": "Phần ba là lưu ý trình bày. Trước khi viết, hãy cài đặt mặc định: khổ A4, giấy dọc, lề trái hai phẩy năm xăng ti mét, lề phải, trên và dưới đều hai xăng ti mét, thiết kế sẵn header và footer, và dùng Modify Style để định kiểu Heading, Normal cho đồng bộ, nhờ đó Word tự tạo được mục lục. Về dấu câu, quy tắc chung rất gọn: dấu dính vào chữ đứng trước, và dấu cách nằm sau dấu. Dấu chấm, chấm hỏi, chấm than, dấu phẩy, chấm phẩy, hai chấm và dấu chấm lửng đều đặt sát chữ liền trước, rồi cách chữ sau một dấu cách. Sau dấu hai chấm, nếu là một câu hoàn chỉnh thì viết hoa, nếu không phải câu thì viết thường. Riêng các loại ngoặc thì ôm sát nội dung bên trong, và cách phần bên ngoài một dấu cách. Dấu gạch xéo thì đặt sát cả hai bên, không có dấu cách, ví dụ khi viết ngày tháng năm. Lưu ý ở slide hai mươi bảy, dòng đầu cột đúng vẫn còn dấu cách trước dấu hai chấm, đó là lỗi soạn slide.",
+   "show": {
+    "h": "Lưu ý trình bày và dấu câu",
+    "points": [
+     "A4 dọc · lề trái 2,5 – phải 2 – trên 2 – dưới 2 (cm)",
+     "Header & Footer · Modify Style (Heading, Normal)",
+     "Dấu dính chữ trước, cách chữ sau: Trời thật đẹp. Tôi đi làm.",
+     "Ngoặc ôm sát bên trong: Chúng ta (Em và tôi) yêu nhau.",
+     "Gạch xéo không cách: Ngày 14/02/24"
+    ]
+   },
+   "ask": [
+    "L16-q42",
+    "L16-q43",
+    "L16-q44"
+   ]
+  },
+  {
+   "id": "L16-n18",
+   "say": "Tóm lại buổi mười sáu. Tài liệu là sản phẩm hữu hình của BA, giúp dịch nghiệp vụ sang kỹ thuật, thống nhất cách hiểu và làm căn cứ cho cả dự án. BRD trả lời doanh nghiệp cần gì, SRS trả lời hệ thống làm gì, FSD trả lời mỗi chức năng hoạt động ra sao, ba tài liệu nối tiếp nhau theo chuỗi. FSD có mười một dạng chia ba nhóm: End user, API và tiến trình, mỗi dạng có bộ mục và lưu ý riêng. Chức năng End user dựa trên ba bảng: Mô tả chung, Mô tả màn hình và Business Rule. Khi trình bày, nhớ cài đặt trang, dùng style và đặt dấu câu sát chữ trước. Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm và bài thực hành viết BRD, SRS, FSD của bài.",
+   "show": {
+    "h": "Tổng kết buổi 16",
+    "points": [
+     "Tài liệu = sản phẩm hữu hình: Dịch · Thống nhất · Làm căn cứ",
+     "BRD cần gì → SRS làm gì → FSD làm thế nào",
+     "FSD: 11 dạng · End user / API / Tiến trình",
+     "3 bảng: Mô tả chung · Mô tả màn hình · Business Rule",
+     "Trình bày: A4, Style, dấu câu dính chữ trước"
+    ]
+   }
+  }
+ ]
+}

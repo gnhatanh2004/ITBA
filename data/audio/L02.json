@@ -1,0 +1,804 @@
+{
+ "lesson": "L02",
+ "voice": "vi-VN-NamMinhNeural",
+ "hash": "76d7eb95fc3c7275",
+ "duration": 889.896,
+ "chunks": [
+  {
+   "id": "L02-n1",
+   "start": 0.0,
+   "end": 37.776,
+   "sents": [
+    [
+     0.1,
+     5.213,
+     "Chào bạn, mình bắt đầu buổi hai: kiến thức IT cơ bản cho IT BA."
+    ],
+    [
+     5.162,
+     7.312,
+     "Buổi này có bốn phần."
+    ],
+    [
+     7.312,
+     11.363,
+     "Phần một, những mảng kiến thức IT mà một BA nên biết."
+    ],
+    [
+     11.363,
+     19.613,
+     "Phần hai, các mô hình triển khai hệ thống, từ mô hình tổng thể tới Client Server, N-Tier, Monolithic và Microservices."
+    ],
+    [
+     19.613,
+     26.337,
+     "Phần ba, đường truyền mạng, gồm các zone, địa chỉ IP, DNS và DHCP."
+    ],
+    [
+     26.337,
+     31.512,
+     "Phần bốn, các công nghệ khác như ngôn ngữ lập trình và hệ quản trị cơ sở dữ liệu."
+    ],
+    [
+     31.512,
+     37.775,
+     "Mục tiêu không phải để bạn thành kỹ sư, mà để bạn đọc được sơ đồ hệ thống và nói chuyện được với team kỹ thuật."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n2",
+   "start": 38.376,
+   "end": 82.44,
+   "sents": [
+    [
+     38.476,
+     41.838,
+     "Vì sao IT BA cần kiến thức IT?"
+    ],
+    [
+     41.788,
+     47.563,
+     "Một IT BA không cần code giỏi như Dev, nhưng cần đủ hiểu biết để làm được mấy việc sau."
+    ],
+    [
+     47.563,
+     51.651,
+     "Hiểu ngôn ngữ của team phát triển và làm việc với họ hiệu quả hơn."
+    ],
+    [
+     51.651,
+     54.788,
+     "Hiểu hệ thống vận hành thế nào ở tầng kỹ thuật."
+    ],
+    [
+     54.788,
+     64.226,
+     "Dịch yêu cầu business thành yêu cầu kỹ thuật khả thi, phân tích yêu cầu ít rủi ro hơn, từ đó đưa ra giải pháp thực tế hơn cho khách hàng và tăng giá trị của chính BA."
+    ],
+    [
+     64.226,
+     68.338,
+     "Ví dụ khách nói: khách đặt món xong thì nhà bếp thấy ngay."
+    ],
+    [
+     68.338,
+     76.151,
+     "BA có kiến thức IT hiểu đây là yêu cầu cập nhật gần như tức thời, và hỏi Dev cách đẩy thông báo, thay vì viết một câu mơ hồ."
+    ],
+    [
+     76.151,
+     82.426,
+     "Nhớ lại buổi trước: BA là người phiên dịch, muốn dịch đúng thì phải hiểu cả tiếng nghiệp vụ lẫn tiếng kỹ thuật."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n3",
+   "start": 83.04,
+   "end": 134.784,
+   "sents": [
+    [
+     83.14,
+     85.978,
+     "Vậy BA nên biết những mảng nào?"
+    ],
+    [
+     85.928,
+     90.728,
+     "Bạn không cần biết tất cả, chỉ cần biết tên và vai trò của từng mảng."
+    ],
+    [
+     90.728,
+     101.915,
+     "Nhóm thứ nhất là hệ thống và kiến trúc: các loại mô hình như Client Server, Web-based, Mobile app, Cloud-based, rồi đường truyền mạng, và các thiết bị như Server, Firewall."
+    ],
+    [
+     101.915,
+     111.203,
+     "Nhóm thứ hai là công nghệ và dữ liệu: ngôn ngữ lập trình, Database, và mảng Integration và API, tức cách hai phần mềm nói chuyện với nhau."
+    ],
+    [
+     111.203,
+     118.203,
+     "Nhóm thứ ba là bảo mật, quy trình phát triển phần mềm SDLC, và Testing, Quality Assurance."
+    ],
+    [
+     118.203,
+     129.615,
+     "Về các mô hình: Web-based mở bằng trình duyệt, không cần cài; Mobile app cài trên điện thoại, gọi tới server qua API; còn Cloud-based chạy trên hạ tầng thuê của nhà cung cấp đám mây."
+    ],
+    [
+     129.615,
+     134.778,
+     "SDLC, API và Database sẽ được học kỹ ở các bài sau."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n4",
+   "start": 135.384,
+   "end": 184.32,
+   "sents": [
+    [
+     135.484,
+     137.771,
+     "Phần hai là các mô hình."
+    ],
+    [
+     137.721,
+     141.859,
+     "Slide giới thiệu bốn mức, đi từ khái quát tới cụ thể."
+    ],
+    [
+     141.859,
+     147.271,
+     "Mô hình tổng thể cho biết hệ thống gồm những phân hệ nào, liên thông với ai bên ngoài."
+    ],
+    [
+     147.271,
+     152.646,
+     "Mô hình vật lý cho biết có những máy chủ, thiết bị nào, đặt ở vùng mạng nào."
+    ],
+    [
+     152.646,
+     161.634,
+     "Mô hình logic cho biết các khối phần mềm nối với nhau ra sao, còn mô hình chi tiết đi tới từng API, từng cơ sở dữ liệu, từng nhóm người dùng."
+    ],
+    [
+     161.634,
+     178.484,
+     "Ví dụ mô hình tổng thể trên slide là một hệ thống y tế: lõi là HIS, hệ thống thông tin bệnh viện, kết nối với RIS PACS quản lý ảnh chẩn đoán, LIS quản lý xét nghiệm, bệnh án điện tử EMR, và liên thông dữ liệu với Bảo hiểm xã hội, Trung tâm y tế quốc gia."
+    ],
+    [
+     178.484,
+     184.309,
+     "Mô hình này cho BA bức tranh lớn: hệ thống mình làm nằm ở đâu, phải tích hợp với ai."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n5",
+   "start": 184.92,
+   "end": 232.128,
+   "sents": [
+    [
+     185.02,
+     189.195,
+     "Mô hình vật lý cho thấy thiết bị thật và vùng mạng mà chúng nằm."
+    ],
+    [
+     189.145,
+     191.882,
+     "Hãy đọc theo đường đi của một yêu cầu."
+    ],
+    [
+     191.882,
+     197.645,
+     "Khách hàng ở ngoài Internet gửi yêu cầu, đi qua Firewall, tức tường lửa lọc lưu lượng."
+    ],
+    [
+     197.645,
+     203.52,
+     "Tiếp theo là Load Balancer, chia đều yêu cầu cho nhiều máy chủ để không máy nào bị quá tải."
+    ],
+    [
+     203.52,
+     211.97,
+     "Yêu cầu tới Web FE hoặc Gateway ở DMZ, rồi qua một Firewall nữa vào Server API ở Internal Zone để xử lý nghiệp vụ."
+    ],
+    [
+     211.97,
+     218.683,
+     "Cuối cùng là DB chính ở Database Zone, được sao lưu sang DB Backup, bên cạnh là Server File."
+    ],
+    [
+     218.683,
+     225.808,
+     "Slide vẽ nhiều Web FE và nhiều Server API để chịu tải lớn, và nếu một máy hỏng thì vẫn còn máy khác chạy."
+    ],
+    [
+     225.808,
+     232.12,
+     "Để ý dữ liệu quý nhất nằm sâu nhất: kẻ tấn công vượt được firewall đầu tiên mới chỉ tới DMZ."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n6",
+   "start": 232.728,
+   "end": 284.4,
+   "sents": [
+    [
+     232.828,
+     241.066,
+     "Khác với mô hình vật lý, mô hình logic không quan tâm máy chủ hay vùng mạng cụ thể, mà vẽ các khối phần mềm và luồng dữ liệu giữa chúng."
+    ],
+    [
+     241.016,
+     250.016,
+     "Từ Website nghiệp vụ, yêu cầu đi qua Firewall, Load balancer, Web FE và Gateway, qua một Firewall nữa để vào Internal zone."
+    ],
+    [
+     250.016,
+     253.341,
+     "Ở đó khối Backend nhận và xử lý yêu cầu."
+    ],
+    [
+     253.341,
+     260.315,
+     "Backend đặt việc vào Queue, tức Message Queue, hàng đợi thông điệp, rồi các service phía sau lấy ra xử lý dần."
+    ],
+    [
+     260.315,
+     265.041,
+     "Nhờ hàng đợi, hệ thống không bị nghẽn khi nhiều yêu cầu dồn tới cùng lúc."
+    ],
+    [
+     265.041,
+     272.603,
+     "Các service nghiệp vụ đọc dữ liệu nghiệp vụ và ghi vào Database summary, bên cạnh có Cache Redis là bộ nhớ đệm để đọc nhanh."
+    ],
+    [
+     272.603,
+     278.203,
+     "Slide chỉ ghi tên tắt các service như LDN, HMN mà không giải thích."
+    ],
+    [
+     278.203,
+     284.391,
+     "Gặp chỗ như vậy, BA nên hỏi lại team xem mỗi service phụ trách nghiệp vụ gì, đừng tự đoán."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n7",
+   "start": 285.0,
+   "end": 332.976,
+   "sents": [
+    [
+     285.1,
+     290.675,
+     "Mô hình chi tiết đi tới từng API, từng cơ sở dữ liệu và từng nhóm người dùng."
+    ],
+    [
+     290.625,
+     295.113,
+     "Ví dụ trên slide là một hệ thống giám sát thiết bị có cảnh báo."
+    ],
+    [
+     295.113,
+     301.012,
+     "Thiết bị gửi tín hiệu tới hệ thống xử lý tín hiệu, hệ thống này gọi API giao tiếp với thiết bị."
+    ],
+    [
+     301.012,
+     312.113,
+     "API đó gọi API Log History để ghi lịch sử vào cơ sở dữ liệu Mongo, nơi chứa rất nhiều log với cấu trúc linh hoạt, và ghi dữ liệu vào cơ sở dữ liệu tổng hợp dùng SQL."
+    ],
+    [
+     312.113,
+     318.8,
+     "Để báo cho người dùng, API gọi dịch vụ SMS và cuộc gọi, đồng thời gửi yêu cầu tới Socket."
+    ],
+    [
+     318.8,
+     326.012,
+     "Socket là kênh kết nối luôn mở, bắn cảnh báo ngay tới Mobile App và CMS mà người dùng không cần tải lại."
+    ],
+    [
+     326.012,
+     332.975,
+     "Từ luồng này, BA rút ra yêu cầu: cảnh báo đi qua những kênh nào, lịch sử lưu ở đâu, ai được xem."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n8",
+   "start": 333.576,
+   "end": 372.696,
+   "sents": [
+    [
+     333.676,
+     338.876,
+     "Giờ sang các kiểu kiến trúc, bắt đầu với Client Server, mô hình cơ bản nhất."
+    ],
+    [
+     338.826,
+     345.139,
+     "Client là bên gửi yêu cầu và nhận kết quả, ví dụ máy trạm, laptop, điện thoại."
+    ],
+    [
+     345.139,
+     349.064,
+     "Server nhận yêu cầu, xử lý và trả kết quả về."
+    ],
+    [
+     349.064,
+     354.264,
+     "Đường truyền nối hai bên, có thể là mạng Internet hoặc LAN, tức mạng nội bộ."
+    ],
+    [
+     354.264,
+     358.089,
+     "Ví dụ khách mở app đặt đồ ăn và bấm xem thực đơn."
+    ],
+    [
+     358.089,
+     365.876,
+     "App là client, gửi yêu cầu qua Internet tới server, server lấy thực đơn từ cơ sở dữ liệu rồi trả về để app hiển thị."
+    ],
+    [
+     365.876,
+     372.676,
+     "Mẹo nhớ: Client hỏi, Server trả lời, còn đường truyền là con đường chở câu hỏi và câu trả lời."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n9",
+   "start": 373.296,
+   "end": 425.808,
+   "sents": [
+    [
+     373.396,
+     379.246,
+     "N-Tier nghĩa là nhiều tầng: hệ thống được chia thành các tầng riêng, mỗi tầng một trách nhiệm."
+    ],
+    [
+     379.196,
+     382.746,
+     "Tầng presentation tương tác trực tiếp với người dùng."
+    ],
+    [
+     382.746,
+     388.284,
+     "Tầng business logic xử lý nghiệp vụ, còn tầng data access thao tác với Database."
+    ],
+    [
+     388.284,
+     393.383,
+     "Ngoài ra còn các tầng phụ như tầng tích hợp, tầng bảo mật, tầng caching."
+    ],
+    [
+     393.383,
+     400.246,
+     "Hình trên slide vẽ yêu cầu đi từ trên xuống, kết quả trả từ dưới lên, mỗi tầng chỉ làm việc với tầng kề bên."
+    ],
+    [
+     400.246,
+     407.183,
+     "Slide gọi chung là N-Tier, còn theo chuẩn, tier là tầng triển khai, layer là lớp tổ chức code."
+    ],
+    [
+     407.183,
+     418.996,
+     "Ví dụ chức năng đặt bàn của FoodNow: màn hình chọn giờ và số khách là presentation; quy tắc không nhận đặt bàn khi nhà hàng đã kín chỗ là business logic; lưu đơn vào cơ sở dữ liệu là data access."
+    ],
+    [
+     418.996,
+     425.796,
+     "Biết vậy, khi khách muốn đổi một quy tắc, BA biết thay đổi nằm ở business logic chứ không phải ở giao diện."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n10",
+   "start": 426.408,
+   "end": 479.952,
+   "sents": [
+    [
+     426.508,
+     429.983,
+     "Tiếp theo là cặp Monolithic và Microservices."
+    ],
+    [
+     429.933,
+     437.883,
+     "Monolithic là nguyên khối: giao diện, xử lý nghiệp vụ và truy cập dữ liệu gói trong một ứng dụng, dùng chung một cơ sở dữ liệu."
+    ],
+    [
+     437.883,
+     443.62,
+     "Nó hợp dự án nhỏ đến trung bình, cần phát triển nhanh giai đoạn đầu, triển khai đơn giản."
+    ],
+    [
+     443.62,
+     450.171,
+     "Microservices chia thành nhiều service nhỏ, mỗi service lo một việc và thường có cơ sở dữ liệu riêng."
+    ],
+    [
+     450.171,
+     456.433,
+     "Nó hợp hệ thống lớn, cần mở rộng cao, nhưng đòi hỏi đội ngũ có kinh nghiệm và hạ tầng hiện đại."
+    ],
+    [
+     456.433,
+     467.671,
+     "Ví dụ quán nhỏ làm app đặt món có thể chọn Monolithic để ra mắt nhanh, còn chuỗi SolasMart có bán tại quầy, bán online, kho và nhân sự thì hợp Microservices, nếu team đủ kinh nghiệm."
+    ],
+    [
+     467.671,
+     473.321,
+     "Mẹo nhớ: Monolithic là một căn nhà lớn, sửa một phòng có thể ảnh hưởng cả nhà."
+    ],
+    [
+     473.321,
+     479.946,
+     "Microservices là dãy nhà nhỏ, sửa nhà này không ảnh hưởng nhà kia, nhưng phải quản lý nhiều nhà."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n11",
+   "start": 480.552,
+   "end": 518.976,
+   "sents": [
+    [
+     480.652,
+     484.127,
+     "Phần ba là đường truyền mạng, bắt đầu với zone."
+    ],
+    [
+     484.077,
+     489.177,
+     "Zone là cách chia mạng thành các vùng an ninh, dựa trên mức độ tin cậy và chức năng."
+    ],
+    [
+     489.177,
+     495.59,
+     "Mục tiêu là giảm rủi ro nếu một vùng bị tấn công, đồng thời dễ quản lý bảo mật và dễ tuân thủ chính sách."
+    ],
+    [
+     495.59,
+     505.452,
+     "BA không cần biết cấu hình mạng, nhưng cần hiểu zone để xác định yêu cầu phi chức năng về bảo mật và triển khai, trao đổi với team hạ tầng, và đánh giá rủi ro của hệ thống."
+    ],
+    [
+     505.452,
+     512.177,
+     "Trong dự án lớn, đây cũng là kiến thức để viết tài liệu GPKT, thường hiểu là tài liệu giải pháp kỹ thuật."
+    ],
+    [
+     512.177,
+     518.965,
+     "Mẹo nhớ: zone giống các vòng cửa của một tòa nhà, càng vào trong càng ít người được vào, đồ càng quý."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n12",
+   "start": 519.576,
+   "end": 576.384,
+   "sents": [
+    [
+     519.676,
+     522.264,
+     "Slide liệt kê sáu loại zone."
+    ],
+    [
+     522.214,
+     526.776,
+     "External hay Internet Zone là vùng mạng ngoài, không tin cậy."
+    ],
+    [
+     526.776,
+     534.951,
+     "DMZ là vùng trung gian giữa Internet và mạng nội bộ, tin cậy thấp, nơi đặt website, Web FE và Gateway."
+    ],
+    [
+     534.951,
+     540.876,
+     "Internal Zone là mạng nội bộ, tin cậy cao, chứa service nghiệp vụ và API."
+    ],
+    [
+     540.876,
+     545.251,
+     "Database Zone chứa dữ liệu cực kỳ quan trọng, rất tin cậy."
+    ],
+    [
+     545.251,
+     555.576,
+     "Hai vùng còn lại có chức năng riêng: Guest Zone dành cho khách, như Wi-Fi Guest, không vào được mạng công ty, còn Management Zone dành cho quản trị như giám sát và sao lưu."
+    ],
+    [
+     555.576,
+     566.038,
+     "Vậy thứ tự tin cậy tăng dần là External, DMZ, Internal, rồi Database; đừng nhầm DMZ là vùng an toàn nhất, nó chỉ là sảnh chờ của tòa nhà."
+    ],
+    [
+     566.038,
+     576.376,
+     "Biết vậy, BA viết được yêu cầu như: cơ sở dữ liệu khách hàng đặt ở Database Zone, không truy cập trực tiếp từ Internet, chỉ server API nội bộ được kết nối."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n13",
+   "start": 576.984,
+   "end": 618.984,
+   "sents": [
+    [
+     577.084,
+     582.297,
+     "Tiếp theo là địa chỉ IP, viết tắt của Internet Protocol Address."
+    ],
+    [
+     582.247,
+     589.709,
+     "IP là dãy số định danh thiết bị trên Internet và trong mạng nội bộ, và mọi thiết bị muốn giao tiếp với nhau đều phải có IP."
+    ],
+    [
+     589.709,
+     597.846,
+     "ISP là nhà cung cấp dịch vụ Internet, như VNPT, FPT Telecom, Viettel, CMC Telecom."
+    ],
+    [
+     597.846,
+     604.234,
+     "Trong một ngôi nhà, máy tính và điện thoại mỗi máy có một Private IP riêng, cùng nối tới một Router."
+    ],
+    [
+     604.234,
+     610.022,
+     "Router có một Public IP do ISP cấp, và đi qua ISP để ra Internet."
+    ],
+    [
+     610.022,
+     618.984,
+     "Mẹo nhớ: Private IP là số phòng trong tòa nhà, còn Public IP là địa chỉ của cả tòa nhà mà bưu điện, tức ISP, biết."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n14",
+   "start": 619.584,
+   "end": 682.296,
+   "sents": [
+    [
+     619.684,
+     622.746,
+     "Địa chỉ IP được phân loại theo hai cách."
+    ],
+    [
+     622.696,
+     631.909,
+     "Theo phiên bản, IPv4 gồm bốn nhóm số thập phân cách nhau bằng dấu chấm, dài 32 bit, chỉ khoảng 4,3 tỷ địa chỉ nên không đủ dùng."
+    ],
+    [
+     631.909,
+     640.296,
+     "IPv6 gồm tám nhóm số thập lục phân cách nhau bằng dấu hai chấm, dài 128 bit, đủ để mỗi thiết bị có địa chỉ riêng."
+    ],
+    [
+     640.296,
+     644.271,
+     "Theo phạm vi, có IP private và IP public."
+    ],
+    [
+     644.271,
+     655.484,
+     "IP private nằm trong ba dải: dải bắt đầu bằng 10, dải từ 172.16 tới 172.31, và dải bắt đầu bằng 192.168."
+    ],
+    [
+     655.484,
+     660.871,
+     "Địa chỉ nằm ngoài ba dải này là IP public, được định danh duy nhất trên Internet."
+    ],
+    [
+     660.871,
+     671.121,
+     "Ví dụ 172.20 là private, nhưng 172.40 là public vì nằm ngoài dải từ 172.16 tới 172.31."
+    ],
+    [
+     671.121,
+     682.296,
+     "Lưu ý hình trên slide ghi một con số địa chỉ IPv6, thực ra đó là số lần IPv6 nhiều hơn IPv4, còn ý cần nhớ không đổi: IPv6 nhiều địa chỉ hơn rất nhiều."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n15",
+   "start": 682.896,
+   "end": 729.864,
+   "sents": [
+    [
+     682.996,
+     686.171,
+     "Muốn xem IP của máy mình thì làm sao?"
+    ],
+    [
+     686.121,
+     692.621,
+     "IP public thì vào trang whatismyipaddress.com, trang sẽ hiện IP cùng tên ISP và quốc gia."
+    ],
+    [
+     692.621,
+     700.346,
+     "IP private thì trên Windows mở cmd gõ ipconfig, còn trên Linux hay macOS mở terminal gõ ifconfig."
+    ],
+    [
+     700.346,
+     707.296,
+     "Hai địa chỉ khác nhau là bình thường, vì máy bạn dùng IP private, còn trang web chỉ thấy IP public của router."
+    ],
+    [
+     707.296,
+     710.233,
+     "Có hai giao thức tác động tới IP."
+    ],
+    [
+     710.233,
+     716.958,
+     "DNS, hệ thống phân giải tên miền, đổi tên miền dễ nhớ thành địa chỉ IP để máy tìm tới server."
+    ],
+    [
+     716.958,
+     722.183,
+     "DHCP tự động cấp IP cho thiết bị khi vào mạng, không cần cấu hình tay."
+    ],
+    [
+     722.183,
+     729.858,
+     "Mẹo nhớ: DNS là danh bạ, đổi tên ra số; DHCP là lễ tân phát số phòng cho thiết bị mới vào."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n16",
+   "start": 730.464,
+   "end": 783.84,
+   "sents": [
+    [
+     730.564,
+     732.827,
+     "Phần bốn là công nghệ."
+    ],
+    [
+     732.777,
+     737.889,
+     "BA không cần viết code, nhưng nên biết tên và thế mạnh của các ngôn ngữ phổ biến."
+    ],
+    [
+     737.889,
+     742.014,
+     "JavaScript dùng cho web, cả front-end lẫn back-end."
+    ],
+    [
+     742.014,
+     747.027,
+     "Python mạnh về phân tích dữ liệu, AI, học máy và tự động hóa."
+    ],
+    [
+     747.027,
+     757.427,
+     "Java dùng cho ứng dụng doanh nghiệp, Android và hệ thống lớn; C Sharp cho ứng dụng Windows và game Unity; còn C và C++ cho phần mềm hệ thống, nhúng, hiệu năng cao."
+    ],
+    [
+     757.427,
+     767.577,
+     "Hệ thống cũng chia hai phía: Frontend là phần người dùng nhìn thấy, như nút đặt món, ảnh món ăn, viết bằng JavaScript, HTML, CSS."
+    ],
+    [
+     767.577,
+     776.077,
+     "Backend chạy trên server, lo tính tiền, kiểm tra món còn hay hết, lưu đơn, viết bằng C Sharp, Java và nhiều công nghệ khác."
+    ],
+    [
+     776.077,
+     783.839,
+     "Lưu ý slide xếp React-native vào nhóm ngôn ngữ, còn theo chuẩn đó là một framework viết bằng JavaScript để làm app di động."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n17",
+   "start": 784.44,
+   "end": 834.12,
+   "sents": [
+    [
+     784.54,
+     791.878,
+     "Cuối cùng là hệ quản trị cơ sở dữ liệu, viết tắt DBMS, phần mềm để lưu, truy vấn và quản lý dữ liệu."
+    ],
+    [
+     791.828,
+     794.778,
+     "Mình chia làm hai nhóm cho dễ nhớ."
+    ],
+    [
+     794.778,
+     799.078,
+     "Nhóm thứ nhất lưu dữ liệu dạng bảng và dùng ngôn ngữ SQL."
+    ],
+    [
+     799.078,
+     808.328,
+     "Trong nhóm này, SQL Server của Microsoft tích hợp tốt với hệ sinh thái .NET, còn Oracle cho doanh nghiệp lớn, mạnh về bảo mật và mở rộng."
+    ],
+    [
+     808.328,
+     818.978,
+     "MySQL miễn phí, phổ biến cho web; PostgreSQL mạnh với truy vấn phức tạp; SQLite nhẹ, không cần server, hợp app nhỏ và mobile app."
+    ],
+    [
+     818.978,
+     827.903,
+     "Nhóm thứ hai là NoSQL: MongoDB lưu dữ liệu dạng JSON, hợp web và app; Redis cực nhanh, dùng làm cache và lưu phiên đăng nhập."
+    ],
+    [
+     827.903,
+     834.115,
+     "Việc chọn hệ nào do team kỹ thuật quyết, còn BA biết đặc điểm để hiểu ràng buộc và ghi đúng vào tài liệu."
+    ]
+   ]
+  },
+  {
+   "id": "L02-n18",
+   "start": 834.72,
+   "end": 889.896,
+   "sents": [
+    [
+     834.82,
+     836.783,
+     "Tóm lại buổi hai."
+    ],
+    [
+     836.733,
+     844.22,
+     "IT BA không cần code giỏi, nhưng cần đủ kiến thức IT để hiểu team và dịch yêu cầu nghiệp vụ thành yêu cầu kỹ thuật khả thi."
+    ],
+    [
+     844.22,
+     849.195,
+     "Bốn mức mô hình đi từ tổng thể, vật lý, logic tới chi tiết."
+    ],
+    [
+     849.195,
+     862.832,
+     "Client gửi yêu cầu, Server trả lời; N-Tier chia hệ thống thành presentation, business logic và data access; Monolithic hợp dự án nhỏ cần ra nhanh, còn Microservices hợp hệ thống lớn khi team và hạ tầng sẵn sàng."
+    ],
+    [
+     862.832,
+     871.908,
+     "Zone chia mạng theo mức tin cậy, từ External, DMZ, Internal tới Database, là căn cứ để viết yêu cầu phi chức năng về bảo mật."
+    ],
+    [
+     871.908,
+     879.808,
+     "IP định danh thiết bị, có private và public; DNS đổi tên miền thành IP, DHCP tự cấp IP."
+    ],
+    [
+     879.808,
+     885.42,
+     "Và BA nên biết thế mạnh của các ngôn ngữ lập trình và hệ quản trị cơ sở dữ liệu phổ biến."
+    ],
+    [
+     885.42,
+     889.883,
+     "Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài."
+    ]
+   ]
+  }
+ ]
+}

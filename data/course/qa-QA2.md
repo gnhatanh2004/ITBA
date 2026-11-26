@@ -1,0 +1,52 @@
+# QA2 – log kiểm và sửa (L07 L09 L11a L11b L11c L12)
+
+Mỗi dòng: id · lỗi · cách sửa.
+
+- L07-q18 · đáp án đúng là option dài nhất · viết dài option d
+- L07-q24 · đáp án đúng là option dài nhất · viết dài option a, d (giữ nghĩa)
+- L07-q39 · đáp án đúng là option dài nhất · viết dài option d
+- L07-img1, L07-img2 · crop dính đường kẻ chân trang · hạ y1 xuống 0.915
+- L07 · phủ nội dung tr.1-18 · đủ, không thêm
+- L07 · mẫu 10/42 câu tự giải (q3 q4 q6 q11 q14 q17 q20 q24 q38 q41) · 0 lệch
+- L07 · thực hành/bài tập p2 p3 x3 x5 · đáp án mẫu đúng, đủ
+- L07 · chữ · không thấy chữ dính, rác OCR
+- L09-q12 · đáp án đúng dài nhất (hơn 1 ký tự) · viết dài option c
+- L09-q15 · 3 đáp án đúng là 3 option dài nhất · viết dài option sai b, e
+- L09 · phủ nội dung tr.1-10 · đủ, không thêm
+- L09 · mẫu 10/30 câu tự giải (q12 q13 q14 q15 q17 q18 q21 q24 q25 q26) · 0 lệch; đối chiếu số liệu với file SolasMart
+- L09 · thực hành/bài tập p1 p3 x2 x4 · đáp án mẫu đúng, đủ (đã cộng lại số liệu báo cáo, phiếu nhập, phiếu hủy, phiếu kiểm kê)
+- L09 · chữ, ảnh L09-img1 · không lỗi
+- L11a-q3 q6 q21 q30 q32 q39 q44 q47 · đáp án đúng là option dài nhất · viết dài option sai cho cân (giữ nghĩa sai), q32 sửa why_wrong a, d theo chữ mới
+- L11a-q31 · 2 đáp án đúng là 2 option dài nhất · viết dài option sai b, d
+- L11a-q11 · đáp án đúng dài nhất 3 ký tự · giữ nguyên vì 4 option là thuật ngữ tiếng Anh cố định trên slide
+- L11a · phủ nội dung tr.1-35 · đủ (đã có ghi chú slide tr.19 chép nhầm mục tiêu B2), không thêm
+- L11a · mẫu 10/48 câu tự giải (q2 q3 q11 q18 q21 q24 q25 q28 q30 q34) · 0 lệch
+- L11a-img3 · crop dính logo COLE và đường kẻ chân trang · đổi crop thành [0.18, 0.52, 0.825, 0.955]
+- L11a-img4 · crop dính đường kẻ chân trang · hạ y1 xuống 0.92
+- L11a · thực hành/bài tập p2 p4 x1 x8 · đáp án mẫu đúng, đủ
+- L11a · chữ · không thấy chữ dính, rác OCR
+- L11b-q22 q30 q36 · đáp án đúng (multi) là các option dài nhất · viết dài option sai, giữ nghĩa
+- L11b-q8 · bộ lọc 'tất cả' bắt nhầm chữ 'tất cả đối tượng' · không phải option 'tất cả đều đúng', giữ nguyên
+- L11b · phủ nội dung tr.1-24 · đủ (đã có ghi chú slide tr.16 ghi nhầm nhiệm vụ B5), không thêm
+- L11b · mẫu 10/40 câu tự giải (q2 q9 q12 q15 q16 q17 q21 q35 q36 q39) · 0 lệch
+- L11b-img1 · crop dính logo COLE.VN ở đáy · hạ y1 xuống 0.90
+- L11b-img3 · crop dính chữ "n)." của slide bên trái · tăng x0 lên 0.572
+- L11b · thực hành/bài tập p1 p3 x1 x6 · đáp án mẫu đúng, đủ
+- L11b · chữ · không thấy chữ dính, rác OCR
+- L11c-q1 q11 · đáp án đúng là option dài nhất · viết dài option sai, giữ nghĩa
+- L11c-q20 · 2 đáp án đúng là 2 option dài nhất · viết dài option a, c
+- L11c · phủ nội dung tr.1-8 · đủ, không thêm
+- L11c · mẫu 10/20 câu tự giải (q6 q7 q9 q12 q13 q15 q17 q18 q19 q20) · 0 lệch
+- L11c-img1 · crop dính chữ "at" của đoạn văn bên trái · tăng x0 lên 0.533
+- L11c-img2 · crop dính logo COLE ở đáy · hạ y1 xuống 0.912
+- L11c · thực hành/bài tập p1 p2 x1 x3 · đáp án mẫu đúng, đủ
+- L11c · chữ · không thấy chữ dính, rác OCR
+- L12-q4 q15 q21 q35 q40 · đáp án đúng là option dài nhất · viết lại option sai cho cân (q21 rút gọn b, viết dài a c d), giữ nghĩa
+- L12 · phủ nội dung tr.1-19 + poster BPMN · đủ, không thêm
+- L12 · mẫu 10/47 câu tự giải (q11 q16 q23 q24 q26 q29 q30 q32 q34 q38) · 0 lệch
+- L12-q32 · đáp án đúng là option dài nhất · viết dài option b, d
+- L12-q38 · đáp án đúng dài nhất 2 ký tự · giữ nguyên vì 4 option là tên gateway chuẩn
+- L12 · thực hành/bài tập p1 p3 x4 x5 · đáp án mẫu đúng, đủ
+- L12 · ảnh img1-img8 (5 crop poster + 3 trang slide) · crop đúng nhóm ký hiệu, không cắt mất sơ đồ, không sửa; path poster giữ bản mới tai-lieu/m4-mo-hinh-hoa/
+- L12 · chữ · không thấy chữ dính, rác OCR
+- L12-q21 · rút gọn option b ở lần sửa trước làm chữ "Review" mơ hồ (flowchart có 2 bước Review) · trả lại tên đầy đủ Review Financial Statements; chấp nhận b dài nhất

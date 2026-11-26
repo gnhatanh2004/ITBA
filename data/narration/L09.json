@@ -1,0 +1,172 @@
+{
+ "lesson": "L09",
+ "chunks": [
+  {
+   "id": "L09-n1",
+   "say": "Chào bạn, mình bắt đầu buổi chín: phân tích tài liệu, hay Document Analysis. Đây là kỹ thuật giúp BA hiểu nghiệp vụ từ chính những tài liệu tổ chức đang có, trước khi đi hỏi ai. Buổi này đi qua bốn phần. Thứ nhất, Document Analysis là gì và BA đọc những loại tài liệu nào. Thứ hai, kỹ thuật này dùng để làm gì. Thứ ba, ba bước thực hiện: chuẩn bị, phân tích và đánh giá, rồi ghi nhận phát hiện. Và thứ tư, áp dụng vào bộ mười ba tài liệu của siêu thị SolasMart để rút ra actor, quy trình, quy tắc và các vấn đề cần hỏi lại.",
+   "show": {
+    "h": "Buổi 9: Phân tích tài liệu (Document Analysis)",
+    "points": [
+     "Là gì: định nghĩa, loại và hình thức tài liệu",
+     "Để làm gì: 6 mục đích",
+     "Làm thế nào: Chuẩn bị → Phân tích – đánh giá → Ghi nhận phát hiện",
+     "Áp dụng: bộ 13 tài liệu SolasMart"
+    ]
+   }
+  },
+  {
+   "id": "L09-n2",
+   "ref": "L09-t1",
+   "say": "Đầu tiên là định nghĩa. Document Analysis là kỹ thuật thu thập, đọc, phân loại và phân tích các tài liệu hiện có của tổ chức, để hiểu quy trình, quy định, dữ liệu và yêu cầu nghiệp vụ mà không cần hỏi trực tiếp Stakeholder. Bốn động từ trong định nghĩa chính là chuỗi việc BA làm: gom tài liệu từ các bộ phận, đọc kỹ và ghi chú, xếp theo loại và chủ đề, rồi rút ra thông tin, tìm chỗ mâu thuẫn và thiếu sót. Còn bốn thứ BA muốn hiểu là: việc diễn ra theo thứ tự nào, luật lệ nào phải theo, thông tin nào được ghi lại ở đâu, và tổ chức thực sự cần gì. Cụm không cần hỏi trực tiếp nghĩa là ở bước này BA tự đọc, chưa chiếm thời gian của Stakeholder. Sau đó BA vẫn mang kết quả đi xác nhận và hỏi lại chỗ chưa rõ. Theo BABOK, đây là một kỹ thuật khai thác yêu cầu, tức Elicitation, và thường được làm trước khi phỏng vấn hay workshop.",
+   "show": {
+    "h": "Document Analysis là gì",
+    "points": [
+     "Thu thập · Đọc · Phân loại · Phân tích tài liệu hiện có",
+     "Để hiểu: quy trình, quy định, dữ liệu, yêu cầu nghiệp vụ",
+     "BA tự đọc trước, sau đó vẫn xác nhận với Stakeholder",
+     "BABOK: một kỹ thuật Elicitation, thường làm trước phỏng vấn"
+    ]
+   }
+  },
+  {
+   "id": "L09-n3",
+   "ref": "L09-t2",
+   "say": "Vậy tài liệu nào đáng đọc? Slide nêu bốn loại: tài liệu nghiệp vụ như cơ cấu tổ chức, quy chế, biểu mẫu nội bộ; tài liệu hệ thống, tức thiết kế của hệ thống cũ như BRD, SRS, API, database, log; tài liệu pháp lý, tức các văn bản luật; và báo cáo vận hành định kỳ của doanh nghiệp. Danh sách này để mở, bất cứ thứ gì giúp hiểu nghiệp vụ đều tính. Hình thức cũng không chỉ là văn bản: ảnh chụp màn hình phần mềm cũ, video quay cảnh thu ngân làm việc, hay trang Fanpage bán hàng đều là tài liệu. Ở SolasMart, bộ tài liệu có quy định, quy trình, phiếu kho và báo cáo cuối ca, nhưng không có tài liệu hệ thống nào, vì siêu thị đang làm thủ công bằng Excel và Zalo. Bản thân điều đó đã là một phát hiện về hiện trạng.",
+   "show": {
+    "h": "Các loại và hình thức tài liệu",
+    "points": [
+     "Nghiệp vụ · Hệ thống · Pháp lý · Báo cáo vận hành · …",
+     "Tài liệu hệ thống cũ: BRD, SRS, API, DB, Log",
+     "Hình thức: văn bản, ảnh, video, audio, website, database, log",
+     "SolasMart: không có tài liệu hệ thống → cũng là một phát hiện"
+    ]
+   }
+  },
+  {
+   "id": "L09-n4",
+   "ref": "L09-t3",
+   "say": "Phân tích tài liệu để làm gì? Slide nêu sáu mục đích. Một, hiểu bối cảnh hệ thống: hiện trạng As-is, các quy trình và Pain point, tức điểm đau người dùng đang gặp. Hai, chuẩn bị dữ liệu cho Elicitation, để BA đến buổi phỏng vấn với câu hỏi cụ thể thay vì hỏi chung chung. Ba, xác thực thông tin, tức đối chiếu điều Stakeholder nói với điều tài liệu ghi. Bốn, phát hiện yêu cầu ẩn, là những yêu cầu không ai nói ra nhưng nằm sẵn trong quy định, ví dụ chứng từ kho phải lưu tối thiểu mười hai tháng thì hệ thống mới phải lưu dữ liệu đủ lâu. Năm và sáu là tiết kiệm thời gian cho cả hai bên, và tăng độ tin cậy, vì BA hiểu nghiệp vụ trước khi gặp, nói đúng ngôn ngữ của họ. Mẹo nhớ: hiểu, chuẩn bị, xác thực, phát hiện, tiết kiệm, tin cậy.",
+   "show": {
+    "h": "6 mục đích của Document Analysis",
+    "points": [
+     "Hiểu bối cảnh: As-is, quy trình, Pain point",
+     "Chuẩn bị cho Elicitation · Xác thực với Stakeholder",
+     "Phát hiện yêu cầu ẩn (VD: lưu chứng từ kho ≥ 12 tháng)",
+     "Tiết kiệm thời gian · Tăng độ tin cậy",
+     "Mẹo: Hiểu – Chuẩn bị – Xác thực – Phát hiện – Tiết kiệm – Tin cậy"
+    ]
+   },
+   "ask": [
+    "L09-q11",
+    "L09-q14"
+   ]
+  },
+  {
+   "id": "L09-n5",
+   "ref": "L09-t5",
+   "say": "Giờ tới cách làm. Document Analysis gồm ba bước nối tiếp: chuẩn bị, phân tích và đánh giá, rồi ghi nhận phát hiện. Bước một là chuẩn bị, gồm ba việc. Trước hết, thu thập tài liệu từ các bộ phận liên quan. Tiếp theo, đánh giá nguồn theo năm tiêu chí: quan trọng với phạm vi dự án, xác đáng với chủ đề, mới nhất, có tính xác thực, và đáng tin cậy. Cuối cùng, đánh giá tính dễ hiểu, tức nội dung có truyền đạt lại cho Stakeholder được không. Ví dụ ở SolasMart, các mẫu phiếu kho ghi năm 2020, trong khi báo cáo cuối ca và file Excel đều ghi năm 2025. BA không tự bỏ hay tự sửa, mà ghi lại để hỏi xem mẫu phiếu này còn đang dùng không.",
+   "show": {
+    "h": "3 bước và Bước 1: Chuẩn bị",
+    "points": [
+     "Chuẩn bị → Phân tích – đánh giá → Ghi nhận phát hiện",
+     "Thu thập tài liệu từ các bộ phận liên quan",
+     "5 tiêu chí nguồn: quan trọng · xác đáng · mới nhất · xác thực · đáng tin cậy",
+     "Đánh giá tính dễ hiểu: truyền đạt được cho Stakeholder?",
+     "SolasMart: phiếu kho 2020, báo cáo 2025 → hỏi lại"
+    ],
+    "img": "L09-img1"
+   },
+   "ask": [
+    "L09-q12",
+    "L09-q22"
+   ]
+  },
+  {
+   "id": "L09-n6",
+   "ref": "L09-t6",
+   "say": "Bước hai là phân tích và đánh giá, cũng có ba việc. Việc đầu là hệ thống hóa, chia nội dung theo chủ đề và phạm vi nghiệp vụ, như SolasMart chia thành ba nhóm: bán hàng, kho, và nhân sự vận hành. Việc thứ hai là tạo hồ sơ tổng hợp, thường là một bảng bốn cột: chủ đề, nguồn gốc thông tin, loại thông tin, và trích dẫn tài liệu gốc. Cột trích dẫn giúp bạn truy lại nguồn khi có người hỏi thông tin này lấy ở đâu ra. Việc thứ ba là ghi nhận vấn đề: thông tin mâu thuẫn, trùng lặp, lỗ hổng và hạn chế theo từng chủ đề. Ví dụ ở SolasMart, Quy định vận hành xử lý vi phạm theo ba mức, còn Quy định nhân sự lại có bốn mức, và phiếu hủy hàng có tổng giá trị không khớp với các dòng cộng lại. Gặp những chỗ như vậy, BA ghi lại và liên hệ các bên liên quan để làm sáng tỏ, không tự chọn một bên.",
+   "show": {
+    "h": "Bước 2: Phân tích và đánh giá",
+    "points": [
+     "Hệ thống hóa: chia theo chủ đề, phạm vi nghiệp vụ",
+     "Hồ sơ tổng hợp: Chủ đề · Nguồn gốc · Loại thông tin · Trích dẫn gốc",
+     "Ghi nhận vấn đề: mâu thuẫn, trùng lặp, lỗ hổng, hạn chế",
+     "SolasMart: kỷ luật 3 mức hay 4 mức; tổng phiếu hủy lệch",
+     "Liên hệ Stakeholder làm sáng tỏ, không tự chọn bên"
+    ]
+   },
+   "ask": [
+    "L09-q19",
+    "L09-q23"
+   ]
+  },
+  {
+   "id": "L09-n7",
+   "ref": "L09-t7",
+   "say": "Bước ba là ghi nhận các phát hiện, và BA cân nhắc hai điều. Thứ nhất, nội dung và mức độ chi tiết có hợp với người nhận không. Ban Giám đốc cần tóm tắt vấn đề, còn đội phát triển cần từng bước và từng ngoại lệ. Thứ hai, có nên chuyển tài liệu thành công cụ trực quan như đồ thị, mô hình, luồng quy trình hay bảng quyết định không. Ví dụ quy trình bán hàng tại quầy của SolasMart có tám bước, ngoại lệ viết đan xen trong văn bản, nên BA chuyển nó thành bảng luồng: mỗi bước ghi ai làm, việc chính, và ngoại lệ được xử lý ra sao. Còn với Ban Giám đốc, chỉ cần ba ý: quy trình có tám bước, mười ba tình huống ngoại lệ đã được ghi rõ, và hai lỗ hổng là bước tám không có mô tả, không có bước nào cập nhật tồn kho.",
+   "show": {
+    "h": "Bước 3: Ghi nhận các phát hiện",
+    "points": [
+     "Mức chi tiết hợp với người nhận",
+     "Ban Giám đốc: tóm tắt · Đội phát triển: từng bước, từng ngoại lệ",
+     "Công cụ trực quan: đồ thị, mô hình, luồng quy trình, bảng quyết định",
+     "VD: 8 bước bán tại quầy → bảng luồng Ai làm · Việc chính · Ngoại lệ"
+    ]
+   },
+   "ask": [
+    "L09-q16",
+    "L09-q27"
+   ]
+  },
+  {
+   "id": "L09-n8",
+   "ref": "L09-t8",
+   "say": "Khi đọc một tài liệu nghiệp vụ thực tế, BA thường rút ra năm nhóm thông tin. Actor là người hay bộ phận tham gia, tìm ở mục các bên tham gia, ở chữ ký trên biểu mẫu, và cả trong từng bước, vì có bên được nhắc tới nhưng chưa được liệt kê. Quy trình là các bước làm việc. Business rule là quy tắc nghiệp vụ, thường là câu có chữ phải, không được, chỉ khi, hoặc một con số giới hạn, ví dụ chỉ xuất hàng khi có Phiếu xuất kho hợp lệ. Hai nhóm còn lại là biểu mẫu và dữ liệu, như các trường trên phiếu nhập kho, và vấn đề, như bước làm thủ công hay số liệu lệch. Bạn cũng để ý các Exception, tức tình huống ngoại lệ, vì chúng hay biến thành yêu cầu cho hệ thống mới, ví dụ POS bị treo dẫn tới yêu cầu giao dịch dở dang phải được lưu lại. Lưu ý bảng năm nhóm này là cách làm thực tế bổ sung, slide không liệt kê.",
+   "show": {
+    "h": "Rút gì ra từ một tài liệu nghiệp vụ",
+    "points": [
+     "Actor · Quy trình · Business rule · Biểu mẫu & dữ liệu · Vấn đề",
+     "Actor: tìm cả trong các bước, không chỉ mục các bên tham gia",
+     "Business rule: câu có phải, không được, chỉ khi, con số giới hạn",
+     "Exception thường thành yêu cầu cho hệ thống mới"
+    ]
+   },
+   "ask": [
+    "L09-q25",
+    "L09-q26"
+   ]
+  },
+  {
+   "id": "L09-n9",
+   "ref": "L09-t9",
+   "say": "Phần cuối bổ sung theo BABOK: điểm mạnh, hạn chế và khi nào nên dùng. Điểm mạnh là không chiếm thời gian của Stakeholder ở giai đoạn đầu, thông tin có sẵn và có căn cứ để trích dẫn, và BA hiểu nghiệp vụ trước khi phỏng vấn. Hạn chế là tài liệu có thể cũ, thiếu, mâu thuẫn hoặc viết khó hiểu, đọc nhiều thì tốn công, và tài liệu không cho biết người dùng thực sự làm gì hay mong muốn gì. Kỹ thuật này nên dùng khi bắt đầu dự án và cần hiểu As-is, khi tổ chức có nhiều quy định và biểu mẫu, hoặc khi thay thế một hệ thống cũ. Điều quan trọng nhất là đừng coi tài liệu là sự thật tuyệt đối. Điều ghi trên giấy có thể khác điều đang làm, nên BA luôn xác thực lại với Stakeholder.",
+   "show": {
+    "h": "Điểm mạnh, hạn chế và khi nào dùng",
+    "points": [
+     "Mạnh: không tốn thời gian Stakeholder, có căn cứ trích dẫn",
+     "Hạn chế: tài liệu cũ, thiếu, mâu thuẫn; không cho biết việc làm thật",
+     "Nên dùng: đầu dự án (As-is), nhiều quy định, thay hệ thống cũ",
+     "Tài liệu không phải sự thật tuyệt đối → xác thực lại"
+    ]
+   },
+   "ask": [
+    "L09-q20",
+    "L09-q10"
+   ]
+  },
+  {
+   "id": "L09-n10",
+   "say": "Tóm lại buổi chín. Document Analysis là thu thập, đọc, phân loại và phân tích tài liệu hiện có, để hiểu quy trình, quy định, dữ liệu và yêu cầu nghiệp vụ trước khi hỏi Stakeholder. Tài liệu gồm bốn loại là nghiệp vụ, hệ thống, pháp lý và báo cáo vận hành, với nhiều hình thức ngoài văn bản. Kỹ thuật này có sáu mục đích, từ hiểu bối cảnh tới tăng độ tin cậy, trong đó đáng giá là phát hiện yêu cầu ẩn. Cách làm gồm ba bước: chuẩn bị và đánh giá nguồn, phân tích và ghi nhận vấn đề, rồi trình bày phát hiện đúng mức chi tiết cho người nhận. Và luôn nhớ, tài liệu cần được xác thực lại với Stakeholder. Bạn có thể ôn bằng flashcard, hoặc làm phần trắc nghiệm và bài thực hành với bộ tài liệu SolasMart.",
+   "show": {
+    "h": "Tổng kết buổi 9",
+    "points": [
+     "Thu thập · Đọc · Phân loại · Phân tích tài liệu hiện có",
+     "4 loại tài liệu, nhiều hình thức",
+     "6 mục đích, nổi bật: phát hiện yêu cầu ẩn",
+     "Chuẩn bị → Phân tích – đánh giá → Ghi nhận phát hiện",
+     "Tài liệu luôn cần xác thực với Stakeholder"
+    ]
+   }
+  }
+ ]
+}

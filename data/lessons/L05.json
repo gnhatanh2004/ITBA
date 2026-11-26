@@ -1,0 +1,2265 @@
+{
+ "id": "L05",
+ "session": 5,
+ "module": "M2",
+ "title": "Kỹ thuật khai thác yêu cầu (Elicitation)",
+ "goals": [
+  "Phân biệt được Gathering (thu thập) và Elicitation (khai thác) yêu cầu",
+  "Nêu được 5 hoạt động của Elicitation và mục tiêu của từng hoạt động",
+  "Biết khi nào nên và không nên dùng Interview, Workshop, Observation",
+  "Chuẩn bị, tiến hành và xử lý kết quả sau một buổi Interview, Workshop, Observation",
+  "Lập được Elicitation activity plan theo 9 mục của template",
+  "Dùng được phiếu khảo sát và Observation note để ghi nhận thông tin",
+  "Nhận diện các thách thức trong Elicitation, vai trò của BA và các output cần có"
+ ],
+ "sources": [
+  {
+   "file": "5. Ky thuat khai thac yeu cau.pdf",
+   "pages": "1-42"
+  },
+  {
+   "file": "5. Elicitation activity plan.pdf",
+   "pages": "1-2"
+  },
+  {
+   "file": "5. Mau phieu khao sat.docx",
+   "pages": "toàn bộ"
+  },
+  {
+   "file": "5. Observation_Note_Template.docx",
+   "pages": "toàn bộ"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L05-t1",
+   "h": "Elicitation là gì",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.3-4, 6",
+   "html": "<p>Bài này gồm 4 phần: các hoạt động trong Elicitation, kỹ thuật Interview, kỹ thuật Workshop và kỹ thuật Observation.</p><p><b>Elicitation (khai thác yêu cầu)</b> là quá trình thu thập, khám phá, khơi gợi, xác định và làm rõ các yêu cầu, mong đợi, ý tưởng, nhu cầu của các bên liên quan (stakeholder). Mục đích là phục vụ việc xây dựng hoặc cải tiến hệ thống, sản phẩm, quy trình.</p><p class=\"key\">Elicitation không chỉ là “hỏi và ghi chép”. Đó là cả một quá trình: giao tiếp, lắng nghe, phân tích, xác minh và tinh chỉnh thông tin.</p><ul><li><b>Collaboration (hợp tác)</b>: hành động của hai hoặc nhiều người cùng làm việc hướng đến một mục tiêu chung.</li><li><b>Khơi gợi và hợp tác (Elicitation and Collaboration)</b>: mô tả cách BA xác định và đạt được thỏa thuận, hiểu biết lẫn nhau về mọi loại thông tin phân tích nghiệp vụ.</li></ul><p class=\"tip\">Mẹo nhớ: “khơi gợi” là kéo thông tin ra, “hợp tác” là cùng nhau hiểu giống nhau về thông tin đó.</p><p>Slide mở đầu có hoạt động 10 phút: “Bạn hiểu thế nào là thu thập yêu cầu?” và “Đã bao giờ bạn khai thác yêu cầu trong cuộc sống chưa?”. Xem đáp án mẫu ở tab Bài tập.</p>"
+  },
+  {
+   "id": "L05-t2",
+   "h": "Phân biệt Gathering và Elicitation",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.5",
+   "html": "<table><thead><tr><th>Tiêu chí</th><th>Gathering (thu thập)</th><th>Elicitation (khai thác)</th></tr></thead><tbody><tr><td>Bản chất</td><td>Thụ động. Chỉ thu thập thông tin đã có. Không tạo ra thông tin mới.</td><td>Chủ động. Khai phá, làm rõ các yêu cầu chưa được thể hiện. Tạo ra thông tin mới.</td></tr><tr><td>Nguồn thông tin</td><td>Tài liệu có sẵn như HDSD (hướng dẫn sử dụng), SRS cũ.</td><td>Được tạo ra trong buổi làm việc qua các hoạt động: Interview, Workshop, Observation, Brainstorm…</td></tr><tr><td>Mục tiêu</td><td>Nắm được hiện trạng.</td><td>Tìm ra nhu cầu.</td></tr><tr><td>Khi nào dùng</td><td>Hệ thống đang hoạt động, cần tìm hiểu hiện trạng (AS-IS).</td><td>Yêu cầu chưa rõ, cần làm rõ “nỗi đau”, “mục tiêu”, “kỳ vọng”, “giới hạn”. Dự án mới.</td></tr></tbody></table>{{img:L05-img2}}<p class=\"tip\">Mẹo nhớ: Gathering là “nhặt” cái có sẵn; Elicitation là “đào” ra cái chưa ai nói.</p><p class=\"note\">Theo BABOK v3, khái niệm elicitation rộng hơn và bao gồm cả việc nghiên cứu tài liệu có sẵn (Document Analysis là một kỹ thuật elicitation). Slide tách riêng “gathering” để nhấn mạnh tính chủ động của BA. Bài học theo cách chia của slide.</p>"
+  },
+  {
+   "id": "L05-t3",
+   "h": "Tại sao Elicitation quan trọng và thế nào là yêu cầu đúng",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.7-8",
+   "html": "<ul><li><b>Yêu cầu là nền tảng</b>: hơn 50% thất bại của dự án đến từ việc hiểu sai hoặc thiếu yêu cầu (theo slide).</li><li><b>Gắn kết stakeholder</b>: tạo sự đồng thuận giữa các bên.</li><li><b>Tránh rework (làm lại)</b>: giảm chi phí chỉnh sửa do hiểu sai yêu cầu.</li><li><b>Tạo giá trị thực sự</b>: giúp sản phẩm đáp ứng đúng nhu cầu kinh doanh.</li></ul><blockquote>“A requirement misunderstood is a solution misdelivered” – Nếu yêu cầu bị hiểu sai, giải pháp chắc chắn sẽ làm sai.</blockquote><p class=\"key\">Yêu cầu đúng là yêu cầu được hiểu giống nhau bởi tất cả các bên.</p><p>Ví dụ: khách hàng nói “cần báo cáo doanh thu”. Kế toán hiểu là theo tháng, quản lý cửa hàng hiểu là theo ca. Nếu chưa thống nhất thì yêu cầu này chưa “đúng”, dù câu chữ không sai.</p>"
+  },
+  {
+   "id": "L05-t4",
+   "h": "Khi nào diễn ra Elicitation",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.9",
+   "html": "<p>Elicitation không chỉ diễn ra một lần ở đầu dự án. Nó xuất hiện ở nhiều giai đoạn:</p><table><thead><tr><th>Giai đoạn</th><th>Elicitation để làm gì</th></tr></thead><tbody><tr><td>Đầu dự án</td><td>Thu thập yêu cầu ban đầu, hiểu bối cảnh.</td></tr><tr><td>Trong quá trình phân tích</td><td>Làm rõ yêu cầu, xử lý mâu thuẫn, ưu tiên hóa.</td></tr><tr><td>Khi phát triển và kiểm thử</td><td>Xác minh, tinh chỉnh yêu cầu chi tiết.</td></tr><tr><td>Khi triển khai/hoạt động</td><td>Thu thập phản hồi để cải tiến.</td></tr></tbody></table>"
+  },
+  {
+   "id": "L05-t5",
+   "h": "5 hoạt động của Elicitation",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.10-15",
+   "html": "<p>Slide trình bày 5 hoạt động theo luồng: 1. Prepare for Elicitation → 2. Conduct Elicitation → 3. Confirm Results → 4. Communicate → 5. Manage Stakeholder Collaboration.</p>{{img:L05-img1}}<table><thead><tr><th>Hoạt động</th><th>Mục tiêu</th><th>Việc cần làm</th></tr></thead><tbody><tr><td><b>1. Prepare for Elicitation</b> (chuẩn bị khai thác)</td><td>Xác định mục đích, đối tượng, phương pháp, công cụ và bối cảnh trước khi thu thập thông tin.</td><td>Xác định stakeholder; xác định loại thông tin cần thu thập; chọn kỹ thuật phù hợp (interview, focus group, workshop, observation…); chuẩn bị tài liệu, câu hỏi khảo sát, không gian làm việc.</td></tr><tr><td><b>2. Conduct Elicitation</b> (tiến hành khai thác)</td><td>Thực hiện các hoạt động khai thác thông tin từ stakeholder.</td><td>Đặt câu hỏi đúng – đủ – rõ, dẫn dắt buổi làm việc, trình bày, quan sát; lắng nghe chủ động, ghi chép và phản hồi; quản lý thời gian, nội dung và sự tham gia của stakeholder; áp dụng linh hoạt kỹ năng mềm.</td></tr><tr><td><b>3. Confirm Elicitation Results</b> (xác nhận kết quả)</td><td>Đảm bảo thông tin đã thu thập chính xác, đầy đủ, rõ ràng và được stakeholder đồng thuận.</td><td>Xác nhận ngay trong buổi làm việc; tổ chức phiên review (xác nhận với chính nguồn và với nguồn khác); dùng mô hình, wireframe hoặc bản mô tả lại yêu cầu để xác minh; gửi biên bản/phản hồi xác nhận sau buổi khai thác.</td></tr><tr><td><b>4. Communicate Business Analysis Information</b> (truyền đạt thông tin)</td><td>Truyền tải yêu cầu đến các bên liên quan đúng cách, đúng người, đúng thời điểm.</td><td>Truyền đạt đến đúng stakeholder (sponsor, dev, tester…); trình bày yêu cầu rõ ràng, không mơ hồ.</td></tr><tr><td><b>5. Manage Stakeholder Collaboration</b> (quản lý sự hợp tác)</td><td>Duy trì giao tiếp hiệu quả, giải quyết xung đột, giữ nhiệt huyết của stakeholder xuyên suốt quá trình phân tích.</td><td>Lên kế hoạch tương tác với stakeholder; xác định stakeholder chính cần giữ kết nối thường xuyên; giao tiếp đa chiều, không chỉ gửi tài liệu một chiều.</td></tr></tbody></table><p class=\"tip\">Mẹo nhớ thứ tự: <b>Chuẩn bị – Làm – Xác nhận – Truyền đạt – Giữ quan hệ</b>.</p><p class=\"note\">Trong BABOK v3, đây là 5 task của knowledge area “Elicitation and Collaboration”. BABOK không bắt buộc làm tuần tự; “Manage Stakeholder Collaboration” diễn ra liên tục suốt dự án. Slide vẽ thành luồng để dễ học.</p>"
+  },
+  {
+   "id": "L05-t6",
+   "h": "Các nhóm kỹ thuật khai thác phổ biến",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.16",
+   "html": "<table><thead><tr><th>Nhóm kỹ thuật</th><th>Kỹ thuật tiêu biểu</th></tr></thead><tbody><tr><td>Tương tác cá nhân</td><td>Interview (phỏng vấn)</td></tr><tr><td>Cộng tác nhóm</td><td>Workshop (hội thảo làm việc); Brainstorming (động não)</td></tr><tr><td>Dựa trên tài liệu</td><td>Document Analysis (phân tích tài liệu); Interface Analysis (phân tích giao diện/kết nối giữa các hệ thống)</td></tr><tr><td>Khảo sát số đông</td><td>Survey &amp; Questionnaire (khảo sát, bảng hỏi)</td></tr><tr><td>Trực quan hóa yêu cầu</td><td>Prototype (bản mẫu); Storyboard (bảng phân cảnh); Wireframe (khung màn hình)</td></tr></tbody></table>{{img:L05-img3}}<p>Bài này đi sâu ba kỹ thuật: Interview, Workshop và Observation (quan sát). Observation không có trong bảng trên nhưng được slide dạy riêng ở cuối bài.</p>"
+  },
+  {
+   "id": "L05-t7",
+   "h": "Interview: khi nào nên và không nên dùng",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.17-18",
+   "html": "<p><b>Interview (phỏng vấn)</b> là BA trao đổi trực tiếp với một hoặc vài stakeholder để lấy thông tin.</p><table><thead><tr><th>Nên dùng khi</th><th>Không nên dùng khi (và thay bằng gì)</th></tr></thead><tbody><tr><td><ul><li>Stakeholder có chuyên môn sâu hoặc vai trò quan trọng.</li><li>Cần hiểu chi tiết quy trình, nghiệp vụ cụ thể.</li><li>Chủ đề nhạy cảm, riêng tư.</li><li>Yêu cầu chưa rõ ràng; cần xác thực thông tin.</li><li>Cần xây dựng mối quan hệ với stakeholder khi dự án dài.</li></ul></td><td><ul><li>Số lượng stakeholder lớn, ví dụ 50 người → nên dùng Survey.</li><li>Cần thống nhất giữa các bên → nên tổ chức Workshop.</li><li>Stakeholder không có thời gian → thay bằng cuộc gọi (call), hoặc làm Document Analysis trước.</li><li>Yêu cầu quá đơn giản.</li></ul></td></tr></tbody></table>"
+  },
+  {
+   "id": "L05-t8",
+   "h": "Interview: chuẩn bị và các loại câu hỏi",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.19",
+   "html": "<p>Trước khi interview, BA cần:</p><ol><li>Xác định rõ mục tiêu buổi phỏng vấn: muốn biết gì? làm rõ gì? xác nhận gì?</li><li>Tìm hiểu background (lý lịch, vai trò) của người được phỏng vấn.</li><li>Chuẩn bị bộ câu hỏi mở – câu hỏi sâu – câu hỏi xác minh.</li><li>Thu thập tài liệu hiện tại và tài liệu phụ trợ: sơ đồ, mockup…</li><li>Chuẩn bị công cụ ghi chú: sổ, ghi âm (nếu được phép)…</li><li>Gửi agenda (chương trình), timeline trước cho người được interview.</li></ol><table><thead><tr><th>Loại câu hỏi</th><th>Dùng để</th><th>Ví dụ trên slide</th></tr></thead><tbody><tr><td>Câu hỏi mở</td><td>Để người nói mô tả rộng, tự do</td><td>“Anh/chị mô tả giúp em quy trình hiện tại?”</td></tr><tr><td>Câu hỏi sâu</td><td>Đào vào lý do, nguyên nhân</td><td>“Tại sao lại làm bước này?”</td></tr><tr><td>Câu hỏi đóng (xác minh)</td><td>Chốt, xác nhận một thông tin cụ thể; trả lời có/không</td><td>“Có đúng là hệ thống phải tự tính thuế 10% không?”</td></tr></tbody></table><p class=\"note\">Slide liệt kê nhóm thứ ba là “câu hỏi xác minh” nhưng ví dụ lại ghi “câu hỏi đóng”. Hai tên này chỉ cùng một loại: câu hỏi đóng dùng để xác minh.</p>"
+  },
+  {
+   "id": "L05-t9",
+   "h": "Interview: nên làm và không nên làm",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.20",
+   "html": "<table><thead><tr><th>Nên làm</th><th>Không nên làm</th></tr></thead><tbody><tr><td><ul><li>Bắt đầu bằng câu hỏi mở, sau đó thu hẹp dần.</li><li>Ghi chú đầy đủ nhất có thể.</li><li>Lắng nghe nhiều hơn nói.</li><li>Đào sâu để tìm đúng pain point (điểm đau).</li><li>Tóm tắt sau mỗi phần.</li><li>Quan sát ngôn ngữ cơ thể.</li></ul></td><td><ul><li>Hỏi câu dẫn dắt, ví dụ “Anh chị muốn làm chức năng A không?”.</li><li>Hỏi những câu thể hiện chưa có sự chuẩn bị.</li><li>Ngắt lời hoặc phản ứng tức thời.</li><li>Quyết định giải pháp tại chỗ.</li></ul></td></tr></tbody></table><p class=\"tip\">Câu dẫn dắt là câu đã “cài sẵn” câu trả lời mà BA mong muốn. Nó làm stakeholder dễ gật đầu theo thay vì nói nhu cầu thật.</p>"
+  },
+  {
+   "id": "L05-t10",
+   "h": "Interview: sau buổi phỏng vấn, mẹo và lỗi thường gặp",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.21-23",
+   "html": "<h5>Sau khi interview</h5><ul><li>Tổng hợp và làm sạch dữ liệu, chia theo nhóm thông tin: quy trình, pain point, business rule (quy tắc nghiệp vụ), yêu cầu tính năng.</li><li>Gửi lại biên bản họp để xác nhận.</li><li>Phân tích dữ liệu và cập nhật vào tài liệu mà công ty quy định.</li><li>Chuẩn bị cho buổi phỏng vấn tiếp theo (nếu cần).</li></ul><h5>Mẹo thực hiện</h5><ul><li>Luôn hỏi “Tại sao” đến khi ra nguyên nhân gốc rễ.</li><li>Chuyển thông tin định tính về định lượng. Ví dụ khách hàng nói hệ thống chậm thì cần cụ thể chậm là bao lâu.</li><li>Nếu stakeholder nói quá nhanh, có thể nhờ nói chậm lại; đừng quá tập trung vào ghi chép.</li><li>Kết thúc bằng câu: “Có điều gì em chưa hỏi mà anh/chị nghĩ là quan trọng không?”</li></ul><h5>Lỗi phổ biến</h5><ul><li>Quá phụ thuộc vào form mẫu.</li><li>Không đào sâu, chỉ ghi nhận bề mặt.</li><li>Quên xác minh lại sau khi ghi chép.</li><li>Không follow-up (theo dõi tiếp) sau buổi phỏng vấn.</li></ul>"
+  },
+  {
+   "id": "L05-t11",
+   "h": "Workshop: là gì, khi nào nên và không nên dùng",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.24-26",
+   "html": "<p><b>Workshop</b> là buổi làm việc tập trung nhiều stakeholder (từ 2–15 người) để bàn bạc, làm rõ yêu cầu, thống nhất quy trình, thảo luận giải pháp hoặc đưa ra quyết định.</p><p>Mục tiêu: trao đổi đa chiều, nhanh, trực tiếp; tạo kết quả ngay trong buổi họp.</p><table><thead><tr><th>Nên dùng khi</th><th>Không nên dùng khi</th></tr></thead><tbody><tr><td><ul><li>Cần đồng thuận nhanh giữa nhiều stakeholder.</li><li>Cần thu thập nhanh và làm rõ ưu tiên yêu cầu.</li><li>Giai đoạn đầu, cần xác định phạm vi.</li></ul></td><td><ul><li>Chủ đề cần hiểu sâu.</li><li>Chủ đề nhạy cảm cá nhân.</li><li>Stakeholder cấp cao thiếu thời gian.</li><li>Yêu cầu quá đơn giản.</li><li>Không có người điều phối đủ kinh nghiệm.</li></ul></td></tr></tbody></table><p class=\"tip\">So với Interview: chủ đề sâu hoặc nhạy cảm thì chọn Interview; cần nhiều bên thống nhất thì chọn Workshop.</p>"
+  },
+  {
+   "id": "L05-t12",
+   "h": "Workshop: chuẩn bị và kỹ thuật hỗ trợ",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.27-28",
+   "html": "<p>Trước workshop, BA cần:</p><ol><li>Xác định rõ mục tiêu: muốn biết gì? làm rõ gì? thống nhất gì?</li><li>Chuẩn bị dữ liệu.</li><li>Thu thập tài liệu hiện tại và tài liệu phụ trợ: sơ đồ, mockup…</li><li>Chuẩn bị công cụ ghi chú: sổ, bản in, máy chiếu, ghi âm (nếu được phép)…</li><li>Gửi agenda, timeline cho người tham gia trước 2–3 ngày.</li><li>Xác định vai trò trong buổi họp: ai điều phối, ai ghi chép, ai quan sát, ai xác nhận…</li></ol><table><thead><tr><th>Kỹ thuật hỗ trợ</th><th>Dùng khi</th></tr></thead><tbody><tr><td>Brainstorming (động não)</td><td>Cần nhiều ý tưởng nhanh.</td></tr><tr><td>Dot Voting (bỏ phiếu bằng chấm)</td><td>Cần đồng thuận yêu cầu quan trọng.</td></tr><tr><td>MoSCoW</td><td>Cần phân loại yêu cầu theo mức độ ưu tiên (Must, Should, Could, Won't).</td></tr><tr><td>User Journey Mapping (bản đồ hành trình người dùng)</td><td>Cần hình dung trải nghiệm người dùng.</td></tr><tr><td>Prototype (bản mẫu)</td><td>Cần trình bày ý tưởng cho stakeholder hình dung và chốt nghiệp vụ sớm.</td></tr></tbody></table>{{img:L05-img4}}"
+  },
+  {
+   "id": "L05-t13",
+   "h": "Workshop: vai trò của BA, nên/không nên, lỗi và mẹo",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.29-32",
+   "html": "<table><thead><tr><th>Vai trò của BA</th><th>Hành động</th></tr></thead><tbody><tr><td>Người điều phối</td><td>Giữ buổi họp đúng nội dung, tránh lan man, không lệch timeline quá nhiều.</td></tr><tr><td>Người làm rõ</td><td>Đặt câu hỏi để các stakeholder cùng hiểu vấn đề.</td></tr><tr><td>Người ghi nhận</td><td>Ghi nhận đúng, đủ và xác nhận lại nội dung sau mỗi nhóm thông tin trao đổi.</td></tr><tr><td>Người kết nối</td><td>Dẫn dắt các nhóm xung đột về một hướng chung.</td></tr></tbody></table>{{img:L05-img5}}<blockquote>BA giỏi phải biết điều phối không khí và dẫn dắt nội dung. “BA không chỉ là người hỏi – mà là người giữ nhịp, gợi mở và kết nối tư duy của cả một nhóm.”</blockquote><table><thead><tr><th>Nên làm</th><th>Không nên làm</th></tr></thead><tbody><tr><td><ul><li>Nhắc lại mục tiêu buổi làm việc.</li><li>Dùng kỹ thuật gợi mở để thống nhất.</li><li>Xác nhận sau mỗi cuộc trao đổi.</li><li>Quản lý thời gian.</li></ul></td><td><ul><li>Quá tập trung vào giải pháp kỹ thuật.</li><li>Để nhóm quá đông.</li><li>Không có người có quyền phê duyệt.</li><li>Chỉ tranh cãi, không kết luận.</li><li>Không ghi chú đầy đủ, không xác nhận.</li></ul></td></tr></tbody></table><h5>Lỗi phổ biến và hậu quả</h5><table><thead><tr><th>Lỗi</th><th>Hậu quả</th></tr></thead><tbody><tr><td>Không xác định rõ mục tiêu buổi workshop</td><td>Stakeholder lan man, không đạt kết quả</td></tr><tr><td>Không quản lý được thảo luận nhóm</td><td>Người nói nhiều lấn át, nhóm mệt mỏi</td></tr><tr><td>Không tổng kết, xác nhận sau mỗi phần</td><td>Dễ hiểu sai, stakeholder tưởng đã chốt</td></tr><tr><td>Không chuẩn bị trước tài liệu hoặc công cụ</td><td>Mất thời gian, workshop thiếu hiệu quả</td></tr><tr><td>Thiếu linh hoạt khi có người trễ/vắng mặt</td><td>Mất flow (mạch) thảo luận</td></tr></tbody></table><h5>Mẹo từ kinh nghiệm thực tế</h5><ul><li>Bắt đầu bằng ice-breaker (phá băng) nhanh: một câu hỏi nhẹ hoặc game nhỏ.</li><li>Giao việc ghi chú cho một người hỗ trợ để BA tập trung dẫn dắt và quan sát không khí.</li></ul>"
+  },
+  {
+   "id": "L05-t14",
+   "h": "Observation: là gì, mục tiêu, khi nào dùng",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.33-34",
+   "html": "<p><b>Observation (quan sát)</b> là kỹ thuật thu thập yêu cầu bằng cách BA trực tiếp quan sát người dùng thực hiện công việc của họ trong môi trường thực tế.</p><h5>Mục tiêu</h5><ul><li>Hiểu quy trình thực tế đang diễn ra (As-Is).</li><li>Phát hiện những yêu cầu ẩn.</li><li>Xác định pain points, bottlenecks (điểm nghẽn).</li><li>So sánh “người dùng nói họ làm…” với “cách họ thực sự làm…”.</li><li>Tăng độ tin cậy cho phân tích.</li></ul><h5>Nên dùng khi</h5><ul><li>Stakeholder không mô tả được công việc họ làm.</li><li>Công việc mang tính thao tác, nghiệp vụ phức tạp.</li><li>Quy trình yêu cầu tính chính xác, tuân thủ, tốc độ.</li><li>Người dùng có thói quen làm việc khác với quy trình đã tài liệu hóa.</li><li>Dự án cần trải nghiệm thực tế: bán hàng, kho vận, sản xuất…</li></ul>"
+  },
+  {
+   "id": "L05-t15",
+   "h": "Observation: cách thực hiện và các bước",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.35-36",
+   "html": "<table><thead><tr><th>Cách quan sát</th><th>BA làm gì</th></tr></thead><tbody><tr><td>Quan sát thụ động (passive)</td><td>Đứng ngoài quan sát, không can thiệp.</td></tr><tr><td>Quan sát chủ động (active)</td><td>Vừa quan sát vừa hỏi thêm trong quá trình.</td></tr><tr><td>BA tự làm</td><td>Tự thao tác như người dùng cuối.</td></tr></tbody></table>{{img:L05-img6}}<table><thead><tr><th>Trước</th><th>Trong</th><th>Sau</th></tr></thead><tbody><tr><td><ul><li>Xác định mục tiêu.</li><li>Thông báo trước để tránh bị hiểu sai.</li><li>Chuẩn bị biểu mẫu ghi chép.</li></ul></td><td><ul><li>Quan sát toàn cảnh và chi tiết.</li><li>Ghi lại công cụ, các bước thực hiện, hành động lặp lại.</li><li>Ghi lại lỗi, trở ngại, cách xử lý tình huống…</li></ul></td><td><ul><li>Tóm tắt quy trình theo từng bước.</li><li>Xác nhận tính chính xác.</li><li>Xác định pain points.</li></ul></td></tr></tbody></table><p class=\"tip\">Biểu mẫu ghi chép chính là Observation note (xem mục cuối của Lý thuyết).</p>"
+  },
+  {
+   "id": "L05-t16",
+   "h": "Observation: hạn chế và sai lầm",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.37-38",
+   "html": "<h5>Hạn chế</h5><ul><li>Người dùng có thể thay đổi hành vi khi đang bị quan sát.</li><li>Không phù hợp khi công việc mang tính nhạy cảm.</li><li>Tốn thời gian.</li><li>Dễ mất thiện cảm.</li></ul><h5>Sai lầm thường gặp</h5><ul><li>Chỉ nhìn thao tác mà không hỏi lại → dễ hiểu sai.</li><li>Quan sát người không đại diện cho nghiệp vụ.</li><li>Ghi chép sơ sài.</li><li>Can thiệp quá nhiều vào công việc.</li><li>Đánh giá sai do người dùng thay đổi hành vi.</li><li>Không xác nhận lại sau buổi quan sát.</li></ul><p class=\"tip\">Hiện tượng người dùng làm “đẹp hơn” khi bị nhìn thường gọi là hiệu ứng Hawthorne. Cách giảm: thông báo trước, quan sát nhiều lần, quan sát nhiều người.</p>"
+  },
+  {
+   "id": "L05-t17",
+   "h": "Bảng so sánh các kỹ thuật",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.16-38",
+   "html": "<p>Bảng dưới gom ba kỹ thuật slide dạy chi tiết. Các dòng in nghiêng là kỹ thuật slide chỉ nêu tên ở bảng “Các kỹ thuật phổ biến”; phần mô tả lấy theo BABOK v3 để bạn có cái nhìn đầy đủ.</p><table><thead><tr><th>Kỹ thuật</th><th>Khi nào dùng</th><th>Ưu điểm</th><th>Nhược điểm / không nên dùng</th><th>Các bước chính</th></tr></thead><tbody><tr><td><b>Interview</b></td><td>Stakeholder chuyên môn sâu, vai trò quan trọng; cần hiểu chi tiết nghiệp vụ; chủ đề nhạy cảm; yêu cầu chưa rõ; cần xây quan hệ</td><td>Đào sâu được; nói riêng nên dễ mở lòng; xây được quan hệ</td><td>Không hợp khi đông người (≈50 người), khi cần các bên thống nhất, khi stakeholder bận, khi yêu cầu quá đơn giản</td><td>Chuẩn bị (mục tiêu, background, câu hỏi, tài liệu, công cụ, gửi agenda) → Phỏng vấn (hỏi mở rồi thu hẹp, tóm tắt từng phần) → Sau (tổng hợp theo nhóm, gửi biên bản, cập nhật tài liệu, follow-up)</td></tr><tr><td><b>Workshop</b></td><td>Cần đồng thuận nhanh giữa nhiều bên; làm rõ ưu tiên; giai đoạn đầu xác định phạm vi</td><td>Trao đổi đa chiều, nhanh, trực tiếp; có kết quả ngay trong buổi</td><td>Không hợp với chủ đề cần hiểu sâu, nhạy cảm; lãnh đạo bận; yêu cầu đơn giản; thiếu người điều phối giỏi</td><td>Chuẩn bị (mục tiêu, dữ liệu, tài liệu, công cụ, agenda trước 2–3 ngày, phân vai) → Điều phối (nhắc mục tiêu, kỹ thuật hỗ trợ, xác nhận từng phần, quản lý thời gian) → Tổng kết, xác nhận</td></tr><tr><td><b>Observation</b></td><td>Stakeholder không tả được việc mình làm; việc thao tác, phức tạp; cần chính xác, tuân thủ, tốc độ; làm khác tài liệu</td><td>Thấy quy trình thật; phát hiện yêu cầu ẩn, điểm nghẽn; tăng độ tin cậy</td><td>Người dùng đổi hành vi khi bị nhìn; không hợp việc nhạy cảm; tốn thời gian; dễ mất thiện cảm</td><td>Trước (mục tiêu, thông báo, biểu mẫu) → Trong (toàn cảnh và chi tiết, ghi công cụ, bước, lỗi) → Sau (tóm tắt, xác nhận, pain points)</td></tr><tr><td><i>Survey &amp; Questionnaire</i></td><td>Nhiều người trả lời, phân tán (slide: ≈50 người thì dùng survey)</td><td>Rẻ, nhanh, phủ số đông, dễ thống kê</td><td>Khó đào sâu; câu hỏi viết dở thì dữ liệu sai; tỉ lệ phản hồi có thể thấp</td><td>Xác định mục tiêu và nhóm người hỏi → soạn câu hỏi → thử nhỏ → phát → tổng hợp, phân tích</td></tr><tr><td><i>Document Analysis</i></td><td>Đã có tài liệu (HDSD, SRS cũ, quy định); stakeholder bận nên đọc trước</td><td>Không tốn thời gian stakeholder; nắm hiện trạng</td><td>Tài liệu có thể cũ hoặc khác thực tế</td><td>Chọn tài liệu → đọc, rút thông tin → ghi câu hỏi cần làm rõ</td></tr><tr><td><i>Brainstorming</i></td><td>Cần nhiều ý tưởng nhanh (thường dùng trong workshop)</td><td>Ra nhiều ý trong thời gian ngắn</td><td>Dễ lan man nếu thiếu điều phối</td><td>Nêu chủ đề → mọi người đưa ý, chưa phê phán → gom nhóm → chọn lọc</td></tr><tr><td><i>Prototype / Wireframe / Storyboard</i></td><td>Cần stakeholder hình dung và chốt nghiệp vụ sớm</td><td>Trực quan, phát hiện hiểu lầm sớm</td><td>Tốn công làm; người xem dễ sa vào chi tiết giao diện</td><td>Phác thảo → trình bày → nhận phản hồi → chỉnh</td></tr><tr><td><i>Interface Analysis</i></td><td>Hệ thống phải kết nối với hệ thống hoặc người dùng khác</td><td>Tránh sót yêu cầu tích hợp</td><td>Cần hiểu kỹ thuật</td><td>Liệt kê điểm kết nối → xác định dữ liệu vào/ra → ghi yêu cầu</td></tr></tbody></table>"
+  },
+  {
+   "id": "L05-t18",
+   "h": "Thách thức, vai trò của BA và output của Elicitation",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.39-41",
+   "html": "<h5>Thách thức</h5><ul><li>Stakeholder không biết mình muốn gì hoặc diễn đạt mơ hồ.</li><li>Xung đột yêu cầu giữa các phòng ban.</li><li>Hạn chế thời gian: không đủ thời gian phỏng vấn chi tiết.</li><li>Ngôn ngữ không đồng nhất: dùng thuật ngữ khác nhau.</li><li>Thiếu sự tham gia: stakeholder bận, không hợp tác.</li></ul><h5>Vai trò của BA: là “cầu nối” và phải</h5><table><thead><tr><th>Việc</th><th>Cụ thể</th></tr></thead><tbody><tr><td>Chuẩn bị kỹ</td><td>Hiểu bối cảnh, chuẩn bị câu hỏi, công cụ.</td></tr><tr><td>Giao tiếp linh hoạt</td><td>Lắng nghe, đặt câu hỏi mở, kỹ năng facilitation (điều phối).</td></tr><tr><td>Quản lý thông tin</td><td>Ghi nhận, xác minh, tránh hiểu sai.</td></tr><tr><td>Xử lý mâu thuẫn</td><td>Đưa stakeholder đến đồng thuận.</td></tr><tr><td>Lặp lại và xác nhận</td><td>Kiểm tra thông tin đã đúng và đủ.</td></tr></tbody></table><h5>Output sau mỗi hoạt động elicitation</h5><ul><li><b>Meeting notes / Minutes</b>: biên bản làm việc.</li><li><b>List of Requirements</b>: danh sách yêu cầu thu thập được.</li><li><b>Process models / Diagrams</b>: mô tả trực quan quy trình.</li><li><b>Prototypes / Mockups</b>: bản mẫu minh họa.</li><li><b>Stakeholder feedback</b>: ý kiến, xác nhận từ các bên.</li></ul>"
+  },
+  {
+   "id": "L05-t19",
+   "h": "Cách lập Elicitation activity plan",
+   "src": "5. Elicitation activity plan.pdf tr.1-2",
+   "html": "<p><b>Elicitation activity plan</b> (kế hoạch hoạt động khai thác yêu cầu) là tài liệu BA lập ở bước Prepare for Elicitation. Template gồm 9 mục:</p>{{img:L05-img7}}<table><thead><tr><th>Mục</th><th>Điền gì</th><th>Ví dụ trong template</th></tr></thead><tbody><tr><td>1. Thông tin chung</td><td>Tên dự án/hệ thống, người lập kế hoạch (BA), ngày.</td><td>–</td></tr><tr><td>2. Mục tiêu (Objectives)</td><td>Mục đích của hoạt động thu thập yêu cầu.</td><td>Hiểu quy trình xử lý hồ sơ hiện tại, xác định pain points, thu thập yêu cầu cho module thanh toán…</td></tr><tr><td>3. Phạm vi (Scope)</td><td>Yêu cầu/quy trình nào sẽ thu thập; giới hạn phạm vi (out of scope).</td><td>–</td></tr><tr><td>4. Stakeholders tham gia</td><td>Bảng 4 cột: tên stakeholder, vai trò, mức độ liên quan, trách nhiệm trong buổi elicitation.</td><td>Nguyễn Văn A – Trưởng phòng Kế toán – Cao – cung cấp yêu cầu về báo cáo tài chính; Trần Thị B – Nhân viên Nghiệp vụ – Trung bình – chia sẻ quy trình xử lý hồ sơ thực tế.</td></tr><tr><td>5. Phương pháp và kỹ thuật (Techniques)</td><td>Các kỹ thuật sẽ dùng.</td><td>Phỏng vấn 1-1, workshop nhóm, quan sát quy trình, phân tích tài liệu, prototyping (nếu cần).</td></tr><tr><td>6. Lịch trình (Schedule)</td><td>Bảng 4 cột: hoạt động, ngày/giờ, địa điểm/online, người tham gia.</td><td>Workshop xác định quy trình hiện tại – 10/09/2025 9h00 – Phòng họp A – BA, Phòng Nghiệp vụ; Phỏng vấn Trưởng phòng CNTT – 11/09/2025 14h00 – MS Teams – BA, CIO.</td></tr><tr><td>7. Tài nguyên cần thiết (Resources)</td><td>Phòng, thiết bị, công cụ.</td><td>Phòng họp, máy chiếu, bảng trắng, bút dạ; công cụ ghi chú (OneNote, Google Docs); công cụ vẽ quy trình (Visio, Miro, Draw.io); công cụ quản lý yêu cầu (Jira, Confluence…).</td></tr><tr><td>8. Rủi ro và biện pháp giảm thiểu</td><td>Bảng 4 cột: rủi ro, mức độ, ảnh hưởng, biện pháp.</td><td>Stakeholder bận, không tham gia – Cao – thiếu thông tin – thống nhất lịch sớm, gửi tài liệu trước; Thông tin mâu thuẫn giữa các phòng ban – Trung bình – chậm tiến độ – tổ chức workshop đồng thuận.</td></tr><tr><td>9. Kết quả mong đợi (Expected Deliverables)</td><td>Những gì có sau hoạt động.</td><td>Biên bản phỏng vấn/workshop; danh sách yêu cầu thô (Initial Requirement List); sơ đồ quy trình hiện tại (As-Is Process Diagram); tài liệu mô tả pain points và nhu cầu cải tiến.</td></tr></tbody></table><h5>Cách lập nhanh</h5><ol><li>Viết mục tiêu trước (mục 2), vì mọi mục khác phục vụ mục tiêu.</li><li>Khoanh phạm vi và ghi rõ phần out of scope (mục 3).</li><li>Liệt kê stakeholder và trách nhiệm của từng người trong buổi (mục 4).</li><li>Chọn kỹ thuật hợp với từng nhóm stakeholder (mục 5), rồi xếp lịch (mục 6).</li><li>Liệt kê tài nguyên (mục 7), rủi ro kèm biện pháp (mục 8) và đầu ra (mục 9).</li></ol><p class=\"tip\">Mỗi dòng lịch trình (mục 6) nên khớp với một kỹ thuật ở mục 5 và một nhóm người ở mục 4.</p>"
+  },
+  {
+   "id": "L05-t20",
+   "h": "Cách dùng phiếu khảo sát (bộ câu hỏi phỏng vấn)",
+   "src": "5. Mau phieu khao sat.docx",
+   "html": "<p>Mẫu “Phiếu khảo sát – Hệ thống [tên hệ thống]” là bộ câu hỏi BA dùng khi phỏng vấn stakeholder. Phiếu có 9 phần, đi từ rộng đến hẹp, đúng nguyên tắc “bắt đầu bằng câu hỏi mở rồi thu hẹp dần”.</p><table><thead><tr><th>Phần</th><th>Nội dung câu hỏi trong mẫu</th></tr></thead><tbody><tr><td>1. Thông tin chung</td><td>Dự án; người phỏng vấn (BA); người được phỏng vấn (stakeholder); ngày/giờ; địa điểm/hình thức.</td></tr><tr><td>2. Câu hỏi mở đầu</td><td>Vai trò và công việc hằng ngày; vai trò trong dự án/hệ thống.</td></tr><tr><td>3. Bối cảnh và mục tiêu</td><td>Khó khăn hiện tại; kỳ vọng hệ thống giải quyết vấn đề gì; mục tiêu lớn nhất của phòng ban.</td></tr><tr><td>4. Quy trình hiện tại (As-Is Process)</td><td>Mô tả quy trình từ bắt đầu đến kết thúc; bước tốn thời gian/nguồn lực nhất; ai tham gia; công cụ/hệ thống đang dùng, ưu và nhược điểm.</td></tr><tr><td>5. Nhu cầu và yêu cầu (Requirements)</td><td>Chức năng cần có; báo cáo/dữ liệu cần truy cập thường xuyên; yêu cầu bảo mật, phân quyền; tính năng bắt buộc (must-have) và chỉ mong muốn (nice-to-have).</td></tr><tr><td>6. Vấn đề và thách thức (Pain points)</td><td>Vấn đề lớn nhất; tình huống gây trì hoãn hoặc sai sót; nếu đổi được một điều thì đổi gì.</td></tr><tr><td>7. Mong đợi và thành công (Future State &amp; Success Criteria)</td><td>Kỳ vọng cải thiện gì; yếu tố chứng minh thành công (tiết kiệm thời gian, giảm lỗi, tăng doanh thu…); ai hưởng lợi nhiều nhất.</td></tr><tr><td>8. Câu hỏi kết thúc</td><td>Còn muốn chia sẻ gì mà BA chưa hỏi; nên phỏng vấn thêm ai.</td></tr><tr><td>9. Ghi chú (Notes)</td><td>BA ghi thêm quan sát, việc cần làm rõ.</td></tr></tbody></table><h5>Cách dùng</h5><ul><li>Trước buổi: điền phần 1, xóa hoặc thêm câu theo mục tiêu buổi phỏng vấn; không hỏi máy móc theo mẫu (lỗi “quá phụ thuộc vào form mẫu”).</li><li>Trong buổi: ghi câu trả lời ngay dưới từng câu; câu nào trả lời định tính thì hỏi thêm để ra con số.</li><li>Sau buổi: gom câu trả lời thành 4 nhóm (quy trình, pain point, business rule, yêu cầu tính năng) và gửi lại để xác nhận.</li></ul><p class=\"note\">Tên file là “phiếu khảo sát” nhưng nội dung là bộ câu hỏi phỏng vấn trực tiếp (có “người phỏng vấn” và “người được phỏng vấn”). Khi cần khảo sát số đông (Survey), hãy đổi các câu mở thành câu có lựa chọn sẵn để dễ thống kê.</p>"
+  },
+  {
+   "id": "L05-t21",
+   "h": "Cách dùng Observation note",
+   "src": "5. Observation_Note_Template.docx",
+   "html": "<p><b>Observation note</b> (“Báo cáo kết quả quá trình quan sát”) là biểu mẫu ghi chép cho kỹ thuật Observation. Các mục trong template:</p><table><thead><tr><th>Mục</th><th>Điền gì</th></tr></thead><tbody><tr><td>1. Thông tin chung</td><td>Dự án; thời gian quan sát; địa điểm quan sát; người quan sát (họ tên, chức vụ); người tham gia (họ tên, chức vụ).</td></tr><tr><td>2. Mục tiêu</td><td>Mô tả mục tiêu; câu hỏi cụ thể cần được giải đáp.</td></tr><tr><td>3. Tổng quan quy trình được quan sát</td><td>Tên quy trình; mô tả ngắn gọn.</td></tr><tr><td>4. Chi tiết các bước của quy trình</td><td>Mô tả từng bước xử lý; dữ liệu đầu vào; dữ liệu đầu ra; cách vấn đề ảnh hưởng đến quy trình; cách xử lý khi có ngoại lệ; các trường hợp ngoại lệ khác.</td></tr><tr><td>6. Xác định vấn đề/điểm đau</td><td>Vấn đề 1, 2, 3…</td></tr><tr><td>7. Đề xuất cải tiến</td><td>Đề xuất 1, 2…</td></tr><tr><td>8. Tổng kết và kế hoạch tiếp theo</td><td>Tổng kết; kế hoạch tiếp theo.</td></tr></tbody></table><p class=\"note\">Template gốc đánh số nhảy từ mục 4 sang mục 6 (không có mục 5). Bài học giữ nguyên số mục như template.</p><h5>Cách dùng theo 3 bước quan sát</h5><ul><li><b>Trước</b>: điền mục 1, 2 (đặc biệt là “câu hỏi cụ thể cần giải đáp”) và tên quy trình ở mục 3.</li><li><b>Trong</b>: ghi mục 4 theo đúng thứ tự thao tác, kèm công cụ, dữ liệu vào/ra, lỗi và cách người dùng xử lý.</li><li><b>Sau</b>: viết mục 6, 7, 8; gửi lại cho người được quan sát xác nhận.</li></ul><p class=\"tip\">Mỗi vấn đề ở mục 6 nên trỏ về một bước cụ thể ở mục 4, để người đọc thấy bằng chứng.</p>"
+  }
+ ],
+ "examples": [
+  {
+   "id": "L05-e1",
+   "title": "Phỏng vấn chủ nhà hàng FoodNow: câu hỏi mở, sâu, đóng",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.19-22",
+   "html": "<p><b>Bối cảnh (ví dụ):</b> BA phỏng vấn quản lý nhà hàng về chức năng đặt bàn online của FoodNow.</p><table><thead><tr><th>Lượt</th><th>BA hỏi</th><th>Loại câu</th><th>Vì sao hỏi vậy</th></tr></thead><tbody><tr><td>1</td><td>Anh/chị mô tả giúp em quy trình nhận đặt bàn hiện tại?</td><td>Mở</td><td>Mở đầu rộng để người nói kể tự do.</td></tr><tr><td>2</td><td>Tại sao nhân viên phải gọi lại cho khách trước giờ đến?</td><td>Sâu</td><td>Tìm lý do của một bước (khách hay bỏ bàn).</td></tr><tr><td>3</td><td>Tại sao khách hay bỏ bàn?</td><td>Sâu</td><td>Hỏi “tại sao” tiếp tới nguyên nhân gốc: khách đặt xong quên, không có nhắc lịch.</td></tr><tr><td>4</td><td>“Bỏ bàn nhiều” là khoảng bao nhiêu bàn mỗi tuần?</td><td>Đóng/định lượng</td><td>Chuyển thông tin định tính thành con số.</td></tr><tr><td>5</td><td>Có đúng là bàn giữ tối đa 15 phút sau giờ hẹn rồi hủy không?</td><td>Đóng (xác minh)</td><td>Chốt một business rule.</td></tr><tr><td>6</td><td>Có điều gì em chưa hỏi mà anh/chị nghĩ là quan trọng không?</td><td>Kết thúc</td><td>Câu chốt slide khuyên dùng.</td></tr></tbody></table><p><b>Tổng hợp sau buổi</b> (chia theo 4 nhóm thông tin):</p><ul><li>Quy trình: khách gọi điện → nhân viên ghi sổ → gọi nhắc trước giờ đến.</li><li>Pain point: khách bỏ bàn, nhân viên tốn thời gian gọi nhắc.</li><li>Business rule: giữ bàn tối đa 15 phút (ví dụ).</li><li>Yêu cầu tính năng: gửi nhắc lịch tự động; khách tự hủy bàn online.</li></ul><p class=\"warn\">Câu nên tránh: “Anh chị muốn làm chức năng gửi SMS nhắc lịch không?” – đây là câu dẫn dắt và đã đưa sẵn giải pháp.</p>"
+  },
+  {
+   "id": "L05-e2",
+   "title": "Elicitation activity plan điền sẵn cho SolasMart (bán tại quầy)",
+   "src": "5. Elicitation activity plan.pdf tr.1-2",
+   "html": "<p>Ví dụ tự đặt, dùng vai trò thay cho tên người.</p><table><thead><tr><th>Mục</th><th>Nội dung điền</th></tr></thead><tbody><tr><td>1. Thông tin chung</td><td>Dự án: Hệ thống bán hàng tại quầy SolasMart. Người lập: BA dự án. Ngày: (ngày lập).</td></tr><tr><td>2. Mục tiêu</td><td>Hiểu quy trình bán tại quầy hiện tại; xác định pain points khi thanh toán và đổi trả; thu thập yêu cầu cho module thanh toán.</td></tr><tr><td>3. Phạm vi</td><td>Trong phạm vi: bán hàng, thanh toán, in hóa đơn, đổi trả tại quầy. Ngoài phạm vi: bán online, nhập kho, nhân sự.</td></tr><tr><td>4. Stakeholder</td><td>Quản lý cửa hàng – Cao – chốt quy định và báo cáo ca; Thu ngân – Cao – chia sẻ thao tác thực tế; Kế toán – Trung bình – yêu cầu đối soát doanh thu.</td></tr><tr><td>5. Kỹ thuật</td><td>Document Analysis (quy định bán hàng có sẵn); Observation tại quầy; Interview quản lý cửa hàng; Workshop chốt quy trình.</td></tr><tr><td>6. Lịch trình</td><td>Đọc tài liệu – tuần 1 – tại văn phòng – BA. Quan sát quầy giờ cao điểm – tuần 1 – cửa hàng – BA, thu ngân. Phỏng vấn quản lý – tuần 2 – online – BA, quản lý. Workshop – tuần 2 – phòng họp – BA, quản lý, thu ngân, kế toán.</td></tr><tr><td>7. Tài nguyên</td><td>Phòng họp, máy chiếu, bảng trắng; mẫu Observation note; công cụ vẽ quy trình.</td></tr><tr><td>8. Rủi ro</td><td>Thu ngân bận giờ cao điểm – Cao – thiếu thông tin – hẹn quan sát và hỏi thêm sau ca. Kế toán và quản lý hiểu “doanh thu ca” khác nhau – Trung bình – chậm tiến độ – đưa vào workshop đồng thuận.</td></tr><tr><td>9. Kết quả mong đợi</td><td>Biên bản phỏng vấn/workshop; danh sách yêu cầu thô; sơ đồ quy trình As-Is; tài liệu pain points.</td></tr></tbody></table><p class=\"tip\">Thứ tự kỹ thuật: đọc tài liệu trước để không hỏi câu “thể hiện chưa có sự chuẩn bị”, quan sát để thấy thực tế, phỏng vấn để đào sâu, workshop để chốt.</p>"
+  },
+  {
+   "id": "L05-e3",
+   "title": "Phiếu khảo sát điền mẫu: phỏng vấn thủ thư (quản lý thư viện)",
+   "src": "5. Mau phieu khao sat.docx",
+   "html": "<p>Ví dụ trả lời rút gọn của một thủ thư cho hệ thống quản lý thư viện.</p><table><thead><tr><th>Phần</th><th>Câu hỏi (rút từ mẫu)</th><th>Ghi nhận (ví dụ)</th></tr></thead><tbody><tr><td>2. Mở đầu</td><td>Vai trò và công việc hằng ngày?</td><td>Cho mượn, nhận trả sách, nhắc người mượn quá hạn.</td></tr><tr><td>3. Bối cảnh</td><td>Khó khăn hiện tại?</td><td>Ghi sổ tay, khó biết sách nào đang được mượn.</td></tr><tr><td>4. As-Is</td><td>Bước nào tốn thời gian nhất?</td><td>Tra sổ để tìm người mượn quá hạn cuối tháng.</td></tr><tr><td>5. Yêu cầu</td><td>Must-have và nice-to-have?</td><td>Must: tra cứu tình trạng sách, danh sách quá hạn. Nice: gửi email nhắc tự động.</td></tr><tr><td>6. Pain point</td><td>Nếu đổi được một điều?</td><td>Không phải lật sổ để tìm sách.</td></tr><tr><td>7. Thành công</td><td>Yếu tố chứng minh thành công?</td><td>Thời gian tìm một cuốn sách giảm từ vài phút xuống dưới 30 giây (ví dụ).</td></tr><tr><td>8. Kết thúc</td><td>Nên phỏng vấn thêm ai?</td><td>Trưởng thư viện (duyệt quy định phạt), sinh viên mượn sách.</td></tr><tr><td>9. Ghi chú</td><td>–</td><td>Cần hỏi lại quy định số sách mượn tối đa.</td></tr></tbody></table><p>Câu hỏi ở phần 8 giúp BA tìm thêm stakeholder còn thiếu. Ghi chú ở phần 9 là đầu vào cho buổi follow-up.</p>"
+  },
+  {
+   "id": "L05-e4",
+   "title": "Observation note điền mẫu: quầy thu ngân SolasMart",
+   "src": "5. Observation_Note_Template.docx; 5. Ky thuat khai thac yeu cau.pdf tr.36",
+   "html": "<p>Ví dụ tự đặt, quan sát chủ động trong giờ cao điểm.</p><table><thead><tr><th>Mục</th><th>Ghi nhận (ví dụ)</th></tr></thead><tbody><tr><td>1. Thông tin chung</td><td>Dự án: bán hàng tại quầy SolasMart. Thời gian: 17h–19h. Địa điểm: quầy số 2. Người quan sát: BA. Người tham gia: thu ngân ca chiều, quản lý ca.</td></tr><tr><td>2. Mục tiêu</td><td>Hiểu thao tác thanh toán thực tế. Câu hỏi cần giải đáp: vì sao hàng chờ dài giờ cao điểm?</td></tr><tr><td>3. Tổng quan</td><td>Quy trình thanh toán tại quầy: quét hàng → tính tiền → nhận tiền → in hóa đơn.</td></tr><tr><td>4. Chi tiết</td><td>Bước: quét mã từng món; món không có mã thì tra giá trong sổ. Đầu vào: giỏ hàng, mã khuyến mãi. Đầu ra: hóa đơn, tiền thối. Ảnh hưởng: tra sổ làm mỗi lượt khách chậm thêm. Ngoại lệ: mã khuyến mãi lỗi → gọi quản lý ca nhập tay.</td></tr><tr><td>6. Vấn đề</td><td>Vấn đề 1: hàng không mã phải tra sổ. Vấn đề 2: khuyến mãi lỗi phải chờ quản lý. Vấn đề 3: thu ngân nói “luôn quét mã” nhưng thực tế nhiều món nhập tay.</td></tr><tr><td>7. Đề xuất</td><td>Đề xuất 1: tìm hàng theo tên trên máy bán hàng. Đề xuất 2: phân quyền cho thu ngân áp mã khuyến mãi trong giới hạn.</td></tr><tr><td>8. Tổng kết</td><td>Điểm nghẽn ở hàng không mã và khuyến mãi. Kế hoạch: xác nhận với thu ngân và quản lý ca, đưa vào workshop.</td></tr></tbody></table><p>Vấn đề 3 là đúng mục tiêu “so sánh điều người dùng nói và cách họ thực sự làm” mà chỉ Observation mới phát hiện được.</p>"
+  },
+  {
+   "id": "L05-e5",
+   "title": "Chọn kỹ thuật theo tình huống",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.17-18, 25-26, 34",
+   "html": "<table><thead><tr><th>Tình huống (ví dụ)</th><th>Kỹ thuật</th><th>Căn cứ trên slide</th></tr></thead><tbody><tr><td>Cần ý kiến của khoảng 200 nhân viên bán hàng ở nhiều chi nhánh SolasMart</td><td>Survey &amp; Questionnaire</td><td>Số lượng stakeholder lớn thì không nên interview, nên dùng survey.</td></tr><tr><td>Kho, bán online và kế toán tranh cãi về thời điểm trừ tồn kho</td><td>Workshop</td><td>Cần đồng thuận nhanh giữa nhiều stakeholder.</td></tr><tr><td>Giám đốc tài chính chỉ có 30 phút, cần hiểu quy tắc duyệt chi</td><td>Interview</td><td>Stakeholder có vai trò quan trọng; chủ đề cần hiểu chi tiết.</td></tr><tr><td>Thủ kho không giải thích được vì sao nhập hàng lâu</td><td>Observation</td><td>Stakeholder không mô tả được công việc; công việc mang tính thao tác.</td></tr><tr><td>Hỏi về lương thưởng và đánh giá nhân sự</td><td>Interview</td><td>Chủ đề nhạy cảm, riêng tư (workshop và observation đều không hợp).</td></tr><tr><td>Trưởng phòng bận, có sẵn quy trình bằng văn bản</td><td>Document Analysis trước, sau đó call ngắn</td><td>Stakeholder không có thời gian thì thay bằng call hoặc Document Analysis trước.</td></tr></tbody></table>"
+  },
+  {
+   "id": "L05-e6",
+   "title": "Agenda workshop chốt quy trình đặt món (hệ thống đặt đồ ăn)",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.24-32",
+   "html": "<p>Ví dụ workshop 90 phút, 7 người: quản lý nhà hàng, đầu bếp trưởng, nhân viên giao hàng, đại diện CSKH, PO, BA, người ghi chép. Agenda gửi trước 2–3 ngày.</p><table><thead><tr><th>Thời lượng</th><th>Nội dung</th><th>Kỹ thuật/vai trò BA</th></tr></thead><tbody><tr><td>5 phút</td><td>Ice-breaker: “Món nào bị khách phàn nàn nhiều nhất tuần qua?”</td><td>Phá băng</td></tr><tr><td>5 phút</td><td>Nhắc mục tiêu: thống nhất luồng đặt món và hủy đơn</td><td>Người điều phối</td></tr><tr><td>25 phút</td><td>Liệt kê vấn đề khi đặt và hủy đơn</td><td>Brainstorming; người làm rõ</td></tr><tr><td>20 phút</td><td>Chọn vấn đề cần giải quyết trước</td><td>Dot Voting</td></tr><tr><td>20 phút</td><td>Xếp ưu tiên các yêu cầu</td><td>MoSCoW; người kết nối khi bếp và CSKH bất đồng</td></tr><tr><td>15 phút</td><td>Đọc lại kết luận, phân việc follow-up</td><td>Người ghi nhận, xác nhận</td></tr></tbody></table><p>Người có quyền phê duyệt (PO) có mặt để workshop ra được quyết định, tránh lỗi “chỉ tranh cãi, không kết luận”.</p>"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L05-p1",
+   "title": "Lập Elicitation activity plan cho FoodNow",
+   "src": "5. Elicitation activity plan.pdf tr.1-2",
+   "task": "<p>FoodNow muốn thêm chức năng đặt bàn online cho chuỗi nhà hàng. Bạn là BA. Hãy lập Elicitation activity plan cho đợt khai thác đầu tiên theo 9 mục của template.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Thông tin chung và mục tiêu.</b> Ghi tên dự án, người lập, ngày. Viết 2–3 mục tiêu bắt đầu bằng động từ: hiểu, xác định, thu thập.</p>",
+    "<p><b>Bước 2 – Phạm vi.</b> Ghi rõ phần trong phạm vi (đặt, sửa, hủy bàn) và ngoài phạm vi (đặt món, thanh toán).</p>",
+    "<p><b>Bước 3 – Stakeholder.</b> Lập bảng 4 cột: tên/vai trò, vai trò, mức độ liên quan, trách nhiệm trong buổi. Nghĩ tới người nhận đặt bàn, quản lý, khách hàng.</p>",
+    "<p><b>Bước 4 – Kỹ thuật và lịch.</b> Với mỗi nhóm stakeholder chọn một kỹ thuật, rồi ghi thành dòng lịch: hoạt động, ngày/giờ, địa điểm/online, người tham gia.</p>",
+    "<p><b>Bước 5 – Tài nguyên, rủi ro, kết quả.</b> Liệt kê thiết bị, công cụ; ít nhất 2 rủi ro kèm mức độ, ảnh hưởng, biện pháp; các deliverable.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Mục</th><th>Đáp án mẫu</th></tr></thead><tbody><tr><td>1</td><td>Dự án FoodNow – Đặt bàn online; BA dự án; ngày lập.</td></tr><tr><td>2</td><td>Hiểu quy trình nhận đặt bàn qua điện thoại hiện tại; xác định pain points (bỏ bàn, trùng bàn); thu thập yêu cầu cho chức năng đặt/hủy bàn online.</td></tr><tr><td>3</td><td>Trong: đặt, sửa, hủy bàn; nhắc lịch. Ngoài: đặt món trước, thanh toán, chương trình thành viên.</td></tr><tr><td>4</td><td>Quản lý nhà hàng – Cao – chốt quy định giữ bàn; Nhân viên lễ tân – Cao – chia sẻ thao tác nhận đặt bàn; Khách hàng thường xuyên – Trung bình – nêu kỳ vọng khi đặt online.</td></tr><tr><td>5</td><td>Observation quầy lễ tân; Interview quản lý; Survey khách hàng (đông người); Prototype màn hình đặt bàn.</td></tr><tr><td>6</td><td>Quan sát lễ tân giờ cao điểm – tại nhà hàng – BA, lễ tân. Phỏng vấn quản lý – online – BA, quản lý. Gửi survey khách – online – BA. Demo prototype – phòng họp – BA, quản lý, lễ tân.</td></tr><tr><td>7</td><td>Phòng họp, máy chiếu; công cụ ghi chú; công cụ khảo sát online; công cụ vẽ wireframe.</td></tr><tr><td>8</td><td>Lễ tân bận giờ cao điểm – Cao – thiếu thông tin – hẹn hỏi thêm sau ca. Khách ít trả lời survey – Trung bình – mẫu nhỏ – câu hỏi ngắn, gửi qua kênh khách hay dùng.</td></tr><tr><td>9</td><td>Biên bản phỏng vấn; danh sách yêu cầu thô; sơ đồ quy trình As-Is; tài liệu pain points; phản hồi về prototype.</td></tr></tbody></table>"
+  },
+  {
+   "id": "L05-p2",
+   "title": "Chuẩn bị và tiến hành một buổi Interview với thủ thư",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.19-22; 5. Mau phieu khao sat.docx",
+   "task": "<p>Thư viện trường muốn thay sổ tay bằng phần mềm quản lý mượn trả. Hãy chuẩn bị và lên kịch bản phỏng vấn thủ thư trong 45 phút.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Mục tiêu.</b> Trả lời 3 câu: muốn biết gì? làm rõ gì? xác nhận gì?</p>",
+    "<p><b>Bước 2 – Chuẩn bị.</b> Tìm hiểu background thủ thư; xin mẫu sổ mượn trả hiện tại; chuẩn bị sổ ghi, xin phép ghi âm; gửi agenda trước.</p>",
+    "<p><b>Bước 3 – Câu hỏi.</b> Lấy khung từ phiếu khảo sát. Viết ít nhất 2 câu mở, 2 câu sâu, 2 câu đóng (xác minh). Thêm câu kết thúc.</p>",
+    "<p><b>Bước 4 – Trong buổi.</b> Hỏi mở trước rồi thu hẹp; tóm tắt sau mỗi phần; đổi câu trả lời định tính thành con số.</p>",
+    "<p><b>Bước 5 – Sau buổi.</b> Gom thông tin vào 4 nhóm, gửi biên bản xác nhận, lên lịch follow-up nếu còn câu hỏi.</p>"
+   ],
+   "answer": "<ul><li><b>Mục tiêu:</b> biết quy trình mượn trả hiện tại; làm rõ cách xử lý sách quá hạn; xác nhận số sách mượn tối đa và mức phạt.</li><li><b>Câu mở:</b> “Chị mô tả giúp em một lượt cho mượn sách từ đầu đến cuối?”; “Một ngày làm việc của chị gồm những việc gì?”</li><li><b>Câu sâu:</b> “Tại sao cuối tháng chị mới rà sách quá hạn?”; “Tại sao phải ghi cả số điện thoại người mượn vào sổ?”</li><li><b>Câu đóng:</b> “Có đúng là mỗi sinh viên mượn tối đa 3 cuốn không?”; “Có đúng là quá hạn 7 ngày thì bị khóa thẻ không?” (số liệu ví dụ, cần xác minh)</li><li><b>Câu kết:</b> “Có điều gì em chưa hỏi mà chị nghĩ là quan trọng không?”; “Em nên hỏi thêm ai?”</li><li><b>Sau buổi:</b> Quy trình (mượn, trả, nhắc); Pain point (tra sổ lâu); Business rule (số sách tối đa, khóa thẻ); Yêu cầu tính năng (tra cứu tình trạng sách, danh sách quá hạn). Gửi biên bản cho thủ thư xác nhận.</li></ul>"
+  },
+  {
+   "id": "L05-p3",
+   "title": "Ghi Observation note từ một đoạn quan sát nhập kho SolasMart",
+   "src": "5. Observation_Note_Template.docx; 5. Ky thuat khai thac yeu cau.pdf tr.33-38",
+   "task": "<p>Đoạn ghi nhanh của BA (ví dụ): “8h, kho tổng. Xe hàng tới. Thủ kho đếm thùng, so với phiếu giao trên giấy. Thiếu 2 thùng → gọi điện cho nhà cung cấp, chờ 20 phút. Nhập số liệu vào Excel, rồi chụp phiếu gửi Zalo cho kế toán. Thủ kho nói thường nhập ngay vào phần mềm nhưng hôm nay vẫn dùng Excel.” Hãy chuyển thành Observation note.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Điền mục 1 (thông tin chung) và mục 2 (mục tiêu, câu hỏi cần giải đáp).</p>",
+    "<p><b>Bước 2.</b> Đặt tên quy trình và mô tả ngắn ở mục 3.</p>",
+    "<p><b>Bước 3.</b> Tách đoạn ghi thành các bước theo thứ tự. Ghi dữ liệu vào/ra và ngoại lệ ở mục 4.</p>",
+    "<p><b>Bước 4.</b> Từ mục 4 rút ra vấn đề (mục 6), đề xuất (mục 7) và kế hoạch tiếp theo (mục 8).</p>"
+   ],
+   "answer": "<table><tbody><tr><td>1</td><td>Dự án: quản lý kho SolasMart; 8h tại kho tổng; người quan sát: BA; người tham gia: thủ kho.</td></tr><tr><td>2</td><td>Mục tiêu: hiểu quy trình nhận hàng. Câu hỏi: vì sao nhận hàng chậm, số liệu đến kế toán bằng cách nào?</td></tr><tr><td>3</td><td>Quy trình nhận hàng nhập kho: đối chiếu hàng thực nhận với phiếu giao, ghi nhận số liệu, báo kế toán.</td></tr><tr><td>4</td><td>Bước: (1) đếm thùng; (2) so với phiếu giao giấy; (3) nhập số liệu vào Excel; (4) chụp phiếu gửi kế toán qua Zalo. Đầu vào: hàng, phiếu giao. Đầu ra: file Excel, ảnh phiếu. Ngoại lệ: thiếu hàng → gọi nhà cung cấp, chờ 20 phút.</td></tr><tr><td>6</td><td>Vấn đề 1: đối chiếu thủ công, xử lý thiếu hàng tốn thời gian. Vấn đề 2: số liệu nằm ở Excel và ảnh chat, dễ thất lạc. Vấn đề 3: thủ kho nói nhập phần mềm nhưng thực tế dùng Excel – cần hỏi lý do.</td></tr><tr><td>7</td><td>Đề xuất 1: phiếu giao điện tử để đối chiếu tự động. Đề xuất 2: ghi nhận thiếu hàng ngay trên hệ thống và gửi cho nhà cung cấp.</td></tr><tr><td>8</td><td>Tổng kết: điểm nghẽn ở đối chiếu và truyền số liệu. Kế hoạch: hỏi lại thủ kho vì sao dùng Excel; quan sát thêm một ca khác; xác nhận note với thủ kho.</td></tr></tbody></table><p class=\"tip\">Vấn đề 3 cho thấy vì sao không được “chỉ nhìn thao tác mà không hỏi lại”.</p>"
+  },
+  {
+   "id": "L05-p4",
+   "title": "Chuẩn bị một workshop đồng thuận cho SolasMart",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.27-32",
+   "task": "<p>Phòng bán online và phòng kho SolasMart mâu thuẫn: bán online muốn trừ tồn khi khách đặt; kho muốn trừ khi hàng xuất. Hãy chuẩn bị workshop 60 phút để thống nhất.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Viết mục tiêu theo 3 câu: muốn biết gì? làm rõ gì? thống nhất gì?</p>",
+    "<p><b>Bước 2.</b> Chọn người tham gia (2–15 người), đảm bảo có người có quyền phê duyệt.</p>",
+    "<p><b>Bước 3.</b> Phân vai: điều phối, ghi chép, quan sát, xác nhận.</p>",
+    "<p><b>Bước 4.</b> Lên agenda kèm kỹ thuật hỗ trợ cho từng phần; gửi trước 2–3 ngày kèm dữ liệu.</p>",
+    "<p><b>Bước 5.</b> Lường trước lỗi phổ biến và cách tránh.</p>"
+   ],
+   "answer": "<ul><li><b>Mục tiêu:</b> biết thời điểm trừ tồn hiện tại của mỗi bên; làm rõ hậu quả của từng cách (bán quá số tồn, giữ hàng ảo); thống nhất một quy tắc trừ tồn.</li><li><b>Người tham gia:</b> trưởng phòng bán online, trưởng kho, kế toán, quản lý vận hành (người phê duyệt), BA, người ghi chép.</li><li><b>Vai trò:</b> BA điều phối; người hỗ trợ ghi chép; kế toán quan sát số liệu; quản lý vận hành xác nhận quyết định.</li><li><b>Agenda:</b> 5 phút nhắc mục tiêu → 15 phút mỗi bên trình bày quy trình (BA làm rõ) → 15 phút liệt kê rủi ro của từng cách (Brainstorming) → 15 phút chọn phương án (Dot Voting, người kết nối dẫn về hướng chung) → 10 phút đọc lại kết luận, phân việc.</li><li><b>Tránh lỗi:</b> gửi dữ liệu đơn hàng trước; giữ người nói nhiều trong giới hạn thời gian; xác nhận sau mỗi phần; không sa vào giải pháp kỹ thuật (bảng nào, API nào).</li></ul>"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L05-x1",
+   "title": "Hoạt động mở đầu: thu thập yêu cầu là gì?",
+   "level": "de",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.4",
+   "task": "<p>Trả lời hai câu hỏi của hoạt động 10 phút trên slide:</p><ol><li>Bạn hiểu thế nào là thu thập yêu cầu?</li><li>Đã bao giờ bạn thực hiện khai thác yêu cầu trong cuộc sống chưa? Kể một ví dụ.</li></ol>",
+   "hints": [
+    "<p>Nghĩ xem yêu cầu đến từ đâu và ai là người nói ra nó.</p>",
+    "<p>Một lần bạn giúp người thân chọn mua điện thoại, bạn đã hỏi những gì?</p>"
+   ],
+   "answer": "<ol><li>Thu thập (khai thác) yêu cầu là tìm hiểu và làm rõ người dùng, khách hàng thật sự cần gì, vì sao cần, và giới hạn là gì. Không chỉ ghi lại lời họ nói mà phải hỏi, nghe, xác minh để mọi bên hiểu giống nhau.</li><li>Ví dụ: giúp bố mẹ mua điện thoại. Hỏi: dùng để làm gì (gọi, xem video), ngân sách bao nhiêu, chữ có cần to không, có cần pin lâu không. Bố mẹ nói “máy tốt” – phải hỏi tiếp “tốt là sao” để ra tiêu chí cụ thể. Cuối cùng tóm tắt lại để bố mẹ xác nhận trước khi mua. Đây chính là chuẩn bị – hỏi – xác nhận.</li></ol>"
+  },
+  {
+   "id": "L05-x2",
+   "title": "Phân loại câu hỏi phỏng vấn",
+   "level": "de",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.19-20",
+   "task": "<p>Xếp mỗi câu vào: mở, sâu, đóng (xác minh), hoặc dẫn dắt (nên tránh).</p><ol><li>Anh mô tả giúp em cách cửa hàng nhận hàng đổi trả?</li><li>Tại sao phải có chữ ký quản lý mới được đổi trả?</li><li>Có đúng là chỉ đổi trả trong 7 ngày không?</li><li>Anh muốn có nút đổi trả một chạm trên app không?</li><li>Vì sao khách thường quay lại sau 3 ngày?</li><li>Hệ thống có cần in phiếu đổi trả không?</li></ol>",
+   "hints": [
+    "<p>Câu đóng trả lời được bằng có/không và dùng để chốt một chi tiết đã nghe.</p>",
+    "<p>Câu dẫn dắt gợi ý sẵn một giải pháp mà BA muốn nghe.</p>"
+   ],
+   "answer": "<ol><li>Mở.</li><li>Sâu.</li><li>Đóng (xác minh business rule).</li><li>Dẫn dắt – vừa gợi ý sẵn giải pháp, vừa khiến người nghe dễ gật đầu.</li><li>Sâu.</li><li>Đóng. Câu này hợp lệ nếu dùng để xác nhận một chi tiết đã nghe; nếu hỏi khi chưa ai nhắc tới việc in phiếu thì nó dễ thành câu dẫn dắt. Tốt hơn nên hỏi mở: “Sau khi đổi trả, khách và cửa hàng cần giữ lại giấy tờ gì?”.</li></ol>"
+  },
+  {
+   "id": "L05-x3",
+   "title": "Chọn kỹ thuật cho 5 tình huống",
+   "level": "tb",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.16-18, 25-26, 34, 37",
+   "task": "<p>Chọn kỹ thuật chính và giải thích ngắn:</p><ol><li>Hệ thống đặt đồ ăn cần biết thói quen đặt món của khoảng 1.000 khách.</li><li>Đầu bếp nói “cứ làm như bình thường”, không kể được các bước chế biến.</li><li>Ba trưởng bộ phận cần chốt phạm vi phiên bản đầu tiên.</li><li>Cần hiểu quy trình xử lý khiếu nại liên quan đến dữ liệu cá nhân khách hàng.</li><li>Chủ cửa hàng bận, nhưng có sẵn bộ quy định bán hàng bằng văn bản.</li></ol>",
+   "hints": [
+    "<p>Xem bảng “nên/không nên dùng” của từng kỹ thuật.</p>",
+    "<p>Chủ đề nhạy cảm loại workshop và observation.</p>",
+    "<p>Số đông → khảo sát số đông.</p>"
+   ],
+   "answer": "<ol><li>Survey &amp; Questionnaire – số lượng stakeholder lớn.</li><li>Observation – stakeholder không mô tả được việc mình làm, công việc thao tác.</li><li>Workshop – cần đồng thuận nhanh giữa nhiều bên, giai đoạn đầu xác định phạm vi.</li><li>Interview – chủ đề nhạy cảm, riêng tư; workshop và observation đều không phù hợp.</li><li>Document Analysis trước, sau đó call ngắn để xác nhận – stakeholder không có thời gian.</li></ol>"
+  },
+  {
+   "id": "L05-x4",
+   "title": "Tìm lỗi trong một buổi Interview",
+   "level": "tb",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.20-23",
+   "task": "<p>Đọc đoạn hội thoại (ví dụ) và chỉ ra ít nhất 4 lỗi, kèm cách sửa.</p><blockquote>BA: “Chị muốn hệ thống tự gửi email nhắc trả sách đúng không?”<br>Thủ thư: “Ờ… chắc vậy. Thật ra vấn đề là…”<br>BA: “Vâng, vậy em ghi là gửi email. Bên em sẽ dùng Gmail API luôn.”<br>(Hết buổi, BA không đọc lại ghi chép, không gửi biên bản.)</blockquote>",
+   "hints": [
+    "<p>So với danh sách “Không nên làm khi interview”.</p>",
+    "<p>So với “Sau khi interview cần làm gì” và “Lỗi phổ biến”.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Lỗi</th><th>Cách sửa</th></tr></thead><tbody><tr><td>Mở đầu bằng câu dẫn dắt (“muốn… đúng không?”)</td><td>Bắt đầu bằng câu mở: “Chị mô tả cách đang nhắc người mượn trả sách?”</td></tr><tr><td>Ngắt lời khi thủ thư đang nói “vấn đề là…”</td><td>Lắng nghe nhiều hơn nói, để người nói hết ý rồi hỏi sâu.</td></tr><tr><td>Quyết định giải pháp tại chỗ (Gmail API)</td><td>Chỉ ghi nhận nhu cầu; giải pháp bàn sau với đội kỹ thuật.</td></tr><tr><td>Không đào sâu, chỉ ghi nhận bề mặt</td><td>Hỏi “tại sao” tới nguyên nhân gốc (vì sao người mượn quên trả).</td></tr><tr><td>Không tóm tắt, không xác minh, không gửi biên bản</td><td>Tóm tắt sau mỗi phần; gửi biên bản để xác nhận; follow-up.</td></tr></tbody></table>"
+  },
+  {
+   "id": "L05-x5",
+   "title": "Định lượng hóa và hỏi “tại sao”",
+   "level": "tb",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.22",
+   "task": "<p>Với mỗi câu nói của stakeholder, viết một câu hỏi để chuyển sang định lượng và một chuỗi ít nhất 2 câu “tại sao”.</p><ol><li>“Ứng dụng đặt món chậm quá.”</li><li>“Khách hay phàn nàn về giao hàng.”</li></ol>",
+   "hints": [
+    "<p>Định lượng: bao lâu, bao nhiêu, bao nhiêu phần trăm, khi nào.</p>",
+    "<p>Hỏi “tại sao” tiếp vào câu trả lời trước, không đổi chủ đề.</p>"
+   ],
+   "answer": "<ol><li><b>Định lượng:</b> “Chậm là mất bao nhiêu giây từ lúc bấm đặt đến khi thấy xác nhận? Xảy ra vào giờ nào?” <b>Tại sao:</b> “Tại sao anh thấy chậm?” → “Vì phải chờ xác nhận lâu.” → “Tại sao phải chờ?” → “Vì nhà hàng xác nhận đơn bằng tay.” Gốc rễ là quy trình xác nhận đơn, không phải tốc độ ứng dụng.</li><li><b>Định lượng:</b> “Mỗi tuần có bao nhiêu phàn nàn về giao hàng, trên tổng bao nhiêu đơn? Phàn nàn chủ yếu về trễ hay sai món?” <b>Tại sao:</b> “Tại sao giao trễ?” → “Vì tài xế phải chờ món.” → “Tại sao phải chờ?” → “Vì bếp không biết thời điểm tài xế tới.”</li></ol><p class=\"tip\">Câu trả lời ở đây là ví dụ; trong thực tế, mỗi lần “tại sao” phải dựa trên câu trả lời thật của stakeholder.</p>"
+  },
+  {
+   "id": "L05-x6",
+   "title": "Kế hoạch khai thác tổng hợp cho SolasMart",
+   "level": "kho",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.10-41; 5. Elicitation activity plan.pdf",
+   "task": "<p>SolasMart muốn một hệ thống đồng bộ bán tại quầy, bán online và kho. Thông tin đã biết: (a) khoảng 120 nhân viên bán hàng ở nhiều cửa hàng; (b) thủ kho làm khác quy trình văn bản; (c) bán online và kho mâu thuẫn về cách trừ tồn; (d) giám đốc vận hành rất bận; (e) có sẵn quy định bán hàng và HDSD phần mềm cũ. Hãy: 1) chọn kỹ thuật cho từng điểm; 2) sắp thứ tự theo 5 hoạt động Elicitation; 3) nêu 3 rủi ro kèm biện pháp; 4) liệt kê output.</p>",
+   "hints": [
+    "<p>Mỗi điểm (a)–(e) khớp với một dòng “nên dùng khi” của một kỹ thuật.</p>",
+    "<p>Đọc tài liệu trước để không hỏi câu “thể hiện chưa có sự chuẩn bị”.</p>",
+    "<p>Rủi ro có thể lấy từ phần “Thách thức trong Elicitation”.</p>"
+   ],
+   "answer": "<ol><li><b>Kỹ thuật:</b> (a) Survey; (b) Observation (chủ động, có hỏi lại); (c) Workshop đồng thuận có người phê duyệt; (d) Interview ngắn hoặc call, gửi tài liệu trước; (e) Document Analysis.</li><li><b>Theo 5 hoạt động:</b> Prepare – lập activity plan, đọc tài liệu (e), soạn phiếu survey và câu hỏi phỏng vấn. Conduct – gửi survey (a), quan sát kho (b), phỏng vấn giám đốc (d), workshop (c). Confirm – gửi biên bản, review với chính nguồn và nguồn khác, dùng sơ đồ quy trình để xác minh. Communicate – gửi yêu cầu đã chốt đến sponsor, dev, tester bằng tài liệu rõ ràng. Manage Collaboration – kế hoạch tương tác, giữ kết nối với giám đốc vận hành và hai trưởng bộ phận.</li><li><b>Rủi ro:</b> giám đốc bận (Cao) → hẹn sớm, gửi tài liệu trước; mâu thuẫn giữa bán online và kho (Trung bình) → workshop đồng thuận; thủ kho đổi hành vi khi bị quan sát (Trung bình) → thông báo trước, quan sát nhiều ca, xác nhận lại sau.</li><li><b>Output:</b> biên bản phỏng vấn/workshop; Observation note; kết quả survey; danh sách yêu cầu thô; sơ đồ quy trình As-Is; tài liệu pain points; phản hồi của stakeholder.</li></ol>"
+  },
+  {
+   "id": "L05-x7",
+   "title": "Chẩn đoán một workshop thất bại",
+   "level": "kho",
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.26-32",
+   "task": "<p>Tình huống (ví dụ): BA FoodNow mời 20 người dự workshop “bàn về đặt bàn”, gửi lời mời sáng cùng ngày. Không có quản lý cấp trên. BA vừa điều phối vừa tự ghi chép. Một trưởng ca nói gần hết thời gian. Nhóm tranh luận nên dùng database nào. Cuối buổi không ai đọc lại kết luận; tuần sau mỗi bên đều tưởng ý mình đã được chốt. Hãy chỉ ra các lỗi, hậu quả và cách làm lại.</p>",
+   "hints": [
+    "<p>Đối chiếu với “Trước khi workshop cần chuẩn bị gì” và “Không nên làm”.</p>",
+    "<p>Đối chiếu với bảng “Lỗi phổ biến → hậu quả”.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Lỗi</th><th>Hậu quả</th><th>Cách làm lại</th></tr></thead><tbody><tr><td>Mục tiêu mơ hồ (“bàn về đặt bàn”)</td><td>Lan man, không đạt kết quả</td><td>Viết mục tiêu: muốn biết gì, làm rõ gì, thống nhất gì</td></tr><tr><td>20 người – nhóm quá đông</td><td>Khó điều phối</td><td>Giữ 2–15 người, mời đúng người</td></tr><tr><td>Gửi lời mời cùng ngày</td><td>Người tham gia không chuẩn bị</td><td>Gửi agenda, timeline trước 2–3 ngày</td></tr><tr><td>Không có người phê duyệt</td><td>Không ra được quyết định</td><td>Mời người có quyền phê duyệt</td></tr><tr><td>BA tự ghi chép</td><td>Không tập trung dẫn dắt, ghi thiếu</td><td>Giao ghi chú cho người hỗ trợ</td></tr><tr><td>Một người nói gần hết giờ</td><td>Người nói nhiều lấn át, nhóm mệt mỏi</td><td>Quản lý thời gian, dùng Dot Voting để mọi người cùng có tiếng nói</td></tr><tr><td>Tranh luận chọn database</td><td>Quá tập trung vào giải pháp kỹ thuật</td><td>Đưa về nghiệp vụ, để phần kỹ thuật cho đội dev</td></tr><tr><td>Không tổng kết, xác nhận</td><td>Stakeholder tưởng đã chốt</td><td>Xác nhận sau mỗi phần, gửi biên bản</td></tr></tbody></table>"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L05-f1",
+   "front": "Elicitation (khai thác yêu cầu)",
+   "back": "<p>Quá trình thu thập, khám phá, khơi gợi, xác định và làm rõ yêu cầu, mong đợi, nhu cầu của stakeholder. Không chỉ “hỏi và ghi chép” mà gồm giao tiếp, lắng nghe, phân tích, xác minh, tinh chỉnh.</p>"
+  },
+  {
+   "id": "L05-f2",
+   "front": "Gathering khác Elicitation thế nào?",
+   "back": "<p>Gathering: thụ động, lấy thông tin có sẵn (HDSD, SRS cũ), để nắm hiện trạng. Elicitation: chủ động, tạo thông tin mới qua interview, workshop…, để tìm ra nhu cầu. Mẹo: “nhặt” và “đào”.</p>"
+  },
+  {
+   "id": "L05-f3",
+   "front": "Collaboration (hợp tác)",
+   "back": "<p>Hành động của hai hoặc nhiều người cùng làm việc hướng đến một mục tiêu chung.</p>"
+  },
+  {
+   "id": "L05-f4",
+   "front": "Yêu cầu đúng là gì?",
+   "back": "<p>Yêu cầu được hiểu giống nhau bởi tất cả các bên. Ví dụ: “báo cáo doanh thu” phải thống nhất theo ngày, ca hay tháng.</p>"
+  },
+  {
+   "id": "L05-f5",
+   "front": "4 lý do Elicitation quan trọng",
+   "back": "<p>Yêu cầu là nền tảng (hơn 50% thất bại do hiểu sai/thiếu yêu cầu); gắn kết stakeholder; tránh rework; tạo giá trị thực sự. “A requirement misunderstood is a solution misdelivered”.</p>"
+  },
+  {
+   "id": "L05-f6",
+   "front": "Elicitation diễn ra khi nào?",
+   "back": "<p>Nhiều giai đoạn: đầu dự án (yêu cầu ban đầu), phân tích (làm rõ, xử lý mâu thuẫn, ưu tiên), phát triển và kiểm thử (xác minh, tinh chỉnh), triển khai (phản hồi để cải tiến).</p>"
+  },
+  {
+   "id": "L05-f7",
+   "front": "5 hoạt động của Elicitation",
+   "back": "<p>1. Prepare for Elicitation; 2. Conduct Elicitation; 3. Confirm Results; 4. Communicate; 5. Manage Stakeholder Collaboration. Mẹo: Chuẩn bị – Làm – Xác nhận – Truyền đạt – Giữ quan hệ.</p>"
+  },
+  {
+   "id": "L05-f8",
+   "front": "Prepare for Elicitation",
+   "back": "<p>Xác định mục đích, đối tượng, phương pháp, công cụ, bối cảnh trước khi thu thập. Việc: xác định stakeholder, loại thông tin, chọn kỹ thuật, chuẩn bị tài liệu, câu hỏi, không gian.</p>"
+  },
+  {
+   "id": "L05-f9",
+   "front": "Conduct Elicitation",
+   "back": "<p>Thực hiện khai thác: hỏi đúng – đủ – rõ, dẫn dắt, quan sát; lắng nghe chủ động, ghi chép, phản hồi; quản lý thời gian, nội dung, sự tham gia; dùng kỹ năng mềm.</p>"
+  },
+  {
+   "id": "L05-f10",
+   "front": "Confirm Elicitation Results",
+   "back": "<p>Đảm bảo thông tin chính xác, đầy đủ, rõ, được đồng thuận. Xác nhận ngay trong buổi; phiên review với chính nguồn và nguồn khác; dùng mô hình, wireframe; gửi biên bản.</p>"
+  },
+  {
+   "id": "L05-f11",
+   "front": "Communicate Business Analysis Information",
+   "back": "<p>Truyền tải yêu cầu đúng cách, đúng người, đúng thời điểm (sponsor, dev, tester…); trình bày rõ ràng, không mơ hồ.</p>"
+  },
+  {
+   "id": "L05-f12",
+   "front": "Manage Stakeholder Collaboration",
+   "back": "<p>Duy trì giao tiếp, giải quyết xung đột, giữ nhiệt huyết stakeholder. Lên kế hoạch tương tác; giữ kết nối với stakeholder chính; giao tiếp đa chiều, không chỉ gửi tài liệu một chiều.</p>"
+  },
+  {
+   "id": "L05-f13",
+   "front": "5 nhóm kỹ thuật khai thác phổ biến",
+   "back": "<p>Tương tác cá nhân (Interview); cộng tác nhóm (Workshop, Brainstorming); dựa trên tài liệu (Document Analysis, Interface Analysis); khảo sát số đông (Survey); trực quan hóa (Prototype, Storyboard, Wireframe).</p>"
+  },
+  {
+   "id": "L05-f14",
+   "front": "Interview: nên dùng khi nào?",
+   "back": "<p>Stakeholder chuyên môn sâu/vai trò quan trọng; cần hiểu chi tiết nghiệp vụ; chủ đề nhạy cảm; yêu cầu chưa rõ, cần xác thực; cần xây quan hệ khi dự án dài.</p>"
+  },
+  {
+   "id": "L05-f15",
+   "front": "Interview: không nên dùng khi nào?",
+   "back": "<p>Đông người (≈50 → Survey); cần các bên thống nhất (→ Workshop); stakeholder không có thời gian (→ call hoặc Document Analysis trước); yêu cầu quá đơn giản.</p>"
+  },
+  {
+   "id": "L05-f16",
+   "front": "Câu hỏi mở – sâu – đóng",
+   "back": "<p>Mở: “Anh/chị mô tả quy trình hiện tại?”. Sâu: “Tại sao lại làm bước này?”. Đóng (xác minh): “Có đúng là hệ thống phải tự tính thuế 10% không?”. Mẹo: rộng → sâu → chốt.</p>"
+  },
+  {
+   "id": "L05-f17",
+   "front": "Câu hỏi dẫn dắt (leading question)",
+   "back": "<p>Câu cài sẵn câu trả lời BA muốn nghe, ví dụ “Anh chị muốn làm chức năng A không?”. Nên tránh vì stakeholder dễ gật đầu theo, che mất nhu cầu thật.</p>"
+  },
+  {
+   "id": "L05-f18",
+   "front": "Sau interview cần làm gì?",
+   "back": "<p>Tổng hợp, làm sạch dữ liệu theo nhóm: quy trình, pain point, business rule, yêu cầu tính năng; gửi biên bản xác nhận; cập nhật tài liệu công ty quy định; chuẩn bị buổi tiếp theo.</p>"
+  },
+  {
+   "id": "L05-f19",
+   "front": "4 mẹo interview",
+   "back": "<p>Hỏi “tại sao” đến gốc rễ; đổi định tính thành định lượng (“chậm” là bao lâu); nhờ nói chậm lại, đừng chỉ chăm ghi; kết thúc bằng “Có điều gì em chưa hỏi mà anh/chị nghĩ là quan trọng không?”.</p>"
+  },
+  {
+   "id": "L05-f20",
+   "front": "4 lỗi phổ biến khi interview",
+   "back": "<p>Quá phụ thuộc form mẫu; không đào sâu, chỉ ghi bề mặt; quên xác minh lại sau khi ghi; không follow-up.</p>"
+  },
+  {
+   "id": "L05-f21",
+   "front": "Workshop",
+   "back": "<p>Buổi làm việc tập trung nhiều stakeholder (2–15 người) để bàn bạc, làm rõ yêu cầu, thống nhất quy trình, thảo luận giải pháp, ra quyết định. Mục tiêu: trao đổi đa chiều, nhanh; có kết quả ngay trong buổi.</p>"
+  },
+  {
+   "id": "L05-f22",
+   "front": "Workshop: nên và không nên dùng khi nào?",
+   "back": "<p>Nên: cần đồng thuận nhanh, làm rõ ưu tiên, giai đoạn đầu xác định phạm vi. Không nên: chủ đề cần hiểu sâu hoặc nhạy cảm, lãnh đạo bận, yêu cầu đơn giản, thiếu người điều phối giỏi.</p>"
+  },
+  {
+   "id": "L05-f23",
+   "front": "Dot Voting",
+   "back": "<p>Kỹ thuật hỗ trợ workshop: mỗi người dán/chấm một số điểm lên các lựa chọn để thấy nhanh mức đồng thuận. Dùng khi cần đồng thuận yêu cầu quan trọng.</p>"
+  },
+  {
+   "id": "L05-f24",
+   "front": "Kỹ thuật hỗ trợ workshop và lúc dùng",
+   "back": "<p>Brainstorming: cần nhiều ý nhanh. Dot Voting: cần đồng thuận. MoSCoW: xếp ưu tiên. User Journey Mapping: hình dung trải nghiệm. Prototype: giúp hình dung và chốt nghiệp vụ sớm.</p>"
+  },
+  {
+   "id": "L05-f25",
+   "front": "4 vai trò của BA trong workshop",
+   "back": "<p>Người điều phối (đúng nội dung, đúng giờ); người làm rõ (đặt câu hỏi); người ghi nhận (ghi đúng, đủ, xác nhận); người kết nối (dẫn nhóm xung đột về hướng chung).</p>"
+  },
+  {
+   "id": "L05-f26",
+   "front": "Observation (quan sát)",
+   "back": "<p>BA trực tiếp quan sát người dùng làm việc trong môi trường thực tế. Mục tiêu: hiểu As-Is, tìm yêu cầu ẩn, pain points, bottlenecks, so sánh “nói” với “làm”, tăng độ tin cậy.</p>"
+  },
+  {
+   "id": "L05-f27",
+   "front": "3 cách thực hiện Observation",
+   "back": "<p>Thụ động: đứng ngoài, không can thiệp. Chủ động: vừa quan sát vừa hỏi. BA tự làm: tự thao tác như người dùng cuối.</p>"
+  },
+  {
+   "id": "L05-f28",
+   "front": "Hạn chế của Observation",
+   "back": "<p>Người dùng đổi hành vi khi bị quan sát; không hợp với việc nhạy cảm; tốn thời gian; dễ mất thiện cảm.</p>"
+  },
+  {
+   "id": "L05-f29",
+   "front": "Thách thức trong Elicitation",
+   "back": "<p>Stakeholder không biết mình muốn gì hoặc nói mơ hồ; xung đột giữa phòng ban; hạn chế thời gian; ngôn ngữ, thuật ngữ không đồng nhất; thiếu sự tham gia.</p>"
+  },
+  {
+   "id": "L05-f30",
+   "front": "Output của Elicitation",
+   "back": "<p>Meeting notes/Minutes (biên bản); List of Requirements; Process models/Diagrams; Prototypes/Mockups; Stakeholder feedback.</p>"
+  },
+  {
+   "id": "L05-f31",
+   "front": "Elicitation activity plan gồm mấy mục?",
+   "back": "<p>9 mục: thông tin chung; mục tiêu; phạm vi; stakeholder tham gia; phương pháp và kỹ thuật; lịch trình; tài nguyên; rủi ro và biện pháp; kết quả mong đợi.</p>"
+  },
+  {
+   "id": "L05-f32",
+   "front": "Observation note",
+   "back": "<p>Biểu mẫu “Báo cáo kết quả quá trình quan sát”: thông tin chung, mục tiêu và câu hỏi cần giải đáp, tổng quan quy trình, chi tiết các bước (vào/ra, ngoại lệ), vấn đề, đề xuất, tổng kết và kế hoạch tiếp theo.</p>"
+  },
+  {
+   "id": "L05-f33",
+   "front": "Must-have và nice-to-have",
+   "back": "<p>Must-have: tính năng bắt buộc phải có. Nice-to-have: chỉ là mong muốn, có thì tốt. Phiếu khảo sát hỏi để phân biệt hai loại này.</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L05-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Câu nào mô tả đúng nhất Elicitation theo slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chép lại yêu cầu có sẵn trong HDSD và SRS cũ sang tài liệu mới cho dự án"
+    },
+    {
+     "id": "b",
+     "t": "Quá trình chủ động khám phá, làm rõ và xác minh yêu cầu của stakeholder"
+    },
+    {
+     "id": "c",
+     "t": "Việc đội dev ước lượng thời gian thực hiện cho từng yêu cầu trong backlog"
+    },
+    {
+     "id": "d",
+     "t": "Buổi họp cuối cùng để khách hàng ký duyệt toàn bộ tài liệu yêu cầu"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Elicitation là thu thập, khám phá, khơi gợi, xác định và làm rõ yêu cầu; không chỉ hỏi và ghi chép mà còn lắng nghe, phân tích, xác minh, tinh chỉnh.</p>",
+   "why_wrong": {
+    "a": "Chỉ lấy thông tin có sẵn là Gathering, không phải Elicitation.",
+    "c": "Ước lượng là việc của đội phát triển, không phải khai thác yêu cầu.",
+    "d": "Ký duyệt chỉ là một bước xác nhận, không phải toàn bộ Elicitation."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.6"
+  },
+  {
+   "id": "L05-q2",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Đặc điểm nào thuộc về <b>Gathering</b> trong bảng so sánh của slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chủ động khai phá các yêu cầu chưa được thể hiện"
+    },
+    {
+     "id": "b",
+     "t": "Tạo ra thông tin mới trong buổi interview, workshop"
+    },
+    {
+     "id": "c",
+     "t": "Lấy thông tin từ tài liệu có sẵn để nắm hiện trạng"
+    },
+    {
+     "id": "d",
+     "t": "Dùng cho dự án mới khi yêu cầu còn chưa rõ ràng"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Gathering thụ động, chỉ thu thập thông tin đã có (HDSD, SRS cũ) với mục tiêu nắm hiện trạng AS-IS.</p>",
+   "why_wrong": {
+    "a": "Chủ động khai phá là bản chất của Elicitation.",
+    "b": "Tạo thông tin mới qua buổi làm việc là đặc điểm của Elicitation.",
+    "d": "Dự án mới, yêu cầu chưa rõ là lúc dùng Elicitation."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.5"
+  },
+  {
+   "id": "L05-q3",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>SolasMart lần đầu mở kênh bán online, chưa có hệ thống nào. Ban giám đốc chỉ nói “muốn bán online”. Theo bảng so sánh trên slide, BA nên tiếp cận thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Gathering: đọc HDSD của hệ thống bán online hiện tại"
+    },
+    {
+     "id": "b",
+     "t": "Chờ ban giám đốc gửi danh sách yêu cầu đầy đủ, rõ ràng rồi mới bắt đầu làm"
+    },
+    {
+     "id": "c",
+     "t": "Chỉ đọc SRS của một dự án bán online khác để chép lại"
+    },
+    {
+     "id": "d",
+     "t": "Elicitation: chủ động làm rõ nỗi đau, mục tiêu, kỳ vọng, giới hạn"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Dự án mới và yêu cầu chưa rõ là đúng trường hợp dùng Elicitation để làm rõ “nỗi đau”, “mục tiêu”, “kỳ vọng”, “giới hạn”.</p>",
+   "why_wrong": {
+    "a": "Chưa có hệ thống online nên không có HDSD hiện trạng để đọc.",
+    "b": "Elicitation là chủ động; chờ thụ động sẽ không ra yêu cầu rõ.",
+    "c": "Tài liệu dự án khác không phản ánh nhu cầu riêng của SolasMart."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.5"
+  },
+  {
+   "id": "L05-q4",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo slide, Elicitation chỉ diễn ra một lần ở đầu dự án.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Elicitation xuất hiện ở nhiều giai đoạn: đầu dự án, phân tích, phát triển và kiểm thử, triển khai/hoạt động.</p>",
+   "why_wrong": {
+    "d": "Slide nói rõ Elicitation không chỉ diễn ra một lần ở đầu dự án."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.9"
+  },
+  {
+   "id": "L05-q5",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Kế toán hiểu “báo cáo doanh thu” là theo tháng, còn quản lý cửa hàng hiểu là theo ca. Theo slide, nhận định nào đúng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Yêu cầu đã đúng vì câu chữ ghi rõ ràng, không sai chính tả"
+    },
+    {
+     "id": "b",
+     "t": "Yêu cầu chưa đúng vì các bên chưa hiểu giống nhau"
+    },
+    {
+     "id": "c",
+     "t": "Yêu cầu sẽ đúng ngay khi sponsor ký vào tài liệu"
+    },
+    {
+     "id": "d",
+     "t": "Yêu cầu đúng nếu đội dev xác nhận làm được về kỹ thuật"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>“Yêu cầu đúng là yêu cầu được hiểu giống nhau bởi tất cả các bên.” Hai cách hiểu khác nhau nghĩa là yêu cầu chưa đúng.</p>",
+   "why_wrong": {
+    "a": "Câu chữ rõ chưa đủ; các bên vẫn hiểu khác nhau.",
+    "c": "Chữ ký không làm các bên hiểu giống nhau.",
+    "d": "Khả thi kỹ thuật không phải tiêu chí “yêu cầu đúng” trên slide."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.8"
+  },
+  {
+   "id": "L05-q6",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn các lý do khiến Elicitation quan trọng theo slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Gắn kết stakeholder, tạo sự đồng thuận giữa các bên"
+    },
+    {
+     "id": "b",
+     "t": "Tránh rework, giảm chi phí chỉnh sửa do hiểu sai yêu cầu"
+    },
+    {
+     "id": "c",
+     "t": "Thay thế được hoàn toàn bước kiểm thử phần mềm"
+    },
+    {
+     "id": "d",
+     "t": "Giúp BA không cần viết tài liệu yêu cầu nữa"
+    },
+    {
+     "id": "e",
+     "t": "Tạo giá trị thực sự, đáp ứng đúng nhu cầu kinh doanh"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "e"
+   ],
+   "explain": "<p>Slide nêu 4 lý do: yêu cầu là nền tảng, gắn kết stakeholder, tránh rework, tạo giá trị thực sự.</p>",
+   "why_wrong": {
+    "c": "Elicitation không thay thế kiểm thử; slide không nói vậy.",
+    "d": "Kết quả elicitation vẫn phải cập nhật vào tài liệu."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.7"
+  },
+  {
+   "id": "L05-q7",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Ở giai đoạn phát triển và kiểm thử, Elicitation được dùng để làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thu thập yêu cầu ban đầu và hiểu bối cảnh dự án"
+    },
+    {
+     "id": "b",
+     "t": "Xác minh và tinh chỉnh yêu cầu chi tiết"
+    },
+    {
+     "id": "c",
+     "t": "Thu thập phản hồi sau khi hệ thống đã vận hành để cải tiến"
+    },
+    {
+     "id": "d",
+     "t": "Lập danh sách stakeholder lần đầu tiên"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Khi phát triển và kiểm thử: xác minh, tinh chỉnh yêu cầu chi tiết.</p>",
+   "why_wrong": {
+    "a": "Đây là mục đích ở đầu dự án.",
+    "c": "Đây là mục đích khi triển khai/hoạt động.",
+    "d": "Xác định stakeholder thuộc bước chuẩn bị đầu dự án."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.9"
+  },
+  {
+   "id": "L05-q8",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong sơ đồ 5 hoạt động của slide, hoạt động nào nằm ngay sau Conduct Elicitation?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Prepare for Elicitation"
+    },
+    {
+     "id": "b",
+     "t": "Communicate"
+    },
+    {
+     "id": "c",
+     "t": "Confirm Results"
+    },
+    {
+     "id": "d",
+     "t": "Manage Stakeholder Collaboration"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Thứ tự: Prepare → Conduct → Confirm Results → Communicate → Manage Stakeholder Collaboration. Mẹo: Chuẩn bị – Làm – Xác nhận – Truyền đạt – Giữ quan hệ.</p>",
+   "why_wrong": {
+    "a": "Prepare là hoạt động đầu tiên, đứng trước Conduct.",
+    "b": "Communicate đứng sau Confirm Results.",
+    "d": "Manage Stakeholder Collaboration là ô cuối của sơ đồ."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.10"
+  },
+  {
+   "id": "L05-q9",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Việc “chọn kỹ thuật phù hợp: interview, focus group, workshop, observation” thuộc hoạt động nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Prepare for Elicitation"
+    },
+    {
+     "id": "b",
+     "t": "Conduct Elicitation"
+    },
+    {
+     "id": "c",
+     "t": "Confirm Elicitation Results"
+    },
+    {
+     "id": "d",
+     "t": "Communicate Business Analysis Information"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Chọn kỹ thuật là việc chuẩn bị: phải biết dùng kỹ thuật nào trước khi tiến hành.</p>",
+   "why_wrong": {
+    "b": "Conduct là lúc thực hiện kỹ thuật đã chọn, không phải lúc chọn.",
+    "c": "Confirm là xác nhận thông tin đã thu được.",
+    "d": "Communicate là truyền đạt yêu cầu đến các bên."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.11"
+  },
+  {
+   "id": "L05-q10",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Sau workshop, BA gửi biên bản cho các bên và hẹn phiên review với phòng kế toán để đối chiếu thông tin vừa thu được. BA đang làm hoạt động nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Confirm Elicitation Results"
+    },
+    {
+     "id": "b",
+     "t": "Prepare for Elicitation"
+    },
+    {
+     "id": "c",
+     "t": "Communicate Business Analysis Information"
+    },
+    {
+     "id": "d",
+     "t": "Manage Stakeholder Collaboration"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Gửi biên bản xác nhận và tổ chức phiên review (với chính nguồn và nguồn khác) là các việc của Confirm Elicitation Results.</p>",
+   "why_wrong": {
+    "b": "Prepare diễn ra trước buổi khai thác.",
+    "c": "Communicate là truyền yêu cầu đã chốt đến người cần dùng, không phải đối chiếu để xác minh.",
+    "d": "Manage Stakeholder Collaboration là duy trì quan hệ, giải quyết xung đột suốt quá trình."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.13"
+  },
+  {
+   "id": "L05-q11",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Mục tiêu của Manage Stakeholder Collaboration là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chọn kỹ thuật phù hợp và chuẩn bị tài liệu, câu hỏi, không gian làm việc"
+    },
+    {
+     "id": "b",
+     "t": "Truyền tải yêu cầu đến sponsor, dev, tester đúng cách, đúng người, đúng thời điểm"
+    },
+    {
+     "id": "c",
+     "t": "Duy trì giao tiếp, giải quyết xung đột, giữ nhiệt huyết của stakeholder"
+    },
+    {
+     "id": "d",
+     "t": "Đảm bảo thông tin thu được chính xác, đầy đủ, rõ ràng và được đồng thuận"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Manage Stakeholder Collaboration giữ cho stakeholder tiếp tục tham gia và hợp tác xuyên suốt quá trình phân tích.</p>",
+   "why_wrong": {
+    "a": "Đây là mục tiêu của Prepare for Elicitation.",
+    "b": "Đây là mục tiêu của Communicate.",
+    "d": "Đây là mục tiêu của Confirm Elicitation Results."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.15"
+  },
+  {
+   "id": "L05-q12",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Theo slide, Manage Stakeholder Collaboration chủ yếu là gửi tài liệu yêu cầu theo một chiều để stakeholder tự đọc.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Slide yêu cầu giao tiếp đa chiều, không chỉ gửi tài liệu một chiều.</p>",
+   "why_wrong": {
+    "d": "Gửi tài liệu một chiều chính là điều slide khuyên tránh."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.15"
+  },
+  {
+   "id": "L05-q13",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Interface Analysis thuộc nhóm kỹ thuật nào trong bảng của slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tương tác cá nhân"
+    },
+    {
+     "id": "b",
+     "t": "Dựa trên tài liệu"
+    },
+    {
+     "id": "c",
+     "t": "Khảo sát số đông"
+    },
+    {
+     "id": "d",
+     "t": "Trực quan hóa yêu cầu"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Nhóm “Dựa trên tài liệu” gồm Document Analysis và Interface Analysis.</p>",
+   "why_wrong": {
+    "a": "Nhóm này chỉ có Interview.",
+    "c": "Nhóm này là Survey và Questionnaire.",
+    "d": "Nhóm này gồm Prototype, Storyboard, Wireframe."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.16"
+  },
+  {
+   "id": "L05-q14",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn các kỹ thuật thuộc nhóm “Trực quan hóa yêu cầu”.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Prototype"
+    },
+    {
+     "id": "b",
+     "t": "Storyboard"
+    },
+    {
+     "id": "c",
+     "t": "Survey & Questionnaire"
+    },
+    {
+     "id": "d",
+     "t": "Wireframe"
+    },
+    {
+     "id": "e",
+     "t": "Document Analysis"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Nhóm trực quan hóa yêu cầu: Prototype, Storyboard, Wireframe – đều giúp stakeholder “nhìn thấy” yêu cầu.</p>",
+   "why_wrong": {
+    "c": "Survey thuộc nhóm khảo sát số đông.",
+    "e": "Document Analysis thuộc nhóm dựa trên tài liệu."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.16"
+  },
+  {
+   "id": "L05-q15",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA cần ý kiến của 50 nhân viên thu ngân SolasMart về màn hình thanh toán. Theo slide, kỹ thuật nào hợp nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Interview lần lượt từng thu ngân"
+    },
+    {
+     "id": "b",
+     "t": "Observation lần lượt cả 50 người"
+    },
+    {
+     "id": "c",
+     "t": "Survey & Questionnaire"
+    },
+    {
+     "id": "d",
+     "t": "Một workshop chung cho cả 50 người"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide: số lượng stakeholder lớn, ví dụ 50 người, thì không nên interview mà nên dùng survey.</p>",
+   "why_wrong": {
+    "a": "Interview 50 người tốn quá nhiều thời gian; slide khuyên tránh.",
+    "b": "Observation tốn thời gian, không hợp để lấy ý kiến số đông.",
+    "d": "Workshop chỉ nên 2–15 người; để nhóm quá đông là điều không nên."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.18"
+  },
+  {
+   "id": "L05-q16",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Tình huống nào slide khuyên dùng Interview?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Cần thống nhất ý kiến giữa nhiều phòng ban"
+    },
+    {
+     "id": "b",
+     "t": "Có khoảng 50 stakeholder cần lấy ý kiến"
+    },
+    {
+     "id": "c",
+     "t": "Yêu cầu quá đơn giản, ai cũng hiểu"
+    },
+    {
+     "id": "d",
+     "t": "Chủ đề nhạy cảm, riêng tư"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Interview là trao đổi riêng nên hợp với chủ đề nhạy cảm, riêng tư; cũng hợp khi stakeholder có chuyên môn sâu hoặc cần hiểu chi tiết nghiệp vụ.</p>",
+   "why_wrong": {
+    "a": "Cần thống nhất giữa các bên thì nên tổ chức workshop.",
+    "b": "Số đông thì nên dùng survey.",
+    "c": "Yêu cầu quá đơn giản là trường hợp không nên dùng interview."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.17-18"
+  },
+  {
+   "id": "L05-q17",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trưởng phòng CNTT rất bận, chỉ nhận cuộc gọi ngắn; công ty có sẵn tài liệu quy trình hiện tại. BA nên làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bỏ qua người này và chỉ hỏi nhân viên cấp dưới thay thế"
+    },
+    {
+     "id": "b",
+     "t": "Đọc tài liệu có sẵn trước, rồi gọi ngắn hỏi phần còn thiếu"
+    },
+    {
+     "id": "c",
+     "t": "Mời tham gia workshop kéo dài cả buổi chiều với mọi phòng ban"
+    },
+    {
+     "id": "d",
+     "t": "Xin ngồi quan sát trưởng phòng làm việc trong cả một ngày"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide: stakeholder không có thời gian thì thay interview bằng call, hoặc làm Document Analysis trước.</p>",
+   "why_wrong": {
+    "a": "Bỏ qua stakeholder quan trọng dễ thiếu yêu cầu.",
+    "c": "Stakeholder cấp cao thiếu thời gian là trường hợp không nên dùng workshop.",
+    "d": "Observation tốn thời gian và không hợp với người đang rất bận."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.18"
+  },
+  {
+   "id": "L05-q18",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Câu nào là ví dụ <b>câu hỏi sâu</b> trên slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Anh/chị mô tả giúp em quy trình hiện tại?"
+    },
+    {
+     "id": "b",
+     "t": "Có đúng là hệ thống phải tự tính thuế 10% không?"
+    },
+    {
+     "id": "c",
+     "t": "Tại sao lại làm bước này?"
+    },
+    {
+     "id": "d",
+     "t": "Anh chị muốn làm chức năng A không?"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Câu hỏi sâu đào vào lý do, nguyên nhân: “Tại sao lại làm bước này?”.</p>",
+   "why_wrong": {
+    "a": "Đây là câu hỏi mở.",
+    "b": "Đây là câu hỏi đóng, dùng để xác minh.",
+    "d": "Đây là câu hỏi dẫn dắt, slide khuyên không nên hỏi."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.19"
+  },
+  {
+   "id": "L05-q19",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Câu hỏi đóng phù hợp nhất cho mục đích nào khi interview?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mở đầu buổi phỏng vấn để người nói kể tự do"
+    },
+    {
+     "id": "b",
+     "t": "Tìm nguyên nhân gốc rễ của một vấn đề"
+    },
+    {
+     "id": "c",
+     "t": "Gợi ý cho stakeholder chức năng mà BA muốn làm"
+    },
+    {
+     "id": "d",
+     "t": "Xác minh, chốt một thông tin cụ thể"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Câu hỏi đóng (xác minh) trả lời có/không, dùng để chốt chi tiết, ví dụ “Có đúng là hệ thống phải tự tính thuế 10% không?”.</p>",
+   "why_wrong": {
+    "a": "Mở đầu nên dùng câu hỏi mở.",
+    "b": "Tìm nguyên nhân gốc rễ dùng câu hỏi sâu, hỏi “tại sao”.",
+    "c": "Gợi ý sẵn chức năng là câu dẫn dắt, nên tránh."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.19"
+  },
+  {
+   "id": "L05-q20",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA định hỏi kế toán: “Chị muốn có nút xuất Excel không?”. Cách hỏi lại nào tốt nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chị có đồng ý để bên em làm nút xuất Excel không?"
+    },
+    {
+     "id": "b",
+     "t": "Sau khi xem báo cáo, chị thường làm gì tiếp với số liệu?"
+    },
+    {
+     "id": "c",
+     "t": "Nút xuất Excel nên đặt ở góc trái hay góc phải màn hình?"
+    },
+    {
+     "id": "d",
+     "t": "Bên em định làm nút xuất Excel, chị thấy được chứ ạ?"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Câu ban đầu là câu dẫn dắt. Câu mở về cách dùng số liệu giúp tìm nhu cầu thật, chưa áp đặt giải pháp.</p>",
+   "why_wrong": {
+    "a": "Vẫn là câu dẫn dắt, chỉ đổi cách nói.",
+    "c": "Đã mặc định giải pháp, bàn chi tiết giao diện quá sớm.",
+    "d": "Vẫn gợi sẵn giải pháp và dễ khiến người nghe gật đầu theo."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.20"
+  },
+  {
+   "id": "L05-q21",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn các việc slide liệt kê là <b>KHÔNG</b> nên làm khi interview.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hỏi các câu dẫn dắt"
+    },
+    {
+     "id": "b",
+     "t": "Tóm tắt sau mỗi phần"
+    },
+    {
+     "id": "c",
+     "t": "Ngắt lời hoặc phản ứng tức thời"
+    },
+    {
+     "id": "d",
+     "t": "Quyết định giải pháp tại chỗ"
+    },
+    {
+     "id": "e",
+     "t": "Quan sát ngôn ngữ cơ thể"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Không nên: hỏi câu dẫn dắt, hỏi câu thể hiện chưa chuẩn bị, ngắt lời/phản ứng tức thời, quyết định giải pháp tại chỗ.</p>",
+   "why_wrong": {
+    "b": "Tóm tắt sau mỗi phần là việc nên làm.",
+    "e": "Quan sát ngôn ngữ cơ thể là việc nên làm."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.20"
+  },
+  {
+   "id": "L05-q22",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo slide, khi interview nên bắt đầu bằng câu hỏi mở, sau đó thu hẹp dần.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Đây là việc đầu tiên trong danh sách “Nên làm khi interview”. Mẹo: rộng → sâu → chốt.</p>",
+   "why_wrong": {
+    "s": "Slide ghi rõ: bắt đầu bằng câu hỏi mở, sau đó thu hẹp dần."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.20"
+  },
+  {
+   "id": "L05-q23",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Sau interview, slide yêu cầu tổng hợp dữ liệu theo những nhóm thông tin nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Must have, Should have, Could have, Won't have"
+    },
+    {
+     "id": "b",
+     "t": "Quy trình, pain point, business rule, yêu cầu tính năng"
+    },
+    {
+     "id": "c",
+     "t": "As-Is, To-Be, Gap và hành động khắc phục"
+    },
+    {
+     "id": "d",
+     "t": "Need, Change, Solution, Stakeholder, Value và Context của dự án"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide: tổng hợp và làm sạch dữ liệu, chia theo nhóm: quy trình, painpoint, business rule, yêu cầu tính năng.</p>",
+   "why_wrong": {
+    "a": "Đây là các mức ưu tiên MoSCoW, không phải nhóm tổng hợp sau interview.",
+    "c": "Đây là các thành phần của phân tích GAP.",
+    "d": "Đây là 6 khái niệm lõi của BACCM."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.21"
+  },
+  {
+   "id": "L05-q24",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Quản lý nhà hàng nói: “Hệ thống đặt bàn hiện tại chậm lắm.” Theo mẹo trên slide, BA nên làm gì tiếp?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hỏi cụ thể chậm là bao lâu, ở thao tác nào"
+    },
+    {
+     "id": "b",
+     "t": "Ghi “hệ thống phải nhanh” vào danh sách yêu cầu"
+    },
+    {
+     "id": "c",
+     "t": "Đề xuất ngay việc nâng cấp máy chủ cho nhà hàng"
+    },
+    {
+     "id": "d",
+     "t": "Bỏ qua vì đây chỉ là cảm nhận cá nhân"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Thông tin định tính nên chuyển về định lượng: “chậm” phải thành con số cụ thể thì mới kiểm được.</p>",
+   "why_wrong": {
+    "b": "“Phải nhanh” vẫn mơ hồ, không kiểm được.",
+    "c": "Quyết định giải pháp tại chỗ là điều không nên làm.",
+    "d": "Đây có thể là pain point thật, cần đào sâu chứ không bỏ qua."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.22"
+  },
+  {
+   "id": "L05-q25",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA đọc lần lượt 30 câu trong phiếu mẫu. Khi stakeholder nhắc tới một lỗi lạ ở khâu đổi trả, BA vẫn chuyển sang câu tiếp theo trong phiếu. Đây là lỗi phổ biến nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hỏi câu dẫn dắt"
+    },
+    {
+     "id": "b",
+     "t": "Quyết định giải pháp tại chỗ"
+    },
+    {
+     "id": "c",
+     "t": "Quá phụ thuộc vào form mẫu"
+    },
+    {
+     "id": "d",
+     "t": "Không gửi agenda trước"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Bám cứng phiếu mẫu mà không đào sâu điều bất thường là lỗi “quá phụ thuộc vào form mẫu” (kéo theo “chỉ ghi nhận bề mặt”).</p>",
+   "why_wrong": {
+    "a": "BA không gợi sẵn câu trả lời nào.",
+    "b": "BA không đưa ra giải pháp.",
+    "d": "Tình huống không nói gì về agenda."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.23"
+  },
+  {
+   "id": "L05-q26",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, một workshop thường tập trung bao nhiêu stakeholder?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chỉ 1 người"
+    },
+    {
+     "id": "b",
+     "t": "Từ 2 đến 15 người"
+    },
+    {
+     "id": "c",
+     "t": "Từ 20 đến 50 người"
+    },
+    {
+     "id": "d",
+     "t": "Trên 50 người"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Workshop là buổi làm việc tập trung nhiều stakeholder, từ 2–15 người.</p>",
+   "why_wrong": {
+    "a": "Một người thì là interview, không phải workshop.",
+    "c": "Quá đông; slide khuyên không để nhóm quá đông.",
+    "d": "Số đông như vậy nên dùng survey."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.24"
+  },
+  {
+   "id": "L05-q27",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trường hợp nào <b>KHÔNG</b> nên dùng workshop?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Cần đồng thuận nhanh giữa nhiều stakeholder"
+    },
+    {
+     "id": "b",
+     "t": "Cần thu thập nhanh và làm rõ ưu tiên yêu cầu"
+    },
+    {
+     "id": "c",
+     "t": "Giai đoạn đầu, cần xác định phạm vi"
+    },
+    {
+     "id": "d",
+     "t": "Không có người điều phối đủ kinh nghiệm"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Workshop phụ thuộc nhiều vào người điều phối; thiếu người điều phối giỏi thì buổi họp dễ lan man.</p>",
+   "why_wrong": {
+    "a": "Đây là trường hợp nên dùng workshop.",
+    "b": "Đây là trường hợp nên dùng workshop.",
+    "c": "Đây là trường hợp nên dùng workshop."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.25-26"
+  },
+  {
+   "id": "L05-q28",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Phòng bán online và phòng kho SolasMart mâu thuẫn về thời điểm trừ tồn kho và cần chốt trong tuần. BA nên chọn cách nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phỏng vấn riêng từng bên rồi BA tự chọn phương án hợp lý nhất"
+    },
+    {
+     "id": "b",
+     "t": "Quan sát thủ kho làm việc trong một tuần"
+    },
+    {
+     "id": "c",
+     "t": "Workshop có cả hai bên và người có quyền phê duyệt"
+    },
+    {
+     "id": "d",
+     "t": "Gửi survey cho toàn bộ nhân viên công ty"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Cần đồng thuận nhanh giữa nhiều stakeholder là lúc dùng workshop; phải có người phê duyệt để ra được kết luận.</p>",
+   "why_wrong": {
+    "a": "BA tự chọn không tạo đồng thuận; interview không hợp khi cần thống nhất giữa các bên.",
+    "b": "Observation giúp hiểu As-Is nhưng không giải quyết mâu thuẫn.",
+    "d": "Survey số đông không giúp hai bộ phận thống nhất."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.18, 25, 30"
+  },
+  {
+   "id": "L05-q29",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, agenda và timeline của workshop nên gửi cho người tham gia khi nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ngay khi bắt đầu buổi workshop"
+    },
+    {
+     "id": "b",
+     "t": "Trước 1 tháng"
+    },
+    {
+     "id": "c",
+     "t": "Trước 2–3 ngày"
+    },
+    {
+     "id": "d",
+     "t": "Sau buổi họp, gửi kèm biên bản"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Gửi agenda, timeline trước 2–3 ngày để người tham gia kịp chuẩn bị.</p>",
+   "why_wrong": {
+    "a": "Quá muộn, người tham gia không kịp chuẩn bị.",
+    "b": "Slide nêu 2–3 ngày; gửi quá sớm dễ bị quên.",
+    "d": "Agenda dùng để chuẩn bị, không phải gửi sau buổi họp."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.27"
+  },
+  {
+   "id": "L05-q30",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong workshop, kỹ thuật hỗ trợ nào phù hợp khi cần đồng thuận về yêu cầu quan trọng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Brainstorming"
+    },
+    {
+     "id": "b",
+     "t": "User Journey Mapping"
+    },
+    {
+     "id": "c",
+     "t": "Storyboard"
+    },
+    {
+     "id": "d",
+     "t": "Dot Voting"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Dot Voting cho mọi người bỏ phiếu bằng chấm, giúp thấy nhanh mức đồng thuận.</p>",
+   "why_wrong": {
+    "a": "Brainstorming dùng khi cần nhiều ý tưởng nhanh.",
+    "b": "User Journey Mapping dùng để hình dung trải nghiệm người dùng.",
+    "c": "Storyboard là kỹ thuật trực quan hóa, không có trong bảng kỹ thuật hỗ trợ đồng thuận."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.28"
+  },
+  {
+   "id": "L05-q31",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trong workshop của hệ thống đặt đồ ăn, các stakeholder khó hình dung luồng đặt món mới và cần chốt nghiệp vụ sớm. Kỹ thuật hỗ trợ nào hợp nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Dot Voting"
+    },
+    {
+     "id": "b",
+     "t": "MoSCoW"
+    },
+    {
+     "id": "c",
+     "t": "Prototype"
+    },
+    {
+     "id": "d",
+     "t": "Brainstorming"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Prototype dùng khi cần trình bày ý tưởng cho stakeholder hình dung và chốt nghiệp vụ sớm.</p>",
+   "why_wrong": {
+    "a": "Dot Voting giúp đồng thuận, không giúp hình dung luồng.",
+    "b": "MoSCoW dùng để xếp ưu tiên yêu cầu.",
+    "d": "Brainstorming dùng khi cần nhiều ý tưởng nhanh."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.28"
+  },
+  {
+   "id": "L05-q32",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong workshop, hai trưởng bộ phận bất đồng gay gắt. BA dẫn dắt họ về một hướng chung. BA đang đóng vai trò nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Người điều phối"
+    },
+    {
+     "id": "b",
+     "t": "Người làm rõ"
+    },
+    {
+     "id": "c",
+     "t": "Người ghi nhận"
+    },
+    {
+     "id": "d",
+     "t": "Người kết nối"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Người kết nối: dẫn dắt các nhóm xung đột về một hướng chung.</p>",
+   "why_wrong": {
+    "a": "Người điều phối giữ buổi họp đúng nội dung và đúng timeline.",
+    "b": "Người làm rõ đặt câu hỏi để mọi người cùng hiểu vấn đề.",
+    "c": "Người ghi nhận ghi đúng, đủ và xác nhận lại nội dung."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.29"
+  },
+  {
+   "id": "L05-q33",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Chọn các việc <b>KHÔNG</b> nên làm khi workshop theo slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Quá tập trung vào giải pháp kỹ thuật"
+    },
+    {
+     "id": "b",
+     "t": "Nhắc lại mục tiêu buổi làm việc"
+    },
+    {
+     "id": "c",
+     "t": "Để nhóm quá đông"
+    },
+    {
+     "id": "d",
+     "t": "Không có người có quyền phê duyệt"
+    },
+    {
+     "id": "e",
+     "t": "Xác nhận sau mỗi cuộc trao đổi"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Không nên: quá tập trung vào giải pháp kỹ thuật, để nhóm quá đông, không có người phê duyệt, chỉ tranh cãi không kết luận, không ghi chú/xác nhận.</p>",
+   "why_wrong": {
+    "b": "Nhắc lại mục tiêu là việc nên làm.",
+    "e": "Xác nhận sau mỗi cuộc trao đổi là việc nên làm."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.30"
+  },
+  {
+   "id": "L05-q34",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Cuối workshop, BA không tổng kết. Tuần sau, mỗi bên đều cho rằng phương án của mình đã được chốt. Theo slide, đây là hậu quả của lỗi nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Không xác định rõ mục tiêu buổi workshop"
+    },
+    {
+     "id": "b",
+     "t": "Không tổng kết, xác nhận sau mỗi phần"
+    },
+    {
+     "id": "c",
+     "t": "Không chuẩn bị trước tài liệu hoặc công cụ"
+    },
+    {
+     "id": "d",
+     "t": "Thiếu linh hoạt khi có người trễ hoặc vắng"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Không tổng kết, xác nhận sau mỗi phần → dễ hiểu sai, stakeholder tưởng đã chốt.</p>",
+   "why_wrong": {
+    "a": "Hậu quả của lỗi này là lan man, không đạt kết quả.",
+    "c": "Hậu quả là mất thời gian, workshop thiếu hiệu quả.",
+    "d": "Hậu quả là mất flow thảo luận."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.31"
+  },
+  {
+   "id": "L05-q35",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Theo mẹo trên slide, BA nên tự mình ghi chú toàn bộ workshop để không bỏ sót thông tin.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Slide khuyên giao việc ghi chú cho một người hỗ trợ để BA tập trung dẫn dắt và quan sát không khí.</p>",
+   "why_wrong": {
+    "d": "Tự ghi chú toàn bộ làm BA mất tập trung điều phối; slide khuyên làm ngược lại."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.32"
+  },
+  {
+   "id": "L05-q36",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Observation là kỹ thuật thu thập yêu cầu bằng cách nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "BA đọc HDSD và các quy trình văn bản để nắm cách công việc được mô tả"
+    },
+    {
+     "id": "b",
+     "t": "BA trực tiếp quan sát người dùng làm việc trong môi trường thực tế"
+    },
+    {
+     "id": "c",
+     "t": "BA gửi bảng câu hỏi cho số đông người dùng rồi thống kê kết quả"
+    },
+    {
+     "id": "d",
+     "t": "BA dựng bản mẫu màn hình để người dùng xem và góp ý trước"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Observation: BA trực tiếp quan sát người dùng thực hiện công việc trong môi trường thực tế.</p>",
+   "why_wrong": {
+    "a": "Đây là Document Analysis.",
+    "c": "Đây là Survey và Questionnaire.",
+    "d": "Đây là Prototype."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.33"
+  },
+  {
+   "id": "L05-q37",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn các mục tiêu của Observation theo slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hiểu quy trình thực tế đang diễn ra (As-Is)"
+    },
+    {
+     "id": "b",
+     "t": "Phát hiện những yêu cầu ẩn"
+    },
+    {
+     "id": "c",
+     "t": "Ra quyết định chọn giải pháp kỹ thuật"
+    },
+    {
+     "id": "d",
+     "t": "So sánh điều người dùng nói với cách họ thực sự làm"
+    },
+    {
+     "id": "e",
+     "t": "Thống nhất mức ưu tiên giữa các phòng ban"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Mục tiêu Observation: hiểu As-Is, phát hiện yêu cầu ẩn, tìm pain points và bottlenecks, so sánh “nói” với “làm”, tăng độ tin cậy cho phân tích.</p>",
+   "why_wrong": {
+    "c": "Observation thu thập thông tin, không dùng để chọn giải pháp.",
+    "e": "Thống nhất ưu tiên giữa nhiều bên là việc của workshop."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.33"
+  },
+  {
+   "id": "L05-q38",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Thủ kho SolasMart nói: “Tôi luôn quét mã khi nhập hàng.” BA nghi ngờ thực tế khác. Kỹ thuật nào giúp kiểm chứng tốt nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Survey toàn bộ nhân viên kho"
+    },
+    {
+     "id": "b",
+     "t": "Phỏng vấn lại thủ kho với cùng câu hỏi"
+    },
+    {
+     "id": "c",
+     "t": "Brainstorming với phòng kho"
+    },
+    {
+     "id": "d",
+     "t": "Observation tại kho khi nhập hàng"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Observation giúp so sánh “người dùng nói họ làm…” với “cách họ thực sự làm…”, và hợp khi người dùng làm khác quy trình tài liệu hóa.</p>",
+   "why_wrong": {
+    "a": "Survey vẫn chỉ ghi lại điều người dùng tự khai.",
+    "b": "Hỏi lại cùng câu thường nhận lại cùng câu trả lời.",
+    "c": "Brainstorming để tìm ý tưởng, không để kiểm chứng thực tế."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.33-34"
+  },
+  {
+   "id": "L05-q39",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>BA vừa xem thu ngân thao tác vừa hỏi: “Vì sao chị nhập tay mã này?”. Đây là cách quan sát nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Quan sát chủ động"
+    },
+    {
+     "id": "b",
+     "t": "Quan sát thụ động"
+    },
+    {
+     "id": "c",
+     "t": "BA tự làm"
+    },
+    {
+     "id": "d",
+     "t": "Phân tích tài liệu"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Quan sát chủ động: BA vừa quan sát vừa hỏi thêm trong quá trình.</p>",
+   "why_wrong": {
+    "b": "Quan sát thụ động thì BA đứng ngoài, không can thiệp, không hỏi.",
+    "c": "BA tự làm nghĩa là BA tự thao tác như người dùng cuối.",
+    "d": "Phân tích tài liệu không phải một cách quan sát."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.35"
+  },
+  {
+   "id": "L05-q40",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Một hạn chế của Observation là người dùng có thể thay đổi hành vi khi đang bị quan sát.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide liệt kê 4 hạn chế: người dùng đổi hành vi khi bị quan sát, không hợp việc nhạy cảm, tốn thời gian, dễ mất thiện cảm.</p>",
+   "why_wrong": {
+    "s": "Đây đúng là hạn chế đầu tiên slide nêu."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.37"
+  },
+  {
+   "id": "L05-q41",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Để mô tả quy trình bán hàng chuẩn, BA chỉ quan sát một nhân viên mới vào làm được 2 ngày. Đây là sai lầm nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ghi chép sơ sài"
+    },
+    {
+     "id": "b",
+     "t": "Can thiệp quá nhiều vào công việc"
+    },
+    {
+     "id": "c",
+     "t": "Không xác nhận lại với người được quan sát sau buổi quan sát"
+    },
+    {
+     "id": "d",
+     "t": "Quan sát người không đại diện cho nghiệp vụ"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Nhân viên mới chưa nắm nghiệp vụ nên không đại diện cho cách làm chuẩn; kết quả quan sát dễ sai lệch.</p>",
+   "why_wrong": {
+    "a": "Tình huống không nói về cách ghi chép.",
+    "b": "Tình huống không nói BA can thiệp.",
+    "c": "Tình huống không nói về bước xác nhận."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.38"
+  },
+  {
+   "id": "L05-q42",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Việc nào thuộc giai đoạn <b>trước</b> khi quan sát?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ghi lại các lỗi, trở ngại, cách xử lý tình huống"
+    },
+    {
+     "id": "b",
+     "t": "Tóm tắt quy trình theo từng bước"
+    },
+    {
+     "id": "c",
+     "t": "Thông báo trước để tránh bị hiểu sai"
+    },
+    {
+     "id": "d",
+     "t": "Xác định pain points"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Trước: xác định mục tiêu, thông báo trước để tránh bị hiểu sai, chuẩn bị biểu mẫu ghi chép.</p>",
+   "why_wrong": {
+    "a": "Đây là việc trong lúc quan sát.",
+    "b": "Đây là việc sau khi quan sát.",
+    "d": "Đây là việc sau khi quan sát."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.36"
+  },
+  {
+   "id": "L05-q43",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn các output thường có sau hoạt động elicitation theo slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Meeting notes / Minutes"
+    },
+    {
+     "id": "b",
+     "t": "List of Requirements"
+    },
+    {
+     "id": "c",
+     "t": "Source code của chức năng"
+    },
+    {
+     "id": "d",
+     "t": "Stakeholder feedback"
+    },
+    {
+     "id": "e",
+     "t": "Báo cáo kết quả kiểm thử"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Output: biên bản, danh sách yêu cầu, process models/diagrams, prototypes/mockups, phản hồi của stakeholder.</p>",
+   "why_wrong": {
+    "c": "Source code là sản phẩm của đội phát triển.",
+    "e": "Báo cáo kiểm thử là sản phẩm của tester."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.41"
+  },
+  {
+   "id": "L05-q44",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong Elicitation activity plan, dòng “Stakeholder bận, không tham gia – Cao – Thiếu thông tin – Thống nhất lịch sớm, gửi tài liệu trước” thuộc mục nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mục tiêu (Objectives)"
+    },
+    {
+     "id": "b",
+     "t": "Stakeholders tham gia"
+    },
+    {
+     "id": "c",
+     "t": "Rủi ro và biện pháp giảm thiểu"
+    },
+    {
+     "id": "d",
+     "t": "Kết quả mong đợi (Expected Deliverables)"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Mục 8 có 4 cột: rủi ro, mức độ, ảnh hưởng, biện pháp. Dòng này khớp đúng 4 cột đó.</p>",
+   "why_wrong": {
+    "a": "Mục tiêu nêu mục đích của hoạt động thu thập yêu cầu.",
+    "b": "Bảng stakeholder có cột tên, vai trò, mức độ liên quan, trách nhiệm.",
+    "d": "Kết quả mong đợi liệt kê deliverable như biên bản, danh sách yêu cầu thô."
+   },
+   "src": "5. Elicitation activity plan.pdf tr.2"
+  },
+  {
+   "id": "L05-q45",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong phiếu khảo sát mẫu, câu “Theo anh/chị, tôi nên phỏng vấn thêm những ai?” giúp BA điều gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Kết thúc buổi phỏng vấn nhanh hơn, đúng giờ"
+    },
+    {
+     "id": "b",
+     "t": "Xác minh một business rule cụ thể"
+    },
+    {
+     "id": "c",
+     "t": "Đo mức độ hài lòng của stakeholder"
+    },
+    {
+     "id": "d",
+     "t": "Phát hiện thêm stakeholder còn thiếu"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Câu kết thúc này giúp BA mở rộng danh sách stakeholder để có góc nhìn đầy đủ hơn.</p>",
+   "why_wrong": {
+    "a": "Mục đích không phải rút ngắn buổi phỏng vấn.",
+    "b": "Xác minh business rule cần câu hỏi đóng về quy tắc cụ thể.",
+    "c": "Câu hỏi không hỏi về sự hài lòng."
+   },
+   "src": "5. Mau phieu khao sat.docx"
+  },
+  {
+   "id": "L05-q46",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Cùng một thứ, kho gọi là “mã hàng”, bán online gọi là “SKU”, kế toán gọi là “mã vật tư”. Đây là thách thức nào trong Elicitation?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ngôn ngữ không đồng nhất"
+    },
+    {
+     "id": "b",
+     "t": "Xung đột yêu cầu giữa các phòng ban"
+    },
+    {
+     "id": "c",
+     "t": "Hạn chế thời gian"
+    },
+    {
+     "id": "d",
+     "t": "Thiếu sự tham gia của stakeholder"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Các bên dùng thuật ngữ khác nhau cho cùng một khái niệm là thách thức “ngôn ngữ không đồng nhất”.</p>",
+   "why_wrong": {
+    "b": "Các bên không đòi hỏi trái nhau, chỉ gọi tên khác nhau.",
+    "c": "Tình huống không nói về thiếu thời gian.",
+    "d": "Các bên vẫn tham gia, chỉ dùng từ khác nhau."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.39"
+  },
+  {
+   "id": "L05-q47",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Trong Observation note, phần “Câu hỏi cụ thể cần được giải đáp” nên để trống và chỉ điền sau khi kết thúc buổi quan sát.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Phần này nằm trong mục “Mục tiêu”. Xác định mục tiêu là việc phải làm trước khi quan sát, để biết cần nhìn vào đâu.</p>",
+   "why_wrong": {
+    "d": "Không có câu hỏi định trước thì BA không biết cần quan sát gì; slide đặt “xác định mục tiêu” ở bước trước."
+   },
+   "src": "5. Observation_Note_Template.docx; 5. Ky thuat khai thac yeu cau.pdf tr.36"
+  },
+  {
+   "id": "L05-q48",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>BA chuẩn bị phỏng vấn giám đốc vận hành SolasMart. Chọn các việc thuộc phần chuẩn bị theo slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tìm hiểu background của người được phỏng vấn"
+    },
+    {
+     "id": "b",
+     "t": "Gửi agenda, timeline trước cho người được phỏng vấn"
+    },
+    {
+     "id": "c",
+     "t": "Chốt sẵn giải pháp kỹ thuật để trình bày trong buổi"
+    },
+    {
+     "id": "d",
+     "t": "Chuẩn bị công cụ ghi chú, xin phép nếu muốn ghi âm"
+    },
+    {
+     "id": "e",
+     "t": "Soạn sẵn các câu hỏi dẫn dắt để buổi phỏng vấn nhanh hơn"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Chuẩn bị gồm: mục tiêu, background người được phỏng vấn, bộ câu hỏi mở – sâu – xác minh, tài liệu phụ trợ, công cụ ghi chú (ghi âm nếu được phép), gửi agenda trước.</p>",
+   "why_wrong": {
+    "c": "Quyết định giải pháp trước hoặc tại chỗ là điều không nên làm.",
+    "e": "Câu hỏi dẫn dắt là điều slide khuyên tránh."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.19-20"
+  },
+  {
+   "id": "L05-q49",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Thủ thư nói: “Bắt buộc phải tra được sách nào đang có người mượn; còn gửi email nhắc trả thì có cũng tốt.” Theo phiếu khảo sát, BA nên ghi thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Cả hai đều là must-have"
+    },
+    {
+     "id": "b",
+     "t": "Tra cứu là nice-to-have, email nhắc là must-have"
+    },
+    {
+     "id": "c",
+     "t": "Tra cứu là must-have, email nhắc là nice-to-have"
+    },
+    {
+     "id": "d",
+     "t": "Cả hai chỉ là pain point, chưa phải yêu cầu"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Must-have là tính năng bắt buộc; nice-to-have chỉ là mong muốn. “Bắt buộc” → must-have; “có cũng tốt” → nice-to-have.</p>",
+   "why_wrong": {
+    "a": "Email nhắc được nói là “có cũng tốt”, không bắt buộc.",
+    "b": "Đảo ngược mức độ mà thủ thư đã nói.",
+    "d": "Đây là chức năng cần có, thuộc phần nhu cầu và yêu cầu."
+   },
+   "src": "5. Mau phieu khao sat.docx"
+  },
+  {
+   "id": "L05-q50",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo bảng so sánh trên slide, Gathering không tạo ra thông tin mới.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Gathering thụ động, chỉ thu thập thông tin đã có, không tạo ra thông tin mới; Elicitation mới tạo thông tin mới.</p>",
+   "why_wrong": {
+    "s": "Slide ghi rõ “Không tạo ra thông tin mới” ở cột Gathering."
+   },
+   "src": "5. Ky thuat khai thac yeu cau.pdf tr.5"
+  }
+ ],
+ "summary": {
+  "points": [
+   "Elicitation là chủ động khai phá và làm rõ yêu cầu, không chỉ hỏi và ghi chép; Gathering chỉ thu thập thông tin có sẵn.",
+   "Yêu cầu đúng là yêu cầu được mọi bên hiểu giống nhau.",
+   "Elicitation diễn ra ở mọi giai đoạn: đầu dự án, phân tích, phát triển và kiểm thử, triển khai.",
+   "5 hoạt động: Prepare – Conduct – Confirm Results – Communicate – Manage Stakeholder Collaboration.",
+   "Interview hợp với chủ đề sâu, nhạy cảm, người quan trọng; không hợp khi đông người hoặc cần các bên thống nhất.",
+   "Workshop (2–15 người) hợp khi cần đồng thuận nhanh, làm rõ ưu tiên, xác định phạm vi; cần người điều phối giỏi.",
+   "Observation giúp thấy quy trình thật và yêu cầu ẩn; hạn chế lớn là người dùng đổi hành vi khi bị quan sát.",
+   "Elicitation activity plan có 9 mục: thông tin chung, mục tiêu, phạm vi, stakeholder, kỹ thuật, lịch, tài nguyên, rủi ro, kết quả mong đợi.",
+   "Output điển hình: biên bản, danh sách yêu cầu, sơ đồ quy trình, prototype, phản hồi của stakeholder."
+  ],
+  "html": "<table><thead><tr><th>Bước</th><th>Câu hỏi BA tự hỏi</th><th>Công cụ trong bài</th></tr></thead><tbody><tr><td>Chuẩn bị</td><td>Hỏi ai? Hỏi gì? Bằng kỹ thuật nào?</td><td>Elicitation activity plan, phiếu khảo sát</td></tr><tr><td>Tiến hành</td><td>Đang hỏi đúng – đủ – rõ chưa?</td><td>Interview, Workshop, Observation</td></tr><tr><td>Xác nhận</td><td>Mọi bên đã hiểu giống nhau chưa?</td><td>Biên bản, phiên review, wireframe</td></tr><tr><td>Truyền đạt</td><td>Đúng người, đúng lúc, đúng cách chưa?</td><td>Tài liệu yêu cầu, mô hình</td></tr><tr><td>Giữ hợp tác</td><td>Stakeholder chính còn tham gia không?</td><td>Kế hoạch tương tác, giao tiếp đa chiều</td></tr></tbody></table><p class=\"warn\">Lỗi hay gặp: hỏi câu dẫn dắt, quyết định giải pháp tại chỗ, không xác nhận lại sau buổi làm việc, không follow-up.</p>"
+ },
+ "images": [
+  {
+   "id": "L05-img1",
+   "path": "data/pages/5. Ky thuat khai thac yeu cau/p-010.jpg",
+   "caption": "5 hoạt động của Elicitation",
+   "crop": [
+    0.03,
+    0.2,
+    0.99,
+    0.67
+   ]
+  },
+  {
+   "id": "L05-img2",
+   "path": "data/pages/5. Ky thuat khai thac yeu cau/p-005.jpg",
+   "caption": "Phân biệt Gathering và Elicitation",
+   "crop": [
+    0.03,
+    0.13,
+    0.97,
+    0.91
+   ]
+  },
+  {
+   "id": "L05-img3",
+   "path": "data/pages/5. Ky thuat khai thac yeu cau/p-016.jpg",
+   "caption": "Các nhóm kỹ thuật khai thác yêu cầu phổ biến",
+   "crop": [
+    0.03,
+    0.13,
+    0.97,
+    0.67
+   ]
+  },
+  {
+   "id": "L05-img4",
+   "path": "data/pages/5. Ky thuat khai thac yeu cau/p-028.jpg",
+   "caption": "Kỹ thuật hỗ trợ phổ biến trong Workshop",
+   "crop": [
+    0.03,
+    0.13,
+    0.97,
+    0.72
+   ]
+  },
+  {
+   "id": "L05-img5",
+   "path": "data/pages/5. Ky thuat khai thac yeu cau/p-029.jpg",
+   "caption": "Vai trò của BA trong Workshop",
+   "crop": [
+    0.03,
+    0.13,
+    0.97,
+    0.9
+   ]
+  },
+  {
+   "id": "L05-img6",
+   "path": "data/pages/5. Ky thuat khai thac yeu cau/p-036.jpg",
+   "caption": "Các bước thực hiện Observation: trước, trong, sau",
+   "crop": [
+    0.03,
+    0.13,
+    0.99,
+    0.62
+   ]
+  },
+  {
+   "id": "L05-img7",
+   "path": "data/pages/5. Elicitation activity plan/p-001.jpg",
+   "caption": "Template Elicitation activity plan (trang 1)"
+  }
+ ]
+}

@@ -1,0 +1,2214 @@
+{
+ "id": "L23",
+ "session": 23,
+ "module": "M6",
+ "title": "API – Giao diện lập trình ứng dụng",
+ "goals": [
+  "Giải thích được API là gì, vì sao hệ thống hiện đại dùng mô hình Client – API – Server",
+  "Nêu được 7 lợi ích của API và các loại API phổ biến (REST, Webhooks, SOAP, GraphQL…)",
+  "Phân biệt REST với RESTful, HTTP với HTTPS",
+  "Nhận diện 5 thành phần của một RESTful API: phương thức, URL, header, param, response",
+  "Chọn đúng phương thức GET, POST, PUT, PATCH, DELETE và đặt URL theo chuẩn RESTful",
+  "Đọc và giải thích các mã phản hồi (response code) thường gặp",
+  "Đọc, viết dữ liệu JSON và XML; nêu các kiểu dữ liệu trong JSON",
+  "Đặc tả một API theo mẫu FSD: mô tả chung, luồng nghiệp vụ, đầu vào, đầu ra, danh sách mã lỗi"
+ ],
+ "sources": [
+  {
+   "file": "23. Api - Ly Thuyet.pdf",
+   "pages": "1-25"
+  },
+  {
+   "file": "FSD_Template.docx",
+   "pages": "mục II. Chức năng dạng API (tham khảo cách đặc tả)"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L23-t1",
+   "h": "Bài học gồm những gì",
+   "html": "<p>Bài này đi qua 3 phần chính:</p><ol><li><b>Khái niệm API</b>: định nghĩa, mô hình, lợi ích, các loại API.</li><li><b>Các thành phần trong API</b>: phương thức, URL, header, param, response.</li><li><b>Kiểu dữ liệu trong API</b>: JSON và XML.</li></ol><p>Thêm một phần cho BA: <b>cách đặc tả API</b> trong tài liệu FSD (Functional Specification Document – tài liệu đặc tả chức năng).</p><p class=\"tip\">BA không cần biết lập trình API. Nhưng BA phải đọc được request/response và viết được đặc tả để dev và đối tác làm đúng.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.1-3"
+  },
+  {
+   "id": "L23-t2",
+   "h": "Mô hình cũ và mô hình mới",
+   "html": "<h4>Mô hình cũ</h4><p>Mỗi ứng dụng (Website, Mobile, Desktop) <b>kết nối thẳng vào database</b>. Bên phải slide là kiến trúc một app Android: View → ViewModel → Model (Repository lấy dữ liệu từ SQLite cục bộ hoặc từ webservice).</p>{{img:L23-img1}}<p>Nhược điểm: mỗi ứng dụng tự viết logic đọc/ghi dữ liệu riêng, khó bảo mật vì phải mở database cho nhiều nơi, sửa một quy tắc phải sửa nhiều chỗ.</p><h4>Mô hình mới</h4><ul><li><b>Consumer (Client – bên dùng dịch vụ)</b>: Android, iPhone, Desktop App, Windows, Web App.</li><li><b>Service Provider (Server – bên cung cấp dịch vụ)</b>: Web Server chứa <b>REST APIs</b>. Chỉ server mới làm việc với Database.</li><li>Client gửi <b>HTTP Request</b>, server trả <b>HTTP Response</b>. Định dạng trao đổi (Message Exchange Format) là <b>JSON hoặc XML</b>.</li></ul>{{img:L23-img2}}<p class=\"key\">Mô hình mới: nhiều loại client dùng chung một bộ API. Database được giấu sau server.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.4-5"
+  },
+  {
+   "id": "L23-t3",
+   "h": "Định nghĩa API",
+   "html": "<p><b>API (Application Programming Interface – giao diện lập trình ứng dụng)</b> là cách để hai hay nhiều chương trình máy tính giao tiếp với nhau.</p><p>Nói đầy đủ: API là một giao diện mà một hệ thống máy tính hay ứng dụng cung cấp, để <b>chương trình khác</b> có thể gửi yêu cầu dịch vụ tới nó và <b>trao đổi dữ liệu</b> qua lại.</p>{{img:L23-img3}}<p>Hình trên dùng hình ảnh nhà hàng:</p><table><thead><tr><th>Trong hình</th><th>Trong nhà hàng</th><th>Vai trò</th></tr></thead><tbody><tr><td>Client</td><td>Khách ngồi bàn</td><td>Gửi Request (yêu cầu)</td></tr><tr><td>API</td><td>Người phục vụ</td><td>Nhận yêu cầu, chuyển vào bếp, mang kết quả ra</td></tr><tr><td>API Server</td><td>Đầu bếp, nhà bếp</td><td>Xử lý thật sự, tạo ra kết quả</td></tr></tbody></table><p class=\"tip\">Mẹo nhớ: khách không vào bếp. Client không đụng thẳng vào database, mọi thứ đi qua API.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.6"
+  },
+  {
+   "id": "L23-t4",
+   "h": "Lợi ích của API",
+   "html": "<table><thead><tr><th>Lợi ích</th><th>Giải thích ngắn</th></tr></thead><tbody><tr><td>Hỗ trợ tích hợp hệ thống</td><td>Hệ thống khác nhau (app, web, đối tác) nói chuyện được với nhau qua một chuẩn chung.</td></tr><tr><td>Tăng tính bảo mật</td><td>Client không chạm trực tiếp vào database, chỉ gọi những chức năng được mở ra.</td></tr><tr><td>Giảm rủi ro lỗi dữ liệu</td><td>Dữ liệu được kiểm tra (validate) tập trung ở server trước khi lưu.</td></tr><tr><td>Dễ bảo trì, mở rộng</td><td>Sửa logic một chỗ ở server, mọi client dùng chung. Thêm client mới chỉ cần gọi API sẵn có.</td></tr><tr><td>Kiểm soát quyền truy cập</td><td>Mỗi request mang thông tin xác thực (ví dụ header Authorization) để server biết ai được làm gì.</td></tr><tr><td>Dễ audit, log, tracking</td><td>Mọi request đi qua một cửa nên dễ ghi nhật ký, truy vết ai gọi gì, lúc nào.</td></tr><tr><td>Tiết kiệm được nguồn lực</td><td>Dùng lại dịch vụ có sẵn (ví dụ cổng thanh toán, đơn vị vận chuyển) thay vì tự xây.</td></tr></tbody></table><p class=\"tip\">Mẹo nhớ 7 lợi ích: <b>Tích hợp – Bảo mật – Ít lỗi – Bảo trì – Phân quyền – Log – Tiết kiệm</b>.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.7"
+  },
+  {
+   "id": "L23-t5",
+   "h": "Phân loại API",
+   "html": "<p>Slide dẫn báo cáo <b>State of the API 2022 của Postman</b> về các kiểu API được dùng nhiều nhất:</p>{{img:L23-img4}}<ul><li><b>REST</b> dẫn đầu rất xa, gần 90% người được hỏi dùng.</li><li>Tiếp theo là <b>Webhooks</b>, <b>SOAP</b>, <b>GraphQL</b>, <b>Websockets</b> (khoảng 25–35%).</li><li>Nhóm ít dùng hơn: gRPC, MQTT, AMQP, Server-Sent Events, EDI, EDA, Other.</li></ul><p>Giải thích thêm vài loại hay gặp:</p><table><thead><tr><th>Loại</th><th>Ý chính</th></tr></thead><tbody><tr><td>REST</td><td>Dùng HTTP, mỗi tài nguyên có một URL, hành động thể hiện bằng method. Dữ liệu thường là JSON.</td></tr><tr><td>Webhooks</td><td>Ngược chiều: khi có sự kiện, hệ thống nguồn chủ động gọi sang URL của bên nhận (ví dụ cổng thanh toán báo kết quả).</td></tr><tr><td>SOAP</td><td>Giao thức cũ hơn, dữ liệu bằng XML, quy định chặt. Còn gặp ở ngân hàng, hệ thống cũ.</td></tr><tr><td>GraphQL</td><td>Client tự chọn trường cần lấy trong một truy vấn.</td></tr><tr><td>Websockets</td><td>Kết nối hai chiều liên tục, dùng cho chat, thông báo thời gian thực.</td></tr></tbody></table><p class=\"note\">Tỉ lệ phần trăm đọc gần đúng từ biểu đồ trên slide. Bài này tập trung vào REST vì đây là loại phổ biến nhất.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.8"
+  },
+  {
+   "id": "L23-t6",
+   "h": "REST và RESTful",
+   "html": "<ul><li><b>REST (Representational State Transfer)</b> là <b>một bộ quy tắc (nguyên lý)</b>, tức một kiểu kiến trúc phần mềm. Roy Fielding mô tả nó trong luận án của mình.</li><li><b>RESTful</b>:<ul><li>là một kiểu API;</li><li>sử dụng nguyên lý REST;</li><li>gửi và nhận qua HTTP;</li><li>thường dùng dữ liệu JSON.</li></ul></li></ul><p class=\"key\">REST là bộ quy tắc. RESTful là API (dịch vụ web) tuân theo bộ quy tắc đó.</p><p>Một số nguyên lý REST theo kiến thức chuẩn: tách client và server; mỗi request tự chứa đủ thông tin (stateless – server không nhớ trạng thái giữa các request); mỗi tài nguyên có URL riêng; dùng method HTTP để nói hành động.</p><p class=\"tip\">Mẹo nhớ: REST là \"luật\", RESTful là \"người chơi đúng luật\".</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.9"
+  },
+  {
+   "id": "L23-t7",
+   "h": "HTTP và HTTPS",
+   "html": "<h4>HTTP – HyperText Transfer Protocol</h4><p>Giao thức truyền siêu văn bản. Đây là \"ngôn ngữ chung\" để client và server gửi request/response cho nhau.</p>{{img:L23-img5}}<ul><li>Bên trái: dữ liệu đi từ <b>Sender Device</b> qua 7 tầng OSI (Application, Presentation, Session, Transport, Network, Data Link, Physical), truyền qua đường vật lý, rồi đi ngược lên 7 tầng ở <b>Receiver Device</b>.</li><li>Bên phải: đối chiếu OSI với mô hình DARPA (TCP/IP 4 tầng). <b>HTTP</b> nằm ở <b>Application Layer</b>, cùng FTP, SMTP, DNS, RIP, SNMP. Bên dưới là TCP/UDP (Transport), IP (Internet), Ethernet, Wi-Fi 802.11… (Network Interface).</li></ul><h4>HTTPS – HyperText Transfer Protocol Secure</h4><p><b>HTTP + SSL = HTTPS</b>. SSL mã hóa dữ liệu trên đường truyền, nên người ở giữa không đọc trộm hay sửa được.</p><p class=\"note\">Slide ghi SSL. Ngày nay HTTPS dùng TLS, là phiên bản kế tiếp của SSL. Người ta vẫn quen gọi chung là SSL.</p><p class=\"tip\">BA nên ghi rõ trong yêu cầu phi chức năng: API bắt buộc dùng HTTPS, nhất là khi có mật khẩu, token, dữ liệu cá nhân.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.10-11"
+  },
+  {
+   "id": "L23-t8",
+   "h": "5 thành phần của RESTful API",
+   "html": "<ol><li><b>Phương thức (Method)</b>: muốn làm gì – GET, POST, PUT, PATCH, DELETE…</li><li><b>URL</b>: làm với tài nguyên nào, ở đâu.</li><li><b>Header</b>: thông tin bổ sung đi kèm (kiểu dữ liệu, token xác thực…).</li><li><b>Param</b>: dữ liệu gửi kèm – trên URL (query param) hoặc trong body.</li><li><b>Response</b>: kết quả server trả về.</li></ol>{{img:L23-img6}}<p>Ảnh chụp từ <b>Postman</b> (công cụ gọi thử API). Request mẫu: <code>GET https://checklistapi.ziz.vn/api/app/check-list?planId=1&amp;skipCount=0&amp;maxResultCount=10</code>. Số 4 được đánh ở cả tab <b>Params</b> và tab <b>Body</b>: param có thể nằm trên URL hoặc trong thân request. Tab Headers có 7 header tự sinh như Cache-Control, Host, User-Agent, Accept, Accept-Encoding, Connection.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.12"
+  },
+  {
+   "id": "L23-t9",
+   "h": "Phương thức (Method)",
+   "html": "<p>Danh sách method trên slide: <b>GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS</b>.</p><table><thead><tr><th>Method</th><th>Dùng để</th><th>Đặc điểm theo slide</th></tr></thead><tbody><tr><td>GET</td><td>Lấy dữ liệu</td><td>Tham số truyền trực tiếp trên URL; lộ thông tin; được trình duyệt cache; nhanh; bị giới hạn độ dài 2048 ký tự</td></tr><tr><td>POST</td><td>Thêm mới dữ liệu</td><td>Tham số truyền qua body; không bị lộ thông tin trên URL; không được trình duyệt cache; chậm hơn GET</td></tr><tr><td>PUT</td><td>Cập nhật <b>toàn bộ</b> dữ liệu</td><td>Gửi lại đầy đủ bản ghi</td></tr><tr><td>PATCH</td><td>Cập nhật <b>một phần</b> dữ liệu</td><td>Chỉ gửi các trường cần đổi</td></tr><tr><td>DELETE</td><td>Xóa dữ liệu</td><td></td></tr></tbody></table><p>Ví dụ trên slide:</p><ul><li><code>http://www.example.com/user?name=Hùng&amp;age=18</code> – GET lấy dữ liệu, tham số nằm sau dấu <code>?</code>, nối bằng <code>&amp;</code>. Chấp nhận được.</li><li><code>http://www.example.com/login?username=hung&amp;pass=123</code> – đăng nhập bằng GET làm <b>lộ mật khẩu</b> trên URL (lịch sử trình duyệt, log). Đây là ví dụ <b>sai</b>, phải dùng POST.</li></ul><p>HEAD và OPTIONS (kiến thức chuẩn): HEAD giống GET nhưng chỉ lấy header, không lấy body; OPTIONS hỏi server cho phép những method nào.</p><p class=\"note\">Slide đơn giản hóa một số điểm. (1) POST \"không bị lộ\" nghĩa là không hiện trên URL; nếu không dùng HTTPS thì body vẫn đọc được trên đường truyền. (2) Giới hạn 2048 ký tự là giới hạn thực tế của một số trình duyệt, chuẩn HTTP không quy định con số này. (3) \"POST chậm hơn GET\" chủ yếu do GET được cache.</p><p class=\"tip\">Mẹo nhớ: GET = xem, POST = thêm, PUT = thay cả, PATCH = vá một chỗ, DELETE = xóa.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.13-14"
+  },
+  {
+   "id": "L23-t10",
+   "h": "URL – Uniform Resource Locator",
+   "html": "<p><b>URL</b> là địa chỉ chỉ tới một tài nguyên trên mạng. Ví dụ trên slide: <code>https://ctf.viblo.asia/puzzles</code></p>{{img:L23-img7}}<table><thead><tr><th>Phần</th><th>Trong ví dụ</th><th>Ý nghĩa</th></tr></thead><tbody><tr><td>Scheme</td><td>https://</td><td>Giao thức dùng để truy cập</td></tr><tr><td>Subdomain</td><td>ctf</td><td>Tên miền con</td></tr><tr><td>Second-level domain</td><td>viblo</td><td>Tên miền chính (tên thương hiệu)</td></tr><tr><td>Top-level domain</td><td>asia</td><td>Đuôi tên miền (.com, .vn, .asia…)</td></tr><tr><td>Subdirectory</td><td>/puzzles</td><td>Đường dẫn tới tài nguyên trên server</td></tr></tbody></table><p>Trong API còn hay có <b>query string</b> sau dấu <code>?</code>, ví dụ <code>?planId=1&amp;skipCount=0</code>.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.15"
+  },
+  {
+   "id": "L23-t11",
+   "h": "URL chuẩn RESTful",
+   "html": "<p>Ví dụ trên slide với tài nguyên <b>customers</b>:</p>{{img:L23-img8}}<table><thead><tr><th>Việc cần làm</th><th>Method</th><th>Path</th></tr></thead><tbody><tr><td>Tạo khách hàng mới</td><td>POST</td><td>/customers</td></tr><tr><td>Xóa một khách hàng</td><td>DELETE</td><td>/customers/{id}</td></tr><tr><td>Lấy một khách hàng cụ thể</td><td>GET</td><td>/customers/{id}</td></tr><tr><td>Tìm kiếm khách hàng</td><td>GET</td><td>/customers</td></tr><tr><td>Cập nhật một khách hàng</td><td>PUT</td><td>/customers/{id}</td></tr></tbody></table><p>Quy tắc rút ra:</p><ul><li>Path là <b>danh từ</b> chỉ tài nguyên, thường số nhiều (customers). Không đặt động từ (create, update, delete) trong path.</li><li><b>Hành động</b> do method thể hiện.</li><li>Thao tác trên <b>một</b> bản ghi thì thêm <code>{id}</code>. Thao tác trên cả tập (tạo mới, tìm kiếm) thì không có id.</li></ul><h4>Câu hỏi trên slide: 2 URL sau đúng hay sai?</h4><ul><li>Tạo mới văn bản: <code>https://qlvbapi.vn/api/IncomingDocument/CreateIncommingDocument</code></li><li>Sửa văn bản: <code>https://qlvbapi.vn/api/IncomingDocument/UpdateIncommingDocument</code></li></ul><p>Trả lời: hai URL vẫn gọi được, nhưng <b>không đúng chuẩn RESTful</b> vì đưa động từ Create/Update vào path. Cách chuẩn: <code>POST /api/incoming-documents</code> để tạo, <code>PUT /api/incoming-documents/{id}</code> để sửa. Ngoài ra chữ \"Incomming\" viết sai chính tả, không khớp với \"Incoming\" ở phía trước.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.16-17"
+  },
+  {
+   "id": "L23-t12",
+   "h": "Header",
+   "html": "<p><b>HTTP Header</b> là một phần của giao thức HTTP. Header truyền <b>thông tin bổ sung</b> trong request hoặc response, dạng <code>Tên: Giá trị</code>.</p><table><thead><tr><th>Header (ví dụ trên slide)</th><th>Ý nghĩa</th></tr></thead><tbody><tr><td>Accept: text/html, application/xhtml+xml, application/xml</td><td>Client chấp nhận nhận về những kiểu dữ liệu nào</td></tr><tr><td>Authorization: Bearer eyJhbGci…</td><td>Thông tin xác thực. \"Bearer\" kèm một token (chuỗi mã) cho biết ai đang gọi</td></tr><tr><td>User-Agent: Mozilla/5.0 (X11; Linux x86_64…) Firefox/12.0</td><td>Phần mềm nào đang gửi request (trình duyệt, app, Postman…)</td></tr><tr><td>Content-Length: 119</td><td>Độ dài phần body (tính bằng byte)</td></tr><tr><td>Content-Type: application/json</td><td>Body đang gửi có kiểu dữ liệu gì</td></tr></tbody></table><p class=\"tip\">Phân biệt: <b>Accept</b> = \"tôi muốn nhận kiểu gì\"; <b>Content-Type</b> = \"tôi đang gửi kiểu gì\".</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.18"
+  },
+  {
+   "id": "L23-t13",
+   "h": "Response – phản hồi",
+   "html": "<p>Response gồm <b>3 thành phần</b>:</p><ol><li><b>Response header</b>:<ul><li><code>Access-Control-Allow-Origin</code>: <code>*</code> (cho mọi nguồn) hoặc một nguồn cụ thể – cho biết website ở tên miền nào được phép gọi API này từ trình duyệt.</li><li><code>Content-Length</code>: giống header của request.</li><li><code>Content-Type</code>: giống header của request.</li></ul></li><li><b>Response body</b>: nội dung trả về, tùy theo từng API (thường là JSON).</li><li><b>Response code</b>: mã trạng thái cho biết kết quả xử lý.</li></ol>",
+   "src": "23. Api - Ly Thuyet.pdf tr.19"
+  },
+  {
+   "id": "L23-t14",
+   "h": "Response code – mã trạng thái",
+   "html": "<table><thead><tr><th>Mã</th><th>Tên</th><th>Ý nghĩa theo slide</th></tr></thead><tbody><tr><td>200</td><td>OK</td><td>Thành công cho GET, PUT, PATCH hoặc DELETE</td></tr><tr><td>201</td><td>Created</td><td>Một resource (tài nguyên) vừa được tạo thành công</td></tr><tr><td>400</td><td>Bad Request</td><td>Request không hợp lệ</td></tr><tr><td>401</td><td>Unauthorized</td><td>Request cần có xác thực (auth)</td></tr><tr><td>403</td><td>Forbidden</td><td>Bị từ chối, không cho phép</td></tr><tr><td>404</td><td>Not Found</td><td>Không tìm thấy resource từ URI</td></tr><tr><td>415</td><td>Unsupported Media Type</td><td>Không hỗ trợ kiểu dữ liệu này</td></tr><tr><td>429</td><td>Too Many Requests</td><td>Request bị từ chối do vượt giới hạn số lần gọi</td></tr><tr><td>500</td><td>Server Error</td><td>Lỗi phía server</td></tr></tbody></table><p>Nhóm theo chữ số đầu (kiến thức chuẩn): <b>2xx</b> thành công; <b>4xx</b> lỗi do phía client gửi sai; <b>5xx</b> lỗi do phía server. Danh sách đầy đủ xem tài liệu MDN mà slide dẫn (developer.mozilla.org, mục HTTP Status).</p><p><b>Phân biệt 401 và 403</b>: 401 là chưa xác thực (chưa đăng nhập, thiếu hoặc sai token). 403 là đã biết bạn là ai nhưng bạn không có quyền.</p><p class=\"note\">Slide ghi 200 cho DELETE. Theo chuẩn, DELETE thành công cũng hay trả 204 No Content (không có body). Cả hai đều thuộc nhóm 2xx thành công. Mã 415 theo chuẩn nói về kiểu dữ liệu (Content-Type) của request mà server không hỗ trợ.</p><p class=\"tip\">Mẹo nhớ: 2 = \"ổn\", 4 = \"bạn sai\", 5 = \"tôi (server) sai\".</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.20"
+  },
+  {
+   "id": "L23-t15",
+   "h": "Định dạng dữ liệu JSON",
+   "html": "<ul><li><b>JSON</b> là viết tắt của <b>JavaScript Object Notation</b>.</li><li>Là định dạng dùng để trao đổi dữ liệu giữa các hệ thống, phổ biến khi làm việc với API.</li><li>Có 2 loại cấu trúc chính:<ul><li><b>JSON Object</b>: nằm trong cặp <code>{}</code>, gồm các cặp <code>\"khóa\": giá trị</code>.</li><li><b>JSON Array</b>: nằm trong dấu <code>[]</code>, là danh sách các giá trị.</li></ul></li><li>Đặc điểm: dễ đọc với người; dễ xử lý với máy; được hỗ trợ bởi hầu hết các ngôn ngữ lập trình; gọn nhẹ, phổ biến, chuẩn quốc tế.</li></ul><p>Ví dụ trên slide (danh sách sách của thư viện):</p><pre>{\n  \"Data\": [\n    {\n      \"Code\": \"S0001\",\n      \"Title\": \"Chí Phèo\",\n      \"Author\": { \"Code\": \"TG0001\", \"Name\": \"Nam Cao\" },\n      \"PageNumber\": 150\n    },\n    {\n      \"Code\": \"S0002\",\n      \"Title\": \"Số đỏ\",\n      \"Author\": { \"Code\": \"TG0002\", \"Name\": \"Vũ Trọng Phụng\" },\n      \"PageNumber\": 120\n    }\n  ],\n  \"Status\": 1,\n  \"Message\": \"\"\n}</pre><p>Đọc: object ngoài cùng có 3 khóa. <code>Data</code> là một array gồm 2 object sách. Mỗi sách có <code>Author</code> là object lồng bên trong. <code>Status</code> và <code>Message</code> cho biết kết quả xử lý.</p><h4>Các kiểu dữ liệu trong JSON</h4><table><thead><tr><th>Kiểu</th><th>Ví dụ</th></tr></thead><tbody><tr><td>String (chuỗi)</td><td>\"Chí Phèo\" – luôn trong nháy kép</td></tr><tr><td>Number (số)</td><td>150, 3.14 – không có nháy</td></tr><tr><td>Boolean</td><td>true / false</td></tr><tr><td>Null</td><td>null – không có giá trị</td></tr><tr><td>Object</td><td>{\"Code\": \"TG0001\", \"Name\": \"Nam Cao\"}</td></tr><tr><td>Array</td><td>[\"Kệ 1\", \"Kệ 3\"]</td></tr></tbody></table><pre>{\n  \"Code\": \"S0001\",\n  \"Title\": \"Chí Phèo\",\n  \"Author\": { \"Code\": \"TG0001\", \"Name\": \"Nam Cao\", \"Description\": null },\n  \"Position\": [\"Kệ 1\", \"Kệ 3\"],\n  \"PageNumber\": 150,\n  \"Status\": true\n}</pre><p class=\"note\">Ảnh mẫu trên slide trang 22 thiếu dấu phẩy sau <code>\"PageNumber\": 150</code>. Bản trên đã thêm dấu phẩy cho đúng cú pháp JSON.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.21-22"
+  },
+  {
+   "id": "L23-t16",
+   "h": "Định dạng dữ liệu XML",
+   "html": "<ul><li><b>XML</b> là viết tắt của <b>eXtensible Markup Language</b>.</li><li>Là định dạng dùng để trao đổi dữ liệu giữa các hệ thống, phổ biến khi làm việc với API.</li><li>Đặc điểm: dễ đọc với người; dễ xử lý với máy; được hỗ trợ bởi hầu hết các ngôn ngữ lập trình; <b>dài hơn JSON</b>, phổ biến, chuẩn quốc tế.</li></ul><p>Cùng dữ liệu sách ở trên, viết bằng XML (rút gọn 1 sách):</p><pre>&lt;Book&gt;\n  &lt;Data&gt;\n    &lt;Item&gt;\n      &lt;Code&gt;S0001&lt;/Code&gt;\n      &lt;Title&gt;Chí Phèo&lt;/Title&gt;\n      &lt;Author&gt;\n        &lt;Code&gt;TG0001&lt;/Code&gt;\n        &lt;Name&gt;Nam Cao&lt;/Name&gt;\n      &lt;/Author&gt;\n      &lt;PageNumber&gt;150&lt;/PageNumber&gt;\n    &lt;/Item&gt;\n  &lt;/Data&gt;\n  &lt;Status&gt;1&lt;/Status&gt;\n  &lt;Message&gt;&lt;/Message&gt;\n&lt;/Book&gt;</pre><table><thead><tr><th>Tiêu chí</th><th>JSON</th><th>XML</th></tr></thead><tbody><tr><td>Cách viết</td><td>Cặp khóa: giá trị, {} và []</td><td>Thẻ mở và thẻ đóng &lt;Tên&gt;…&lt;/Tên&gt;</td></tr><tr><td>Độ dài</td><td>Gọn hơn</td><td>Dài hơn vì lặp tên thẻ đóng</td></tr><tr><td>Mảng</td><td>Có sẵn [ ]</td><td>Lặp lại thẻ (nhiều &lt;Item&gt;)</td></tr><tr><td>Dùng nhiều ở</td><td>RESTful API</td><td>SOAP, hệ thống cũ</td></tr></tbody></table><p class=\"note\">Ảnh mẫu trên slide trang 23 đóng thẻ <code>&lt;PageNumber&gt;</code> bằng <code>&lt;/Title&gt;</code>. Đây là lỗi gõ trên slide. Thẻ mở và thẻ đóng trong XML phải cùng tên.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.23"
+  },
+  {
+   "id": "L23-t17",
+   "h": "BA đặc tả API như thế nào (theo mẫu FSD)",
+   "html": "<p>Trong mẫu FSD của khóa học (case FoodNow – đặt bàn nhà hàng), phần <b>II. Chức năng dạng API</b> chia làm 2 trường hợp:</p><h4>1. API do mình định nghĩa (ví dụ: API đặt bàn)</h4><p>FoodNow mở API cho đối tác đặt bàn (như Pasgo, TableNow) gửi yêu cầu đặt bàn sang. BA đặc tả đủ 5 mục:</p><table><thead><tr><th>Mục</th><th>Nội dung</th><th>Ví dụ trong FSD</th></tr></thead><tbody><tr><td>Mô tả chung</td><td>Tên, mục đích, đối tượng sử dụng, post-condition</td><td>Cho phép đối tác gửi yêu cầu đặt bàn; trả về kết quả đặt bàn</td></tr><tr><td>Luồng nghiệp vụ</td><td>Sơ đồ + bảng mô tả từng bước kiểm tra</td><td>Kiểm mã đối tác → mã nhà hàng → khung thời gian → bàn trống → lưu đặt bàn</td></tr><tr><td>Thông tin đầu vào</td><td>Bảng: Thông tin, Require, Length, Mô tả/Ràng buộc</td><td>Họ tên KH: bắt buộc, 3–50 ký tự; SĐT: 10 số, bắt đầu 03/08/09; Số người: số nguyên dương</td></tr><tr><td>Thông tin đầu ra</td><td>Bảng: Thông tin, Mô tả</td><td>Mã đối tác, mã nhà hàng, mã đặt bàn, mã lỗi, mô tả lỗi</td></tr><tr><td>Danh sách mã lỗi</td><td>Bảng: Trường hợp → Mô tả lỗi</td><td>\"Mã đối tác không hợp lệ\", \"{Danh sách bàn} không trống. Vui lòng kiểm tra lại\", \"Thành công\"</td></tr></tbody></table><h4>2. API do bên khác định nghĩa (ví dụ: nhận kết quả thanh toán Momo)</h4><ul><li>Đầu vào/đầu ra: <b>không tự đặt</b>, mà dẫn tới tài liệu đặc tả API của đối tác.</li><li>Luồng nghiệp vụ: vẫn mô tả các bước kiểm tra phía mình – checksum hợp lệ, mã nhà hàng và chi nhánh hợp lệ, mã giao dịch tồn tại, số tiền khớp, bàn đang ở trạng thái Chờ thanh toán.</li><li>Danh sách mã lỗi: dùng <b>mã do đối tác quy định</b> (ví dụ 00 = không lỗi, 13, 21, 42…).</li></ul><p class=\"key\">BA đặc tả \"cái gì và quy tắc gì\": dữ liệu vào/ra, ràng buộc, các bước kiểm tra, lỗi trả về. Dev quyết định \"làm thế nào\".</p><p class=\"note\">Mẫu FSD mô tả lỗi bằng mã lỗi và mô tả lỗi trong body, không nói tới HTTP status code. Trong thực tế hai thứ này thường đi cùng nhau: status code cho biết nhóm kết quả, mã lỗi nghiệp vụ cho biết lý do cụ thể.</p>",
+   "src": "FSD_Template.docx mục II.2.1-2.2"
+  }
+ ],
+ "examples": [
+  {
+   "id": "L23-e1",
+   "title": "Đọc một request trên Postman",
+   "html": "<p>Request trên slide trang 12:</p><pre>GET https://checklistapi.ziz.vn/api/app/check-list?planId=1&amp;skipCount=0&amp;maxResultCount=10</pre><table><thead><tr><th>Thành phần</th><th>Giá trị</th><th>Giải thích</th></tr></thead><tbody><tr><td>1. Phương thức</td><td>GET</td><td>Lấy dữ liệu, không thay đổi gì trên server</td></tr><tr><td>2. URL</td><td>https://checklistapi.ziz.vn/api/app/check-list</td><td>Tài nguyên là danh sách check-list</td></tr><tr><td>3. Header</td><td>Accept: */*, User-Agent: PostmanRuntime/7.35.0, Connection: keep-alive…</td><td>Thông tin bổ sung, Postman tự sinh</td></tr><tr><td>4. Param</td><td>planId=1, skipCount=0, maxResultCount=10</td><td>Query param trên URL: lấy check-list của kế hoạch số 1, bỏ qua 0 bản ghi, lấy tối đa 10 bản ghi (phân trang)</td></tr><tr><td>5. Response</td><td>(ô dưới cùng)</td><td>Server trả về code, header và body, thường là JSON</td></tr></tbody></table><p class=\"tip\">Cách đọc nhanh: method nói \"làm gì\", URL nói \"với cái gì\", param nói \"điều kiện nào\".</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.12"
+  },
+  {
+   "id": "L23-e2",
+   "title": "Thiết kế bộ API RESTful cho đặt bàn FoodNow (ví dụ)",
+   "html": "<p>Ví dụ tự đặt, áp quy tắc URL chuẩn RESTful ở slide trang 16 cho tài nguyên <b>bookings</b> (đặt bàn) của FoodNow:</p><table><thead><tr><th>Việc</th><th>Method</th><th>Path</th><th>Mã thành công</th></tr></thead><tbody><tr><td>Tạo đặt bàn mới</td><td>POST</td><td>/bookings</td><td>201 Created</td></tr><tr><td>Xem một đặt bàn</td><td>GET</td><td>/bookings/{id}</td><td>200 OK</td></tr><tr><td>Tìm các đặt bàn theo ngày</td><td>GET</td><td>/bookings?date=2026-11-25</td><td>200 OK</td></tr><tr><td>Đổi toàn bộ thông tin đặt bàn</td><td>PUT</td><td>/bookings/{id}</td><td>200 OK</td></tr><tr><td>Chỉ đổi số người</td><td>PATCH</td><td>/bookings/{id}</td><td>200 OK</td></tr><tr><td>Hủy đặt bàn</td><td>DELETE</td><td>/bookings/{id}</td><td>200 OK</td></tr></tbody></table><p>Chú ý: cùng path <code>/bookings/{id}</code> nhưng method khác thì hành động khác. Không có path nào chứa động từ như /createBooking.</p><p class=\"note\">Trong thực tế, \"hủy đặt bàn\" thường là đổi trạng thái (PATCH status = Đã hủy) để giữ lịch sử, thay vì xóa hẳn. Đây là quyết định nghiệp vụ BA cần hỏi rõ.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.13-16, 20"
+  },
+  {
+   "id": "L23-e3",
+   "title": "Đọc kiểu dữ liệu trong JSON sách của thư viện",
+   "html": "<p>Dữ liệu trên slide trang 22 (đã thêm dấu phẩy còn thiếu):</p><pre>{\n  \"Code\": \"S0001\",\n  \"Title\": \"Chí Phèo\",\n  \"Author\": { \"Code\": \"TG0001\", \"Name\": \"Nam Cao\", \"Description\": null },\n  \"Position\": [\"Kệ 1\", \"Kệ 3\"],\n  \"PageNumber\": 150,\n  \"Status\": true\n}</pre><table><thead><tr><th>Trường</th><th>Kiểu</th><th>Vì sao</th></tr></thead><tbody><tr><td>Code, Title</td><td>String</td><td>Nằm trong nháy kép</td></tr><tr><td>Author</td><td>Object</td><td>Nằm trong {}, có các khóa con</td></tr><tr><td>Author.Description</td><td>Null</td><td>Chưa có giá trị</td></tr><tr><td>Position</td><td>Array (chứa string)</td><td>Nằm trong [], sách đặt ở 2 kệ</td></tr><tr><td>PageNumber</td><td>Number</td><td>Số, không có nháy</td></tr><tr><td>Status</td><td>Boolean</td><td>true/false, không có nháy</td></tr></tbody></table><p class=\"warn\">\"150\" (có nháy) là string, 150 (không nháy) là number. \"true\" có nháy cũng là string, không phải boolean.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.22"
+  },
+  {
+   "id": "L23-e4",
+   "title": "Cùng một dữ liệu: JSON và XML",
+   "html": "<p>Slide trang 21 và 23 trình bày cùng danh sách 2 cuốn sách bằng hai định dạng. Đối chiếu một cuốn:</p><table><thead><tr><th>JSON</th><th>XML</th></tr></thead><tbody><tr><td><pre>{\n  \"Code\": \"S0002\",\n  \"Title\": \"Số đỏ\",\n  \"PageNumber\": 120\n}</pre></td><td><pre>&lt;Item&gt;\n  &lt;Code&gt;S0002&lt;/Code&gt;\n  &lt;Title&gt;Số đỏ&lt;/Title&gt;\n  &lt;PageNumber&gt;120&lt;/PageNumber&gt;\n&lt;/Item&gt;</pre></td></tr></tbody></table><ul><li>JSON dùng <code>\"khóa\": giá trị</code>; XML dùng thẻ mở và thẻ đóng.</li><li>Danh sách: JSON có mảng <code>\"Data\": [ … ]</code>; XML lặp thẻ <code>&lt;Item&gt;</code> trong <code>&lt;Data&gt;</code>.</li><li>XML dài hơn vì mỗi tên trường viết hai lần. Đó là lý do slide ghi XML \"dài hơn JSON\".</li></ul>",
+   "src": "23. Api - Ly Thuyet.pdf tr.21, 23"
+  },
+  {
+   "id": "L23-e5",
+   "title": "Đặc tả API đặt bàn theo mẫu FSD",
+   "html": "<p>Tóm tắt phần đặc tả API đặt bàn trong mẫu FSD (FoodNow mở cho đối tác như Pasgo, TableNow):</p><h5>Thông tin đầu vào</h5><table><thead><tr><th>Thông tin</th><th>Require</th><th>Length</th><th>Ràng buộc</th></tr></thead><tbody><tr><td>Mã đối tác</td><td>Yes</td><td></td><td>Do FoodNow cấp cho đối tác</td></tr><tr><td>Mã nhà hàng</td><td>Yes</td><td></td><td>Mã trên hệ thống FoodNow</td></tr><tr><td>Họ tên KH đặt</td><td>Yes</td><td>3-50</td><td>Chỉ chữ cái a-z, A-Z và khoảng trắng</td></tr><tr><td>SĐT người đặt</td><td>Yes</td><td>10</td><td>10 chữ số, bắt đầu 03, 08, 09</td></tr><tr><td>Thời gian dự kiến tới</td><td>Yes</td><td></td><td>Định dạng dd/mm/yyyy hh24:mi:ss</td></tr><tr><td>Số người</td><td>Yes</td><td></td><td>Số nguyên dương, tối đa 4 chữ số</td></tr></tbody></table><h5>Luồng kiểm tra</h5><ol><li>Mã đối tác tồn tại và đang hoạt động.</li><li>Mã nhà hàng đang hoạt động và đã liên kết đặt chỗ với đối tác.</li><li>Thời gian tới lớn hơn hiện tại, nằm trong giờ mở cửa, không rơi vào ngày nghỉ lễ.</li><li>Bàn tồn tại, đang hoạt động và chưa có ai đặt trong khung giờ đó.</li><li>Lưu đặt bàn: mã đặt bàn tự sinh; thời gian đặt = hiện tại; thời gian dự kiến kết thúc = thời gian tới + thời gian phục vụ trung bình/bàn.</li></ol><h5>Đầu ra và mã lỗi</h5><p>Đầu ra: mã đối tác, mã nhà hàng, mã đặt bàn, mã lỗi, mô tả lỗi. Mỗi bước kiểm tra trượt có một dòng trong danh sách lỗi, ví dụ \"Nhà hàng chưa liên kết với đối tác\".</p><p class=\"tip\">Quy tắc: mỗi bước kiểm tra trong luồng ↔ ít nhất một dòng lỗi. Đây là cách BA tự kiểm xem đặc tả đã đủ chưa.</p>",
+   "src": "FSD_Template.docx mục II.2.1"
+  },
+  {
+   "id": "L23-e6",
+   "title": "Chọn response code cho app đặt đồ ăn (ví dụ)",
+   "html": "<p>Ví dụ tự đặt cho API đặt đồ ăn, áp bảng mã ở slide trang 20:</p><table><thead><tr><th>Tình huống</th><th>Mã</th><th>Lý do</th></tr></thead><tbody><tr><td>Xem danh sách món thành công</td><td>200</td><td>GET thành công</td></tr><tr><td>Tạo đơn hàng mới thành công</td><td>201</td><td>Vừa tạo ra một resource</td></tr><tr><td>Gửi đơn mà thiếu địa chỉ giao hàng</td><td>400</td><td>Request không hợp lệ</td></tr><tr><td>Gọi API mà chưa đăng nhập (không có token)</td><td>401</td><td>Cần xác thực</td></tr><tr><td>Khách hàng gọi API xem doanh thu của nhà hàng</td><td>403</td><td>Đã đăng nhập nhưng không có quyền</td></tr><tr><td>Xem đơn số 999 không tồn tại</td><td>404</td><td>Không tìm thấy resource</td></tr><tr><td>Gửi body dạng XML trong khi API chỉ nhận JSON</td><td>415</td><td>Không hỗ trợ kiểu dữ liệu</td></tr><tr><td>Một app gọi 1000 lần/giây, vượt hạn mức</td><td>429</td><td>Quá nhiều request</td></tr><tr><td>Server mất kết nối database</td><td>500</td><td>Lỗi phía server</td></tr></tbody></table>",
+   "src": "23. Api - Ly Thuyet.pdf tr.20"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L23-p1",
+   "title": "Trả lời câu hỏi slide: 2 URL quản lý văn bản đúng hay sai",
+   "task": "<p>Slide trang 17 hỏi hai URL sau đúng hay sai theo chuẩn RESTful, và nếu sai thì sửa thế nào:</p><ul><li>Tạo mới văn bản: <code>https://qlvbapi.vn/api/IncomingDocument/CreateIncommingDocument</code></li><li>Sửa văn bản: <code>https://qlvbapi.vn/api/IncomingDocument/UpdateIncommingDocument</code></li></ul>",
+   "steps": [
+    "<p><b>Bước 1.</b> Tách URL: scheme <code>https</code>, domain <code>qlvbapi.vn</code>, path <code>/api/IncomingDocument/CreateIncommingDocument</code>.</p>",
+    "<p><b>Bước 2.</b> Tìm tài nguyên (danh từ): văn bản đến – IncomingDocument.</p>",
+    "<p><b>Bước 3.</b> Tìm hành động: Create, Update. Theo chuẩn RESTful, hành động phải do <b>method</b> thể hiện, không nằm trong path.</p>",
+    "<p><b>Bước 4.</b> Chọn method: tạo mới → POST; sửa toàn bộ → PUT (sửa một phần → PATCH).</p>",
+    "<p><b>Bước 5.</b> Viết lại path: danh từ số nhiều; thao tác với một văn bản thì thêm {id}.</p>",
+    "<p><b>Bước 6.</b> Soát chính tả: \"Incomming\" sai, phải là \"Incoming\".</p>"
+   ],
+   "answer": "<p><b>Kết luận:</b> hai URL vẫn chạy được nếu server cài như vậy, nhưng <b>sai chuẩn RESTful</b>.</p><table><thead><tr><th>Việc</th><th>Cách chuẩn</th></tr></thead><tbody><tr><td>Tạo mới văn bản</td><td>POST https://qlvbapi.vn/api/incoming-documents</td></tr><tr><td>Sửa văn bản</td><td>PUT https://qlvbapi.vn/api/incoming-documents/{id}</td></tr></tbody></table><p>Lỗi: (1) động từ Create/Update nằm trong path; (2) sửa văn bản nhưng không chỉ ra văn bản nào ({id}); (3) \"Incomming\" sai chính tả.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.16-17"
+  },
+  {
+   "id": "L23-p2",
+   "title": "Viết request và response cho API tạo đơn đặt đồ ăn (ví dụ)",
+   "task": "<p>Ví dụ: khách hàng đặt 2 phần cơm gà (mã món M01) và 1 trà đá (mã M05), giao tới \"12 Lê Lợi\". Viết request tạo đơn và response khi tạo thành công, gồm đủ method, URL, header, body, response code.</p>",
+   "steps": [
+    "<p><b>Bước 1. Chọn method.</b> Tạo mới đơn hàng → <b>POST</b>.</p>",
+    "<p><b>Bước 2. Viết URL.</b> Tài nguyên là đơn hàng, số nhiều, không động từ: <code>POST https://api.example.com/orders</code>.</p>",
+    "<p><b>Bước 3. Viết header.</b> Body là JSON → <code>Content-Type: application/json</code>. Cần biết khách nào → <code>Authorization: Bearer &lt;token&gt;</code>.</p>",
+    "<p><b>Bước 4. Viết body JSON.</b> Một object gồm địa chỉ (string) và danh sách món (array các object có mã món, số lượng).</p>",
+    "<p><b>Bước 5. Viết response.</b> Tạo thành công → <b>201 Created</b>. Body trả mã đơn và trạng thái.</p>",
+    "<p><b>Bước 6. Kiểm tra JSON.</b> Chuỗi trong nháy kép, số không nháy, các cặp cách nhau bởi dấu phẩy, không có dấu phẩy thừa ở cuối.</p>"
+   ],
+   "answer": "<p><b>Request</b></p><pre>POST https://api.example.com/orders\nContent-Type: application/json\nAuthorization: Bearer eyJhbGci...\n\n{\n  \"address\": \"12 Lê Lợi\",\n  \"items\": [\n    { \"dishCode\": \"M01\", \"quantity\": 2 },\n    { \"dishCode\": \"M05\", \"quantity\": 1 }\n  ],\n  \"note\": null\n}</pre><p><b>Response</b></p><pre>201 Created\nContent-Type: application/json\n\n{\n  \"orderCode\": \"DH0001\",\n  \"status\": \"Chờ xác nhận\",\n  \"paid\": false\n}</pre><p>Các giá trị (domain, mã đơn, token) là ví dụ.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.12-14, 18-22"
+  },
+  {
+   "id": "L23-p3",
+   "title": "Đặc tả API tra cứu sách cho thư viện theo mẫu FSD (ví dụ)",
+   "task": "<p>Ví dụ: thư viện muốn mở API để app của trường tra cứu thông tin một cuốn sách theo mã sách. Hãy viết đặc tả theo 5 mục của mẫu FSD: mô tả chung, luồng nghiệp vụ, đầu vào, đầu ra, danh sách mã lỗi.</p>",
+   "steps": [
+    "<p><b>Bước 1. Mô tả chung.</b> Ghi tên API, mục đích, đối tượng sử dụng, post-condition.</p>",
+    "<p><b>Bước 2. Luồng nghiệp vụ.</b> Liệt kê từng bước kiểm tra theo thứ tự: ai gọi có hợp lệ không, dữ liệu vào có hợp lệ không, sách có tồn tại không, rồi trả kết quả.</p>",
+    "<p><b>Bước 3. Đầu vào.</b> Lập bảng 4 cột: Thông tin, Require, Length, Ràng buộc.</p>",
+    "<p><b>Bước 4. Đầu ra.</b> Lập bảng các trường trả về. Dùng lại cấu trúc JSON sách ở slide (Code, Title, Author, Position, PageNumber…).</p>",
+    "<p><b>Bước 5. Mã lỗi.</b> Mỗi bước kiểm tra trượt ở Bước 2 thành một dòng lỗi. Thêm dòng \"Thành công\".</p>"
+   ],
+   "answer": "<h5>1. Mô tả chung</h5><table><tbody><tr><td>Tên</td><td>API tra cứu sách</td></tr><tr><td>Mục đích</td><td>Cho phép app của trường lấy thông tin một cuốn sách theo mã sách</td></tr><tr><td>Đối tượng sử dụng</td><td>App đã được thư viện cấp mã ứng dụng</td></tr><tr><td>Post-condition</td><td>Trả về thông tin sách hoặc mã lỗi</td></tr></tbody></table><h5>2. Luồng nghiệp vụ</h5><ol><li>Mã ứng dụng tồn tại và đang hoạt động.</li><li>Mã sách đúng định dạng.</li><li>Sách tồn tại và chưa bị thanh lý.</li><li>Trả về thông tin sách.</li></ol><h5>3. Đầu vào</h5><table><thead><tr><th>Thông tin</th><th>Require</th><th>Length</th><th>Ràng buộc</th></tr></thead><tbody><tr><td>Mã ứng dụng</td><td>Yes</td><td></td><td>Do thư viện cấp</td></tr><tr><td>Mã sách</td><td>Yes</td><td>5</td><td>Chữ S và 4 chữ số, ví dụ S0001</td></tr></tbody></table><h5>4. Đầu ra</h5><table><thead><tr><th>Thông tin</th><th>Mô tả</th></tr></thead><tbody><tr><td>Code, Title</td><td>Mã sách, tên sách</td></tr><tr><td>Author</td><td>Object gồm mã và tên tác giả</td></tr><tr><td>Position</td><td>Danh sách kệ đang để sách</td></tr><tr><td>PageNumber</td><td>Số trang</td></tr><tr><td>Mã lỗi, Mô tả lỗi</td><td>Xem bảng dưới</td></tr></tbody></table><h5>5. Danh sách mã lỗi</h5><table><thead><tr><th>Trường hợp</th><th>Mô tả lỗi</th></tr></thead><tbody><tr><td>Mã ứng dụng không tồn tại hoặc ngừng hoạt động</td><td>Mã ứng dụng không hợp lệ</td></tr><tr><td>Mã sách sai định dạng</td><td>Mã sách không đúng định dạng</td></tr><tr><td>Không có sách hoặc sách đã thanh lý</td><td>Không tìm thấy sách</td></tr><tr><td>Thành công</td><td>Thành công</td></tr></tbody></table><p>Gợi ý kỹ thuật cho dev (không bắt buộc trong FSD): <code>GET /books/{code}</code>, thành công 200, không tìm thấy 404.</p>",
+   "src": "FSD_Template.docx mục II.2.1; 23. Api - Ly Thuyet.pdf tr.21-22"
+  },
+  {
+   "id": "L23-p4",
+   "title": "Tách các phần của URL",
+   "task": "<p>Tách các phần của URL sau theo cách slide trang 15 làm với <code>https://ctf.viblo.asia/puzzles</code>:</p><pre>https://shop.example.com/products?category=sua&amp;page=2</pre>",
+   "steps": [
+    "<p><b>Bước 1.</b> Phần trước <code>://</code> là scheme.</p>",
+    "<p><b>Bước 2.</b> Phần tên miền (giữa <code>://</code> và dấu <code>/</code> đầu tiên) đọc từ phải sang trái: đuôi cuối cùng là top-level domain, phần ngay trước là second-level domain, phần còn lại phía trước là subdomain.</p>",
+    "<p><b>Bước 3.</b> Từ dấu <code>/</code> đầu tiên tới trước <code>?</code> là đường dẫn (subdirectory/path).</p>",
+    "<p><b>Bước 4.</b> Sau <code>?</code> là query param, các cặp nối bằng <code>&amp;</code>.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Phần</th><th>Giá trị</th></tr></thead><tbody><tr><td>Scheme</td><td>https</td></tr><tr><td>Subdomain</td><td>shop</td></tr><tr><td>Second-level domain</td><td>example</td></tr><tr><td>Top-level domain</td><td>com</td></tr><tr><td>Subdirectory (path)</td><td>/products</td></tr><tr><td>Query param</td><td>category=sua, page=2</td></tr></tbody></table><p>Đây là một request GET hợp lý: lấy trang 2 của danh sách sản phẩm nhóm \"sua\".</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.15"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L23-x1",
+   "title": "Chọn phương thức cho các thao tác của SolasMart",
+   "level": "de",
+   "task": "<p>Ví dụ: hệ thống bán online của SolasMart cần các API sau. Chọn method phù hợp cho từng thao tác:</p><ol><li>Xem danh sách sản phẩm</li><li>Thêm một sản phẩm mới</li><li>Chỉ đổi giá bán của một sản phẩm</li><li>Cập nhật lại toàn bộ thông tin một sản phẩm (tên, giá, mô tả, đơn vị tính)</li><li>Xóa một sản phẩm nhập nhầm</li><li>Xem chi tiết một sản phẩm</li></ol>",
+   "hints": [
+    "<p>Nhớ: GET xem, POST thêm, PUT thay cả, PATCH vá một chỗ, DELETE xóa.</p>",
+    "<p>Câu 3 và câu 4 đều là cập nhật. Khác nhau ở chỗ đổi một phần hay đổi toàn bộ.</p>"
+   ],
+   "answer": "<table><thead><tr><th>#</th><th>Method</th><th>Path gợi ý</th></tr></thead><tbody><tr><td>1</td><td>GET</td><td>/products</td></tr><tr><td>2</td><td>POST</td><td>/products</td></tr><tr><td>3</td><td>PATCH</td><td>/products/{id}</td></tr><tr><td>4</td><td>PUT</td><td>/products/{id}</td></tr><tr><td>5</td><td>DELETE</td><td>/products/{id}</td></tr><tr><td>6</td><td>GET</td><td>/products/{id}</td></tr></tbody></table>",
+   "src": "23. Api - Ly Thuyet.pdf tr.13-14, 16"
+  },
+  {
+   "id": "L23-x2",
+   "title": "Gọi tên kiểu dữ liệu JSON",
+   "level": "de",
+   "task": "<p>Cho response sau (ví dụ). Ghi kiểu dữ liệu của từng trường:</p><pre>{\n  \"orderCode\": \"DH0001\",\n  \"total\": 125000,\n  \"paid\": false,\n  \"voucher\": null,\n  \"customer\": { \"name\": \"Lan\", \"phone\": \"0912345678\" },\n  \"tags\": [\"giao nhanh\", \"không hành\"]\n}</pre>",
+   "hints": [
+    "<p>JSON có 6 kiểu: String, Number, Boolean, Null, Object, Array.</p>",
+    "<p>Nhìn dấu bao quanh giá trị: \"\" là chuỗi, {} là object, [] là array.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Trường</th><th>Kiểu</th></tr></thead><tbody><tr><td>orderCode</td><td>String</td></tr><tr><td>total</td><td>Number</td></tr><tr><td>paid</td><td>Boolean</td></tr><tr><td>voucher</td><td>Null</td></tr><tr><td>customer</td><td>Object</td></tr><tr><td>tags</td><td>Array (chứa string)</td></tr></tbody></table><p>Chú ý: phone \"0912345678\" là String. Số điện thoại nên lưu dạng chuỗi để không mất số 0 ở đầu.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.22"
+  },
+  {
+   "id": "L23-x3",
+   "title": "Chọn response code cho hệ thống quản lý thư viện",
+   "level": "tb",
+   "task": "<p>Ví dụ: API của hệ thống quản lý thư viện. Chọn response code cho từng tình huống:</p><ol><li>Thủ thư thêm sách mới thành công.</li><li>Bạn đọc xem thông tin sách mã S9999, sách này không có.</li><li>Bạn đọc gọi API xóa sách (chỉ thủ thư được xóa).</li><li>App gọi API mượn sách nhưng token đã hết hạn.</li><li>Gửi yêu cầu mượn sách mà thiếu mã bạn đọc.</li><li>Một công cụ tự động gọi tra cứu liên tục, vượt hạn mức cho phép.</li><li>Server bị lỗi khi ghi phiếu mượn.</li></ol>",
+   "hints": [
+    "<p>Chia nhóm trước: thành công (2xx), lỗi phía client (4xx), lỗi phía server (5xx).</p>",
+    "<p>Phân biệt 401 (chưa xác thực được) với 403 (đã biết là ai nhưng không có quyền).</p>",
+    "<p>Tạo mới thành công khác lấy dữ liệu thành công.</p>"
+   ],
+   "answer": "<table><thead><tr><th>#</th><th>Mã</th><th>Lý do</th></tr></thead><tbody><tr><td>1</td><td>201 Created</td><td>Vừa tạo resource mới</td></tr><tr><td>2</td><td>404 Not Found</td><td>Không tìm thấy resource</td></tr><tr><td>3</td><td>403 Forbidden</td><td>Đã đăng nhập nhưng vai trò bạn đọc không có quyền xóa</td></tr><tr><td>4</td><td>401 Unauthorized</td><td>Token hết hạn nên không xác thực được</td></tr><tr><td>5</td><td>400 Bad Request</td><td>Request thiếu dữ liệu bắt buộc</td></tr><tr><td>6</td><td>429 Too Many Requests</td><td>Vượt giới hạn số lần gọi</td></tr><tr><td>7</td><td>500 Server Error</td><td>Lỗi phía server</td></tr></tbody></table>",
+   "src": "23. Api - Ly Thuyet.pdf tr.20"
+  },
+  {
+   "id": "L23-x4",
+   "title": "Chuyển XML sang JSON",
+   "level": "tb",
+   "task": "<p>Chuyển đoạn XML sau (ví dụ) sang JSON. Giữ đúng kiểu dữ liệu: số là Number, danh sách là Array.</p><pre>&lt;Member&gt;\n  &lt;Code&gt;BD001&lt;/Code&gt;\n  &lt;Name&gt;Trần An&lt;/Name&gt;\n  &lt;BorrowedBooks&gt;\n    &lt;Item&gt;S0001&lt;/Item&gt;\n    &lt;Item&gt;S0002&lt;/Item&gt;\n  &lt;/BorrowedBooks&gt;\n  &lt;Fine&gt;5000&lt;/Fine&gt;\n&lt;/Member&gt;</pre>",
+   "hints": [
+    "<p>Thẻ ngoài cùng có nhiều thẻ con → một JSON Object.</p>",
+    "<p>Các thẻ &lt;Item&gt; lặp lại → một JSON Array.</p>",
+    "<p>Mã sách là chuỗi, tiền phạt là số.</p>"
+   ],
+   "answer": "<pre>{\n  \"Member\": {\n    \"Code\": \"BD001\",\n    \"Name\": \"Trần An\",\n    \"BorrowedBooks\": [\"S0001\", \"S0002\"],\n    \"Fine\": 5000\n  }\n}</pre><p>Cũng chấp nhận bỏ lớp \"Member\" ngoài cùng nếu API quy ước object gốc chính là bạn đọc. Bản JSON ngắn hơn XML vì không lặp tên thẻ đóng.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.21-23"
+  },
+  {
+   "id": "L23-x5",
+   "title": "Tìm lỗi cú pháp JSON",
+   "level": "tb",
+   "task": "<p>Đoạn JSON sau (ví dụ) có 4 lỗi cú pháp. Chỉ ra và sửa:</p><pre>{\n  'Code': \"S0003\",\n  \"Title\": \"Tắt đèn\"\n  \"PageNumber\": \"200 trang\",\n  \"Position\": [\"Kệ 2\", \"Kệ 4\",],\n  \"Status\": True\n}</pre>",
+   "hints": [
+    "<p>Khóa và chuỗi trong JSON phải dùng loại nháy nào?</p>",
+    "<p>Kiểm tra dấu phẩy giữa các cặp và dấu phẩy thừa cuối mảng.</p>",
+    "<p>Boolean trong JSON viết hoa hay viết thường?</p>"
+   ],
+   "answer": "<ol><li><code>'Code'</code> dùng nháy đơn → phải là <code>\"Code\"</code>.</li><li>Thiếu dấu phẩy sau <code>\"Title\": \"Tắt đèn\"</code>.</li><li>Dấu phẩy thừa sau <code>\"Kệ 4\"</code> trong mảng.</li><li><code>True</code> sai → boolean phải viết thường <code>true</code>.</li></ol><p>Thêm (không phải lỗi cú pháp): <code>\"PageNumber\": \"200 trang\"</code> hợp lệ nhưng là String. Nếu cần tính toán thì nên là Number <code>200</code>.</p><pre>{\n  \"Code\": \"S0003\",\n  \"Title\": \"Tắt đèn\",\n  \"PageNumber\": 200,\n  \"Position\": [\"Kệ 2\", \"Kệ 4\"],\n  \"Status\": true\n}</pre>",
+   "src": "23. Api - Ly Thuyet.pdf tr.21-22"
+  },
+  {
+   "id": "L23-x6",
+   "title": "Đặc tả API kiểm tra tồn kho cho SolasMart",
+   "level": "kho",
+   "task": "<p>Tình huống ví dụ: SolasMart có bán tại quầy, bán online và kho. Website bán online cần hỏi hệ thống kho \"sản phẩm X ở cửa hàng Y còn bao nhiêu\" trước khi cho khách đặt. Bạn là BA, hãy:</p><ol><li>Đề xuất method và URL theo chuẩn RESTful.</li><li>Viết đặc tả theo mẫu FSD: mô tả chung, luồng nghiệp vụ, đầu vào, đầu ra, danh sách mã lỗi.</li><li>Viết một response JSON mẫu khi thành công.</li><li>Nêu response code cho: thành công, sản phẩm không tồn tại, website gọi mà không có token.</li></ol>",
+   "hints": [
+    "<p>Chỉ đọc dữ liệu, không thay đổi gì → method nào? Tài nguyên chính là gì, điều kiện lọc đặt ở đâu?</p>",
+    "<p>Luồng: kiểm tra bên gọi → kiểm tra mã cửa hàng → kiểm tra mã sản phẩm → trả số lượng. Mỗi bước trượt là một dòng lỗi.</p>",
+    "<p>Đầu ra cần ít nhất: mã sản phẩm, mã cửa hàng, số lượng tồn, thời điểm cập nhật, mã lỗi, mô tả lỗi.</p>"
+   ],
+   "answer": "<h5>1. Method và URL</h5><p><code>GET /stores/{storeId}/products/{productId}/stock</code> hoặc <code>GET /stocks?storeId=CH01&amp;productId=SP001</code>. Cả hai đều không có động từ trong path.</p><h5>2. Đặc tả</h5><table><tbody><tr><td>Tên</td><td>API kiểm tra tồn kho</td></tr><tr><td>Mục đích</td><td>Cho website bán online biết số lượng tồn của một sản phẩm tại một cửa hàng</td></tr><tr><td>Đối tượng sử dụng</td><td>Hệ thống bán online của SolasMart</td></tr><tr><td>Post-condition</td><td>Trả về số lượng tồn hoặc mã lỗi; không thay đổi dữ liệu kho</td></tr></tbody></table><p><b>Luồng:</b> (1) token của bên gọi hợp lệ; (2) mã cửa hàng tồn tại và đang hoạt động; (3) mã sản phẩm tồn tại và đang kinh doanh; (4) lấy số lượng tồn hiện tại và trả về.</p><table><thead><tr><th>Đầu vào</th><th>Require</th><th>Length</th><th>Ràng buộc</th></tr></thead><tbody><tr><td>Mã cửa hàng</td><td>Yes</td><td></td><td>Mã cửa hàng trên hệ thống SolasMart</td></tr><tr><td>Mã sản phẩm</td><td>Yes</td><td></td><td>Mã sản phẩm trên hệ thống SolasMart</td></tr></tbody></table><table><thead><tr><th>Đầu ra</th><th>Mô tả</th></tr></thead><tbody><tr><td>Mã cửa hàng, mã sản phẩm</td><td>Như đầu vào</td></tr><tr><td>Số lượng tồn</td><td>Số nguyên ≥ 0</td></tr><tr><td>Thời điểm cập nhật</td><td>dd/mm/yyyy hh24:mi:ss</td></tr><tr><td>Mã lỗi, mô tả lỗi</td><td>Theo bảng lỗi</td></tr></tbody></table><table><thead><tr><th>Trường hợp</th><th>Mô tả lỗi</th></tr></thead><tbody><tr><td>Token không hợp lệ</td><td>Không xác thực được bên gọi</td></tr><tr><td>Mã cửa hàng không tồn tại hoặc ngừng hoạt động</td><td>Mã cửa hàng không hợp lệ</td></tr><tr><td>Mã sản phẩm không tồn tại hoặc ngừng kinh doanh</td><td>Mã sản phẩm không hợp lệ</td></tr><tr><td>Thành công</td><td>Thành công</td></tr></tbody></table><h5>3. Response mẫu</h5><pre>{\n  \"storeId\": \"CH01\",\n  \"productId\": \"SP001\",\n  \"quantity\": 25,\n  \"updatedAt\": \"25/11/2026 09:30:00\",\n  \"errorCode\": \"00\",\n  \"errorMessage\": \"Thành công\"\n}</pre><h5>4. Response code</h5><p>Thành công: 200. Sản phẩm không tồn tại: 404. Không có token: 401.</p><p>Mọi mã cửa hàng, mã sản phẩm, số lượng ở trên là ví dụ.</p>",
+   "src": "23. Api - Ly Thuyet.pdf tr.13-22; FSD_Template.docx mục II.2.1"
+  },
+  {
+   "id": "L23-x7",
+   "title": "Đặc tả API nhận kết quả thanh toán từ đối tác",
+   "level": "kho",
+   "task": "<p>Theo mẫu FSD, FoodNow nhận kết quả thanh toán do Momo gửi sang. API này do <b>bên khác định nghĩa</b>. Hãy trả lời:</p><ol><li>Mục đầu vào/đầu ra viết thế nào, khác gì so với API do mình định nghĩa?</li><li>Liệt kê các bước kiểm tra phía FoodNow trong luồng nghiệp vụ.</li><li>Danh sách mã lỗi lấy theo ai? Cho ví dụ.</li><li>Nếu bước kiểm tra số tiền bị bỏ sót trong đặc tả, rủi ro nghiệp vụ là gì?</li></ol>",
+   "hints": [
+    "<p>Khi đối tác đã quy định cấu trúc dữ liệu, BA không tự đặt lại mà dẫn tới tài liệu của họ.</p>",
+    "<p>Luồng trong FSD có 5 bước kiểm tra: checksum, nhà hàng/chi nhánh, mã giao dịch, số tiền, trạng thái bàn.</p>",
+    "<p>Nghĩ tới trường hợp khách trả ít hơn số tiền của hóa đơn.</p>"
+   ],
+   "answer": "<ol><li>Đầu vào/đầu ra: ghi \"tham khảo đặc tả API của Momo\" kèm đường dẫn tài liệu của đối tác. Khác API tự định nghĩa ở chỗ BA không tự lập bảng trường dữ liệu, mà phải tuân theo đối tác.</li><li>Các bước kiểm tra: (a) checksum hợp lệ – FoodNow mã hóa theo yêu cầu của Momo bằng key được cấp, kết quả phải bằng checksum đối tác gửi; (b) mã nhà hàng đang hoạt động và đã liên kết thanh toán với đối tác, mã chi nhánh đang hoạt động; (c) mã giao dịch tồn tại và khớp nhà hàng, chi nhánh; (d) số tiền Momo gửi bằng số tiền của mã giao dịch; (e) bàn đang ở trạng thái Chờ thanh toán.</li><li>Mã lỗi theo yêu cầu của Momo. Ví dụ trong FSD: checksum sai hoặc nhà hàng/chi nhánh không hợp lệ → 13; mã giao dịch không tồn tại → 42; số tiền không hợp lệ → 21; không có lỗi → 00.</li><li>Bỏ sót kiểm tra số tiền: hệ thống có thể ghi nhận \"đã thanh toán\" dù khách trả thiếu, gây thất thu và sai đối soát.</li></ol>",
+   "src": "FSD_Template.docx mục II.2.2"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L23-f1",
+   "front": "API (Application Programming Interface)",
+   "back": "<p>Giao diện lập trình ứng dụng: cách để hai hay nhiều chương trình giao tiếp và trao đổi dữ liệu. Mẹo: API là người phục vụ, nhận order của khách (client) và mang món từ bếp (server) ra.</p>"
+  },
+  {
+   "id": "L23-f2",
+   "front": "Mô hình cũ và mô hình mới",
+   "back": "<p>Cũ: Website, Mobile, Desktop kết nối thẳng vào database. Mới: mọi client gửi HTTP Request tới REST API trên Web Server, chỉ server đụng vào database. Dữ liệu trao đổi bằng JSON hoặc XML.</p>"
+  },
+  {
+   "id": "L23-f3",
+   "front": "Consumer (Client) và Service Provider (Server)",
+   "back": "<p>Client: bên dùng dịch vụ, gửi request (Android, iPhone, Web App…). Server: bên cung cấp dịch vụ, chứa API, xử lý và trả response.</p>"
+  },
+  {
+   "id": "L23-f4",
+   "front": "7 lợi ích của API",
+   "back": "<p>Tích hợp hệ thống; tăng bảo mật; giảm lỗi dữ liệu; dễ bảo trì, mở rộng; kiểm soát quyền truy cập; dễ audit, log, tracking; tiết kiệm nguồn lực.</p>"
+  },
+  {
+   "id": "L23-f5",
+   "front": "Loại API phổ biến nhất (Postman 2022)",
+   "back": "<p>REST, gần 90% người được hỏi dùng. Theo sau: Webhooks, SOAP, GraphQL, Websockets.</p>"
+  },
+  {
+   "id": "L23-f6",
+   "front": "REST",
+   "back": "<p>Representational State Transfer: một bộ quy tắc (nguyên lý), một kiểu kiến trúc phần mềm. Mẹo: REST là \"luật\".</p>"
+  },
+  {
+   "id": "L23-f7",
+   "front": "RESTful",
+   "back": "<p>Một kiểu API dùng nguyên lý REST, gửi nhận qua HTTP, thường dùng JSON. Mẹo: RESTful là \"người chơi đúng luật\" REST.</p>"
+  },
+  {
+   "id": "L23-f8",
+   "front": "HTTP",
+   "back": "<p>HyperText Transfer Protocol – giao thức truyền siêu văn bản. Nằm ở tầng ứng dụng (Application Layer), cùng FTP, SMTP, DNS.</p>"
+  },
+  {
+   "id": "L23-f9",
+   "front": "HTTPS",
+   "back": "<p>HTTP + SSL = HTTPS (Secure). Dữ liệu được mã hóa trên đường truyền. Nên bắt buộc với API có mật khẩu, token, dữ liệu cá nhân.</p>"
+  },
+  {
+   "id": "L23-f10",
+   "front": "5 thành phần của RESTful API",
+   "back": "<p>Phương thức – URL – Header – Param – Response. Mẹo: \"làm gì – ở đâu – kèm thông tin gì – dữ liệu gì – nhận lại gì\".</p>"
+  },
+  {
+   "id": "L23-f11",
+   "front": "GET",
+   "back": "<p>Lấy dữ liệu. Tham số trên URL, lộ thông tin, được trình duyệt cache, nhanh, giới hạn khoảng 2048 ký tự. Không dùng cho đăng nhập.</p>"
+  },
+  {
+   "id": "L23-f12",
+   "front": "POST",
+   "back": "<p>Thêm mới dữ liệu. Tham số qua body, không hiện trên URL, không được trình duyệt cache, chậm hơn GET. Thành công thường trả 201.</p>"
+  },
+  {
+   "id": "L23-f13",
+   "front": "PUT và PATCH",
+   "back": "<p>PUT: cập nhật toàn bộ dữ liệu. PATCH: cập nhật một phần. Ví dụ: chỉ đổi giá sản phẩm → PATCH.</p>"
+  },
+  {
+   "id": "L23-f14",
+   "front": "DELETE",
+   "back": "<p>Xóa dữ liệu. Path thường kèm id: DELETE /customers/{id}.</p>"
+  },
+  {
+   "id": "L23-f15",
+   "front": "HEAD và OPTIONS",
+   "back": "<p>Hai method có trong danh sách trên slide. HEAD: như GET nhưng chỉ lấy header. OPTIONS: hỏi server cho phép những method nào.</p>"
+  },
+  {
+   "id": "L23-f16",
+   "front": "URL (Uniform Resource Locator)",
+   "back": "<p>Địa chỉ của tài nguyên. https://ctf.viblo.asia/puzzles gồm scheme (https), subdomain (ctf), second-level domain (viblo), top-level domain (asia), subdirectory (/puzzles).</p>"
+  },
+  {
+   "id": "L23-f17",
+   "front": "URL chuẩn RESTful",
+   "back": "<p>Path là danh từ số nhiều, hành động nằm ở method, thêm {id} khi thao tác một bản ghi. Ví dụ: POST /customers, PUT /customers/{id}. Sai: /CreateCustomer.</p>"
+  },
+  {
+   "id": "L23-f18",
+   "front": "HTTP Header",
+   "back": "<p>Phần của HTTP truyền thông tin bổ sung trong request hoặc response, dạng Tên: Giá trị. Ví dụ: Content-Type: application/json.</p>"
+  },
+  {
+   "id": "L23-f19",
+   "front": "Accept và Content-Type",
+   "back": "<p>Accept: client muốn nhận về kiểu dữ liệu nào. Content-Type: body đang gửi có kiểu gì. Mẹo: Accept = muốn nhận, Content-Type = đang gửi.</p>"
+  },
+  {
+   "id": "L23-f20",
+   "front": "Header Authorization: Bearer",
+   "back": "<p>Header chứa thông tin xác thực. Server dùng token để biết ai đang gọi và có quyền gì. Thiếu hoặc sai token thường bị 401.</p>"
+  },
+  {
+   "id": "L23-f21",
+   "front": "User-Agent và Content-Length",
+   "back": "<p>User-Agent: phần mềm gửi request (trình duyệt, app, Postman). Content-Length: độ dài phần body, ví dụ 119.</p>"
+  },
+  {
+   "id": "L23-f22",
+   "front": "3 thành phần của Response",
+   "back": "<p>Response header (Access-Control-Allow-Origin, Content-Length, Content-Type), response body (tùy từng API), response code.</p>"
+  },
+  {
+   "id": "L23-f23",
+   "front": "Access-Control-Allow-Origin",
+   "back": "<p>Response header cho biết nguồn (tên miền) nào được phép gọi API từ trình duyệt. Giá trị * là mọi nguồn, hoặc ghi một nguồn cụ thể.</p>"
+  },
+  {
+   "id": "L23-f24",
+   "front": "200 OK và 201 Created",
+   "back": "<p>200: thành công cho GET, PUT, PATCH, DELETE. 201: vừa tạo thành công một resource, thường sau POST.</p>"
+  },
+  {
+   "id": "L23-f25",
+   "front": "400 Bad Request",
+   "back": "<p>Request không hợp lệ, ví dụ thiếu trường bắt buộc, sai định dạng. Lỗi phía client.</p>"
+  },
+  {
+   "id": "L23-f26",
+   "front": "401 Unauthorized và 403 Forbidden",
+   "back": "<p>401: cần xác thực (chưa đăng nhập, token sai). 403: bị từ chối, đã biết là ai nhưng không có quyền. Mẹo: 401 = \"bạn là ai?\", 403 = \"biết rồi, nhưng không được\".</p>"
+  },
+  {
+   "id": "L23-f27",
+   "front": "404 Not Found",
+   "back": "<p>Không tìm thấy resource từ URI, ví dụ GET /customers/999 mà khách 999 không tồn tại.</p>"
+  },
+  {
+   "id": "L23-f28",
+   "front": "415, 429 và 500",
+   "back": "<p>415 Unsupported Media Type: không hỗ trợ kiểu dữ liệu gửi lên. 429 Too Many Requests: gọi quá giới hạn. 500 Server Error: lỗi phía server.</p>"
+  },
+  {
+   "id": "L23-f29",
+   "front": "Nhóm mã 2xx, 4xx, 5xx",
+   "back": "<p>2xx: thành công. 4xx: lỗi do phía client. 5xx: lỗi do phía server. Mẹo: 2 = ổn, 4 = bạn sai, 5 = tôi sai.</p>"
+  },
+  {
+   "id": "L23-f30",
+   "front": "JSON",
+   "back": "<p>JavaScript Object Notation: định dạng trao đổi dữ liệu giữa các hệ thống, phổ biến với API. Dễ đọc với người, dễ xử lý với máy, gọn nhẹ, chuẩn quốc tế.</p>"
+  },
+  {
+   "id": "L23-f31",
+   "front": "JSON Object và JSON Array",
+   "back": "<p>Object nằm trong {}, gồm các cặp \"khóa\": giá trị. Array nằm trong [], là danh sách giá trị. Ví dụ: [\"Kệ 1\", \"Kệ 3\"].</p>"
+  },
+  {
+   "id": "L23-f32",
+   "front": "6 kiểu dữ liệu trong JSON",
+   "back": "<p>String (\"Chí Phèo\"), Number (150, 3.14), Boolean (true/false), Null (null), Object ({…}), Array ([…]).</p>"
+  },
+  {
+   "id": "L23-f33",
+   "front": "XML",
+   "back": "<p>eXtensible Markup Language: định dạng trao đổi dữ liệu dùng thẻ mở và thẻ đóng, ví dụ &lt;Title&gt;Số đỏ&lt;/Title&gt;. Dễ đọc, được hỗ trợ rộng, nhưng dài hơn JSON.</p>"
+  },
+  {
+   "id": "L23-f34",
+   "front": "Postman",
+   "back": "<p>Công cụ gọi thử API. Có các tab Params, Authorization, Headers, Body và ô Response để xem kết quả.</p>"
+  },
+  {
+   "id": "L23-f35",
+   "front": "5 mục đặc tả API trong FSD",
+   "back": "<p>Mô tả chung, luồng nghiệp vụ, thông tin đầu vào (Require, Length, ràng buộc), thông tin đầu ra, danh sách mã lỗi. Mẹo: mỗi bước kiểm tra ↔ một dòng lỗi.</p>"
+  },
+  {
+   "id": "L23-f36",
+   "front": "Đặc tả API do bên khác định nghĩa",
+   "back": "<p>Đầu vào/đầu ra dẫn tới tài liệu của đối tác (ví dụ Momo); BA vẫn mô tả các bước kiểm tra phía mình; mã lỗi theo quy định của đối tác.</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L23-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>API là viết tắt của cụm từ nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Advanced Program Integration"
+    },
+    {
+     "id": "b",
+     "t": "Automated Programming Interface"
+    },
+    {
+     "id": "c",
+     "t": "Application Programming Interface"
+    },
+    {
+     "id": "d",
+     "t": "Application Programming Integration"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>API = Application Programming Interface, tạm dịch là giao diện lập trình ứng dụng.</p>",
+   "why_wrong": {
+    "a": "Không có chữ Advanced hay Integration trong tên API.",
+    "b": "Chữ A là Application (ứng dụng), không phải Automated (tự động).",
+    "d": "Chữ I là Interface (giao diện), không phải Integration (tích hợp)."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.1, 6"
+  },
+  {
+   "id": "L23-q2",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Hình minh họa Client – API – API Server trên slide giống cảnh nhà hàng. Trong cách ví này, API đóng vai trò nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khách ngồi tại bàn gọi món và chờ được phục vụ"
+    },
+    {
+     "id": "b",
+     "t": "Người phục vụ nhận yêu cầu và mang kết quả về"
+    },
+    {
+     "id": "c",
+     "t": "Đầu bếp trực tiếp nấu món"
+    },
+    {
+     "id": "d",
+     "t": "Kho nguyên liệu của nhà bếp"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>API đứng giữa: nhận request từ client, chuyển cho server xử lý rồi mang response về. Đó là việc của người phục vụ.</p>",
+   "why_wrong": {
+    "a": "Khách gọi món là Client, bên gửi request.",
+    "c": "Đầu bếp là API Server, nơi xử lý thật sự.",
+    "d": "Kho nguyên liệu giống database phía sau server, không phải API."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.6"
+  },
+  {
+   "id": "L23-q3",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Điểm khác chính của mô hình mới so với mô hình cũ trên slide là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mỗi ứng dụng Website, Mobile, Desktop kết nối thẳng vào database"
+    },
+    {
+     "id": "b",
+     "t": "Bỏ hẳn database dùng chung, mỗi client tự lưu và đồng bộ dữ liệu của riêng mình"
+    },
+    {
+     "id": "c",
+     "t": "Chỉ ứng dụng web mới được dùng dữ liệu chung"
+    },
+    {
+     "id": "d",
+     "t": "Client gửi HTTP request tới API trên server, chỉ server làm việc với database"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Trong mô hình mới, mọi client (Android, iPhone, Desktop, Web App) gọi REST API trên Web Server. Database được giấu sau server.</p>",
+   "why_wrong": {
+    "a": "Đây chính là mô hình cũ.",
+    "b": "Mô hình mới vẫn có database, đặt phía sau server.",
+    "c": "Mô hình mới cho nhiều loại client dùng chung, không chỉ web."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.4-5"
+  },
+  {
+   "id": "L23-q4",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn các lợi ích của API được nêu trên slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hỗ trợ tích hợp hệ thống"
+    },
+    {
+     "id": "b",
+     "t": "Dễ audit, log, tracking"
+    },
+    {
+     "id": "c",
+     "t": "Không cần dùng database nữa"
+    },
+    {
+     "id": "d",
+     "t": "Kiểm soát quyền truy cập"
+    },
+    {
+     "id": "e",
+     "t": "Giao diện người dùng đẹp hơn"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Slide liệt kê 7 lợi ích: tích hợp hệ thống, tăng bảo mật, giảm rủi ro lỗi dữ liệu, dễ bảo trì/mở rộng, kiểm soát quyền truy cập, dễ audit/log/tracking, tiết kiệm nguồn lực.</p>",
+   "why_wrong": {
+    "c": "API không thay thế database; dữ liệu vẫn nằm trong database phía server.",
+    "e": "API là giao diện giữa các chương trình, không liên quan tới giao diện người dùng."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.7"
+  },
+  {
+   "id": "L23-q5",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo báo cáo State of the API 2022 của Postman trên slide, loại API nào được dùng nhiều nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "SOAP"
+    },
+    {
+     "id": "b",
+     "t": "GraphQL"
+    },
+    {
+     "id": "c",
+     "t": "REST"
+    },
+    {
+     "id": "d",
+     "t": "Webhooks"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>REST dẫn đầu rất xa, gần 90%. Các loại khác đều dưới 40%.</p>",
+   "why_wrong": {
+    "a": "SOAP đứng thứ ba, khoảng một phần ba.",
+    "b": "GraphQL đứng sau Webhooks và SOAP.",
+    "d": "Webhooks đứng thứ hai, thấp hơn REST rất nhiều."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.8"
+  },
+  {
+   "id": "L23-q6",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>REST là một kiểu API, còn RESTful là bộ quy tắc mà API đó tuân theo.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Ngược lại: REST là bộ quy tắc (nguyên lý). RESTful là kiểu API dùng nguyên lý REST. Mẹo: REST là luật, RESTful là người chơi đúng luật.</p>",
+   "why_wrong": {
+    "d": "Câu đã đảo vai trò của REST và RESTful."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.9"
+  },
+  {
+   "id": "L23-q7",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn các đặc điểm của RESTful theo slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Sử dụng nguyên lý REST"
+    },
+    {
+     "id": "b",
+     "t": "Chỉ dùng được định dạng XML"
+    },
+    {
+     "id": "c",
+     "t": "Gửi nhận qua HTTP"
+    },
+    {
+     "id": "d",
+     "t": "Bắt buộc dùng giao thức FTP"
+    },
+    {
+     "id": "e",
+     "t": "Thường sử dụng dữ liệu JSON"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>RESTful: là một kiểu API, dùng nguyên lý REST, gửi nhận qua HTTP, thường dùng JSON.</p>",
+   "why_wrong": {
+    "b": "RESTful thường dùng JSON; XML vẫn dùng được nhưng không phải duy nhất.",
+    "d": "RESTful đi qua HTTP, FTP là giao thức truyền file khác."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.9"
+  },
+  {
+   "id": "L23-q8",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong sơ đồ bộ giao thức TCP/IP trên slide, HTTP nằm ở tầng nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Transport Layer"
+    },
+    {
+     "id": "b",
+     "t": "Application Layer"
+    },
+    {
+     "id": "c",
+     "t": "Internet Layer"
+    },
+    {
+     "id": "d",
+     "t": "Network Interface Layer"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>HTTP nằm ở Application Layer cùng FTP, SMTP, DNS, RIP, SNMP.</p>",
+   "why_wrong": {
+    "a": "Transport Layer chứa TCP và UDP.",
+    "c": "Internet Layer chứa IP, ARP, ICMP.",
+    "d": "Network Interface Layer chứa Ethernet, Wi-Fi 802.11, Frame Relay, ATM."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.10"
+  },
+  {
+   "id": "L23-q9",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>HTTPS khác HTTP ở điểm nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "HTTPS là HTTP cộng SSL, dữ liệu được mã hóa trên đường truyền"
+    },
+    {
+     "id": "b",
+     "t": "HTTPS bỏ phần header để gói tin nhẹ hơn và truyền nhanh hơn HTTP"
+    },
+    {
+     "id": "c",
+     "t": "HTTPS chỉ dùng được với dữ liệu JSON"
+    },
+    {
+     "id": "d",
+     "t": "HTTPS thay thế TCP ở tầng Transport"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Slide: HTTP + SSL = HTTPS (Secure). Lớp SSL mã hóa dữ liệu nên người ở giữa không đọc trộm được.</p>",
+   "why_wrong": {
+    "b": "HTTPS vẫn có header; mã hóa còn tốn thêm chút thời gian.",
+    "c": "HTTPS truyền được mọi kiểu dữ liệu, không riêng JSON.",
+    "d": "HTTPS vẫn là giao thức tầng ứng dụng, chạy trên TCP."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.11"
+  },
+  {
+   "id": "L23-q10",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn các mục nằm trong 5 thành phần của RESTful API theo slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Database"
+    },
+    {
+     "id": "b",
+     "t": "Phương thức"
+    },
+    {
+     "id": "c",
+     "t": "Stored procedure"
+    },
+    {
+     "id": "d",
+     "t": "Header"
+    },
+    {
+     "id": "e",
+     "t": "Response"
+    }
+   ],
+   "answer": [
+    "b",
+    "d",
+    "e"
+   ],
+   "explain": "<p>5 thành phần: Phương thức, URL, Header, Param, Response.</p>",
+   "why_wrong": {
+    "a": "Database nằm sau server, không phải thành phần của một API request.",
+    "c": "Stored procedure là đối tượng trong database, không thuộc 5 thành phần của API."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.12"
+  },
+  {
+   "id": "L23-q11",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Phương thức nào dùng để lấy dữ liệu và truyền tham số trực tiếp trên URL?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "POST"
+    },
+    {
+     "id": "b",
+     "t": "PUT"
+    },
+    {
+     "id": "c",
+     "t": "DELETE"
+    },
+    {
+     "id": "d",
+     "t": "GET"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>GET dùng để lấy dữ liệu, tham số đặt sau dấu ? trên URL.</p>",
+   "why_wrong": {
+    "a": "POST dùng để thêm mới, tham số truyền qua body.",
+    "b": "PUT dùng để cập nhật toàn bộ dữ liệu.",
+    "c": "DELETE dùng để xóa dữ liệu."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.13"
+  },
+  {
+   "id": "L23-q12",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Slide đưa URL <code>http://www.example.com/login?username=hung&amp;pass=123</code> làm ví dụ sai. Vì sao?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "URL vượt giới hạn độ dài 2048 ký tự mà trình duyệt cho phép với GET"
+    },
+    {
+     "id": "b",
+     "t": "Tên tham số phải viết hoa"
+    },
+    {
+     "id": "c",
+     "t": "Dùng GET nên mật khẩu nằm trên URL và bị lộ"
+    },
+    {
+     "id": "d",
+     "t": "GET không gửi được tham số nào"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>GET đặt tham số trên URL nên lộ thông tin (lịch sử trình duyệt, log). Đăng nhập phải dùng POST, mật khẩu đi trong body.</p>",
+   "why_wrong": {
+    "a": "URL này rất ngắn, chưa chạm giới hạn độ dài.",
+    "b": "HTTP không bắt buộc tên tham số viết hoa.",
+    "d": "GET vẫn gửi tham số, chính vì gửi trên URL nên mới lộ."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.13"
+  },
+  {
+   "id": "L23-q13",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>PUT và PATCH khác nhau thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "PUT dùng để thêm mới bản ghi, PATCH dùng để xóa bản ghi"
+    },
+    {
+     "id": "b",
+     "t": "PUT cập nhật toàn bộ, PATCH cập nhật một phần dữ liệu"
+    },
+    {
+     "id": "c",
+     "t": "PUT chỉ gửi XML, PATCH chỉ gửi JSON"
+    },
+    {
+     "id": "d",
+     "t": "Hai method giống hệt nhau, chỉ khác tên gọi"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>PUT thay toàn bộ bản ghi, PATCH chỉ vá những trường cần đổi. Mẹo: PATCH là \"miếng vá\".</p>",
+   "why_wrong": {
+    "a": "Thêm mới là POST, xóa là DELETE.",
+    "c": "Method không quy định định dạng dữ liệu; định dạng nằm ở Content-Type.",
+    "d": "Slide tách rõ: toàn bộ (PUT) và một phần (PATCH)."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.14"
+  },
+  {
+   "id": "L23-q14",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Hệ thống nhân sự của SolasMart cần API chỉ đổi số điện thoại của một nhân viên, các trường khác giữ nguyên. Method nào phù hợp nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "PATCH"
+    },
+    {
+     "id": "b",
+     "t": "PUT"
+    },
+    {
+     "id": "c",
+     "t": "POST"
+    },
+    {
+     "id": "d",
+     "t": "GET"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Chỉ đổi một trường là cập nhật một phần → PATCH, ví dụ <code>PATCH /employees/{id}</code>.</p>",
+   "why_wrong": {
+    "b": "PUT cập nhật toàn bộ, phải gửi lại đủ mọi trường.",
+    "c": "POST dùng để thêm mới một nhân viên.",
+    "d": "GET chỉ lấy dữ liệu, không sửa gì."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.14"
+  },
+  {
+   "id": "L23-q15",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo slide, dữ liệu gọi bằng GET được trình duyệt cache, còn POST thì không.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide ghi GET \"được cache bởi trình duyệt\", POST \"không được cache bởi trình duyệt\". Đây cũng là lý do slide nói GET nhanh hơn.</p>",
+   "why_wrong": {
+    "s": "Slide nêu đúng như câu phát biểu."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.13-14"
+  },
+  {
+   "id": "L23-q16",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Theo slide, đặc điểm nào <b>KHÔNG</b> đúng với phương thức GET?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bị giới hạn độ dài 2048 ký tự"
+    },
+    {
+     "id": "b",
+     "t": "Được cache bởi trình duyệt"
+    },
+    {
+     "id": "c",
+     "t": "Lộ thông tin trên URL"
+    },
+    {
+     "id": "d",
+     "t": "Tham số truyền qua body"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Truyền tham số qua body là đặc điểm của POST. GET truyền tham số trực tiếp trên URL.</p>",
+   "why_wrong": {
+    "a": "Slide ghi GET bị giới hạn độ dài 2048 ký tự.",
+    "b": "Slide ghi GET được trình duyệt cache.",
+    "c": "Slide ghi GET lộ thông tin vì tham số nằm trên URL."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.13-14"
+  },
+  {
+   "id": "L23-q17",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong URL <code>https://ctf.viblo.asia/puzzles</code>, phần <code>viblo</code> gọi là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Subdomain"
+    },
+    {
+     "id": "b",
+     "t": "Second-level domain"
+    },
+    {
+     "id": "c",
+     "t": "Top-level domain"
+    },
+    {
+     "id": "d",
+     "t": "Subdirectory"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide chia: https = scheme, ctf = subdomain, viblo = second-level domain, asia = top-level domain, /puzzles = subdirectory.</p>",
+   "why_wrong": {
+    "a": "Subdomain là ctf, đứng trước viblo.",
+    "c": "Top-level domain là đuôi asia.",
+    "d": "Subdirectory là /puzzles, phần sau tên miền."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.15"
+  },
+  {
+   "id": "L23-q18",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Áp cách chia URL trên slide cho <code>https://shop.example.com/products</code>. Phần <code>shop</code> là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Scheme"
+    },
+    {
+     "id": "b",
+     "t": "Top-level domain"
+    },
+    {
+     "id": "c",
+     "t": "Subdomain"
+    },
+    {
+     "id": "d",
+     "t": "Second-level domain"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Đọc tên miền từ phải sang trái: com là top-level, example là second-level, phần còn lại phía trước (shop) là subdomain.</p>",
+   "why_wrong": {
+    "a": "Scheme là https.",
+    "b": "Top-level domain là com.",
+    "d": "Second-level domain là example."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.15"
+  },
+  {
+   "id": "L23-q19",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Theo bảng URL chuẩn RESTful trên slide, request nào đúng để lấy thông tin khách hàng có id 15?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "GET /getCustomer?id=15"
+    },
+    {
+     "id": "b",
+     "t": "POST /customers/15"
+    },
+    {
+     "id": "c",
+     "t": "GET /customer/find/15"
+    },
+    {
+     "id": "d",
+     "t": "GET /customers/15"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Lấy một khách hàng cụ thể: GET /customers/{id}. Path là danh từ số nhiều, không có động từ.</p>",
+   "why_wrong": {
+    "a": "Có động từ getCustomer trong path, sai chuẩn RESTful.",
+    "b": "POST dùng để thêm mới, không dùng để lấy dữ liệu.",
+    "c": "Có động từ find và danh từ số ít customer, không theo bảng chuẩn."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.16"
+  },
+  {
+   "id": "L23-q20",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Cần API tạo một khách hàng mới. Theo chuẩn RESTful trên slide, chọn request đúng.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "POST /customers"
+    },
+    {
+     "id": "b",
+     "t": "PUT /customers/new"
+    },
+    {
+     "id": "c",
+     "t": "POST /customers/create"
+    },
+    {
+     "id": "d",
+     "t": "GET /customers?action=create"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Tạo mới dùng POST trên tập tài nguyên, không có id: POST /customers.</p>",
+   "why_wrong": {
+    "b": "PUT dùng để cập nhật, và \"new\" không phải id của bản ghi.",
+    "c": "Hành động create đã do POST thể hiện, không đưa động từ vào path.",
+    "d": "GET chỉ lấy dữ liệu, không dùng để tạo mới."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.16"
+  },
+  {
+   "id": "L23-q21",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>URL <code>https://qlvbapi.vn/api/IncomingDocument/CreateIncommingDocument</code> đúng chuẩn RESTful vì có chữ api trong đường dẫn.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Có chữ api không làm URL thành RESTful. URL này đặt động từ Create trong path. Cách chuẩn: POST /api/incoming-documents.</p>",
+   "why_wrong": {
+    "d": "Tiêu chí RESTful là path dùng danh từ và hành động nằm ở method, không phải có chữ api."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.16-17"
+  },
+  {
+   "id": "L23-q22",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Chọn các request đúng chuẩn RESTful cho tài nguyên đơn hàng <code>orders</code>.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "DELETE /orders/{id} để xóa một đơn"
+    },
+    {
+     "id": "b",
+     "t": "POST /orders/deleteOrder để xóa một đơn"
+    },
+    {
+     "id": "c",
+     "t": "GET /orders để tìm kiếm đơn hàng"
+    },
+    {
+     "id": "d",
+     "t": "PUT /updateOrder/{id} để cập nhật một đơn"
+    },
+    {
+     "id": "e",
+     "t": "PATCH /orders/{id} để đổi trạng thái đơn"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Đúng chuẩn khi path là danh từ số nhiều, thêm {id} khi thao tác một bản ghi, hành động do method thể hiện.</p>",
+   "why_wrong": {
+    "b": "Đưa động từ deleteOrder vào path và dùng POST để xóa.",
+    "d": "Method PUT đúng, nhưng path chứa động từ updateOrder thay vì /orders/{id}."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.13-16"
+  },
+  {
+   "id": "L23-q23",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>HTTP Header là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phần chứa dữ liệu chính mà API trả về cho client"
+    },
+    {
+     "id": "b",
+     "t": "Phần của HTTP mang thông tin bổ sung cho request/response"
+    },
+    {
+     "id": "c",
+     "t": "Mã số trong phản hồi cho biết request thành công hay thất bại"
+    },
+    {
+     "id": "d",
+     "t": "Phần tên miền đứng đầu URL"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide: HTTP Header là một phần của HTTP, truyền thông tin bổ sung trong các request hoặc phản hồi HTTP.</p>",
+   "why_wrong": {
+    "a": "Dữ liệu chính trả về là response body.",
+    "c": "Đó là response code.",
+    "d": "Tên miền là một phần của URL, không phải header."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.18"
+  },
+  {
+   "id": "L23-q24",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Header nào cho server biết phần body đang gửi lên có kiểu JSON?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Accept: application/json, text/html"
+    },
+    {
+     "id": "b",
+     "t": "User-Agent: PostmanRuntime"
+    },
+    {
+     "id": "c",
+     "t": "Content-Type: application/json"
+    },
+    {
+     "id": "d",
+     "t": "Content-Length: 119"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Content-Type nói \"tôi đang gửi kiểu gì\". Accept nói \"tôi muốn nhận kiểu gì\".</p>",
+   "why_wrong": {
+    "a": "Accept cho biết kiểu client muốn nhận về, không phải kiểu đang gửi.",
+    "b": "User-Agent cho biết phần mềm nào gửi request.",
+    "d": "Content-Length chỉ cho biết độ dài body."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.18"
+  },
+  {
+   "id": "L23-q25",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>App đặt đồ ăn gọi API xem lịch sử đơn và nhận mã 401. Request nhiều khả năng đang thiếu hoặc sai header nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Content-Length"
+    },
+    {
+     "id": "b",
+     "t": "Accept"
+    },
+    {
+     "id": "c",
+     "t": "User-Agent"
+    },
+    {
+     "id": "d",
+     "t": "Authorization"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>401 nghĩa là request cần xác thực. Thông tin xác thực (Bearer token) nằm ở header Authorization.</p>",
+   "why_wrong": {
+    "a": "Sai độ dài body không dẫn tới lỗi xác thực.",
+    "b": "Accept sai kiểu thường không gây 401.",
+    "c": "User-Agent chỉ mô tả phần mềm gửi request, không dùng để xác thực."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.18, 20"
+  },
+  {
+   "id": "L23-q26",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, response gồm 3 thành phần nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phương thức (method), URL, param"
+    },
+    {
+     "id": "b",
+     "t": "Scheme, domain và subdirectory của URL"
+    },
+    {
+     "id": "c",
+     "t": "Response header, body và response code"
+    },
+    {
+     "id": "d",
+     "t": "Request header, request body và database"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Response gồm header (Access-Control-Allow-Origin, Content-Length, Content-Type), body (tùy API) và code.</p>",
+   "why_wrong": {
+    "a": "Phương thức, URL, param là thành phần phía request.",
+    "b": "Đó là các phần của URL.",
+    "d": "Request header, request body thuộc phía request; database không nằm trong response."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.19"
+  },
+  {
+   "id": "L23-q27",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Response header <code>Access-Control-Allow-Origin: *</code> có ý nghĩa gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Cho phép mọi nguồn (tên miền) gọi API này"
+    },
+    {
+     "id": "b",
+     "t": "Chặn mọi nguồn gọi API này"
+    },
+    {
+     "id": "c",
+     "t": "Cho phép dùng mọi phương thức HTTP với API này"
+    },
+    {
+     "id": "d",
+     "t": "Trả dữ liệu ở mọi định dạng"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Giá trị * là mọi nguồn; có thể thay bằng một nguồn cụ thể để chỉ cho phép tên miền đó.</p>",
+   "why_wrong": {
+    "b": "Dấu * nghĩa là cho phép tất cả, không phải chặn.",
+    "c": "Header này nói về nguồn được gọi, không nói về method.",
+    "d": "Định dạng trả về do Content-Type cho biết."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.19"
+  },
+  {
+   "id": "L23-q28",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Mã nào trả về khi một resource vừa được tạo thành công?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "200 OK"
+    },
+    {
+     "id": "b",
+     "t": "201 Created"
+    },
+    {
+     "id": "c",
+     "t": "400 Bad Request"
+    },
+    {
+     "id": "d",
+     "t": "404 Not Found"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>201 Created: một resource vừa được tạo thành công, thường sau POST.</p>",
+   "why_wrong": {
+    "a": "Slide dùng 200 cho GET, PUT, PATCH, DELETE thành công.",
+    "c": "400 là request không hợp lệ.",
+    "d": "404 là không tìm thấy resource."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.20"
+  },
+  {
+   "id": "L23-q29",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Phân biệt 401 Unauthorized và 403 Forbidden.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "401 là lỗi server, 403 là lỗi client"
+    },
+    {
+     "id": "b",
+     "t": "401 là không tìm thấy, 403 là gọi quá nhiều lần"
+    },
+    {
+     "id": "c",
+     "t": "Hai mã cùng nghĩa là bị từ chối, server được tùy chọn trả mã nào cũng được"
+    },
+    {
+     "id": "d",
+     "t": "401 là cần xác thực, 403 là đã biết bạn là ai nhưng không có quyền"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>401: request cần có auth. 403: bị từ chối, không cho phép. Mẹo: 401 = \"bạn là ai?\", 403 = \"biết rồi nhưng không được\".</p>",
+   "why_wrong": {
+    "a": "Cả hai đều là 4xx, lỗi phía client.",
+    "b": "Không tìm thấy là 404, gọi quá nhiều là 429.",
+    "c": "Hai mã có ý nghĩa khác nhau, dùng nhầm làm khó tìm nguyên nhân."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.20"
+  },
+  {
+   "id": "L23-q30",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Khách hàng tra cứu đặt bàn FoodNow bằng mã 12345, nhưng mã này không có trong hệ thống. API nên trả mã nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "400 Bad Request"
+    },
+    {
+     "id": "b",
+     "t": "403 Forbidden"
+    },
+    {
+     "id": "c",
+     "t": "404 Not Found"
+    },
+    {
+     "id": "d",
+     "t": "500 Server Error"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Request đúng định dạng nhưng không có resource tương ứng → 404 Not Found.</p>",
+   "why_wrong": {
+    "a": "Request không sai định dạng, chỉ là không có dữ liệu.",
+    "b": "Không phải vấn đề quyền truy cập.",
+    "d": "Server không lỗi, nó đã xử lý và xác định không có đặt bàn này."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.20"
+  },
+  {
+   "id": "L23-q31",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Một ứng dụng đối tác gọi API tra cứu giá của SolasMart liên tục, vượt hạn mức số lần gọi đã thỏa thuận, và bị server từ chối. Mã trả về phù hợp là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "403 Forbidden"
+    },
+    {
+     "id": "b",
+     "t": "429 Too Many Requests"
+    },
+    {
+     "id": "c",
+     "t": "415 Unsupported Media Type"
+    },
+    {
+     "id": "d",
+     "t": "500 Server Error"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>429: request bị từ chối do vượt giới hạn.</p>",
+   "why_wrong": {
+    "a": "Đối tác có quyền gọi; vấn đề là gọi quá nhiều lần.",
+    "c": "415 nói về kiểu dữ liệu không được hỗ trợ.",
+    "d": "Server không lỗi, nó chủ động từ chối theo hạn mức."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.20"
+  },
+  {
+   "id": "L23-q32",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>API tạo đơn hàng chỉ nhận body JSON. Một đối tác gửi body dạng XML. Theo bảng mã trên slide, mã nào mô tả đúng nhất lỗi này?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "404 Not Found"
+    },
+    {
+     "id": "b",
+     "t": "429 Too Many Requests"
+    },
+    {
+     "id": "c",
+     "t": "201 Created"
+    },
+    {
+     "id": "d",
+     "t": "415 Unsupported Media Type"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>415: server không hỗ trợ kiểu dữ liệu được gửi lên.</p>",
+   "why_wrong": {
+    "a": "URL vẫn đúng, resource vẫn có.",
+    "b": "Không liên quan tới số lần gọi.",
+    "c": "Đơn chưa được tạo nên không thể trả 201."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.20"
+  },
+  {
+   "id": "L23-q33",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Mã 500 cho biết client đã gửi request sai định dạng.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>500 là lỗi phía server. Request sai định dạng là 400 Bad Request. Mẹo: 4xx = bạn sai, 5xx = server sai.</p>",
+   "why_wrong": {
+    "d": "Câu nhầm lỗi phía server (5xx) với lỗi phía client (4xx)."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.20"
+  },
+  {
+   "id": "L23-q34",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Chọn các mã thuộc nhóm lỗi do phía client gây ra.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "201 Created"
+    },
+    {
+     "id": "b",
+     "t": "400 Bad Request"
+    },
+    {
+     "id": "c",
+     "t": "403 Forbidden"
+    },
+    {
+     "id": "d",
+     "t": "500 Server Error"
+    },
+    {
+     "id": "e",
+     "t": "404 Not Found"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Nhóm 4xx là lỗi phía client: 400, 401, 403, 404, 415, 429.</p>",
+   "why_wrong": {
+    "a": "201 thuộc nhóm 2xx, thành công.",
+    "d": "500 thuộc nhóm 5xx, lỗi phía server."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.20"
+  },
+  {
+   "id": "L23-q35",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>JSON là viết tắt của cụm từ nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "JavaScript Object Notation"
+    },
+    {
+     "id": "b",
+     "t": "Java Standard Object Network"
+    },
+    {
+     "id": "c",
+     "t": "JavaScript Online Notation"
+    },
+    {
+     "id": "d",
+     "t": "Joined Server Object Name"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>JSON = JavaScript Object Notation, định dạng trao đổi dữ liệu phổ biến khi làm việc với API.</p>",
+   "why_wrong": {
+    "b": "JSON bắt nguồn từ JavaScript, không phải Java, và không có chữ Network.",
+    "c": "Chữ O là Object, không phải Online.",
+    "d": "Đây là cụm tự ghép, không phải tên của JSON."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.21"
+  },
+  {
+   "id": "L23-q36",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Một JSON Array được đặt trong cặp dấu nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Cặp ngoặc nhọn { }"
+    },
+    {
+     "id": "b",
+     "t": "Cặp ngoặc tròn ( )"
+    },
+    {
+     "id": "c",
+     "t": "Cặp ngoặc vuông [ ]"
+    },
+    {
+     "id": "d",
+     "t": "Cặp dấu nhỏ hơn, lớn hơn"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>JSON Array nằm trong [ ]. JSON Object nằm trong { }.</p>",
+   "why_wrong": {
+    "a": "{ } dùng cho JSON Object.",
+    "b": "JSON không dùng ngoặc tròn để bao dữ liệu.",
+    "d": "Dấu nhỏ hơn, lớn hơn dùng cho thẻ XML."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.21"
+  },
+  {
+   "id": "L23-q37",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong ví dụ trên slide, giá trị <code>\"Position\": [\"Kệ 1\", \"Kệ 3\"]</code> thuộc kiểu dữ liệu nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Object"
+    },
+    {
+     "id": "b",
+     "t": "Array"
+    },
+    {
+     "id": "c",
+     "t": "String"
+    },
+    {
+     "id": "d",
+     "t": "Null"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Giá trị nằm trong [ ] nên là Array; bên trong là các phần tử String.</p>",
+   "why_wrong": {
+    "a": "Object nằm trong { } và có cặp khóa: giá trị.",
+    "c": "Từng phần tử là String, nhưng cả giá trị là Array.",
+    "d": "Null là giá trị rỗng null, ở đây có dữ liệu."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.22"
+  },
+  {
+   "id": "L23-q38",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong một response có <code>\"PageNumber\": \"150\"</code>. Trường PageNumber ở đây có kiểu gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Number"
+    },
+    {
+     "id": "b",
+     "t": "Boolean"
+    },
+    {
+     "id": "c",
+     "t": "Array"
+    },
+    {
+     "id": "d",
+     "t": "String"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Giá trị nằm trong nháy kép nên là String, dù trông như số. Number viết không có nháy: 150.</p>",
+   "why_wrong": {
+    "a": "Number không có nháy kép bao quanh.",
+    "b": "Boolean chỉ có true hoặc false.",
+    "c": "Array phải nằm trong [ ]."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.22"
+  },
+  {
+   "id": "L23-q39",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Đặc tả yêu cầu trường <code>Status</code> là Boolean. Dev gửi <code>\"Status\": \"true\"</code>. BA nên yêu cầu sửa thành gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "\"Status\": true"
+    },
+    {
+     "id": "b",
+     "t": "\"Status\": True"
+    },
+    {
+     "id": "c",
+     "t": "\"Status\": 'true'"
+    },
+    {
+     "id": "d",
+     "t": "\"Status\": \"TRUE\""
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Boolean trong JSON là true/false viết thường, không có nháy.</p>",
+   "why_wrong": {
+    "b": "JSON phân biệt hoa thường; True viết hoa không hợp lệ.",
+    "c": "JSON không dùng nháy đơn, và có nháy thì vẫn là chuỗi.",
+    "d": "Có nháy kép nên vẫn là String."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.22"
+  },
+  {
+   "id": "L23-q40",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn các kiểu dữ liệu có trong JSON theo slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Date"
+    },
+    {
+     "id": "b",
+     "t": "Boolean"
+    },
+    {
+     "id": "c",
+     "t": "Null"
+    },
+    {
+     "id": "d",
+     "t": "Function"
+    },
+    {
+     "id": "e",
+     "t": "Object"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "e"
+   ],
+   "explain": "<p>JSON có 6 kiểu: String, Number, Boolean, Null, Object, Array.</p>",
+   "why_wrong": {
+    "a": "JSON không có kiểu Date; ngày giờ thường gửi dạng String theo định dạng quy ước.",
+    "d": "JSON chỉ chứa dữ liệu, không chứa hàm."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.22"
+  },
+  {
+   "id": "L23-q41",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Theo slide, với cùng một dữ liệu, XML viết gọn hơn JSON.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Slide ghi XML \"dài hơn JSON\", vì mỗi trường phải có cả thẻ mở và thẻ đóng.</p>",
+   "why_wrong": {
+    "d": "Câu nói ngược với slide: JSON mới là định dạng gọn hơn."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.23"
+  },
+  {
+   "id": "L23-q42",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Slide liệt kê đặc điểm của JSON và XML gần giống nhau. Điểm nào chỉ có ở phần XML?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Dễ đọc với người"
+    },
+    {
+     "id": "b",
+     "t": "Dễ xử lý với máy"
+    },
+    {
+     "id": "c",
+     "t": "Dài hơn JSON"
+    },
+    {
+     "id": "d",
+     "t": "Được hỗ trợ bởi hầu hết ngôn ngữ lập trình"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>JSON được ghi \"gọn nhẹ\", còn XML được ghi \"dài hơn JSON\". Ba đặc điểm còn lại có ở cả hai.</p>",
+   "why_wrong": {
+    "a": "Slide ghi dễ đọc với người cho cả JSON và XML.",
+    "b": "Slide ghi dễ xử lý với máy cho cả hai.",
+    "d": "Slide ghi đặc điểm này cho cả hai định dạng."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.21, 23"
+  },
+  {
+   "id": "L23-q43",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Trong mẫu FSD, đặc tả một API do mình định nghĩa (như API đặt bàn) có mục Danh sách mã lỗi.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Đặc tả API đặt bàn gồm: mô tả chung, luồng nghiệp vụ, thông tin đầu vào, thông tin đầu ra, danh sách mã lỗi.</p>",
+   "why_wrong": {
+    "s": "Mẫu FSD có mục 2.1.5 Danh sách mã lỗi cho API đặt bàn."
+   },
+   "src": "FSD_Template.docx mục II.2.1"
+  },
+  {
+   "id": "L23-q44",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA viết đặc tả API nhận kết quả thanh toán do Momo gửi sang FoodNow. API này do bên Momo định nghĩa. Mục thông tin đầu vào/đầu ra nên viết thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tự đặt tên trường theo quy ước của FoodNow"
+    },
+    {
+     "id": "b",
+     "t": "Dẫn tới tài liệu đặc tả API của Momo"
+    },
+    {
+     "id": "c",
+     "t": "Bỏ trống, để dev tự tìm hiểu"
+    },
+    {
+     "id": "d",
+     "t": "Chép nguyên bảng đầu vào của API đặt bàn"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Với API do bên khác định nghĩa, mẫu FSD ghi \"tham khảo đặc tả API của Momo\" kèm đường dẫn. BA vẫn mô tả các bước kiểm tra phía mình.</p>",
+   "why_wrong": {
+    "a": "Đối tác đã quy định cấu trúc; tự đặt tên khác sẽ không gọi được.",
+    "c": "Bỏ trống làm đặc tả thiếu, dev không biết theo chuẩn nào.",
+    "d": "API đặt bàn có dữ liệu khác hẳn API thanh toán."
+   },
+   "src": "FSD_Template.docx mục II.2.2"
+  },
+  {
+   "id": "L23-q45",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Trong mẫu FSD, luồng nghiệp vụ của API đặt bàn có những bước kiểm tra nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mã đối tác tồn tại và đang hoạt động"
+    },
+    {
+     "id": "b",
+     "t": "Khách đã thanh toán đủ tiền cọc giữ bàn"
+    },
+    {
+     "id": "c",
+     "t": "Thời gian tới sau hiện tại và trong giờ mở cửa"
+    },
+    {
+     "id": "d",
+     "t": "Khách có tài khoản ví điện tử đã liên kết"
+    },
+    {
+     "id": "e",
+     "t": "Bàn chưa được đặt trong khung giờ đó"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Các bước: mã đối tác hợp lệ → mã nhà hàng hợp lệ → khung thời gian hợp lệ → bàn hợp lệ → lưu thông tin đặt bàn.</p>",
+   "why_wrong": {
+    "b": "Luồng API đặt bàn không có bước kiểm tra tiền cọc.",
+    "d": "Ví điện tử không thuộc luồng đặt bàn; thanh toán là API khác."
+   },
+   "src": "FSD_Template.docx mục II.2.1"
+  },
+  {
+   "id": "L23-q46",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>SolasMart muốn website và app mobile luôn hiện cùng một giá bán, đổi giá chỉ phải sửa ở một chỗ. Theo mô hình mới trên slide, cách nào phù hợp?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Cho website và app cùng kết nối thẳng vào database"
+    },
+    {
+     "id": "b",
+     "t": "Mỗi ứng dụng tự lưu một bảng giá riêng"
+    },
+    {
+     "id": "c",
+     "t": "Sao chép toàn bộ database vào từng ứng dụng mỗi đêm để website và app cùng có bảng giá"
+    },
+    {
+     "id": "d",
+     "t": "Đặt API giá ở server, website và app cùng gọi API đó"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Mô hình mới: mọi client gọi chung một API ở server. Sửa logic giá một chỗ là mọi client đều thấy, đúng lợi ích dễ bảo trì, giảm lỗi dữ liệu.</p>",
+   "why_wrong": {
+    "a": "Đây là mô hình cũ: khó bảo mật, mỗi app phải tự viết lại logic.",
+    "b": "Mỗi nơi một bảng giá dễ lệch dữ liệu.",
+    "c": "Bản sao theo đêm làm giá bị cũ trong ngày và dễ sai lệch."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.4-5, 7"
+  },
+  {
+   "id": "L23-q47",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Khi rà đặc tả API đặt bàn, BA thấy luồng có bước \"kiểm tra nhà hàng đã liên kết với đối tác\" nhưng danh sách mã lỗi không có dòng nào cho trường hợp này. BA nên làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bỏ bước kiểm tra đó khỏi luồng cho khớp với bảng lỗi"
+    },
+    {
+     "id": "b",
+     "t": "Thêm dòng lỗi \"Nhà hàng chưa liên kết với đối tác\""
+    },
+    {
+     "id": "c",
+     "t": "Ghi chú để mọi lỗi đều trả 500"
+    },
+    {
+     "id": "d",
+     "t": "Để dev tự đặt mô tả lỗi khi code cho tiện"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Mỗi bước kiểm tra có thể trượt phải có một dòng lỗi tương ứng. Mẫu FSD có đúng dòng \"Nhà hàng chưa liên kết với đối tác\".</p>",
+   "why_wrong": {
+    "a": "Bước kiểm tra là quy tắc nghiệp vụ, bỏ đi sẽ cho đặt bàn ở nhà hàng chưa liên kết.",
+    "c": "500 là lỗi server, không cho đối tác biết lý do nghiệp vụ.",
+    "d": "Mô tả lỗi là phần đặc tả của BA; để dev tự đặt dễ không thống nhất với đối tác."
+   },
+   "src": "FSD_Template.docx mục II.2.1"
+  },
+  {
+   "id": "L23-q48",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA viết yêu cầu cho API đăng nhập của app FoodNow. Cách gửi tên đăng nhập và mật khẩu nào hợp lý nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "GET, đặt mật khẩu trên URL vì GET nhanh hơn"
+    },
+    {
+     "id": "b",
+     "t": "DELETE, gửi mật khẩu trong header User-Agent"
+    },
+    {
+     "id": "c",
+     "t": "POST, gửi mật khẩu trong body, bắt buộc dùng HTTPS"
+    },
+    {
+     "id": "d",
+     "t": "GET qua HTTP thường, che mật khẩu bằng cách viết hoa toàn bộ trước khi gửi"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>POST đưa tham số vào body nên không hiện trên URL. Thêm HTTPS để mã hóa đường truyền, body không bị đọc trộm.</p>",
+   "why_wrong": {
+    "a": "GET làm lộ mật khẩu trên URL, đúng như ví dụ sai trên slide.",
+    "b": "DELETE dùng để xóa dữ liệu, User-Agent chỉ mô tả phần mềm gửi request.",
+    "d": "Viết hoa không phải mã hóa; GET qua HTTP vẫn lộ mật khẩu."
+   },
+   "src": "23. Api - Ly Thuyet.pdf tr.11, 13-14"
+  }
+ ],
+ "summary": {
+  "points": [
+   "API là giao diện để các chương trình giao tiếp và trao đổi dữ liệu; client không chạm trực tiếp vào database",
+   "7 lợi ích: tích hợp, bảo mật, giảm lỗi dữ liệu, dễ bảo trì/mở rộng, kiểm soát quyền, dễ audit/log, tiết kiệm nguồn lực",
+   "REST là bộ nguyên lý; RESTful là API theo REST, gửi nhận qua HTTP, thường dùng JSON; REST là loại API phổ biến nhất",
+   "HTTP nằm ở tầng ứng dụng; HTTPS = HTTP + SSL để mã hóa đường truyền",
+   "5 thành phần RESTful API: phương thức, URL, header, param, response",
+   "GET lấy, POST thêm, PUT cập nhật toàn bộ, PATCH cập nhật một phần, DELETE xóa",
+   "URL chuẩn RESTful dùng danh từ số nhiều cho tài nguyên, hành động nằm ở method, thêm {id} khi làm với một bản ghi",
+   "Response gồm header, body, code; 2xx thành công, 4xx lỗi phía client, 5xx lỗi phía server",
+   "JSON có object {} và array []; 6 kiểu: string, number, boolean, null, object, array; XML dài hơn JSON",
+   "BA đặc tả API gồm mô tả chung, luồng nghiệp vụ, đầu vào, đầu ra, danh sách mã lỗi; API của đối tác thì dẫn đặc tả của đối tác"
+  ],
+  "html": "<p>API là \"người phục vụ\" đứng giữa client và server. Nắm được bài này, BA đọc được một request/response và viết được đặc tả API cho dev và đối tác.</p><table><thead><tr><th>Phần</th><th>Cần nhớ</th></tr></thead><tbody><tr><td>Khái niệm</td><td>Định nghĩa, mô hình cũ/mới, 7 lợi ích, các loại API (REST dẫn đầu)</td></tr><tr><td>Thành phần</td><td>Method · URL · Header · Param · Response (header, body, code)</td></tr><tr><td>Dữ liệu</td><td>JSON (object, array, 6 kiểu dữ liệu) và XML</td></tr><tr><td>Việc của BA</td><td>Đặc tả API: mô tả chung, luồng, đầu vào, đầu ra, mã lỗi</td></tr></tbody></table><p class=\"warn\">Lỗi hay gặp: dùng GET cho đăng nhập (lộ mật khẩu); đưa động từ vào URL; nhầm PUT với PATCH; nhầm 401 với 403; viết chuỗi JSON bằng nháy đơn hoặc thiếu dấu phẩy.</p>"
+ },
+ "images": [
+  {
+   "id": "L23-img1",
+   "path": "data/pages/23. Api - Ly Thuyet/p-004.jpg",
+   "caption": "Mô hình cũ: mỗi ứng dụng kết nối thẳng vào database",
+   "crop": [
+    0.0,
+    0.14,
+    1.0,
+    0.87
+   ]
+  },
+  {
+   "id": "L23-img2",
+   "path": "data/pages/23. Api - Ly Thuyet/p-005.jpg",
+   "caption": "Mô hình mới: Client gửi HTTP Request tới REST API trên Web Server, nhận HTTP Response",
+   "crop": [
+    0.06,
+    0.15,
+    0.95,
+    0.88
+   ]
+  },
+  {
+   "id": "L23-img3",
+   "path": "data/pages/23. Api - Ly Thuyet/p-006.jpg",
+   "caption": "Client – API – API Server: API như người phục vụ chuyển yêu cầu và mang kết quả về",
+   "crop": [
+    0.46,
+    0.27,
+    0.97,
+    0.75
+   ]
+  },
+  {
+   "id": "L23-img4",
+   "path": "data/pages/23. Api - Ly Thuyet/p-008.jpg",
+   "caption": "Các loại API phổ biến (State of the API 2022 của Postman)",
+   "crop": [
+    0.03,
+    0.13,
+    0.96,
+    0.9
+   ]
+  },
+  {
+   "id": "L23-img5",
+   "path": "data/pages/23. Api - Ly Thuyet/p-010.jpg",
+   "caption": "Mô hình OSI 7 tầng và bộ giao thức TCP/IP: HTTP nằm ở tầng ứng dụng",
+   "crop": [
+    0.0,
+    0.12,
+    1.0,
+    0.93
+   ]
+  },
+  {
+   "id": "L23-img6",
+   "path": "data/pages/23. Api - Ly Thuyet/p-012.jpg",
+   "caption": "5 thành phần của RESTful API trên Postman: 1 phương thức, 2 URL, 3 header, 4 param/body, 5 response",
+   "crop": [
+    0.0,
+    0.12,
+    1.0,
+    0.98
+   ]
+  },
+  {
+   "id": "L23-img7",
+   "path": "data/pages/23. Api - Ly Thuyet/p-015.jpg",
+   "caption": "Các phần của URL: scheme, subdomain, second-level domain, top-level domain, subdirectory",
+   "crop": [
+    0.17,
+    0.25,
+    0.8,
+    0.72
+   ]
+  },
+  {
+   "id": "L23-img8",
+   "path": "data/pages/23. Api - Ly Thuyet/p-016.jpg",
+   "caption": "URL chuẩn RESTful: danh từ số nhiều cho tài nguyên, hành động nằm ở method",
+   "crop": [
+    0.06,
+    0.11,
+    0.94,
+    0.9
+   ]
+  }
+ ]
+}

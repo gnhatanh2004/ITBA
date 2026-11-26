@@ -1,0 +1,695 @@
+{
+ "lesson": "L11b",
+ "voice": "vi-VN-NamMinhNeural",
+ "hash": "bbea788357f48856",
+ "duration": 614.928,
+ "chunks": [
+  {
+   "id": "L11b-n1",
+   "start": 0.0,
+   "end": 29.544,
+   "sents": [
+    [
+     0.1,
+     5.15,
+     "Chào bạn, mình bắt đầu buổi mười một: phân tích tổng quan theo hướng đối tượng."
+    ],
+    [
+     5.1,
+     9.012,
+     "Mục đích của buổi là hiểu và áp dụng được phương pháp này."
+    ],
+    [
+     9.012,
+     14.6,
+     "Buổi học có ba phần: phương pháp phân tích hướng đối tượng, thực hành, và hỏi đáp."
+    ],
+    [
+     14.6,
+     18.325,
+     "Phân tích tổng quan nghĩa là nhìn hệ thống ở mức khái quát."
+    ],
+    [
+     18.325,
+     22.725,
+     "Hệ thống có những thứ gì, ai dùng nó, và nó làm được gì."
+    ],
+    [
+     22.725,
+     29.525,
+     "Chi tiết từng màn hình, từng trường dữ liệu sẽ làm ở các bước sau, như đặc tả use case hay ERD."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n2",
+   "start": 30.144,
+   "end": 71.664,
+   "sents": [
+    [
+     30.244,
+     32.907,
+     "Đầu tiên, đối tượng là gì?"
+    ],
+    [
+     32.856,
+     40.356,
+     "Object là một thực thể cụ thể trong hệ thống, đại diện cho người, vật hoặc khái niệm có vai trò quan trọng trong hoạt động của hệ thống."
+    ],
+    [
+     40.356,
+     42.769,
+     "Mỗi đối tượng có hai phần."
+    ],
+    [
+     42.769,
+     47.294,
+     "Đặc điểm, hay attributes, mô tả thông tin về đối tượng."
+    ],
+    [
+     47.294,
+     52.781,
+     "Hành vi, hay methods, là những gì đối tượng có thể làm, hoặc được làm với nó."
+    ],
+    [
+     52.781,
+     56.731,
+     "Công thức gọn là: đối tượng bằng đặc điểm cộng hành vi."
+    ],
+    [
+     56.731,
+     63.956,
+     "Ví dụ trong thư viện, đối tượng Sách có đặc điểm là Tiêu đề, Tác giả, và hành vi là Được mượn, Được trả."
+    ],
+    [
+     63.956,
+     71.644,
+     "Mẹo nhớ: đặc điểm là danh từ, trả lời câu có gì, còn hành vi là động từ, trả lời câu làm gì hoặc bị làm gì."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n3",
+   "start": 72.264,
+   "end": 111.216,
+   "sents": [
+    [
+     72.364,
+     75.801,
+     "Vậy làm sao biết một thứ có phải đối tượng không?"
+    ],
+    [
+     75.751,
+     78.114,
+     "Slide nêu ba dấu hiệu."
+    ],
+    [
+     78.114,
+     85.214,
+     "Một, có thông tin riêng, tức hệ thống cần lưu trữ hoặc quản lý dữ liệu về nó, như tên sách hay mã thành viên."
+    ],
+    [
+     85.214,
+     90.939,
+     "Hai, có hành động liên quan, nó làm gì đó hoặc được làm gì đó, như sách được mượn."
+    ],
+    [
+     90.939,
+     95.976,
+     "Ba, đóng vai trò trong quy trình, ví dụ phiếu mượn trong quy trình mượn sách."
+    ],
+    [
+     95.976,
+     102.052,
+     "Để ý phiếu mượn không phải người, cũng không phải vật hữu hình, nhưng vẫn là đối tượng dạng khái niệm."
+    ],
+    [
+     102.052,
+     111.201,
+     "Kiểm nhanh: một danh từ không có thông tin cần lưu, không có hành động và không nằm trong quy trình chính, thì thường chỉ là thuộc tính của đối tượng khác, hoặc không cần đưa vào."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n4",
+   "start": 111.816,
+   "end": 146.904,
+   "sents": [
+    [
+     111.916,
+     114.454,
+     "Giờ tới tên của phương pháp."
+    ],
+    [
+     114.404,
+     120.228,
+     "OOA, tức Object-Oriented Analysis, là phân tích hệ thống theo hướng đối tượng."
+    ],
+    [
+     120.228,
+     126.404,
+     "Đây là cách phân tích yêu cầu bằng cách mô hình hóa hệ thống như một tập hợp các đối tượng có đặc tính và hành vi."
+    ],
+    [
+     126.404,
+     133.541,
+     "Nói đơn giản, OOA chia nhỏ hệ thống thành các đối tượng, rồi xem chúng làm gì và liên kết với nhau ra sao."
+    ],
+    [
+     133.541,
+     137.591,
+     "So với cách phân tích theo chức năng, điểm xuất phát khác nhau."
+    ],
+    [
+     137.591,
+     141.391,
+     "Phân tích theo chức năng bắt đầu từ câu hỏi hệ thống làm gì."
+    ],
+    [
+     141.391,
+     146.904,
+     "Còn OOA bắt đầu từ câu hỏi hệ thống gồm những thứ gì, rồi mới suy ra chức năng."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n5",
+   "start": 147.504,
+   "end": 190.56,
+   "sents": [
+    [
+     147.604,
+     150.691,
+     "Vì sao nên phân tích theo hướng đối tượng?"
+    ],
+    [
+     150.641,
+     153.041,
+     "Slide nêu bốn mục tiêu."
+    ],
+    [
+     153.041,
+     161.466,
+     "Thứ nhất, tạo nền tảng cho thiết kế và phát triển phần mềm hướng đối tượng, vì đội phát triển dùng lại được danh sách đối tượng để thiết kế lớp và bảng dữ liệu."
+    ],
+    [
+     161.466,
+     167.716,
+     "Thứ hai, dễ bảo trì và mở rộng, vì thêm tính năng thường chỉ cần thêm đối tượng hoặc thêm hành vi."
+    ],
+    [
+     167.716,
+     175.492,
+     "Thứ ba, phù hợp với thực tế nghiệp vụ và tái sử dụng được, vì đối tượng phản ánh những thứ có thật như sách, đơn hàng, khách hàng."
+    ],
+    [
+     175.492,
+     181.604,
+     "Thứ tư, phân rã hệ thống thành các lớp, tức class, gắn với chức năng và vai trò nghiệp vụ."
+    ],
+    [
+     181.604,
+     190.554,
+     "Lưu ý nhỏ: trong UML, Sách nói chung là một class, còn một cuốn sách cụ thể mới là object, nhưng slide gọi chung cả hai là đối tượng."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n6",
+   "start": 191.16,
+   "end": 228.816,
+   "sents": [
+    [
+     191.26,
+     196.385,
+     "Trọng tâm của buổi là năm bước phân tích hướng đối tượng, mỗi bước có một output."
+    ],
+    [
+     196.335,
+     202.16,
+     "Bước một, xác định các đối tượng chính, hỏi ai hoặc cái gì tham gia, ra Object List."
+    ],
+    [
+     202.16,
+     207.81,
+     "Bước hai, xác định thuộc tính và hành vi của từng đối tượng, ra danh sách chi tiết Object."
+    ],
+    [
+     207.81,
+     213.597,
+     "Bước ba, xác định mối quan hệ giữa các đối tượng, ra sơ đồ Object Relationship."
+    ],
+    [
+     213.597,
+     218.11,
+     "Bước bốn, xác định ai dùng hệ thống, ra danh sách Actor."
+    ],
+    [
+     218.11,
+     222.748,
+     "Bước năm, hỏi Actor làm gì với Object, ra danh sách chức năng."
+    ],
+    [
+     222.748,
+     228.81,
+     "Mẹo nhớ thứ tự: có gì, ra sao, nối nhau, ai dùng, làm gì."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n7",
+   "start": 229.416,
+   "end": 270.792,
+   "sents": [
+    [
+     229.516,
+     232.966,
+     "Đi vào bước một: xác định các đối tượng chính."
+    ],
+    [
+     232.916,
+     238.004,
+     "Mục tiêu là liệt kê các đối tượng quan trọng, gồm người, vật và khái niệm."
+    ],
+    [
+     238.004,
+     240.191,
+     "Slide gợi ý ba cách."
+    ],
+    [
+     240.191,
+     246.641,
+     "Cách thứ nhất, tìm danh từ trong mô tả hệ thống, vì danh từ thường đại diện cho người, vật hoặc khái niệm."
+    ],
+    [
+     246.641,
+     251.328,
+     "Cách thứ hai, trả lời câu hỏi ai hoặc cái gì tham gia vào hoạt động chính."
+    ],
+    [
+     251.328,
+     259.016,
+     "Cách thứ ba, dựa vào quy trình nghiệp vụ, xem từng bước để tìm đối tượng liên quan, kể cả đối tượng ẩn như phiếu mượn hay đơn hàng."
+    ],
+    [
+     259.016,
+     261.841,
+     "Output của bước này là Object List."
+    ],
+    [
+     261.841,
+     270.779,
+     "Nhưng cẩn thận, không phải danh từ nào cũng là đối tượng: tiêu đề hay ngày mượn chỉ là thuộc tính, còn danh từ quá chung như hệ thống, thông tin thường bị loại."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n8",
+   "start": 271.392,
+   "end": 314.568,
+   "sents": [
+    [
+     271.492,
+     273.954,
+     "Thử với hệ thống đặt đồ ăn."
+    ],
+    [
+     273.904,
+     282.792,
+     "Mô tả là: khách hàng chọn món ăn trong thực đơn của nhà hàng, thêm vào giỏ hàng rồi đặt đơn hàng, nhân viên nhà hàng xác nhận đơn và ghi nhận thời gian giao."
+    ],
+    [
+     282.792,
+     286.867,
+     "Trước hết gạch chân mọi danh từ, rồi xếp loại từng cái."
+    ],
+    [
+     286.867,
+     294.13,
+     "Món ăn, thực đơn, giỏ hàng, đơn hàng là Object, vì hệ thống lưu thông tin và có hành động gắn với chúng."
+    ],
+    [
+     294.13,
+     298.442,
+     "Khách hàng và nhân viên nhà hàng dùng hệ thống, nên là Actor."
+    ],
+    [
+     298.442,
+     301.829,
+     "Nhà hàng là Object nếu app có nhiều nhà hàng."
+    ],
+    [
+     301.829,
+     305.005,
+     "Còn thời gian giao chỉ là thuộc tính của đơn hàng."
+    ],
+    [
+     305.005,
+     314.555,
+     "Với nhiệm vụ trên slide, khách hàng đặt món ăn qua ứng dụng, đáp án là khách hàng, món ăn và đơn hàng, còn ứng dụng chính là hệ thống nên không phải đối tượng."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n9",
+   "start": 315.168,
+   "end": 353.664,
+   "sents": [
+    [
+     315.268,
+     318.493,
+     "Tới đây cần phân biệt Object và Actor."
+    ],
+    [
+     318.443,
+     323.255,
+     "Object nằm trong hệ thống và được hệ thống quản lý, như sách hay đơn hàng."
+    ],
+    [
+     323.255,
+     328.156,
+     "Actor ở ngoài hệ thống và tương tác với hệ thống, như khách hàng hay nhân viên."
+    ],
+    [
+     328.156,
+     332.843,
+     "Nhưng tùy ngữ cảnh, một thực thể có thể vừa là Object vừa là Actor."
+    ],
+    [
+     332.843,
+     341.668,
+     "Ví dụ thành viên thư viện: hệ thống lưu tên và mã số thành viên, nên là Object, đồng thời thành viên dùng hệ thống để mượn sách, nên là Actor."
+    ],
+    [
+     341.668,
+     344.606,
+     "Khách hàng của app đặt đồ ăn cũng vậy."
+    ],
+    [
+     344.606,
+     353.643,
+     "Mẹo: hỏi hệ thống có lưu nó không, có thì là Object, hỏi nó có dùng hệ thống không, có thì là Actor, có cả hai thì ghi vào cả hai danh sách."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n10",
+   "start": 354.264,
+   "end": 396.888,
+   "sents": [
+    [
+     354.364,
+     358.714,
+     "Sang bước hai: xác định thuộc tính và hành vi của từng đối tượng."
+    ],
+    [
+     358.664,
+     365.839,
+     "Cách làm là bắt đầu với một object chính, mô tả đặc điểm và việc làm của nó, rồi tiếp tục với các object còn lại."
+    ],
+    [
+     365.839,
+     372.389,
+     "Output là danh sách chi tiết Object, kẻ thành bảng ba cột: đối tượng, đặc điểm, việc làm."
+    ],
+    [
+     372.389,
+     378.151,
+     "Ở thư viện, Sách có Tiêu đề, Tác giả, việc làm là Được mượn, Được trả."
+    ],
+    [
+     378.151,
+     382.276,
+     "Thành viên có Tên, Mã số, việc làm là Mượn sách."
+    ],
+    [
+     382.276,
+     386.752,
+     "Phiếu mượn có Mã phiếu, Ngày mượn, việc làm là Tạo mới."
+    ],
+    [
+     386.752,
+     396.889,
+     "Với app đặt đồ ăn, Đơn hàng có mã đơn, ngày giờ đặt, tổng tiền, trạng thái, và hành vi thường ở dạng bị động như được tạo, được xác nhận, được giao."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n11",
+   "start": 397.488,
+   "end": 436.392,
+   "sents": [
+    [
+     397.588,
+     403.438,
+     "Bước ba là xác định mối quan hệ giữa các đối tượng, rồi vẽ sơ đồ Object Relationship."
+    ],
+    [
+     403.388,
+     409.2,
+     "Câu hỏi là: các đối tượng có quan hệ gì với nhau, hay đối tượng này làm gì với đối tượng kia."
+    ],
+    [
+     409.2,
+     414.313,
+     "Quan hệ được mô tả bằng động từ, như tạo, chứa, ghi nhận."
+    ],
+    [
+     414.313,
+     419.825,
+     "Khi vẽ, mỗi đối tượng là một hộp, mỗi quan hệ là một mũi tên có nhãn động từ."
+    ],
+    [
+     419.825,
+     425.925,
+     "Sơ đồ thư viện có ba hộp và sáu mũi tên, đọc theo công thức hộp gốc, nhãn, hộp đích."
+    ],
+    [
+     425.925,
+     432.588,
+     "Thành viên mượn Sách, Phiếu mượn chứa Sách, Thành viên sở hữu Phiếu mượn, và mỗi cặp còn có mũi tên ngược chiều."
+    ],
+    [
+     432.588,
+     436.375,
+     "Từ đó thấy Phiếu mượn là cầu nối giữa Thành viên và Sách."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n12",
+   "start": 436.992,
+   "end": 467.424,
+   "sents": [
+    [
+     437.092,
+     442.23,
+     "Áp bước ba cho app đặt đồ ăn với ba đối tượng khách hàng, đơn hàng và món ăn."
+    ],
+    [
+     442.18,
+     443.88,
+     "Xét từng cặp."
+    ],
+    [
+     443.88,
+     447.704,
+     "Khách hàng tạo đơn hàng, và đơn hàng thuộc về khách hàng."
+    ],
+    [
+     447.704,
+     449.98,
+     "Đơn hàng chứa món ăn."
+    ],
+    [
+     449.98,
+     453.292,
+     "Khách hàng chọn món ăn, thông qua đơn hàng."
+    ],
+    [
+     453.292,
+     457.93,
+     "Sơ đồ rút gọn là khách hàng tạo đơn hàng, đơn hàng chứa món ăn."
+    ],
+    [
+     457.93,
+     467.405,
+     "Có một điểm cần biết: slide hoạt động của bước ba ghi nhiệm vụ liệt kê ba chức năng, trùng với bước năm, nên bài thực hành theo đúng mục tiêu của bước ba là tìm mối quan hệ."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n13",
+   "start": 468.024,
+   "end": 506.64,
+   "sents": [
+    [
+     468.124,
+     470.799,
+     "Bước bốn là xác định actor."
+    ],
+    [
+     470.749,
+     475.212,
+     "Actor là thực thể ở ngoài hệ thống, khởi tạo hoặc dùng chức năng."
+    ],
+    [
+     475.212,
+     478.661,
+     "Câu hỏi của bước này là: ai dùng hệ thống?"
+    ],
+    [
+     478.661,
+     486.736,
+     "Actor không chỉ là người, một hệ thống bên ngoài như cổng thanh toán hay dịch vụ gửi SMS cũng là actor nếu nó tương tác với hệ thống của mình."
+    ],
+    [
+     486.736,
+     491.437,
+     "Output là danh sách Actor, ở thư viện gồm Thành viên và Nhân viên."
+    ],
+    [
+     491.437,
+     497.512,
+     "Với app đặt đồ ăn, người đặt món là khách hàng, người nhận và xác nhận đơn là nhân viên nhà hàng."
+    ],
+    [
+     497.512,
+     501.587,
+     "Có thể kể thêm shipper, quản trị viên và cổng thanh toán."
+    ],
+    [
+     501.587,
+     506.624,
+     "Còn đơn hàng, món ăn nằm trong hệ thống nên là Object, không phải Actor."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n14",
+   "start": 507.24,
+   "end": 542.88,
+   "sents": [
+    [
+     507.34,
+     511.24,
+     "Bước năm là suy ra chức năng từ Actor và Object."
+    ],
+    [
+     511.19,
+     516.628,
+     "Ta hỏi Actor làm gì với Object, và xem lại hành vi của Object đã có ở bước hai."
+    ],
+    [
+     516.628,
+     520.465,
+     "Ví dụ thành viên với sách cho ra chức năng xem thông tin sách."
+    ],
+    [
+     520.465,
+     526.065,
+     "Thành viên hoặc nhân viên với phiếu mượn có hành vi tạo mới, cho ra chức năng tạo phiếu mượn."
+    ],
+    [
+     526.065,
+     530.965,
+     "Nhân viên với sách có hành vi được trả, cho ra thêm chức năng ghi nhận trả sách."
+    ],
+    [
+     530.965,
+     537.153,
+     "Tên chức năng nên đặt dạng động từ cộng danh từ, cũng là cách đặt tên use case ở bài UML."
+    ],
+    [
+     537.153,
+     542.865,
+     "Chính vì chức năng được suy ra như vậy, nên bước này phải làm sau khi đã có Object và Actor."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n15",
+   "start": 543.48,
+   "end": 581.184,
+   "sents": [
+    [
+     543.58,
+     546.243,
+     "Ghép lại năm bước cho thư viện."
+    ],
+    [
+     546.192,
+     549.88,
+     "Object List gồm Sách, Thành viên, Phiếu mượn."
+    ],
+    [
+     549.88,
+     553.78,
+     "Chi tiết, ví dụ Sách có Tiêu đề và hành vi Được mượn."
+    ],
+    [
+     553.78,
+     558.005,
+     "Quan hệ là Thành viên nối với Phiếu mượn, Phiếu mượn nối với Sách."
+    ],
+    [
+     558.005,
+     560.655,
+     "Actor là Thành viên và Nhân viên."
+    ],
+    [
+     560.655,
+     564.08,
+     "Chức năng là Tạo phiếu mượn và Xem thông tin sách."
+    ],
+    [
+     564.08,
+     572.567,
+     "Phần thực hành của buổi là phân tích tổng quan một dự án mock, tức dự án giả lập để luyện tập, như app đặt đồ ăn, và trình bày đủ năm output."
+    ],
+    [
+     572.567,
+     581.18,
+     "Khi làm, tránh ba lỗi hay gặp: đưa thuộc tính vào Object List, nhầm Actor với Object, và liệt kê chức năng trước khi có Object và Actor."
+    ]
+   ]
+  },
+  {
+   "id": "L11b-n16",
+   "start": 581.784,
+   "end": 614.928,
+   "sents": [
+    [
+     581.884,
+     584.021,
+     "Tóm lại buổi mười một."
+    ],
+    [
+     583.971,
+     589.284,
+     "Đối tượng là người, vật hoặc khái niệm trong hệ thống, gồm đặc điểm cộng hành vi."
+    ],
+    [
+     589.284,
+     596.384,
+     "Ta nhận diện đối tượng nhờ ba dấu hiệu: có thông tin riêng, có hành động liên quan, và đóng vai trò trong quy trình."
+    ],
+    [
+     596.384,
+     601.896,
+     "Object nằm trong hệ thống, Actor ở ngoài và dùng hệ thống, có thực thể là cả hai."
+    ],
+    [
+     601.896,
+     610.471,
+     "OOA đi qua năm bước: Object List, chi tiết Object, sơ đồ Object Relationship, danh sách Actor, và danh sách chức năng."
+    ],
+    [
+     610.471,
+     614.909,
+     "Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài."
+    ]
+   ]
+  }
+ ]
+}

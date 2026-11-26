@@ -1,0 +1,330 @@
+{
+ "lesson": "L13a",
+ "chunks": [
+  {
+   "id": "L13a-n1",
+   "say": "Chào bạn, mình bắt đầu buổi mười ba, phần một: UML, Use Case và State Diagram. Buổi này đi qua bốn phần. Thứ nhất, UML là gì, dùng để làm gì và gồm những loại biểu đồ nào. Thứ hai, Use Case Diagram, để trả lời câu hỏi ai dùng hệ thống để làm gì. Thứ ba, State Diagram, để thấy một đối tượng đi qua những trạng thái nào. Và thứ tư là thực hành vẽ cả hai biểu đồ cho quy trình đặt đồ ăn. Cuối buổi, bạn cần đọc được một sơ đồ có sẵn và tự vẽ được sơ đồ của mình.",
+   "show": {
+    "h": "Buổi 13a: UML, Use Case và State Diagram",
+    "points": [
+     "UML là gì, các loại biểu đồ",
+     "Use Case Diagram: ai dùng hệ thống để làm gì",
+     "State Diagram: vòng đời một đối tượng",
+     "Thực hành: quy trình đặt đồ ăn"
+    ]
+   }
+  },
+  {
+   "id": "L13a-n2",
+   "ref": "L13a-t1",
+   "say": "Đầu tiên, UML là gì? UML, viết tắt của Unified Modeling Language, là ngôn ngữ mô hình hóa thống nhất, gồm các ký hiệu đồ họa mà các phương pháp hướng đối tượng dùng để thiết kế hệ thống thông tin. Trước khi có UML, mỗi phương pháp vẽ một kiểu riêng, nên UML ra đời để chuẩn hóa các cách tiếp cận thiết kế và bộ ký hiệu đó. Mẹo nhớ: UML là ngôn ngữ, không phải phần mềm vẽ, bạn vẽ bằng bút giấy hay draw.io đều được, miễn là đúng ký hiệu. UML có bốn mục đích: chuẩn hóa cách mô hình hóa, giao tiếp rõ ràng trong dự án, giúp phân tích và quản lý hệ thống phức tạp, và giúp phần mềm dễ tái sử dụng, dễ bảo trì. Người đọc UML gồm BA để mô hình hóa yêu cầu, Software Architect để thiết kế tổng thể, Developer để triển khai, Tester để tạo test case từ use case, và khách hàng để hiểu hệ thống hoạt động ra sao. Vì nhiều vai cùng đọc một sơ đồ, BA cần vẽ đúng ký hiệu và đặt tên dễ hiểu với cả người không chuyên.",
+   "show": {
+    "h": "UML là gì, để làm gì, ai dùng",
+    "points": [
+     "Unified Modeling Language: ngôn ngữ mô hình gồm ký hiệu đồ họa",
+     "Ra đời để chuẩn hóa các kiểu vẽ thiết kế; là ngôn ngữ, không phải phần mềm vẽ",
+     "Mục đích: chuẩn hóa · giao tiếp · quản lý hệ thống phức tạp · dễ bảo trì",
+     "BA: yêu cầu · Architect: thiết kế · Developer: triển khai",
+     "Tester: test case từ use case · Khách hàng: hiểu hệ thống"
+    ]
+   },
+   "ask": [
+    "L13a-q1",
+    "L13a-q2",
+    "L13a-q3"
+   ]
+  },
+  {
+   "id": "L13a-n3",
+   "ref": "L13a-t4",
+   "say": "Biểu đồ UML chia làm hai nhóm. Nhóm tĩnh, Structure diagrams, mô tả cấu trúc: hệ thống gồm những phần nào và liên kết ra sao, không có yếu tố thời gian. Slide nêu ba biểu đồ tĩnh là Class Diagram, Object Diagram và Component Diagram. Nhóm động, Behavior diagrams, mô tả hành vi: hệ thống làm gì, các bước, các trạng thái thay đổi theo sự kiện. Slide nêu bốn biểu đồ động là Use Case, Sequence, Activity và State Diagram. Lưu ý, slide chỉ liệt kê bảy loại hay dùng, còn chuẩn UML có tới mười bốn loại, và State Diagram có tên đầy đủ là State Machine Diagram. Mẹo nhớ: tĩnh là cái gì có trong hệ thống, động là hệ thống làm gì và thay đổi ra sao.",
+   "show": {
+    "h": "Hai nhóm biểu đồ UML",
+    "points": [
+     "Structure (tĩnh): Class · Object · Component",
+     "Behavior (động): Use Case · Sequence · Activity · State",
+     "Chuẩn UML có 14 loại; slide nêu 7 loại hay dùng",
+     "Tĩnh = có gì · Động = làm gì, thay đổi ra sao"
+    ],
+    "img": "L13a-img1"
+   },
+   "ask": [
+    "L13a-q4",
+    "L13a-q5"
+   ]
+  },
+  {
+   "id": "L13a-n4",
+   "ref": "L13a-t5",
+   "say": "Giờ sang phần Use Case. Use Case Diagram mô tả mối quan hệ giữa người dùng, gọi là actor, và các chức năng, gọi là use case, mà hệ thống cung cấp. Nó giúp hiểu hệ thống cần làm gì từ góc nhìn người dùng, và xác định các chức năng chính. Use case có hai dạng. Dạng hình vẽ là Use Case Diagram, cho bức tranh tổng quan ai dùng chức năng nào. Dạng chữ là Use Case Specification, mô tả chi tiết từng use case, phần này mình học ở bài sau. Điều quan trọng: Use Case Diagram chỉ trả lời ai làm được gì. Nó không thể hiện thứ tự các bước, thứ tự đó nằm ở đặc tả use case hoặc Activity Diagram.",
+   "show": {
+    "h": "Use Case Diagram: khái niệm",
+    "points": [
+     "Quan hệ giữa actor và các use case hệ thống cung cấp",
+     "Nhìn hệ thống từ góc người dùng, xác định chức năng chính",
+     "Hai dạng: Use Case Diagram (hình) · Use Case Specification (chữ)",
+     "Chỉ cho biết ai làm được gì, không thể hiện thứ tự bước"
+    ],
+    "img": "L13a-img2"
+   },
+   "ask": [
+    "L13a-q6",
+    "L13a-q7"
+   ]
+  },
+  {
+   "id": "L13a-n5",
+   "ref": "L13a-t6",
+   "say": "Một Use Case Diagram có năm loại thành phần. Actor là người hoặc hệ thống tương tác với hệ thống, vẽ bằng hình người que, tên ở dưới. Use case là một chức năng hệ thống cung cấp, vẽ bằng hình elip, tên ở trong. System boundary là ranh giới hệ thống, một hình chữ nhật chứa tất cả use case, tên hệ thống ở góc trên. Association là đường liền không mũi tên, nối actor với use case. Cuối cùng là các quan hệ giữa use case: include, extend và generalization, lát nữa mình đi từng cái. Nhớ quy tắc vị trí: actor đứng ngoài khung, use case nằm trong khung. Và đặt tên use case bằng động từ cộng danh từ theo góc nhìn actor, ví dụ Đặt món, Thanh toán đơn hàng.",
+   "show": {
+    "h": "Các thành phần trong Use Case Diagram",
+    "points": [
+     "Actor: hình người que · Use Case: hình elip",
+     "System boundary: hình chữ nhật chứa các use case",
+     "Association: đường liền, không mũi tên",
+     "Quan hệ: Include · Extend · Generalization",
+     "Actor ngoài khung, use case trong khung; tên = động từ + danh từ"
+    ],
+    "img": "L13a-img6"
+   }
+  },
+  {
+   "id": "L13a-n6",
+   "ref": "L13a-t7",
+   "say": "Nói kỹ hơn về actor. Actor là thực thể bên ngoài hệ thống và phải có tương tác trực tiếp với hệ thống, ai không trực tiếp dùng thì không phải actor. Câu cần thuộc: Actor is a role, not a specific person. Actor là một vai trò, không phải một người cụ thể, nên ghi Thủ thư chứ không ghi chị Lan. Actor cũng có thể là hệ thống hay thiết bị, như hệ thống CRM hoặc máy in. Có hai loại actor. Primary Actor chủ động tương tác để đạt mục tiêu của mình, ví dụ HR thêm hồ sơ nhân sự. Secondary Actor hỗ trợ, cung cấp dịch vụ cho hệ thống, ví dụ hệ thống email hay máy đọc mã vạch. Mẹo: Primary actor khởi động use case, còn Secondary actor được hệ thống gọi tới để giúp hoàn thành.",
+   "show": {
+    "h": "Actor (tác nhân)",
+    "points": [
+     "Thực thể bên ngoài, có tương tác trực tiếp với hệ thống",
+     "Actor is a role, not a specific person",
+     "Có thể là người, hệ thống hoặc thiết bị",
+     "Primary: chủ động khởi động use case",
+     "Secondary: được hệ thống gọi để hỗ trợ (email, máy đọc mã vạch)"
+    ]
+   },
+   "ask": [
+    "L13a-q38",
+    "L13a-q9",
+    "L13a-q10"
+   ]
+  },
+  {
+   "id": "L13a-n7",
+   "ref": "L13a-t8",
+   "say": "Bây giờ là ba quan hệ giữa các use case, bắt đầu với Include. Include là quan hệ bắt buộc. Khi nói Use case 1 include Use case 3, nghĩa là để Use case 1 hoạt động được thì Use case 3 phải hoạt động. Ký hiệu là mũi tên nét đứt có nhãn include, đi từ use case gốc tới use case được include. Include thường dùng khi một bước con lặp lại ở nhiều use case, ta tách nó ra để dùng chung. Ví dụ Kiểm tra tồn kho được include bởi cả Đặt hàng online và Bán tại quầy. Slide lấy ví dụ đánh giá thì phải mua hàng trước. Trong thực tế, quan hệ trước sau kiểu này thường được ghi là điều kiện tiên quyết, pre-condition, trong đặc tả use case hơn là vẽ include.",
+   "show": {
+    "h": "Quan hệ Include",
+    "points": [
+     "Quan hệ bắt buộc: A include B → A chạy thì B phải chạy",
+     "Nét đứt, nhãn «include», hướng gốc → use case được include",
+     "Dùng khi một bước con lặp lại ở nhiều use case",
+     "Quan hệ trước–sau thường ghi là pre-condition"
+    ],
+    "img": "L13a-img7"
+   }
+  },
+  {
+   "id": "L13a-n8",
+   "ref": "L13a-t9",
+   "say": "Tiếp theo là Extend, quan hệ không bắt buộc. Khi nói Use case 2 extend Use case 3, nghĩa là Use case 2 có thể xảy ra hoặc không, và nếu xảy ra thì chỉ khi Use case 3 đang được thực hiện. Ví dụ trên slide nhà hàng: Order Wine extend Order Food. Khách có thể gọi thêm rượu hoặc không, và chỉ khi đang gọi món thì mới gọi rượu được. Slide gọi điều kiện để extend xảy ra là Extension point. Theo chuẩn UML, extension point là vị trí chen vào, còn điều kiện được ghi riêng trong ngoặc nhọn, nhưng khi đọc sơ đồ bạn cứ hiểu có điều kiện thì phần mở rộng mới chạy. Ký hiệu vẫn là mũi tên nét đứt, nhãn extend, nhưng hướng ngược với include: đi từ use case mở rộng về use case gốc. Mẹo nhớ: include là gốc gọi con, extend là con xin chen vào gốc.",
+   "show": {
+    "h": "Quan hệ Extend",
+    "points": [
+     "Không bắt buộc: chỉ xảy ra khi use case gốc đang chạy",
+     "Ví dụ: Order Wine «extend» Order Food",
+     "Extension point: điều kiện để extend xảy ra (theo slide)",
+     "Nét đứt, nhãn «extend», hướng use case mở rộng → gốc",
+     "Include: gốc gọi con · Extend: con xin chen vào gốc"
+    ]
+   },
+   "ask": [
+    "L13a-q12",
+    "L13a-q13",
+    "L13a-q15"
+   ]
+  },
+  {
+   "id": "L13a-n9",
+   "ref": "L13a-t10",
+   "say": "Quan hệ thứ ba là Generalization, tổng quát hóa, thể hiện tính kế thừa: cái con là một dạng cụ thể của cái cha. Ký hiệu là đường liền, đầu mũi tên tam giác rỗng, chỉ từ con về cha. Điểm khác biệt: generalization dùng được giữa các use case và cả giữa các actor, còn include và extend chỉ dùng giữa use case. Giờ so sánh cả ba bằng app đặt đồ ăn. Đặt món include Thanh toán, vì đơn nào cũng phải thanh toán. Cập nhật giỏ hàng extend Xem giỏ hàng, vì khách xem giỏ có thể sửa hoặc không. Đăng nhập bằng Google là một dạng của Đăng nhập, nên là generalization. Khi phân vân, hãy hỏi ba câu: có luôn xảy ra không, có thể có hoặc không kèm điều kiện, hay là một dạng cụ thể của cái kia.",
+   "show": {
+    "h": "Generalization và so sánh 3 quan hệ",
+    "points": [
+     "Generalization: kế thừa, nét liền, tam giác rỗng, con → cha",
+     "Áp được cho cả actor; include, extend thì không",
+     "Include: bắt buộc · Đặt món → Thanh toán",
+     "Extend: tùy chọn · Cập nhật giỏ hàng → Xem giỏ hàng",
+     "Generalization: Đăng nhập bằng Google → Đăng nhập"
+    ],
+    "img": "L13a-img7"
+   },
+   "ask": [
+    "L13a-q16",
+    "L13a-q41",
+    "L13a-q19"
+   ]
+  },
+  {
+   "id": "L13a-n10",
+   "ref": "L13a-e1",
+   "say": "Thử đọc sơ đồ check-in sân bay. Khung Airport là system boundary. Tour Guide, tức hướng dẫn viên, dùng Group Check-In. Passenger, tức hành khách, dùng Individual Check-In và Security Screening. Group Check-In include Individual Check-In, vì làm thủ tục cho đoàn thì bắt buộc phải làm cho từng người. Baggage Check-In extend Individual Check-In, vì ký gửi hành lý là tùy chọn. Còn Tour Guide kế thừa Passenger, đây là generalization giữa actor. Hướng dẫn viên cũng là hành khách, nên dùng được mọi use case của Passenger mà không cần vẽ thêm đường nối.",
+   "show": {
+    "h": "Đọc sơ đồ check-in sân bay",
+    "points": [
+     "Group Check-In «include» Individual Check-In: bắt buộc",
+     "Baggage Check-In «extend» Individual Check-In: tùy chọn",
+     "Tour Guide → Passenger: generalization giữa actor",
+     "Tour Guide dùng được mọi use case của Passenger"
+    ],
+    "img": "L13a-img2"
+   }
+  },
+  {
+   "id": "L13a-n11",
+   "ref": "L13a-t11",
+   "say": "Bài đọc thứ hai là sơ đồ nhà hàng. Bạn đọc theo bốn bước. Một, tìm khung để biết phạm vi hệ thống. Hai, kể tên actor ngoài khung: Waiter, Client, Cashier và Chef. Ba, đi theo các đường association để biết mỗi actor dùng use case nào, nhãn trên đường cho biết vai trò, ví dụ place order hay receive order. Bốn, tìm các quan hệ include, extend, generalization và điều kiện đi kèm. Kết quả: Client gọi món, ăn và trả tiền. Waiter nhận order, phục vụ và hỗ trợ thanh toán. Chef xác nhận order và nấu, Cashier nhận tiền. Một use case có thể có nhiều actor, như Order Food nối với cả Waiter, Client và Chef. Toàn bộ phần rượu đều là extend, nối thành chuỗi: gọi rượu, mang rượu ra, uống rồi trả tiền rượu.",
+   "show": {
+    "h": "Đọc sơ đồ nhà hàng",
+    "points": [
+     "Thứ tự đọc: Khung → Actor → Association → Quan hệ",
+     "Actor: Waiter · Client · Cashier · Chef",
+     "Order Food nối với cả Waiter, Client, Chef",
+     "Phần rượu đều là extend, có điều kiện nối chuỗi"
+    ],
+    "img": "L13a-img8"
+   },
+   "ask": [
+    "L13a-q18",
+    "L13a-q22",
+    "L13a-q23"
+   ]
+  },
+  {
+   "id": "L13a-n12",
+   "ref": "L13a-t12",
+   "say": "Giờ chuyển sang State Diagram, biểu đồ trạng thái. State Diagram mô tả các trạng thái khác nhau của một đối tượng và sự chuyển đổi giữa các trạng thái đó, dựa trên sự kiện hoặc điều kiện. Mục tiêu là mô hình hóa trạng thái của một đối tượng, chỉ một thôi. Bạn dùng nó khi cần mô tả vòng đời của đối tượng, và khi đối tượng có nhiều trạng thái rõ ràng, đổi trạng thái khi có sự kiện. Đối tượng hay cần State Diagram là Đơn hàng, Phiếu mượn, Hóa đơn, Yêu cầu nghỉ phép. Còn thứ như Danh mục món ăn, không đổi trạng thái, thì không cần. Phân biệt nhanh: Use Case nhìn ai làm gì với hệ thống, còn State nhìn một đối tượng đi qua những trạng thái nào.",
+   "show": {
+    "h": "State Diagram: khái niệm và khi nào dùng",
+    "points": [
+     "Trạng thái của MỘT đối tượng và chuyển đổi giữa chúng",
+     "Dùng khi mô tả vòng đời, đối tượng có nhiều trạng thái rõ ràng",
+     "Hợp: Đơn hàng, Phiếu mượn, Hóa đơn · Không cần: Danh mục món",
+     "Use Case: ai làm gì · State: đối tượng qua trạng thái nào"
+    ]
+   },
+   "ask": [
+    "L13a-q24",
+    "L13a-q25",
+    "L13a-q26"
+   ]
+  },
+  {
+   "id": "L13a-n13",
+   "ref": "L13a-t13",
+   "say": "Slide mở đầu phần State bằng vòng đời của một thread, tức một luồng xử lý trong lập trình. Từ điểm bắt đầu, thread đi qua New, rồi Runable là sẵn sàng chạy, rồi Running là đang chạy. Từ Running, tùy lệnh được gọi, thread có thể sang trạng thái chờ, sang Blocked, hoặc quay lại Runable. Khi chạy xong hoặc gặp lỗi, thread sang Dead rồi kết thúc. Bạn không cần nhớ chi tiết kỹ thuật này. Điều cần học là cách đọc: mỗi khối là một trạng thái, mỗi mũi tên có nhãn là một sự kiện. Một trạng thái có thể đi tới nhiều trạng thái khác, và có thể quay vòng.",
+   "show": {
+    "h": "Ví dụ: vòng đời một thread",
+    "points": [
+     "New → Runable → Running → Dead",
+     "Từ Running rẽ nhiều nhánh: Wait, Time_Wait, Blocked, về Runable",
+     "Khối = trạng thái · Mũi tên có nhãn = sự kiện",
+     "Một trạng thái rẽ được nhiều nhánh, có thể quay vòng"
+    ],
+    "img": "L13a-img3"
+   }
+  },
+  {
+   "id": "L13a-n14",
+   "ref": "L13a-t14",
+   "say": "State Diagram có bốn thành phần. Start là điểm bắt đầu chuỗi trạng thái. End là điểm kết thúc, vẽ bằng hình tròn đặc có vòng tròn bao ngoài, hay gọi là mắt bò. State là trạng thái của đối tượng tại một thời điểm, vẽ bằng hình chữ nhật bo góc, tên ở trong. Event hay Transition là mũi tên liền có nhãn tên sự kiện, kích hoạt chuyển đổi giữa các trạng thái. Có một điểm khác chuẩn: slide vẽ Start là hình tròn rỗng, nhưng chuẩn UML dùng hình tròn tô đen, và chính các sơ đồ mẫu trong slide cũng dùng chấm đen. Khi vẽ, bạn dùng chấm đen cho Start và mắt bò cho End.",
+   "show": {
+    "h": "Các thành phần của State Diagram",
+    "points": [
+     "Start: chấm tròn đen (slide vẽ tròn rỗng)",
+     "End: chấm đen có vòng bao ngoài",
+     "State: hình chữ nhật bo góc",
+     "Event / Transition: mũi tên liền có nhãn sự kiện"
+    ],
+    "img": "L13a-img4"
+   },
+   "ask": [
+    "L13a-q43",
+    "L13a-q27",
+    "L13a-q28"
+   ]
+  },
+  {
+   "id": "L13a-n15",
+   "ref": "L13a-t15",
+   "say": "Vẽ State Diagram theo bốn bước, lấy ví dụ Phiếu mượn của hệ thống thư viện. Bước một, chọn đối tượng, thường là đối tượng chính, ở đây là Phiếu mượn. Bước hai, xác định các trạng thái: Mới tạo, Đang mượn, Hoàn thành. Bước ba, xác định chuyển đổi theo cấu trúc Ai: Làm gì. Thủ thư cấp phát thì phiếu từ Mới tạo sang Đang mượn. Người đọc trả sách thì phiếu từ Đang mượn sang Hoàn thành. Bước bốn, vẽ sơ đồ. Vẽ xong, kiểm ba điều: trạng thái nào cũng có mũi tên đi vào, trạng thái nào chưa phải cuối cũng có mũi tên đi ra, và mũi tên nào cũng có nhãn. Chuẩn UML ghi nhãn dạng sự kiện, điều kiện và hành động, còn Ai: Làm gì là cách viết gọn cho BA, hai cách không mâu thuẫn.",
+   "show": {
+    "h": "4 bước vẽ State Diagram",
+    "points": [
+     "B1 Chọn đối tượng: Phiếu mượn",
+     "B2 Trạng thái: Mới tạo · Đang mượn · Hoàn thành",
+     "B3 Chuyển đổi “Ai: Làm gì”: Thủ thư: Cấp phát · Người đọc: Trả sách",
+     "B4 Vẽ sơ đồ",
+     "Kiểm: có đường vào, có đường ra, mũi tên nào cũng có nhãn"
+    ],
+    "img": "L13a-img5"
+   },
+   "ask": [
+    "L13a-q30",
+    "L13a-q31",
+    "L13a-q32"
+   ]
+  },
+  {
+   "id": "L13a-n16",
+   "ref": "L13a-p1",
+   "say": "Bài thực hành trên slide: vẽ trạng thái đơn hàng của ứng dụng đặt hàng online. Luồng chính có năm trạng thái nối tiếp: Lưu tạm, Chờ xác nhận, Đang chuẩn bị hàng, Đang giao hàng và Hoàn thành. Ngoài ra có ba nhánh rẽ. Khách hủy đơn khi chủ cửa hàng chưa xác nhận, nên mũi tên tới Hủy đơn đi ra từ Chờ xác nhận. Chủ cửa hàng từ chối đơn, cũng đi ra từ Chờ xác nhận, vì từ chối chỉ có nghĩa khi đơn chưa được xác nhận. Khách không nhận hàng thì từ Đang giao hàng sang Bị trả lại. Cuối cùng, bốn trạng thái Hoàn thành, Hủy đơn, Bị từ chối và Bị trả lại không đi tiếp nữa, nên đều phải nối tới End.",
+   "show": {
+    "h": "Thực hành: trạng thái đơn hàng online",
+    "points": [
+     "Lưu tạm → Chờ xác nhận → Đang chuẩn bị hàng → Đang giao hàng → Hoàn thành",
+     "Chờ xác nhận → Hủy đơn (khách hủy) · Bị từ chối (chủ cửa hàng từ chối)",
+     "Đang giao hàng → Bị trả lại (khách không nhận)",
+     "4 trạng thái cuối đều nối tới End"
+    ]
+   },
+   "ask": [
+    "L13a-q33",
+    "L13a-q34"
+   ]
+  },
+  {
+   "id": "L13a-n17",
+   "ref": "L13a-t17",
+   "say": "Bài tập tổng hợp là quy trình đặt đồ ăn trên app, và bạn vẽ cả hai biểu đồ. Với Use Case Diagram, primary actor là Khách hàng, Đầu bếp và Nhân viên giao hàng. Secondary actor là Google, Facebook để đăng nhập, Firebase để gửi thông báo, và một hệ thống thanh toán bên ngoài. Với State Diagram, đối tượng là Đơn hàng: Đã tạo, Thanh toán thành công, Đang chế biến, Sẵn sàng giao hàng, Đang giao hàng, rồi Đã giao hàng. Từ Đã tạo, nếu thanh toán thất bại hoặc khách hủy thì đơn rẽ sang Đã hủy. Bước đánh giá không đổi trạng thái đơn nên không vẽ thành trạng thái mới. Còn đơn COD có qua Thanh toán thành công ngay khi đặt không thì tài liệu chưa nói rõ, đó là câu BA nên hỏi lại khách hàng.",
+   "show": {
+    "h": "Bài tập tổng hợp: quy trình đặt đồ ăn",
+    "points": [
+     "Primary: Khách hàng · Đầu bếp · Nhân viên giao hàng",
+     "Secondary: Google · Facebook · Firebase · Hệ thống thanh toán",
+     "Đã tạo → Thanh toán thành công → Đang chế biến → Sẵn sàng giao → Đang giao → Đã giao",
+     "Đã tạo → Đã hủy khi thanh toán thất bại hoặc khách hủy",
+     "Cần hỏi lại: đơn COD đi qua trạng thái nào"
+    ]
+   },
+   "ask": [
+    "L13a-q35",
+    "L13a-q36",
+    "L13a-q37"
+   ]
+  },
+  {
+   "id": "L13a-n18",
+   "say": "Tóm lại buổi này. UML là ngôn ngữ mô hình gồm ký hiệu đồ họa, chia thành nhóm tĩnh mô tả cấu trúc và nhóm động mô tả hành vi. Use Case Diagram cho biết actor nào dùng chức năng nào, với actor đứng ngoài khung và là vai trò, không phải người cụ thể. Include là bắt buộc, đi từ gốc tới con. Extend là tùy chọn, đi từ con về gốc. Generalization là kế thừa, áp được cả cho actor. State Diagram mô tả vòng đời một đối tượng, vẽ theo bốn bước, và đừng quên nối các nhánh hủy, từ chối tới End. Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài.",
+   "show": {
+    "h": "Tổng kết buổi 13a",
+    "points": [
+     "UML: tĩnh = cấu trúc · động = hành vi",
+     "Use Case: actor là vai trò, đứng ngoài khung",
+     "Include bắt buộc (gốc → con) · Extend tùy chọn (con → gốc) · Generalization kế thừa",
+     "State: vòng đời một đối tượng, 4 bước vẽ",
+     "Nhánh hủy, từ chối cũng phải nối tới End"
+    ]
+   }
+  }
+ ]
+}

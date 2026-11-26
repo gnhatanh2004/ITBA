@@ -1,0 +1,2144 @@
+{
+ "id": "L03",
+ "session": 3,
+ "module": "M1",
+ "title": "Quy trình phát triển phần mềm",
+ "goals": [
+  "Nêu được SDLC là gì, mục tiêu và 6 bước chính",
+  "Mô tả được người thực hiện, mục tiêu, hoạt động và kết quả của từng bước SDLC",
+  "Chỉ ra được việc BA làm ở từng giai đoạn của SDLC",
+  "Kể tên 6 mô hình phát triển phần mềm và so sánh được chúng bằng bảng",
+  "Phân tích được ưu, nhược điểm và trường hợp phù hợp của Waterfall và Agile",
+  "Giải thích được 4 tuyên ngôn Agile, 3 trụ cột và 5 giá trị của Scrum",
+  "Mô tả được Scrum Team và các bước trong khung Scrum; phân biệt Scrum với Kanban",
+  "Phân biệt được các vị trí trong dự án phần mềm: PO, PM, BA, Designer, Dev, Tester"
+ ],
+ "sources": [
+  {
+   "file": "3. Quy trinh phat trien phan mem.pdf",
+   "pages": "1-28"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L03-t1",
+   "h": "SDLC – Vòng đời phát triển phần mềm",
+   "html": "<p>Bài này gồm 4 nội dung chính: vòng đời phát triển phần mềm, mô hình Waterfall, nguyên lý Agile và mô hình Scrum.</p><p><b>Software Development Life Cycle – SDLC (vòng đời phát triển phần mềm)</b> là vòng đời phát triển một sản phẩm phần mềm, tính từ lúc lên kế hoạch cho tới khi phần mềm được vận hành và bảo trì.</p><p class=\"key\"><b>Mục tiêu:</b> tạo ra phần mềm <b>chất lượng cao</b> với <b>chi phí thấp</b> và <b>thời gian sản xuất ngắn nhất</b>.</p><p>SDLC gồm 6 bước chính:</p><ol><li>Lập kế hoạch (Planning)</li><li>Phân tích (Analysis)</li><li>Thiết kế (Design)</li><li>Lập trình (Implementation)</li><li>Kiểm thử và tích hợp (Testing &amp; Integration)</li><li>Bảo trì (Maintenance)</li></ol>{{img:L03-img1}}<p class=\"tip\">Mẹo nhớ thứ tự: <b>Kế – Phân – Thiết – Lập – Kiểm – Bảo</b>. Phải biết làm gì (kế hoạch), cần gì (phân tích), làm thế nào (thiết kế), rồi mới làm (lập trình), thử (kiểm thử) và giữ cho chạy tốt (bảo trì).</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.3-4"
+  },
+  {
+   "id": "L03-t2",
+   "h": "Bước 1 – Lập kế hoạch (Planning)",
+   "html": "<ul><li>Là <b>bước đầu tiên</b> và rất quan trọng.</li><li><b>Người thực hiện:</b> thường là PM (Project Manager – quản lý dự án).</li><li><b>Mục tiêu:</b> xác định được phạm vi, thời gian, chi phí, nguồn lực, rủi ro…</li><li><b>Hoạt động:</b> ước tính nỗ lực (effort), phân tích rủi ro, sắp xếp nguồn lực, phân công nhiệm vụ…</li><li><b>Kết quả:</b> tài liệu kế hoạch tổng thể (Master plan), kế hoạch quản trị rủi ro, các quy định trong dự án.</li></ul><p>Ví dụ: với dự án app đặt đồ ăn, PM ước tính cần bao nhiêu người, trong bao lâu, rủi ro nào (đối tác nhà hàng chậm cung cấp thực đơn, cổng thanh toán chưa sẵn sàng…), rồi lập Master plan cho cả dự án.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.5"
+  },
+  {
+   "id": "L03-t3",
+   "h": "Bước 2 – Phân tích yêu cầu (Analysis)",
+   "html": "<ul><li><b>Người thực hiện:</b> Business Analyst (BA), PO (Product Owner – chủ sản phẩm), khách hàng, kỹ sư phần mềm…</li><li><b>Mục tiêu:</b> hiểu rõ yêu cầu chức năng và phi chức năng.</li><li><b>Hoạt động:</b> phỏng vấn, khảo sát, thu thập thông tin, phân tích, viết tài liệu…</li><li><b>Kết quả:</b> biên bản khảo sát, tài liệu BRD, SRS.</li></ul><p><b>Yêu cầu chức năng</b> mô tả hệ thống phải <i>làm gì</i> (ví dụ: khách đặt món, thanh toán online). <b>Yêu cầu phi chức năng</b> mô tả hệ thống phải làm <i>tốt tới mức nào</i> (ví dụ: trang tải dưới 3 giây, chịu được nhiều người dùng cùng lúc). Bài L11a sẽ học kỹ hai loại này.</p><p><b>BRD</b> (Business Requirements Document – tài liệu yêu cầu nghiệp vụ) và <b>SRS</b> (Software Requirements Specification – đặc tả yêu cầu phần mềm) sẽ học ở bài L16.</p><p class=\"key\">Đây là giai đoạn BA làm việc nhiều nhất.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.6"
+  },
+  {
+   "id": "L03-t4",
+   "h": "Bước 3 – Thiết kế (Design)",
+   "html": "<ul><li><b>Người thực hiện:</b> kiến trúc sư phần mềm (Software Architect), lập trình viên cấp cao…</li><li><b>Mục tiêu:</b> chuyển đổi yêu cầu thành cấu trúc kỹ thuật.</li><li><b>Hoạt động:</b> thiết kế kiến trúc, thiết kế CSDL (cơ sở dữ liệu), thiết kế UI/UX (giao diện và trải nghiệm người dùng)…</li><li><b>Kết quả:</b> các tài liệu kiến trúc, tài liệu CSDL…</li></ul><p>Nói gọn: Phân tích trả lời câu hỏi <b>“hệ thống cần làm gì”</b>, còn Thiết kế trả lời <b>“làm bằng cách nào về mặt kỹ thuật”</b>.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.7"
+  },
+  {
+   "id": "L03-t5",
+   "h": "Bước 4 – Thực thi / Lập trình (Implementation)",
+   "html": "<ul><li><b>Người thực hiện:</b> lập trình viên (Developer).</li><li><b>Mục tiêu:</b> chuyển đổi yêu cầu thành sản phẩm thực tế.</li><li><b>Hoạt động:</b> viết mã nguồn, review code (rà soát mã), unit test (kiểm thử đơn vị – lập trình viên tự kiểm từng phần nhỏ của mã)…</li><li><b>Kết quả:</b> mã nguồn hoạt động đúng yêu cầu.</li></ul>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.8"
+  },
+  {
+   "id": "L03-t6",
+   "h": "Bước 5 – Kiểm thử (Testing)",
+   "html": "<ul><li><b>Người thực hiện:</b> tester (QA/QC), BA, PM, khách hàng…</li><li><b>Mục tiêu:</b> đảm bảo phần mềm hoạt động đúng yêu cầu, tìm ra các lỗi <b>sớm nhất</b>.</li><li><b>Hoạt động:</b> viết kịch bản kiểm thử (test case/test scenario), thực hiện kiểm thử, kiểm soát lỗi…</li><li><b>Kết quả:</b> báo cáo kiểm thử.</li></ul><p><b>QA</b> (Quality Assurance – đảm bảo chất lượng) chú trọng quy trình để ngăn lỗi; <b>QC</b> (Quality Control – kiểm soát chất lượng) chú trọng kiểm tra sản phẩm để tìm lỗi. Trên slide, hai vai trò này được gộp chung là tester.</p><p>Lưu ý: BA và khách hàng cũng tham gia kiểm thử, vì họ là người hiểu rõ nhất phần mềm “đúng yêu cầu” là thế nào.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.9"
+  },
+  {
+   "id": "L03-t7",
+   "h": "Bước 6 – Bảo trì (Maintenance)",
+   "html": "<ul><li><b>Người thực hiện:</b> bộ phận hỗ trợ kỹ thuật, kiểm thử, dev…</li><li><b>Mục tiêu:</b> duy trì phần mềm ổn định, sửa lỗi, nâng cấp tính năng.</li><li><b>Hoạt động:</b> tiếp nhận yêu cầu, hỗ trợ người dùng, sửa lỗi, nâng cấp tính năng…</li><li><b>Kết quả:</b> phần mềm vận hành ổn định, được cập nhật định kỳ.</li></ul><p>Hình trên slide chia việc bảo trì thành 6 pha (Phases of Software Maintenance):</p><ol><li>Request Analysis – phân tích yêu cầu thay đổi</li><li>Problem Identification – xác định vấn đề</li><li>Solution Design – thiết kế giải pháp</li><li>Implementation of Changes – thực hiện thay đổi</li><li>Testing – kiểm thử</li><li>Deployment – triển khai</li></ol>{{img:L03-img2}}<p class=\"tip\">Bảo trì giống một “SDLC thu nhỏ”: mỗi yêu cầu sửa hoặc nâng cấp lại đi qua phân tích → thiết kế → làm → kiểm thử → triển khai.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.10"
+  },
+  {
+   "id": "L03-t8",
+   "h": "Kết luận và bảng tổng hợp SDLC",
+   "html": "<p>SDLC là một quy trình quan trọng giúp đảm bảo phần mềm được phát triển <b>đúng yêu cầu, đúng tiến độ và đạt chất lượng cao</b>.</p><p>Việc tuân thủ các giai đoạn SDLC giúp:</p><ul><li>Giảm thiểu rủi ro, kiểm soát tốt chi phí và nguồn lực.</li><li>Tăng khả năng bảo trì, nâng cấp và mở rộng phần mềm trong tương lai.</li><li>Tăng sự hài lòng của khách hàng thông qua việc đáp ứng đúng nhu cầu.</li></ul><table><thead><tr><th>Bước</th><th>Người thực hiện</th><th>Mục tiêu</th><th>Kết quả</th></tr></thead><tbody><tr><td>1. Lập kế hoạch</td><td>Thường là PM</td><td>Phạm vi, thời gian, chi phí, nguồn lực, rủi ro</td><td>Master plan, quản trị rủi ro, quy định dự án</td></tr><tr><td>2. Phân tích</td><td>BA, PO, khách hàng, kỹ sư phần mềm</td><td>Hiểu rõ yêu cầu chức năng và phi chức năng</td><td>Biên bản khảo sát, BRD, SRS</td></tr><tr><td>3. Thiết kế</td><td>Kiến trúc sư phần mềm, lập trình viên cấp cao</td><td>Chuyển yêu cầu thành cấu trúc kỹ thuật</td><td>Tài liệu kiến trúc, tài liệu CSDL</td></tr><tr><td>4. Lập trình</td><td>Lập trình viên</td><td>Chuyển yêu cầu thành sản phẩm thực tế</td><td>Mã nguồn hoạt động đúng yêu cầu</td></tr><tr><td>5. Kiểm thử</td><td>Tester (QA/QC), BA, PM, khách hàng</td><td>Phần mềm đúng yêu cầu, tìm lỗi sớm nhất</td><td>Báo cáo kiểm thử</td></tr><tr><td>6. Bảo trì</td><td>Hỗ trợ kỹ thuật, kiểm thử, dev</td><td>Phần mềm ổn định, sửa lỗi, nâng cấp</td><td>Phần mềm vận hành ổn định, cập nhật định kỳ</td></tr></tbody></table>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.4-11"
+  },
+  {
+   "id": "L03-t9",
+   "h": "Vai trò của BA ở từng giai đoạn SDLC",
+   "html": "<p>Slide nêu tên BA ở bước Phân tích và bước Kiểm thử. Theo kiến thức BA chuẩn (BABOK v3), BA còn hỗ trợ ở các bước khác. Bảng dưới đây tổng hợp:</p><table><thead><tr><th>Giai đoạn</th><th>BA làm gì</th><th>Sản phẩm BA thường có</th></tr></thead><tbody><tr><td>Lập kế hoạch</td><td>Hỗ trợ PM: xác định bên liên quan (stakeholder), lên kế hoạch cho công việc phân tích, ước tính thời gian khảo sát</td><td>Danh sách stakeholder, kế hoạch khai thác yêu cầu</td></tr><tr><td>Phân tích</td><td><b>Việc chính của BA:</b> phỏng vấn, khảo sát, thu thập, phân tích và viết tài liệu yêu cầu</td><td>Biên bản khảo sát, BRD, SRS</td></tr><tr><td>Thiết kế</td><td>Giải thích yêu cầu cho đội thiết kế, rà soát xem thiết kế (màn hình, luồng) có đáp ứng đúng nghiệp vụ không, có thể vẽ mockup/wireframe</td><td>Mockup, góp ý thiết kế</td></tr><tr><td>Lập trình</td><td>Trả lời câu hỏi của dev về yêu cầu, làm rõ chỗ mơ hồ, quản lý yêu cầu thay đổi</td><td>Tài liệu yêu cầu được cập nhật, nhật ký thay đổi</td></tr><tr><td>Kiểm thử</td><td>Rà kịch bản kiểm thử có phủ đủ yêu cầu không, kiểm tra nghiệp vụ, hỗ trợ khách hàng kiểm thử chấp nhận (UAT)</td><td>Góp ý test case, kết quả UAT</td></tr><tr><td>Bảo trì</td><td>Tiếp nhận và phân tích yêu cầu thay đổi, xác định vấn đề, đề xuất giải pháp nâng cấp</td><td>Phân tích yêu cầu thay đổi (change request)</td></tr></tbody></table><p class=\"note\">Slide không có bảng này. Các dòng Lập kế hoạch, Thiết kế, Lập trình và Bảo trì được bổ sung theo BABOK v3. Không mâu thuẫn với slide: slide chỉ ghi người thực hiện <i>chính</i> của mỗi bước và có dấu “…” cho thấy còn người khác tham gia.</p><p class=\"key\">Ghi nhớ: slide định nghĩa BA là <b>“người đảm bảo đúng nghiệp vụ”</b>. Ở bước nào BA cũng làm đúng một việc đó: giữ cho sản phẩm khớp với nhu cầu nghiệp vụ.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.6, 9, 26"
+  },
+  {
+   "id": "L03-t10",
+   "h": "Các mô hình phát triển phần mềm",
+   "html": "<p>Slide liệt kê 6 loại mô hình phát triển phần mềm:</p><ul><li><b>Mô hình xoắn ốc (Spiral model)</b></li><li><b>Mô hình tiếp cận lặp (Iterative model)</b></li><li><b>Mô hình tăng trưởng (Incremental model)</b></li><li><b>Mô hình chữ V (V model)</b></li><li><b>Mô hình thác nước (Waterfall model)</b></li><li><b>Mô hình Agile</b></li></ul><p>Giải thích ngắn (theo kiến thức chuẩn, vì slide chỉ nêu tên):</p><ul><li><b>Spiral:</b> đi theo nhiều vòng xoắn. Mỗi vòng gồm xác định mục tiêu (Objective Identification), đánh giá phương án và quản lý rủi ro bằng mẫu thử (Alternate Evaluation, Risk Management, Prototypes), phát triển sản phẩm (Design, Code, Integration, Test) và lập kế hoạch vòng sau (Next Phase Planning). Trục dọc là chi phí cộng dồn (Cumulative cost): càng đi ra ngoài, chi phí càng tăng. Điểm nổi bật là <b>phân tích rủi ro ở mỗi vòng</b>.</li><li><b>Iterative (lặp):</b> làm một phiên bản sơ bộ, rồi lặp lại nhiều lần để cải tiến dần cho tới khi đạt yêu cầu.</li><li><b>Incremental (tăng trưởng):</b> chia hệ thống thành nhiều phần nhỏ (increment), giao từng phần; mỗi lần giao lại thêm tính năng mới.</li><li><b>V model:</b> giống Waterfall nhưng mỗi bước phát triển có một bước kiểm thử tương ứng (yêu cầu ↔ kiểm thử chấp nhận, thiết kế ↔ kiểm thử hệ thống/tích hợp, lập trình ↔ kiểm thử đơn vị).</li><li><b>Waterfall</b> và <b>Agile</b>: học kỹ ở các phần sau.</li></ul>{{img:L03-img3}}<p class=\"note\">Slide chỉ nêu tên các mô hình và một hình xoắn ốc. Phần giải thích Spiral, Iterative, Incremental và V model là kiến thức chuẩn được thêm vào để dễ hiểu.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.12-13"
+  },
+  {
+   "id": "L03-t11",
+   "h": "Mô hình Waterfall – Khái niệm",
+   "html": "<p><b>Waterfall (thác nước)</b> là mô hình phát triển phần mềm <b>tuần tự</b>, trong đó các giai đoạn được thực hiện <b>theo thứ tự cố định</b>, xong bước này mới sang bước sau, như nước chảy từ trên xuống:</p><ol><li>Yêu cầu – tiếp nhận, phân tích (Requirements)</li><li>Thiết kế (Design)</li><li>Phát triển – lập trình (Development)</li><li>Kiểm thử (Testing)</li><li>Triển khai (Deployment)</li><li>Bảo trì (Maintenance)</li></ol>{{img:L03-img4}}<p>Waterfall là một trong những mô hình quản lý dự án <b>dễ sử dụng nhất</b> hiện nay.</p><p class=\"tip\">So với 6 bước SDLC: Waterfall trên slide không tách riêng bước Lập kế hoạch nhưng có thêm bước <b>Triển khai</b> (đưa phần mềm vào dùng thật).</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.14"
+  },
+  {
+   "id": "L03-t12",
+   "h": "Waterfall – Ưu, nhược điểm và khi nào dùng",
+   "html": "<table><thead><tr><th>Ưu điểm</th><th>Nhược điểm</th></tr></thead><tbody><tr><td><ul><li>Đơn giản, dễ quản lý</li><li>Lập kế hoạch dễ dàng</li><li>Tài liệu rõ ràng</li><li>Phù hợp cho nhóm mới bắt đầu</li></ul></td><td><ul><li>Khó thay đổi yêu cầu</li><li>Không có phần mềm chạy sớm</li><li>Không linh hoạt</li><li>Phát hiện lỗi muộn</li></ul></td></tr></tbody></table><table><thead><tr><th>Phù hợp khi</th><th>Không phù hợp khi</th></tr></thead><tbody><tr><td><ul><li>Yêu cầu rõ ràng, ổn định</li><li>Quy mô nhỏ đến vừa</li><li>Thời gian và ngân sách cố định</li><li>Không yêu cầu sự tham gia liên tục của khách hàng</li></ul></td><td><ul><li>Khách hàng hay thay đổi yêu cầu</li><li>Cần ra mắt sớm để lấy phản hồi người dùng</li><li>Dự án mang tính thử nghiệm, chưa rõ giải pháp tối ưu</li><li>Dự án dài hạn, công nghệ thay đổi nhanh</li></ul></td></tr></tbody></table><p>Vì sao lỗi bị phát hiện muộn? Vì kiểm thử chỉ bắt đầu sau khi lập trình xong toàn bộ. Nếu BA hiểu sai yêu cầu ở bước đầu, tới bước kiểm thử mới lộ ra, khi đó sửa rất tốn kém.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.15-16"
+  },
+  {
+   "id": "L03-t13",
+   "h": "Nguyên lý Agile và Tuyên ngôn Agile",
+   "html": "<p><b>Agile (linh hoạt)</b> là một tập hợp các phương thức phát triển <b>lặp và tăng dần</b>, trong đó các yêu cầu và giải pháp được phát triển thông qua sự liên kết cộng tác giữa các nhóm <b>tự quản</b> và <b>liên chức năng</b> (trong nhóm có đủ người làm phân tích, lập trình, kiểm thử…).</p><p><b>Tuyên ngôn Agile (Agile Manifesto)</b> gồm 4 giá trị:</p><ol><li><b>Cá nhân và sự tương hỗ</b> hơn quy trình và công cụ</li><li><b>Sản phẩm dùng được</b> hơn tài liệu về sản phẩm</li><li><b>Cộng tác với khách hàng</b> hơn là đàm phán hợp đồng</li><li><b>Phản hồi với sự thay đổi</b> hơn là bám theo kế hoạch</li></ol><p class=\"note\">Bản gốc tiếng Anh có thêm câu: dù các mục ở vế phải (quy trình, tài liệu, hợp đồng, kế hoạch) vẫn có giá trị, Agile coi trọng các mục ở vế trái <i>hơn</i>. Vì vậy Agile <b>không bỏ</b> tài liệu hay kế hoạch, chỉ ưu tiên thấp hơn. Slide không ghi câu này.</p><p class=\"tip\">Mẹo nhớ 4 vế trái: <b>Người – Sản phẩm – Khách hàng – Thay đổi</b>.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.17"
+  },
+  {
+   "id": "L03-t14",
+   "h": "Agile – Ưu điểm và nhược điểm",
+   "html": "<table><thead><tr><th>Ưu điểm</th><th>Nhược điểm</th></tr></thead><tbody><tr><td><ul><li>Linh hoạt, thích ứng nhanh</li><li>Tăng chất lượng sản phẩm</li><li>Giao sản phẩm sớm và liên tục</li><li>Tăng sự hợp tác và minh bạch</li><li>Tạo động lực cho team</li><li>Giảm rủi ro dự án</li></ul></td><td><ul><li>Khó kiểm soát tổng thể</li><li>Yêu cầu khách hàng tham gia thường xuyên</li><li>Không phù hợp với dự án cố định về thời gian và chi phí</li><li>Không phù hợp với các dự án yêu cầu quy trình cứng</li></ul></td></tr></tbody></table><p>Để ý: ưu và nhược điểm của Agile gần như ngược lại với Waterfall. Waterfall mạnh ở kế hoạch và tài liệu nhưng cứng nhắc; Agile mạnh ở thích ứng nhưng khó kiểm soát tổng thể.</p><p class=\"note\">Slide trang 18 ghi tiêu đề “Mô hình WaterFall”, nhưng nội dung là ưu và nhược điểm của <b>Agile</b> (nằm sau trang Nguyên lý Agile và khớp với đặc điểm của Agile). Bài này hiểu đây là ưu nhược điểm của Agile.</p><p class=\"note\">Về ý “không phù hợp với dự án cố định thời gian và chi phí”: trong thực tế nhiều nhóm Agile vẫn cố định thời gian và ngân sách, còn <i>phạm vi</i> thì linh hoạt. Ý của slide là Agile khó cam kết trước cả phạm vi, thời gian lẫn chi phí cùng lúc. Khi làm bài, theo slide.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.18"
+  },
+  {
+   "id": "L03-t15",
+   "h": "Một số phương pháp Agile",
+   "html": "<p>Agile giống một <b>chiếc ô (umbrella)</b>: Agile là bộ giá trị và nguyên lý, còn các phương pháp cụ thể là cách hiện thực hóa nó (“Methodologies are Implementations”).</p><p>Các phương pháp nằm dưới chiếc ô Agile trên hình: <b>Scrum, Kanban</b>, XP, DSDM, FDD, Crystal, Lean, DevOps. Bài này học hai phương pháp phổ biến nhất là <b>Scrum</b> và <b>Kanban</b>.</p>{{img:L03-img5}}<p><b>Kanban</b> (tiếng Nhật: “bảng tín hiệu”) dùng một bảng chia cột trạng thái, ví dụ <i>Cần làm → Đang làm → Xong</i>. Mỗi việc là một thẻ, di chuyển dần từ trái sang phải. Nhóm thường giới hạn số việc “Đang làm” cùng lúc (WIP limit) để công việc chảy đều.</p><p class=\"note\">Phần mô tả bảng Kanban và WIP limit là kiến thức chuẩn bổ sung; slide chỉ nêu Kanban trong bảng so sánh với Scrum.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.19, 24"
+  },
+  {
+   "id": "L03-t16",
+   "h": "Scrum – 3 trụ cột",
+   "html": "<p><b>Scrum</b> là phương pháp Agile làm việc theo các vòng lặp có thời hạn cố định gọi là <b>Sprint</b>. Scrum đứng trên 3 trụ cột:</p><ul><li><b>Minh bạch (Transparency):</b> mọi người nhìn thấy và hiểu giống nhau.</li><li><b>Thanh tra (Inspection):</b> thường xuyên kiểm tra công việc.</li><li><b>Thích nghi (Adaptation):</b> điều chỉnh kịp thời khi cần thiết.</li></ul>{{img:L03-img6}}<p>Ba trụ cột đi theo chuỗi: phải <b>minh bạch</b> thì mới <b>kiểm tra</b> được, kiểm tra xong mới biết cần <b>điều chỉnh</b> gì. Mẹo nhớ: <b>T – I – A</b> (Thấy – Kiểm – Chỉnh).</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.20"
+  },
+  {
+   "id": "L03-t17",
+   "h": "Scrum – 5 giá trị cốt lõi (Scrum Values)",
+   "html": "<ul><li><b>Cam kết (Commitment):</b> cam kết với mục tiêu và trách nhiệm nhóm.</li><li><b>Tập trung (Focus):</b> tập trung vào công việc của Sprint.</li><li><b>Cởi mở (Openness):</b> cởi mở trong giao tiếp và chia sẻ.</li><li><b>Tôn trọng (Respect):</b> tôn trọng đồng đội và giá trị mỗi thành viên.</li><li><b>Dũng cảm (Courage):</b> dũng cảm nói lên sự thật và đối mặt với khó khăn.</li></ul><p class=\"tip\">Mẹo nhớ 5 giá trị: <b>C-F-O-R-C</b> – Commitment, Focus, Openness, Respect, Courage.</p><p>Phân biệt: <b>3 trụ cột</b> nói về cách Scrum vận hành (thấy, kiểm, chỉnh); <b>5 giá trị</b> nói về thái độ của từng người trong nhóm.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.21"
+  },
+  {
+   "id": "L03-t18",
+   "h": "Scrum Team – 3 vai trò",
+   "html": "<p>Một <b>Scrum Team</b> gồm 3 vai trò:</p><table><thead><tr><th>Vai trò</th><th>Trách nhiệm (theo slide)</th><th>Giải thích</th></tr></thead><tbody><tr><td><b>Product Owner (PO)</b></td><td>Manages the Product Backlog; Optimizes value of the Product</td><td>Quản lý danh sách việc cần làm của sản phẩm (Product Backlog), sắp thứ tự ưu tiên để sản phẩm đem lại giá trị cao nhất</td></tr><tr><td><b>Scrum Master</b></td><td>Manages the Scrum process; Removes Impediments</td><td>Giữ cho nhóm làm đúng quy trình Scrum, gỡ các trở ngại (impediment) làm chậm nhóm</td></tr><tr><td><b>Development Team</b></td><td>Manages itself; Creates “Done” Increments</td><td>Nhóm tự quản lý công việc, mỗi Sprint tạo ra phần sản phẩm đã hoàn thành (Increment) đạt chuẩn “Done”</td></tr></tbody></table>{{img:L03-img7}}<p class=\"note\">Scrum Guide bản 2020 gọi Development Team là “Developers” và nói Scrum Master chịu trách nhiệm về hiệu quả của nhóm. Slide dùng cách gọi cũ; ý nghĩa không đổi.</p><p class=\"tip\">Scrum không có vai trò tên là “BA”. Trong thực tế, BA thường hỗ trợ PO viết và làm rõ các mục trong Product Backlog (user story), hoặc là một thành viên của Development Team.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.22"
+  },
+  {
+   "id": "L03-t19",
+   "h": "Khung Scrum – Các bước trong một Sprint",
+   "html": "<p>Hình “The Agile: Scrum Framework at a glance” cho thấy luồng làm việc:</p><ol><li><b>Đầu vào</b> từ lãnh đạo, nhóm, các bên liên quan, khách hàng, người dùng (Inputs from Executives, Team, Stakeholders, Customers, Users) được gửi tới <b>Product Owner</b>.</li><li>PO đưa vào <b>Product Backlog</b>: danh sách đã xếp hạng những gì cần làm (features, stories…).</li><li><b>Sprint Planning Meeting</b>: nhóm chọn các mục từ trên đỉnh Product Backlog, lấy nhiều nhất mức có thể cam kết giao xong trong Sprint.</li><li>Các mục được chọn và chia nhỏ thành task (Task Breakout) tạo thành <b>Sprint Backlog</b>.</li><li><b>Sprint</b> kéo dài <b>1–4 tuần</b>. Mỗi 24 giờ có <b>Daily Scrum Meeting</b> (họp hằng ngày). Tiến độ được theo dõi bằng <b>Burndown/Burnup Chart</b> (biểu đồ cho thấy phần việc còn lại giảm dần, hoặc phần việc đã xong tăng dần). Scrum Master hỗ trợ nhóm suốt Sprint.</li><li>Trong Sprint, <b>ngày kết thúc Sprint và sản phẩm nhóm cam kết giao không thay đổi</b> (Sprint end date and team deliverable do not change).</li><li>Cuối Sprint có <b>Finished Work</b> (phần việc đã xong), rồi họp <b>Sprint Review</b> (trình bày sản phẩm, lấy góp ý) và <b>Sprint Retrospective</b> (nhìn lại cách làm việc để cải tiến).</li></ol>{{img:L03-img8}}<table><thead><tr><th>Nhóm</th><th>Các thành phần</th></tr></thead><tbody><tr><td>Artifact (sản phẩm của Scrum)</td><td>Product Backlog, Sprint Backlog, Increment (Finished Work)</td></tr><tr><td>Event (sự kiện)</td><td>Sprint, Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective</td></tr></tbody></table><p class=\"tip\">Review xem <b>sản phẩm</b>; Retrospective xem <b>cách làm việc</b> của nhóm.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.23"
+  },
+  {
+   "id": "L03-t20",
+   "h": "So sánh Scrum và Kanban",
+   "html": "<table><thead><tr><th>Tiêu chí</th><th>Scrum</th><th>Kanban</th></tr></thead><tbody><tr><td>Bản chất</td><td>Phương pháp Agile theo vòng lặp cố định (Sprint)</td><td>Phương pháp trực quan hóa và tối ưu hóa luồng công việc</td></tr><tr><td>Cách hoạt động</td><td>Làm việc theo Sprint có thời hạn (thường 1–4 tuần)</td><td>Công việc di chuyển liên tục qua các cột trạng thái</td></tr><tr><td>Thời gian cố định</td><td>Có (Sprint cố định 1–4 tuần)</td><td>Không có – công việc diễn ra liên tục</td></tr><tr><td>Bảng công việc</td><td>Reset mỗi Sprint</td><td>Liên tục, không reset</td></tr></tbody></table><p>Gợi ý chọn: việc phát triển tính năng mới theo đợt thường hợp với Scrum; việc đến liên tục, khó lên kế hoạch trước (như hỗ trợ khách hàng, sửa lỗi vận hành) thường hợp với Kanban.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.24"
+  },
+  {
+   "id": "L03-t21",
+   "h": "Bảng so sánh các mô hình phát triển",
+   "html": "<table><thead><tr><th>Mô hình</th><th>Cách chạy</th><th>Có sản phẩm dùng thử sớm?</th><th>Đón nhận thay đổi yêu cầu</th><th>Hợp khi</th></tr></thead><tbody><tr><td>Waterfall</td><td>Tuần tự, xong bước này mới sang bước sau</td><td>Không, chỉ có ở cuối</td><td>Khó</td><td>Yêu cầu rõ, ổn định; quy mô nhỏ–vừa; thời gian và ngân sách cố định</td></tr><tr><td>V model</td><td>Tuần tự, mỗi bước phát triển có bước kiểm thử tương ứng</td><td>Không</td><td>Khó</td><td>Yêu cầu rõ, cần kiểm thử chặt</td></tr><tr><td>Iterative</td><td>Làm bản sơ bộ rồi lặp lại để cải tiến</td><td>Có (bản sơ bộ)</td><td>Khá</td><td>Yêu cầu chính đã biết nhưng chi tiết còn cần hoàn thiện</td></tr><tr><td>Incremental</td><td>Giao từng phần, mỗi phần thêm tính năng</td><td>Có (phần đầu tiên)</td><td>Khá</td><td>Muốn dùng sớm các tính năng cốt lõi</td></tr><tr><td>Spiral</td><td>Nhiều vòng, mỗi vòng có phân tích rủi ro và mẫu thử</td><td>Có (prototype)</td><td>Tốt</td><td>Dự án lớn, nhiều rủi ro</td></tr><tr><td>Agile / Scrum</td><td>Lặp và tăng dần theo Sprint 1–4 tuần, nhóm tự quản</td><td>Có, giao sớm và liên tục</td><td>Rất tốt</td><td>Yêu cầu hay thay đổi, cần ra mắt sớm lấy phản hồi, khách hàng tham gia thường xuyên</td></tr></tbody></table><p class=\"note\">Dòng Waterfall và Agile/Scrum lấy từ slide. Các dòng V model, Iterative, Incremental, Spiral là kiến thức chuẩn bổ sung vì slide chỉ nêu tên.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.12-18, 23-24"
+  },
+  {
+   "id": "L03-t22",
+   "h": "Project Manager và quản trị dự án",
+   "html": "<p><b>Quản trị dự án làm gì?</b> Là việc áp dụng kiến thức, kỹ năng, phương pháp, công cụ, kỹ thuật vào các hoạt động của dự án để đạt được mục tiêu và yêu cầu dự án.</p><p><b>Thế nào là quản trị dự án giỏi?</b></p><ul><li>Đem lại lợi ích</li><li>Đạt mục tiêu</li><li>Làm hài lòng các bên liên quan</li><li>Tối ưu nguồn lực</li><li>Tăng năng suất và chất lượng</li><li>Dự án luôn trong phạm vi kiểm soát</li><li>Chuyển giao sản phẩm đúng hạn và hoạt động tốt</li></ul>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.25"
+  },
+  {
+   "id": "L03-t23",
+   "h": "Các vị trí trong phát triển phần mềm",
+   "html": "<table><thead><tr><th>Vị trí</th><th>Vai trò (theo slide)</th></tr></thead><tbody><tr><td>Product Owner (PO)</td><td>Người định hình sản phẩm</td></tr><tr><td>Project Manager (PM)</td><td>Người đảm bảo dự án thành công</td></tr><tr><td>Business Analyst (BA)</td><td>Người đảm bảo đúng nghiệp vụ</td></tr><tr><td>Designer (UI/UX)</td><td>Chịu trách nhiệm tối ưu về giao diện và trải nghiệm</td></tr><tr><td>Developer (Dev)</td><td>Lập trình ra sản phẩm</td></tr><tr><td>Tester</td><td>Người đảm bảo hệ thống có ít lỗi</td></tr><tr><td>Khác</td><td>CTO, DevOps, SA, Techlead, Teamlead, Scrum Master, QA, khách hàng…</td></tr></tbody></table><p>Giải nghĩa các vị trí khác: <b>CTO</b> (Chief Technology Officer – giám đốc công nghệ); <b>DevOps</b> (kỹ sư lo việc triển khai, vận hành hệ thống); <b>SA</b> (Solution Architect – kiến trúc sư giải pháp); <b>Techlead</b> (trưởng nhóm kỹ thuật); <b>Teamlead</b> (trưởng nhóm).</p><p class=\"tip\">Phân biệt nhanh: PO lo <b>làm sản phẩm gì</b>, PM lo <b>dự án về đích</b> (tiến độ, chi phí, nguồn lực), BA lo <b>đúng nghiệp vụ</b>.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.26"
+  }
+ ],
+ "examples": [
+  {
+   "id": "L03-e1",
+   "title": "Đi qua 6 bước SDLC với dự án FoodNow (đặt bàn nhà hàng)",
+   "html": "<p>Ví dụ: một chuỗi nhà hàng muốn làm ứng dụng FoodNow để khách đặt bàn online. Dưới đây là cách 6 bước SDLC diễn ra (chi tiết là ví dụ tự đặt):</p><table><thead><tr><th>Bước</th><th>Việc xảy ra trong FoodNow</th><th>Kết quả</th></tr></thead><tbody><tr><td>Lập kế hoạch</td><td>PM xác định phạm vi (đặt bàn, hủy bàn, xác nhận qua tin nhắn), ước tính nỗ lực, rủi ro “nhà hàng không cập nhật số bàn trống”</td><td>Master plan, kế hoạch rủi ro</td></tr><tr><td>Phân tích</td><td>BA phỏng vấn quản lý nhà hàng, khảo sát khách; ghi yêu cầu chức năng (chọn giờ, số người) và phi chức năng (xác nhận trong 5 giây)</td><td>Biên bản khảo sát, BRD, SRS</td></tr><tr><td>Thiết kế</td><td>Kiến trúc sư thiết kế kiến trúc, CSDL bảng Bàn, Đặt bàn; designer vẽ giao diện đặt bàn</td><td>Tài liệu kiến trúc, tài liệu CSDL</td></tr><tr><td>Lập trình</td><td>Dev viết mã, review code, viết unit test</td><td>Mã nguồn chạy đúng yêu cầu</td></tr><tr><td>Kiểm thử</td><td>Tester viết kịch bản “đặt bàn khi nhà hàng đã kín chỗ”; BA kiểm tra luồng nghiệp vụ; quản lý nhà hàng dùng thử</td><td>Báo cáo kiểm thử</td></tr><tr><td>Bảo trì</td><td>Khách báo lỗi không hủy được bàn; nhà hàng xin thêm tính năng đặt cọc</td><td>Bản cập nhật định kỳ</td></tr></tbody></table><p class=\"tip\">Nhận xét: ở bước Bảo trì, yêu cầu “thêm đặt cọc” lại đi qua phân tích → thiết kế → làm → kiểm thử → triển khai, đúng 6 pha bảo trì trên slide.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.4-10"
+  },
+  {
+   "id": "L03-e2",
+   "title": "Cùng một dự án, chạy theo Waterfall và theo Scrum",
+   "html": "<p>Ví dụ: hệ thống quản lý thư viện gồm 3 tính năng: quản lý sách, mượn trả sách, báo cáo.</p><table><thead><tr><th></th><th>Waterfall</th><th>Scrum</th></tr></thead><tbody><tr><td>Cách làm</td><td>Phân tích cả 3 tính năng → thiết kế cả 3 → lập trình cả 3 → kiểm thử cả 3 → triển khai</td><td>Sprint 1: quản lý sách; Sprint 2: mượn trả; Sprint 3: báo cáo. Mỗi Sprint đều có phân tích, làm, kiểm thử</td></tr><tr><td>Thủ thư thấy phần mềm chạy khi nào</td><td>Ở cuối dự án</td><td>Ngay cuối Sprint 1 (Sprint Review)</td></tr><tr><td>Thủ thư muốn đổi quy định mượn</td><td>Khó, phải quay lại tài liệu đã chốt</td><td>Đưa vào Product Backlog, PO xếp ưu tiên cho Sprint sau</td></tr><tr><td>Tài liệu</td><td>Đầy đủ, rõ ràng từ đầu</td><td>Gọn hơn, viết dần theo từng mục backlog</td></tr></tbody></table><p>Kết luận: Waterfall cho kế hoạch và tài liệu rõ; Scrum cho phản hồi sớm và dễ đổi yêu cầu. Chọn mô hình nào phụ thuộc vào yêu cầu có ổn định không.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.14-18, 23"
+  },
+  {
+   "id": "L03-e3",
+   "title": "Một Sprint của app đặt đồ ăn",
+   "html": "<p>Ví dụ một Sprint 2 tuần cho hệ thống đặt đồ ăn:</p><ol><li><b>Product Backlog</b> (PO xếp hạng): 1. Xem thực đơn; 2. Thêm món vào giỏ; 3. Thanh toán online; 4. Đánh giá món; 5. Mã giảm giá.</li><li><b>Sprint Planning</b>: nhóm chọn từ trên xuống mục 1, 2, 3 vì ước tính chỉ cam kết giao được ba mục trong 2 tuần.</li><li><b>Sprint Backlog</b>: chia thành task, ví dụ “thiết kế màn hình giỏ hàng”, “kết nối cổng thanh toán”, “viết test thanh toán”.</li><li><b>Daily Scrum</b> mỗi sáng: mỗi người nói hôm qua làm gì, hôm nay làm gì, đang vướng gì. Scrum Master gỡ vướng mắc (ví dụ xin tài khoản thử cổng thanh toán).</li><li>Giữa Sprint, khách hàng muốn thêm “mã giảm giá”. Vì ngày kết thúc và phần cam kết của Sprint <b>không đổi</b>, PO đưa yêu cầu vào Product Backlog cho Sprint sau.</li><li><b>Sprint Review</b>: nhóm trình diễn xem thực đơn, giỏ hàng, thanh toán cho khách hàng.</li><li><b>Sprint Retrospective</b>: nhóm thấy việc test thanh toán bị dồn cuối Sprint, quyết định test sớm hơn ở Sprint sau.</li></ol>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.22-23"
+  },
+  {
+   "id": "L03-e4",
+   "title": "SolasMart: chọn Scrum hay Kanban cho từng nhóm việc",
+   "html": "<p>SolasMart là chuỗi bán lẻ có bán tại quầy, bán online, kho và nhân sự. Ví dụ hai nhóm việc:</p><table><thead><tr><th>Nhóm việc</th><th>Đặc điểm</th><th>Chọn</th><th>Lý do (theo bảng so sánh)</th></tr></thead><tbody><tr><td>Xây tính năng bán online mới (giỏ hàng, giao hàng)</td><td>Có thể gom thành đợt, giao theo kỳ</td><td>Scrum</td><td>Làm theo Sprint cố định 1–4 tuần, cuối mỗi Sprint có phần dùng được để lấy góp ý</td></tr><tr><td>Hỗ trợ cửa hàng: máy POS lỗi, sai giá, xin thêm quyền</td><td>Yêu cầu đến liên tục, không đoán trước</td><td>Kanban</td><td>Không cần thời gian cố định, công việc di chuyển liên tục qua các cột, bảng không reset</td></tr></tbody></table><p>Bảng Kanban ví dụ cho nhóm hỗ trợ: <i>Tiếp nhận → Đang xử lý → Chờ cửa hàng xác nhận → Xong</i>.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.19, 24"
+  },
+  {
+   "id": "L03-e5",
+   "title": "Phân vai trong dự án: ai chịu trách nhiệm việc gì",
+   "html": "<p>Ví dụ trong dự án bán hàng tại quầy của SolasMart có các tình huống sau:</p><table><thead><tr><th>Tình huống</th><th>Ai xử lý chính</th><th>Vì sao</th></tr></thead><tbody><tr><td>Quyết định làm tính năng “tích điểm” trước hay “in hóa đơn điện tử” trước</td><td>PO</td><td>PO định hình sản phẩm, quản lý và xếp ưu tiên Product Backlog</td></tr><tr><td>Dự án chậm 2 tuần, cần điều thêm người</td><td>PM</td><td>PM đảm bảo dự án thành công: tiến độ, nguồn lực</td></tr><tr><td>Không rõ khi khách trả hàng thì có hoàn điểm tích lũy không</td><td>BA</td><td>BA đảm bảo đúng nghiệp vụ: hỏi bộ phận bán hàng, ghi lại quy tắc</td></tr><tr><td>Màn hình thanh toán có quá nhiều bước, thu ngân thao tác chậm</td><td>Designer UI/UX</td><td>Tối ưu giao diện và trải nghiệm</td></tr><tr><td>Tìm lỗi tính sai tổng tiền khi có khuyến mãi</td><td>Tester</td><td>Đảm bảo hệ thống có ít lỗi</td></tr><tr><td>Nhóm bị chặn vì chưa có máy in hóa đơn để thử</td><td>Scrum Master</td><td>Gỡ trở ngại (Removes Impediments)</td></tr></tbody></table>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.22, 25-26"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L03-p1",
+   "title": "Lập bảng SDLC cho hệ thống quản lý thư viện",
+   "task": "<p>Thư viện của một trường muốn làm phần mềm quản lý mượn trả sách. Hãy lập bảng 6 bước SDLC gồm các cột: Bước, Người thực hiện, Hoạt động cụ thể, Kết quả.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Kẻ bảng 4 cột và ghi sẵn 6 dòng theo thứ tự: Lập kế hoạch, Phân tích, Thiết kế, Lập trình, Kiểm thử, Bảo trì.</p>",
+    "<p><b>Bước 2.</b> Điền cột Người thực hiện theo slide: PM; BA, PO, khách hàng; kiến trúc sư, dev cấp cao; lập trình viên; tester, BA, PM, khách hàng; hỗ trợ kỹ thuật, kiểm thử, dev.</p>",
+    "<p><b>Bước 3.</b> Với mỗi bước, viết 1–2 hoạt động <i>gắn với thư viện</i>, không chép nguyên văn slide. Ví dụ Phân tích: “phỏng vấn thủ thư về quy định mượn tối đa bao nhiêu cuốn”.</p>",
+    "<p><b>Bước 4.</b> Điền cột Kết quả theo slide, đổi thành tài liệu cụ thể của thư viện.</p>",
+    "<p><b>Bước 5.</b> Rà lại: mỗi kết quả có đúng là đầu ra của bước đó không (ví dụ BRD thuộc Phân tích, không thuộc Thiết kế).</p>"
+   ],
+   "answer": "<table><thead><tr><th>Bước</th><th>Người thực hiện</th><th>Hoạt động cụ thể</th><th>Kết quả</th></tr></thead><tbody><tr><td>Lập kế hoạch</td><td>PM</td><td>Ước tính nỗ lực, rủi ro “dữ liệu sách cũ nằm trong Excel”, phân công</td><td>Master plan, kế hoạch rủi ro</td></tr><tr><td>Phân tích</td><td>BA, thủ thư, ban giám hiệu</td><td>Phỏng vấn thủ thư, khảo sát sinh viên, ghi quy định mượn trả, phạt trễ hạn</td><td>Biên bản khảo sát, BRD, SRS</td></tr><tr><td>Thiết kế</td><td>Kiến trúc sư, dev cấp cao</td><td>Thiết kế CSDL Sách, Độc giả, Phiếu mượn; thiết kế giao diện tra cứu</td><td>Tài liệu kiến trúc, tài liệu CSDL</td></tr><tr><td>Lập trình</td><td>Lập trình viên</td><td>Viết chức năng mượn, trả, tra cứu; review code; unit test</td><td>Mã nguồn chạy đúng yêu cầu</td></tr><tr><td>Kiểm thử</td><td>Tester, BA, thủ thư</td><td>Kịch bản “mượn quá số cuốn cho phép”, “trả trễ hạn”; theo dõi lỗi</td><td>Báo cáo kiểm thử</td></tr><tr><td>Bảo trì</td><td>Hỗ trợ kỹ thuật, dev</td><td>Hỗ trợ thủ thư, sửa lỗi, thêm gia hạn online</td><td>Phần mềm chạy ổn định, cập nhật định kỳ</td></tr></tbody></table>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.4-10"
+  },
+  {
+   "id": "L03-p2",
+   "title": "Chọn mô hình Waterfall hay Agile cho một dự án",
+   "task": "<p>Ví dụ: SolasMart cần làm phần mềm chấm công cho bộ phận nhân sự. Quy định chấm công đã có văn bản rõ, ít thay đổi; ngân sách và hạn chót cố định; dự án nhỏ; phòng nhân sự bận, chỉ tham gia lúc đầu và lúc nghiệm thu. Hãy chọn mô hình và giải thích.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Gạch chân các đặc điểm của dự án: yêu cầu rõ, ít đổi; ngân sách, hạn chót cố định; quy mô nhỏ; khách hàng ít tham gia.</p>",
+    "<p><b>Bước 2.</b> Đối chiếu từng đặc điểm với bảng “Phù hợp / Không phù hợp” của Waterfall và bảng nhược điểm của Agile.</p>",
+    "<p><b>Bước 3.</b> Đếm: mỗi đặc điểm ủng hộ mô hình nào.</p>",
+    "<p><b>Bước 4.</b> Kết luận và nêu một rủi ro cần để ý của mô hình đã chọn.</p>"
+   ],
+   "answer": "<p><b>Chọn Waterfall.</b></p><ul><li>Yêu cầu rõ ràng, ổn định → đúng điều kiện “phù hợp” của Waterfall.</li><li>Quy mô nhỏ → Waterfall hợp quy mô nhỏ đến vừa.</li><li>Thời gian và ngân sách cố định → Waterfall phù hợp; ngược lại slide nói Agile không phù hợp dự án cố định về thời gian và chi phí.</li><li>Phòng nhân sự không tham gia liên tục → Waterfall không cần khách hàng tham gia liên tục; Agile lại yêu cầu khách hàng tham gia thường xuyên.</li></ul><p><b>Rủi ro cần để ý:</b> lỗi phát hiện muộn và khó đổi yêu cầu. BA nên rà kỹ tài liệu yêu cầu với phòng nhân sự trước khi chốt.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.15-16, 18"
+  },
+  {
+   "id": "L03-p3",
+   "title": "Ghép từng việc vào đúng phần của khung Scrum",
+   "task": "<p>Cho các việc sau trong dự án app đặt đồ ăn. Hãy ghép mỗi việc với phần tương ứng của Scrum (vai trò, artifact hoặc event):</p><ol><li>Danh sách tất cả tính năng đã xếp hạng ưu tiên.</li><li>Cuộc họp 15 phút mỗi sáng.</li><li>Người quyết định làm “thanh toán ví điện tử” trước “đánh giá món”.</li><li>Cuộc họp cuối Sprint để trình diễn sản phẩm cho khách hàng.</li><li>Người gỡ vướng mắc khi nhóm chưa có tài khoản thử cổng thanh toán.</li><li>Danh sách task nhóm cam kết làm trong 2 tuần này.</li><li>Cuộc họp cuối Sprint để bàn cách làm việc tốt hơn.</li></ol>",
+   "steps": [
+    "<p><b>Bước 1.</b> Chia 3 nhóm: Vai trò (PO, Scrum Master, Development Team), Artifact (Product Backlog, Sprint Backlog, Increment), Event (Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective).</p>",
+    "<p><b>Bước 2.</b> Với việc là “người”, dùng câu trách nhiệm trên slide: PO quản lý backlog và tối ưu giá trị; Scrum Master quản lý quy trình và gỡ trở ngại.</p>",
+    "<p><b>Bước 3.</b> Với “danh sách”, phân biệt: cả sản phẩm → Product Backlog; riêng một Sprint → Sprint Backlog.</p>",
+    "<p><b>Bước 4.</b> Với “cuộc họp” cuối Sprint, phân biệt: xem sản phẩm → Review; xem cách làm việc → Retrospective.</p>"
+   ],
+   "answer": "<ol><li>Product Backlog.</li><li>Daily Scrum.</li><li>Product Owner.</li><li>Sprint Review.</li><li>Scrum Master.</li><li>Sprint Backlog.</li><li>Sprint Retrospective.</li></ol>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.22-23"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L03-x1",
+   "level": "de",
+   "title": "Sắp xếp các bước SDLC và gắn kết quả",
+   "task": "<p>Sắp xếp các bước sau theo đúng thứ tự SDLC và ghi kết quả chính của mỗi bước: Kiểm thử, Thiết kế, Bảo trì, Lập kế hoạch, Lập trình, Phân tích.</p>",
+   "hints": [
+    "Bước đầu tiên do PM làm, xác định phạm vi, thời gian, chi phí.",
+    "Phải hiểu yêu cầu trước rồi mới chuyển yêu cầu thành cấu trúc kỹ thuật."
+   ],
+   "answer": "<ol><li>Lập kế hoạch → Master plan, quản trị rủi ro, quy định dự án.</li><li>Phân tích → biên bản khảo sát, BRD, SRS.</li><li>Thiết kế → tài liệu kiến trúc, tài liệu CSDL.</li><li>Lập trình → mã nguồn hoạt động đúng yêu cầu.</li><li>Kiểm thử → báo cáo kiểm thử.</li><li>Bảo trì → phần mềm vận hành ổn định, cập nhật định kỳ.</li></ol>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.4-10"
+  },
+  {
+   "id": "L03-x2",
+   "level": "de",
+   "title": "Phân loại ưu, nhược điểm của Waterfall và Agile",
+   "task": "<p>Xếp mỗi ý sau vào một trong 4 ô: Ưu Waterfall, Nhược Waterfall, Ưu Agile, Nhược Agile.</p><ol><li>Tài liệu rõ ràng</li><li>Giao sản phẩm sớm và liên tục</li><li>Phát hiện lỗi muộn</li><li>Khó kiểm soát tổng thể</li><li>Lập kế hoạch dễ dàng</li><li>Tạo động lực cho team</li><li>Không có phần mềm chạy sớm</li><li>Yêu cầu khách hàng tham gia thường xuyên</li></ol>",
+   "hints": [
+    "Waterfall mạnh về kế hoạch, tài liệu; yếu vì cứng nhắc.",
+    "Agile mạnh về thích ứng, giao sớm; yếu về kiểm soát và cần khách hàng."
+   ],
+   "answer": "<ul><li>Ưu Waterfall: 1, 5.</li><li>Nhược Waterfall: 3, 7.</li><li>Ưu Agile: 2, 6.</li><li>Nhược Agile: 4, 8.</li></ul>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.15, 18"
+  },
+  {
+   "id": "L03-x3",
+   "level": "tb",
+   "title": "Viết lại 4 tuyên ngôn Agile bằng tình huống",
+   "task": "<p>Với mỗi tuyên ngôn Agile, viết một tình huống ví dụ trong dự án FoodNow (đặt bàn nhà hàng) cho thấy nhóm đang làm theo tuyên ngôn đó.</p>",
+   "hints": [
+    "Mỗi tuyên ngôn có dạng “A hơn B”: tình huống của bạn phải cho thấy nhóm chọn A khi A và B mâu thuẫn.",
+    "Ví dụ với tuyên ngôn 4: có một thay đổi xảy ra, nhóm xử lý thế nào?"
+   ],
+   "answer": "<ol><li><b>Cá nhân và sự tương hỗ hơn quy trình và công cụ:</b> dev thấy chỗ chưa rõ về giờ mở cửa nhà hàng, gọi BA trao đổi ngay thay vì chờ mở phiếu yêu cầu qua công cụ.</li><li><b>Sản phẩm dùng được hơn tài liệu:</b> sau 2 tuần, nhóm cho quản lý nhà hàng dùng thử chức năng đặt bàn chạy được, thay vì gửi bản đặc tả 50 trang.</li><li><b>Cộng tác với khách hàng hơn đàm phán hợp đồng:</b> khi nhà hàng muốn đổi cách xác nhận đặt bàn, hai bên ngồi bàn cách làm, không tranh cãi “hợp đồng không ghi”.</li><li><b>Phản hồi với thay đổi hơn bám kế hoạch:</b> khách phản hồi muốn chọn vị trí bàn; PO đưa vào backlog và xếp ưu tiên cao cho Sprint sau dù kế hoạch ban đầu không có.</li></ol>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.17"
+  },
+  {
+   "id": "L03-x4",
+   "level": "tb",
+   "title": "Nhận diện trụ cột và giá trị Scrum",
+   "task": "<p>Mỗi tình huống sau thể hiện trụ cột hoặc giá trị Scrum nào?</p><ol><li>Cả nhóm dùng chung một bảng công việc, ai cũng thấy việc nào đang làm, việc nào bị chặn.</li><li>Một dev nói thẳng trong Daily Scrum rằng mình ước tính sai, task sẽ trễ 2 ngày.</li><li>Sau Retrospective, nhóm đổi cách review code vì thấy cách cũ làm chậm.</li><li>Trong Sprint, nhóm từ chối nhận thêm việc ngoài Sprint Backlog để giữ mục tiêu Sprint.</li><li>Mỗi ngày nhóm xem lại burndown chart để biết tiến độ.</li></ol>",
+   "hints": [
+    "3 trụ cột: Minh bạch, Thanh tra, Thích nghi. 5 giá trị: Cam kết, Tập trung, Cởi mở, Tôn trọng, Dũng cảm.",
+    "Tình huống 2 có thể khớp hai giá trị; chọn giá trị nói về “nói lên sự thật”."
+   ],
+   "answer": "<ol><li>Minh bạch (Transparency) – mọi người nhìn thấy và hiểu giống nhau.</li><li>Dũng cảm (Courage) – dám nói sự thật; cũng thể hiện Cởi mở.</li><li>Thích nghi (Adaptation) – điều chỉnh kịp thời.</li><li>Tập trung (Focus) – tập trung vào công việc của Sprint.</li><li>Thanh tra (Inspection) – thường xuyên kiểm tra công việc.</li></ol>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.20-21"
+  },
+  {
+   "id": "L03-x5",
+   "level": "kho",
+   "title": "Tư vấn mô hình cho hai dự án của SolasMart",
+   "task": "<p>Ví dụ: SolasMart có hai dự án.</p><ul><li><b>Dự án A</b> – app bán online mới: ban giám đốc chưa rõ khách muốn tính năng gì, muốn ra mắt trong 2 tháng để thử thị trường, đội marketing sẵn sàng góp ý mỗi tuần.</li><li><b>Dự án B</b> – phần mềm xuất báo cáo thuế cho kế toán: mẫu báo cáo theo quy định nhà nước, đã cố định; ngân sách cố định; kế toán chỉ rảnh lúc đầu và lúc nghiệm thu.</li></ul><p>Chọn mô hình cho mỗi dự án, giải thích theo bảng phù hợp/không phù hợp, và nêu việc chính BA phải làm trong mỗi dự án.</p>",
+   "hints": [
+    "Dự án A trùng với các dòng “Không phù hợp” của Waterfall.",
+    "Dự án B trùng với các dòng “Phù hợp” của Waterfall và nhược điểm của Agile.",
+    "Việc của BA: với Agile, BA làm việc theo từng mục backlog; với Waterfall, BA phải chốt kỹ tài liệu từ đầu."
+   ],
+   "answer": "<p><b>Dự án A → Agile (Scrum).</b> Lý do: chưa rõ giải pháp tối ưu (mang tính thử nghiệm), cần ra mắt sớm lấy phản hồi người dùng, khách hàng (marketing) tham gia thường xuyên. Đây đều là trường hợp Waterfall không phù hợp. Việc của BA: hỗ trợ PO viết và làm rõ các mục trong Product Backlog, làm rõ yêu cầu từng Sprint, ghi nhận phản hồi sau mỗi Sprint Review.</p><p><b>Dự án B → Waterfall.</b> Lý do: yêu cầu rõ ràng, ổn định; ngân sách cố định; không cần khách hàng tham gia liên tục. Agile lại cần khách hàng tham gia thường xuyên và không phù hợp dự án cố định chi phí. Việc của BA: khảo sát kỹ quy định thuế với kế toán, viết BRD/SRS đầy đủ và chốt trước khi thiết kế, tham gia kiểm thử đối chiếu từng mẫu báo cáo.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.6, 15-18"
+  },
+  {
+   "id": "L03-x6",
+   "level": "kho",
+   "title": "Xử lý yêu cầu thay đổi giữa Sprint",
+   "task": "<p>Ví dụ: dự án hệ thống đặt đồ ăn chạy Scrum, Sprint 2 tuần. Ngày thứ 4 của Sprint, chủ nhà hàng gọi thẳng cho một dev, yêu cầu thêm ngay tính năng “giao hàng hẹn giờ” vào Sprint này. Dev đồng ý và bỏ dở task đang làm.</p><p>Hãy chỉ ra: (1) điều gì sai so với khung Scrum, (2) cách xử lý đúng, (3) BA có thể giúp gì.</p>",
+   "hints": [
+    "Xem lại câu trên hình khung Scrum: điều gì “do not change” trong Sprint?",
+    "Ai quản lý Product Backlog và tối ưu giá trị sản phẩm?",
+    "Yêu cầu mới thường còn mơ hồ: giờ hẹn tối thiểu là bao lâu, có tính thêm phí không…"
+   ],
+   "answer": "<p><b>(1) Sai:</b> ngày kết thúc Sprint và phần việc nhóm đã cam kết không được thay đổi trong Sprint; dev tự nhận việc mới làm lệch Sprint Backlog. Yêu cầu cũng đi vòng qua PO, trong khi PO là người quản lý Product Backlog.</p><p><b>(2) Cách đúng:</b> dev báo yêu cầu cho PO. PO đưa “giao hàng hẹn giờ” vào Product Backlog, xếp ưu tiên. Nếu quan trọng, mục này được chọn ở Sprint Planning của Sprint sau. Scrum Master nhắc lại quy tắc với các bên để không bị chen ngang (gỡ trở ngại cho nhóm).</p><p><b>(3) BA:</b> làm rõ yêu cầu với chủ nhà hàng (đặt trước tối thiểu bao lâu, khung giờ nào, có phí không, ảnh hưởng tới bếp ra sao), viết thành mục backlog có tiêu chí chấp nhận để PO xếp ưu tiên và nhóm ước tính được.</p>",
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.22-23"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L03-f1",
+   "front": "SDLC (Software Development Life Cycle)",
+   "back": "<p>Vòng đời phát triển phần mềm. Mục tiêu: phần mềm chất lượng cao, chi phí thấp, thời gian sản xuất ngắn nhất.</p>"
+  },
+  {
+   "id": "L03-f2",
+   "front": "6 bước của SDLC",
+   "back": "<p>Lập kế hoạch → Phân tích → Thiết kế → Lập trình → Kiểm thử và tích hợp → Bảo trì.</p><p>Mẹo: <b>Kế – Phân – Thiết – Lập – Kiểm – Bảo</b>.</p>"
+  },
+  {
+   "id": "L03-f3",
+   "front": "Planning (Lập kế hoạch)",
+   "back": "<p>Bước đầu tiên, thường do PM làm. Xác định phạm vi, thời gian, chi phí, nguồn lực, rủi ro. Kết quả: Master plan, quản trị rủi ro, quy định dự án.</p>"
+  },
+  {
+   "id": "L03-f4",
+   "front": "Master plan",
+   "back": "<p>Tài liệu kế hoạch tổng thể của dự án, là kết quả của bước Lập kế hoạch. Ví dụ: lịch các giai đoạn, nhân sự, ngân sách của dự án FoodNow.</p>"
+  },
+  {
+   "id": "L03-f5",
+   "front": "Analysis (Phân tích yêu cầu)",
+   "back": "<p>Do BA, PO, khách hàng, kỹ sư phần mềm làm. Mục tiêu: hiểu rõ yêu cầu chức năng và phi chức năng. Kết quả: biên bản khảo sát, BRD, SRS. Bước BA làm nhiều nhất.</p>"
+  },
+  {
+   "id": "L03-f6",
+   "front": "Design (Thiết kế)",
+   "back": "<p>Do kiến trúc sư phần mềm, dev cấp cao làm. Chuyển yêu cầu thành cấu trúc kỹ thuật: kiến trúc, CSDL, UI/UX. Kết quả: tài liệu kiến trúc, tài liệu CSDL.</p>"
+  },
+  {
+   "id": "L03-f7",
+   "front": "Implementation (Thực thi / Lập trình)",
+   "back": "<p>Lập trình viên viết mã nguồn, review code, unit test để chuyển yêu cầu thành sản phẩm thực tế. Kết quả: mã nguồn hoạt động đúng yêu cầu.</p>"
+  },
+  {
+   "id": "L03-f8",
+   "front": "Testing (Kiểm thử)",
+   "back": "<p>Tester (QA/QC), BA, PM, khách hàng tham gia. Mục tiêu: phần mềm đúng yêu cầu, tìm lỗi sớm nhất. Hoạt động: viết kịch bản kiểm thử, kiểm thử, kiểm soát lỗi. Kết quả: báo cáo kiểm thử.</p>"
+  },
+  {
+   "id": "L03-f9",
+   "front": "Maintenance (Bảo trì)",
+   "back": "<p>Hỗ trợ kỹ thuật, kiểm thử, dev duy trì phần mềm ổn định, sửa lỗi, nâng cấp tính năng. 6 pha: Request Analysis, Problem Identification, Solution Design, Implementation of Changes, Testing, Deployment.</p>"
+  },
+  {
+   "id": "L03-f10",
+   "front": "Lợi ích khi tuân thủ SDLC",
+   "back": "<ul><li>Giảm rủi ro, kiểm soát chi phí và nguồn lực.</li><li>Dễ bảo trì, nâng cấp, mở rộng.</li><li>Khách hàng hài lòng vì đáp ứng đúng nhu cầu.</li></ul>"
+  },
+  {
+   "id": "L03-f11",
+   "front": "6 mô hình phát triển phần mềm trên slide",
+   "back": "<p>Spiral (xoắn ốc), Iterative (lặp), Incremental (tăng trưởng), V model (chữ V), Waterfall (thác nước), Agile.</p>"
+  },
+  {
+   "id": "L03-f12",
+   "front": "Spiral model (mô hình xoắn ốc)",
+   "back": "<p>Phát triển qua nhiều vòng; mỗi vòng có xác định mục tiêu, đánh giá phương án và quản lý rủi ro (dùng mẫu thử), phát triển, lập kế hoạch vòng sau. Điểm nhớ: <b>rủi ro</b>.</p>"
+  },
+  {
+   "id": "L03-f13",
+   "front": "Iterative và Incremental khác nhau thế nào?",
+   "back": "<p><b>Iterative</b>: làm bản sơ bộ rồi lặp lại để hoàn thiện dần. <b>Incremental</b>: giao từng phần, mỗi phần thêm tính năng mới. Mẹo: lặp = làm <i>tốt hơn</i>; tăng trưởng = làm <i>thêm</i>.</p>"
+  },
+  {
+   "id": "L03-f14",
+   "front": "V model (mô hình chữ V)",
+   "back": "<p>Mô hình tuần tự như Waterfall, nhưng mỗi bước phát triển có một bước kiểm thử tương ứng. Ví dụ: yêu cầu ↔ kiểm thử chấp nhận, lập trình ↔ unit test.</p>"
+  },
+  {
+   "id": "L03-f15",
+   "front": "Waterfall (thác nước)",
+   "back": "<p>Mô hình tuần tự, giai đoạn theo thứ tự cố định: Yêu cầu → Thiết kế → Phát triển → Kiểm thử → Triển khai → Bảo trì. Một trong những mô hình dễ dùng nhất.</p>"
+  },
+  {
+   "id": "L03-f16",
+   "front": "Ưu và nhược điểm của Waterfall",
+   "back": "<p><b>Ưu:</b> đơn giản, dễ quản lý, dễ lập kế hoạch, tài liệu rõ, hợp nhóm mới. <b>Nhược:</b> khó đổi yêu cầu, không có phần mềm chạy sớm, không linh hoạt, phát hiện lỗi muộn.</p>"
+  },
+  {
+   "id": "L03-f17",
+   "front": "Khi nào dùng Waterfall?",
+   "back": "<p>Yêu cầu rõ, ổn định; quy mô nhỏ–vừa; thời gian và ngân sách cố định; khách hàng không cần tham gia liên tục. Tránh khi yêu cầu hay đổi, cần ra mắt sớm, dự án thử nghiệm hoặc dài hạn.</p>"
+  },
+  {
+   "id": "L03-f18",
+   "front": "Agile",
+   "back": "<p>Tập hợp các phương thức phát triển <b>lặp và tăng dần</b>; yêu cầu và giải pháp phát triển qua cộng tác giữa các nhóm <b>tự quản</b> và <b>liên chức năng</b>.</p>"
+  },
+  {
+   "id": "L03-f19",
+   "front": "4 tuyên ngôn Agile",
+   "back": "<ol><li>Cá nhân và tương hỗ hơn quy trình, công cụ</li><li>Sản phẩm dùng được hơn tài liệu</li><li>Cộng tác khách hàng hơn đàm phán hợp đồng</li><li>Phản hồi thay đổi hơn bám kế hoạch</li></ol>"
+  },
+  {
+   "id": "L03-f20",
+   "front": "Ưu và nhược điểm của Agile",
+   "back": "<p><b>Ưu:</b> linh hoạt, chất lượng tăng, giao sớm và liên tục, hợp tác minh bạch, tạo động lực, giảm rủi ro. <b>Nhược:</b> khó kiểm soát tổng thể, cần khách hàng tham gia thường xuyên, không hợp dự án cố định thời gian, chi phí hoặc quy trình cứng.</p>"
+  },
+  {
+   "id": "L03-f21",
+   "front": "Agile là chiếc ô (umbrella)",
+   "back": "<p>Agile là bộ giá trị; các phương pháp là cách hiện thực hóa: Scrum, Kanban, XP, DSDM, FDD, Crystal, Lean, DevOps.</p>"
+  },
+  {
+   "id": "L03-f22",
+   "front": "3 trụ cột của Scrum",
+   "back": "<p><b>Minh bạch</b> (Transparency) – nhìn thấy và hiểu giống nhau; <b>Thanh tra</b> (Inspection) – kiểm tra thường xuyên; <b>Thích nghi</b> (Adaptation) – điều chỉnh kịp thời. Mẹo: Thấy – Kiểm – Chỉnh.</p>"
+  },
+  {
+   "id": "L03-f23",
+   "front": "5 giá trị Scrum",
+   "back": "<p>Cam kết (Commitment), Tập trung (Focus), Cởi mở (Openness), Tôn trọng (Respect), Dũng cảm (Courage). Mẹo: <b>C-F-O-R-C</b>.</p>"
+  },
+  {
+   "id": "L03-f24",
+   "front": "Product Owner (PO)",
+   "back": "<p>Người định hình sản phẩm. Trong Scrum: quản lý Product Backlog và tối ưu giá trị sản phẩm. Ví dụ: quyết định làm thanh toán trước hay đánh giá món trước.</p>"
+  },
+  {
+   "id": "L03-f25",
+   "front": "Scrum Master",
+   "back": "<p>Quản lý quy trình Scrum và gỡ trở ngại (Removes Impediments) cho nhóm. Ví dụ: xin quyền truy cập môi trường thử giúp nhóm.</p>"
+  },
+  {
+   "id": "L03-f26",
+   "front": "Development Team",
+   "back": "<p>Nhóm tự quản lý (Manages itself), mỗi Sprint tạo ra phần sản phẩm đạt chuẩn “Done” (Done Increments). Scrum Guide 2020 gọi là Developers.</p>"
+  },
+  {
+   "id": "L03-f27",
+   "front": "Product Backlog và Sprint Backlog",
+   "back": "<p><b>Product Backlog:</b> danh sách đã xếp hạng mọi thứ sản phẩm cần (features, stories), do PO quản lý. <b>Sprint Backlog:</b> các mục nhóm chọn cho một Sprint, đã chia thành task.</p>"
+  },
+  {
+   "id": "L03-f28",
+   "front": "Sprint",
+   "back": "<p>Vòng lặp có thời hạn cố định 1–4 tuần. Trong Sprint, ngày kết thúc và phần việc nhóm cam kết giao không thay đổi.</p>"
+  },
+  {
+   "id": "L03-f29",
+   "front": "Các sự kiện trong Sprint",
+   "back": "<p>Sprint Planning (chọn việc từ đỉnh backlog) → Daily Scrum (mỗi 24 giờ) → Sprint Review (xem sản phẩm) → Sprint Retrospective (xem cách làm việc).</p>"
+  },
+  {
+   "id": "L03-f30",
+   "front": "Burndown/Burnup Chart",
+   "back": "<p>Biểu đồ theo dõi tiến độ Sprint. Burndown cho thấy phần việc còn lại giảm dần; Burnup cho thấy phần việc đã xong tăng dần.</p>"
+  },
+  {
+   "id": "L03-f31",
+   "front": "Scrum khác Kanban ở đâu?",
+   "back": "<p><b>Scrum:</b> Sprint cố định 1–4 tuần, bảng reset mỗi Sprint. <b>Kanban:</b> trực quan hóa luồng việc, việc chạy liên tục qua cột trạng thái, không có thời gian cố định, bảng không reset.</p>"
+  },
+  {
+   "id": "L03-f32",
+   "front": "Quản trị dự án",
+   "back": "<p>Áp dụng kiến thức, kỹ năng, phương pháp, công cụ, kỹ thuật vào hoạt động dự án để đạt mục tiêu và yêu cầu dự án. Quản trị giỏi: đúng hạn, trong phạm vi, tối ưu nguồn lực, các bên hài lòng.</p>"
+  },
+  {
+   "id": "L03-f33",
+   "front": "PO, PM, BA khác nhau thế nào?",
+   "back": "<p>PO: người định hình sản phẩm. PM: người đảm bảo dự án thành công. BA: người đảm bảo đúng nghiệp vụ. Mẹo: PO – <i>cái gì</i>, PM – <i>về đích</i>, BA – <i>đúng nghiệp vụ</i>.</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L03-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, mục tiêu của SDLC là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tạo ra phần mềm có nhiều tính năng nhất có thể"
+    },
+    {
+     "id": "b",
+     "t": "Có bộ tài liệu đầy đủ, được khách hàng ký duyệt trước khi bắt đầu lập trình"
+    },
+    {
+     "id": "c",
+     "t": "Tạo ra phần mềm chất lượng cao, chi phí thấp, thời gian ngắn nhất"
+    },
+    {
+     "id": "d",
+     "t": "Giao phần mềm chạy được cho khách sau mỗi tuần"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide ghi mục tiêu SDLC: tạo ra phần mềm chất lượng cao với chi phí thấp và thời gian sản xuất ngắn nhất. Mẹo: <b>tốt – rẻ – nhanh</b>.</p>",
+   "why_wrong": {
+    "a": "Nhiều tính năng không phải mục tiêu; tính năng phải đúng nhu cầu, không cần nhiều nhất.",
+    "b": "Tài liệu là kết quả của một số bước, không phải mục tiêu chung của SDLC.",
+    "d": "Giao sản phẩm liên tục là ưu điểm của Agile, không phải mục tiêu SDLC trên slide."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.4"
+  },
+  {
+   "id": "L03-q2",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Bước đầu tiên trong 6 bước của SDLC là bước nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Lập kế hoạch (Planning)"
+    },
+    {
+     "id": "b",
+     "t": "Phân tích yêu cầu (Analysis)"
+    },
+    {
+     "id": "c",
+     "t": "Thiết kế (Design)"
+    },
+    {
+     "id": "d",
+     "t": "Khảo sát khách hàng"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Slide ghi Lập kế hoạch là bước đầu tiên và rất quan trọng của SDLC.</p>",
+   "why_wrong": {
+    "b": "Phân tích là bước thứ 2, sau khi đã có kế hoạch.",
+    "c": "Thiết kế là bước thứ 3, cần yêu cầu đã phân tích làm đầu vào.",
+    "d": "Khảo sát là một hoạt động trong bước Phân tích, không phải một bước riêng của SDLC."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.4-5"
+  },
+  {
+   "id": "L03-q3",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, ai thường là người thực hiện bước Lập kế hoạch?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Business Analyst (BA)"
+    },
+    {
+     "id": "b",
+     "t": "Project Manager (PM)"
+    },
+    {
+     "id": "c",
+     "t": "Kiến trúc sư phần mềm"
+    },
+    {
+     "id": "d",
+     "t": "Tester (QA/QC)"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Bước Lập kế hoạch thường do PM thực hiện: xác định phạm vi, thời gian, chi phí, nguồn lực, rủi ro.</p>",
+   "why_wrong": {
+    "a": "BA được nêu là người thực hiện bước Phân tích, không phải Lập kế hoạch.",
+    "c": "Kiến trúc sư phần mềm thực hiện bước Thiết kế.",
+    "d": "Tester thực hiện bước Kiểm thử."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.5"
+  },
+  {
+   "id": "L03-q4",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Kết quả (đầu ra) của bước Phân tích yêu cầu là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tài liệu kế hoạch tổng thể (Master plan)"
+    },
+    {
+     "id": "b",
+     "t": "Tài liệu kiến trúc, tài liệu CSDL"
+    },
+    {
+     "id": "c",
+     "t": "Báo cáo kiểm thử"
+    },
+    {
+     "id": "d",
+     "t": "Biên bản khảo sát, tài liệu BRD, SRS"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Bước Phân tích thu thập và phân tích yêu cầu nên đầu ra là biên bản khảo sát và tài liệu yêu cầu BRD, SRS.</p>",
+   "why_wrong": {
+    "a": "Master plan là kết quả của bước Lập kế hoạch.",
+    "b": "Tài liệu kiến trúc và CSDL là kết quả của bước Thiết kế.",
+    "c": "Báo cáo kiểm thử là kết quả của bước Kiểm thử."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.6"
+  },
+  {
+   "id": "L03-q5",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Điểm khác nhau chính giữa mục tiêu của bước Phân tích và bước Thiết kế là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phân tích hiểu rõ hệ thống cần làm gì; Thiết kế chuyển yêu cầu thành cấu trúc kỹ thuật"
+    },
+    {
+     "id": "b",
+     "t": "Phân tích viết mã nguồn; Thiết kế viết kịch bản kiểm thử"
+    },
+    {
+     "id": "c",
+     "t": "Phân tích do kiến trúc sư phần mềm thực hiện, còn Thiết kế do BA cùng khách hàng thực hiện"
+    },
+    {
+     "id": "d",
+     "t": "Phân tích xác định chi phí; Thiết kế xác định rủi ro"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Phân tích nhằm hiểu rõ yêu cầu chức năng và phi chức năng (cần làm gì). Thiết kế chuyển yêu cầu đó thành cấu trúc kỹ thuật (làm bằng cách nào).</p>",
+   "why_wrong": {
+    "b": "Viết mã thuộc bước Lập trình, viết kịch bản kiểm thử thuộc bước Kiểm thử.",
+    "c": "Ngược vai: BA làm Phân tích, kiến trúc sư làm Thiết kế.",
+    "d": "Chi phí và rủi ro được xác định ở bước Lập kế hoạch."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.6-7"
+  },
+  {
+   "id": "L03-q6",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Theo slide, những ai tham gia bước Kiểm thử? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tester (QA/QC)"
+    },
+    {
+     "id": "b",
+     "t": "Business Analyst (BA)"
+    },
+    {
+     "id": "c",
+     "t": "Kiến trúc sư phần mềm"
+    },
+    {
+     "id": "d",
+     "t": "Khách hàng"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Slide ghi người thực hiện Kiểm thử: tester (QA/QC), BA, PM, khách hàng… BA và khách hàng tham gia vì họ hiểu rõ thế nào là “đúng yêu cầu”.</p>",
+   "why_wrong": {
+    "c": "Kiến trúc sư phần mềm được nêu ở bước Thiết kế, không có trong danh sách bước Kiểm thử."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.9"
+  },
+  {
+   "id": "L03-q7",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Unit test là một hoạt động thuộc bước Thực thi (Implementation) và do lập trình viên thực hiện.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide liệt kê hoạt động của bước Thực thi: viết mã nguồn, review code, unit test. Người thực hiện là lập trình viên. Unit test là lập trình viên tự kiểm từng phần nhỏ của mã.</p>",
+   "why_wrong": {
+    "s": "Unit test nằm trong hoạt động của bước Thực thi trên slide, khác với kiểm thử toàn hệ thống ở bước Kiểm thử."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.8"
+  },
+  {
+   "id": "L03-q8",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Mục tiêu của bước Kiểm thử (Testing) theo slide là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chuyển đổi yêu cầu thành cấu trúc kỹ thuật"
+    },
+    {
+     "id": "b",
+     "t": "Đảm bảo phần mềm hoạt động đúng yêu cầu, tìm ra lỗi sớm nhất"
+    },
+    {
+     "id": "c",
+     "t": "Duy trì phần mềm ổn định và nâng cấp tính năng"
+    },
+    {
+     "id": "d",
+     "t": "Chứng minh phần mềm hoàn toàn không còn lỗi trước khi bàn giao cho khách hàng"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Kiểm thử nhằm đảm bảo phần mềm đúng yêu cầu và tìm lỗi càng sớm càng tốt. Kết quả là báo cáo kiểm thử.</p>",
+   "why_wrong": {
+    "a": "Đây là mục tiêu của bước Thiết kế.",
+    "c": "Đây là mục tiêu của bước Bảo trì.",
+    "d": "Kiểm thử giúp tìm lỗi, không thể chứng minh phần mềm hết lỗi; slide cũng chỉ nói tester giúp hệ thống có ít lỗi."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.9, 26"
+  },
+  {
+   "id": "L03-q9",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Những hoạt động nào thuộc bước Bảo trì (Maintenance)? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tiếp nhận yêu cầu từ người dùng"
+    },
+    {
+     "id": "b",
+     "t": "Ước tính nỗ lực và phân công nhiệm vụ cho dự án"
+    },
+    {
+     "id": "c",
+     "t": "Hỗ trợ người dùng khi gặp sự cố"
+    },
+    {
+     "id": "d",
+     "t": "Nâng cấp tính năng"
+    },
+    {
+     "id": "e",
+     "t": "Thiết kế kiến trúc tổng thể ban đầu của hệ thống"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Slide liệt kê hoạt động bảo trì: tiếp nhận yêu cầu, hỗ trợ người dùng, sửa lỗi, nâng cấp tính năng.</p>",
+   "why_wrong": {
+    "b": "Ước tính nỗ lực và phân công là hoạt động của bước Lập kế hoạch.",
+    "e": "Thiết kế kiến trúc ban đầu thuộc bước Thiết kế, trước khi lập trình."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.10"
+  },
+  {
+   "id": "L03-q10",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>App FoodNow đã chạy thật được 3 tháng. Một nhà hàng báo rằng khách không hủy được bàn đã đặt. Theo 6 pha bảo trì trên slide, đội hỗ trợ nên làm việc gì <b>đầu tiên</b>?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Triển khai ngay bản sửa lên máy chủ (Deployment)"
+    },
+    {
+     "id": "b",
+     "t": "Thiết kế giải pháp mới cho chức năng hủy bàn (Solution Design)"
+    },
+    {
+     "id": "c",
+     "t": "Phân tích yêu cầu vừa tiếp nhận (Request Analysis)"
+    },
+    {
+     "id": "d",
+     "t": "Kiểm thử lại toàn bộ ứng dụng (Testing)"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Hình 6 pha bảo trì bắt đầu bằng Request Analysis, sau đó Problem Identification, Solution Design, Implementation of Changes, Testing, Deployment. Phải hiểu yêu cầu trước rồi mới xác định vấn đề và sửa.</p>",
+   "why_wrong": {
+    "a": "Deployment là pha cuối, chỉ làm sau khi đã sửa và kiểm thử.",
+    "b": "Solution Design là pha 3, cần biết rõ vấn đề trước.",
+    "d": "Testing là pha 5, làm sau khi đã thực hiện thay đổi."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.10"
+  },
+  {
+   "id": "L03-q11",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Theo phần kết luận của slide, tuân thủ các giai đoạn SDLC giúp được gì? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Giảm thiểu rủi ro, kiểm soát tốt chi phí và nguồn lực"
+    },
+    {
+     "id": "b",
+     "t": "Bỏ được bước kiểm thử nếu lập kế hoạch tốt"
+    },
+    {
+     "id": "c",
+     "t": "Tăng khả năng bảo trì, nâng cấp và mở rộng phần mềm"
+    },
+    {
+     "id": "d",
+     "t": "Không cần khách hàng tham gia trong suốt dự án"
+    },
+    {
+     "id": "e",
+     "t": "Tăng sự hài lòng của khách hàng vì đáp ứng đúng nhu cầu"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Slide nêu 3 lợi ích: giảm rủi ro và kiểm soát chi phí, nguồn lực; tăng khả năng bảo trì, nâng cấp, mở rộng; tăng sự hài lòng của khách hàng.</p>",
+   "why_wrong": {
+    "b": "Kiểm thử là một bước bắt buộc của SDLC, kế hoạch tốt không thay được kiểm thử.",
+    "d": "Khách hàng vẫn tham gia, ví dụ ở bước Phân tích và Kiểm thử."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.11"
+  },
+  {
+   "id": "L03-q12",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA của dự án FoodNow đang phỏng vấn quản lý nhà hàng để hiểu cách nhận đặt bàn qua điện thoại hiện nay, sau đó ghi lại thành biên bản. Dự án đang ở bước nào của SDLC?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Lập kế hoạch"
+    },
+    {
+     "id": "b",
+     "t": "Phân tích yêu cầu"
+    },
+    {
+     "id": "c",
+     "t": "Thiết kế giải pháp kỹ thuật"
+    },
+    {
+     "id": "d",
+     "t": "Bảo trì"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Phỏng vấn, khảo sát và viết biên bản khảo sát là hoạt động và kết quả của bước Phân tích yêu cầu, do BA thực hiện.</p>",
+   "why_wrong": {
+    "a": "Lập kế hoạch tập trung vào phạm vi, thời gian, chi phí, nguồn lực, không phải phỏng vấn nghiệp vụ.",
+    "c": "Thiết kế chuyển yêu cầu đã có thành kiến trúc, CSDL, UI/UX.",
+    "d": "Bảo trì diễn ra khi phần mềm đã vận hành; ở đây hệ thống mới chưa được làm."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.6"
+  },
+  {
+   "id": "L03-q13",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Nhóm dự án quản lý thư viện đang vẽ các bảng CSDL Sách, Độc giả, Phiếu mượn và phác giao diện màn hình tra cứu sách. Người làm chính và kết quả mong đợi của bước này là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "BA cùng thủ thư thư viện; kết quả là biên bản khảo sát, tài liệu BRD và SRS của dự án"
+    },
+    {
+     "id": "b",
+     "t": "Lập trình viên; kết quả là mã nguồn chạy được"
+    },
+    {
+     "id": "c",
+     "t": "Tester; kết quả là báo cáo kiểm thử"
+    },
+    {
+     "id": "d",
+     "t": "Kiến trúc sư phần mềm, dev cấp cao; kết quả là tài liệu kiến trúc, tài liệu CSDL"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Thiết kế CSDL và UI/UX là hoạt động của bước Thiết kế. Người thực hiện là kiến trúc sư phần mềm, lập trình viên cấp cao; kết quả là tài liệu kiến trúc, tài liệu CSDL.</p>",
+   "why_wrong": {
+    "a": "BA, thủ thư và biên bản khảo sát thuộc bước Phân tích.",
+    "b": "Lập trình viên và mã nguồn thuộc bước Lập trình, sau Thiết kế.",
+    "c": "Tester và báo cáo kiểm thử thuộc bước Kiểm thử."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.7"
+  },
+  {
+   "id": "L03-q14",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ở dự án bán hàng tại quầy của SolasMart, BA được mời rà các kịch bản kiểm thử cho chức năng “thanh toán có khuyến mãi”. BA nên tập trung kiểm tra điều gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mã nguồn của chức năng thanh toán có đặt tên biến đúng chuẩn của nhóm không"
+    },
+    {
+     "id": "b",
+     "t": "Kịch bản có phủ đúng và đủ các quy tắc khuyến mãi của nghiệp vụ không"
+    },
+    {
+     "id": "c",
+     "t": "Máy chủ chịu được bao nhiêu giao dịch mỗi giây"
+    },
+    {
+     "id": "d",
+     "t": "Tiến độ kiểm thử có kịp ngày nghiệm thu không"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>BA là “người đảm bảo đúng nghiệp vụ” và có tham gia bước Kiểm thử. Khi rà kịch bản kiểm thử, BA kiểm tra kịch bản có phản ánh đúng quy tắc nghiệp vụ hay không.</p>",
+   "why_wrong": {
+    "a": "Chuẩn đặt tên trong mã là việc review code của lập trình viên.",
+    "c": "Khả năng chịu tải là vấn đề kỹ thuật, thuộc kiến trúc sư hoặc tester hiệu năng.",
+    "d": "Theo dõi tiến độ là việc của PM, người đảm bảo dự án thành công."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.9, 26"
+  },
+  {
+   "id": "L03-q15",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trên slide về các bước SDLC, BA được nêu tên là người thực hiện ở hai bước nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Lập kế hoạch (Planning) và Thiết kế"
+    },
+    {
+     "id": "b",
+     "t": "Thiết kế và Lập trình"
+    },
+    {
+     "id": "c",
+     "t": "Phân tích yêu cầu và Kiểm thử"
+    },
+    {
+     "id": "d",
+     "t": "Lập trình và Bảo trì"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide ghi BA ở bước Phân tích (cùng PO, khách hàng, kỹ sư phần mềm) và bước Kiểm thử (cùng tester, PM, khách hàng).</p>",
+   "why_wrong": {
+    "a": "Lập kế hoạch ghi PM, Thiết kế ghi kiến trúc sư và dev cấp cao.",
+    "b": "Thiết kế và Lập trình là việc của nhóm kỹ thuật.",
+    "d": "Lập trình ghi lập trình viên; Bảo trì ghi hỗ trợ kỹ thuật, kiểm thử, dev."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.5-10"
+  },
+  {
+   "id": "L03-q16",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Những mô hình nào có trong danh sách 6 mô hình phát triển phần mềm trên slide? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mô hình xoắn ốc (Spiral)"
+    },
+    {
+     "id": "b",
+     "t": "Mô hình chữ V (V model)"
+    },
+    {
+     "id": "c",
+     "t": "Mô hình Kanban"
+    },
+    {
+     "id": "d",
+     "t": "Mô hình tăng trưởng (Incremental)"
+    },
+    {
+     "id": "e",
+     "t": "Mô hình DevOps"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>6 mô hình trên slide: Spiral, Iterative, Incremental, V model, Waterfall, Agile.</p>",
+   "why_wrong": {
+    "c": "Kanban là một phương pháp nằm dưới chiếc ô Agile, không nằm trong danh sách 6 mô hình.",
+    "e": "DevOps chỉ xuất hiện trên hình chiếc ô Agile, không phải một trong 6 mô hình."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.12, 19"
+  },
+  {
+   "id": "L03-q17",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Điểm nổi bật nhất của mô hình xoắn ốc (Spiral) so với các mô hình khác là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phân tích và quản lý rủi ro ở mỗi vòng, có dùng mẫu thử"
+    },
+    {
+     "id": "b",
+     "t": "Các giai đoạn chỉ đi qua đúng một lần, theo một thứ tự cố định từ đầu đến cuối"
+    },
+    {
+     "id": "c",
+     "t": "Mỗi bước phát triển có đúng một bước kiểm thử đi kèm"
+    },
+    {
+     "id": "d",
+     "t": "Không cần lập kế hoạch cho các vòng sau"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Hình xoắn ốc trên slide có các phần Risk Management và Prototypes ở mỗi vòng. Mẹo: xoắn ốc = <b>rủi ro</b>.</p>",
+   "why_wrong": {
+    "b": "Đi một lần theo thứ tự cố định là đặc điểm của Waterfall.",
+    "c": "Ghép mỗi bước phát triển với một bước kiểm thử là đặc điểm của V model.",
+    "d": "Mỗi vòng xoắn ốc đều có phần Next Phase Planning (lập kế hoạch vòng sau)."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.13"
+  },
+  {
+   "id": "L03-q18",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ví dụ: nhóm làm phần mềm thư viện giao chức năng quản lý sách trước. Tháng sau giao thêm chức năng mượn trả, tháng tiếp theo giao thêm báo cáo. Cách làm này giống mô hình nào nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Waterfall (thác nước)"
+    },
+    {
+     "id": "b",
+     "t": "Iterative (mô hình tiếp cận lặp)"
+    },
+    {
+     "id": "c",
+     "t": "Spiral (xoắn ốc)"
+    },
+    {
+     "id": "d",
+     "t": "Incremental (tăng trưởng)"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Incremental chia hệ thống thành nhiều phần và giao từng phần, mỗi lần thêm tính năng mới. Mẹo: tăng trưởng = làm <i>thêm</i>.</p>",
+   "why_wrong": {
+    "a": "Waterfall chỉ giao phần mềm một lần ở cuối dự án.",
+    "b": "Iterative làm bản sơ bộ rồi lặp lại để cải tiến chính nó; ở đây mỗi lần giao lại thêm chức năng mới.",
+    "c": "Spiral nhấn mạnh phân tích rủi ro mỗi vòng; tình huống không nói gì về rủi ro."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.12"
+  },
+  {
+   "id": "L03-q19",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Mô hình chữ V (V model) khác Waterfall ở điểm nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "V model giao phần mềm theo Sprint 1–4 tuần"
+    },
+    {
+     "id": "b",
+     "t": "V model gắn mỗi bước phát triển với một bước kiểm thử tương ứng"
+    },
+    {
+     "id": "c",
+     "t": "V model không có bước thiết kế"
+    },
+    {
+     "id": "d",
+     "t": "V model cho phép khách hàng đổi yêu cầu bất kỳ lúc nào, kể cả khi đang kiểm thử"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>V model vẫn tuần tự như Waterfall, nhưng mỗi bước phát triển có bước kiểm thử tương ứng: yêu cầu ↔ kiểm thử chấp nhận, lập trình ↔ unit test.</p>",
+   "why_wrong": {
+    "a": "Sprint 1–4 tuần là đặc điểm của Scrum.",
+    "c": "V model vẫn có bước thiết kế, ghép với kiểm thử hệ thống hoặc tích hợp.",
+    "d": "V model tuần tự nên cũng khó đổi yêu cầu như Waterfall."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.12"
+  },
+  {
+   "id": "L03-q20",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Mô hình Waterfall được định nghĩa thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mô hình lặp và tăng dần, nhóm tự quản"
+    },
+    {
+     "id": "b",
+     "t": "Mô hình gồm nhiều vòng, mỗi vòng phân tích rủi ro"
+    },
+    {
+     "id": "c",
+     "t": "Mô hình tuần tự, các giai đoạn theo thứ tự cố định"
+    },
+    {
+     "id": "d",
+     "t": "Mô hình trực quan hóa luồng công việc bằng cột trạng thái"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Waterfall là mô hình tuần tự: Yêu cầu → Thiết kế → Phát triển → Kiểm thử → Triển khai → Bảo trì, theo thứ tự cố định như nước chảy từ trên xuống.</p>",
+   "why_wrong": {
+    "a": "Lặp và tăng dần, nhóm tự quản là định nghĩa Agile.",
+    "b": "Nhiều vòng có phân tích rủi ro là Spiral.",
+    "d": "Trực quan hóa luồng việc bằng cột trạng thái là Kanban."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.14"
+  },
+  {
+   "id": "L03-q21",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao Waterfall có nhược điểm “phát hiện lỗi muộn”?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì Waterfall không có bước kiểm thử"
+    },
+    {
+     "id": "b",
+     "t": "Vì kiểm thử chỉ bắt đầu sau khi lập trình xong toàn bộ"
+    },
+    {
+     "id": "c",
+     "t": "Vì khách hàng chỉ được kiểm thử sau mỗi Sprint, khi phần việc đã hoàn thành"
+    },
+    {
+     "id": "d",
+     "t": "Vì tài liệu của Waterfall không rõ ràng"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Trong Waterfall, Kiểm thử đứng sau Phát triển. Lỗi từ yêu cầu hay thiết kế chỉ lộ ra khi đã lập trình xong, nên phát hiện muộn và sửa tốn kém.</p>",
+   "why_wrong": {
+    "a": "Waterfall có bước Kiểm thử (Testing), chỉ là đặt ở gần cuối.",
+    "c": "Waterfall không có Sprint; kiểm thử sau mỗi Sprint là cách của Scrum.",
+    "d": "Tài liệu rõ ràng lại là một ưu điểm của Waterfall."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.14-15"
+  },
+  {
+   "id": "L03-q22",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo slide, “phù hợp cho nhóm mới bắt đầu” là một ưu điểm của mô hình Waterfall.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Ưu điểm Waterfall trên slide: đơn giản, dễ quản lý; lập kế hoạch dễ dàng; tài liệu rõ ràng; phù hợp cho nhóm mới bắt đầu.</p>",
+   "why_wrong": {
+    "s": "Ý này nằm đúng trong cột Ưu điểm của Waterfall trên slide."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.15"
+  },
+  {
+   "id": "L03-q23",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Theo slide, Waterfall <b>KHÔNG</b> phù hợp trong những trường hợp nào? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khách hàng hay thay đổi yêu cầu"
+    },
+    {
+     "id": "b",
+     "t": "Thời gian và ngân sách cố định"
+    },
+    {
+     "id": "c",
+     "t": "Cần ra mắt sớm để lấy phản hồi người dùng"
+    },
+    {
+     "id": "d",
+     "t": "Quy mô nhỏ đến vừa"
+    },
+    {
+     "id": "e",
+     "t": "Dự án mang tính thử nghiệm, chưa rõ giải pháp tối ưu"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Waterfall không phù hợp khi: khách hay đổi yêu cầu, cần ra mắt sớm lấy phản hồi, dự án thử nghiệm chưa rõ giải pháp, dự án dài hạn với công nghệ đổi nhanh.</p>",
+   "why_wrong": {
+    "b": "Thời gian và ngân sách cố định là trường hợp Waterfall phù hợp.",
+    "d": "Quy mô nhỏ đến vừa cũng là trường hợp Waterfall phù hợp."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.16"
+  },
+  {
+   "id": "L03-q24",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ví dụ: thư viện tỉnh cần phần mềm in thẻ độc giả theo mẫu đã được ban hành, ít thay đổi. Ngân sách và hạn chót cố định. Thư viện chỉ cử người tham gia lúc đầu và lúc nghiệm thu. Nên chọn mô hình nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Waterfall, vì yêu cầu rõ, ổn định và khách hàng không cần tham gia liên tục"
+    },
+    {
+     "id": "b",
+     "t": "Scrum, vì giao sản phẩm sớm và liên tục"
+    },
+    {
+     "id": "c",
+     "t": "Kanban, vì công việc diễn ra liên tục"
+    },
+    {
+     "id": "d",
+     "t": "Agile, vì khách hàng sẽ tham gia thường xuyên và yêu cầu có thể được điều chỉnh dần qua từng vòng"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Mọi đặc điểm đều trùng cột “Phù hợp” của Waterfall: yêu cầu rõ, ổn định; thời gian, ngân sách cố định; không cần khách hàng tham gia liên tục.</p>",
+   "why_wrong": {
+    "b": "Scrum cần PO và khách hàng tham gia thường xuyên, trong khi thư viện chỉ tham gia lúc đầu và cuối.",
+    "c": "Kanban hợp với việc đến liên tục như hỗ trợ, không hợp một dự án có phạm vi rõ và hạn chót cố định.",
+    "d": "Đề bài nói thư viện không tham gia thường xuyên, nên lý do này sai với tình huống."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.16, 18"
+  },
+  {
+   "id": "L03-q25",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, Agile là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Một mô hình tuần tự, trong đó các giai đoạn được thực hiện theo thứ tự cố định từ yêu cầu tới bảo trì"
+    },
+    {
+     "id": "b",
+     "t": "Tập hợp phương thức phát triển lặp và tăng dần, qua cộng tác giữa các nhóm tự quản, liên chức năng"
+    },
+    {
+     "id": "c",
+     "t": "Một công cụ quản lý công việc bằng bảng"
+    },
+    {
+     "id": "d",
+     "t": "Một tài liệu đặc tả yêu cầu phần mềm"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Agile là tập hợp các phương thức phát triển lặp và tăng dần, yêu cầu và giải pháp được phát triển qua cộng tác giữa các nhóm tự quản và liên chức năng.</p>",
+   "why_wrong": {
+    "a": "Tuần tự, thứ tự cố định là Waterfall.",
+    "c": "Bảng công việc là cách làm của Kanban; Agile là bộ giá trị và nguyên lý, không phải công cụ.",
+    "d": "Tài liệu đặc tả yêu cầu phần mềm là SRS."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.17"
+  },
+  {
+   "id": "L03-q26",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Hoàn thành tuyên ngôn Agile: “Sản phẩm dùng được hơn …”</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "quy trình và công cụ"
+    },
+    {
+     "id": "b",
+     "t": "đàm phán hợp đồng"
+    },
+    {
+     "id": "c",
+     "t": "bám theo kế hoạch"
+    },
+    {
+     "id": "d",
+     "t": "tài liệu về sản phẩm"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Tuyên ngôn thứ 2: Sản phẩm dùng được hơn tài liệu về sản phẩm.</p>",
+   "why_wrong": {
+    "a": "Vế này đi với “Cá nhân và sự tương hỗ” (tuyên ngôn 1).",
+    "b": "Vế này đi với “Cộng tác với khách hàng” (tuyên ngôn 3).",
+    "c": "Vế này đi với “Phản hồi với sự thay đổi” (tuyên ngôn 4)."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.17"
+  },
+  {
+   "id": "L03-q27",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Theo tuyên ngôn Agile, nhóm Agile không cần viết tài liệu và không cần lập kế hoạch.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Tuyên ngôn dùng chữ “hơn”: Agile coi trọng sản phẩm dùng được <i>hơn</i> tài liệu, phản hồi thay đổi <i>hơn</i> bám kế hoạch. Tài liệu và kế hoạch vẫn có giá trị, chỉ được ưu tiên thấp hơn.</p>",
+   "why_wrong": {
+    "d": "Câu này hiểu sai chữ “hơn” trong tuyên ngôn thành “bỏ hẳn”."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.17"
+  },
+  {
+   "id": "L03-q28",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Giữa dự án FoodNow, chủ nhà hàng muốn cho khách chọn vị trí bàn. Thay vì nói “kế hoạch đã chốt, không làm được”, nhóm đưa yêu cầu vào backlog và xếp lịch làm sớm. Nhóm đang thể hiện tuyên ngôn Agile nào rõ nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phản hồi với sự thay đổi hơn là bám theo kế hoạch"
+    },
+    {
+     "id": "b",
+     "t": "Cá nhân và sự tương hỗ hơn quy trình và công cụ"
+    },
+    {
+     "id": "c",
+     "t": "Sản phẩm dùng được hơn tài liệu về sản phẩm"
+    },
+    {
+     "id": "d",
+     "t": "Cộng tác với khách hàng hơn là đàm phán hợp đồng"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Điểm mấu chốt: có thay đổi, nhóm chọn đón nhận thay đổi thay vì giữ kế hoạch cũ. Đó là tuyên ngôn 4.</p>",
+   "why_wrong": {
+    "b": "Tình huống không nói về việc bỏ qua quy trình hay công cụ để trao đổi trực tiếp.",
+    "c": "Tình huống không so sánh giữa giao sản phẩm chạy được và viết tài liệu.",
+    "d": "Tình huống không nhắc tới hợp đồng; trọng tâm là kế hoạch đã chốt."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.17"
+  },
+  {
+   "id": "L03-q29",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Những ý nào là nhược điểm của Agile theo slide? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khó kiểm soát tổng thể"
+    },
+    {
+     "id": "b",
+     "t": "Phát hiện lỗi muộn"
+    },
+    {
+     "id": "c",
+     "t": "Yêu cầu khách hàng tham gia thường xuyên"
+    },
+    {
+     "id": "d",
+     "t": "Không có phần mềm chạy sớm"
+    },
+    {
+     "id": "e",
+     "t": "Không phù hợp với các dự án yêu cầu quy trình cứng"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Nhược điểm Agile: khó kiểm soát tổng thể; cần khách hàng tham gia thường xuyên; không hợp dự án cố định về thời gian và chi phí; không hợp dự án yêu cầu quy trình cứng.</p>",
+   "why_wrong": {
+    "b": "Phát hiện lỗi muộn là nhược điểm của Waterfall; Agile kiểm thử trong từng vòng lặp.",
+    "d": "Không có phần mềm chạy sớm là nhược điểm của Waterfall; Agile giao sản phẩm sớm và liên tục."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.15, 18"
+  },
+  {
+   "id": "L03-q30",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ban giám đốc SolasMart muốn chốt trước cả phạm vi, hạn chót và chi phí cho dự án kho mới, và chỉ gặp đội dự án lúc nghiệm thu. Đội đề xuất dùng Agile. Theo slide, lý do nào khiến Agile <b>KHÔNG</b> hợp với dự án này?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Agile bỏ qua bước kiểm thử để giao nhanh, nên chất lượng sản phẩm khó đảm bảo khi chốt trước chi phí"
+    },
+    {
+     "id": "b",
+     "t": "Agile chỉ dùng được cho dự án quy mô rất lớn"
+    },
+    {
+     "id": "c",
+     "t": "Agile cần khách hàng tham gia thường xuyên và không hợp dự án cố định thời gian, chi phí"
+    },
+    {
+     "id": "d",
+     "t": "Agile không cho phép thay đổi yêu cầu"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Hai nhược điểm của Agile trên slide trùng đúng tình huống: khách hàng phải tham gia thường xuyên (ban giám đốc chỉ gặp lúc nghiệm thu) và không hợp dự án cố định về thời gian và chi phí.</p>",
+   "why_wrong": {
+    "a": "Slide nói Agile giúp tăng chất lượng sản phẩm; Agile vẫn có kiểm thử.",
+    "b": "Slide không nói Agile chỉ dùng cho dự án rất lớn.",
+    "d": "Ngược lại, Agile linh hoạt, thích ứng nhanh với thay đổi."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.18"
+  },
+  {
+   "id": "L03-q31",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trên hình “Agile is an umbrella”, phương pháp nào <b>KHÔNG</b> nằm dưới chiếc ô Agile?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Scrum"
+    },
+    {
+     "id": "b",
+     "t": "XP (Extreme Programming)"
+    },
+    {
+     "id": "c",
+     "t": "Waterfall"
+    },
+    {
+     "id": "d",
+     "t": "Kanban"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Dưới chiếc ô Agile có Scrum, Kanban, XP, DSDM, FDD, Crystal, Lean, DevOps. Waterfall là mô hình tuần tự, đối lập với Agile.</p>",
+   "why_wrong": {
+    "a": "Scrum có trên hình và là phương pháp Agile được học kỹ trong bài.",
+    "b": "XP (Extreme Programming) có trên hình chiếc ô.",
+    "d": "Kanban có trên hình và được slide nêu là phương pháp Agile."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.19"
+  },
+  {
+   "id": "L03-q32",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>3 trụ cột của Scrum là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Cam kết, Tập trung, Cởi mở"
+    },
+    {
+     "id": "b",
+     "t": "Minh bạch, Thanh tra, Thích nghi"
+    },
+    {
+     "id": "c",
+     "t": "Lập kế hoạch, Thực thi, Kiểm thử"
+    },
+    {
+     "id": "d",
+     "t": "Minh bạch, Tôn trọng, Dũng cảm"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>3 trụ cột: Transparency (minh bạch), Inspection (thanh tra), Adaptation (thích nghi). Mẹo: Thấy – Kiểm – Chỉnh.</p>",
+   "why_wrong": {
+    "a": "Đây là 3 trong 5 giá trị Scrum, không phải trụ cột.",
+    "c": "Đây là tên các bước kiểu SDLC, không phải trụ cột Scrum.",
+    "d": "Trộn 1 trụ cột (Minh bạch) với 2 giá trị (Tôn trọng, Dũng cảm)."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.20"
+  },
+  {
+   "id": "L03-q33",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Tại Sprint Review, quản lý nhà hàng góp ý màn hình đặt bàn của FoodNow khó dùng. Ngay Sprint sau, nhóm làm lại màn hình theo góp ý. Việc làm lại này thể hiện trụ cột Scrum nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Minh bạch (Transparency)"
+    },
+    {
+     "id": "b",
+     "t": "Thanh tra (Inspection)"
+    },
+    {
+     "id": "c",
+     "t": "Cam kết (Commitment)"
+    },
+    {
+     "id": "d",
+     "t": "Thích nghi (Adaptation)"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Thích nghi là điều chỉnh kịp thời khi cần. Góp ý ở Review là bước kiểm tra; sửa lại ở Sprint sau là bước điều chỉnh.</p>",
+   "why_wrong": {
+    "a": "Minh bạch là mọi người nhìn thấy và hiểu giống nhau, không phải hành động sửa đổi.",
+    "b": "Thanh tra là việc kiểm tra (buổi Review); câu hỏi hỏi về việc làm lại sau kiểm tra.",
+    "c": "Cam kết là một giá trị Scrum, không phải trụ cột."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.20, 23"
+  },
+  {
+   "id": "L03-q34",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Giá trị Tập trung (Focus) trong Scrum nghĩa là mỗi người chỉ lo task của riêng mình, không cần quan tâm mục tiêu chung của nhóm.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Focus là tập trung vào công việc của Sprint. Mục tiêu và trách nhiệm chung của nhóm thuộc giá trị Cam kết (Commitment), mà mọi thành viên đều phải giữ.</p>",
+   "why_wrong": {
+    "d": "Câu này bỏ qua giá trị Cam kết với mục tiêu và trách nhiệm nhóm; Focus là tập trung vào việc của Sprint chứ không phải chỉ việc riêng."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.21"
+  },
+  {
+   "id": "L03-q35",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Một tester mới vào nhóm dự án SolasMart. Các thành viên chủ động chia sẻ tài liệu, kể các vấn đề đang gặp và sẵn sàng nghe góp ý của bạn mới. Nhóm đang thể hiện giá trị Scrum nào rõ nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Cởi mở (Openness)"
+    },
+    {
+     "id": "b",
+     "t": "Tập trung (Focus)"
+    },
+    {
+     "id": "c",
+     "t": "Dũng cảm (Courage)"
+    },
+    {
+     "id": "d",
+     "t": "Thích nghi (Adaptation)"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Cởi mở là cởi mở trong giao tiếp và chia sẻ. Chia sẻ tài liệu, vấn đề và lắng nghe góp ý đúng với giá trị này.</p>",
+   "why_wrong": {
+    "b": "Tập trung nói về việc dồn sức vào công việc của Sprint.",
+    "c": "Dũng cảm nói về việc dám nói sự thật, đối mặt khó khăn; tình huống chủ yếu là chia sẻ.",
+    "d": "Thích nghi là trụ cột Scrum, không phải một trong 5 giá trị."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.21"
+  },
+  {
+   "id": "L03-q36",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trong dự án bán hàng của SolasMart chạy Scrum, cần quyết định làm tính năng “tích điểm” trước hay “hóa đơn điện tử” trước. Theo slide, vai trò nào chịu trách nhiệm việc này?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Scrum Master"
+    },
+    {
+     "id": "b",
+     "t": "Development Team"
+    },
+    {
+     "id": "c",
+     "t": "Product Owner"
+    },
+    {
+     "id": "d",
+     "t": "Tester"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Product Owner quản lý Product Backlog và tối ưu giá trị sản phẩm, nên là người sắp thứ tự ưu tiên các tính năng.</p>",
+   "why_wrong": {
+    "a": "Scrum Master quản lý quy trình Scrum và gỡ trở ngại, không xếp ưu tiên tính năng.",
+    "b": "Development Team tự quản lý cách làm và tạo Increment, nhưng không quyết định thứ tự backlog.",
+    "d": "Tester đảm bảo hệ thống ít lỗi, không quyết định ưu tiên sản phẩm."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.22, 26"
+  },
+  {
+   "id": "L03-q37",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Câu nào mô tả đúng vai trò Scrum Master trên slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Giao task cho từng lập trình viên và chấm điểm hiệu suất"
+    },
+    {
+     "id": "b",
+     "t": "Quản lý Product Backlog và tối ưu giá trị sản phẩm"
+    },
+    {
+     "id": "c",
+     "t": "Tự viết mã và tạo ra các Increment đạt chuẩn Done"
+    },
+    {
+     "id": "d",
+     "t": "Quản lý quy trình Scrum và gỡ bỏ trở ngại cho nhóm"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide ghi Scrum Master: Manages the Scrum process, Removes Impediments.</p>",
+   "why_wrong": {
+    "a": "Hiểu lầm phổ biến: Scrum Master không phải sếp giao việc; Development Team tự quản lý.",
+    "b": "Đây là trách nhiệm của Product Owner.",
+    "c": "Đây là trách nhiệm của Development Team."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.22"
+  },
+  {
+   "id": "L03-q38",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Theo slide, Development Team trong Scrum tự quản lý công việc của mình (Manages itself).</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide ghi Development Team: Manages itself, Creates “Done” Increments. Điều này khớp với định nghĩa Agile về nhóm tự quản.</p>",
+   "why_wrong": {
+    "s": "Slide ghi rõ Development Team tự quản lý; không có người giao việc từ ngoài nhóm."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.17, 22"
+  },
+  {
+   "id": "L03-q39",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong Sprint Planning Meeting, nhóm chọn việc từ Product Backlog theo cách nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chọn từ đỉnh danh sách, lấy nhiều nhất mức có thể cam kết giao xong trong Sprint"
+    },
+    {
+     "id": "b",
+     "t": "Chọn những việc dễ nhất trước, bất kể thứ tự ưu tiên"
+    },
+    {
+     "id": "c",
+     "t": "Scrum Master chọn và giao việc cho từng người trong nhóm"
+    },
+    {
+     "id": "d",
+     "t": "Lấy toàn bộ Product Backlog đưa vào một Sprint duy nhất để giao hết mọi tính năng cùng lúc"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Hình khung Scrum ghi: “Team selects starting at top as much as it can commit to deliver by end of Sprint”. Product Backlog đã được xếp hạng nên đỉnh danh sách là việc quan trọng nhất.</p>",
+   "why_wrong": {
+    "b": "Bỏ qua thứ tự ưu tiên mà PO đã xếp trong Product Backlog.",
+    "c": "Nhóm tự chọn; Scrum Master không giao việc.",
+    "d": "Mỗi Sprint chỉ nhận lượng việc nhóm cam kết làm xong trong 1–4 tuần."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.23"
+  },
+  {
+   "id": "L03-q40",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Theo hình khung Scrum, những ý nào đúng về một Sprint? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Sprint kéo dài 1–4 tuần"
+    },
+    {
+     "id": "b",
+     "t": "PO có thể kéo dài Sprint nếu việc chưa xong"
+    },
+    {
+     "id": "c",
+     "t": "Ngày kết thúc Sprint và phần việc nhóm cam kết không thay đổi"
+    },
+    {
+     "id": "d",
+     "t": "Daily Scrum diễn ra mỗi 24 giờ"
+    },
+    {
+     "id": "e",
+     "t": "Bảng công việc của Sprint được giữ nguyên sang Sprint sau"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Hình ghi: 1–4 Week Sprint; Daily Scrum Meeting every 24 hours; Sprint end date and team deliverable do not change.</p>",
+   "why_wrong": {
+    "b": "Ngày kết thúc Sprint không đổi, nên không kéo dài Sprint.",
+    "e": "Bảng công việc Scrum reset mỗi Sprint; giữ nguyên liên tục là đặc điểm của Kanban."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.23-24"
+  },
+  {
+   "id": "L03-q41",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ngày thứ 4 của Sprint 2 tuần, khách hàng của hệ thống đặt đồ ăn xin thêm ngay tính năng “giao hàng hẹn giờ”. Cách xử lý nào đúng với khung Scrum?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Dev nhận làm luôn, dừng task đang làm"
+    },
+    {
+     "id": "b",
+     "t": "Kéo dài Sprint hiện tại thêm 1 tuần để nhóm kịp làm luôn tính năng mới"
+    },
+    {
+     "id": "c",
+     "t": "PO đưa yêu cầu vào Product Backlog, xếp ưu tiên cho Sprint sau"
+    },
+    {
+     "id": "d",
+     "t": "Từ chối yêu cầu vì Agile không nhận thay đổi"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Trong Sprint, ngày kết thúc và phần việc đã cam kết không đổi. Yêu cầu mới đi vào Product Backlog do PO quản lý và được xem xét ở Sprint Planning tiếp theo.</p>",
+   "why_wrong": {
+    "a": "Làm lệch phần việc đã cam kết của Sprint và đi vòng qua PO.",
+    "b": "Ngày kết thúc Sprint không được thay đổi.",
+    "d": "Agile đón nhận thay đổi; yêu cầu chỉ được lùi sang Sprint sau, không bị từ chối."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.17, 22-23"
+  },
+  {
+   "id": "L03-q42",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Sprint Retrospective là cuộc họp cuối Sprint để trình diễn phần sản phẩm đã hoàn thành cho khách hàng.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Trình diễn sản phẩm cho khách hàng là Sprint Review. Sprint Retrospective là nhìn lại cách làm việc của nhóm để cải tiến. Mẹo: Review xem <b>sản phẩm</b>, Retrospective xem <b>cách làm</b>.</p>",
+   "why_wrong": {
+    "d": "Câu này nhầm Retrospective với Sprint Review."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.23"
+  },
+  {
+   "id": "L03-q43",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Nhóm hỗ trợ của SolasMart nhận yêu cầu liên tục từ cửa hàng: máy POS lỗi, sai giá, xin cấp quyền. Không ai biết trước tuần sau có bao nhiêu yêu cầu. Nên dùng phương pháp nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Scrum, vì bảng công việc được reset mỗi Sprint"
+    },
+    {
+     "id": "b",
+     "t": "Kanban, vì việc chạy liên tục qua cột trạng thái, không cần thời gian cố định"
+    },
+    {
+     "id": "c",
+     "t": "Waterfall, vì tài liệu rõ ràng, dễ lập kế hoạch và đơn giản, dễ quản lý cho nhóm hỗ trợ"
+    },
+    {
+     "id": "d",
+     "t": "Scrum, vì mỗi Sprint có thời hạn cố định 1–4 tuần"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Theo bảng so sánh, Kanban không có thời gian cố định, công việc di chuyển liên tục qua các cột trạng thái, bảng không reset. Rất hợp với việc đến liên tục, khó lên kế hoạch trước.</p>",
+   "why_wrong": {
+    "a": "Reset bảng mỗi Sprint không giúp gì khi việc đến liên tục, không gom theo đợt.",
+    "c": "Waterfall cần yêu cầu rõ từ đầu, không hợp với việc phát sinh hằng ngày.",
+    "d": "Sprint cố định buộc phải chốt việc trước, trong khi ở đây không biết trước sẽ có yêu cầu gì."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.24"
+  },
+  {
+   "id": "L03-q44",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo bảng so sánh Scrum và Kanban, bảng công việc của hai phương pháp khác nhau thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Scrum: liên tục, không reset; Kanban: reset mỗi Sprint"
+    },
+    {
+     "id": "b",
+     "t": "Cả hai đều reset mỗi tuần"
+    },
+    {
+     "id": "c",
+     "t": "Scrum: reset mỗi Sprint; Kanban: liên tục, không reset"
+    },
+    {
+     "id": "d",
+     "t": "Cả hai đều không dùng bảng công việc"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Bảng Scrum gắn với Sprint nên reset mỗi Sprint. Bảng Kanban chạy liên tục, không reset.</p>",
+   "why_wrong": {
+    "a": "Đảo ngược hai phương pháp.",
+    "b": "Kanban không reset; Scrum reset theo Sprint (1–4 tuần), không phải cố định mỗi tuần.",
+    "d": "Cả hai đều có bảng công việc; Kanban còn lấy bảng làm trung tâm."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.24"
+  },
+  {
+   "id": "L03-q45",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Dự án FoodNow đang chậm 3 tuần và có nguy cơ vượt chi phí. Theo slide, vị trí nào chịu trách nhiệm chính đưa dự án về đích?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Business Analyst (BA)"
+    },
+    {
+     "id": "b",
+     "t": "Project Manager (PM)"
+    },
+    {
+     "id": "c",
+     "t": "Designer (UI/UX)"
+    },
+    {
+     "id": "d",
+     "t": "Developer (Dev)"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>PM là “người đảm bảo dự án thành công”: lo phạm vi, tiến độ, chi phí, nguồn lực, như đã thấy ở bước Lập kế hoạch.</p>",
+   "why_wrong": {
+    "a": "BA đảm bảo đúng nghiệp vụ, không chịu trách nhiệm chính về tiến độ và chi phí.",
+    "c": "Designer lo giao diện và trải nghiệm.",
+    "d": "Developer lập trình ra sản phẩm, không quản lý tiến độ toàn dự án."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.5, 26"
+  },
+  {
+   "id": "L03-q46",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Ý nào <b>KHÔNG</b> nằm trong danh sách “Thế nào là quản trị dự án giỏi” trên slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hài lòng các bên liên quan"
+    },
+    {
+     "id": "b",
+     "t": "Dự án luôn nằm trong phạm vi kiểm soát"
+    },
+    {
+     "id": "c",
+     "t": "Tối ưu nguồn lực"
+    },
+    {
+     "id": "d",
+     "t": "Nhận thêm mọi yêu cầu ngoài phạm vi"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Danh sách gồm: lợi ích, mục tiêu, hài lòng các bên liên quan, tối ưu nguồn lực, tăng năng suất và chất lượng, dự án trong phạm vi kiểm soát, chuyển giao đúng hạn và hoạt động tốt. Nhận mọi yêu cầu ngoài phạm vi đi ngược ý “trong phạm vi kiểm soát”.</p>",
+   "why_wrong": {
+    "a": "Có trong danh sách trên slide.",
+    "b": "Có trong danh sách trên slide.",
+    "c": "Có trong danh sách trên slide."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.25"
+  },
+  {
+   "id": "L03-q47",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo slide, Product Owner (PO) là “người đảm bảo dự án thành công”.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>PO là “người định hình sản phẩm”. “Người đảm bảo dự án thành công” là Project Manager (PM).</p>",
+   "why_wrong": {
+    "d": "Câu này nhầm vai trò của PO với PM."
+   },
+   "src": "3. Quy trinh phat trien phan mem.pdf tr.26"
+  }
+ ],
+ "summary": {
+  "points": [
+   "SDLC là vòng đời phát triển phần mềm, mục tiêu: chất lượng cao, chi phí thấp, thời gian ngắn nhất.",
+   "6 bước SDLC: Lập kế hoạch → Phân tích → Thiết kế → Lập trình → Kiểm thử và tích hợp → Bảo trì.",
+   "BA làm chính ở bước Phân tích (ra biên bản khảo sát, BRD, SRS) và tham gia Kiểm thử; ở mọi bước BA giữ cho sản phẩm đúng nghiệp vụ.",
+   "6 mô hình: Spiral, Iterative, Incremental, V model, Waterfall, Agile.",
+   "Waterfall tuần tự, đơn giản, tài liệu rõ, nhưng khó đổi yêu cầu và phát hiện lỗi muộn; hợp với yêu cầu rõ, ổn định.",
+   "Agile lặp và tăng dần, nhóm tự quản và liên chức năng; 4 tuyên ngôn: người, sản phẩm dùng được, cộng tác khách hàng, phản hồi thay đổi.",
+   "Scrum: 3 trụ cột (minh bạch, thanh tra, thích nghi), 5 giá trị (cam kết, tập trung, cởi mở, tôn trọng, dũng cảm), 3 vai trò (PO, Scrum Master, Development Team).",
+   "Luồng Scrum: Product Backlog → Sprint Planning → Sprint Backlog → Sprint 1–4 tuần có Daily Scrum → Sprint Review và Retrospective.",
+   "Scrum chạy theo Sprint cố định và reset bảng mỗi Sprint; Kanban chạy liên tục, không reset.",
+   "PO định hình sản phẩm, PM đảm bảo dự án thành công, BA đảm bảo đúng nghiệp vụ."
+  ],
+  "html": "<p>Bài học trả lời ba câu hỏi: phần mềm được làm qua những bước nào (SDLC), có những cách tổ chức các bước đó (mô hình) nào, và ai làm gì trong dự án.</p><table><thead><tr><th>Chủ đề</th><th>Ý cần nhớ</th></tr></thead><tbody><tr><td>SDLC</td><td>6 bước; mỗi bước có người thực hiện, mục tiêu, hoạt động, kết quả</td></tr><tr><td>Waterfall</td><td>Tuần tự, cố định; hợp yêu cầu ổn định</td></tr><tr><td>Agile</td><td>Lặp, tăng dần, đón thay đổi; 4 tuyên ngôn</td></tr><tr><td>Scrum</td><td>3 trụ cột, 5 giá trị, 3 vai trò, Sprint 1–4 tuần</td></tr><tr><td>Kanban</td><td>Luồng liên tục, bảng không reset</td></tr><tr><td>Vị trí</td><td>PO – sản phẩm, PM – dự án, BA – nghiệp vụ</td></tr></tbody></table>"
+ },
+ "images": [
+  {
+   "id": "L03-img1",
+   "path": "data/pages/3. Quy trinh phat trien phan mem/p-004.jpg",
+   "caption": "6 bước của vòng đời phát triển phần mềm (SDLC)",
+   "crop": [
+    0.57,
+    0.11,
+    1.0,
+    0.89
+   ]
+  },
+  {
+   "id": "L03-img2",
+   "path": "data/pages/3. Quy trinh phat trien phan mem/p-010.jpg",
+   "caption": "6 pha của bảo trì phần mềm",
+   "crop": [
+    0.5,
+    0.2,
+    0.99,
+    0.74
+   ]
+  },
+  {
+   "id": "L03-img3",
+   "path": "data/pages/3. Quy trinh phat trien phan mem/p-013.jpg",
+   "caption": "Mô hình xoắn ốc (Spiral model)",
+   "crop": [
+    0.65,
+    0.15,
+    0.96,
+    0.66
+   ]
+  },
+  {
+   "id": "L03-img4",
+   "path": "data/pages/3. Quy trinh phat trien phan mem/p-014.jpg",
+   "caption": "Các giai đoạn của mô hình Waterfall",
+   "crop": [
+    0.47,
+    0.19,
+    0.99,
+    0.71
+   ]
+  },
+  {
+   "id": "L03-img5",
+   "path": "data/pages/3. Quy trinh phat trien phan mem/p-019.jpg",
+   "caption": "Agile là chiếc ô, các phương pháp là cách hiện thực hóa",
+   "crop": [
+    0.6,
+    0.13,
+    0.995,
+    0.67
+   ]
+  },
+  {
+   "id": "L03-img6",
+   "path": "data/pages/3. Quy trinh phat trien phan mem/p-020.jpg",
+   "caption": "3 trụ cột của Scrum",
+   "crop": [
+    0.55,
+    0.12,
+    0.99,
+    0.88
+   ]
+  },
+  {
+   "id": "L03-img7",
+   "path": "data/pages/3. Quy trinh phat trien phan mem/p-022.jpg",
+   "caption": "Scrum Team: Product Owner, Scrum Master, Development Team",
+   "crop": [
+    0.12,
+    0.15,
+    0.92,
+    0.9
+   ]
+  },
+  {
+   "id": "L03-img8",
+   "path": "data/pages/3. Quy trinh phat trien phan mem/p-023.jpg",
+   "caption": "Khung Scrum (Scrum Framework at a glance)",
+   "crop": [
+    0.12,
+    0.12,
+    0.92,
+    0.89
+   ]
+  }
+ ]
+}

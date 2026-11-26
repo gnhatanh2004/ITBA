@@ -1,0 +1,789 @@
+{
+ "lesson": "L23",
+ "voice": "vi-VN-NamMinhNeural",
+ "hash": "1c7ceeea6231ee05",
+ "duration": 865.872,
+ "chunks": [
+  {
+   "id": "L23-n1",
+   "start": 0.0,
+   "end": 39.576,
+   "sents": [
+    [
+     0.1,
+     5.975,
+     "Chào bạn, mình bắt đầu buổi hai mươi ba: API, giao diện lập trình ứng dụng."
+    ],
+    [
+     5.925,
+     8.488,
+     "Buổi này đi qua ba phần chính."
+    ],
+    [
+     8.488,
+     14.838,
+     "Thứ nhất, khái niệm API: định nghĩa, mô hình, lợi ích và các loại API."
+    ],
+    [
+     14.838,
+     22.275,
+     "Thứ hai, các thành phần trong một API: phương thức, URL, header, param và response."
+    ],
+    [
+     22.275,
+     26.575,
+     "Thứ ba, hai kiểu dữ liệu hay gặp là JSON và XML."
+    ],
+    [
+     26.575,
+     32.05,
+     "Cuối buổi có thêm một phần riêng cho BA: cách đặc tả API trong tài liệu FSD."
+    ],
+    [
+     32.05,
+     39.575,
+     "Bạn không cần biết lập trình API, nhưng phải đọc được request, response và viết được đặc tả để dev và đối tác làm đúng."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n2",
+   "start": 40.176,
+   "end": 88.968,
+   "sents": [
+    [
+     40.276,
+     43.201,
+     "Trước hết, vì sao cần API?"
+    ],
+    [
+     43.151,
+     50.301,
+     "Ở mô hình cũ, mỗi ứng dụng như website, app mobile hay phần mềm desktop đều kết nối thẳng vào database."
+    ],
+    [
+     50.301,
+     58.126,
+     "Mỗi nơi tự viết logic đọc ghi riêng, database phải mở cho nhiều chỗ nên khó bảo mật, và sửa một quy tắc thì phải sửa nhiều nơi."
+    ],
+    [
+     58.126,
+     60.901,
+     "Mô hình mới tách làm hai bên."
+    ],
+    [
+     60.901,
+     67.939,
+     "Bên dùng dịch vụ là Consumer, hay Client, gồm Android, iPhone, Web App, Desktop App."
+    ],
+    [
+     67.939,
+     75.626,
+     "Bên cung cấp dịch vụ là Service Provider, tức Server chứa các REST API, và chỉ Server mới làm việc với Database."
+    ],
+    [
+     75.626,
+     82.901,
+     "Client gửi HTTP Request, Server trả HTTP Response, dữ liệu trao đổi bằng JSON hoặc XML."
+    ],
+    [
+     82.901,
+     88.951,
+     "Ý chính: nhiều loại client dùng chung một bộ API, còn database được giấu sau server."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n3",
+   "start": 89.568,
+   "end": 130.008,
+   "sents": [
+    [
+     89.668,
+     92.068,
+     "Vậy API là gì?"
+    ],
+    [
+     92.018,
+     98.018,
+     "API là viết tắt của Application Programming Interface, giao diện lập trình ứng dụng."
+    ],
+    [
+     98.018,
+     107.005,
+     "Đó là cách để hai hay nhiều chương trình máy tính giao tiếp với nhau: một hệ thống mở ra giao diện, để chương trình khác gửi yêu cầu dịch vụ và trao đổi dữ liệu qua lại."
+    ],
+    [
+     107.005,
+     110.093,
+     "Slide ví API như một nhà hàng."
+    ],
+    [
+     110.093,
+     113.893,
+     "Client là khách ngồi bàn, gửi yêu cầu gọi món."
+    ],
+    [
+     113.893,
+     119.305,
+     "API là người phục vụ, nhận yêu cầu, chuyển vào bếp rồi mang kết quả ra."
+    ],
+    [
+     119.305,
+     123.481,
+     "API Server là nhà bếp, nơi xử lý thật sự."
+    ],
+    [
+     123.481,
+     130.005,
+     "Mẹo nhớ: khách không vào bếp, client không đụng thẳng vào database, mọi thứ đi qua API."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n4",
+   "start": 130.608,
+   "end": 175.656,
+   "sents": [
+    [
+     130.708,
+     134.858,
+     "API mang lại bảy lợi ích, mình gom thành ba nhóm."
+    ],
+    [
+     134.808,
+     146.408,
+     "Nhóm thứ nhất về kết nối: hỗ trợ tích hợp hệ thống, để app, web và đối tác nói chuyện với nhau qua một chuẩn chung, và tiết kiệm nguồn lực vì dùng lại dịch vụ có sẵn như cổng thanh toán hay đơn vị vận chuyển."
+    ],
+    [
+     146.408,
+     158.033,
+     "Nhóm thứ hai về an toàn: tăng bảo mật vì client không chạm vào database, kiểm soát quyền truy cập nhờ mỗi request mang thông tin xác thực, và dễ audit, log, tracking vì mọi request đi qua một cửa."
+    ],
+    [
+     158.033,
+     168.171,
+     "Nhóm thứ ba về chất lượng: giảm rủi ro lỗi dữ liệu vì dữ liệu được kiểm tra tập trung ở server, và dễ bảo trì, mở rộng vì sửa logic một chỗ là mọi client dùng chung."
+    ],
+    [
+     168.171,
+     175.658,
+     "Mẹo nhớ bảy chữ: tích hợp, bảo mật, ít lỗi, bảo trì, phân quyền, log, tiết kiệm."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n5",
+   "start": 176.256,
+   "end": 224.064,
+   "sents": [
+    [
+     176.356,
+     178.756,
+     "API có nhiều loại."
+    ],
+    [
+     178.706,
+     187.643,
+     "Theo báo cáo State of the API 2022 của Postman trên slide, REST dẫn đầu rất xa, gần chín mươi phần trăm người được hỏi dùng."
+    ],
+    [
+     187.643,
+     192.168,
+     "Theo sau là Webhooks, SOAP, GraphQL và Websockets."
+    ],
+    [
+     192.168,
+     199.518,
+     "Webhooks chạy ngược chiều: khi có sự kiện, hệ thống nguồn chủ động gọi sang bên nhận, ví dụ cổng thanh toán báo kết quả."
+    ],
+    [
+     199.518,
+     204.531,
+     "SOAP cũ hơn, dùng XML, còn gặp ở ngân hàng và hệ thống cũ."
+    ],
+    [
+     204.531,
+     207.506,
+     "Vậy REST và RESTful khác nhau thế nào?"
+    ],
+    [
+     207.506,
+     214.081,
+     "REST, viết tắt của Representational State Transfer, là một bộ quy tắc, một kiểu kiến trúc phần mềm."
+    ],
+    [
+     214.081,
+     224.043,
+     "Còn RESTful là API tuân theo nguyên lý REST, gửi nhận qua HTTP và thường dùng dữ liệu JSON, nói vui thì REST là luật, RESTful là người chơi đúng luật."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n6",
+   "start": 224.664,
+   "end": 277.176,
+   "sents": [
+    [
+     224.764,
+     234.351,
+     "Nhắc tới HTTP, đây là HyperText Transfer Protocol, giao thức truyền siêu văn bản, ngôn ngữ chung để client và server gửi request và response cho nhau."
+    ],
+    [
+     234.301,
+     243.964,
+     "Hình trên slide đặt HTTP vào mô hình mạng: dữ liệu đi xuống bảy tầng OSI ở máy gửi, qua đường truyền vật lý, rồi đi ngược lên bảy tầng ở máy nhận."
+    ],
+    [
+     243.964,
+     251.601,
+     "Khi đối chiếu với bộ giao thức TCP/IP bốn tầng, HTTP nằm ở tầng ứng dụng, Application Layer."
+    ],
+    [
+     251.601,
+     255.751,
+     "HTTPS là HTTP cộng SSL."
+    ],
+    [
+     255.751,
+     261.139,
+     "SSL mã hóa dữ liệu trên đường truyền, nên người ở giữa không đọc trộm hay sửa được."
+    ],
+    [
+     261.139,
+     268.301,
+     "Slide ghi SSL, còn ngày nay HTTPS dùng TLS, là phiên bản kế tiếp của SSL."
+    ],
+    [
+     268.301,
+     277.164,
+     "Với BA, hãy ghi vào yêu cầu phi chức năng rằng API bắt buộc dùng HTTPS, nhất là khi có mật khẩu, token hay dữ liệu cá nhân."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n7",
+   "start": 277.776,
+   "end": 323.064,
+   "sents": [
+    [
+     277.876,
+     282.363,
+     "Giờ ta mổ xẻ một RESTful API, gồm năm thành phần."
+    ],
+    [
+     282.314,
+     286.276,
+     "Một, phương thức, tức Method: muốn làm gì."
+    ],
+    [
+     286.276,
+     289.988,
+     "Hai, URL: làm với tài nguyên nào."
+    ],
+    [
+     289.988,
+     294.801,
+     "Ba, Header: thông tin đi kèm như kiểu dữ liệu hay token xác thực."
+    ],
+    [
+     294.801,
+     300.189,
+     "Bốn, Param: dữ liệu gửi kèm, nằm trên URL hoặc trong body."
+    ],
+    [
+     300.189,
+     304.276,
+     "Năm, Response: kết quả server trả về."
+    ],
+    [
+     304.276,
+     316.764,
+     "Ví dụ trên Postman là một request GET lấy check-list của kế hoạch số một, với param planId bằng một, skipCount bằng không và maxResultCount bằng mười, nghĩa là bỏ qua không bản ghi và lấy tối đa mười bản ghi để phân trang."
+    ],
+    [
+     316.764,
+     323.051,
+     "Cách đọc nhanh: method nói làm gì, URL nói với cái gì, param nói điều kiện nào."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n8",
+   "start": 323.664,
+   "end": 380.016,
+   "sents": [
+    [
+     323.764,
+     332.189,
+     "Bắt đầu với phương thức, slide liệt kê bảy cái: GET, POST, PUT, PATCH, DELETE, HEAD và OPTIONS."
+    ],
+    [
+     332.139,
+     339.026,
+     "GET dùng để lấy dữ liệu, tham số truyền thẳng trên URL sau dấu chấm hỏi, các cặp nối bằng dấu và."
+    ],
+    [
+     339.026,
+     346.476,
+     "GET nhanh, được trình duyệt cache, nhưng lộ thông tin trên URL và bị giới hạn độ dài 2048 ký tự."
+    ],
+    [
+     346.476,
+     353.077,
+     "POST dùng để thêm mới, tham số đi trong body nên không hiện trên URL, không được cache và chậm hơn GET."
+    ],
+    [
+     353.077,
+     362.939,
+     "Vì vậy ví dụ đăng nhập bằng GET, có username và pass nằm ngay trên URL, là ví dụ sai: mật khẩu lộ ra trong lịch sử trình duyệt và log, phải dùng POST."
+    ],
+    [
+     362.939,
+     365.889,
+     "Lưu ý slide đơn giản hóa vài điểm."
+    ],
+    [
+     365.889,
+     372.952,
+     "POST không lộ chỉ nghĩa là không hiện trên URL, nếu không dùng HTTPS thì body vẫn đọc được trên đường truyền."
+    ],
+    [
+     372.952,
+     380.001,
+     "Con số 2048 là giới hạn thực tế của một số trình duyệt, chuẩn HTTP không quy định con số này."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n9",
+   "start": 380.616,
+   "end": 422.448,
+   "sents": [
+    [
+     380.716,
+     384.029,
+     "Ba phương thức còn lại dùng để thay đổi dữ liệu."
+    ],
+    [
+     383.978,
+     387.928,
+     "PUT cập nhật toàn bộ, tức gửi lại đầy đủ bản ghi."
+    ],
+    [
+     387.928,
+     392.341,
+     "PATCH cập nhật một phần, chỉ gửi các trường cần đổi."
+    ],
+    [
+     392.341,
+     400.041,
+     "DELETE xóa dữ liệu, ngoài ra HEAD giống GET nhưng chỉ lấy header, còn OPTIONS hỏi server cho phép những phương thức nào."
+    ],
+    [
+     400.041,
+     406.541,
+     "Ví dụ đặt bàn FoodNow: chỉ đổi số người thì dùng PATCH, đổi toàn bộ thông tin thì dùng PUT."
+    ],
+    [
+     406.541,
+     414.116,
+     "Còn hủy đặt bàn, thực tế thường là đổi trạng thái thành đã hủy để giữ lịch sử, đây là quyết định nghiệp vụ BA cần hỏi rõ."
+    ],
+    [
+     414.116,
+     422.441,
+     "Mẹo nhớ: GET là xem, POST là thêm, PUT là thay cả, PATCH là vá một chỗ, DELETE là xóa."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n10",
+   "start": 423.048,
+   "end": 462.72,
+   "sents": [
+    [
+     423.148,
+     429.923,
+     "Thành phần thứ hai là URL, Uniform Resource Locator, địa chỉ chỉ tới một tài nguyên trên mạng."
+    ],
+    [
+     429.873,
+     433.036,
+     "Ví dụ trên slide được chia làm năm phần."
+    ],
+    [
+     433.036,
+     436.998,
+     "Scheme là HTTPS, giao thức dùng để truy cập."
+    ],
+    [
+     436.998,
+     440.398,
+     "Subdomain là ctf, tên miền con."
+    ],
+    [
+     440.398,
+     445.573,
+     "Second-level domain là viblo, tên miền chính, thường là tên thương hiệu."
+    ],
+    [
+     445.573,
+     450.611,
+     "Top-level domain là asia, phần đuôi, giống như com hay vn."
+    ],
+    [
+     450.611,
+     455.635,
+     "Cuối cùng, Subdirectory là puzzles, đường dẫn tới tài nguyên trên server."
+    ],
+    [
+     455.635,
+     462.711,
+     "Trong API còn hay có query string sau dấu chấm hỏi, như planId bằng một ở ví dụ Postman lúc nãy."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n11",
+   "start": 463.32,
+   "end": 510.84,
+   "sents": [
+    [
+     463.42,
+     466.632,
+     "Vậy URL thế nào là chuẩn RESTful?"
+    ],
+    [
+     466.582,
+     469.957,
+     "Bảng ví dụ trên slide dùng tài nguyên customers."
+    ],
+    [
+     469.957,
+     474.995,
+     "Tạo khách hàng mới là POST customers, còn tìm kiếm khách hàng là GET customers."
+    ],
+    [
+     474.995,
+     481.545,
+     "Lấy, cập nhật hay xóa một khách hàng cụ thể thì thêm id phía sau, với GET, PUT hoặc DELETE."
+    ],
+    [
+     481.545,
+     489.795,
+     "Quy tắc rút ra: path là danh từ số nhiều chỉ tài nguyên, hành động do method thể hiện, không đặt động từ như create hay update vào path."
+    ],
+    [
+     489.795,
+     495.995,
+     "Slide hỏi hai URL quản lý văn bản, CreateIncommingDocument và UpdateIncommingDocument, đúng hay sai."
+    ],
+    [
+     495.995,
+     506.132,
+     "Câu trả lời: chúng vẫn gọi được, nhưng sai chuẩn vì có động từ trong path, cách chuẩn là POST incoming-documents để tạo và PUT incoming-documents kèm id để sửa."
+    ],
+    [
+     506.132,
+     510.82,
+     "Thêm nữa, chữ Incomming viết sai chính tả, đúng là Incoming."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n12",
+   "start": 511.44,
+   "end": 549.408,
+   "sents": [
+    [
+     511.54,
+     514.09,
+     "Thành phần thứ ba là Header."
+    ],
+    [
+     514.04,
+     520.59,
+     "HTTP Header truyền thông tin bổ sung trong request hoặc response, viết theo dạng cặp tên và giá trị."
+    ],
+    [
+     520.59,
+     523.115,
+     "Slide nêu năm header hay gặp."
+    ],
+    [
+     523.115,
+     529.59,
+     "Authorization chứa thông tin xác thực, thường là chữ Bearer kèm một token, cho server biết ai đang gọi."
+    ],
+    [
+     529.59,
+     534.965,
+     "User-Agent cho biết phần mềm nào gửi request, như trình duyệt, app hay Postman."
+    ],
+    [
+     534.965,
+     538.878,
+     "Content-Length là độ dài phần body, tính bằng byte."
+    ],
+    [
+     538.878,
+     549.403,
+     "Còn Accept và Content-Type hay bị nhầm: Accept là tôi muốn nhận kiểu gì, còn Content-Type là tôi đang gửi kiểu gì, ví dụ body là JSON thì Content-Type ghi kiểu JSON."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n13",
+   "start": 550.008,
+   "end": 613.392,
+   "sents": [
+    [
+     550.108,
+     557.058,
+     "Thành phần cuối là Response, gồm ba phần: response header, response body và response code."
+    ],
+    [
+     557.008,
+     565.808,
+     "Trong header có Access-Control-Allow-Origin, cho biết website ở tên miền nào được phép gọi API này từ trình duyệt, dấu sao nghĩa là mọi nguồn."
+    ],
+    [
+     565.808,
+     569.546,
+     "Body là nội dung trả về, thường là JSON."
+    ],
+    [
+     569.546,
+     580.37,
+     "Code là mã trạng thái, cách nhớ nhanh nhất là nhìn chữ số đầu: nhóm hai là ổn, nhóm bốn là bạn sai, tức lỗi phía client, nhóm năm là tôi sai, tức lỗi phía server."
+    ],
+    [
+     580.37,
+     593.37,
+     "Hay gặp nhất là 200 OK khi thành công, 201 Created khi vừa tạo được một resource, 400 Bad Request khi request không hợp lệ, 404 Not Found khi không tìm thấy, và 500 Server Error khi server lỗi."
+    ],
+    [
+     593.37,
+     605.995,
+     "Cặp dễ nhầm là 401 và 403: 401 Unauthorized là chưa xác thực, chưa đăng nhập hoặc token sai, còn 403 Forbidden là server biết bạn là ai nhưng bạn không có quyền."
+    ],
+    [
+     605.995,
+     613.37,
+     "Slide ghi DELETE thành công trả 200, theo chuẩn cũng hay trả 204 No Content, cả hai đều thuộc nhóm thành công."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n14",
+   "start": 613.992,
+   "end": 653.976,
+   "sents": [
+    [
+     614.092,
+     617.092,
+     "Áp vào app đặt đồ ăn cho dễ nhớ."
+    ],
+    [
+     617.042,
+     622.342,
+     "Xem danh sách món thành công là 200, tạo đơn mới thành công là 201."
+    ],
+    [
+     622.342,
+     625.692,
+     "Gửi đơn mà thiếu địa chỉ giao hàng là 400."
+    ],
+    [
+     625.692,
+     633.604,
+     "Gọi API khi chưa đăng nhập, không có token là 401, còn khách hàng đòi xem doanh thu của nhà hàng là 403."
+    ],
+    [
+     633.604,
+     638.079,
+     "Xem đơn số 999 không tồn tại là 404."
+    ],
+    [
+     638.079,
+     645.204,
+     "Gửi body dạng XML trong khi API chỉ nhận JSON là 415, Unsupported Media Type."
+    ],
+    [
+     645.204,
+     653.967,
+     "Một app gọi một nghìn lần mỗi giây, vượt hạn mức, là 429 Too Many Requests, còn server mất kết nối database là 500."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n15",
+   "start": 654.576,
+   "end": 710.304,
+   "sents": [
+    [
+     654.676,
+     656.751,
+     "Sang phần dữ liệu."
+    ],
+    [
+     656.701,
+     666.364,
+     "JSON là viết tắt của JavaScript Object Notation, định dạng trao đổi dữ liệu phổ biến khi làm việc với API, dễ đọc với người và dễ xử lý với máy."
+    ],
+    [
+     666.364,
+     676.063,
+     "JSON có hai cấu trúc: JSON Object nằm trong cặp ngoặc nhọn, gồm các cặp khóa và giá trị, còn JSON Array nằm trong ngoặc vuông, là một danh sách."
+    ],
+    [
+     676.063,
+     682.776,
+     "JSON có sáu kiểu dữ liệu: String, Number, Boolean, Null, Object và Array."
+    ],
+    [
+     682.776,
+     696.851,
+     "Trong ví dụ sách Chí Phèo trên slide, Title là String vì nằm trong nháy kép, PageNumber 150 là Number vì không có nháy, Author là Object lồng bên trong, Position là Array chứa hai kệ sách, còn Status true là Boolean."
+    ],
+    [
+     696.851,
+     704.264,
+     "Bẫy hay gặp: số 150 đặt trong nháy kép thì thành String, chữ true trong nháy kép cũng là String, không phải Boolean."
+    ],
+    [
+     704.264,
+     710.301,
+     "Ảnh mẫu trên slide còn thiếu một dấu phẩy sau PageNumber, phần lý thuyết đã sửa lại cho đúng cú pháp."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n16",
+   "start": 710.904,
+   "end": 753.528,
+   "sents": [
+    [
+     711.004,
+     717.466,
+     "XML là viết tắt của eXtensible Markup Language, cũng dùng để trao đổi dữ liệu giữa các hệ thống."
+    ],
+    [
+     717.417,
+     723.229,
+     "Thay vì cặp khóa và giá trị, XML dùng thẻ mở và thẻ đóng cùng tên bao quanh giá trị."
+    ],
+    [
+     723.229,
+     730.667,
+     "Danh sách trong XML không có ngoặc vuông như JSON, mà lặp lại thẻ, ví dụ nhiều thẻ Item nằm trong thẻ Data."
+    ],
+    [
+     730.667,
+     739.429,
+     "Vì mỗi tên trường phải viết hai lần, ở thẻ mở và thẻ đóng, nên XML dài hơn JSON, đây chính là điểm slide ghi riêng cho XML."
+    ],
+    [
+     739.429,
+     745.429,
+     "JSON dùng nhiều ở RESTful API, còn XML gặp nhiều ở SOAP và hệ thống cũ."
+    ],
+    [
+     745.429,
+     753.529,
+     "Lưu ý ảnh mẫu trang hai mươi ba đóng thẻ PageNumber bằng thẻ Title, đó là lỗi gõ trên slide, thẻ mở và thẻ đóng phải cùng tên."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n17",
+   "start": 754.128,
+   "end": 812.904,
+   "sents": [
+    [
+     754.228,
+     760.916,
+     "Phần cuối dành riêng cho BA: đặc tả API theo mẫu FSD, với case FoodNow đặt bàn nhà hàng."
+    ],
+    [
+     760.865,
+     769.503,
+     "Trường hợp thứ nhất là API do mình định nghĩa, ví dụ FoodNow mở API để đối tác như Pasgo, TableNow gửi yêu cầu đặt bàn."
+    ],
+    [
+     769.503,
+     776.853,
+     "BA viết đủ năm mục: mô tả chung, luồng nghiệp vụ, thông tin đầu vào, thông tin đầu ra và danh sách mã lỗi."
+    ],
+    [
+     776.853,
+     787.666,
+     "Luồng kiểm tra lần lượt mã đối tác, mã nhà hàng đã liên kết với đối tác, thời gian tới phải sau hiện tại và trong giờ mở cửa, rồi bàn còn trống trong khung giờ đó, cuối cùng mới lưu đặt bàn."
+    ],
+    [
+     787.666,
+     793.365,
+     "Quy tắc tự kiểm: mỗi bước kiểm tra trong luồng phải có ít nhất một dòng trong danh sách mã lỗi."
+    ],
+    [
+     793.365,
+     807.428,
+     "Trường hợp thứ hai là API do bên khác định nghĩa, như Momo gửi kết quả thanh toán sang, thì đầu vào, đầu ra và mã lỗi dẫn theo tài liệu của đối tác, BA chỉ mô tả các bước kiểm tra phía mình như checksum, số tiền khớp, trạng thái bàn."
+    ],
+    [
+     807.428,
+     812.891,
+     "Nói gọn, BA đặc tả cái gì và quy tắc gì, còn dev quyết định làm thế nào."
+    ]
+   ]
+  },
+  {
+   "id": "L23-n18",
+   "start": 813.504,
+   "end": 865.872,
+   "sents": [
+    [
+     813.604,
+     815.979,
+     "Tóm lại buổi hai mươi ba."
+    ],
+    [
+     815.929,
+     823.567,
+     "API là người phục vụ đứng giữa client và server, giúp nhiều ứng dụng dùng chung một bộ dịch vụ mà không chạm thẳng vào database."
+    ],
+    [
+     823.567,
+     833.542,
+     "REST là bộ quy tắc, RESTful là API theo quy tắc đó, gồm năm thành phần: method, URL, header, param và response."
+    ],
+    [
+     833.542,
+     843.429,
+     "Nhớ GET xem, POST thêm, PUT thay cả, PATCH vá một chỗ, DELETE xóa, và URL dùng danh từ số nhiều, không chứa động từ."
+    ],
+    [
+     843.429,
+     849.716,
+     "Mã trạng thái nhìn chữ số đầu: hai là ổn, bốn là client sai, năm là server sai."
+    ],
+    [
+     849.716,
+     854.517,
+     "JSON gọn với sáu kiểu dữ liệu, XML dài hơn vì lặp thẻ."
+    ],
+    [
+     854.517,
+     861.404,
+     "Cuối cùng, BA đặc tả API bằng năm mục trong FSD, và mỗi bước kiểm tra phải có mã lỗi tương ứng."
+    ],
+    [
+     861.404,
+     865.854,
+     "Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài."
+    ]
+   ]
+  }
+ ]
+}

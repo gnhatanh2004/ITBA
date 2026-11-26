@@ -1,0 +1,1037 @@
+{
+ "id": "L13b",
+ "session": 13,
+ "module": "M4",
+ "title": "Đặc tả Use Case (Use Case Specification)",
+ "goals": [
+  "Giải thích được đặc tả Use Case là gì và khác sơ đồ Use Case ở điểm nào",
+  "Nêu được ý nghĩa và cách điền 16 trường của bảng đặc tả Use Case",
+  "Phân biệt được Trigger với Pre-Condition, Alternative Flow với Exception Flow",
+  "Tự viết được một bản đặc tả Use Case đầy đủ cho một chức năng thực tế"
+ ],
+ "sources": [
+  {
+   "file": "13. Đặc tả UseCase.pdf",
+   "pages": "1-3"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L13b-t1",
+   "h": "Đặc tả Use Case là gì",
+   "html": "<p><b>Đặc tả Use Case (Use Case Specification)</b> là tài liệu mô tả chi tiết cách một Use Case cụ thể hoạt động trong hệ thống.</p><p>Nó mô tả đầy đủ <b>luồng xử lý chính</b> và <b>các luồng phụ</b> của một chức năng.</p><ul><li>Sơ đồ Use Case (bài L13a) chỉ cho biết <i>có những chức năng nào</i> và <i>ai dùng</i>.</li><li>Đặc tả Use Case trả lời <i>chức năng đó chạy ra sao</i>: ai làm gì, hệ thống phản hồi thế nào, khi nào bắt đầu, khi nào kết thúc, lỗi thì xử lý ra sao.</li></ul><p>Mỗi hình elip (một Use Case) trên sơ đồ thường có một bản đặc tả riêng. Đặc tả được viết dạng <b>bảng</b>, mỗi dòng là một trường.</p><p class='tip'>Mẹo nhớ: sơ đồ là \"bản đồ\", đặc tả là \"chỉ đường từng bước\".</p>",
+   "src": "13. Đặc tả UseCase.pdf tr.1"
+  },
+  {
+   "id": "L13b-t2",
+   "h": "Cấu trúc bảng đặc tả: 16 trường",
+   "html": "<p>Bảng đặc tả trên slide có 16 trường, chia thành 4 nhóm để dễ nhớ:</p><table><thead><tr><th>Nhóm</th><th>Trường</th></tr></thead><tbody><tr><td>1. Nhận diện</td><td>Use Case Name, Use Case ID, Description, Actor, Priority</td></tr><tr><td>2. Mục đích và điều kiện</td><td>Goal, Trigger, Pre-Condition, Post-Condition, Frequency of Use</td></tr><tr><td>3. Các luồng xử lý</td><td>Main Flow, Alternative Flow, Exception Flow</td></tr><tr><td>4. Ràng buộc và liên kết</td><td>Business Rules, Non-Functional Requirement, Related Documents</td></tr></tbody></table><p>Cách chia 4 nhóm là để dễ học; slide liệt kê theo đúng thứ tự trên trong một bảng 3 cột: tên trường tiếng Anh, tên tiếng Việt, giải thích kèm ví dụ.</p>{{img:L13b-img1}}",
+   "src": "13. Đặc tả UseCase.pdf tr.1-3"
+  },
+  {
+   "id": "L13b-t3",
+   "h": "Nhóm 1 – Các trường nhận diện",
+   "html": "<table><thead><tr><th>Trường</th><th>Nghĩa</th><th>Ghi gì</th><th>Ví dụ trên slide</th></tr></thead><tbody><tr><td><b>Use Case Name</b></td><td>Tên Use Case</td><td>Tên của Use Case. Nên là cụm động từ + đối tượng, giống tên trên sơ đồ.</td><td>Thêm nhân viên</td></tr><tr><td><b>Use Case ID</b></td><td>Mã Use Case</td><td>Mã của Use Case. Các mã <b>không được trùng nhau</b>.</td><td>UC1.0</td></tr><tr><td><b>Description / Brief Description</b></td><td>Mô tả</td><td>Mô tả tổng quan về chức năng, 1–2 câu.</td><td>Nhân viên HR sau khi đăng nhập có thể thêm được thông tin nhân sự trong công ty</td></tr><tr><td><b>Actor</b></td><td>Tác nhân</td><td>Những Actor tương tác với Use Case.</td><td>Nhân viên HR</td></tr><tr><td><b>Priority</b></td><td>Mức độ ưu tiên</td><td>Mức ưu tiên của Use Case này so với các Use Case khác.</td><td>High / Medium / Low</td></tr></tbody></table><p class='tip'>Mã ID giúp truy vết: RTM, test case và tài liệu khác chỉ cần ghi \"UC1.0\" là biết đang nói chức năng nào.</p>",
+   "src": "13. Đặc tả UseCase.pdf tr.1"
+  },
+  {
+   "id": "L13b-t4",
+   "h": "Nhóm 2 – Mục đích và điều kiện",
+   "html": "<table><thead><tr><th>Trường</th><th>Nghĩa</th><th>Ghi gì</th><th>Ví dụ trên slide</th></tr></thead><tbody><tr><td><b>Goal</b></td><td>Mục tiêu</td><td>Mục đích mà Actor muốn đạt được khi thực hiện Use Case.</td><td>Cho phép nhân viên HR thêm thành công thông tin nhân sự trong công ty</td></tr><tr><td><b>Trigger</b></td><td>Điều kiện kích hoạt</td><td>Sự kiện hoặc hành động kích hoạt Use Case.</td><td>Bấm vào nút \"Thêm mới\" tại màn hình \"Danh sách nhân sự\"</td></tr><tr><td><b>Pre-Condition</b></td><td>Điều kiện tiên quyết</td><td>Các điều kiện phải đúng <b>trước khi</b> Use Case có thể bắt đầu.</td><td>Nhân viên HR đã đăng nhập vào hệ thống</td></tr><tr><td><b>Post-Condition</b></td><td>Điều kiện sau</td><td>Trạng thái của hệ thống <b>sau khi hoàn tất</b> Use Case.</td><td>Nhân sự mới được thêm thành công và nằm trong danh sách nhân sự của công ty</td></tr><tr><td><b>Frequency of Use</b></td><td>Tần suất sử dụng</td><td>Chức năng này có thể diễn ra bao nhiêu lần.</td><td>Thường xuyên vào thứ 2 hàng tuần</td></tr></tbody></table><ul><li>Pre-Condition và Post-Condition đều là <b>trạng thái</b> (đã đăng nhập, đã được thêm), không phải một bước thao tác.</li><li>Frequency giúp đội kỹ thuật ước lượng tải và ưu tiên tối ưu.</li></ul>",
+   "src": "13. Đặc tả UseCase.pdf tr.1-2"
+  },
+  {
+   "id": "L13b-t5",
+   "h": "Nhóm 3 – Ba loại luồng xử lý",
+   "html": "<table><thead><tr><th>Trường</th><th>Nghĩa</th><th>Ghi gì</th></tr></thead><tbody><tr><td><b>Main Flow / Basic Flow</b></td><td>Luồng chính</td><td>Các bước xử lý chính của chức năng, theo kịch bản thành công thường gặp nhất.</td></tr><tr><td><b>Alternative Flow</b></td><td>Luồng thay thế</td><td>Các kịch bản thay thế khi người dùng chọn cách khác hoặc điều kiện thay đổi.</td></tr><tr><td><b>Exception Flow</b></td><td>Luồng ngoại lệ</td><td>Các tình huống lỗi có thể xảy ra.</td></tr></tbody></table><h5>Ví dụ luồng chính trên slide (Use Case \"Thêm nhân viên\")</h5><ol><li>Nhân viên HR đăng nhập vào hệ thống</li><li>Nhân viên HR truy cập vào màn hình \"Danh sách nhân sự\"</li><li>Nhân viên HR bấm nút \"Thêm mới\"</li><li>Hệ thống hiển thị màn hình thêm mới nhân sự</li><li>Nhân viên HR nhập thông tin và bấm nút \"Gửi xác nhận\"</li><li>Hệ thống kiểm tra các thông tin, lưu dữ liệu vào cơ sở dữ liệu và thông báo cho Trưởng phòng HR có thông tin cần phê duyệt</li><li>Trưởng phòng HR phê duyệt thông tin nhân sự mới</li><li>Hệ thống thông báo đến Nhân viên HR thông tin đã được phê duyệt</li></ol><p><b>Luồng thay thế</b> (slide): Nhân viên HR bấm vào nút \"Thêm nhân sự\" tại màn hình Dashboard.</p><p><b>Luồng ngoại lệ</b> (slide):</p><ul><li>6a. Thông tin không hợp lệ, hệ thống thông báo đến Nhân viên HR</li><li>7a. Trưởng phòng từ chối phê duyệt</li><li>8a. Hệ thống thông báo đến Nhân viên HR thông tin đã bị từ chối</li></ul><p><b>Cách đánh số:</b> \"6a\" nghĩa là nhánh rẽ ra tại <b>bước 6</b> của luồng chính. Nhánh thứ hai cũng rẽ tại bước 6 thì ghi \"6b\". Nhờ vậy người đọc biết ngay lỗi xảy ra ở đâu.</p><ul><li>Mỗi bước là một câu, có chủ ngữ rõ: Actor hoặc Hệ thống.</li><li>Các bước xen kẽ: Actor làm → Hệ thống phản hồi.</li></ul><p class='note'>Trong ví dụ của slide, bước 1 \"đăng nhập\" và bước 3 \"bấm Thêm mới\" lại chính là Pre-Condition và Trigger của cùng Use Case. Theo cách viết phổ biến (BABOK, UML), luồng chính thường bắt đầu <b>từ Trigger</b>, các việc đã nằm trong Pre-Condition không cần lặp lại. Slide viết đủ cả chuỗi để người mới dễ hình dung. Cả hai cách đều được chấp nhận, miễn nhất quán trong tài liệu.</p>",
+   "src": "13. Đặc tả UseCase.pdf tr.2"
+  },
+  {
+   "id": "L13b-t6",
+   "h": "Nhóm 4 – Ràng buộc và tài liệu liên quan",
+   "html": "<table><thead><tr><th>Trường</th><th>Nghĩa</th><th>Ghi gì</th><th>Ví dụ trên slide</th></tr></thead><tbody><tr><td><b>Business Rules</b></td><td>Quy định nghiệp vụ</td><td>Các quy định về nghiệp vụ mà hệ thống bắt buộc phải tuân thủ.</td><td>Nhân sự phải có tuổi từ 18 đến 60</td></tr><tr><td><b>Non-Functional Requirement</b></td><td>Yêu cầu phi chức năng</td><td>Các yêu cầu phi chức năng của Use Case: hiệu năng, bảo mật, thiết bị, giao diện…</td><td>Chức năng có thể nhập trên điện thoại</td></tr><tr><td><b>Related Documents</b></td><td>Tài liệu liên quan</td><td>Các tài liệu liên kết như đặc tả hệ thống, sơ đồ…</td><td>Tài liệu BRD mục số 3</td></tr></tbody></table><ul><li>Business Rule nói <b>nghiệp vụ cho phép gì</b> (luật của công ty, pháp luật). Khi dữ liệu vi phạm luật này, hệ thống thường đi vào luồng ngoại lệ.</li><li>NFR nói <b>chức năng phải chạy tốt đến đâu</b> (nhanh, an toàn, chạy trên thiết bị nào). Xem lại bài L11a về FR và NFR.</li></ul>",
+   "src": "13. Đặc tả UseCase.pdf tr.3"
+  },
+  {
+   "id": "L13b-t7",
+   "h": "Phân biệt Trigger và Pre-Condition",
+   "html": "<table><thead><tr><th></th><th>Trigger</th><th>Pre-Condition</th></tr></thead><tbody><tr><td>Bản chất</td><td><b>Hành động</b> để kích hoạt Use Case</td><td><b>Điều kiện</b> để Use Case hoạt động được</td></tr><tr><td>Thời điểm</td><td>Xảy ra ngay lúc Use Case bắt đầu</td><td>Phải đúng từ trước khi Use Case bắt đầu</td></tr><tr><td>Dạng câu</td><td>Động từ: \"bấm\", \"chọn\", \"đến giờ\"…</td><td>Trạng thái: \"đã đăng nhập\", \"đang có\"…</td></tr><tr><td>Có bắt buộc không</td><td>Thường phải có</td><td>Có thể không có</td></tr></tbody></table><p>Slide nhấn mạnh: <b>một Use Case có thể không có Pre-Condition nhưng thường phải có Trigger</b>. Ví dụ: chức năng \"Xem trang chủ\" của một website ai cũng vào được, không cần điều kiện gì, nhưng vẫn cần hành động \"mở trang\" để bắt đầu.</p><p class='tip'>Mẹo nhớ: Trigger là <i>cú bấm công tắc</i>, Pre-Condition là <i>nhà đã có điện</i>. Có điện mà không bấm thì đèn không sáng; bấm mà không có điện thì cũng không sáng.</p>",
+   "src": "13. Đặc tả UseCase.pdf tr.3"
+  },
+  {
+   "id": "L13b-t8",
+   "h": "Phân biệt Alternative Flow và Exception Flow",
+   "html": "<table><thead><tr><th></th><th>Alternative Flow</th><th>Exception Flow</th></tr></thead><tbody><tr><td>Định nghĩa (slide)</td><td>Luồng đi khác mà <b>kết quả vẫn giống</b> luồng chính</td><td>Những trường hợp xảy ra dẫn tới <b>không đạt được kết quả</b></td></tr><tr><td>Nguyên nhân</td><td>Người dùng chọn cách khác hoặc điều kiện thay đổi</td><td>Lỗi: dữ liệu sai, bị từ chối, hệ thống hỏng…</td></tr><tr><td>Ví dụ \"Thêm nhân viên\"</td><td>Bấm \"Thêm nhân sự\" ở Dashboard thay vì ở Danh sách nhân sự</td><td>Thông tin không hợp lệ; Trưởng phòng từ chối phê duyệt</td></tr></tbody></table><p class='key'>Câu hỏi kiểm tra: \"Nhánh này là một cách làm khác hợp lệ mà Goal vẫn đạt, hay là một lỗi?\" Cách làm khác thì là Alternative. Lỗi, nhất là lỗi làm Goal không đạt, thì là Exception.</p><p class='note'>Slide mô tả Exception Flow theo hai cách: ở bảng cấu trúc là \"các tình huống lỗi có thể xảy ra\", ở phần lưu ý là \"trường hợp dẫn tới không đạt được kết quả\". Ví dụ của chính slide (6a \"Thông tin không hợp lệ\", và các lỗi nhập liệu 4a–4c ở bài Activity Diagram) xếp lỗi nhập liệu vào Exception, kể cả khi người dùng có thể sửa rồi gửi lại. Vì vậy: tình huống <b>lỗi</b> ghi vào Exception; Alternative dành cho <b>cách làm khác hợp lệ</b> (đổi nơi bắt đầu, đổi phương thức) mà vẫn đạt kết quả.</p>",
+   "src": "13. Đặc tả UseCase.pdf tr.3"
+  },
+  {
+   "id": "L13b-t9",
+   "h": "Mẹo viết một bản đặc tả tốt",
+   "html": "<p>Phần này bổ sung theo kinh nghiệm BA chuẩn, giúp áp dụng bảng mẫu trên slide:</p><ol><li>Viết <b>Name, ID, Actor</b> khớp với sơ đồ Use Case.</li><li>Viết <b>Goal</b> theo góc nhìn Actor, rồi viết <b>Post-Condition</b> là trạng thái hệ thống khi Goal đạt.</li><li>Tách riêng <b>Trigger</b> (hành động) và <b>Pre-Condition</b> (trạng thái).</li><li>Viết <b>Main Flow</b>: đánh số, mỗi bước một hành động, chủ ngữ là Actor hoặc Hệ thống. Không mô tả màu nút, cỡ chữ.</li><li>Đi lại từng bước của Main Flow và hỏi: \"Có cách khác không?\" → Alternative. \"Có thể lỗi gì?\" → Exception. Đánh số theo bước, ví dụ 5a, 5b.</li><li>Đưa luật nghiệp vụ vào <b>Business Rules</b>, không trộn vào các bước.</li><li>Ghi <b>NFR</b> riêng của chức năng và <b>Related Documents</b> để truy vết.</li></ol>",
+   "src": "13. Đặc tả UseCase.pdf tr.1-3 (bổ sung theo kiến thức BA chuẩn)"
+  }
+ ],
+ "examples": [
+  {
+   "id": "L13b-e1",
+   "title": "Đặc tả \"Thêm nhân viên\" ghép đủ từ các ví dụ trên slide",
+   "html": "<p>Slide minh họa mỗi trường bằng một ví dụ của cùng chức năng \"Thêm nhân viên\". Ghép lại ta có một bản đặc tả hoàn chỉnh:</p><table><tbody><tr><th>Use Case Name</th><td>Thêm nhân viên</td></tr><tr><th>Use Case ID</th><td>UC1.0</td></tr><tr><th>Description</th><td>Nhân viên HR sau khi đăng nhập có thể thêm được thông tin nhân sự trong công ty</td></tr><tr><th>Actor</th><td>Nhân viên HR (Trưởng phòng HR tham gia ở bước phê duyệt)</td></tr><tr><th>Priority</th><td>High / Medium / Low (chọn một)</td></tr><tr><th>Goal</th><td>Cho phép nhân viên HR thêm thành công thông tin nhân sự trong công ty</td></tr><tr><th>Trigger</th><td>Bấm vào nút \"Thêm mới\" tại màn hình \"Danh sách nhân sự\"</td></tr><tr><th>Pre-Condition</th><td>Nhân viên HR đã đăng nhập vào hệ thống</td></tr><tr><th>Post-Condition</th><td>Nhân sự mới được thêm thành công và nằm trong danh sách nhân sự của công ty</td></tr><tr><th>Frequency of Use</th><td>Thường xuyên vào thứ 2 hàng tuần</td></tr><tr><th>Main Flow</th><td>1. Nhân viên HR đăng nhập vào hệ thống<br>2. Nhân viên HR truy cập vào màn hình \"Danh sách nhân sự\"<br>3. Nhân viên HR bấm nút \"Thêm mới\"<br>4. Hệ thống hiển thị màn hình thêm mới nhân sự<br>5. Nhân viên HR nhập thông tin và bấm nút \"Gửi xác nhận\"<br>6. Hệ thống kiểm tra các thông tin, lưu dữ liệu vào cơ sở dữ liệu và thông báo cho Trưởng phòng HR có thông tin cần phê duyệt<br>7. Trưởng phòng HR phê duyệt thông tin nhân sự mới<br>8. Hệ thống thông báo đến Nhân viên HR thông tin đã được phê duyệt</td></tr><tr><th>Alternative Flow</th><td>Nhân viên HR bấm vào nút \"Thêm nhân sự\" tại màn hình Dashboard</td></tr><tr><th>Exception Flow</th><td>6a. Thông tin không hợp lệ, hệ thống thông báo đến Nhân viên HR<br>7a. Trưởng phòng từ chối phê duyệt<br>8a. Hệ thống thông báo đến Nhân viên HR thông tin đã bị từ chối</td></tr><tr><th>Business Rules</th><td>Nhân sự phải có tuổi từ 18 đến 60</td></tr><tr><th>Non-Functional Requirement</th><td>Chức năng có thể nhập trên điện thoại</td></tr><tr><th>Related Documents</th><td>Tài liệu BRD mục số 3</td></tr></tbody></table><p><b>Giải thích:</b></p><ul><li>Luồng thay thế bắt đầu ở chỗ khác (Dashboard) nhưng kết quả vẫn là nhân sự được thêm, nên là Alternative.</li><li>6a, 7a dẫn tới không thêm được nhân sự, nên là Exception.</li><li>8a là bước nối tiếp của 7a: sau khi bị từ chối, hệ thống báo cho Nhân viên HR.</li><li>Luật \"tuổi 18–60\" là Business Rule. Nếu nhập tuổi 17, hệ thống rơi vào 6a.</li></ul><p class='note'>Pre-Condition (đã đăng nhập) và Trigger (bấm \"Thêm mới\") cũng xuất hiện ở bước 1 và 3 của Main Flow. Đây là cách viết của slide. Nhiều tài liệu khác bắt đầu Main Flow ngay từ Trigger, xem ví dụ L13b-e2.</p>",
+   "src": "13. Đặc tả UseCase.pdf tr.1-3"
+  },
+  {
+   "id": "L13b-e2",
+   "title": "Ví dụ đặc tả đầy đủ: \"Đặt bàn\" trên FoodNow",
+   "html": "<p><i>Ví dụ tự đặt</i> cho ứng dụng FoodNow (đặt bàn nhà hàng). Các con số và luật trong bảng là giả định để minh họa.</p><table><tbody><tr><th>Use Case Name</th><td>Đặt bàn</td></tr><tr><th>Use Case ID</th><td>UC03</td></tr><tr><th>Description</th><td>Khách hàng chọn nhà hàng, ngày giờ, số người để giữ chỗ trước. Nhà hàng xác nhận đặt bàn.</td></tr><tr><th>Actor</th><td>Khách hàng (chính); Nhân viên nhà hàng (xác nhận)</td></tr><tr><th>Priority</th><td>High</td></tr><tr><th>Goal</th><td>Khách hàng giữ được bàn tại nhà hàng mong muốn vào thời gian mong muốn</td></tr><tr><th>Trigger</th><td>Khách hàng bấm nút \"Đặt bàn\" trên trang chi tiết nhà hàng</td></tr><tr><th>Pre-Condition</th><td>Khách hàng đã đăng nhập; nhà hàng đang mở nhận đặt bàn trên FoodNow</td></tr><tr><th>Post-Condition</th><td>Phiếu đặt bàn được lưu với trạng thái \"Đã xác nhận\"; khách hàng nhận được thông báo kèm mã đặt bàn</td></tr><tr><th>Frequency of Use</th><td>Cao, tập trung vào buổi tối và cuối tuần</td></tr><tr><th>Main Flow</th><td>1. Khách hàng bấm \"Đặt bàn\"<br>2. Hệ thống hiển thị form chọn ngày, giờ, số người, ghi chú<br>3. Khách hàng nhập thông tin và bấm \"Gửi yêu cầu\"<br>4. Hệ thống kiểm tra còn bàn trống phù hợp<br>5. Hệ thống tạo phiếu đặt bàn trạng thái \"Chờ xác nhận\" và gửi cho nhà hàng<br>6. Nhân viên nhà hàng xác nhận phiếu<br>7. Hệ thống đổi trạng thái thành \"Đã xác nhận\" và gửi thông báo kèm mã đặt bàn cho khách hàng</td></tr><tr><th>Alternative Flow</th><td>1a. Khách hàng đặt lại từ \"Lịch sử đặt bàn\": hệ thống điền sẵn nhà hàng và số người, tiếp tục từ bước 2<br>6a. Nhà hàng bật chế độ tự động xác nhận: hệ thống tự xác nhận, tiếp tục bước 7</td></tr><tr><th>Exception Flow</th><td>3a. Thiếu ngày giờ hoặc số người: hệ thống báo lỗi tại trường thiếu<br>4a. Không còn bàn trống: hệ thống báo hết chỗ và gợi ý khung giờ khác<br>6b. Nhà hàng từ chối: hệ thống báo cho khách hàng, kết thúc Use Case</td></tr><tr><th>Business Rules</th><td>BR1. Chỉ đặt trước tối thiểu 1 giờ và tối đa 30 ngày.<br>BR2. Mỗi phiếu từ 1 đến 20 người.</td></tr><tr><th>Non-Functional Requirement</th><td>Hiển thị kết quả kiểm tra bàn trống trong 3 giây; dùng được trên điện thoại</td></tr><tr><th>Related Documents</th><td>Sơ đồ Use Case FoodNow; Activity Diagram \"Đặt bàn\"; BRD mục quản lý đặt bàn</td></tr></tbody></table><p><b>Vì sao viết như vậy:</b></p><ul><li>Main Flow bắt đầu từ Trigger. Đăng nhập không lặp lại vì đã nằm trong Pre-Condition.</li><li>1a và 6a vẫn đi tới trạng thái \"Đã xác nhận\", nên là Alternative.</li><li>4a và 6b khiến khách không giữ được bàn, nên là Exception.</li><li>3a cũng là Exception theo định nghĩa trên slide. Nếu khách sửa lại và gửi tiếp được, Use Case quay về bước 3.</li></ul>",
+   "src": "13. Đặc tả UseCase.pdf tr.1-3 (ví dụ tự đặt)"
+  },
+  {
+   "id": "L13b-e3",
+   "title": "Xếp luồng cho Use Case \"Đặt món\" (hệ thống đặt đồ ăn)",
+   "html": "<p><i>Ví dụ.</i> Use Case \"Đặt món\" có Goal: khách hàng đặt được đơn và đơn được gửi tới nhà hàng. Dưới đây là các tình huống, kèm cách xếp luồng theo định nghĩa trên slide:</p><table><thead><tr><th>Tình huống</th><th>Goal có đạt không?</th><th>Xếp vào</th></tr></thead><tbody><tr><td>Khách chọn món từ trang chủ, thêm vào giỏ, thanh toán bằng ví điện tử</td><td>Có (cách thường gặp nhất)</td><td>Main Flow</td></tr><tr><td>Khách bấm \"Đặt lại\" một đơn cũ thay vì chọn món từ đầu</td><td>Có</td><td>Alternative Flow</td></tr><tr><td>Khách chọn trả tiền mặt khi nhận hàng thay vì ví điện tử</td><td>Có</td><td>Alternative Flow</td></tr><tr><td>Món đã hết khi khách bấm đặt</td><td>Không</td><td>Exception Flow</td></tr><tr><td>Thanh toán ví điện tử thất bại</td><td>Không</td><td>Exception Flow</td></tr><tr><td>Địa chỉ giao nằm ngoài vùng phục vụ</td><td>Không</td><td>Exception Flow</td></tr></tbody></table><p class='tip'>Mỗi lần phân vân, hỏi: \"Đây là cách làm khác hợp lệ, hay là một lỗi?\" Cách làm khác là Alternative; lỗi là Exception.</p>",
+   "src": "13. Đặc tả UseCase.pdf tr.3"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L13b-p1",
+   "title": "Ví dụ 1 trên slide: Trigger và Pre-Condition của \"Nổ máy xe\"",
+   "task": "<p>Use Case là \"Nổ máy xe\" (xe máy). Hãy xác định Trigger và Pre-Condition.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Tìm hành động bắt đầu.</b> Hỏi: \"Người lái làm gì thì việc nổ máy bắt đầu?\" Câu trả lời là một động từ: vặn chìa khóa sang nấc khởi động, hoặc bấm nút đề.</p>",
+    "<p><b>Bước 2 – Tìm các trạng thái phải có sẵn.</b> Hỏi: \"Trước khi bấm, điều gì phải đúng thì máy mới nổ được?\" Liệt kê dạng \"đã…/đang có…\": có xăng, ắc quy còn điện, chìa khóa đúng xe đã cắm vào ổ.</p>",
+    "<p><b>Bước 3 – Kiểm tra chéo.</b> Mỗi ý ở bước 1 phải là hành động. Mỗi ý ở bước 2 phải là trạng thái. Nếu một ý ở bước 2 có động từ hành động (\"bấm\", \"vặn\") thì chuyển nó sang Trigger.</p>"
+   ],
+   "answer": "<table><tbody><tr><th>Trigger</th><td>Người lái vặn chìa khóa sang nấc khởi động / bấm nút đề (với xe tay ga thường phải bóp phanh khi bấm đề)</td></tr><tr><th>Pre-Condition</th><td>Xe còn xăng; ắc quy còn điện; chìa khóa đúng của xe đã được cắm vào ổ; xe ở trạng thái an toàn để khởi động (ví dụ xe số đang về số 0)</td></tr></tbody></table><p>Trigger là hành động. Pre-Condition là các trạng thái đã đúng từ trước.</p>",
+   "src": "13. Đặc tả UseCase.pdf tr.3"
+  },
+  {
+   "id": "L13b-p2",
+   "title": "Ví dụ 2 trên slide: Trigger, Pre-Condition, Alternative và Exception của \"Chuyển tiền trên App\"",
+   "task": "<p>Use Case là \"Chuyển tiền trên App\" (ứng dụng ngân hàng). Hãy xác định:</p><ol><li>Trigger và Pre-Condition.</li><li>Alternative Flow và Exception Flow.</li></ol>",
+   "steps": [
+    "<p><b>Bước 1 – Viết nhanh Main Flow</b> để có \"xương sống\": bấm Chuyển tiền → nhập số tài khoản người nhận → hệ thống hiện tên người nhận → nhập số tiền, nội dung → xác nhận bằng OTP → hệ thống trừ tiền và báo thành công.</p>",
+    "<p><b>Bước 2 – Trigger và Pre-Condition.</b> Trigger là bước đầu tiên của Main Flow (bấm \"Chuyển tiền\"). Pre-Condition là những gì phải đúng trước đó: đã đăng nhập, tài khoản đang hoạt động.</p>",
+    "<p><b>Bước 3 – Tìm Alternative.</b> Đi qua từng bước và hỏi \"Có cách khác mà vẫn chuyển được tiền không?\" Ví dụ: chọn người nhận trong danh bạ, quét mã QR, xác thực bằng vân tay.</p>",
+    "<p><b>Bước 4 – Tìm Exception.</b> Đi qua từng bước và hỏi \"Lỗi gì làm tiền không chuyển được?\" Ví dụ: số tài khoản không tồn tại, số dư không đủ, OTP sai.</p>",
+    "<p><b>Bước 5 – Đánh số theo bước.</b> Ghi nhánh rẽ theo số bước của Main Flow, ví dụ 2a, 4a, 5a.</p>"
+   ],
+   "answer": "<p><i>Đáp án mẫu (số bước theo Main Flow ở bước 1):</i></p><table><tbody><tr><th>Trigger</th><td>Người dùng bấm chức năng \"Chuyển tiền\" trên app</td></tr><tr><th>Pre-Condition</th><td>Người dùng đã đăng nhập app; tài khoản nguồn đang hoạt động (không bị khóa); đã đăng ký phương thức xác thực (OTP hoặc sinh trắc học)</td></tr><tr><th>Alternative Flow</th><td>2a. Chọn người nhận từ danh bạ đã lưu thay vì nhập số tài khoản<br>2b. Quét mã QR của người nhận<br>5a. Xác thực bằng vân tay/khuôn mặt thay vì OTP</td></tr><tr><th>Exception Flow</th><td>3a. Số tài khoản người nhận không tồn tại<br>4a. Số dư không đủ<br>4b. Số tiền vượt hạn mức trong ngày<br>5b. Nhập sai OTP quá số lần cho phép hoặc OTP hết hạn<br>6a. Mất kết nối, giao dịch không thực hiện được</td></tr></tbody></table><p>Lưu ý: \"số dư đủ\" <b>không</b> nên đưa vào Pre-Condition, vì chỉ biết đủ hay không sau khi người dùng nhập số tiền. Nó là chỗ rẽ sang Exception.</p>",
+   "src": "13. Đặc tả UseCase.pdf tr.3"
+  },
+  {
+   "id": "L13b-p3",
+   "title": "Viết từng bước một đặc tả đầy đủ: \"Đặt món\"",
+   "task": "<p>Viết bản đặc tả đầy đủ 16 trường cho Use Case \"Đặt món\" của hệ thống đặt đồ ăn: khách hàng chọn món, đặt đơn và thanh toán; nhà hàng nhận đơn.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Nhận diện.</b> Name: Đặt món. ID: UC05 (ví dụ). Actor: Khách hàng; Nhà hàng nhận đơn. Priority: High (chức năng tạo doanh thu). Description: 1 câu tóm tắt.</p>",
+    "<p><b>Bước 2 – Goal và Post-Condition.</b> Goal theo góc nhìn khách: đặt được đơn. Post-Condition là trạng thái hệ thống: đơn được lưu và gửi tới nhà hàng.</p>",
+    "<p><b>Bước 3 – Trigger và Pre-Condition.</b> Trigger: bấm \"Đặt hàng\" trong giỏ. Pre-Condition: đã đăng nhập, giỏ hàng có ít nhất 1 món.</p>",
+    "<p><b>Bước 4 – Main Flow.</b> Viết 6–8 bước xen kẽ Khách hàng và Hệ thống, bắt đầu từ Trigger.</p>",
+    "<p><b>Bước 5 – Alternative và Exception.</b> Đi qua từng bước, đánh số theo bước.</p>",
+    "<p><b>Bước 6 – Business Rules, NFR, Related Documents.</b> Tách luật nghiệp vụ ra khỏi các bước, ghi yêu cầu phi chức năng và tài liệu liên quan.</p>"
+   ],
+   "answer": "<p><i>Đáp án mẫu (số liệu là ví dụ):</i></p><table><tbody><tr><th>Use Case Name</th><td>Đặt món</td></tr><tr><th>Use Case ID</th><td>UC05</td></tr><tr><th>Description</th><td>Khách hàng đặt các món trong giỏ hàng, chọn địa chỉ giao và phương thức thanh toán để tạo đơn gửi tới nhà hàng.</td></tr><tr><th>Actor</th><td>Khách hàng; Nhà hàng</td></tr><tr><th>Priority</th><td>High</td></tr><tr><th>Goal</th><td>Khách hàng đặt thành công đơn món ăn</td></tr><tr><th>Trigger</th><td>Khách hàng bấm \"Đặt hàng\" trong màn hình Giỏ hàng</td></tr><tr><th>Pre-Condition</th><td>Khách hàng đã đăng nhập; giỏ hàng có ít nhất 1 món</td></tr><tr><th>Post-Condition</th><td>Đơn hàng được lưu với trạng thái \"Chờ nhà hàng nhận\" và được gửi tới nhà hàng; khách nhận được mã đơn</td></tr><tr><th>Frequency of Use</th><td>Rất cao, cao điểm giờ trưa và tối</td></tr><tr><th>Main Flow</th><td>1. Khách hàng bấm \"Đặt hàng\"<br>2. Hệ thống hiển thị màn hình xác nhận: món, địa chỉ giao mặc định, phí giao, tổng tiền<br>3. Khách hàng chọn phương thức thanh toán ví điện tử và bấm \"Xác nhận\"<br>4. Hệ thống kiểm tra món còn bán và địa chỉ trong vùng giao<br>5. Hệ thống chuyển sang ví điện tử để thanh toán<br>6. Ví điện tử báo thanh toán thành công<br>7. Hệ thống tạo đơn, gửi đơn tới nhà hàng và hiển thị mã đơn cho khách</td></tr><tr><th>Alternative Flow</th><td>2a. Khách đổi địa chỉ giao khác, hệ thống tính lại phí giao, quay về bước 2<br>3a. Khách chọn tiền mặt khi nhận hàng: bỏ qua bước 5–6, sang bước 7</td></tr><tr><th>Exception Flow</th><td>4a. Có món đã hết: hệ thống báo và yêu cầu bỏ món khỏi giỏ<br>4b. Địa chỉ ngoài vùng giao: hệ thống báo không giao được<br>6a. Thanh toán thất bại: hệ thống báo lỗi, đơn không được tạo</td></tr><tr><th>Business Rules</th><td>BR1. Giá trị đơn tối thiểu 50.000đ (ví dụ).<br>BR2. Chỉ nhận đơn trong giờ mở cửa của nhà hàng.</td></tr><tr><th>Non-Functional Requirement</th><td>Tạo đơn trong ≤ 3 giây; dữ liệu thanh toán được mã hóa</td></tr><tr><th>Related Documents</th><td>Sơ đồ Use Case hệ thống đặt đồ ăn; Activity Diagram \"Đặt món\"; BRD mục đặt hàng và thanh toán</td></tr></tbody></table>",
+   "src": "13. Đặc tả UseCase.pdf tr.1-3"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L13b-x1",
+   "title": "Ghép câu với đúng trường của bảng đặc tả",
+   "level": "de",
+   "task": "<p>Use Case \"Đổi mật khẩu\". Mỗi câu sau thuộc trường nào?</p><ol><li>Người dùng đã đăng nhập.</li><li>Người dùng bấm \"Đổi mật khẩu\" trong trang Tài khoản.</li><li>Mật khẩu mới phải có ít nhất 8 ký tự, gồm chữ và số.</li><li>Mật khẩu cũ được thay bằng mật khẩu mới; các phiên đăng nhập khác bị đăng xuất.</li><li>3a. Mật khẩu cũ nhập sai, hệ thống báo lỗi.</li><li>UC07.</li><li>Mật khẩu được lưu dạng mã hóa.</li><li>Người dùng bảo vệ được tài khoản bằng mật khẩu mới.</li></ol>",
+   "hints": [
+    "<p>Phân biệt câu chỉ <b>hành động</b> (Trigger) với câu chỉ <b>trạng thái trước</b> (Pre-Condition) và <b>trạng thái sau</b> (Post-Condition).</p>",
+    "<p>Một luật của nghiệp vụ là Business Rule. Yêu cầu về bảo mật, tốc độ là NFR.</p>"
+   ],
+   "answer": "<ol><li>Pre-Condition</li><li>Trigger</li><li>Business Rules</li><li>Post-Condition</li><li>Exception Flow</li><li>Use Case ID</li><li>Non-Functional Requirement</li><li>Goal</li></ol><p>Câu 4 là trạng thái hệ thống sau khi xong (Post-Condition). Câu 8 là điều Actor muốn đạt (Goal).</p>",
+   "src": "13. Đặc tả UseCase.pdf tr.1-3"
+  },
+  {
+   "id": "L13b-x2",
+   "title": "Tìm lỗi trong một bản đặc tả",
+   "level": "tb",
+   "task": "<p>Một BA viết đặc tả Use Case \"Hủy đơn hàng\" của hệ thống đặt đồ ăn như sau. Hãy chỉ ra ít nhất 4 lỗi và sửa lại.</p><table><tbody><tr><th>Use Case ID</th><td>UC05 (trùng với mã của \"Đặt món\")</td></tr><tr><th>Trigger</th><td>Khách hàng đã có đơn ở trạng thái \"Chờ nhà hàng nhận\"</td></tr><tr><th>Pre-Condition</th><td>Khách hàng bấm \"Hủy đơn\"</td></tr><tr><th>Post-Condition</th><td>Khách hàng bấm \"Xác nhận hủy\"</td></tr><tr><th>Alternative Flow</th><td>3a. Nhà hàng đã nhận đơn nên không hủy được</td></tr><tr><th>Main Flow</th><td>…; 3. Hệ thống kiểm tra đơn hủy trước 5 phút kể từ khi đặt thì không mất phí</td></tr></tbody></table>",
+   "hints": [
+    "<p>Có hai trường bị đổi chỗ cho nhau.</p>",
+    "<p>Post-Condition là trạng thái hay hành động?</p>",
+    "<p>Nhánh nào làm Goal không đạt? Luật \"5 phút\" nên nằm ở trường nào?</p>"
+   ],
+   "answer": "<ol><li><b>ID trùng:</b> mã Use Case không được trùng. Sửa thành mã mới, ví dụ UC06.</li><li><b>Trigger và Pre-Condition bị đổi chỗ:</b> Trigger là hành động \"Khách hàng bấm Hủy đơn\". Pre-Condition là trạng thái \"Đơn đang ở trạng thái Chờ nhà hàng nhận\".</li><li><b>Post-Condition viết thành hành động:</b> sửa thành trạng thái, ví dụ \"Đơn chuyển sang trạng thái Đã hủy; nhà hàng nhận được thông báo hủy\".</li><li><b>Xếp sai luồng:</b> \"Nhà hàng đã nhận đơn nên không hủy được\" làm Goal (hủy đơn) không đạt, nên phải là Exception Flow, không phải Alternative.</li><li><b>Luật nằm trong bước:</b> \"hủy trước 5 phút thì không mất phí\" là Business Rule. Bước 3 chỉ cần ghi \"Hệ thống tính phí hủy theo BR1\".</li></ol>",
+   "src": "13. Đặc tả UseCase.pdf tr.1-3"
+  },
+  {
+   "id": "L13b-x3",
+   "title": "SolasMart: đặc tả Use Case \"Thanh toán tại quầy\"",
+   "level": "kho",
+   "task": "<p>Dựa trên tài liệu \"Quy trình bán hàng tại quầy\" của SolasMart, viết đặc tả đầy đủ 16 trường cho Use Case <b>\"Thanh toán tại quầy\"</b> trên máy POS. Actor chính là Thu ngân.</p><p>Quy trình gốc có 8 bước: khách đưa hàng lên quầy; thu ngân bấm \"Start Transaction\"; quét mã sản phẩm; xác nhận giỏ hàng; chọn phương thức thanh toán (tiền mặt, thẻ, chuyển khoản, kết hợp); thu tiền và xác nhận; in hóa đơn và giao hàng; kết thúc phiên. Tài liệu ghi kèm nhiều \"trường hợp ngoại lệ\" ở từng bước.</p>",
+   "hints": [
+    "<p>Trigger là thao tác bắt đầu trên POS. Pre-Condition liên quan tới trạng thái máy POS (tài liệu có ngoại lệ \"POS chưa đăng nhập\").</p>",
+    "<p>Tài liệu gốc gọi chung là \"ngoại lệ\". Hãy tách ra: cách làm khác hợp lệ (đổi phương thức, đổi giỏ) là Alternative; tình huống lỗi (máy hỏng, sai giá, thanh toán thất bại) là Exception.</p>",
+    "<p>Các mục tiêu \"tính tiền chính xác, nhanh, giảm thời gian chờ\" là gợi ý cho NFR.</p>"
+   ],
+   "answer": "<table><tbody><tr><th>Use Case Name</th><td>Thanh toán tại quầy</td></tr><tr><th>Use Case ID</th><td>UC-POS-01</td></tr><tr><th>Description</th><td>Thu ngân quét hàng của khách, thu tiền theo phương thức khách chọn và in hóa đơn trên máy POS.</td></tr><tr><th>Actor</th><td>Thu ngân (chính); Khách hàng; Trưởng ca; Ngân hàng / cổng thanh toán (hệ thống ngoài)</td></tr><tr><th>Priority</th><td>High</td></tr><tr><th>Goal</th><td>Hoàn tất giao dịch bán hàng chính xác, nhanh, thu đủ tiền</td></tr><tr><th>Trigger</th><td>Thu ngân bấm \"Start Transaction\" trên POS</td></tr><tr><th>Pre-Condition</th><td>Thu ngân đã đăng nhập POS; máy quét và máy in hoạt động</td></tr><tr><th>Post-Condition</th><td>Giao dịch được lưu; tồn kho giảm theo số hàng đã bán; hóa đơn đã in</td></tr><tr><th>Frequency of Use</th><td>Rất cao, liên tục trong giờ mở cửa</td></tr><tr><th>Main Flow</th><td>1. Thu ngân bấm \"Start Transaction\"<br>2. Thu ngân quét barcode từng món<br>3. POS hiển thị tên hàng, giá, số lượng, khuyến mãi<br>4. Thu ngân đọc lại tổng tiền, khách kiểm tra màn hình<br>5. Khách chọn thanh toán tiền mặt<br>6. Thu ngân nhận tiền, nhập số tiền, POS tính tiền thừa<br>7. POS lưu giao dịch, cập nhật tồn kho, in hóa đơn<br>8. Thu ngân giao hóa đơn và hàng, kết thúc phiên</td></tr><tr><th>Alternative Flow</th><td>2a. Hàng cân chưa có tem: nhân viên hỗ trợ cân, in tem, quay về bước 2<br>4a. Khách bỏ bớt hoặc đổi sản phẩm: thu ngân cập nhật giỏ, quay về bước 4<br>5a. Khách trả bằng thẻ: khách chạm thẻ/nhập PIN, máy in slip, sang bước 7<br>5b. Khách chuyển khoản: thu ngân nhập số tiền, khách quét QR, chờ ngân hàng xác nhận, sang bước 7<br>5c. Kết hợp tiền mặt, thẻ và chuyển khoản</td></tr><tr><th>Exception Flow</th><td>2b. Barcode không đọc được: thu ngân nhập mã tay, quay về bước 3<br>3a. Barcode sai giá: gọi trưởng ca xác nhận giá với kho hoặc kiểm tra tại kệ<br>5d. Máy POS thẻ bị treo: chuyển sang thanh toán QR hoặc máy khác<br>5e. Khách không đủ tiền mặt: đổi phương thức thanh toán hoặc hủy giao dịch<br>6a. Giao dịch thẻ/chuyển khoản thất bại: thu ngân kiểm tra lại hoặc chuyển phương thức; không được thì hủy giao dịch<br>7a. Máy in hết giấy hoặc hóa đơn mờ: thay giấy, in lại</td></tr><tr><th>Business Rules</th><td>BR1. Giá bán lấy theo dữ liệu giá trên hệ thống; giá sai phải được trưởng ca xác nhận.<br>BR2. Hàng cân phải có tem barcode trước khi thanh toán.</td></tr><tr><th>Non-Functional Requirement</th><td>Quét và hiển thị một món gần như tức thì để giảm thời gian chờ; giao dịch không được mất khi POS treo</td></tr><tr><th>Related Documents</th><td>Quy trình bán hàng tại quầy SolasMart; sơ đồ quy trình bán hàng</td></tr></tbody></table><p>Ghi chú: Alternative là các cách làm khác hợp lệ (đổi phương thức thanh toán, đổi giỏ hàng). Các tình huống lỗi (barcode hỏng, sai giá, máy treo, thanh toán thất bại) ghi vào Exception như ví dụ 6a trên slide, kể cả khi xử lý xong vẫn bán được hàng. Nếu chọn xếp lỗi đã khắc phục vào Alternative thì phải ghi rõ quy ước và dùng nhất quán.</p>",
+   "src": "13. Đặc tả UseCase.pdf tr.1-3; Quy trinh ban hang tai quay.docx"
+  },
+  {
+   "id": "L13b-x4",
+   "title": "Phân biệt Trigger và Pre-Condition qua ba Use Case",
+   "level": "tb",
+   "task": "<p>Với mỗi Use Case, viết 1 Trigger và 1–2 Pre-Condition. Nếu thấy Use Case có thể không cần Pre-Condition thì nói rõ vì sao.</p><ol><li>\"Rút tiền tại cây ATM\"</li><li>\"Xem danh sách sách\" trên website thư viện công khai</li><li>\"Gửi báo cáo doanh thu tự động lúc 23:00 hằng ngày\"</li></ol>",
+   "hints": [
+    "<p>Trigger không nhất thiết là người bấm nút; nó có thể là một sự kiện như \"đến giờ\".</p>",
+    "<p>Nhớ câu trên slide: Use Case có thể không có Pre-Condition nhưng thường phải có Trigger.</p>"
+   ],
+   "answer": "<ol><li><b>Rút tiền ATM.</b> Trigger: khách hàng cắm thẻ vào máy. Pre-Condition: máy ATM đang hoạt động và còn tiền; thẻ còn hiệu lực.</li><li><b>Xem danh sách sách.</b> Trigger: người dùng mở trang \"Danh sách sách\". Pre-Condition: có thể không có, vì trang công khai, ai cũng xem được.</li><li><b>Gửi báo cáo tự động.</b> Trigger: đến 23:00 (sự kiện thời gian). Pre-Condition: đã cấu hình danh sách người nhận báo cáo.</li></ol>",
+   "src": "13. Đặc tả UseCase.pdf tr.3"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L13b-f1",
+   "front": "Use Case Specification (Đặc tả Use Case)",
+   "back": "<p>Tài liệu mô tả chi tiết cách một Use Case hoạt động: luồng chính và các luồng phụ của một chức năng. Mẹo: sơ đồ là bản đồ, đặc tả là chỉ đường từng bước.</p>"
+  },
+  {
+   "id": "L13b-f2",
+   "front": "Use Case ID",
+   "back": "<p>Mã của Use Case, không được trùng nhau. Ví dụ: UC1.0. Dùng để truy vết trong RTM, test case.</p>"
+  },
+  {
+   "id": "L13b-f3",
+   "front": "Description / Brief Description",
+   "back": "<p>Mô tả tổng quan chức năng trong 1–2 câu. Ví dụ: Nhân viên HR sau khi đăng nhập có thể thêm thông tin nhân sự.</p>"
+  },
+  {
+   "id": "L13b-f4",
+   "front": "Priority (Mức độ ưu tiên)",
+   "back": "<p>Mức ưu tiên của Use Case này so với các Use Case khác. Ví dụ: High / Medium / Low.</p>"
+  },
+  {
+   "id": "L13b-f5",
+   "front": "Goal (Mục tiêu)",
+   "back": "<p>Điều Actor muốn đạt được khi thực hiện Use Case. Ví dụ: thêm thành công thông tin nhân sự. Viết theo góc nhìn Actor.</p>"
+  },
+  {
+   "id": "L13b-f6",
+   "front": "Trigger (Điều kiện kích hoạt)",
+   "back": "<p>Sự kiện hoặc hành động kích hoạt Use Case. Ví dụ: bấm nút \"Thêm mới\". Mẹo: Trigger là động từ, là cú bấm công tắc.</p>"
+  },
+  {
+   "id": "L13b-f7",
+   "front": "Pre-Condition (Điều kiện tiên quyết)",
+   "back": "<p>Điều kiện phải đúng trước khi Use Case bắt đầu. Ví dụ: đã đăng nhập. Là trạng thái, không phải hành động. Có thể không có.</p>"
+  },
+  {
+   "id": "L13b-f8",
+   "front": "Post-Condition (Điều kiện sau)",
+   "back": "<p>Trạng thái hệ thống sau khi hoàn tất Use Case. Ví dụ: nhân sự mới nằm trong danh sách nhân sự.</p>"
+  },
+  {
+   "id": "L13b-f9",
+   "front": "Frequency of Use (Tần suất sử dụng)",
+   "back": "<p>Chức năng có thể diễn ra bao nhiêu lần. Ví dụ: thường xuyên vào thứ 2 hàng tuần.</p>"
+  },
+  {
+   "id": "L13b-f10",
+   "front": "Main Flow / Basic Flow (Luồng chính)",
+   "back": "<p>Các bước xử lý chính của chức năng theo kịch bản thành công. Đánh số, mỗi bước một hành động của Actor hoặc Hệ thống.</p>"
+  },
+  {
+   "id": "L13b-f11",
+   "front": "Alternative Flow (Luồng thay thế)",
+   "back": "<p>Luồng đi khác mà kết quả vẫn giống luồng chính. Ví dụ: thêm nhân sự từ Dashboard thay vì từ Danh sách nhân sự.</p>"
+  },
+  {
+   "id": "L13b-f12",
+   "front": "Exception Flow (Luồng ngoại lệ)",
+   "back": "<p>Tình huống lỗi dẫn tới không đạt được kết quả. Ví dụ: 7a. Trưởng phòng từ chối phê duyệt.</p>"
+  },
+  {
+   "id": "L13b-f13",
+   "front": "Ký hiệu \"6a\" trong đặc tả nghĩa là gì?",
+   "back": "<p>Nhánh rẽ (thay thế hoặc ngoại lệ) xảy ra tại bước 6 của Main Flow. Nhánh thứ hai tại bước 6 ghi 6b.</p>"
+  },
+  {
+   "id": "L13b-f14",
+   "front": "Business Rules (Quy định nghiệp vụ)",
+   "back": "<p>Quy định nghiệp vụ hệ thống bắt buộc tuân thủ. Ví dụ: nhân sự phải có tuổi từ 18 đến 60. Tách riêng, không trộn vào các bước.</p>"
+  },
+  {
+   "id": "L13b-f15",
+   "front": "Non-Functional Requirement trong đặc tả",
+   "back": "<p>Yêu cầu phi chức năng của Use Case: chạy trên thiết bị nào, nhanh, an toàn ra sao. Ví dụ: có thể nhập trên điện thoại.</p>"
+  },
+  {
+   "id": "L13b-f16",
+   "front": "Related Documents (Tài liệu liên quan)",
+   "back": "<p>Tài liệu liên kết như đặc tả hệ thống, sơ đồ… Ví dụ: Tài liệu BRD mục số 3.</p>"
+  },
+  {
+   "id": "L13b-f17",
+   "front": "Trigger khác Pre-Condition ở điểm nào?",
+   "back": "<p>Trigger là hành động kích hoạt Use Case. Pre-Condition là điều kiện để Use Case hoạt động được. Use Case có thể không có Pre-Condition nhưng thường phải có Trigger.</p>"
+  },
+  {
+   "id": "L13b-f18",
+   "front": "Câu hỏi nhanh để xếp Alternative hay Exception?",
+   "back": "<p>Hỏi: \"Đây là cách làm khác hợp lệ mà Goal vẫn đạt, hay là một lỗi?\" Cách làm khác là Alternative. Lỗi là Exception, kể cả lỗi nhập liệu sửa lại được như 6a.</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L13b-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, đặc tả Use Case (Use Case Specification) là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Sơ đồ gồm hình người và hình elip thể hiện các Actor và các chức năng của toàn hệ thống"
+    },
+    {
+     "id": "b",
+     "t": "Tài liệu mô tả chi tiết cách một Use Case cụ thể hoạt động trong hệ thống"
+    },
+    {
+     "id": "c",
+     "t": "Danh sách yêu cầu nghiệp vụ cấp cao của toàn dự án"
+    },
+    {
+     "id": "d",
+     "t": "Bảng truy vết yêu cầu tới thiết kế và test case"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide định nghĩa: đặc tả Use Case mô tả chi tiết cách một Use Case cụ thể hoạt động, gồm luồng chính và các luồng phụ của một chức năng.</p>",
+   "why_wrong": {
+    "a": "Đó là sơ đồ Use Case, chỉ cho biết có chức năng gì và ai dùng.",
+    "c": "Đó là nội dung của tài liệu BRD, không phải đặc tả một Use Case.",
+    "d": "Đó là ma trận truy vết RTM."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.1"
+  },
+  {
+   "id": "L13b-q2",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trường nào ghi \"mức độ ưu tiên của Use Case này so với các Use Case khác\", ví dụ High/Medium/Low?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Frequency of Use"
+    },
+    {
+     "id": "b",
+     "t": "Goal"
+    },
+    {
+     "id": "c",
+     "t": "Priority"
+    },
+    {
+     "id": "d",
+     "t": "Business Rules"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Priority (mức độ ưu tiên) so sánh tầm quan trọng của Use Case này với các Use Case khác.</p>",
+   "why_wrong": {
+    "a": "Frequency of Use ghi chức năng diễn ra bao nhiêu lần, không phải mức ưu tiên.",
+    "b": "Goal ghi mục đích Actor muốn đạt.",
+    "d": "Business Rules ghi quy định nghiệp vụ phải tuân thủ."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.1"
+  },
+  {
+   "id": "L13b-q3",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, Use Case ID cần thỏa yêu cầu nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Các mã không trùng nhau"
+    },
+    {
+     "id": "b",
+     "t": "Mã phải bắt đầu bằng tên Actor chính của Use Case"
+    },
+    {
+     "id": "c",
+     "t": "Mã phải trùng với số mục tương ứng trong tài liệu BRD"
+    },
+    {
+     "id": "d",
+     "t": "Mã được đánh lại từ đầu mỗi khi sửa đặc tả"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Slide ghi: mã của Use Case, các mã sẽ không trùng nhau (ví dụ UC1.0). Mã duy nhất giúp truy vết chính xác.</p>",
+   "why_wrong": {
+    "b": "Slide không quy định mã bắt đầu bằng tên Actor; ví dụ là UC1.0.",
+    "c": "Liên kết tới BRD được ghi ở trường Related Documents, không qua mã.",
+    "d": "Đánh lại mã làm hỏng truy vết; mã cần ổn định."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.1"
+  },
+  {
+   "id": "L13b-q4",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Post-Condition trong đặc tả Use Case mô tả điều gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hành động người dùng làm ở bước cuối cùng của luồng chính"
+    },
+    {
+     "id": "b",
+     "t": "Các điều kiện phải đúng trước khi Use Case bắt đầu"
+    },
+    {
+     "id": "c",
+     "t": "Mục đích mà Actor muốn đạt được"
+    },
+    {
+     "id": "d",
+     "t": "Trạng thái của hệ thống sau khi hoàn tất Use Case"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Post-Condition (điều kiện sau) là trạng thái của hệ thống sau khi Use Case hoàn tất, ví dụ: nhân sự mới nằm trong danh sách nhân sự.</p>",
+   "why_wrong": {
+    "a": "Post-Condition là trạng thái, không phải một hành động.",
+    "b": "Đó là Pre-Condition.",
+    "c": "Đó là Goal."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.2"
+  },
+  {
+   "id": "L13b-q5",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo slide, một Use Case có thể không có Pre-Condition nhưng thường phải có Trigger.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Đây là lưu ý trên slide. Luôn cần một hành động hoặc sự kiện để bắt đầu, còn điều kiện trước thì có thể không có (ví dụ trang công khai ai cũng xem được).</p>",
+   "why_wrong": {
+    "s": "Slide ghi rõ Pre-Condition có thể không có, còn Trigger thường phải có."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.3"
+  },
+  {
+   "id": "L13b-q6",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn các trường dùng để mô tả <b>luồng xử lý</b> trong bảng đặc tả Use Case.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Main Flow / Basic Flow"
+    },
+    {
+     "id": "b",
+     "t": "Related Documents"
+    },
+    {
+     "id": "c",
+     "t": "Exception Flow"
+    },
+    {
+     "id": "d",
+     "t": "Frequency of Use"
+    },
+    {
+     "id": "e",
+     "t": "Alternative Flow"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Ba trường luồng là Main Flow (luồng chính), Alternative Flow (luồng thay thế) và Exception Flow (luồng ngoại lệ).</p>",
+   "why_wrong": {
+    "b": "Related Documents ghi tài liệu liên kết, không mô tả các bước.",
+    "d": "Frequency of Use ghi tần suất, không mô tả các bước."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.2"
+  },
+  {
+   "id": "L13b-q7",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trường nào <b>KHÔNG</b> có trong bảng đặc tả Use Case trên slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Frequency of Use"
+    },
+    {
+     "id": "b",
+     "t": "Related Documents"
+    },
+    {
+     "id": "c",
+     "t": "Priority"
+    },
+    {
+     "id": "d",
+     "t": "Test Case ID"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Bảng trên slide có 16 trường, không có Test Case ID. Test case được viết ở tài liệu kiểm thử và truy vết về Use Case ID.</p>",
+   "why_wrong": {
+    "a": "Frequency of Use có trong bảng (tần suất sử dụng).",
+    "b": "Related Documents có trong bảng (tài liệu liên quan).",
+    "c": "Priority có trong bảng (mức độ ưu tiên)."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.1-3"
+  },
+  {
+   "id": "L13b-q8",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Điểm khác nhau chính giữa sơ đồ Use Case và đặc tả Use Case là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Sơ đồ chỉ dành cho khách hàng xem, còn đặc tả chỉ dành riêng cho đội kiểm thử viết test case"
+    },
+    {
+     "id": "b",
+     "t": "Có đặc tả thì không cần vẽ sơ đồ nữa"
+    },
+    {
+     "id": "c",
+     "t": "Sơ đồ cho biết có chức năng nào và ai dùng; đặc tả cho biết chức năng chạy từng bước ra sao"
+    },
+    {
+     "id": "d",
+     "t": "Sơ đồ mô tả luồng ngoại lệ, đặc tả mô tả luồng chính"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Sơ đồ là bức tranh tổng thể (bản đồ). Đặc tả đi sâu vào một Use Case: các bước, điều kiện, luồng phụ (chỉ đường từng bước).</p>",
+   "why_wrong": {
+    "a": "Cả hai tài liệu đều dùng cho nhiều bên: khách hàng, dev, tester.",
+    "b": "Hai tài liệu bổ sung cho nhau, không thay thế nhau.",
+    "d": "Sơ đồ không mô tả luồng; mọi luồng đều nằm trong đặc tả."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.1"
+  },
+  {
+   "id": "L13b-q9",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Use Case \"Đặt bàn\" trên FoodNow. Câu nào là <b>Trigger</b>?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khách hàng đã đăng nhập vào FoodNow"
+    },
+    {
+     "id": "b",
+     "t": "Khách hàng bấm nút \"Đặt bàn\" trên trang nhà hàng"
+    },
+    {
+     "id": "c",
+     "t": "Nhà hàng đang mở chế độ nhận đặt bàn trên ứng dụng"
+    },
+    {
+     "id": "d",
+     "t": "Phiếu đặt bàn có trạng thái \"Đã xác nhận\""
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Trigger là sự kiện hoặc hành động kích hoạt Use Case. Bấm \"Đặt bàn\" là hành động bắt đầu chức năng.</p>",
+   "why_wrong": {
+    "a": "Đã đăng nhập là trạng thái phải có trước, tức Pre-Condition.",
+    "c": "Nhà hàng đang mở nhận đặt bàn cũng là điều kiện trước, tức Pre-Condition.",
+    "d": "Trạng thái sau khi xong là Post-Condition."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.1, tr.3"
+  },
+  {
+   "id": "L13b-q10",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Với Use Case \"Thêm nhân viên\", vì sao \"Nhân viên HR đã đăng nhập vào hệ thống\" được xếp vào Pre-Condition chứ không phải Trigger?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì nó là trạng thái phải đúng từ trước, không phải hành động kích hoạt việc thêm"
+    },
+    {
+     "id": "b",
+     "t": "Vì Pre-Condition luôn chính là bước số 1 của Main Flow nên mọi thao tác đăng nhập đều xếp vào đây"
+    },
+    {
+     "id": "c",
+     "t": "Vì Trigger chỉ được do hệ thống thực hiện"
+    },
+    {
+     "id": "d",
+     "t": "Vì đăng nhập thuộc luồng ngoại lệ"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Pre-Condition là điều kiện để Use Case hoạt động được. Trigger là hành động kích hoạt, ở đây là bấm \"Thêm mới\". Mẹo: Pre-Condition dạng \"đã…\", Trigger dạng động từ.</p>",
+   "why_wrong": {
+    "b": "Pre-Condition là trạng thái trước khi Use Case bắt đầu, không bắt buộc trùng bước 1.",
+    "c": "Trigger có thể là hành động của Actor, như bấm nút \"Thêm mới\".",
+    "d": "Đăng nhập thành công là điều kiện trước, không phải tình huống lỗi."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.1, tr.3"
+  },
+  {
+   "id": "L13b-q11",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Theo slide, đâu là điểm phân biệt Alternative Flow với Exception Flow?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Alternative do hệ thống gây ra, còn Exception luôn do người dùng thao tác sai gây ra"
+    },
+    {
+     "id": "b",
+     "t": "Alternative luôn có ít bước hơn Exception"
+    },
+    {
+     "id": "c",
+     "t": "Alternative được đánh số theo bước, còn Exception thì không"
+    },
+    {
+     "id": "d",
+     "t": "Alternative vẫn cho kết quả như luồng chính, Exception thì không đạt kết quả"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide: Alternative Flow là luồng đi khác mà kết quả vẫn giống luồng chính; Exception Flow là trường hợp dẫn tới không đạt được kết quả. Hỏi: Goal có đạt không?</p>",
+   "why_wrong": {
+    "a": "Cả hai loại luồng đều có thể do người dùng hoặc hệ thống gây ra.",
+    "b": "Số bước không phải tiêu chí phân biệt.",
+    "c": "Cả hai đều có thể đánh số theo bước, ví dụ 6a, 7a."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.3"
+  },
+  {
+   "id": "L13b-q12",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Quy định \"Nhân sự phải có tuổi từ 18 đến 60\" nên được viết thành một bước trong Main Flow.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Đây là quy định nghiệp vụ, slide đặt nó trong trường Business Rules. Main Flow chỉ chứa các bước xử lý; bước kiểm tra có thể dẫn chiếu tới luật này.</p>",
+   "why_wrong": {
+    "d": "Luật nghiệp vụ được tách riêng vào Business Rules, không viết thành bước."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.3"
+  },
+  {
+   "id": "L13b-q13",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong đặc tả \"Thêm nhân viên\", dòng \"6a. Thông tin không hợp lệ, hệ thống thông báo đến Nhân viên HR\" cho biết điều gì về vị trí của tình huống này?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Đây là ngoại lệ thứ 6 trong danh sách"
+    },
+    {
+     "id": "b",
+     "t": "Tình huống rẽ ra tại bước 6 của luồng chính"
+    },
+    {
+     "id": "c",
+     "t": "Đây là luồng thay thế số 6"
+    },
+    {
+     "id": "d",
+     "t": "Tình huống xảy ra sau khi hoàn tất 6 Use Case"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Số trong \"6a\" là số bước của Main Flow nơi nhánh rẽ ra (bước 6: hệ thống kiểm tra thông tin). Chữ \"a\" là nhánh thứ nhất tại bước đó.</p>",
+   "why_wrong": {
+    "a": "Số 6 chỉ bước của luồng chính, không phải thứ tự ngoại lệ.",
+    "c": "Dòng này nằm trong Exception Flow và làm Goal không đạt, nên không phải luồng thay thế.",
+    "d": "Đánh số chỉ trong phạm vi một Use Case, không đếm các Use Case."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.2"
+  },
+  {
+   "id": "L13b-q14",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Chọn các câu viết <b>đúng dạng</b> của một Post-Condition.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phiếu đặt bàn được lưu với trạng thái Đã xác nhận"
+    },
+    {
+     "id": "b",
+     "t": "Khách hàng bấm nút Xác nhận"
+    },
+    {
+     "id": "c",
+     "t": "Đơn hàng chuyển sang trạng thái Đã hủy"
+    },
+    {
+     "id": "d",
+     "t": "Hệ thống kiểm tra còn bàn trống trong khung giờ khách chọn"
+    },
+    {
+     "id": "e",
+     "t": "Khách hàng đã đăng nhập"
+    }
+   ],
+   "answer": [
+    "a",
+    "c"
+   ],
+   "explain": "<p>Post-Condition là trạng thái của hệ thống sau khi hoàn tất Use Case. Câu a và c mô tả trạng thái dữ liệu sau khi xong.</p>",
+   "why_wrong": {
+    "b": "Đây là hành động của Actor, thuộc Main Flow hoặc Trigger.",
+    "d": "Đây là một bước xử lý của hệ thống trong Main Flow.",
+    "e": "Đây là trạng thái trước khi bắt đầu, tức Pre-Condition."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.2"
+  },
+  {
+   "id": "L13b-q15",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Câu nào phù hợp để ghi vào trường Non-Functional Requirement của một đặc tả Use Case?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Nhân sự phải có tuổi từ 18 đến 60"
+    },
+    {
+     "id": "b",
+     "t": "Bấm vào nút \"Thêm mới\" tại màn hình \"Danh sách nhân sự\""
+    },
+    {
+     "id": "c",
+     "t": "Tài liệu BRD mục số 3"
+    },
+    {
+     "id": "d",
+     "t": "Chức năng có thể nhập trên điện thoại"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>NFR mô tả chức năng phải chạy tốt đến đâu, trên thiết bị nào. Slide lấy đúng ví dụ \"chức năng có thể nhập trên điện thoại\".</p>",
+   "why_wrong": {
+    "a": "Đây là Business Rule (quy định nghiệp vụ).",
+    "b": "Đây là Trigger.",
+    "c": "Đây là Related Documents."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.3"
+  },
+  {
+   "id": "L13b-q16",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Goal và Post-Condition khác nhau thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Goal mô tả trạng thái hệ thống, Post-Condition mô tả mong muốn của Actor"
+    },
+    {
+     "id": "b",
+     "t": "Goal là điều Actor muốn đạt; Post-Condition là trạng thái hệ thống khi xong"
+    },
+    {
+     "id": "c",
+     "t": "Goal chỉ dùng cho Exception Flow, còn Post-Condition chỉ dùng cho Main Flow"
+    },
+    {
+     "id": "d",
+     "t": "Hai trường giống hệt nhau, chỉ khác tên gọi"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Goal: mục đích mà Actor muốn đạt được. Post-Condition: trạng thái của hệ thống sau khi hoàn tất. Một bên là góc nhìn người dùng, một bên là góc nhìn hệ thống.</p>",
+   "why_wrong": {
+    "a": "Hai vế bị đảo ngược.",
+    "c": "Cả hai trường áp dụng cho toàn Use Case, không gắn với một loại luồng.",
+    "d": "Slide giải thích hai trường với nội dung khác nhau."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.1-2"
+  },
+  {
+   "id": "L13b-q17",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Khi viết đặc tả \"Chuyển tiền trên App\", BA cần ghi luật \"mỗi ngày chỉ được chuyển tối đa một hạn mức do ngân hàng quy định\". Nên ghi vào trường nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Business Rules"
+    },
+    {
+     "id": "b",
+     "t": "Non-Functional Requirement"
+    },
+    {
+     "id": "c",
+     "t": "Pre-Condition"
+    },
+    {
+     "id": "d",
+     "t": "Alternative Flow"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Hạn mức chuyển tiền là quy định nghiệp vụ mà hệ thống bắt buộc tuân thủ, nên thuộc Business Rules. Khi vượt hạn mức, hệ thống đi vào một Exception Flow.</p>",
+   "why_wrong": {
+    "b": "NFR nói về hiệu năng, bảo mật, thiết bị; hạn mức là luật nghiệp vụ.",
+    "c": "Chỉ biết có vượt hạn mức sau khi nhập số tiền, nên không phải điều kiện trước.",
+    "d": "Vượt hạn mức làm giao dịch không thành công, không phải một cách khác để đạt kết quả."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.3"
+  },
+  {
+   "id": "L13b-q18",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Use Case \"Mượn sách\" của hệ thống quản lý thư viện. Chọn các tình huống thuộc <b>Exception Flow</b>.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thẻ thư viện của bạn đọc đã hết hạn nên không mượn được"
+    },
+    {
+     "id": "b",
+     "t": "Thủ thư quét mã vạch thẻ thay vì gõ mã bạn đọc"
+    },
+    {
+     "id": "c",
+     "t": "Bạn đọc đã mượn đủ số sách tối đa nên bị từ chối"
+    },
+    {
+     "id": "d",
+     "t": "Bạn đọc tìm sách theo tác giả thay vì theo tên sách"
+    }
+   ],
+   "answer": [
+    "a",
+    "c"
+   ],
+   "explain": "<p>Exception Flow là tình huống dẫn tới không đạt kết quả. Thẻ hết hạn và mượn quá số lượng đều khiến bạn đọc không mượn được sách.</p>",
+   "why_wrong": {
+    "b": "Quét mã vạch là cách khác nhưng vẫn mượn được, nên là Alternative Flow.",
+    "d": "Tìm theo tác giả là cách khác nhưng vẫn mượn được, nên là Alternative Flow."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.3"
+  },
+  {
+   "id": "L13b-q19",
+   "type": "tf",
+   "level": "apdung",
+   "q": "<p>Use Case \"Gửi báo cáo doanh thu lúc 23:00 hằng ngày\" chạy tự động. Sự kiện \"đồng hồ hệ thống đến 23:00\" có thể là Trigger dù không ai bấm nút.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide định nghĩa Trigger là <b>sự kiện hoặc hành động</b> kích hoạt Use Case. Một mốc thời gian là sự kiện hợp lệ.</p>",
+   "why_wrong": {
+    "s": "Trigger không bắt buộc là thao tác của người; sự kiện thời gian cũng kích hoạt được Use Case."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.1"
+  },
+  {
+   "id": "L13b-q20",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Bạn review đặc tả \"Đặt món\" và thấy dòng: <i>Pre-Condition: Khách hàng bấm nút \"Đặt hàng\"</i>. Nhận xét nào đúng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hợp lệ, vì mọi thao tác bấm nút ở đầu chức năng đều được xem là điều kiện tiên quyết của Use Case"
+    },
+    {
+     "id": "b",
+     "t": "Chưa đúng: đây là hành động nên là Trigger; Pre-Condition nên là trạng thái như \"đã đăng nhập\""
+    },
+    {
+     "id": "c",
+     "t": "Chưa đúng: câu này phải chuyển sang Post-Condition"
+    },
+    {
+     "id": "d",
+     "t": "Chưa đúng: câu này là một Business Rule"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Trigger là hành động để kích hoạt Use Case; Pre-Condition là điều kiện để Use Case hoạt động được. \"Bấm Đặt hàng\" là hành động.</p>",
+   "why_wrong": {
+    "a": "Bấm nút là hành động, slide xếp hành động kích hoạt vào Trigger.",
+    "c": "Post-Condition là trạng thái sau khi hoàn tất, không phải thao tác bắt đầu.",
+    "d": "Business Rule là quy định nghiệp vụ, không phải thao tác của người dùng."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.3"
+  },
+  {
+   "id": "L13b-q21",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Theo đặc tả \"Thêm nhân viên\" trên slide, Nhân viên HR nhập một nhân sự 17 tuổi rồi bấm \"Gửi xác nhận\". Hệ thống sẽ đi vào nhánh nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "7a. Trưởng phòng từ chối phê duyệt"
+    },
+    {
+     "id": "b",
+     "t": "Luồng thay thế: Nhân viên HR bấm nút \"Thêm nhân sự\" tại màn hình Dashboard"
+    },
+    {
+     "id": "c",
+     "t": "6a. Thông tin không hợp lệ, hệ thống thông báo đến Nhân viên HR"
+    },
+    {
+     "id": "d",
+     "t": "Hoàn tất và đạt Post-Condition"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Business Rule yêu cầu tuổi 18–60. Ở bước 6 hệ thống kiểm tra thông tin, thấy vi phạm nên rẽ vào 6a.</p>",
+   "why_wrong": {
+    "a": "Dữ liệu sai bị chặn ở bước 6, chưa tới bước phê duyệt 7.",
+    "b": "Luồng thay thế là cách vào chức năng khác, không liên quan dữ liệu sai.",
+    "d": "Dữ liệu vi phạm luật tuổi nên không thể thêm thành công."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.2-3"
+  },
+  {
+   "id": "L13b-q22",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>SolasMart, Use Case \"Thanh toán tại quầy\" có luồng chính là khách trả tiền mặt. Một khách chọn chuyển khoản bằng mã QR, ngân hàng xác nhận và giao dịch hoàn tất. Tình huống này nên xếp vào đâu?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Exception Flow, vì khác với cách thanh toán của luồng chính"
+    },
+    {
+     "id": "b",
+     "t": "Pre-Condition"
+    },
+    {
+     "id": "c",
+     "t": "Business Rules"
+    },
+    {
+     "id": "d",
+     "t": "Alternative Flow"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Chuyển khoản là một cách làm khác hợp lệ, kết quả vẫn giống luồng chính (giao dịch hoàn tất), nên là Alternative Flow.</p>",
+   "why_wrong": {
+    "a": "Không có lỗi nào xảy ra và kết quả vẫn đạt, nên không phải Exception.",
+    "b": "Pre-Condition là trạng thái trước khi bắt đầu, không phải tình huống giữa chừng.",
+    "c": "Đây là một cách thanh toán, không phải quy định nghiệp vụ."
+   },
+   "src": "13. Đặc tả UseCase.pdf tr.3; Quy trinh ban hang tai quay.docx"
+  }
+ ],
+ "summary": {
+  "points": [
+   "Đặc tả Use Case mô tả chi tiết cách một Use Case hoạt động: luồng chính và các luồng phụ.",
+   "Bảng đặc tả có 16 trường: Name, ID, Description, Actor, Priority, Goal, Trigger, Pre-Condition, Post-Condition, Frequency, Main Flow, Alternative Flow, Exception Flow, Business Rules, NFR, Related Documents.",
+   "Use Case ID không được trùng; Priority so với các Use Case khác (High/Medium/Low).",
+   "Trigger là hành động kích hoạt; Pre-Condition là điều kiện phải đúng trước; Use Case có thể không có Pre-Condition nhưng thường phải có Trigger.",
+   "Post-Condition là trạng thái hệ thống sau khi hoàn tất.",
+   "Alternative Flow: đi đường khác, kết quả vẫn giống luồng chính. Exception Flow: lỗi, không đạt kết quả.",
+   "Nhánh rẽ đánh số theo bước của luồng chính: 6a, 7a…",
+   "Business Rules tách riêng khỏi các bước; NFR và Related Documents giúp đủ thông tin và truy vết."
+  ],
+  "html": "<table><thead><tr><th>Câu hỏi người đọc đặt ra</th><th>Trường trả lời</th></tr></thead><tbody><tr><td>Chức năng gì, mã gì, ai dùng, quan trọng cỡ nào?</td><td>Name, ID, Description, Actor, Priority</td></tr><tr><td>Để làm gì, bắt đầu khi nào, cần gì trước, xong thì ra sao, dùng nhiều không?</td><td>Goal, Trigger, Pre-Condition, Post-Condition, Frequency</td></tr><tr><td>Chạy từng bước thế nào, có đường khác không, lỗi thì sao?</td><td>Main Flow, Alternative Flow, Exception Flow</td></tr><tr><td>Phải tuân luật gì, chạy tốt đến đâu, xem thêm ở đâu?</td><td>Business Rules, NFR, Related Documents</td></tr></tbody></table><p class='warn'>Lỗi hay gặp: đổi chỗ Trigger và Pre-Condition; viết Post-Condition thành một hành động; xếp lỗi vào Alternative Flow; nhét luật nghiệp vụ vào giữa các bước; trùng Use Case ID.</p>"
+ },
+ "images": [
+  {
+   "id": "L13b-img1",
+   "path": "data/pages/13. Đặc tả UseCase/p-001.jpg",
+   "caption": "Bảng mẫu đặc tả Use Case (phần đầu, trên slide)",
+   "crop": [
+    0.1,
+    0.27,
+    0.94,
+    0.9
+   ]
+  }
+ ]
+}

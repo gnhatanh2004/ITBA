@@ -1,0 +1,2138 @@
+{
+ "id": "L16",
+ "session": 16,
+ "module": "M5",
+ "title": "Các loại tài liệu BA",
+ "goals": [
+  "Nêu được mục tiêu của tài liệu BA và kể tên các loại tài liệu chính: BRD, SRS, FSD, Test Case, User manual",
+  "So sánh BRD, SRS, FSD theo người tạo, người dùng, đầu vào, câu hỏi trả lời và thời điểm tạo",
+  "Trình bày cấu trúc từng mục của template BRD, SRS và biết mỗi mục cần viết gì",
+  "Phân biệt 11 dạng chức năng trong FSD và các mục bắt buộc của từng dạng",
+  "Viết được một mục mẫu của BRD, SRS, FSD cho một case cụ thể",
+  "Áp dụng quy tắc trình bày văn bản và dấu câu khi soạn tài liệu"
+ ],
+ "sources": [
+  {
+   "file": "16. Cac loai tai lieu BA.pdf",
+   "pages": "1-31"
+  },
+  {
+   "file": "BRD_Template.docx",
+   "pages": "toàn bộ"
+  },
+  {
+   "file": "SRS_Template.docx",
+   "pages": "toàn bộ"
+  },
+  {
+   "file": "FSD_Template.docx",
+   "pages": "toàn bộ"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L16-t1",
+   "h": "Tài liệu BA là gì và để làm gì",
+   "html": "<p>Buổi học gồm 3 phần: <b>các loại tài liệu BA</b>, <b>cách viết tài liệu</b> và <b>một số lưu ý khi viết tài liệu</b>.</p><p>Tài liệu là <b>sản phẩm hữu hình</b> của BA. Đây là nơi thể hiện rõ năng lực tư duy, phân tích và giao tiếp nghiệp vụ giữa BA với Khách hàng và Team kỹ thuật. Người khác đánh giá BA chủ yếu qua tài liệu BA viết ra.</p><h4>Mục tiêu của tài liệu BA</h4><ul><li><b>Chuyển đổi</b> ngôn ngữ nghiệp vụ sang ngôn ngữ kỹ thuật dễ hiểu.</li><li><b>Đảm bảo</b> các bên hiểu đúng và đủ yêu cầu.</li><li>Là <b>căn cứ</b> cho thiết kế, phát triển, kiểm thử và nghiệm thu.</li></ul><p class='tip'>Mẹo nhớ 3 mục tiêu: <b>Dịch – Thống nhất – Làm căn cứ</b>.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.3-4"
+  },
+  {
+   "id": "L16-t2",
+   "h": "Năm loại tài liệu chính trên slide",
+   "html": "<p>Slide giới thiệu 5 loại tài liệu:</p><ul><li><b>BRD</b> – Business Requirements Document (tài liệu yêu cầu nghiệp vụ).</li><li><b>SRS</b> – Software Requirements Specification (đặc tả yêu cầu phần mềm).</li><li><b>FSD</b> – tài liệu đặc tả yêu cầu chức năng.</li><li><b>Test Case</b> – tài liệu kiểm thử.</li><li><b>User manual</b> – tài liệu hướng dẫn sử dụng.</li></ul><h4>Bảng tóm tắt: mục đích, người đọc, khi nào viết</h4><table><thead><tr><th>Tài liệu</th><th>Mục đích</th><th>Người đọc chính</th><th>Khi nào viết</th></tr></thead><tbody><tr><td>BRD</td><td>Nêu doanh nghiệp cần gì: mục đích, phạm vi, quy trình, danh sách yêu cầu</td><td>Khách hàng, quản lý cấp cao, BA</td><td>Giai đoạn phân tích</td></tr><tr><td>SRS</td><td>Nêu hệ thống sẽ làm gì: người dùng, mô hình tổng quan, ERD, trạng thái, danh sách chức năng</td><td>Quản lý dự án, team dự án</td><td>Sau khi BRD được duyệt</td></tr><tr><td>FSD</td><td>Nêu từng chức năng hoạt động ra sao: màn hình, luồng, business rule</td><td>Team dự án (dev, tester)</td><td>Giai đoạn thiết kế chi tiết</td></tr><tr><td>Test Case</td><td>Các bước và kết quả mong đợi để kiểm thử từng chức năng</td><td>Tester, BA</td><td>Sau khi có đặc tả chức năng</td></tr><tr><td>User manual</td><td>Hướng dẫn người dùng cuối thao tác trên hệ thống</td><td>Người dùng cuối</td><td>Gần lúc bàn giao</td></tr><tr><td>URD</td><td>Yêu cầu nhìn từ phía người dùng: họ cần làm được gì trên hệ thống</td><td>Khách hàng, người dùng, BA</td><td>Sau khảo sát người dùng</td></tr><tr><td>Đặc tả use case</td><td>Mô tả một use case: actor, điều kiện, luồng cơ bản, luồng thay thế, ngoại lệ</td><td>Team dự án</td><td>Khi phân tích chức năng</td></tr></tbody></table><p class='note'>Slide chỉ nêu tên Test Case và User manual, không mô tả chi tiết. URD (User Requirements Document – tài liệu yêu cầu người dùng) và đặc tả use case không có trên slide; các dòng này bổ sung theo kiến thức BA chuẩn. Trong template FSD của khóa, bảng “Mô tả chung” của mỗi chức năng chính là một bản đặc tả use case rút gọn.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.5"
+  },
+  {
+   "id": "L16-t3",
+   "h": "So sánh BRD, SRS và FSD",
+   "html": "{{img:L16-img1}}<table><thead><tr><th>Nội dung</th><th>BRD</th><th>SRS</th><th>FSD</th></tr></thead><tbody><tr><td>Tên đầy đủ</td><td>Business Requirement Documents – tài liệu yêu cầu nghiệp vụ</td><td>Software Requirement Specifications, hoặc System Requirements Specification – tài liệu đặc tả yêu cầu hệ thống</td><td>Functional Specifications Documents; tên khác: FRS (Functional Requirement Specifications), FS (Functional Specifications), PS (Product Specifications)</td></tr><tr><td>Tạo bởi ai?</td><td>Business Analyst, phối hợp với Khách hàng</td><td>Business/System analyst</td><td>Business/System Analyst</td></tr><tr><td>Sử dụng bởi ai?</td><td>Khách hàng, Quản lý cấp cao và BA</td><td>Quản lý dự án, Team dự án</td><td>Team dự án</td></tr><tr><td>Đầu vào</td><td>Thông tin khảo sát nghiệp vụ, phỏng vấn người dùng, mục tiêu kinh doanh</td><td>Tài liệu BRD và những yêu cầu phát sinh</td><td>Tài liệu SRS, bản thiết kế</td></tr><tr><td>Trả lời câu hỏi</td><td>Doanh nghiệp cần gì?</td><td>Hệ thống sẽ làm gì để đáp ứng nhu cầu đó?</td><td>Mỗi chức năng sẽ hoạt động ra sao?</td></tr><tr><td>Nên tạo khi nào?</td><td>Giai đoạn phân tích của dự án</td><td>Giai đoạn đặc tả hệ thống – sau khi BRD được phê duyệt</td><td>Giai đoạn thiết kế chi tiết</td></tr></tbody></table><p>Ba tài liệu nối tiếp nhau như một chuỗi: <b>BRD → SRS → FSD</b>. Đầu ra của tài liệu trước là đầu vào của tài liệu sau. Càng về sau, tài liệu càng chi tiết và càng gần với team kỹ thuật.</p><p class='tip'>Mẹo nhớ 3 câu hỏi: BRD hỏi <b>“Cần gì?”</b>, SRS hỏi <b>“Làm gì?”</b>, FSD hỏi <b>“Làm thế nào?”</b>.</p><p class='note'>Slide 5 gọi FSD là “Functional Requirements Document”, còn bảng ở slide 6 ghi “Functional Specifications Documents”. Hai tên chỉ cùng một tài liệu. Ngoài ra, theo kiến thức chuẩn (BABOK, IEEE) không có bộ tài liệu cố định; nhiều công ty gộp SRS và FSD làm một. Khóa học này tách hai tài liệu theo mức chi tiết như bảng trên.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.5-6"
+  },
+  {
+   "id": "L16-t4",
+   "h": "Phần đầu chung của các template",
+   "html": "<p>Cả ba template BRD, SRS, FSD đều mở đầu bằng các phần quản lý tài liệu:</p><ul><li><b>Trang bìa</b>: loại tài liệu, tên dự án, tên tài liệu (BRD là “Tài liệu yêu cầu nghiệp vụ”, SRS là “Tài liệu yêu cầu kỹ thuật”), bảng <b>Mã dự án – Mã tài liệu – Phiên bản tài liệu</b>, nơi và năm ban hành.</li><li><b>Lịch sử thay đổi</b>: bảng 4 cột <b>Ngày – Phiên bản – Người thực hiện – Mô tả</b>. Mỗi lần sửa tài liệu thêm một dòng.</li><li><b>Phê duyệt yêu cầu</b>: bảng <b>Họ tên – Chức danh – Chữ ký – Ngày</b> của những người duyệt, ví dụ trưởng phòng nghiệp vụ, giám đốc khối CNTT, trưởng dự án, BA Lead.</li><li><b>Mục lục</b>.</li></ul><p class='tip'>Lịch sử thay đổi giúp truy được ai sửa gì, khi nào. Bảng phê duyệt là bằng chứng các bên đã đồng ý nội dung, rất quan trọng khi có tranh cãi về phạm vi.</p>",
+   "src": "BRD_Template.docx, SRS_Template.docx, FSD_Template.docx – phần đầu"
+  },
+  {
+   "id": "L16-t5",
+   "h": "Cấu trúc BRD theo template",
+   "html": "<table><thead><tr><th>Mục</th><th>Viết gì</th></tr></thead><tbody><tr><td>1. Tài liệu liên quan</td><td>Các tài liệu liên quan, tài liệu tham khảo. Template dùng bảng <b>Tài liệu – Nơi lưu trữ</b>.</td></tr><tr><td>2. Quy định về hình vẽ</td><td>Quy định các ký hiệu hình vẽ sẽ dùng trong tài liệu, ví dụ bộ ký hiệu mô hình quy trình.</td></tr><tr><td>3. Thuật ngữ và định nghĩa</td><td>Bảng <b>Thuật ngữ/Từ viết tắt – Định nghĩa</b>, ví dụ KH = Khách hàng.</td></tr><tr><td>4. Tổng quan</td><td>4.1 <b>Mục đích</b>: mục đích của hệ thống, lý do cần xây dựng, các tính năng chính.<br>4.2 <b>Phạm vi dự án</b>: việc nằm trong và <b>không nằm trong</b> dự án, phụ thuộc ngân sách, nguồn lực, timeline đã được stakeholder duyệt. Mục này giúp tránh thay đổi scope liên tục và yêu cầu thêm chức năng ngoài dự án ban đầu.<br>4.3 <b>Giả định</b>: những thông tin được coi là đúng, không cần chứng minh, có ảnh hưởng tới kết quả dự án.<br>4.4 <b>Rủi ro</b>: những rủi ro có thể ảnh hưởng tới kết quả dự án.</td></tr><tr><td>5. Danh sách đối tượng người dùng</td><td>Bảng <b>STT – Đối tượng – Ý nghĩa</b>.</td></tr><tr><td>6. Quy trình nghiệp vụ</td><td>6.1 <b>Hiện tại</b> (As-is): vẽ các quy trình chính đang vận hành, mô tả từng bước (bảng Bước – Người thực hiện – Mô tả bước), rồi liệt kê vấn đề (bảng STT – Vấn đề – Mức độ ưu tiên – Đề xuất giải pháp).<br>6.2 <b>Đề xuất</b> (To-be): vẽ quy trình theo giải pháp đưa ra.</td></tr><tr><td>7. Vấn đề khác</td><td>Các vấn đề ngoài những gì đã nêu ở quy trình.</td></tr><tr><td>8. Roadmap sản phẩm</td><td>Chia giai đoạn (Phase 1, 2, 3…), mỗi phase tập trung xử lý vấn đề gì; bảng <b>Phase – Thời gian thực hiện – Đề xuất giải pháp</b>.</td></tr><tr><td>9. Danh sách yêu cầu</td><td>9.1 <b>Yêu cầu chức năng</b>: bảng <b>Req# – Độ ưu tiên – Yêu cầu – Mô tả – Chức năng – Một số ràng buộc</b>, nhóm theo ứng dụng (ví dụ “Ứng dụng mobile cư dân”). Mã yêu cầu dạng FR-G-001.<br>9.2 <b>Yêu cầu phi chức năng</b>: bảng <b>ID – Yêu cầu</b>, mã dạng NFR-001, ví dụ thời gian xử lý giao dịch, sao lưu dữ liệu định kỳ, mã hóa mật khẩu.</td></tr></tbody></table><p class='tip'>Đọc BRD theo mạch: <b>vì sao làm</b> (mục 4) → <b>ai dùng</b> (mục 5) → <b>đang làm thế nào, sẽ làm thế nào</b> (mục 6) → <b>làm theo thứ tự nào</b> (mục 8) → <b>cần những gì</b> (mục 9).</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.7; BRD_Template.docx mục I-IX"
+  },
+  {
+   "id": "L16-t6",
+   "h": "Cấu trúc SRS theo template",
+   "html": "<table><thead><tr><th>Mục</th><th>Viết gì</th></tr></thead><tbody><tr><td>1. Mục đích dự án</td><td>Hệ thống ra đời để làm gì, các việc hệ thống thực hiện; giai đoạn đầu tập trung vào gì và <b>không bao gồm</b> gì.</td></tr><tr><td>2. Thuật ngữ và định nghĩa</td><td>Bảng STT – Khái niệm/Thuật ngữ – Mô tả.</td></tr><tr><td>3. Nguồn tham khảo</td><td>Tài liệu làm căn cứ phân tích hệ thống; bảng STT – Tài liệu – Mô tả – Ngày ban hành – Link tài liệu.</td></tr><tr><td>4. Danh sách đối tượng người dùng</td><td>Bảng Tên đối tượng – Mô tả (mỗi đối tượng làm gì trên hệ thống).</td></tr><tr><td>5. Mô hình tổng quan sản phẩm</td><td>Sơ đồ actor – ứng dụng – hệ thống lõi – hệ thống bên ngoài, kèm bảng Tên thành phần – Mô tả.</td></tr><tr><td>6. Quy trình nghiệp vụ</td><td>Vẽ các quy trình đề xuất theo giải pháp, mỗi quy trình kèm bảng mô tả.</td></tr><tr><td>7. Mô hình thực thể (ERD)</td><td>Sơ đồ ERD kèm bảng Tên thực thể – Ý nghĩa.</td></tr><tr><td>8. Biểu đồ trạng thái</td><td>State diagram cho các thực thể có vòng đời, ví dụ Đặt bàn, Đặt món.</td></tr><tr><td>9. Biểu đồ phân rã chức năng</td><td>9.1 Danh sách chức năng hệ thống theo từng kênh (web admin, web app, mobile app khách hàng…).<br>9.2 Danh sách API: mô tả các API nghiệp vụ.<br>9.3 Danh sách tiến trình.</td></tr></tbody></table><p>Ví dụ trong template SRS là hệ thống quản lý nhà hàng <b>FoodNow</b>:</p>{{img:L16-img3}}<p>Mô hình tổng quan: NV phục vụ dùng Mobile app phục vụ, nhân viên nhà hàng dùng Web quản lý nhà hàng, NV vận hành FoodNow dùng Web admin. Hệ thống lõi kết nối với cổng thanh toán và hệ thống đặt bàn của bên thứ ba.</p>{{img:L16-img4}}<p>Hệ thống chia thành 5 phân hệ: <b>Mobile app phục vụ, Web quản lý nhà hàng, Web admin, API, Tiến trình</b>. Mỗi phân hệ có bảng danh sách chức năng (STT – Chức năng – Ý nghĩa, có thêm cột Actor khi nhiều actor dùng chung).</p>{{img:L16-img5}}<p>Biểu đồ trạng thái thực thể Đặt bàn: Đặt bàn thành công → Bàn chờ phục vụ → Đang phục vụ → Chờ thanh toán → Đã thanh toán; nhánh Đã hủy khi KH hủy hoặc hệ thống tự hủy sau X giờ KH không tới.</p><p class='note'>Slide ghi mục 9 có 3 tiểu mục. Template FoodNow tách 9.1 thành danh sách phân hệ và từng danh sách chức năng của mỗi kênh, nên API và tiến trình nằm ở 9.5, 9.6. Cấu trúc ý vẫn giống nhau.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.8; SRS_Template.docx mục I-IX"
+  },
+  {
+   "id": "L16-t7",
+   "h": "FSD: 11 dạng chức năng chia 3 nhóm",
+   "html": "{{img:L16-img2}}<p>FSD đặc tả từng chức năng. Mỗi dạng chức năng có bộ mục riêng. Slide chia 11 dạng thành 3 nhóm:</p><table><thead><tr><th>Nhóm</th><th>Các dạng</th></tr></thead><tbody><tr><td><b>Actor là End user</b> (người dùng thao tác trên giao diện)</td><td>1. Tìm kiếm/danh sách<br>2. Đơn giản<br>3. Đầy đủ (phức tạp)<br>4. CRUD của danh mục đầu vào<br>5. Import<br>6. Báo cáo, xuất excel<br>7. Tích hợp API với bên khác</td></tr><tr><td><b>Dạng API</b> (hệ thống khác gọi vào)</td><td>8. API do mình định nghĩa đặc tả<br>9. API do bên khác đặc tả (define thông tin)</td></tr><tr><td><b>Dạng tiến trình</b> (hệ thống tự chạy ngầm)</td><td>10. Tiến trình xử lý đơn giản<br>11. Tiến trình xử lý phức tạp</td></tr></tbody></table><p>Template FSD cũng xếp theo 3 phần: I. Chức năng actor là end user (1.1–1.7), II. Chức năng dạng API (2.1–2.2), III. Tiến trình (3.1–3.2).</p><p class='note'>Sơ đồ ở slide 9 gọi dạng 3 là “chức năng dạng phức tạp”, slide 12 gọi là “chức năng dạng đầy đủ”. Hai tên chỉ cùng một dạng.</p><p class='tip'>Câu hỏi để chọn nhóm: <b>Ai kích hoạt chức năng?</b> Người dùng bấm trên màn hình → nhóm End user. Hệ thống khác gọi sang → nhóm API. Hệ thống tự chạy theo lịch → nhóm Tiến trình.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.9; FSD_Template.docx mục lục"
+  },
+  {
+   "id": "L16-t8",
+   "h": "FSD: các bảng dùng chung cho chức năng end user",
+   "html": "<p>Template FSD dùng lặp lại 3 loại bảng. Hiểu 3 bảng này là viết được phần lớn FSD.</p><h4>Bảng Mô tả chung</h4><p>Gồm các dòng: <b>Tên chức năng – Mô tả – Tác nhân – Điều kiện kích hoạt – Điều kiện trước – Điều kiện sau – Luồng cơ bản – Luồng thay thế – Luồng ngoại lệ</b>. Đây là một bản đặc tả use case rút gọn. Mục nào không có thì ghi N/A.</p><h4>Màn hình và Bảng Mô tả màn hình</h4><p>Mục Màn hình chèn ảnh mockup/wireframe có đánh số từng control. Bảng Mô tả màn hình có các cột <b>STT – Tên – Loại – Req* – Mô tả</b>:</p><ul><li><b>STT</b> khớp với số đánh trên ảnh màn hình.</li><li><b>Loại</b>: Textbox, List, Label, Button, Icon, Datetime Picker, Image…</li><li><b>Req*</b>: trường có bắt buộc nhập không (Yes).</li><li><b>Mô tả</b>: dữ liệu hiển thị, định dạng, giá trị mặc định, độ dài tối đa, ký tự cho phép.</li></ul><h4>Bảng Business Rule</h4><p>Các cột <b>ID – Rule – Chi tiết rule – Thông báo</b>. Ghi các rule <b>trên server</b>: (1) kiểm tra những gì, (2) nếu hợp lệ thì server xử lý những gì. Cột Thông báo ghi câu báo lỗi cho từng trường hợp sai.</p><p class='tip'>Phân vai: kiểm tra định dạng, độ dài, bắt buộc nhập nằm ở <b>Mô tả màn hình</b>. Kiểm tra nghiệp vụ trên server nằm ở <b>Business Rule</b>. Template ghi rõ phần Business Rule bỏ qua các rule validate format, maxlength, require.</p>",
+   "src": "FSD_Template.docx mục 1.1-1.3"
+  },
+  {
+   "id": "L16-t9",
+   "h": "Dạng 1 – Chức năng tìm kiếm/danh sách",
+   "html": "<p>Các mục: <b>1.1 Mô tả chung – 1.2 Màn hình – 1.3 Mô tả màn hình – 1.4 Business Rule</b>.</p><h4>Lưu ý khi viết</h4><ul><li><b>Lựa chọn tiêu chí tìm kiếm</b>: xem người dùng thường có những thông tin gì để tìm, và ngữ cảnh tìm kiếm, để chọn tiêu chí phù hợp. Tránh đưa ra quá nhiều ô tìm kiếm.</li><li><b>Business Rule</b> phải nêu được:<ul><li>tìm kiếm thỏa mãn <b>mọi</b> điều kiện nhập vào (AND) hay chỉ <b>một trong</b> các điều kiện (OR);</li><li>thứ tự sắp xếp kết quả;</li><li>dữ liệu hiển thị ở màn hình mặc định (khi chưa tìm).</li></ul></li></ul><p>Ví dụ trong template (FoodNow – Danh sách bàn theo trạng thái): tìm theo AND; trường nào chọn “Tất cả” thì bỏ qua tiêu chí đó; ô search box tìm gần đúng (LIKE), không phân biệt hoa thường; sắp xếp theo tên khu vực tăng dần; mặc định Khu vực = Tất cả, Trạng thái = Tất cả, thời gian từ hiện tại đến hiện tại + thời gian phục vụ trung bình mỗi bàn.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.10; FSD_Template.docx mục 1.1"
+  },
+  {
+   "id": "L16-t10",
+   "h": "Dạng 2 – Chức năng đơn giản",
+   "html": "<p>Các mục: <b>2.1 Mô tả chung – 2.2 Màn hình – 2.3 Mô tả màn hình – 2.4 Business Rule</b>.</p><h4>Lưu ý khi viết</h4><ul><li>Actor chỉ cần nhập thông tin trên form rồi submit. Server validate: hợp lệ thì lưu, không hợp lệ thì không lưu.</li><li>Luồng này luôn gồm các bước cơ bản ở client và server nên <b>không cần vẽ activity diagram</b>, chỉ cần mô tả Business Rule.</li><li>Business Rule nêu các thông tin cần validate ở server và công thức tính toán nếu có. Có công thức thì phải nói rõ cách lấy ra các đầu vào của công thức.</li></ul><p>Ví dụ trong template: chức năng Đặt bàn trên Mobile app phục vụ. Mô tả màn hình nêu ô Họ tên bắt buộc, chỉ nhập chữ và khoảng trắng, tối đa 50 ký tự. Business Rule nêu điều kiện xác định “bàn trống” trên server và câu thông báo khi bàn đã có người đặt.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.11; FSD_Template.docx mục 1.2"
+  },
+  {
+   "id": "L16-t11",
+   "h": "Dạng 3 – Chức năng đầy đủ (phức tạp)",
+   "html": "<p>Các mục: <b>3.1 Mô tả chung – 3.2 Activity diagram (luồng hoạt động) – 3.3 Màn hình – 3.4 Mô tả màn hình – 3.5 Business Rule</b>.</p><h4>Lưu ý khi viết</h4><ul><li>Khi luồng giao tiếp giữa client và server gồm nhiều bước, hoặc server xử lý nhiều bước, thì <b>nên vẽ activity diagram</b> rồi mô tả các bước (bước nào chưa rõ nghĩa).</li><li>Các bước kiểm tra trên server theo nguyên tắc: <b>server nhận thông tin nào mà nó có thì kiểm tra lại thông tin đó</b>, đảm bảo dữ liệu hiện tại trên server thỏa mãn yêu cầu xử lý hiện tại.</li><li>Nếu luồng có công thức tính toán thì mô tả rõ cách lấy dữ liệu đầu vào cho công thức.</li></ul><p>Ví dụ trong template: chức năng Tạo Momo QR. Bảng mô tả luồng có cột <b>Bước – Đối tượng – Mô tả</b>. Bước kiểm tra trên server: mã đặt bàn phải đang ở trạng thái Chờ thanh toán, thuộc nhà hàng của user đang đăng nhập, nhà hàng và user đang hoạt động. Mỗi trường hợp sai có một câu thông báo riêng.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.12; FSD_Template.docx mục 1.3"
+  },
+  {
+   "id": "L16-t12",
+   "h": "Dạng 4 – CRUD của danh mục đầu vào",
+   "html": "<p>Các mục: <b>4.1 Mô tả chung – 4.2 Màn hình – 4.3 Mô tả màn hình – 4.4 Business Rule</b>.</p><p>Danh mục đầu vào là dữ liệu nền mà các chức năng khác dùng lại, ví dụ danh mục bàn, danh mục loại phòng. CRUD = Create, Read, Update, Delete (thêm, xem, sửa, xóa).</p><h4>Lưu ý khi viết</h4><ul><li>Với CRUD và tìm kiếm/danh sách của danh mục đầu vào, <b>không cần viết tách biệt từng chức năng</b>, vì rule thường không có gì đặc biệt và lặp nhau (như Tạo mới và Chỉnh sửa). Có thể <b>gộp cụm 5 chức năng vào 1 mục</b>: tìm kiếm/danh sách, thêm mới, chỉnh sửa, xem chi tiết, xóa.</li><li><b>Màn hình</b>: mô tả màn hình Danh sách/tìm kiếm và màn hình Thêm mới. Màn hình Chỉnh sửa và Xem chi tiết có thể không cần mô tả vì thông tin giống màn hình Thêm mới, chỉ khác cách hiển thị: Xem chi tiết hiển thị dạng chỉ đọc (read only), Chỉnh sửa hiển thị giá trị hiện tại của thông tin cần sửa.</li><li><b>Business Rule</b>: mô tả rule của phần tìm kiếm/danh sách theo dạng 1, cộng rule thêm mới/chỉnh sửa.</li></ul><p>Ví dụ trong template (Danh mục bàn): mã bàn và tên bàn là duy nhất trong một nhà hàng; nhà hàng phải đang hoạt động; user phải có quyền; phòng phải thuộc khu vực của nhà hàng tương ứng.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.13; FSD_Template.docx mục 1.4"
+  },
+  {
+   "id": "L16-t13",
+   "h": "Dạng 5 – Import thông tin",
+   "html": "<p>Các mục: <b>5.1 Mô tả chung – 5.2 Màn hình – 5.3 Mô tả màn hình – 5.4 Quy định về file import và Business Rule</b>.</p><h4>Lưu ý khi viết</h4><ul><li><b>Màn hình</b> cần có phần <b>tải file mẫu</b> để actor biết file tải lên theo template nào. Quy định rõ <b>định dạng file</b>, <b>kích thước file</b> và <b>số dòng</b> trên file.</li><li><b>Mô tả các trường</b> trong file: Require (bắt buộc), maxlength, định dạng, tập giá trị cho phép… Nếu đã có chức năng thêm mới đơn lẻ thì có thể dẫn sang mô tả trường tương ứng ở đó.</li><li><b>Quy định file trả kết quả</b>: tên file trả ra; file trả ra thường thêm cột kết quả so với file import lên; ghi rõ từng trường hợp lỗi và câu mô tả lỗi.</li></ul><p>Ví dụ trong template (Import danh sách nhà hàng): file xlsx, tối đa 3MB, tối đa 500 dòng dữ liệu không tính header. Bảng trường gồm <b>Tên trường – Require – Maxlength – Mô tả và ràng buộc – Business Rule</b>. File trả ra cùng tên file gốc thêm đuôi <code>_result</code>, bổ sung 2 cột <b>Kết quả</b> (thành công/thất bại) và <b>Mô tả lỗi</b>. Bảng lỗi có 2 cột <b>Trường hợp – Mô tả lỗi</b>.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.14; FSD_Template.docx mục 1.5"
+  },
+  {
+   "id": "L16-t14",
+   "h": "Dạng 6 – Báo cáo, xuất excel",
+   "html": "<p>Các mục: <b>6.1 Mô tả chung – 6.2 Màn hình – 6.3 Mô tả màn hình – 6.4 Business Rule</b>.</p><h4>Lưu ý khi viết</h4><ul><li><b>Màn hình</b> cần xác định đầu vào báo cáo: hỏi rõ stakeholder thường báo cáo theo đầu vào nào và muốn đầu ra như thế nào.</li><li><b>Business Rule</b>:<ul><li>nói rõ cách tính giá trị trên báo cáo, lấy dữ liệu theo điều kiện nào, công thức tính ra sao (cộng/trừ/nhân/chia hay công thức theo nghiệp vụ);</li><li><b>xuất excel</b>: cần có <b>template mẫu</b> để đội code dùng. File xuất thường hiển thị các trường y nguyên như giao diện đang thấy; nếu khác thì mô tả cụ thể lấy dữ liệu ở trường nào hoặc công thức nào.</li></ul></li></ul><p>Ví dụ trong template (Báo cáo hệ số quay vòng bàn): hệ số quay vòng bàn = tổng số khách được phục vụ trong khoảng thời gian tìm kiếm / số chỗ ngồi của nhà hàng. Tổng số khách lấy từ các lượt đặt bàn ở trạng thái Đã thanh toán có thời gian thực tới nằm trong khoảng tìm kiếm. Số chỗ ngồi thay đổi theo ngày nên cần lưu số chỗ theo từng ngày.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.15; FSD_Template.docx mục 1.6"
+  },
+  {
+   "id": "L16-t15",
+   "h": "Dạng 7 – Tích hợp API với bên khác",
+   "html": "<p>Các mục: <b>7.1 Mô tả chung – 7.2 Sequence diagram (luồng tích hợp) – 7.3 Activity diagram (luồng hoạt động) – 7.4 Màn hình – 7.5 Mô tả màn hình</b>.</p><p>Đây là chức năng người dùng thao tác trên hệ thống mình, nhưng hệ thống mình phải gọi API của đối tác, ví dụ lấy phí vận chuyển từ đơn vị giao hàng.</p><h4>Lưu ý khi viết</h4><ul><li>Nên vẽ <b>sequence diagram</b> để hiểu rõ luồng tích hợp giữa 2 bên, mapping API giao tiếp theo đặc tả đã có hoặc sẽ có. Nếu một use case có nhiều luồng tương tác với đối tác thì tách thành các use case con cho đỡ phức tạp.</li><li>Khi mô tả activity diagram:<ul><li>trước khi gửi yêu cầu sang đối tác, phải nắm được thông tin gửi sang lấy từ <b>trường nào, thực thể nào</b> trên hệ thống mình (có thể không ghi ra nhưng phải hiểu), vì cần mapping dữ liệu hệ thống A sang hệ thống B;</li><li>mô tả tham số gửi sang đối tác (theo đặc tả đối tác) tương ứng với dữ liệu nào bên mình;</li><li>với kết quả trả về: <b>mapping lại kết quả</b> với bên mình, kết quả nào là <b>thành công, thất bại hoặc timeout</b>.</li></ul></li><li><b>Luồng hoạt động</b>: vẽ rõ hệ thống mình cần xử lý những gì qua API.</li><li><b>Thông tin đầu vào</b>: tham số theo yêu cầu nghiệp vụ, lưu ý mã đối tác (bên gọi), mã định danh địa điểm, mã yêu cầu.</li><li><b>Thông tin đầu ra</b>: mã xử lý bên mình, mã đối tác, mã định danh địa điểm thực hiện, mã lỗi (kết quả thực hiện), mô tả lỗi.</li><li><b>Danh sách mã lỗi</b>: liệt kê lỗi có thể xảy ra và mô tả tương ứng.</li></ul>{{img:L16-img6}}<p>Sequence diagram trong template (đặt vận chuyển): Shop → Client → Server → đơn vị vận chuyển. Server luôn có bước <b>mapping địa bàn sang tên địa bàn của đơn vị vận chuyển</b> trước khi gửi yêu cầu. Template tách thành 3 use case con: lấy phí vận chuyển, gửi yêu cầu vận chuyển, in nhãn đơn hàng.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.16-17; FSD_Template.docx mục 1.7"
+  },
+  {
+   "id": "L16-t16",
+   "h": "Dạng 8 – API do mình định nghĩa đặc tả",
+   "html": "<p>Hệ thống mình cung cấp API cho đối tác gọi vào, và <b>mình là bên quy định</b> tham số, mã lỗi. Các mục: <b>8.1 Mô tả chung – 8.2 Activity diagram (luồng hoạt động) – 8.3 Thông tin đầu vào – 8.4 Thông tin đầu ra – 8.5 Danh sách mã lỗi</b>.</p><h4>Lưu ý khi viết</h4><ul><li><b>Luồng hoạt động</b>: vẽ rõ hệ thống mình cần xử lý những gì qua API.</li><li><b>Thông tin đầu vào</b>: tham số theo yêu cầu nghiệp vụ, lưu ý: mã của đối tác (bên gọi sang mình), mã định danh địa điểm gọi sang, mã yêu cầu.</li><li><b>Thông tin đầu ra</b>: tham số mình trả cho đối tác khi xử lý xong: mã xử lý bên mình, mã đối tác, mã định danh địa điểm thực hiện, mã lỗi (kết quả thực hiện), mô tả lỗi.</li><li><b>Danh sách mã lỗi</b>: liệt kê các lỗi có thể có và mô tả tương ứng để đội code biết xử lý từng tình huống.</li></ul><p>Ví dụ trong template (API đặt bàn cho đối tác như Pasgo): bảng Mô tả chung gọn hơn chức năng end user, gồm <b>Tên UC – Mục đích – Đối tượng sử dụng – Post-condition</b>. Bảng đầu vào có cột <b>Thông tin – Require – Length – Mô tả/ràng buộc</b>; ví dụ số điện thoại 10 ký số, thời gian dự kiến tới định dạng dd/mm/yyyy hh24:mi:ss. Bảng mã lỗi có cột <b>Trường hợp – Mô tả lỗi</b>, gồm cả trường hợp “Thành công”.</p><p class='note'>Slide ghi mục 8.2 là Activity diagram; template đặt tên mục này là “Luồng nghiệp vụ” và kèm bảng mô tả bước. Nội dung tương đương.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.18-19; FSD_Template.docx mục 2.1"
+  },
+  {
+   "id": "L16-t17",
+   "h": "Dạng 9 – API do bên khác đặc tả",
+   "html": "<p>Mình vẫn là bên cung cấp API, nhưng <b>đối tác đã định nghĩa trước</b> đầu vào, đầu ra và danh mục mã lỗi. Ví dụ: cổng thanh toán gửi kết quả thanh toán về hệ thống mình theo format của họ. Các mục: <b>Mô tả chung – Luồng nghiệp vụ – Thông tin đầu vào/đầu ra – Danh sách mã lỗi</b>.</p><h4>Lưu ý khi viết</h4><ul><li>Tương tự API do mình đặc tả, nhưng phần đầu vào, đầu ra, mã lỗi <b>theo định nghĩa của đối tác</b>; có thể dẫn tới tài liệu đặc tả của đối tác.</li><li>Với danh sách lỗi, phải ghi rõ cho đội code biết <b>từng trường hợp trả về mã lỗi nào</b> theo yêu cầu của đối tác.</li></ul><p>Ví dụ trong template (API cập nhật kết quả thanh toán Momo): các bước kiểm tra gồm checksum hợp lệ, mã nhà hàng/chi nhánh hợp lệ, mã giao dịch tồn tại, số tiền khớp, bàn đang ở trạng thái Chờ thanh toán. Bảng lỗi ghép từng trường hợp với mã lỗi số do đối tác quy định.</p><p class='note'>Danh sách tiểu mục trên slide 20 nhảy từ 9.3 sang 9.5 (thiếu 9.4). Đây là lỗi đánh số; thực tế có 4 tiểu mục.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.20; FSD_Template.docx mục 2.2"
+  },
+  {
+   "id": "L16-t18",
+   "h": "Dạng 10, 11 – Tiến trình xử lý",
+   "html": "<p>Tiến trình là chức năng hệ thống <b>tự chạy ngầm</b> theo lịch, không có người bấm. Cả hai dạng có cùng bộ mục: <b>Mô tả chung – State diagram (biểu đồ trạng thái) – Activity diagram (luồng hoạt động) – Data flow diagram (biểu đồ luồng dữ liệu)</b>.</p><table><thead><tr><th>Mục</th><th>Tiến trình đơn giản (10)</th><th>Tiến trình phức tạp (11)</th></tr></thead><tbody><tr><td>Biểu đồ trạng thái</td><td colspan='2'>Nên vẽ nếu tiến trình đi qua <b>tối thiểu 3 trạng thái</b>. Ví dụ: quét các yêu cầu ở trạng thái A, xử lý trường hợp 1 thì về trạng thái B, trường hợp 2 thì về trạng thái C.</td></tr><tr><td>Luồng hoạt động</td><td>Nếu đơn giản, chỉ cần <b>mô tả các bước bằng chữ</b></td><td><b>Vẽ lưu đồ</b> và mô tả như luồng thông thường</td></tr><tr><td>Biểu đồ luồng dữ liệu</td><td colspan='2'>Mô tả dữ liệu <b>lấy ở đâu</b> và sau khi xử lý xong thì <b>lưu vào đâu</b></td></tr></tbody></table><p>Bảng Mô tả chung của tiến trình trong template gồm: <b>Tên use case – Mục đích – Tần suất – Điều kiện quét dữ liệu – Post-condition</b>. Ví dụ: tiến trình tạo yêu cầu thanh toán cho nhà hàng chạy 1 lần/ngày lúc 01 giờ, quét nhà hàng sắp hết kỳ hạn và chưa đóng, kết quả là các yêu cầu thanh toán ở trạng thái Chờ thanh toán.</p>{{img:L16-img7}}<p>Data flow diagram trên: tiến trình (hình tròn) đọc dữ liệu từ các kho Nhà hàng, Gói SP của nhà hàng, Danh mục gói sản phẩm, CTKM và ghi kết quả vào kho Yêu cầu thanh toán.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.21-22; FSD_Template.docx mục 3.1-3.2"
+  },
+  {
+   "id": "L16-t19",
+   "h": "Lưu ý trình bày: cài đặt mặc định",
+   "html": "<ul><li><b>Page layout</b>: khổ giấy phù hợp (A4), chiều giấy dọc, căn lề trái 2,5 – phải 2 – trên 2 – dưới 2 (cm).</li><li><b>Header &amp; Footer</b>: thiết kế trước ở đầu và cuối trang để căn chỉnh văn bản theo trang phù hợp.</li><li><b>Modify Style</b>: thiết lập các kiểu văn bản theo cấp độ (Heading 1, 2, 3, Normal…) để trình bày đồng bộ: font (loại chữ, cỡ chữ, kiểu), paragraph (thụt dòng, khoảng cách, bố cục)…</li></ul><p class='tip'>Dùng Style cho tiêu đề thì Word tự tạo được mục lục, và sửa một lần là cả tài liệu đổi theo.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.23"
+  },
+  {
+   "id": "L16-t20",
+   "h": "Dấu câu: chấm, hỏi, than, phẩy, chấm phẩy",
+   "html": "<p>Ký hiệu “_” dưới đây là một dấu cách.</p><h4>Dấu chấm, chấm hỏi, chấm than: text._Text</h4><p>Dấu đặt <b>sát từ cuối cùng</b> của câu, <b>cách câu sau một dấu cách</b>. Chữ cái đầu câu sau viết hoa.</p><table><thead><tr><th>Sai</th><th>Đúng</th></tr></thead><tbody><tr><td>Hôm nay, trời thật đẹp . Tôi đi làm.<br>Hôm nay, trời thật đẹp .Tôi đi làm.<br>Hôm nay, trời thật đẹp.Tôi đi làm.</td><td>Hôm nay, trời thật đẹp. Tôi đi làm.</td></tr><tr><td>Bạn cảm thấy thế nào ? Bạn ổn chứ?</td><td>Bạn cảm thấy thế nào? Bạn ổn chứ?</td></tr><tr><td>Trật tự ! Hãy làm bài tập ngay!</td><td>Trật tự! Hãy làm bài tập ngay!</td></tr></tbody></table><h4>Dấu phẩy, chấm phẩy: text,_text</h4><p>Dấu đặt <b>sát từ liền trước</b>, <b>cách từ liền sau một dấu cách</b>. Bình thường sau dấu phẩy không viết hoa.</p><table><thead><tr><th>Sai</th><th>Đúng</th></tr></thead><tbody><tr><td>Hôm nay , trời thật đẹp.</td><td>Hôm nay, trời thật đẹp.</td></tr><tr><td>…thư sinh thì nho nhã, điềm đạm ; nữ chính: đức hạnh, nết na ; nữ lệch…</td><td>…thư sinh thì nho nhã, điềm đạm; nữ chính: đức hạnh, nết na; nữ lệch…</td></tr></tbody></table>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.24-25"
+  },
+  {
+   "id": "L16-t21",
+   "h": "Dấu câu: chấm lửng, hai chấm",
+   "html": "<h4>Dấu chấm lửng “…”</h4><ul><li>Dùng giữa câu (giống dấu phẩy): text…_text.</li><li>Dùng cuối câu (giống dấu chấm): text…_Text.</li><li>Trước dấu ba chấm <b>không</b> có dấu cách, sau dấu ba chấm <b>có</b> dấu cách.</li></ul><table><thead><tr><th>Sai</th><th>Đúng</th></tr></thead><tbody><tr><td>Em … thích anh!</td><td>Em… thích anh!</td></tr></tbody></table><h4>Dấu hai chấm “:”</h4><ul><li>Sau dấu là câu hoàn chỉnh: text:_Text (viết hoa).</li><li>Sau dấu không phải là câu: text:_text (viết thường).</li><li>Dấu đặt sát từ liền trước, cách từ liền sau một dấu cách.</li></ul><table><thead><tr><th>Sai</th><th>Đúng</th></tr></thead><tbody><tr><td>Những loại dấu câu : dấu chấm…</td><td>Những loại dấu câu: dấu chấm…</td></tr><tr><td>Tôi hỏi lại : Em không yêu tôi sao?</td><td>Tôi hỏi lại: Em không yêu tôi sao?</td></tr></tbody></table><p class='note'>Ở slide 27, dòng đầu cột “Đúng” vẫn còn dấu cách trước dấu hai chấm (“dấu câu : dấu chấm…”), giống hệt cột “Sai”. Đây là lỗi soạn slide; theo đúng quy tắc trên slide, không có dấu cách trước dấu hai chấm.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.26-27"
+  },
+  {
+   "id": "L16-t22",
+   "h": "Dấu câu: các loại ngoặc, gạch xéo",
+   "html": "<h4>Dấu ngoặc: text_(text)_text</h4><p>Áp dụng cho ngoặc đơn ( ), ngoặc kép “ ”, nháy đơn ‘ ’, ngoặc vuông [ ], ngoặc nhọn { }: <b>có dấu cách với phần bên ngoài</b> ngoặc và <b>không có dấu cách với phần bên trong</b> ngoặc.</p><table><thead><tr><th>Sai</th><th>Đúng</th></tr></thead><tbody><tr><td>Chúng ta ( Em và tôi ) yêu nhau.</td><td>Chúng ta (Em và tôi) yêu nhau.</td></tr><tr><td>Em là “ nàng thơ ” của tôi.</td><td>Em là “nàng thơ” của tôi.</td></tr></tbody></table><h4>Dấu gạch xéo: text/text</h4><p>Đặt sát từ liền trước và từ liền sau, thường <b>không có dấu cách</b>.</p><table><thead><tr><th>Sai</th><th>Đúng</th></tr></thead><tbody><tr><td>Ngày 14 / 02 / 24</td><td>Ngày 14/02/24</td></tr></tbody></table><p class='tip'>Quy tắc chung dễ nhớ: dấu câu “dính” vào chữ đứng trước; dấu cách nằm sau dấu. Riêng ngoặc thì “ôm sát” nội dung bên trong.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.28-29"
+  }
+ ],
+ "examples": [
+  {
+   "id": "L16-e1",
+   "title": "Một nhu cầu đi qua BRD → SRS → FSD (FoodNow)",
+   "html": "<p>Nhu cầu: nhà hàng muốn khách đặt bàn qua đối tác như Pasgo mà không phải gọi điện. Cùng một nhu cầu, mỗi tài liệu ghi ở mức chi tiết khác nhau:</p><table><thead><tr><th>Tài liệu</th><th>Ghi gì về nhu cầu này</th><th>Vì sao</th></tr></thead><tbody><tr><td>BRD</td><td>Mục đích: cho khách đặt bàn trên nhiều kênh (app, điện thoại, bên thứ ba). Yêu cầu chức năng: “Cho phép tiếp nhận đặt bàn từ đối tác đặt chỗ”, độ ưu tiên 1.</td><td>Trả lời “doanh nghiệp cần gì”, người đọc là chủ nhà hàng và quản lý</td></tr><tr><td>SRS</td><td>Mô hình tổng quan có khối “Hệ thống đặt bàn” bên ngoài. Mục 9 có phân hệ API với dòng “API đặt bàn – cung cấp API đặt chỗ cho các bên như Pasgo”. Biểu đồ trạng thái Đặt bàn.</td><td>Trả lời “hệ thống làm gì”, người đọc là quản lý dự án và team</td></tr><tr><td>FSD</td><td>Dạng 8 – API do mình định nghĩa: mô tả chung, luồng kiểm tra (mã đối tác, mã nhà hàng, khung giờ, bàn trống), bảng đầu vào, đầu ra, mã lỗi.</td><td>Trả lời “hoạt động ra sao”, người đọc là dev và tester</td></tr></tbody></table><p class='tip'>Khi không biết một câu nên để ở tài liệu nào, hỏi: câu này trả lời “cần gì”, “làm gì” hay “làm thế nào”?</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.6; SRS_Template.docx mục I, V, IX; FSD_Template.docx mục 2.1"
+  },
+  {
+   "id": "L16-e2",
+   "title": "Đọc mục Tổng quan BRD: hệ thống quản lý chung cư",
+   "html": "<p>Template BRD dùng ví dụ hệ thống quản lý chung cư. Dưới đây là nội dung tóm tắt và nhận xét cách viết:</p><table><thead><tr><th>Mục</th><th>Nội dung (tóm tắt)</th><th>Điểm cần học</th></tr></thead><tbody><tr><td>4.1 Mục đích</td><td>Bối cảnh: số chung cư tăng, cần quản lý minh bạch giữa ban quản lý, ban quản trị, cư dân. Hệ thống cho cư dân theo dõi phí dịch vụ; cho cư dân và ban quản lý giao tiếp qua app mobile và web; cho ban quản lý theo dõi tình hình cư dân, doanh thu, chi phí.</td><td>Có đủ 3 ý: lý do, mục đích, tính năng chính</td></tr><tr><td>4.2 Phạm vi</td><td><b>Bao gồm</b>: hỗ trợ cư dân tương tác với ban quản lý; hỗ trợ ban quản lý theo dõi, thông báo nhanh. <b>Không bao gồm</b>: chức năng của ban quản trị; hệ thống quản lý bãi xe (mua gói riêng).</td><td>Ghi rõ cả phần “không bao gồm” và lý do</td></tr><tr><td>4.3 Giả định</td><td>Nhân viên kỹ thuật đều dùng smartphone và biết dùng tính năng cơ bản; mạng 3G/4G ở các tầng ổn định.</td><td>Mỗi giả định là điều nếu sai sẽ ảnh hưởng kết quả dự án</td></tr></tbody></table><p>Một dòng yêu cầu chức năng mẫu ở mục 9.1: <b>FR-G-002 – ưu tiên 1 – Quản lý phí dịch vụ</b>. Mô tả: cư dân xem chi tiết phí hàng tháng, thanh toán online. Chức năng: tra cứu cước, thanh toán, xem lịch sử thanh toán, báo cáo sử dụng. Ràng buộc: cư dân thuộc nhiều căn hộ thì được chọn căn hộ khi xem.</p><p>Mẫu yêu cầu phi chức năng ở mục 9.2: dữ liệu backup định kỳ 1 lần/tháng; mật khẩu mã hóa theo chuẩn RSA.</p>",
+   "src": "BRD_Template.docx mục IV, IX"
+  },
+  {
+   "id": "L16-e3",
+   "title": "Đọc mục Phân rã chức năng trong SRS FoodNow",
+   "html": "{{img:L16-img4}}<p>Bảng danh sách phân hệ (mục 9.1) của SRS FoodNow:</p><table><thead><tr><th>STT</th><th>Kênh</th><th>Actor</th><th>Mô tả</th></tr></thead><tbody><tr><td>1</td><td>Mobile app phục vụ</td><td>NV phục vụ</td><td>Đặt chỗ cho khách đến trực tiếp, đặt món, kiểm đồ…</td></tr><tr><td>2</td><td>Web quản lý nhà hàng</td><td>NV nhà hàng</td><td>Quản lý, theo dõi hoạt động nhà hàng; phân quyền theo từng đối tượng</td></tr><tr><td>3</td><td>Web admin</td><td>NV FoodNow</td><td>Quản lý hợp đồng, tài khoản nhà hàng, báo cáo tài chính, công nợ</td></tr><tr><td>4</td><td>API</td><td>(hệ thống khác)</td><td>Tích hợp với bên đặt chỗ, nhận kết quả thanh toán từ cổng thanh toán</td></tr><tr><td>5</td><td>Tiến trình</td><td>(hệ thống)</td><td>Các xử lý chạy ngầm</td></tr></tbody></table><p>Sau đó mỗi phân hệ có bảng chức năng riêng. Ví dụ Mobile app phục vụ có: Đăng nhập, Đặt bàn, Đổi bàn, Hủy bàn, Đặt món, Hủy món (chỉ trong một thời gian nhất định sau khi đặt), In kiểm đồ, Tạo QR thanh toán… Danh sách tiến trình có: nhắc nhà hàng thanh toán, khóa tài khoản nhà hàng khi không thanh toán, charge phí khi sang kỳ mới, tự hủy đặt bàn khi khách không tới quá X phút.</p><p class='tip'>Cột API và Tiến trình không có actor là người: đây chính là 2 nhóm “Dạng API” và “Dạng tiến trình” mà FSD sẽ đặc tả tiếp.</p>",
+   "src": "SRS_Template.docx mục IX"
+  },
+  {
+   "id": "L16-e4",
+   "title": "Đọc FSD dạng tìm kiếm: Danh sách bàn theo trạng thái",
+   "html": "<p><b>Mô tả chung</b> (rút gọn từ template):</p><table><tbody><tr><th>Tên chức năng</th><td>Danh sách bàn theo trạng thái</td></tr><tr><th>Mô tả</th><td>NV phục vụ theo dõi trạng thái hiện tại của các bàn</td></tr><tr><th>Tác nhân</th><td>NV phục vụ</td></tr><tr><th>Điều kiện kích hoạt</th><td>Chọn menu Home</td></tr><tr><th>Điều kiện trước</th><td>Đã đăng nhập và có quyền</td></tr><tr><th>Điều kiện sau</th><td>Hiển thị danh sách bàn mặc định hoặc theo kết quả tìm kiếm</td></tr><tr><th>Luồng cơ bản</th><td>1. Chọn Home → 2. Hệ thống hiện danh sách mặc định → 3. Nhập thông tin tìm kiếm → 4. Hệ thống hiện kết quả</td></tr><tr><th>Luồng thay thế / ngoại lệ</th><td>N/A</td></tr></tbody></table><p><b>Business Rule</b> trả lời đủ 3 câu hỏi mà slide yêu cầu:</p><table><thead><tr><th>Câu hỏi của slide</th><th>Template trả lời</th></tr></thead><tbody><tr><td>AND hay OR?</td><td>AND các thông tin nhập; trường chọn “Tất cả” thì bỏ qua; ô search box tìm LIKE mã/tên bàn, không phân biệt hoa thường</td></tr><tr><td>Sắp xếp?</td><td>Theo tên khu vực tăng dần</td></tr><tr><td>Mặc định?</td><td>Khu vực, Trạng thái, Yêu cầu = Tất cả; thời gian từ hiện tại đến hiện tại + thời gian phục vụ trung bình/bàn</td></tr></tbody></table><p>Mô tả màn hình ghi chi tiết từng control, ví dụ control “Thời gian” hiển thị định dạng hh24:mi; bàn đang phục vụ hiển thị giờ dự kiến kết thúc = giờ tới + thời gian phục vụ trung bình/bàn.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.10; FSD_Template.docx mục 1.1"
+  },
+  {
+   "id": "L16-e5",
+   "title": "Đọc FSD dạng API: API đặt bàn cho đối tác",
+   "html": "<p><b>Mô tả chung</b>: Tên UC = API đặt bàn; Mục đích = cho đối tác gửi yêu cầu đặt bàn sang FoodNow; Đối tượng = đối tác đặt bàn như Pasgo; Post-condition = trả về kết quả đặt bàn.</p><p><b>Luồng nghiệp vụ</b> – server kiểm tra lần lượt: mã đối tác hợp lệ → mã nhà hàng hợp lệ và đã liên kết với đối tác → khung giờ hợp lệ (sau hiện tại, trong giờ mở cửa, không trùng ngày nghỉ) → bàn tồn tại và còn trống → lưu đặt bàn (mã tự sinh, thời gian dự kiến kết thúc = giờ tới + thời gian phục vụ trung bình/bàn).</p><table><thead><tr><th>Đầu vào</th><th>Require</th><th>Ràng buộc</th></tr></thead><tbody><tr><td>Mã đối tác</td><td>Yes</td><td>Do FoodNow cấp cho đối tác</td></tr><tr><td>Mã nhà hàng</td><td>Yes</td><td>Mã trên hệ thống FoodNow</td></tr><tr><td>Họ tên khách</td><td>Yes</td><td>3–50 ký tự, chữ và khoảng trắng</td></tr><tr><td>Số điện thoại</td><td>Yes</td><td>10 ký số</td></tr><tr><td>Thời gian dự kiến tới</td><td>Yes</td><td>dd/mm/yyyy hh24:mi:ss</td></tr><tr><td>Số người</td><td>Yes</td><td>Số nguyên dương, tối đa 4 chữ số</td></tr></tbody></table><p><b>Đầu ra</b>: mã đối tác, mã nhà hàng, mã đặt bàn, mã lỗi, mô tả lỗi.</p><table><thead><tr><th>Trường hợp</th><th>Mô tả lỗi</th></tr></thead><tbody><tr><td>Mã đối tác không tồn tại/không hoạt động</td><td>Mã đối tác không hợp lệ</td></tr><tr><td>Nhà hàng chưa liên kết với đối tác</td><td>Nhà hàng chưa liên kết với đối tác</td></tr><tr><td>Bàn không trống</td><td>{Danh sách bàn} không trống. Vui lòng kiểm tra lại</td></tr><tr><td>Thành công</td><td>Thành công</td></tr></tbody></table><p class='tip'>Đối chiếu với slide: đầu vào có mã đối tác và mã địa điểm (mã nhà hàng); đầu ra có mã xử lý bên mình (mã đặt bàn), mã lỗi và mô tả lỗi.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.18-19; FSD_Template.docx mục 2.1"
+  },
+  {
+   "id": "L16-e6",
+   "title": "Đọc FSD dạng tiến trình: tạo yêu cầu thanh toán",
+   "html": "<table><tbody><tr><th>Tên use case</th><td>Tiến trình tạo yêu cầu thanh toán cho nhà hàng</td></tr><tr><th>Mục đích</th><td>Tạo yêu cầu thanh toán khi nhà hàng sắp sang kỳ hạn mới</td></tr><tr><th>Tần suất</th><td>1 lần/ngày, lúc 01 giờ</td></tr><tr><th>Điều kiện quét</th><td>Nhà hàng sắp hết kỳ sử dụng (theo mốc 10 ngày) và trạng thái khác Đóng</td></tr><tr><th>Post-condition</th><td>Tạo yêu cầu thanh toán, hạn thanh toán = ngày kết thúc sử dụng, trạng thái = Chờ thanh toán</td></tr></tbody></table><p><b>Luồng hoạt động</b> (tiến trình đơn giản nên chỉ viết bằng chữ): Bước 1 quét nhà hàng thỏa điều kiện; Bước 2 lấy gói sản phẩm đang dùng, giá gói hiện tại, chương trình khuyến mại đang áp dụng; Bước 3 tạo yêu cầu thanh toán với số tiền = giá gói – giảm giá khuyến mại.</p><p><b>State diagram</b>: N/A, vì tiến trình chỉ tạo bản ghi ở một trạng thái.</p>{{img:L16-img7}}<p><b>Data flow diagram</b>: đọc từ Nhà hàng, Gói SP của nhà hàng, Danh mục gói sản phẩm, CTKM; ghi vào Yêu cầu thanh toán.</p><p class='note'>Template ghi điều kiện quét theo mốc “ngày hiện tại trừ 10”. Bảng trên chỉ tóm ý; khi viết thật cần ghi công thức chính xác, vì dev sẽ code đúng theo đó.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.21; FSD_Template.docx mục 3.1"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L16-p1",
+   "title": "Viết mục BRD 4.2–4.3: Phạm vi và Giả định (quản lý thư viện)",
+   "task": "<p>Một trường muốn xây hệ thống <b>quản lý thư viện</b> (ví dụ): bạn đọc tra cứu sách online, đặt mượn trước, thủ thư quản lý mượn trả và nhắc hạn. Ngân sách giai đoạn 1 có hạn, trường đã có sẵn phần mềm kế toán riêng. Hãy viết mục <b>4.2 Phạm vi dự án</b> và <b>4.3 Giả định</b> của BRD.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Liệt kê việc trong phạm vi.</b> Đọc lại nhu cầu, mỗi nhu cầu thành một gạch đầu dòng “Bao gồm”: tra cứu sách, đặt mượn trước, quản lý mượn trả, nhắc hạn trả.</p>",
+    "<p><b>Bước 2 – Liệt kê việc ngoài phạm vi.</b> Tìm thứ dễ bị yêu cầu thêm nhưng không làm ở giai đoạn này, ghi kèm lý do: phần kế toán (đã có phần mềm riêng), mua sách/nhập kho (để phase sau)…</p>",
+    "<p><b>Bước 3 – Ghi căn cứ.</b> Nêu phạm vi dựa trên ngân sách, nguồn lực, timeline đã được stakeholder duyệt, để chặn thay đổi scope liên tục.</p>",
+    "<p><b>Bước 4 – Viết giả định.</b> Tìm những điều bạn đang coi là đúng mà nếu sai thì dự án bị ảnh hưởng: về người dùng, thiết bị, mạng, dữ liệu đầu vào.</p>",
+    "<p><b>Bước 5 – Tự kiểm.</b> Mỗi giả định có thể kiểm chứng được không? Mục “không bao gồm” đã có lý do chưa?</p>"
+   ],
+   "answer": "<h5>4.2 Phạm vi dự án (ví dụ)</h5><p>Tài liệu áp dụng cho hệ thống Quản lý thư viện giai đoạn 1, theo ngân sách và timeline đã được Ban giám hiệu phê duyệt.</p><ul><li><b>Bao gồm</b>:<ul><li>Bạn đọc tra cứu sách và tình trạng sách online.</li><li>Bạn đọc đặt mượn trước, thủ thư xác nhận.</li><li>Thủ thư ghi nhận mượn, trả, gia hạn.</li><li>Hệ thống nhắc hạn trả qua email.</li></ul></li><li><b>Không bao gồm</b>:<ul><li>Thu phí phạt và hạch toán (đã có phần mềm kế toán riêng).</li><li>Quy trình mua sách, nhập kho (dự kiến phase 2).</li></ul></li></ul><h5>4.3 Giả định (ví dụ)</h5><ul><li>Mỗi đầu sách đã có mã vạch hoặc mã định danh duy nhất.</li><li>Bạn đọc đều có email trường để nhận thông báo.</li><li>Thư viện có mạng internet ổn định trong giờ mở cửa.</li><li>Thủ thư biết dùng máy tính ở mức cơ bản.</li></ul>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.7; BRD_Template.docx mục 4.2-4.3"
+  },
+  {
+   "id": "L16-p2",
+   "title": "Viết mục SRS 4 và 9.1: Người dùng và Phân hệ (hệ thống đặt đồ ăn)",
+   "task": "<p>Hệ thống <b>đặt đồ ăn</b> (ví dụ): khách đặt món trên app, nhà hàng nhận đơn trên web, shipper nhận đơn trên app riêng, quản trị viên quản lý nhà hàng đối tác. Hệ thống nhận kết quả thanh toán từ ví điện tử và tự hủy đơn nếu nhà hàng không xác nhận trong 10 phút. Hãy viết mục <b>4. Danh sách đối tượng người dùng</b> và <b>9.1 Danh sách phân hệ</b> của SRS.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Tìm actor là người.</b> Gạch chân mọi danh từ chỉ người dùng hệ thống: khách hàng, nhân viên nhà hàng, shipper, quản trị viên.</p>",
+    "<p><b>Bước 2 – Viết bảng Tên đối tượng – Mô tả.</b> Mỗi dòng nói đối tượng đó làm gì trên hệ thống, không phải họ là ai ngoài đời.</p>",
+    "<p><b>Bước 3 – Gom chức năng theo kênh.</b> Mỗi ứng dụng riêng (app khách, web nhà hàng, app shipper, web admin) là một phân hệ.</p>",
+    "<p><b>Bước 4 – Thêm phân hệ không có người dùng.</b> Phần nhận kết quả từ ví điện tử → phân hệ API. Việc tự hủy đơn → phân hệ Tiến trình.</p>",
+    "<p><b>Bước 5 – Điền bảng STT – Kênh – Actor – Mô tả.</b> Kiểm tra mỗi đối tượng ở mục 4 đều xuất hiện ít nhất ở một phân hệ.</p>"
+   ],
+   "answer": "<h5>4. Đối tượng sử dụng (ví dụ)</h5><table><thead><tr><th>Tên đối tượng</th><th>Mô tả</th></tr></thead><tbody><tr><td>Khách hàng</td><td>Tìm món, đặt món, thanh toán, theo dõi đơn</td></tr><tr><td>NV nhà hàng</td><td>Nhận đơn, xác nhận hoặc từ chối, cập nhật trạng thái chuẩn bị món</td></tr><tr><td>Shipper</td><td>Nhận đơn giao, cập nhật trạng thái giao hàng</td></tr><tr><td>Quản trị viên</td><td>Quản lý nhà hàng đối tác, tài khoản, báo cáo</td></tr></tbody></table><h5>9.1 Danh sách phân hệ (ví dụ)</h5><table><thead><tr><th>STT</th><th>Kênh</th><th>Actor</th><th>Mô tả</th></tr></thead><tbody><tr><td>1</td><td>Mobile app khách hàng</td><td>Khách hàng</td><td>Tìm món, đặt món, thanh toán, theo dõi đơn</td></tr><tr><td>2</td><td>Web nhà hàng</td><td>NV nhà hàng</td><td>Quản lý đơn, thực đơn của nhà hàng</td></tr><tr><td>3</td><td>Mobile app shipper</td><td>Shipper</td><td>Nhận và giao đơn</td></tr><tr><td>4</td><td>Web admin</td><td>Quản trị viên</td><td>Quản lý đối tác, tài khoản, báo cáo</td></tr><tr><td>5</td><td>API</td><td></td><td>Nhận kết quả thanh toán từ ví điện tử</td></tr><tr><td>6</td><td>Tiến trình</td><td></td><td>Tự hủy đơn khi nhà hàng không xác nhận sau 10 phút</td></tr></tbody></table>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.8; SRS_Template.docx mục IV, IX"
+  },
+  {
+   "id": "L16-p3",
+   "title": "Viết FSD dạng tìm kiếm/danh sách: Tra cứu sách",
+   "task": "<p>Viết đặc tả FSD cho chức năng <b>Tra cứu sách</b> của bạn đọc trong hệ thống quản lý thư viện (ví dụ). Cần đủ 4 mục: Mô tả chung, Màn hình (mô tả bằng lời), Mô tả màn hình, Business Rule.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Mô tả chung.</b> Điền đủ các dòng: tên, mô tả, tác nhân, điều kiện kích hoạt, điều kiện trước, điều kiện sau, luồng cơ bản, luồng thay thế, luồng ngoại lệ.</p>",
+    "<p><b>Bước 2 – Chọn tiêu chí tìm kiếm.</b> Bạn đọc thường biết gì về cuốn sách? Tên sách, tác giả, thể loại. Không đưa quá nhiều ô.</p>",
+    "<p><b>Bước 3 – Mô tả màn hình.</b> Đánh số control, mỗi dòng ghi STT – Tên – Loại – Req – Mô tả (định dạng, mặc định, độ dài).</p>",
+    "<p><b>Bước 4 – Business Rule.</b> Trả lời 3 câu: AND hay OR, sắp xếp thế nào, màn hình mặc định hiện gì. Thêm câu thông báo khi không có kết quả.</p>"
+   ],
+   "answer": "<h5>1. Mô tả chung</h5><table><tbody><tr><th>Tên chức năng</th><td>Tra cứu sách</td></tr><tr><th>Mô tả</th><td>Bạn đọc tìm sách và xem tình trạng còn/hết</td></tr><tr><th>Tác nhân</th><td>Bạn đọc</td></tr><tr><th>Điều kiện kích hoạt</th><td>Chọn menu Tra cứu</td></tr><tr><th>Điều kiện trước</th><td>Đã đăng nhập</td></tr><tr><th>Điều kiện sau</th><td>Hiển thị danh sách sách theo tiêu chí</td></tr><tr><th>Luồng cơ bản</th><td>1. Chọn menu → 2. Hệ thống hiện danh sách mặc định → 3. Nhập tiêu chí → 4. Hệ thống hiện kết quả</td></tr><tr><th>Luồng thay thế / ngoại lệ</th><td>N/A</td></tr></tbody></table><h5>2. Màn hình</h5><p>Phía trên là ô tìm kiếm và 2 bộ lọc; phía dưới là lưới kết quả.</p><h5>3. Mô tả màn hình</h5><table><thead><tr><th>STT</th><th>Tên</th><th>Loại</th><th>Req</th><th>Mô tả</th></tr></thead><tbody><tr><td>1</td><td>Từ khóa</td><td>Textbox</td><td></td><td>Nhập tên sách hoặc tác giả, tối đa 100 ký tự</td></tr><tr><td>2</td><td>Thể loại</td><td>List</td><td></td><td>Danh mục thể loại, mặc định Tất cả</td></tr><tr><td>3</td><td>Tình trạng</td><td>List</td><td></td><td>Tất cả / Còn sách / Hết sách, mặc định Tất cả</td></tr><tr><td>4</td><td>Tìm kiếm</td><td>Button</td><td></td><td>Thực hiện tìm theo tiêu chí</td></tr><tr><td>5</td><td>Lưới kết quả</td><td>Grid</td><td></td><td>Mã sách, tên sách, tác giả, thể loại, số bản còn</td></tr></tbody></table><h5>4. Business Rule</h5><table><thead><tr><th>ID</th><th>Rule</th><th>Chi tiết</th><th>Thông báo</th></tr></thead><tbody><tr><td>BR1</td><td>Tìm kiếm</td><td>AND các tiêu chí; trường chọn Tất cả hoặc để trống thì bỏ qua; từ khóa tìm gần đúng (LIKE) trên tên sách hoặc tác giả, không phân biệt hoa thường</td><td>Không có kết quả: “Không tìm thấy sách phù hợp”</td></tr><tr><td>BR2</td><td>Sắp xếp</td><td>Theo tên sách tăng dần</td><td></td></tr><tr><td>BR3</td><td>Mặc định</td><td>Hiển thị toàn bộ sách đang lưu hành, 20 dòng/trang</td><td></td></tr></tbody></table>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.10; FSD_Template.docx mục 1.1"
+  },
+  {
+   "id": "L16-p4",
+   "title": "Viết FSD dạng API do mình đặc tả: API tra cứu trạng thái đơn",
+   "task": "<p>Hệ thống đặt đồ ăn (ví dụ) cung cấp API cho đối tác giao hàng tra cứu trạng thái một đơn. Viết các mục: Mô tả chung, Luồng hoạt động (bằng chữ), Thông tin đầu vào, Thông tin đầu ra, Danh sách mã lỗi.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Mô tả chung.</b> Điền Tên UC, Mục đích, Đối tượng sử dụng, Post-condition.</p>",
+    "<p><b>Bước 2 – Luồng hoạt động.</b> Liệt kê các bước server kiểm tra theo thứ tự, mỗi bước gắn với một lỗi có thể xảy ra.</p>",
+    "<p><b>Bước 3 – Đầu vào.</b> Có đủ mã đối tác (bên gọi), mã định danh địa điểm (nếu có), mã yêu cầu chưa? Ghi Require, Length, ràng buộc.</p>",
+    "<p><b>Bước 4 – Đầu ra.</b> Có mã xử lý bên mình, mã đối tác, mã lỗi, mô tả lỗi chưa?</p>",
+    "<p><b>Bước 5 – Danh sách mã lỗi.</b> Mỗi bước kiểm tra ở Bước 2 ứng với một dòng lỗi, cộng dòng Thành công.</p>"
+   ],
+   "answer": "<h5>Mô tả chung</h5><p>Tên UC: API tra cứu trạng thái đơn. Mục đích: cho đối tác giao hàng biết trạng thái hiện tại của đơn. Đối tượng: đối tác giao hàng đã ký kết. Post-condition: trả về trạng thái đơn hoặc mã lỗi.</p><h5>Luồng hoạt động</h5><ol><li>Nhận yêu cầu.</li><li>Kiểm tra mã đối tác tồn tại và đang hoạt động.</li><li>Kiểm tra mã đơn tồn tại.</li><li>Kiểm tra đơn được giao cho đúng đối tác này.</li><li>Trả về trạng thái đơn.</li></ol><h5>Thông tin đầu vào</h5><table><thead><tr><th>Thông tin</th><th>Require</th><th>Length</th><th>Ràng buộc</th></tr></thead><tbody><tr><td>Mã đối tác</td><td>Yes</td><td>20</td><td>Do hệ thống cấp cho đối tác</td></tr><tr><td>Mã yêu cầu</td><td>Yes</td><td>36</td><td>Duy nhất cho mỗi lần gọi</td></tr><tr><td>Mã đơn</td><td>Yes</td><td>20</td><td>Mã đơn trên hệ thống</td></tr></tbody></table><h5>Thông tin đầu ra</h5><p>Mã đối tác, mã yêu cầu, mã đơn, trạng thái đơn, mã lỗi, mô tả lỗi.</p><h5>Danh sách mã lỗi</h5><table><thead><tr><th>Trường hợp</th><th>Mã lỗi</th><th>Mô tả lỗi</th></tr></thead><tbody><tr><td>Thành công</td><td>00</td><td>Thành công</td></tr><tr><td>Mã đối tác không tồn tại hoặc không hoạt động</td><td>01</td><td>Mã đối tác không hợp lệ</td></tr><tr><td>Mã đơn không tồn tại</td><td>02</td><td>Đơn hàng không tồn tại</td></tr><tr><td>Đơn không thuộc đối tác</td><td>03</td><td>Đối tác không có quyền với đơn này</td></tr></tbody></table>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.18-19; FSD_Template.docx mục 2.1"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L16-x1",
+   "title": "Sửa lỗi dấu câu trong tài liệu",
+   "level": "de",
+   "task": "<p>Sửa các câu sau cho đúng quy tắc dấu câu đã học:</p><ol><li>Hệ thống gửi email xác nhận .Khách hàng kiểm tra hộp thư.</li><li>Các trạng thái gồm : Chờ xác nhận , Đang giao , Đã giao.</li><li>Ngày hiệu lực 01 / 12 / 2025.</li><li>Bàn số 5 ( khu VIP ) đã được đặt.</li><li>Đơn hàng … đã bị hủy!</li></ol>",
+   "hints": [
+    "<p>Dấu chấm, phẩy, hai chấm đặt sát chữ trước và có dấu cách sau.</p>",
+    "<p>Ngoặc ôm sát nội dung bên trong; gạch xéo không có dấu cách; dấu ba chấm không có dấu cách phía trước.</p>"
+   ],
+   "answer": "<ol><li>Hệ thống gửi email xác nhận. Khách hàng kiểm tra hộp thư.</li><li>Các trạng thái gồm: Chờ xác nhận, Đang giao, Đã giao.</li><li>Ngày hiệu lực 01/12/2025.</li><li>Bàn số 5 (khu VIP) đã được đặt.</li><li>Đơn hàng… đã bị hủy!</li></ol><p>Câu 2: sau dấu hai chấm là một danh sách, không phải câu hoàn chỉnh, nhưng “Chờ xác nhận” là tên trạng thái nên vẫn viết hoa như tên riêng.</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.24-29"
+  },
+  {
+   "id": "L16-x2",
+   "title": "Xếp mục vào đúng tài liệu",
+   "level": "de",
+   "task": "<p>Mỗi mục sau thường nằm ở BRD, SRS hay FSD (theo template của khóa)?</p><ol><li>Roadmap sản phẩm</li><li>Mô hình thực thể (ERD)</li><li>Danh sách mã lỗi của API đặt bàn</li><li>Quy trình nghiệp vụ hiện tại và các vấn đề gặp phải</li><li>Mô hình tổng quan sản phẩm</li><li>Mô tả màn hình (STT – Tên – Loại – Req – Mô tả)</li><li>Giả định và Rủi ro</li><li>Danh sách tiến trình</li><li>Data flow diagram của tiến trình charge phí</li></ol>",
+   "hints": [
+    "<p>Hỏi: mục này trả lời “cần gì”, “làm gì” hay “làm thế nào”?</p>",
+    "<p>SRS chỉ liệt kê API và tiến trình; FSD mới mô tả chi tiết từng cái.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Mục</th><th>Tài liệu</th></tr></thead><tbody><tr><td>1. Roadmap sản phẩm</td><td>BRD</td></tr><tr><td>2. ERD</td><td>SRS</td></tr><tr><td>3. Mã lỗi API đặt bàn</td><td>FSD</td></tr><tr><td>4. Quy trình hiện tại và vấn đề</td><td>BRD</td></tr><tr><td>5. Mô hình tổng quan sản phẩm</td><td>SRS</td></tr><tr><td>6. Mô tả màn hình</td><td>FSD</td></tr><tr><td>7. Giả định, Rủi ro</td><td>BRD</td></tr><tr><td>8. Danh sách tiến trình</td><td>SRS</td></tr><tr><td>9. Data flow diagram tiến trình</td><td>FSD</td></tr></tbody></table>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.7-9, 21-22"
+  },
+  {
+   "id": "L16-x3",
+   "title": "Chọn dạng FSD cho các chức năng SolasMart",
+   "level": "tb",
+   "task": "<p>Chuỗi bán lẻ <b>SolasMart</b> cần các chức năng sau (ví dụ). Với mỗi chức năng, chọn dạng FSD (1–11) và nêu một mục bắt buộc đặc trưng của dạng đó.</p><ol><li>Nhân viên quầy tra cứu sản phẩm theo mã vạch hoặc tên.</li><li>Quản lý kho thêm/sửa/xóa danh mục đơn vị tính.</li><li>Quản lý kho tải file excel danh sách hàng nhập.</li><li>Giám đốc xem báo cáo doanh thu theo cửa hàng và xuất excel.</li><li>Đơn online gọi đơn vị giao hàng để lấy phí ship.</li><li>Ví điện tử gửi kết quả thanh toán về SolasMart theo format của ví.</li><li>Mỗi đêm hệ thống tự khóa các phiếu giảm giá hết hạn.</li><li>Nhân viên quầy lập hóa đơn: quét hàng, áp khuyến mại, tính tiền, trừ tồn kho, in hóa đơn.</li></ol>",
+   "hints": [
+    "<p>Ai kích hoạt: người dùng, hệ thống khác, hay lịch chạy?</p>",
+    "<p>Chức năng 8 có nhiều bước xử lý trên server; chức năng 6 có format do đối tác quy định.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Chức năng</th><th>Dạng</th><th>Mục đặc trưng</th></tr></thead><tbody><tr><td>1. Tra cứu sản phẩm</td><td>1 – Tìm kiếm/danh sách</td><td>Business Rule: AND/OR, sắp xếp, mặc định</td></tr><tr><td>2. Danh mục đơn vị tính</td><td>4 – CRUD danh mục đầu vào</td><td>Gộp 5 chức năng vào 1 mục; chỉ mô tả màn hình danh sách và thêm mới</td></tr><tr><td>3. Tải file hàng nhập</td><td>5 – Import</td><td>Quy định file import và file trả kết quả</td></tr><tr><td>4. Báo cáo doanh thu</td><td>6 – Báo cáo, xuất excel</td><td>Công thức tính, template excel</td></tr><tr><td>5. Lấy phí ship</td><td>7 – Tích hợp API với bên khác</td><td>Sequence diagram, mapping dữ liệu và kết quả</td></tr><tr><td>6. Nhận kết quả thanh toán</td><td>9 – API do bên khác đặc tả</td><td>Ghi rõ từng trường hợp trả mã lỗi nào theo yêu cầu đối tác</td></tr><tr><td>7. Khóa phiếu hết hạn</td><td>10 – Tiến trình đơn giản</td><td>Tần suất, điều kiện quét; luồng viết bằng chữ</td></tr><tr><td>8. Lập hóa đơn</td><td>3 – Đầy đủ</td><td>Activity diagram và mô tả các bước kiểm tra trên server</td></tr></tbody></table>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.9-22"
+  },
+  {
+   "id": "L16-x4",
+   "title": "Viết quy định file import danh sách sản phẩm",
+   "level": "tb",
+   "task": "<p>SolasMart (ví dụ) cần chức năng <b>Import danh sách sản phẩm</b> từ file excel. Hãy viết mục “Quy định về file import và Business Rule”: định dạng, kích thước, số dòng, bảng trường, quy định file trả kết quả và bảng lỗi. Các trường: mã sản phẩm, tên sản phẩm, đơn vị tính, giá bán, mã nhóm hàng.</p>",
+   "hints": [
+    "<p>Màn hình phải có chỗ tải file mẫu.</p>",
+    "<p>Bảng trường có cột Tên trường – Require – Maxlength – Mô tả và ràng buộc – Business Rule.</p>",
+    "<p>File trả ra: đặt tên thế nào, thêm cột gì, các trường hợp lỗi nào?</p>"
+   ],
+   "answer": "<ul><li>Loại file xlsx, tối đa 3MB, tối đa 500 dòng dữ liệu (không tính header). Màn hình có link tải file mẫu.</li></ul><table><thead><tr><th>Tên trường</th><th>Require</th><th>Maxlength</th><th>Mô tả và ràng buộc</th><th>Business Rule</th></tr></thead><tbody><tr><td>Mã sản phẩm</td><td>Yes</td><td>20</td><td>Chữ, số, ký tự - và _; trùng trong file thì chỉ ghi nhận 1 dòng</td><td>Duy nhất trên hệ thống</td></tr><tr><td>Tên sản phẩm</td><td>Yes</td><td>200</td><td>Tên hiển thị</td><td></td></tr><tr><td>Đơn vị tính</td><td>Yes</td><td>20</td><td>Theo danh mục đơn vị tính</td><td>Phải tồn tại và đang hoạt động</td></tr><tr><td>Giá bán</td><td>Yes</td><td>12</td><td>Số nguyên dương</td><td></td></tr><tr><td>Mã nhóm hàng</td><td>Yes</td><td>10</td><td>Theo danh mục nhóm hàng</td><td>Phải tồn tại và đang hoạt động</td></tr></tbody></table><p><b>File trả kết quả</b>: cùng tên file đã import, thêm đuôi _result; bổ sung 2 cột Kết quả (Thành công/Thất bại) và Mô tả lỗi.</p><table><thead><tr><th>Trường hợp</th><th>Mô tả lỗi</th></tr></thead><tbody><tr><td>Bỏ trống trường bắt buộc</td><td>[Danh sách trường] không được để trống</td></tr><tr><td>Mã sản phẩm đã tồn tại</td><td>Mã sản phẩm đã tồn tại trên hệ thống</td></tr><tr><td>Đơn vị tính hoặc nhóm hàng không hợp lệ</td><td>Đơn vị tính/Mã nhóm hàng không hợp lệ</td></tr><tr><td>Giá bán không phải số nguyên dương</td><td>Giá bán không hợp lệ</td></tr></tbody></table>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.14; FSD_Template.docx mục 1.5"
+  },
+  {
+   "id": "L16-x5",
+   "title": "Viết Business Rule cho báo cáo doanh thu theo ca",
+   "level": "tb",
+   "task": "<p>Quản lý cửa hàng SolasMart (ví dụ) muốn xem <b>báo cáo doanh thu theo ca</b> tại quầy và xuất excel. Đầu vào: cửa hàng, từ ngày, đến ngày, ca. Đầu ra: mỗi dòng là một ca với số hóa đơn, tổng tiền hàng, tổng giảm giá, doanh thu thuần. Viết bảng Business Rule.</p>",
+   "hints": [
+    "<p>Mỗi giá trị trên báo cáo cần nói rõ công thức và lấy dữ liệu từ đâu, điều kiện gì.</p>",
+    "<p>Đừng quên quyền của user, template excel, và trường hợp không có dữ liệu.</p>"
+   ],
+   "answer": "<table><thead><tr><th>ID</th><th>Rule</th><th>Chi tiết</th><th>Thông báo</th></tr></thead><tbody><tr><td>BR1</td><td>Lọc dữ liệu</td><td>Lấy hóa đơn trạng thái Đã thanh toán, thuộc cửa hàng đã chọn, ngày lập trong khoảng từ ngày – đến ngày, thuộc ca đã chọn (Tất cả thì lấy mọi ca)</td><td>Không có dữ liệu: “Không có dữ liệu trong khoảng thời gian đã chọn”</td></tr><tr><td>BR2</td><td>Số hóa đơn</td><td>Đếm số hóa đơn thỏa BR1 theo từng ca</td><td></td></tr><tr><td>BR3</td><td>Tổng tiền hàng</td><td>Tổng (số lượng × đơn giá) các dòng hàng trên hóa đơn thỏa BR1</td><td></td></tr><tr><td>BR4</td><td>Tổng giảm giá</td><td>Tổng tiền khuyến mại đã áp trên các hóa đơn thỏa BR1</td><td></td></tr><tr><td>BR5</td><td>Doanh thu thuần</td><td>Tổng tiền hàng – Tổng giảm giá</td><td></td></tr><tr><td>BR6</td><td>Quyền</td><td>User có quyền xem báo cáo, đang hoạt động và thuộc cửa hàng đã chọn</td><td>“Bạn không có quyền thực hiện hành động này”</td></tr><tr><td>BR7</td><td>Xuất excel</td><td>Theo template mẫu đính kèm; các cột giống lưới trên màn hình</td><td></td></tr></tbody></table>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.15; FSD_Template.docx mục 1.6"
+  },
+  {
+   "id": "L16-x6",
+   "title": "Tình huống tổng hợp: thanh toán online FoodNow từ BRD đến FSD",
+   "level": "kho",
+   "task": "<p>FoodNow (ví dụ) muốn khách thanh toán tại bàn bằng QR ví điện tử. Ví điện tử là đối tác có sẵn đặc tả API: FoodNow gửi yêu cầu tạo QR, sau đó ví gửi kết quả thanh toán về. Hãy phác thảo nội dung cho từng tài liệu:</p><ol><li>BRD: một dòng yêu cầu chức năng (Req#, ưu tiên, yêu cầu, mô tả, chức năng, ràng buộc) và một NFR.</li><li>SRS: phân hệ nào có chức năng mới, API nào, trạng thái nào của thực thể Đặt bàn liên quan.</li><li>FSD: chọn dạng cho chức năng “Tạo QR” và “Nhận kết quả thanh toán”; nêu các điểm phải viết cho từng chức năng.</li></ol>",
+   "hints": [
+    "<p>Tạo QR: người dùng là NV phục vụ, server xử lý nhiều bước và gọi sang ví.</p>",
+    "<p>Nhận kết quả: ví gọi vào FoodNow theo format của ví.</p>",
+    "<p>Nhớ mapping kết quả thành công/thất bại/timeout và kiểm tra trạng thái Chờ thanh toán.</p>"
+   ],
+   "answer": "<h5>1. BRD</h5><table><thead><tr><th>Req#</th><th>Ưu tiên</th><th>Yêu cầu</th><th>Mô tả</th><th>Chức năng</th><th>Ràng buộc</th></tr></thead><tbody><tr><td>FR-PV-010</td><td>1</td><td>Thanh toán QR tại bàn</td><td>Cho phép khách thanh toán bằng QR ví điện tử ngay tại bàn</td><td>Tạo QR; nhận kết quả thanh toán; xem trạng thái thanh toán</td><td>Chỉ áp dụng cho đơn đang Chờ thanh toán</td></tr></tbody></table><p>NFR (ví dụ): kết quả thanh toán hiển thị trên app phục vụ trong vòng vài giây sau khi ví xác nhận.</p><h5>2. SRS</h5><ul><li>Mobile app phục vụ: thêm chức năng “Tạo QR thanh toán”.</li><li>Phân hệ API: “API cập nhật kết quả thanh toán” cho cổng thanh toán gọi vào.</li><li>Mô hình tổng quan: khối cổng thanh toán bên ngoài.</li><li>Biểu đồ trạng thái Đặt bàn: Chờ thanh toán → Đã thanh toán.</li></ul><h5>3. FSD</h5><table><thead><tr><th>Chức năng</th><th>Dạng</th><th>Điểm phải viết</th></tr></thead><tbody><tr><td>Tạo QR</td><td>3 – Đầy đủ (có gọi đối tác, cũng có thể đặc tả theo dạng 7)</td><td>Activity diagram; kiểm tra trên server: đơn đang Chờ thanh toán, thuộc nhà hàng của user, nhà hàng và user đang hoạt động; tham số gửi sang ví lấy từ trường nào (mã đối tác, mã cửa hàng, số tiền có/không VAT, mã giao dịch); mapping kết quả thành công/thất bại/timeout; thông báo cho từng lỗi</td></tr><tr><td>Nhận kết quả thanh toán</td><td>9 – API do bên khác đặc tả</td><td>Luồng kiểm tra: checksum, mã nhà hàng/chi nhánh, mã giao dịch tồn tại, số tiền khớp, đơn đang Chờ thanh toán; đầu vào/đầu ra dẫn tới đặc tả của ví; bảng trường hợp → mã lỗi theo quy định của ví</td></tr></tbody></table>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.6-20; FSD_Template.docx mục 1.3, 2.2"
+  },
+  {
+   "id": "L16-x7",
+   "title": "Đặc tả tiến trình tự hủy đặt bàn",
+   "level": "kho",
+   "task": "<p>SRS FoodNow có “Tiến trình hủy đặt bàn khi khách không tới quá X phút so với giờ hẹn”. Viết FSD cho tiến trình này: Mô tả chung (tên, mục đích, tần suất, điều kiện quét, post-condition), có cần state diagram không và vì sao, luồng hoạt động, data flow diagram (mô tả bằng lời).</p>",
+   "hints": [
+    "<p>Xem biểu đồ trạng thái Đặt bàn ở mục SRS: trạng thái nào bị quét, chuyển sang trạng thái nào?</p>",
+    "<p>Đếm số trạng thái tham gia để quyết định có vẽ state diagram.</p>",
+    "<p>Data flow: đọc từ đâu (đặt bàn, cấu hình X của nhà hàng), ghi vào đâu?</p>"
+   ],
+   "answer": "<h5>Mô tả chung</h5><table><tbody><tr><th>Tên</th><td>Tiến trình tự hủy đặt bàn</td></tr><tr><th>Mục đích</th><td>Giải phóng bàn khi khách đặt trước không tới</td></tr><tr><th>Tần suất</th><td>Ví dụ: 5 phút/lần trong giờ mở cửa</td></tr><tr><th>Điều kiện quét</th><td>Đặt bàn ở trạng thái Đặt bàn thành công, có giờ hẹn + X phút nhỏ hơn thời gian hiện tại; X lấy theo cấu hình của từng nhà hàng</td></tr><tr><th>Post-condition</th><td>Đặt bàn chuyển sang Đã hủy, bàn trở về trống</td></tr></tbody></table><h5>State diagram</h5><p>Tiến trình chỉ chuyển một trạng thái (Đặt bàn thành công → Đã hủy), không đi qua tối thiểu 3 trạng thái, nên có thể ghi N/A và dẫn tới biểu đồ trạng thái Đặt bàn trong SRS.</p><h5>Luồng hoạt động (bằng chữ, vì đơn giản)</h5><ol><li>Lấy cấu hình X của từng nhà hàng.</li><li>Quét đặt bàn thỏa điều kiện.</li><li>Cập nhật trạng thái Đã hủy, ghi lý do “Tự hủy do khách không tới”.</li><li>Giải phóng các bàn trong lượt đặt.</li></ol><h5>Data flow diagram</h5><p>Đọc từ kho Đặt bàn, Chi tiết bàn và Config nhà hàng; ghi lại vào Đặt bàn (trạng thái) và Chi tiết bàn (giải phóng bàn).</p>",
+   "src": "16. Cac loai tai lieu BA.pdf tr.21; SRS_Template.docx mục VIII, 9.6"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L16-f1",
+   "front": "Ba mục tiêu của tài liệu BA",
+   "back": "<p>1) Chuyển ngôn ngữ nghiệp vụ sang ngôn ngữ kỹ thuật dễ hiểu. 2) Đảm bảo các bên hiểu đúng và đủ yêu cầu. 3) Làm căn cứ cho thiết kế, phát triển, kiểm thử, nghiệm thu.</p><p class='tip'>Nhớ: Dịch – Thống nhất – Làm căn cứ.</p>"
+  },
+  {
+   "id": "L16-f2",
+   "front": "BRD (Business Requirements Document)",
+   "back": "<p>Tài liệu yêu cầu nghiệp vụ. Trả lời “Doanh nghiệp cần gì?”. BA tạo, phối hợp với khách hàng; khách hàng, quản lý cấp cao và BA dùng. Viết ở giai đoạn phân tích.</p>"
+  },
+  {
+   "id": "L16-f3",
+   "front": "SRS (Software/System Requirements Specification)",
+   "back": "<p>Tài liệu đặc tả yêu cầu hệ thống. Trả lời “Hệ thống sẽ làm gì để đáp ứng nhu cầu?”. Đầu vào: BRD và yêu cầu phát sinh. Viết sau khi BRD được duyệt. Người dùng: quản lý dự án, team dự án.</p>"
+  },
+  {
+   "id": "L16-f4",
+   "front": "FSD (Functional Specifications Document)",
+   "back": "<p>Tài liệu đặc tả chức năng, tên khác FRS, FS, PS. Trả lời “Mỗi chức năng hoạt động ra sao?”. Đầu vào: SRS, bản thiết kế. Viết ở giai đoạn thiết kế chi tiết, team dự án dùng.</p>"
+  },
+  {
+   "id": "L16-f5",
+   "front": "Test Case và User manual",
+   "back": "<p>Test Case: tài liệu kiểm thử, gồm các bước và kết quả mong đợi. User manual: tài liệu hướng dẫn sử dụng cho người dùng cuối. Cả hai nằm trong 5 loại tài liệu trên slide.</p>"
+  },
+  {
+   "id": "L16-f6",
+   "front": "Thứ tự nối tiếp BRD, SRS, FSD",
+   "back": "<p>BRD → SRS → FSD. Đầu ra tài liệu trước là đầu vào tài liệu sau; càng về sau càng chi tiết. Mẹo: Cần gì → Làm gì → Làm thế nào.</p>"
+  },
+  {
+   "id": "L16-f7",
+   "front": "Lịch sử thay đổi (trong template)",
+   "back": "<p>Bảng 4 cột Ngày – Phiên bản – Người thực hiện – Mô tả. Mỗi lần sửa tài liệu thêm một dòng để truy được ai sửa gì, khi nào.</p>"
+  },
+  {
+   "id": "L16-f8",
+   "front": "Phê duyệt yêu cầu (trong template)",
+   "back": "<p>Bảng Họ tên – Chức danh – Chữ ký – Ngày của người duyệt tài liệu, ví dụ trưởng phòng nghiệp vụ, giám đốc CNTT, trưởng dự án, BA Lead. Là bằng chứng các bên đã đồng ý.</p>"
+  },
+  {
+   "id": "L16-f9",
+   "front": "BRD 4.2 Phạm vi dự án",
+   "back": "<p>Nêu việc nằm trong và không nằm trong dự án, dựa trên ngân sách, nguồn lực, timeline đã được stakeholder duyệt. Mục đích: tránh thay đổi scope liên tục.</p><p>Ví dụ: không bao gồm hệ thống bãi xe (mua gói riêng).</p>"
+  },
+  {
+   "id": "L16-f10",
+   "front": "BRD 4.3 Giả định",
+   "back": "<p>Những thông tin được coi là đúng, không cần chứng minh, có ảnh hưởng tới kết quả dự án. Ví dụ: nhân viên kỹ thuật đều có smartphone; mạng 3G/4G ở các tầng ổn định.</p>"
+  },
+  {
+   "id": "L16-f11",
+   "front": "BRD mục 6: Quy trình nghiệp vụ",
+   "back": "<p>6.1 Hiện tại: vẽ quy trình đang vận hành, mô tả bước, liệt kê vấn đề (ưu tiên, đề xuất giải pháp). 6.2 Đề xuất: vẽ quy trình theo giải pháp.</p>"
+  },
+  {
+   "id": "L16-f12",
+   "front": "Roadmap sản phẩm (BRD mục 8)",
+   "back": "<p>Chia giai đoạn Phase 1, 2, 3…, mỗi phase tập trung xử lý vấn đề gì; bảng Phase – Thời gian thực hiện – Đề xuất giải pháp.</p>"
+  },
+  {
+   "id": "L16-f13",
+   "front": "Bảng yêu cầu chức năng trong BRD",
+   "back": "<p>Cột: Req# – Độ ưu tiên – Yêu cầu – Mô tả – Chức năng – Một số ràng buộc; nhóm theo ứng dụng. Mã dạng FR-G-001. NFR có bảng ID – Yêu cầu, mã NFR-001.</p>"
+  },
+  {
+   "id": "L16-f14",
+   "front": "Mô hình tổng quan sản phẩm (SRS mục 5)",
+   "back": "<p>Sơ đồ actor – ứng dụng – hệ thống lõi – hệ thống bên ngoài, kèm bảng Tên thành phần – Mô tả. Ví dụ FoodNow: app phục vụ, web quản lý nhà hàng, web admin, cổng thanh toán, hệ thống đặt bàn.</p>"
+  },
+  {
+   "id": "L16-f15",
+   "front": "SRS mục 9: Biểu đồ phân rã chức năng",
+   "back": "<p>9.1 Danh sách chức năng theo kênh (web admin, web app, mobile app…); 9.2 Danh sách API nghiệp vụ; 9.3 Danh sách tiến trình. FoodNow có 5 phân hệ: app phục vụ, web quản lý, web admin, API, tiến trình.</p>"
+  },
+  {
+   "id": "L16-f16",
+   "front": "Ba nhóm chức năng trong FSD",
+   "back": "<p>Actor là End user (dạng 1–7), Dạng API (8–9), Dạng tiến trình (10–11).</p><p class='tip'>Hỏi “ai kích hoạt?”: người bấm, hệ thống khác gọi, hay lịch chạy.</p>"
+  },
+  {
+   "id": "L16-f17",
+   "front": "Bảng Mô tả chung của chức năng end user",
+   "back": "<p>Tên chức năng – Mô tả – Tác nhân – Điều kiện kích hoạt – Điều kiện trước – Điều kiện sau – Luồng cơ bản – Luồng thay thế – Luồng ngoại lệ. Giống một đặc tả use case rút gọn.</p>"
+  },
+  {
+   "id": "L16-f18",
+   "front": "Bảng Mô tả màn hình",
+   "back": "<p>Cột STT – Tên – Loại – Req* – Mô tả. STT khớp số đánh trên ảnh màn hình; Loại là Textbox, List, Label, Button…; Mô tả ghi định dạng, mặc định, độ dài.</p>"
+  },
+  {
+   "id": "L16-f19",
+   "front": "Bảng Business Rule trong FSD",
+   "back": "<p>Cột ID – Rule – Chi tiết rule – Thông báo. Ghi rule trên server: kiểm tra gì, hợp lệ thì xử lý gì; bỏ qua validate format, maxlength, require (đã ở Mô tả màn hình).</p>"
+  },
+  {
+   "id": "L16-f20",
+   "front": "Dạng 1 – Tìm kiếm/danh sách: Business Rule cần nêu",
+   "back": "<p>Tìm thỏa mọi điều kiện (AND) hay một trong các điều kiện (OR); thứ tự sắp xếp kết quả; dữ liệu ở màn hình mặc định. Chọn tiêu chí theo thông tin người dùng thường có, tránh nhiều ô.</p>"
+  },
+  {
+   "id": "L16-f21",
+   "front": "Dạng 2 – Chức năng đơn giản",
+   "back": "<p>Nhập form, submit, server validate rồi lưu hoặc không lưu. Không cần vẽ activity diagram; chỉ mô tả Business Rule: thông tin cần validate ở server và công thức (kèm cách lấy đầu vào).</p>"
+  },
+  {
+   "id": "L16-f22",
+   "front": "Dạng 3 – Chức năng đầy đủ",
+   "back": "<p>Thêm mục Activity diagram. Dùng khi client–server nhiều bước hoặc server xử lý nhiều bước. Nguyên tắc: server nhận thông tin nào mà nó có thì kiểm tra lại thông tin đó.</p>"
+  },
+  {
+   "id": "L16-f23",
+   "front": "Dạng 4 – CRUD danh mục đầu vào",
+   "back": "<p>Gộp 5 chức năng (danh sách/tìm kiếm, thêm, sửa, xem, xóa) vào 1 mục. Chỉ mô tả màn hình danh sách và thêm mới; xem chi tiết là read only, chỉnh sửa hiện giá trị hiện tại.</p>"
+  },
+  {
+   "id": "L16-f24",
+   "front": "Dạng 5 – Import: những gì phải quy định",
+   "back": "<p>File mẫu để tải về; định dạng, kích thước, số dòng; các trường (require, maxlength, định dạng, tập giá trị); file trả kết quả (tên file, cột kết quả, mô tả lỗi từng trường hợp).</p><p>Ví dụ: xlsx, 3MB, 500 dòng, file tên_result.</p>"
+  },
+  {
+   "id": "L16-f25",
+   "front": "Dạng 6 – Báo cáo, xuất excel",
+   "back": "<p>Hỏi stakeholder đầu vào và đầu ra mong muốn. Nêu rõ công thức, điều kiện lấy dữ liệu. Xuất excel cần template mẫu; file xuất thường giống giao diện, khác thì mô tả cụ thể.</p>"
+  },
+  {
+   "id": "L16-f26",
+   "front": "Dạng 7 – Tích hợp API với bên khác",
+   "back": "<p>Vẽ sequence diagram luồng tích hợp; mapping dữ liệu bên mình sang tham số đối tác; mapping kết quả trả về: thành công, thất bại, timeout. Nhiều luồng thì tách use case con.</p>"
+  },
+  {
+   "id": "L16-f27",
+   "front": "Dạng 8 – API do mình định nghĩa",
+   "back": "<p>Mục: Mô tả chung, luồng hoạt động, đầu vào, đầu ra, danh sách mã lỗi. Mình quy định tham số. Đầu vào: mã đối tác, mã địa điểm, mã yêu cầu. Đầu ra: mã xử lý, mã đối tác, mã địa điểm, mã lỗi, mô tả lỗi.</p>"
+  },
+  {
+   "id": "L16-f28",
+   "front": "Dạng 9 – API do bên khác đặc tả",
+   "back": "<p>Mình cung cấp API nhưng đầu vào, đầu ra, mã lỗi do đối tác định nghĩa trước. Phải ghi rõ từng trường hợp trả mã lỗi nào theo yêu cầu đối tác. Ví dụ: nhận kết quả thanh toán từ ví.</p>"
+  },
+  {
+   "id": "L16-f29",
+   "front": "Dạng 10 và 11 – Tiến trình",
+   "back": "<p>Mục: Mô tả chung (tần suất, điều kiện quét, post-condition), State diagram, Activity diagram, Data flow diagram. Đơn giản: luồng viết bằng chữ. Phức tạp: vẽ lưu đồ.</p>"
+  },
+  {
+   "id": "L16-f30",
+   "front": "Khi nào vẽ State diagram cho tiến trình?",
+   "back": "<p>Khi tiến trình đi qua tối thiểu 3 trạng thái. Ví dụ: quét yêu cầu trạng thái A, trường hợp 1 về B, trường hợp 2 về C.</p>"
+  },
+  {
+   "id": "L16-f31",
+   "front": "Data flow diagram (biểu đồ luồng dữ liệu)",
+   "back": "<p>Mô tả dữ liệu lấy ở đâu và sau khi xử lý xong lưu vào đâu. Ví dụ: tiến trình tạo yêu cầu thanh toán đọc Nhà hàng, Gói SP, CTKM; ghi Yêu cầu thanh toán.</p>"
+  },
+  {
+   "id": "L16-f32",
+   "front": "Cài đặt trang mặc định khi soạn tài liệu",
+   "back": "<p>A4, giấy dọc, lề trái 2,5 – phải 2 – trên 2 – dưới 2. Thiết kế header/footer trước. Dùng Modify Style để font, paragraph đồng bộ theo cấp độ.</p>"
+  },
+  {
+   "id": "L16-f33",
+   "front": "Quy tắc dấu chấm, phẩy, hai chấm",
+   "back": "<p>Đặt sát chữ trước, cách chữ sau một dấu cách: “đẹp. Tôi”, “nay, trời”, “lại: Em”. Sau dấu chấm viết hoa; sau dấu phẩy thường không.</p>"
+  },
+  {
+   "id": "L16-f34",
+   "front": "Quy tắc ngoặc, chấm lửng, gạch xéo",
+   "back": "<p>Ngoặc: cách bên ngoài, sát bên trong: “ta (Em và tôi) yêu”. Chấm lửng: không cách trước, có cách sau: “Em… thích”. Gạch xéo: không cách: 14/02/24.</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L16-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, ý nào <b>KHÔNG</b> phải là mục tiêu của tài liệu BA?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chuyển đổi ngôn ngữ nghiệp vụ sang ngôn ngữ kỹ thuật dễ hiểu"
+    },
+    {
+     "id": "b",
+     "t": "Đảm bảo các bên hiểu đúng và đủ yêu cầu"
+    },
+    {
+     "id": "c",
+     "t": "Thay thế hoàn toàn các buổi trao đổi với khách hàng"
+    },
+    {
+     "id": "d",
+     "t": "Làm căn cứ cho thiết kế, phát triển, kiểm thử và nghiệm thu"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide nêu 3 mục tiêu: dịch nghiệp vụ sang kỹ thuật, đảm bảo các bên hiểu đúng và đủ, làm căn cứ cho thiết kế – phát triển – kiểm thử – nghiệm thu. Tài liệu hỗ trợ giao tiếp chứ không thay thế giao tiếp.</p>",
+   "why_wrong": {
+    "a": "Đây là mục tiêu thứ nhất trên slide.",
+    "b": "Đây là mục tiêu thứ hai trên slide.",
+    "d": "Đây là mục tiêu thứ ba trên slide."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.4"
+  },
+  {
+   "id": "L16-q2",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>BRD trả lời cho câu hỏi nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hệ thống sẽ làm gì để đáp ứng nhu cầu đó?"
+    },
+    {
+     "id": "b",
+     "t": "Mỗi chức năng sẽ hoạt động ra sao?"
+    },
+    {
+     "id": "c",
+     "t": "Doanh nghiệp cần gì?"
+    },
+    {
+     "id": "d",
+     "t": "Dữ liệu được lưu trong những bảng nào?"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>BRD là tài liệu yêu cầu nghiệp vụ, trả lời “Doanh nghiệp cần gì?”. Mẹo: BRD – Cần gì, SRS – Làm gì, FSD – Làm thế nào.</p>",
+   "why_wrong": {
+    "a": "Đây là câu hỏi của SRS.",
+    "b": "Đây là câu hỏi của FSD.",
+    "d": "Đây là nội dung thiết kế dữ liệu, không phải câu hỏi BRD trả lời."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.6"
+  },
+  {
+   "id": "L16-q3",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo bảng so sánh trên slide, đầu vào để viết FSD là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thông tin khảo sát nghiệp vụ, phỏng vấn người dùng, mục tiêu kinh doanh"
+    },
+    {
+     "id": "b",
+     "t": "Tài liệu BRD và những yêu cầu phát sinh"
+    },
+    {
+     "id": "c",
+     "t": "Kết quả kiểm thử và phản hồi của người dùng cuối"
+    },
+    {
+     "id": "d",
+     "t": "Tài liệu SRS và bản thiết kế"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>FSD lấy đầu vào từ SRS và bản thiết kế. Chuỗi đầu vào: khảo sát → BRD → SRS → FSD.</p>",
+   "why_wrong": {
+    "a": "Đây là đầu vào của BRD.",
+    "b": "Đây là đầu vào của SRS.",
+    "c": "Kết quả kiểm thử có sau khi đã phát triển, không phải đầu vào của FSD."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.6"
+  },
+  {
+   "id": "L16-q4",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo slide, SRS nên được tạo ở giai đoạn đặc tả hệ thống, sau khi BRD được phê duyệt.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Dòng “Nên tạo khi nào?” của SRS ghi: giai đoạn đặc tả hệ thống – sau khi BRD được phê duyệt.</p>",
+   "why_wrong": {
+    "s": "Slide ghi rõ SRS tạo sau khi BRD được duyệt, vì BRD là đầu vào của SRS."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.6"
+  },
+  {
+   "id": "L16-q5",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Nhóm người nào sử dụng BRD theo bảng so sánh?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khách hàng, quản lý cấp cao và BA"
+    },
+    {
+     "id": "b",
+     "t": "Team dự án gồm lập trình viên và tester"
+    },
+    {
+     "id": "c",
+     "t": "Quản lý dự án và team dự án"
+    },
+    {
+     "id": "d",
+     "t": "Người dùng cuối cần hướng dẫn thao tác"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>BRD viết bằng ngôn ngữ nghiệp vụ nên người dùng là khách hàng, quản lý cấp cao và BA. Càng về sau (SRS, FSD), người đọc càng nghiêng về team kỹ thuật.</p>",
+   "why_wrong": {
+    "b": "Đây là người dùng của FSD.",
+    "c": "Đây là người dùng của SRS.",
+    "d": "Người dùng cuối đọc User manual, không phải BRD."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.6"
+  },
+  {
+   "id": "L16-q6",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Tên nào <b>KHÔNG</b> được slide nêu là tên khác của FSD?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "FRS – Functional Requirement Specifications"
+    },
+    {
+     "id": "b",
+     "t": "URS – User Requirement Specifications"
+    },
+    {
+     "id": "c",
+     "t": "FS – Functional Specifications"
+    },
+    {
+     "id": "d",
+     "t": "PS – Product Specifications"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide ghi FSD còn gọi là FRS, FS hoặc PS. URS là tài liệu yêu cầu người dùng, không nằm trong danh sách tên khác của FSD.</p>",
+   "why_wrong": {
+    "a": "FRS có trong danh sách tên khác của FSD.",
+    "c": "FS có trong danh sách tên khác của FSD.",
+    "d": "PS có trong danh sách tên khác của FSD."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.6"
+  },
+  {
+   "id": "L16-q7",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Những nội dung nào nằm trong mục <b>4. Tổng quan</b> của template BRD? (chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mục đích"
+    },
+    {
+     "id": "b",
+     "t": "Phạm vi dự án"
+    },
+    {
+     "id": "c",
+     "t": "Danh sách đối tượng người dùng"
+    },
+    {
+     "id": "d",
+     "t": "Giả định và Rủi ro"
+    },
+    {
+     "id": "e",
+     "t": "Roadmap sản phẩm"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Mục 4 Tổng quan gồm 4.1 Mục đích, 4.2 Phạm vi dự án, 4.3 Giả định, 4.4 Rủi ro.</p>",
+   "why_wrong": {
+    "c": "Danh sách đối tượng người dùng là mục 5 riêng.",
+    "e": "Roadmap sản phẩm là mục 8 riêng."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.7"
+  },
+  {
+   "id": "L16-q8",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Mục <b>Phạm vi dự án</b> trong BRD chủ yếu giúp dự án điều gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hạn chế thay đổi scope liên tục và yêu cầu ngoài dự án"
+    },
+    {
+     "id": "b",
+     "t": "Liệt kê tài liệu tham khảo và nơi lưu trữ của từng tài liệu"
+    },
+    {
+     "id": "c",
+     "t": "Mô tả chi tiết từng control trên màn hình của chức năng chính"
+    },
+    {
+     "id": "d",
+     "t": "Quy định các ký hiệu hình vẽ dùng thống nhất trong toàn tài liệu"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Phạm vi nêu việc làm và không làm, dựa trên ngân sách, nguồn lực, timeline đã duyệt, để giảm việc thay đổi scope liên tục và yêu cầu thêm chức năng ngoài dự án ban đầu.</p>",
+   "why_wrong": {
+    "b": "Đó là mục 1 Tài liệu liên quan.",
+    "c": "Mô tả control màn hình thuộc FSD.",
+    "d": "Đó là mục 2 Quy định về hình vẽ."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.7"
+  },
+  {
+   "id": "L16-q9",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA viết BRD cho SolasMart: “Toàn bộ nhân viên kho đều có điện thoại thông minh để cài app kiểm kho.” Câu này nên đặt ở mục nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "4.4 Rủi ro"
+    },
+    {
+     "id": "b",
+     "t": "4.3 Giả định"
+    },
+    {
+     "id": "c",
+     "t": "4.2 Phạm vi dự án"
+    },
+    {
+     "id": "d",
+     "t": "7. Vấn đề khác"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Đây là điều được coi là đúng mà không cần chứng minh, và nếu sai sẽ ảnh hưởng kết quả dự án, nên là Giả định. Template BRD có ví dụ tương tự: nhân viên kỹ thuật đều dùng smartphone.</p>",
+   "why_wrong": {
+    "a": "Rủi ro là điều có thể xảy ra và gây hại; câu này khẳng định một điều kiện đang có.",
+    "c": "Phạm vi nêu việc dự án làm và không làm, không nêu điều kiện về người dùng.",
+    "d": "Vấn đề khác dành cho các vấn đề ngoài quy trình, không phải điều kiện giả định."
+   },
+   "src": "BRD_Template.docx mục 4.3"
+  },
+  {
+   "id": "L16-q10",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trong buổi họp, quản lý SolasMart nói: “Hệ thống chấm công đã mua của bên khác, dự án này không làm phần đó.” BA nên ghi ý này vào đâu trong BRD?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mục Giả định của phần Tổng quan"
+    },
+    {
+     "id": "b",
+     "t": "Mục Roadmap sản phẩm, ở phase cuối"
+    },
+    {
+     "id": "c",
+     "t": "Mục Phạm vi dự án, phần không bao gồm"
+    },
+    {
+     "id": "d",
+     "t": "Mục Rủi ro, vì có thể ảnh hưởng dự án"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Việc không nằm trong dự án được ghi ở Phạm vi, phần “không bao gồm”, kèm lý do. Template có ví dụ: không bao gồm hệ thống quản lý bãi xe vì mua gói riêng.</p>",
+   "why_wrong": {
+    "a": "Giả định là điều coi là đúng, không phải quyết định loại trừ phạm vi.",
+    "b": "Roadmap chia các phase sẽ làm; phần này không làm ở phase nào.",
+    "d": "Đây là quyết định đã chốt, không phải rủi ro có thể xảy ra."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.7; BRD_Template.docx mục 4.2"
+  },
+  {
+   "id": "L16-q11",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Ở mục Quy trình nghiệp vụ hiện tại của BRD, ngoài việc vẽ quy trình, BA cần nêu thêm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Các vấn đề đang gặp phải ở quy trình đó"
+    },
+    {
+     "id": "b",
+     "t": "Mô hình thực thể của dữ liệu trong quy trình"
+    },
+    {
+     "id": "c",
+     "t": "Danh sách API mà quy trình sẽ gọi tới"
+    },
+    {
+     "id": "d",
+     "t": "Lộ trình triển khai theo từng phase"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Slide ghi: vẽ các quy trình chính của luồng vận hành hiện tại, nêu ra các vấn đề gặp phải. Template thêm bảng vấn đề với mức ưu tiên và đề xuất giải pháp.</p>",
+   "why_wrong": {
+    "b": "Mô hình thực thể (ERD) thuộc SRS.",
+    "c": "Danh sách API thuộc SRS mục 9.",
+    "d": "Lộ trình theo phase là mục 8 Roadmap."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.7"
+  },
+  {
+   "id": "L16-q12",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Theo hai template của khóa, mục nào có trong SRS nhưng <b>KHÔNG</b> có trong BRD?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thuật ngữ và định nghĩa"
+    },
+    {
+     "id": "b",
+     "t": "Danh sách đối tượng người dùng"
+    },
+    {
+     "id": "c",
+     "t": "Mô hình thực thể (ERD)"
+    },
+    {
+     "id": "d",
+     "t": "Quy trình nghiệp vụ"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>ERD là nội dung hệ thống, chỉ có ở SRS. Ba mục còn lại xuất hiện ở cả BRD và SRS.</p>",
+   "why_wrong": {
+    "a": "BRD mục 3 cũng có Thuật ngữ và định nghĩa.",
+    "b": "BRD mục 5 cũng có Danh sách đối tượng người dùng.",
+    "d": "BRD mục 6 cũng có Quy trình nghiệp vụ (hiện tại và đề xuất)."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.7-8"
+  },
+  {
+   "id": "L16-q13",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Mục 9 Biểu đồ phân rã chức năng của SRS gồm 3 danh sách nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Màn hình, control, business rule"
+    },
+    {
+     "id": "b",
+     "t": "Phase, thời gian thực hiện, giải pháp"
+    },
+    {
+     "id": "c",
+     "t": "Rủi ro, giả định, ràng buộc"
+    },
+    {
+     "id": "d",
+     "t": "Chức năng hệ thống, API, tiến trình"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>SRS mục 9 gồm 9.1 Danh sách chức năng hệ thống theo kênh, 9.2 Danh sách API, 9.3 Danh sách tiến trình.</p>",
+   "why_wrong": {
+    "a": "Màn hình, control, business rule là nội dung của FSD.",
+    "b": "Đây là các cột của bảng Roadmap trong BRD.",
+    "c": "Rủi ro, giả định nằm ở mục Tổng quan của BRD."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.8"
+  },
+  {
+   "id": "L16-q14",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Trong SRS mẫu của FoodNow, API và Tiến trình được liệt kê thành hai phân hệ riêng, bên cạnh các ứng dụng có người dùng như Mobile app phục vụ, Web quản lý nhà hàng, Web admin.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Sơ đồ phân rã chia hệ thống thành 5 phân hệ: Mobile app phục vụ, Web quản lý nhà hàng, Web admin, API, Tiến trình. API và Tiến trình không có actor là người.</p>",
+   "why_wrong": {
+    "s": "Template ghi rõ API và Tiến trình là 2 trong 5 phân hệ của hệ thống."
+   },
+   "src": "SRS_Template.docx mục 9.1"
+  },
+  {
+   "id": "L16-q15",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trong SRS hệ thống đặt đồ ăn, BA cần thể hiện vòng đời của Đơn hàng: Mới → Đã xác nhận → Đang giao → Hoàn thành, hoặc Đã hủy. Nội dung này đặt ở mục nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mô hình tổng quan sản phẩm"
+    },
+    {
+     "id": "b",
+     "t": "Biểu đồ trạng thái"
+    },
+    {
+     "id": "c",
+     "t": "Mô hình thực thể (ERD)"
+    },
+    {
+     "id": "d",
+     "t": "Nguồn tham khảo"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Vòng đời các trạng thái của một thực thể được vẽ ở mục Biểu đồ trạng thái. SRS FoodNow có biểu đồ trạng thái cho thực thể Đặt bàn và Đặt món.</p>",
+   "why_wrong": {
+    "a": "Mô hình tổng quan cho thấy actor, ứng dụng và hệ thống liên quan, không thể hiện trạng thái.",
+    "c": "ERD thể hiện thực thể và quan hệ, không thể hiện chuyển trạng thái.",
+    "d": "Nguồn tham khảo chỉ liệt kê tài liệu căn cứ."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.8; SRS_Template.docx mục VIII"
+  },
+  {
+   "id": "L16-q16",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, FSD chia chức năng thành bao nhiêu dạng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "7 dạng"
+    },
+    {
+     "id": "b",
+     "t": "9 dạng"
+    },
+    {
+     "id": "c",
+     "t": "11 dạng"
+    },
+    {
+     "id": "d",
+     "t": "12 dạng"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Có 11 dạng: 7 dạng end user, 2 dạng API, 2 dạng tiến trình.</p>",
+   "why_wrong": {
+    "a": "7 chỉ là số dạng thuộc nhóm Actor là End user.",
+    "b": "9 là số dạng nếu bỏ qua nhóm tiến trình.",
+    "d": "Slide chỉ đánh số tới dạng 11."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.9"
+  },
+  {
+   "id": "L16-q17",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Dạng chức năng nào thuộc nhóm <b>Actor là End user</b> trong FSD?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chức năng tích hợp API với bên khác"
+    },
+    {
+     "id": "b",
+     "t": "API do bên khác đặc tả"
+    },
+    {
+     "id": "c",
+     "t": "Tiến trình xử lý đơn giản"
+    },
+    {
+     "id": "d",
+     "t": "API do mình định nghĩa và đặc tả cho đối tác"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Dạng 7 có người dùng thao tác trên màn hình hệ thống mình, rồi hệ thống mình gọi sang đối tác, nên vẫn thuộc nhóm End user. Dạng 8, 9 do hệ thống khác gọi vào; dạng 10, 11 do hệ thống tự chạy.</p>",
+   "why_wrong": {
+    "b": "Dạng 9 thuộc nhóm Dạng API.",
+    "c": "Dạng 10 thuộc nhóm Dạng tiến trình.",
+    "d": "Dạng 8 thuộc nhóm Dạng API."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.9"
+  },
+  {
+   "id": "L16-q18",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Dòng nào <b>KHÔNG</b> có trong bảng Mô tả chung của chức năng end user theo template FSD?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Điều kiện kích hoạt"
+    },
+    {
+     "id": "b",
+     "t": "Luồng ngoại lệ"
+    },
+    {
+     "id": "c",
+     "t": "Danh sách mã lỗi"
+    },
+    {
+     "id": "d",
+     "t": "Điều kiện trước"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Bảng Mô tả chung gồm: Tên chức năng, Mô tả, Tác nhân, Điều kiện kích hoạt, Điều kiện trước, Điều kiện sau, Luồng cơ bản, Luồng thay thế, Luồng ngoại lệ. Danh sách mã lỗi là mục riêng của chức năng dạng API.</p>",
+   "why_wrong": {
+    "a": "Điều kiện kích hoạt là một dòng của bảng Mô tả chung.",
+    "b": "Luồng ngoại lệ là một dòng của bảng Mô tả chung.",
+    "d": "Điều kiện trước là một dòng của bảng Mô tả chung."
+   },
+   "src": "FSD_Template.docx mục 1.1.1"
+  },
+  {
+   "id": "L16-q19",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Theo template FSD, ràng buộc “Họ tên bắt buộc nhập, tối đa 50 ký tự, chỉ gồm chữ và khoảng trắng” nên ghi ở đâu?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bảng Business Rule"
+    },
+    {
+     "id": "b",
+     "t": "Bảng Mô tả màn hình"
+    },
+    {
+     "id": "c",
+     "t": "Bảng Mô tả chung của chức năng"
+    },
+    {
+     "id": "d",
+     "t": "Danh sách mã lỗi"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Rule về định dạng, độ dài, bắt buộc nhập nằm ở cột Req* và Mô tả của bảng Mô tả màn hình. Template ghi rõ phần Business Rule bỏ qua các rule validate format, maxlength, require.</p>",
+   "why_wrong": {
+    "a": "Business Rule dành cho rule nghiệp vụ trên server, không chứa validate format/maxlength/require.",
+    "c": "Mô tả chung nêu tác nhân, điều kiện, luồng, không nêu ràng buộc từng trường.",
+    "d": "Danh sách mã lỗi dành cho chức năng dạng API."
+   },
+   "src": "FSD_Template.docx mục 1.2.3-1.2.4"
+  },
+  {
+   "id": "L16-q20",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Theo slide, Business Rule của chức năng dạng tìm kiếm/danh sách cần nêu được những gì? (chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tìm thỏa mọi điều kiện nhập vào hay chỉ một trong các điều kiện"
+    },
+    {
+     "id": "b",
+     "t": "Thứ tự sắp xếp kết quả tìm kiếm"
+    },
+    {
+     "id": "c",
+     "t": "Dữ liệu tìm kiếm ở màn hình mặc định"
+    },
+    {
+     "id": "d",
+     "t": "Công thức tính các giá trị tổng hợp"
+    },
+    {
+     "id": "e",
+     "t": "Link tải file mẫu"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "c"
+   ],
+   "explain": "<p>Slide 10 nêu 3 điểm của Business Rule tìm kiếm: AND hay OR, thứ tự sắp xếp đầu ra, dữ liệu ở màn hình mặc định.</p>",
+   "why_wrong": {
+    "d": "Công thức tính giá trị là lưu ý của chức năng báo cáo.",
+    "e": "Link file mẫu là lưu ý của chức năng import."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.10"
+  },
+  {
+   "id": "L16-q21",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao slide nói chức năng dạng đơn giản không cần vẽ activity diagram?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì chức năng này hoàn toàn không cần server xử lý"
+    },
+    {
+     "id": "b",
+     "t": "Vì luồng chỉ gồm các bước cơ bản ở client và server"
+    },
+    {
+     "id": "c",
+     "t": "Vì activity diagram đã được vẽ đầy đủ trong BRD"
+    },
+    {
+     "id": "d",
+     "t": "Vì dev và tester có thể tự suy ra luồng từ màn hình"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Nhập form, submit, server validate rồi lưu hoặc không lưu: luồng này lặp lại giống nhau ở mọi chức năng đơn giản. Vì vậy chỉ cần mô tả Business Rule.</p>",
+   "why_wrong": {
+    "a": "Server vẫn validate và lưu dữ liệu.",
+    "c": "BRD vẽ quy trình nghiệp vụ, không vẽ activity của từng chức năng.",
+    "d": "Slide không dựa vào việc người khác tự suy luận; lý do là luồng chuẩn, lặp lại."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.11"
+  },
+  {
+   "id": "L16-q22",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Với chức năng dạng đơn giản có công thức tính, Business Rule chỉ cần ghi công thức, không cần nói cách lấy các đầu vào của công thức.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Slide nhắc: nếu có công thức, cần lưu ý cách lấy ra được các đầu vào tính toán cho công thức đó. Thiếu phần này thì dev không biết lấy dữ liệu ở đâu.</p>",
+   "why_wrong": {
+    "d": "Slide yêu cầu nêu cả cách lấy đầu vào của công thức."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.11"
+  },
+  {
+   "id": "L16-q23",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Với chức năng dạng đầy đủ, slide nêu nguyên tắc kiểm tra trên server là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Server chỉ kiểm tra những gì client chưa kiểm tra"
+    },
+    {
+     "id": "b",
+     "t": "Server nhận thông tin nào mà nó có thì kiểm tra lại"
+    },
+    {
+     "id": "c",
+     "t": "Server tin dữ liệu client gửi lên vì client đã validate rồi"
+    },
+    {
+     "id": "d",
+     "t": "Server chỉ cần kiểm tra quyền của user đăng nhập"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Server phải kiểm tra lại mọi thông tin nhận được mà nó có dữ liệu để đối chiếu, đảm bảo dữ liệu hiện tại thỏa yêu cầu xử lý. Ví dụ Tạo Momo QR: kiểm lại trạng thái đặt bàn, nhà hàng, user.</p>",
+   "why_wrong": {
+    "a": "Slide yêu cầu kiểm tra lại cả thông tin client đã kiểm, vì dữ liệu server có thể đã thay đổi.",
+    "c": "Tin dữ liệu client là sai nguyên tắc slide nêu.",
+    "d": "Quyền chỉ là một phần; server phải kiểm mọi thông tin nó có."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.12"
+  },
+  {
+   "id": "L16-q24",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Chức năng “Chuyển kho” của SolasMart: nhân viên kho chọn hàng và số lượng; server kiểm tra tồn kho xuất, tạo phiếu xuất, tạo phiếu nhập ở kho đích, cập nhật tồn hai kho. Nên đặc tả theo dạng nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Dạng đơn giản, chỉ mô tả Business Rule"
+    },
+    {
+     "id": "b",
+     "t": "Dạng tìm kiếm/danh sách"
+    },
+    {
+     "id": "c",
+     "t": "Dạng đầy đủ, có activity diagram"
+    },
+    {
+     "id": "d",
+     "t": "Dạng tiến trình xử lý đơn giản"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Server xử lý nhiều bước nối tiếp, nên theo slide cần vẽ activity diagram và mô tả các bước: đó là dạng đầy đủ.</p>",
+   "why_wrong": {
+    "a": "Dạng đơn giản chỉ hợp với nhập form rồi lưu; ở đây server xử lý nhiều bước.",
+    "b": "Chức năng này ghi dữ liệu, không phải tra cứu danh sách.",
+    "d": "Có người dùng kích hoạt, không phải tiến trình chạy ngầm."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.12"
+  },
+  {
+   "id": "L16-q25",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Với nhóm CRUD của danh mục đầu vào, slide nói màn hình nào có thể không cần mô tả?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Danh sách/tìm kiếm và Thêm mới"
+    },
+    {
+     "id": "b",
+     "t": "Danh sách và Xem chi tiết"
+    },
+    {
+     "id": "c",
+     "t": "Thêm mới và Chỉnh sửa"
+    },
+    {
+     "id": "d",
+     "t": "Chỉnh sửa và Xem chi tiết"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Chỉnh sửa và Xem chi tiết có thông tin giống màn hình Thêm mới, chỉ khác cách hiển thị: xem chi tiết là read only, chỉnh sửa hiện giá trị hiện tại.</p>",
+   "why_wrong": {
+    "a": "Đây chính là hai màn hình slide yêu cầu phải mô tả.",
+    "b": "Màn hình Danh sách bắt buộc mô tả.",
+    "c": "Màn hình Thêm mới bắt buộc mô tả; nó là gốc để suy ra màn hình Chỉnh sửa."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.13"
+  },
+  {
+   "id": "L16-q26",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Với CRUD của danh mục đầu vào, BA nên viết tách riêng từng chức năng thêm, sửa, xóa, xem để không bỏ sót rule.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Slide khuyên gộp cụm 5 chức năng vào một mục, vì rule của danh mục đầu vào thường không đặc biệt và lặp nhau (như Tạo mới và Chỉnh sửa).</p>",
+   "why_wrong": {
+    "d": "Slide nói không cần viết tách biệt; viết tách chỉ lặp lại rule."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.13"
+  },
+  {
+   "id": "L16-q27",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>BA viết FSD cho chức năng “Import danh sách khách hàng thân thiết” của SolasMart. Những nội dung nào cần có? (chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Sequence diagram trao đổi với đối tác"
+    },
+    {
+     "id": "b",
+     "t": "Link tải file mẫu trên màn hình"
+    },
+    {
+     "id": "c",
+     "t": "State diagram của thực thể khách hàng"
+    },
+    {
+     "id": "d",
+     "t": "Quy định định dạng, kích thước và số dòng của file"
+    },
+    {
+     "id": "e",
+     "t": "Quy định file trả kết quả kèm mô tả lỗi"
+    }
+   ],
+   "answer": [
+    "b",
+    "d",
+    "e"
+   ],
+   "explain": "<p>Slide 14: màn hình có file mẫu, quy định định dạng, kích thước, số dòng; Business Rule mô tả các trường và quy định file trả kết quả (tên file, cột kết quả, mô tả lỗi từng trường hợp).</p>",
+   "why_wrong": {
+    "a": "Import không tích hợp đối tác nên không cần sequence diagram.",
+    "c": "State diagram không phải mục của chức năng import."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.14"
+  },
+  {
+   "id": "L16-q28",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong ví dụ của template FSD, file trả kết quả import được đặt tên thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tên file đã import thêm đuôi _result"
+    },
+    {
+     "id": "b",
+     "t": "Tên file đã import thêm ngày giờ import"
+    },
+    {
+     "id": "c",
+     "t": "Luôn là result.xlsx"
+    },
+    {
+     "id": "d",
+     "t": "Do người dùng tự nhập khi tải về"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Ví dụ: Danh sách nhà hàng 012022.xlsx trả ra Danh sách nhà hàng 012022_result.xlsx, thêm 2 cột Kết quả và Mô tả lỗi.</p>",
+   "why_wrong": {
+    "b": "Template không thêm ngày giờ vào tên file.",
+    "c": "Template giữ tên file gốc để người dùng dễ đối chiếu.",
+    "d": "Tên file trả ra do quy định trong FSD, không do người dùng nhập."
+   },
+   "src": "FSD_Template.docx mục 1.5.4"
+  },
+  {
+   "id": "L16-q29",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Với chức năng báo cáo, slide khuyên BA làm gì để xác định đầu vào trên màn hình?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hỏi stakeholder về đầu vào và đầu ra họ mong muốn"
+    },
+    {
+     "id": "b",
+     "t": "Hỏi đội dev xem cơ sở dữ liệu đang có sẵn những bảng nào"
+    },
+    {
+     "id": "c",
+     "t": "Lấy mẫu báo cáo của một hệ thống khác cùng ngành để dùng lại"
+    },
+    {
+     "id": "d",
+     "t": "Đưa mọi trường dữ liệu có thể lọc lên màn hình cho linh hoạt"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Slide 15: cần hỏi rõ stakeholder để nắm họ thường báo cáo theo đầu vào nào và muốn đầu ra như thế nào.</p>",
+   "why_wrong": {
+    "b": "Dữ liệu sẵn có không quyết định nhu cầu báo cáo của người dùng.",
+    "c": "Báo cáo phải theo nghiệp vụ của chính stakeholder.",
+    "d": "Đưa quá nhiều đầu vào làm màn hình rối; cần chọn theo nhu cầu thực."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.15"
+  },
+  {
+   "id": "L16-q30",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>File excel xuất từ báo cáo SolasMart có thêm cột “Doanh thu thuần” không có trên giao diện. Theo slide, BA cần làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Không cần ghi, vì dev tự biết cách tính cột này"
+    },
+    {
+     "id": "b",
+     "t": "Mô tả cột đó lấy từ trường nào hoặc công thức nào"
+    },
+    {
+     "id": "c",
+     "t": "Bỏ cột đó vì file xuất phải giống hệt giao diện đang nhìn thấy"
+    },
+    {
+     "id": "d",
+     "t": "Ghi cột đó vào mục Roadmap của BRD"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>File xuất thường giống giao diện. Nếu có khác thì phải mô tả cụ thể lấy dữ liệu tại trường nào hoặc công thức tính tương ứng.</p>",
+   "why_wrong": {
+    "a": "Slide yêu cầu nói rõ cách tính, không để dev tự đoán.",
+    "c": "Slide cho phép file xuất khác giao diện, miễn là mô tả rõ.",
+    "d": "Roadmap nói về các giai đoạn dự án, không chứa đặc tả cột báo cáo."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.15"
+  },
+  {
+   "id": "L16-q31",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Với chức năng tích hợp API với bên khác, slide khuyên vẽ sơ đồ nào để hiểu rõ luồng tích hợp hai bên?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Sequence diagram"
+    },
+    {
+     "id": "b",
+     "t": "ERD"
+    },
+    {
+     "id": "c",
+     "t": "Use case diagram"
+    },
+    {
+     "id": "d",
+     "t": "Data flow diagram"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Sequence diagram cho thấy thứ tự thông điệp giữa client, server và đối tác, giúp mapping API giao tiếp hai bên.</p>",
+   "why_wrong": {
+    "b": "ERD mô tả thực thể dữ liệu, không mô tả trao đổi giữa hai hệ thống.",
+    "c": "Use case diagram cho thấy actor và chức năng, không cho thấy thứ tự gọi API.",
+    "d": "Data flow diagram được slide dùng cho chức năng dạng tiến trình."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.16"
+  },
+  {
+   "id": "L16-q32",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Khi mô tả activity diagram của chức năng tích hợp API với bên khác, slide lưu ý những gì? (chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mapping lại kết quả trả về: thành công, thất bại hoặc timeout"
+    },
+    {
+     "id": "b",
+     "t": "Tự định nghĩa lại danh sách mã lỗi của đối tác cho thống nhất"
+    },
+    {
+     "id": "c",
+     "t": "Nắm được thông tin gửi sang đối tác lấy ở trường, thực thể nào bên mình"
+    },
+    {
+     "id": "d",
+     "t": "Bỏ qua trường hợp timeout vì hiếm xảy ra"
+    },
+    {
+     "id": "e",
+     "t": "Mô tả tham số gửi đối tác ứng với dữ liệu nào bên mình"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Slide 16 nêu 3 lưu ý: biết dữ liệu gửi sang lấy từ đâu (mapping hệ thống A sang B), mô tả tham số gửi đi ứng với dữ liệu nào bên mình, và mapping kết quả trả về (thành công, thất bại, timeout).</p>",
+   "why_wrong": {
+    "b": "Mã lỗi của đối tác do đối tác quy định; mình chỉ mapping, không định nghĩa lại.",
+    "d": "Slide nêu rõ timeout là một kết quả phải mapping."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.16"
+  },
+  {
+   "id": "L16-q33",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Use case “Đặt vận chuyển” có 3 lần tương tác với đơn vị giao hàng: lấy phí, gửi yêu cầu vận chuyển, in nhãn. Theo slide, BA nên làm gì để luồng dễ đọc?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Gộp cả 3 vào một activity diagram lớn"
+    },
+    {
+     "id": "b",
+     "t": "Tách thành các use case con"
+    },
+    {
+     "id": "c",
+     "t": "Bỏ activity diagram, chỉ giữ sequence diagram"
+    },
+    {
+     "id": "d",
+     "t": "Chuyển sang đặc tả như một tiến trình chạy ngầm"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide: nếu trong một UC có nhiều luồng tương tác với đối tác thì tách nhỏ ra các UC con để luồng đỡ phức tạp. Template FSD tách đúng 3 UC con như vậy.</p>",
+   "why_wrong": {
+    "a": "Gộp chung làm lưu đồ rối, trái với lời khuyên của slide.",
+    "c": "Dạng 7 vẫn có mục activity diagram; không bỏ.",
+    "d": "Có người dùng thao tác nên không phải tiến trình."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.16; FSD_Template.docx mục 1.7.5"
+  },
+  {
+   "id": "L16-q34",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Theo slide, thông tin đầu ra của API do mình định nghĩa đặc tả gồm những gì? (chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mã xử lý bên mình"
+    },
+    {
+     "id": "b",
+     "t": "Mã lỗi (kết quả thực hiện)"
+    },
+    {
+     "id": "c",
+     "t": "Mật khẩu tài khoản của đối tác"
+    },
+    {
+     "id": "d",
+     "t": "Mô tả lỗi"
+    },
+    {
+     "id": "e",
+     "t": "Khóa bí mật dùng tạo checksum"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Đầu ra gồm: mã xử lý bên mình, mã đối tác, mã định danh địa điểm thực hiện, mã lỗi, mô tả lỗi.</p>",
+   "why_wrong": {
+    "c": "Mật khẩu không bao giờ trả ra trong kết quả API, và không có trong danh sách của slide.",
+    "e": "Khóa bí mật không được trả ra; slide không liệt kê."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.19"
+  },
+  {
+   "id": "L16-q35",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Điểm khác chính giữa dạng 8 (API do mình định nghĩa) và dạng 9 (API do bên khác đặc tả) là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ở dạng 9, đối tác đã định nghĩa sẵn đầu vào, đầu ra, mã lỗi"
+    },
+    {
+     "id": "b",
+     "t": "Ở dạng 9, hệ thống mình là bên chủ động gọi sang API đối tác"
+    },
+    {
+     "id": "c",
+     "t": "Ở dạng 9, không cần liệt kê danh sách mã lỗi vì đối tác đã có"
+    },
+    {
+     "id": "d",
+     "t": "Ở dạng 9, người dùng cuối thao tác trực tiếp trên màn hình"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Cả hai đều là API phía mình cung cấp. Khác nhau ở chỗ ai quy định format: dạng 8 mình quy định, dạng 9 đối tác định nghĩa trước đầu vào, đầu ra, mã lỗi.</p>",
+   "why_wrong": {
+    "b": "Mình chủ động gọi sang đối tác là dạng 7.",
+    "c": "Slide yêu cầu vẫn ghi rõ trường hợp nào trả mã lỗi nào.",
+    "d": "Dạng API không có người dùng cuối thao tác."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.18-20"
+  },
+  {
+   "id": "L16-q36",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ví điện tử gửi kết quả thanh toán về SolasMart theo đặc tả của ví; ví quy định mã 21 là “số tiền không hợp lệ”. Trong FSD, BA cần viết gì cho phần mã lỗi?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tự đặt bộ mã lỗi mới cho dễ đọc"
+    },
+    {
+     "id": "b",
+     "t": "Không viết, vì đã có tài liệu của ví"
+    },
+    {
+     "id": "c",
+     "t": "Bảng ghép từng trường hợp với mã lỗi của ví"
+    },
+    {
+     "id": "d",
+     "t": "Vẽ sequence diagram giữa nhân viên quầy và khách hàng"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Với API do bên khác đặc tả, BA phải ghi rõ cho đội code biết từng trường hợp sẽ trả về mã lỗi nào theo yêu cầu đối tác. Template Momo ghép: số tiền không hợp lệ → 21, mã GD không tồn tại → 42.</p>",
+   "why_wrong": {
+    "a": "Mã lỗi do đối tác quy định; tự đặt mã mới thì đối tác không hiểu.",
+    "b": "Tài liệu của ví chỉ có danh mục mã; BA phải ghép với các trường hợp nghiệp vụ bên mình.",
+    "d": "Sơ đồ này không liên quan tới mã lỗi API."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.20; FSD_Template.docx mục 2.2.4"
+  },
+  {
+   "id": "L16-q37",
+   "type": "tf",
+   "level": "apdung",
+   "q": "<p>Đối tác giao hàng gọi API “tra cứu trạng thái đơn” mà SolasMart tự quy định tham số và mã lỗi. Chức năng này thuộc dạng 7 – Tích hợp API với bên khác.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Đối tác gọi vào và SolasMart tự quy định format, nên đây là dạng 8 – API do mình định nghĩa đặc tả. Dạng 7 là khi hệ thống mình gọi sang đối tác.</p>",
+   "why_wrong": {
+    "d": "Chiều gọi ngược lại: ở dạng 7, hệ thống mình mới là bên gọi sang đối tác."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.9, 16-19"
+  },
+  {
+   "id": "L16-q38",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong bảng Mô tả chung của tiến trình (template FSD), dòng nào cho biết tiến trình chạy lúc nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Điều kiện quét dữ liệu"
+    },
+    {
+     "id": "b",
+     "t": "Tần suất"
+    },
+    {
+     "id": "c",
+     "t": "Post-condition"
+    },
+    {
+     "id": "d",
+     "t": "Mục đích"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Tần suất ghi lịch chạy, ví dụ “1 ngày/lần vào 01 giờ”. Điều kiện quét cho biết lấy bản ghi nào để xử lý.</p>",
+   "why_wrong": {
+    "a": "Điều kiện quét cho biết dữ liệu nào được xử lý, không phải thời điểm chạy.",
+    "c": "Post-condition là kết quả sau khi chạy.",
+    "d": "Mục đích nêu tiến trình để làm gì."
+   },
+   "src": "FSD_Template.docx mục 3.1.1"
+  },
+  {
+   "id": "L16-q39",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Theo slide, khi nào nên vẽ state diagram cho chức năng dạng tiến trình?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mọi tiến trình đều bắt buộc vẽ"
+    },
+    {
+     "id": "b",
+     "t": "Khi tiến trình chạy nhiều hơn một lần mỗi ngày"
+    },
+    {
+     "id": "c",
+     "t": "Khi tiến trình đi qua tối thiểu 3 trạng thái"
+    },
+    {
+     "id": "d",
+     "t": "Khi tiến trình có gọi API của đối tác"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide: nên vẽ biểu đồ trạng thái nếu tiến trình đi qua tối thiểu 3 trạng thái, ví dụ từ A sang B hoặc C tùy trường hợp. Template ghi N/A cho tiến trình đơn giản không đổi nhiều trạng thái.</p>",
+   "why_wrong": {
+    "a": "Template ghi N/A cho tiến trình không cần, nên không bắt buộc.",
+    "b": "Tần suất chạy không liên quan tới việc vẽ state diagram.",
+    "d": "Gọi API không phải tiêu chí slide nêu."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.21-22"
+  },
+  {
+   "id": "L16-q40",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Ở mục luồng hoạt động, tiến trình đơn giản và tiến trình phức tạp khác nhau thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Đơn giản thì vẽ lưu đồ; phức tạp thì chỉ cần mô tả bằng chữ"
+    },
+    {
+     "id": "b",
+     "t": "Đơn giản không cần data flow diagram; phức tạp thì cần"
+    },
+    {
+     "id": "c",
+     "t": "Phức tạp không cần state diagram; đơn giản thì cần"
+    },
+    {
+     "id": "d",
+     "t": "Đơn giản thì mô tả step bằng chữ; phức tạp thì vẽ lưu đồ"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide 21: luồng hoạt động nếu đơn giản chỉ cần mô tả step bằng chữ. Slide 22: luồng xử lý vẽ lưu đồ và mô tả như luồng thông thường.</p>",
+   "why_wrong": {
+    "a": "Đảo ngược so với slide.",
+    "b": "Cả hai dạng đều có mục data flow diagram.",
+    "c": "Cả hai dạng có cùng quy tắc state diagram (tối thiểu 3 trạng thái)."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.21-22"
+  },
+  {
+   "id": "L16-q41",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>FSD tiến trình tích điểm của SolasMart có đoạn: “Đọc hóa đơn trong ngày và bảng công thức tích điểm; ghi vào lịch sử tích điểm và cập nhật điểm của khách.” Đoạn này thuộc mục nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Data flow diagram"
+    },
+    {
+     "id": "b",
+     "t": "State diagram"
+    },
+    {
+     "id": "c",
+     "t": "Sequence diagram"
+    },
+    {
+     "id": "d",
+     "t": "Mô tả màn hình"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Biểu đồ luồng dữ liệu mô tả dữ liệu lấy ở đâu và sau khi xử lý xong lưu vào đâu, đúng nội dung đoạn văn.</p>",
+   "why_wrong": {
+    "b": "State diagram mô tả chuyển trạng thái, không mô tả nguồn và đích dữ liệu.",
+    "c": "Sequence diagram dùng cho luồng tích hợp giữa các bên.",
+    "d": "Tiến trình không có màn hình."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.21-22"
+  },
+  {
+   "id": "L16-q42",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, căn lề trang tài liệu nên đặt thế nào (đơn vị cm)?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Trái 2 – phải 2,5 – trên 2 – dưới 2"
+    },
+    {
+     "id": "b",
+     "t": "Trái 2,5 – phải 2 – trên 2 – dưới 2"
+    },
+    {
+     "id": "c",
+     "t": "Trái 3 – phải 2 – trên 2 – dưới 2"
+    },
+    {
+     "id": "d",
+     "t": "Mọi lề đều 2,5"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide 23: A4, giấy dọc, lề trái 2,5 – phải 2 – trên 2 – dưới 2. Lề trái rộng hơn để chừa chỗ đóng gáy.</p>",
+   "why_wrong": {
+    "a": "Đảo lề trái và phải.",
+    "c": "Lề trái trên slide là 2,5, không phải 3.",
+    "d": "Slide không đặt lề đều 2,5."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.23"
+  },
+  {
+   "id": "L16-q43",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Câu nào trong tài liệu viết đúng quy tắc dấu câu?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khách hàng ( KH ) đặt bàn trước."
+    },
+    {
+     "id": "b",
+     "t": "Khách hàng (KH) đặt bàn trước ."
+    },
+    {
+     "id": "c",
+     "t": "Khách hàng (KH) đặt bàn trước."
+    },
+    {
+     "id": "d",
+     "t": "Khách hàng(KH)đặt bàn trước."
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Ngoặc: có dấu cách với phần bên ngoài, không có dấu cách với phần bên trong. Dấu chấm đặt sát từ cuối câu.</p>",
+   "why_wrong": {
+    "a": "Thừa dấu cách bên trong ngoặc.",
+    "b": "Thừa dấu cách trước dấu chấm.",
+    "d": "Thiếu dấu cách giữa ngoặc và chữ bên ngoài."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.24, 28"
+  },
+  {
+   "id": "L16-q44",
+   "type": "tf",
+   "level": "apdung",
+   "q": "<p>Viết “Hạn nộp 14 / 02 / 24” trong tài liệu là đúng, vì dấu gạch xéo cần dấu cách hai bên cho dễ đọc.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Dấu gạch xéo đặt sát từ liền trước và liền sau, thường không có dấu cách: 14/02/24.</p>",
+   "why_wrong": {
+    "d": "Slide lấy chính “14 / 02 / 24” làm ví dụ sai."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.29"
+  },
+  {
+   "id": "L16-q45",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Sau dấu hai chấm, nếu phần tiếp theo là một câu hoàn chỉnh thì chữ cái đầu được viết hoa.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide 27: sau dấu là câu hoàn chỉnh thì text:_Text (viết hoa); không phải câu thì text:_text. Ví dụ: “Tôi hỏi lại: Em không yêu tôi sao?”.</p>",
+   "why_wrong": {
+    "s": "Slide phân biệt rõ: câu hoàn chỉnh sau dấu hai chấm thì viết hoa."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.27"
+  },
+  {
+   "id": "L16-q46",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA FoodNow cần trình bày nhu cầu, phạm vi và lộ trình dự án cho chủ nhà hàng (không rành kỹ thuật) phê duyệt. Tài liệu nào phù hợp nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "FSD"
+    },
+    {
+     "id": "b",
+     "t": "SRS"
+    },
+    {
+     "id": "c",
+     "t": "BRD"
+    },
+    {
+     "id": "d",
+     "t": "Test Case"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>BRD viết bằng ngôn ngữ nghiệp vụ, người dùng là khách hàng và quản lý cấp cao, có mục Phạm vi và Roadmap.</p>",
+   "why_wrong": {
+    "a": "FSD dành cho team dự án, quá chi tiết kỹ thuật với chủ nhà hàng.",
+    "b": "SRS dành cho quản lý dự án và team, không có phạm vi và roadmap để phê duyệt.",
+    "d": "Test Case dùng để kiểm thử, không dùng để duyệt nhu cầu."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.6-7"
+  },
+  {
+   "id": "L16-q47",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Tester cần biết khi đối tác gửi mã nhà hàng không tồn tại vào API đặt bàn thì hệ thống trả lỗi gì. Tester nên tra ở đâu?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "FSD, mục danh sách mã lỗi của API đặt bàn"
+    },
+    {
+     "id": "b",
+     "t": "BRD, mục yêu cầu phi chức năng của hệ thống"
+    },
+    {
+     "id": "c",
+     "t": "SRS, mục danh sách API"
+    },
+    {
+     "id": "d",
+     "t": "User manual của nhân viên phục vụ"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Danh sách mã lỗi là mục chi tiết của chức năng API trong FSD, viết để đội code và tester biết xử lý từng tình huống.</p>",
+   "why_wrong": {
+    "b": "NFR trong BRD nói về hiệu năng, bảo mật…, không có mã lỗi từng API.",
+    "c": "SRS chỉ liệt kê tên và mô tả ngắn của API, chưa có mã lỗi.",
+    "d": "User manual hướng dẫn người dùng thao tác, không đặc tả API."
+   },
+   "src": "16. Cac loai tai lieu BA.pdf tr.19; FSD_Template.docx mục 2.1.5"
+  }
+ ],
+ "summary": {
+  "points": [
+   "Tài liệu là sản phẩm hữu hình của BA: dịch nghiệp vụ sang kỹ thuật, giúp các bên hiểu đúng và đủ, làm căn cứ cho thiết kế, phát triển, kiểm thử, nghiệm thu.",
+   "BRD trả lời “Doanh nghiệp cần gì?”, SRS trả lời “Hệ thống làm gì?”, FSD trả lời “Mỗi chức năng hoạt động ra sao?”; nối tiếp BRD → SRS → FSD.",
+   "BRD gồm tài liệu liên quan, quy định hình vẽ, thuật ngữ, tổng quan (mục đích, phạm vi, giả định, rủi ro), người dùng, quy trình hiện tại và đề xuất, vấn đề khác, roadmap, danh sách FR/NFR.",
+   "SRS gồm mục đích, thuật ngữ, nguồn tham khảo, người dùng, mô hình tổng quan, quy trình, ERD, biểu đồ trạng thái, phân rã chức năng (chức năng, API, tiến trình).",
+   "FSD có 11 dạng chức năng chia 3 nhóm: end user (1–7), API (8–9), tiến trình (10–11); mỗi dạng có bộ mục và lưu ý riêng.",
+   "Chức năng end user dùng 3 bảng: Mô tả chung, Mô tả màn hình, Business Rule (rule trên server kèm thông báo).",
+   "Trình bày: A4 dọc, lề 2,5–2–2–2, header/footer, style đồng bộ; dấu câu đặt sát chữ trước, cách chữ sau; ngoặc ôm sát nội dung; gạch xéo không cách."
+  ],
+  "html": "<p>Mục tiêu của buổi học: nắm được cách viết các loại tài liệu quan trọng của BA.</p><table><thead><tr><th>Tài liệu</th><th>Câu hỏi</th><th>Đầu vào</th><th>Nội dung cốt lõi</th></tr></thead><tbody><tr><td>BRD</td><td>Cần gì?</td><td>Khảo sát, phỏng vấn, mục tiêu kinh doanh</td><td>Phạm vi, quy trình As-is/To-be, roadmap, FR/NFR</td></tr><tr><td>SRS</td><td>Làm gì?</td><td>BRD và yêu cầu phát sinh</td><td>Mô hình tổng quan, ERD, trạng thái, danh sách chức năng/API/tiến trình</td></tr><tr><td>FSD</td><td>Làm thế nào?</td><td>SRS, bản thiết kế</td><td>Mỗi chức năng: mô tả chung, luồng, màn hình, business rule, đầu vào/đầu ra, mã lỗi</td></tr></tbody></table><p class='warn'>Lỗi hay gặp: viết rule validate định dạng vào Business Rule thay vì Mô tả màn hình; quên mục “không bao gồm” trong phạm vi; đặc tả API thiếu danh sách mã lỗi; tích hợp đối tác quên mapping kết quả timeout; báo cáo không nêu công thức và cách lấy đầu vào; để dấu cách trước dấu câu.</p>"
+ },
+ "images": [
+  {
+   "id": "L16-img1",
+   "path": "data/pages/16. Cac loai tai lieu BA/p-006.jpg",
+   "caption": "Bảng so sánh BRD, SRS, FSD",
+   "crop": [
+    0.03,
+    0.11,
+    0.97,
+    0.85
+   ]
+  },
+  {
+   "id": "L16-img2",
+   "path": "data/pages/16. Cac loai tai lieu BA/p-009.jpg",
+   "caption": "11 dạng chức năng trong FSD chia 3 nhóm",
+   "crop": [
+    0.1,
+    0.13,
+    0.82,
+    0.88
+   ]
+  },
+  {
+   "id": "L16-img3",
+   "path": "data/img/L16-img3.png",
+   "caption": "SRS – Mô hình tổng quan sản phẩm FoodNow"
+  },
+  {
+   "id": "L16-img4",
+   "path": "data/img/L16-img4.png",
+   "caption": "SRS – Phân rã hệ thống thành 5 phân hệ"
+  },
+  {
+   "id": "L16-img5",
+   "path": "data/img/L16-img5.png",
+   "caption": "SRS – Biểu đồ trạng thái thực thể Đặt bàn"
+  },
+  {
+   "id": "L16-img6",
+   "path": "data/img/L16-img6.jpg",
+   "caption": "FSD – Sequence diagram tích hợp đơn vị vận chuyển"
+  },
+  {
+   "id": "L16-img7",
+   "path": "data/img/L16-img7.png",
+   "caption": "FSD – Data flow diagram tiến trình tạo yêu cầu thanh toán"
+  }
+ ]
+}

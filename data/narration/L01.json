@@ -1,0 +1,257 @@
+{
+ "lesson": "L01",
+ "chunks": [
+  {
+   "id": "L01-n1",
+   "ref": "L01-t1",
+   "say": "Chào bạn, mình bắt đầu buổi một: giới thiệu về Business Analysis. Buổi này trả lời bốn câu hỏi nền tảng. Thứ nhất, Business Analysis và Business Analyst là gì. Thứ hai, vì sao công việc này quan trọng với doanh nghiệp. Thứ ba, một người làm BA cần những năng lực cốt lõi nào. Và thứ tư, con đường sự nghiệp của BA đi từ đâu tới đâu. Bạn có thể nhớ gọn bằng bốn chữ: cái gì, vì sao, cần gì, đi đâu.",
+   "show": {
+    "h": "Buổi 1: Giới thiệu về Business Analysis",
+    "points": [
+     "Cái gì: Business Analysis và Business Analyst",
+     "Vì sao: tầm quan trọng trong doanh nghiệp",
+     "Cần gì: năng lực cốt lõi của BA",
+     "Đi đâu: con đường sự nghiệp"
+    ]
+   }
+  },
+  {
+   "id": "L01-n2",
+   "ref": "L01-t2",
+   "say": "Đầu tiên là định nghĩa. IIBA, tức Viện Phân tích nghiệp vụ quốc tế, định nghĩa: Business Analysis là hoạt động tạo điều kiện cho sự thay đổi trong một tổ chức, bằng cách xác định nhu cầu và đề xuất giải pháp mang lại giá trị cho các bên liên quan. Hãy để ý năm từ khóa: thay đổi, nhu cầu, giải pháp, giá trị và bên liên quan. Ví dụ một nhà hàng đang nhận đơn qua điện thoại, khách chờ máy lâu, nhân viên hay ghi sai. BA làm rõ nhu cầu đó, đề xuất một app đặt món có thanh toán online, và giá trị đo được là ít đơn sai hơn, nhiều đơn hơn mỗi ngày. Điều cần nhớ: BA không chỉ ghi chép yêu cầu, mà giúp tổ chức thay đổi theo hướng có giá trị.",
+   "show": {
+    "h": "Business Analysis theo IIBA",
+    "points": [
+     "Tạo điều kiện cho thay đổi trong tổ chức",
+     "Bằng cách: xác định nhu cầu + đề xuất giải pháp",
+     "Giải pháp phải mang lại giá trị cho Stakeholder",
+     "5 từ khóa: Change · Need · Solution · Value · Stakeholder"
+    ]
+   },
+   "ask": [
+    "L01-q1",
+    "L01-q5"
+   ]
+  },
+  {
+   "id": "L01-n3",
+   "ref": "L01-t3",
+   "say": "Vậy Business Analyst là ai? Theo IIBA, BA là bất kỳ ai thực hiện công việc phân tích nghiệp vụ, bất kể chức danh là gì. Business Analysis là hoạt động, còn Business Analyst là người làm hoạt động đó. Vì định nghĩa dựa vào việc làm chứ không dựa vào danh thiếp, nên một Product Owner, một chuyên viên phân tích hệ thống, một người tư vấn, thậm chí một trưởng phòng nghiệp vụ, khi họ khảo sát nhu cầu và đề xuất giải pháp, thì họ đang làm BA. Mẹo nhớ: BA là việc, không phải danh thiếp.",
+   "show": {
+    "h": "Business Analyst là ai",
+    "points": [
+     "Bất kỳ ai làm công việc phân tích nghiệp vụ",
+     "Không phụ thuộc chức danh hay vị trí",
+     "Product Owner, Systems Analyst, Consultant… vẫn có thể là BA",
+     "Mẹo: BA là việc, không phải danh thiếp"
+    ]
+   },
+   "ask": [
+    "L01-q3",
+    "L01-q4"
+   ]
+  },
+  {
+   "id": "L01-n4",
+   "ref": "L01-t4",
+   "say": "Tiếp theo, BA làm những gì? Slide nêu năm hoạt động lớn: hiểu vấn đề và mục tiêu của doanh nghiệp, phân tích nhu cầu và giải pháp, đưa ra chiến lược, chèo lái các thay đổi, và tạo điều kiện để các bên liên quan hợp tác với nhau. Bên cạnh là một chu trình bốn bước chạy theo chiều kim đồng hồ. Từ mục tiêu kinh doanh, ta xác định các bên liên quan. Làm việc với các bên để chọn giải pháp. Đưa giải pháp vào thực tế, gọi là chuyển đổi. Rồi quay lại kiểm tra mục tiêu và bắt đầu vòng mới. Lưu ý đây là hình minh họa của slide, không phải cấu trúc chính thức trong BABOK.",
+   "show": {
+    "h": "Các hoạt động BA thực hiện",
+    "points": [
+     "Hiểu vấn đề và mục tiêu của doanh nghiệp",
+     "Phân tích nhu cầu, giải pháp; đưa ra chiến lược",
+     "Chèo lái thay đổi, kết nối các Stakeholder",
+     "Chu trình: Objective → Stakeholders → Solutions → Transition"
+    ],
+    "img": "L01-img1"
+   },
+   "ask": [
+    "L01-q7",
+    "L01-q8"
+   ]
+  },
+  {
+   "id": "L01-n5",
+   "ref": "L01-t5",
+   "say": "Cụ thể hơn, một IT BA, tức BA trong dự án phần mềm, thường làm mười việc. Gom lại cho dễ nhớ: nhóm đầu là lấy và hiểu yêu cầu, gồm thu thập, khảo sát, phân tích yêu cầu, và giữ quan hệ với các bên liên quan. Nhóm giữa là biến yêu cầu thành thứ đội dự án dùng được: thiết kế giao diện ở mức nghiệp vụ, viết tài liệu như BRD hay SRS, và trả lời thắc mắc của lập trình viên, tester. Nhóm cuối là quản lý: quản lý yêu cầu, quản lý yêu cầu thay đổi, quản lý tài liệu, và hướng dẫn người dùng khi đưa hệ thống vào dùng. Hình năm mảng trên slide chỉ là minh họa, đừng nhầm với sáu khu vực kiến thức của BABOK mà ta học lát nữa.",
+   "show": {
+    "h": "10 công việc thường làm của IT BA",
+    "points": [
+     "Lấy và hiểu yêu cầu: khảo sát, phân tích, quan hệ Stakeholder",
+     "Làm ra sản phẩm cho đội dự án: thiết kế, viết BRD/SRS, hỗ trợ dev/tester",
+     "Quản lý: yêu cầu, thay đổi, tài liệu; hướng dẫn người dùng",
+     "Hình 5 mảng chỉ là minh họa, không phải 6 KA"
+    ],
+    "img": "L01-img2"
+   },
+   "ask": [
+    "L01-q11",
+    "L01-q12",
+    "L01-q13"
+   ]
+  },
+  {
+   "id": "L01-n6",
+   "ref": "L01-t6",
+   "say": "Vì sao BA quan trọng? Hãy hình dung ba nhân vật: đội IT ở một phía, bên nghiệp vụ ở phía kia, và BA đứng giữa. BA làm ba việc: lắng nghe các bên, thấu hiểu nhu cầu thật của nghiệp vụ, và truyền đạt đúng ngôn ngữ. Với ban giám đốc, BA nói bằng biểu đồ, số liệu, lợi ích kinh doanh. Với đội kỹ thuật, BA nói bằng yêu cầu rõ ràng, mô hình và đặc tả. Cùng một nội dung, nhưng mỗi bên cần một cách diễn đạt riêng. Nói gọn, BA là người phiên dịch giữa thế giới nghiệp vụ và thế giới kỹ thuật.",
+   "show": {
+    "h": "BA là cầu nối giữa IT và Stakeholder",
+    "points": [
+     "Lắng nghe các bên",
+     "Thấu hiểu nhu cầu thật, không chỉ lời nói bề mặt",
+     "Nói với nghiệp vụ bằng biểu đồ, số liệu; với IT bằng đặc tả",
+     "BA = người phiên dịch nghiệp vụ ↔ kỹ thuật"
+    ]
+   },
+   "ask": [
+    "L01-q16",
+    "L01-q17"
+   ]
+  },
+  {
+   "id": "L01-n7",
+   "ref": "L01-t7",
+   "say": "Có một hình rất hay: hai người đứng hai phía nhìn cùng một con số, một người thấy số sáu, người kia thấy số chín. Người ở giữa nói: cả hai đều đúng, nhưng chúng ta phải thống nhất một cách hiểu. Mỗi bên liên quan nhìn từ góc riêng nên hiểu khác nhau là bình thường. Nhưng dự án không thể làm theo hai cách hiểu cùng lúc. Ví dụ trong app đặt đồ ăn, phòng kinh doanh coi đơn hoàn thành là lúc khách thanh toán, còn bộ phận giao hàng coi là lúc shipper giao xong. Việc của BA là chốt một định nghĩa chung, ghi lại và được các bên xác nhận.",
+   "show": {
+    "h": "Hình 6 và 9: thống nhất cách hiểu",
+    "points": [
+     "Mỗi Stakeholder có góc nhìn riêng, khác nhau là bình thường",
+     "Dự án không thể làm theo hai cách hiểu",
+     "BA chốt một định nghĩa chung, ghi lại, các bên xác nhận"
+    ]
+   },
+   "ask": [
+    "L01-q18",
+    "L01-q19"
+   ]
+  },
+  {
+   "id": "L01-n8",
+   "ref": "L01-t8",
+   "say": "Bức tranh cái xích đu là câu chuyện nổi tiếng của ngành phần mềm. Khách hàng chỉ cần một chiếc lốp xe treo dây trên cây. Nhưng khách giải thích thành xích đu ba tầng. Trưởng dự án hiểu sai. Kỹ sư thiết kế phức tạp tới mức cắt cả thân cây. Lập trình viên làm ra thứ không dùng được. Nhân viên bán hàng thì hứa một chiếc ghế bành sang trọng. Tài liệu thì trống trơn, và khách bị tính tiền như cả một tàu lượn siêu tốc. Thông điệp là: nếu không ai làm rõ nhu cầu thật và giữ cho mọi bên hiểu giống nhau, mỗi khâu lại lệch thêm một chút. Sai lệch không phải lỗi của riêng ai. Đó chính là lý do cần BA.",
+   "show": {
+    "h": "Tranh cái xích đu",
+    "points": [
+     "Nhu cầu thật: chỉ một chiếc lốp xe treo dây",
+     "Mỗi khâu hiểu và làm lệch thêm một chút",
+     "Sales hứa quá mức, chi phí đội lên, tài liệu trống",
+     "Lệch là lỗi cả chuỗi, không riêng ai → cần BA"
+    ],
+    "img": "L01-img3"
+   },
+   "ask": [
+    "L01-q20",
+    "L01-q22"
+   ]
+  },
+  {
+   "id": "L01-n9",
+   "ref": "L01-t9",
+   "say": "Giờ tới phần kiến thức chuẩn. BABOK phiên bản ba, là bộ kiến thức BA của IIBA, chia công việc BA thành sáu khu vực kiến thức. Một, lập kế hoạch và giám sát: BA sẽ làm gì, với ai, đo hiệu quả ra sao. Hai, khai thác thông tin và hợp tác: lấy thông tin từ các bên và xác nhận lại. Ba, quản lý vòng đời yêu cầu: truy vết, ưu tiên, phê duyệt và quản lý thay đổi. Bốn, phân tích chiến lược: hiện trạng là gì, muốn đi tới đâu, đi bằng cách nào. Năm, phân tích yêu cầu và định nghĩa thiết kế: mô hình hóa, đặc tả, kiểm tra yêu cầu. Sáu, đánh giá giải pháp: giải pháp có mang lại giá trị như mong đợi không. Các mũi tên hai chiều cho thấy sáu khu vực liên quan qua lại, không phải các bước làm lần lượt.",
+   "show": {
+    "h": "6 khu vực kiến thức (BABOK v3)",
+    "points": [
+     "Planning & Monitoring · Elicitation & Collaboration",
+     "Requirements Life Cycle Management · Strategy Analysis",
+     "Requirements Analysis & Design Definition · Solution Evaluation",
+     "Liên quan qua lại, không phải các bước tuần tự"
+    ],
+    "img": "L01-img4"
+   },
+   "ask": [
+    "L01-q24",
+    "L01-q26",
+    "L01-q28"
+   ]
+  },
+  {
+   "id": "L01-n10",
+   "ref": "L01-t10",
+   "say": "Ngoài kiến thức, BA cần sáu nhóm năng lực. Tư duy phản biện và phân tích: hỏi vì sao để tìm gốc vấn đề. Hiểu biết lĩnh vực nghiệp vụ: biết ngành bán lẻ, ngân hàng hay nhà hàng vận hành ra sao. Kỹ năng tương tác: điều phối họp, đàm phán, giải quyết xung đột. Kỹ năng giao tiếp: nói, viết, lắng nghe rõ ràng. Công cụ và công nghệ. Và đặc điểm hành vi: trung thực, có trách nhiệm, đáng tin cậy. Trong BABOK, nhóm này gọi là năng lực nền tảng, Underlying Competencies. Lưu ý có hai tên trên slide khác tên chuẩn, bạn xem thêm trong phần lý thuyết.",
+   "show": {
+    "h": "6 năng lực cốt lõi của BA",
+    "points": [
+     "Tư duy phản biện, phân tích · Hiểu biết nghiệp vụ",
+     "Kỹ năng tương tác · Kỹ năng giao tiếp",
+     "Công cụ & công nghệ · Đặc điểm hành vi",
+     "BABOK gọi là Underlying Competencies"
+    ],
+    "img": "L01-img5"
+   },
+   "ask": [
+    "L01-q31",
+    "L01-q34",
+    "L01-q35"
+   ]
+  },
+  {
+   "id": "L01-n11",
+   "ref": "L01-t11",
+   "say": "Phần cuối là con đường sự nghiệp. Theo sơ đồ của IIBA, có hai lối vào nghề. Lối thứ nhất từ văn phòng: người đang làm lập trình, kiểm thử, hỗ trợ kỹ thuật, bán hàng, chăm sóc khách hàng, kế toán hay điều phối dự án đều có thể chuyển sang. Lối thứ hai từ trường học: bằng kinh doanh, bằng công nghệ thông tin, hoặc chứng chỉ phân tích nghiệp vụ. Người mới thường bắt đầu với các chức danh như Functional Analyst, Systems Analyst hay Business Systems Analyst, rồi quy về vai trò Business Analyst. Ý chính: nghề BA không đòi một xuất phát điểm duy nhất.",
+   "show": {
+    "h": "Con đường vào nghề BA",
+    "points": [
+     "Từ văn phòng: IT, bán hàng, CSKH, tài chính, quản lý dự án…",
+     "Từ trường học: bằng Business, IT hoặc chứng chỉ BA",
+     "Chức danh đầu: Functional, Systems, Business Systems Analyst…",
+     "Không cần một xuất phát điểm duy nhất"
+    ],
+    "img": "L01-img6"
+   },
+   "ask": [
+    "L01-q37",
+    "L01-q38"
+   ]
+  },
+  {
+   "id": "L01-n12",
+   "ref": "L01-t12",
+   "say": "Sau khi vào nghề, BA đi lên các nấc: trung cấp, rồi cao cấp, rồi các vai trò chuyên sâu như kiến trúc sư nghiệp vụ, kiến trúc sư doanh nghiệp, lên giám đốc và cấp điều hành. Đi kèm là hai chứng chỉ của IIBA. CCBA dành cho BA kinh nghiệm mức trung. CBAP dành cho BA nhiều kinh nghiệm, mức cao cấp. Mẹo nhớ: CC là Capability, có năng lực, mức giữa. Còn CBAP có chữ Professional, chuyên nghiệp, mức cao.",
+   "show": {
+    "h": "Từ BA lên Senior và C level",
+    "points": [
+     "Intermediate → Senior → chuyên sâu, lãnh đạo → Director → C level",
+     "CCBA: Capability, mức trung",
+     "CBAP: Professional, mức cao"
+    ],
+    "img": "L01-img7"
+   },
+   "ask": [
+    "L01-q39"
+   ]
+  },
+  {
+   "id": "L01-n13",
+   "ref": "L01-t13",
+   "say": "Từ BA, bạn có bốn hướng phát triển. Một, tiếp tục làm BA, lên Senior hoặc BA chuyên sâu một lĩnh vực. Hai, quản lý sản phẩm: bắt đầu từ Product Owner, lên Product Manager. Ba, quản lý dự án: từ Project Manager lên quản lý khách hàng, trưởng đơn vị. Bốn, tư vấn: từ Consultant lên Principal, Partner. Cả bốn nhánh đều có thể đi tới cấp điều hành. Và nền tảng chung của cả bốn là kỹ năng BA: hiểu nghiệp vụ, giao tiếp và phân tích.",
+   "show": {
+    "h": "4 hướng phát triển từ BA",
+    "points": [
+     "Business Analysis: Senior BA, Domain BA",
+     "Product Management: Product Owner → Product Manager",
+     "Project Management: Project Manager → Unit Head",
+     "Consulting: Consultant → Principal → Partner"
+    ],
+    "img": "L01-img8"
+   },
+   "ask": [
+    "L01-q40",
+    "L01-q41"
+   ]
+  },
+  {
+   "id": "L01-n14",
+   "say": "Tóm lại buổi một. Business Analysis là hoạt động giúp tổ chức thay đổi, bằng cách xác định nhu cầu và đề xuất giải pháp có giá trị. BA là bất kỳ ai làm việc đó, không phụ thuộc chức danh. BA là cầu nối và người phiên dịch giữa nghiệp vụ và kỹ thuật, giúp mọi bên hiểu giống nhau, tránh câu chuyện cái xích đu. BABOK chia công việc thành sáu khu vực kiến thức, đi cùng sáu nhóm năng lực nền tảng. Và con đường nghề BA rộng mở, có bốn hướng phát triển. Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài.",
+   "show": {
+    "h": "Tổng kết buổi 1",
+    "points": [
+     "BA giúp tổ chức thay đổi có giá trị",
+     "BA là việc, không phải chức danh",
+     "Cầu nối nghiệp vụ ↔ IT, thống nhất cách hiểu",
+     "6 knowledge area + 6 năng lực nền tảng",
+     "4 hướng phát triển sự nghiệp"
+    ]
+   }
+  }
+ ]
+}

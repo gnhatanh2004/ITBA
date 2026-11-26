@@ -1,0 +1,601 @@
+{
+ "lesson": "L01",
+ "voice": "vi-VN-NamMinhNeural",
+ "hash": "3089803c260e7113",
+ "duration": 525.144,
+ "chunks": [
+  {
+   "id": "L01-n1",
+   "start": 0.0,
+   "end": 30.432,
+   "sents": [
+    [
+     0.1,
+     4.975,
+     "Chào bạn, mình bắt đầu buổi một: giới thiệu về Business Analysis."
+    ],
+    [
+     4.925,
+     7.888,
+     "Buổi này trả lời bốn câu hỏi nền tảng."
+    ],
+    [
+     7.888,
+     12.512,
+     "Thứ nhất, Business Analysis và Business Analyst là gì."
+    ],
+    [
+     12.512,
+     16.2,
+     "Thứ hai, vì sao công việc này quan trọng với doanh nghiệp."
+    ],
+    [
+     16.2,
+     20.3,
+     "Thứ ba, một người làm BA cần những năng lực cốt lõi nào."
+    ],
+    [
+     20.3,
+     24.6,
+     "Và thứ tư, con đường sự nghiệp của BA đi từ đâu tới đâu."
+    ],
+    [
+     24.6,
+     30.425,
+     "Bạn có thể nhớ gọn bằng bốn chữ: cái gì, vì sao, cần gì, đi đâu."
+    ]
+   ]
+  },
+  {
+   "id": "L01-n2",
+   "start": 31.032,
+   "end": 72.864,
+   "sents": [
+    [
+     31.132,
+     33.407,
+     "Đầu tiên là định nghĩa."
+    ],
+    [
+     33.357,
+     46.044,
+     "IIBA, tức Viện Phân tích nghiệp vụ quốc tế, định nghĩa: Business Analysis là hoạt động tạo điều kiện cho sự thay đổi trong một tổ chức, bằng cách xác định nhu cầu và đề xuất giải pháp mang lại giá trị cho các bên liên quan."
+    ],
+    [
+     46.044,
+     52.469,
+     "Hãy để ý năm từ khóa: thay đổi, nhu cầu, giải pháp, giá trị và bên liên quan."
+    ],
+    [
+     52.469,
+     58.207,
+     "Ví dụ một nhà hàng đang nhận đơn qua điện thoại, khách chờ máy lâu, nhân viên hay ghi sai."
+    ],
+    [
+     58.207,
+     66.757,
+     "BA làm rõ nhu cầu đó, đề xuất một app đặt món có thanh toán online, và giá trị đo được là ít đơn sai hơn, nhiều đơn hơn mỗi ngày."
+    ],
+    [
+     66.757,
+     72.857,
+     "Điều cần nhớ: BA không chỉ ghi chép yêu cầu, mà giúp tổ chức thay đổi theo hướng có giá trị."
+    ]
+   ]
+  },
+  {
+   "id": "L01-n3",
+   "start": 73.464,
+   "end": 106.296,
+   "sents": [
+    [
+     73.564,
+     76.414,
+     "Vậy Business Analyst là ai?"
+    ],
+    [
+     76.364,
+     82.814,
+     "Theo IIBA, BA là bất kỳ ai thực hiện công việc phân tích nghiệp vụ, bất kể chức danh là gì."
+    ],
+    [
+     82.814,
+     88.914,
+     "Business Analysis là hoạt động, còn Business Analyst là người làm hoạt động đó."
+    ],
+    [
+     88.914,
+     102.326,
+     "Vì định nghĩa dựa vào việc làm chứ không dựa vào danh thiếp, nên một Product Owner, một chuyên viên phân tích hệ thống, một người tư vấn, thậm chí một trưởng phòng nghiệp vụ, khi họ khảo sát nhu cầu và đề xuất giải pháp, thì họ đang làm BA."
+    ],
+    [
+     102.326,
+     106.276,
+     "Mẹo nhớ: BA là việc, không phải danh thiếp."
+    ]
+   ]
+  },
+  {
+   "id": "L01-n4",
+   "start": 106.896,
+   "end": 143.736,
+   "sents": [
+    [
+     106.996,
+     109.971,
+     "Tiếp theo, BA làm những gì?"
+    ],
+    [
+     109.921,
+     121.008,
+     "Slide nêu năm hoạt động lớn: hiểu vấn đề và mục tiêu của doanh nghiệp, phân tích nhu cầu và giải pháp, đưa ra chiến lược, chèo lái các thay đổi, và tạo điều kiện để các bên liên quan hợp tác với nhau."
+    ],
+    [
+     121.008,
+     124.946,
+     "Bên cạnh là một chu trình bốn bước chạy theo chiều kim đồng hồ."
+    ],
+    [
+     124.946,
+     128.771,
+     "Từ mục tiêu kinh doanh, ta xác định các bên liên quan."
+    ],
+    [
+     128.771,
+     131.684,
+     "Làm việc với các bên để chọn giải pháp."
+    ],
+    [
+     131.684,
+     135.284,
+     "Đưa giải pháp vào thực tế, gọi là chuyển đổi."
+    ],
+    [
+     135.284,
+     138.809,
+     "Rồi quay lại kiểm tra mục tiêu và bắt đầu vòng mới."
+    ],
+    [
+     138.809,
+     143.721,
+     "Lưu ý đây là hình minh họa của slide, không phải cấu trúc chính thức trong BABOK."
+    ]
+   ]
+  },
+  {
+   "id": "L01-n5",
+   "start": 144.336,
+   "end": 184.824,
+   "sents": [
+    [
+     144.436,
+     150.174,
+     "Cụ thể hơn, một IT BA, tức BA trong dự án phần mềm, thường làm mười việc."
+    ],
+    [
+     150.124,
+     159.086,
+     "Gom lại cho dễ nhớ: nhóm đầu là lấy và hiểu yêu cầu, gồm thu thập, khảo sát, phân tích yêu cầu, và giữ quan hệ với các bên liên quan."
+    ],
+    [
+     159.086,
+     169.836,
+     "Nhóm giữa là biến yêu cầu thành thứ đội dự án dùng được: thiết kế giao diện ở mức nghiệp vụ, viết tài liệu như BRD hay SRS, và trả lời thắc mắc của lập trình viên, tester."
+    ],
+    [
+     169.836,
+     178.274,
+     "Nhóm cuối là quản lý: quản lý yêu cầu, quản lý yêu cầu thay đổi, quản lý tài liệu, và hướng dẫn người dùng khi đưa hệ thống vào dùng."
+    ],
+    [
+     178.274,
+     184.824,
+     "Hình năm mảng trên slide chỉ là minh họa, đừng nhầm với sáu khu vực kiến thức của BABOK mà ta học lát nữa."
+    ]
+   ]
+  },
+  {
+   "id": "L01-n6",
+   "start": 185.424,
+   "end": 220.992,
+   "sents": [
+    [
+     185.524,
+     187.924,
+     "Vì sao BA quan trọng?"
+    ],
+    [
+     187.874,
+     194.649,
+     "Hãy hình dung ba nhân vật: đội IT ở một phía, bên nghiệp vụ ở phía kia, và BA đứng giữa."
+    ],
+    [
+     194.649,
+     201.324,
+     "BA làm ba việc: lắng nghe các bên, thấu hiểu nhu cầu thật của nghiệp vụ, và truyền đạt đúng ngôn ngữ."
+    ],
+    [
+     201.324,
+     206.686,
+     "Với ban giám đốc, BA nói bằng biểu đồ, số liệu, lợi ích kinh doanh."
+    ],
+    [
+     206.686,
+     211.999,
+     "Với đội kỹ thuật, BA nói bằng yêu cầu rõ ràng, mô hình và đặc tả."
+    ],
+    [
+     211.999,
+     216.024,
+     "Cùng một nội dung, nhưng mỗi bên cần một cách diễn đạt riêng."
+    ],
+    [
+     216.024,
+     220.974,
+     "Nói gọn, BA là người phiên dịch giữa thế giới nghiệp vụ và thế giới kỹ thuật."
+    ]
+   ]
+  },
+  {
+   "id": "L01-n7",
+   "start": 221.592,
+   "end": 254.616,
+   "sents": [
+    [
+     221.692,
+     228.93,
+     "Có một hình rất hay: hai người đứng hai phía nhìn cùng một con số, một người thấy số sáu, người kia thấy số chín."
+    ],
+    [
+     228.88,
+     234.117,
+     "Người ở giữa nói: cả hai đều đúng, nhưng chúng ta phải thống nhất một cách hiểu."
+    ],
+    [
+     234.117,
+     238.417,
+     "Mỗi bên liên quan nhìn từ góc riêng nên hiểu khác nhau là bình thường."
+    ],
+    [
+     238.417,
+     241.905,
+     "Nhưng dự án không thể làm theo hai cách hiểu cùng lúc."
+    ],
+    [
+     241.905,
+     249.742,
+     "Ví dụ trong app đặt đồ ăn, phòng kinh doanh coi đơn hoàn thành là lúc khách thanh toán, còn bộ phận giao hàng coi là lúc shipper giao xong."
+    ],
+    [
+     249.742,
+     254.605,
+     "Việc của BA là chốt một định nghĩa chung, ghi lại và được các bên xác nhận."
+    ]
+   ]
+  },
+  {
+   "id": "L01-n8",
+   "start": 255.216,
+   "end": 295.056,
+   "sents": [
+    [
+     255.316,
+     259.204,
+     "Bức tranh cái xích đu là câu chuyện nổi tiếng của ngành phần mềm."
+    ],
+    [
+     259.154,
+     262.728,
+     "Khách hàng chỉ cần một chiếc lốp xe treo dây trên cây."
+    ],
+    [
+     262.728,
+     265.754,
+     "Nhưng khách giải thích thành xích đu ba tầng."
+    ],
+    [
+     265.754,
+     267.928,
+     "Trưởng dự án hiểu sai."
+    ],
+    [
+     267.928,
+     271.416,
+     "Kỹ sư thiết kế phức tạp tới mức cắt cả thân cây."
+    ],
+    [
+     271.416,
+     274.441,
+     "Lập trình viên làm ra thứ không dùng được."
+    ],
+    [
+     274.441,
+     278.178,
+     "Nhân viên bán hàng thì hứa một chiếc ghế bành sang trọng."
+    ],
+    [
+     278.178,
+     282.978,
+     "Tài liệu thì trống trơn, và khách bị tính tiền như cả một tàu lượn siêu tốc."
+    ],
+    [
+     282.978,
+     289.579,
+     "Thông điệp là: nếu không ai làm rõ nhu cầu thật và giữ cho mọi bên hiểu giống nhau, mỗi khâu lại lệch thêm một chút."
+    ],
+    [
+     289.579,
+     292.329,
+     "Sai lệch không phải lỗi của riêng ai."
+    ],
+    [
+     292.329,
+     295.041,
+     "Đó chính là lý do cần BA."
+    ]
+   ]
+  },
+  {
+   "id": "L01-n9",
+   "start": 295.656,
+   "end": 346.368,
+   "sents": [
+    [
+     295.756,
+     298.406,
+     "Giờ tới phần kiến thức chuẩn."
+    ],
+    [
+     298.356,
+     305.344,
+     "BABOK phiên bản ba, là bộ kiến thức BA của IIBA, chia công việc BA thành sáu khu vực kiến thức."
+    ],
+    [
+     305.344,
+     311.694,
+     "Một, lập kế hoạch và giám sát: BA sẽ làm gì, với ai, đo hiệu quả ra sao."
+    ],
+    [
+     311.694,
+     317.081,
+     "Hai, khai thác thông tin và hợp tác: lấy thông tin từ các bên và xác nhận lại."
+    ],
+    [
+     317.081,
+     323.131,
+     "Ba, quản lý vòng đời yêu cầu: truy vết, ưu tiên, phê duyệt và quản lý thay đổi."
+    ],
+    [
+     323.131,
+     329.006,
+     "Bốn, phân tích chiến lược: hiện trạng là gì, muốn đi tới đâu, đi bằng cách nào."
+    ],
+    [
+     329.006,
+     335.656,
+     "Năm, phân tích yêu cầu và định nghĩa thiết kế: mô hình hóa, đặc tả, kiểm tra yêu cầu."
+    ],
+    [
+     335.656,
+     340.781,
+     "Sáu, đánh giá giải pháp: giải pháp có mang lại giá trị như mong đợi không."
+    ],
+    [
+     340.781,
+     346.368,
+     "Các mũi tên hai chiều cho thấy sáu khu vực liên quan qua lại, không phải các bước làm lần lượt."
+    ]
+   ]
+  },
+  {
+   "id": "L01-n10",
+   "start": 346.968,
+   "end": 386.784,
+   "sents": [
+    [
+     347.068,
+     350.706,
+     "Ngoài kiến thức, BA cần sáu nhóm năng lực."
+    ],
+    [
+     350.656,
+     355.081,
+     "Tư duy phản biện và phân tích: hỏi vì sao để tìm gốc vấn đề."
+    ],
+    [
+     355.081,
+     360.706,
+     "Hiểu biết lĩnh vực nghiệp vụ: biết ngành bán lẻ, ngân hàng hay nhà hàng vận hành ra sao."
+    ],
+    [
+     360.706,
+     365.456,
+     "Kỹ năng tương tác: điều phối họp, đàm phán, giải quyết xung đột."
+    ],
+    [
+     365.456,
+     369.756,
+     "Kỹ năng giao tiếp: nói, viết, lắng nghe rõ ràng."
+    ],
+    [
+     369.756,
+     371.918,
+     "Công cụ và công nghệ."
+    ],
+    [
+     371.918,
+     376.643,
+     "Và đặc điểm hành vi: trung thực, có trách nhiệm, đáng tin cậy."
+    ],
+    [
+     376.643,
+     381.793,
+     "Trong BABOK, nhóm này gọi là năng lực nền tảng, Underlying Competencies."
+    ],
+    [
+     381.793,
+     386.768,
+     "Lưu ý có hai tên trên slide khác tên chuẩn, bạn xem thêm trong phần lý thuyết."
+    ]
+   ]
+  },
+  {
+   "id": "L01-n11",
+   "start": 387.384,
+   "end": 423.768,
+   "sents": [
+    [
+     387.484,
+     390.034,
+     "Phần cuối là con đường sự nghiệp."
+    ],
+    [
+     389.984,
+     394.022,
+     "Theo sơ đồ của IIBA, có hai lối vào nghề."
+    ],
+    [
+     394.022,
+     404.184,
+     "Lối thứ nhất từ văn phòng: người đang làm lập trình, kiểm thử, hỗ trợ kỹ thuật, bán hàng, chăm sóc khách hàng, kế toán hay điều phối dự án đều có thể chuyển sang."
+    ],
+    [
+     404.184,
+     410.697,
+     "Lối thứ hai từ trường học: bằng kinh doanh, bằng công nghệ thông tin, hoặc chứng chỉ phân tích nghiệp vụ."
+    ],
+    [
+     410.697,
+     419.859,
+     "Người mới thường bắt đầu với các chức danh như Functional Analyst, Systems Analyst hay Business Systems Analyst, rồi quy về vai trò Business Analyst."
+    ],
+    [
+     419.859,
+     423.759,
+     "Ý chính: nghề BA không đòi một xuất phát điểm duy nhất."
+    ]
+   ]
+  },
+  {
+   "id": "L01-n12",
+   "start": 424.368,
+   "end": 455.544,
+   "sents": [
+    [
+     424.468,
+     435.005,
+     "Sau khi vào nghề, BA đi lên các nấc: trung cấp, rồi cao cấp, rồi các vai trò chuyên sâu như kiến trúc sư nghiệp vụ, kiến trúc sư doanh nghiệp, lên giám đốc và cấp điều hành."
+    ],
+    [
+     434.955,
+     438.481,
+     "Đi kèm là hai chứng chỉ của IIBA."
+    ],
+    [
+     438.481,
+     442.093,
+     "CCBA dành cho BA kinh nghiệm mức trung."
+    ],
+    [
+     442.093,
+     446.055,
+     "CBAP dành cho BA nhiều kinh nghiệm, mức cao cấp."
+    ],
+    [
+     446.055,
+     451.156,
+     "Mẹo nhớ: CC là Capability, có năng lực, mức giữa."
+    ],
+    [
+     451.156,
+     455.543,
+     "Còn CBAP có chữ Professional, chuyên nghiệp, mức cao."
+    ]
+   ]
+  },
+  {
+   "id": "L01-n13",
+   "start": 456.144,
+   "end": 490.32,
+   "sents": [
+    [
+     456.244,
+     459.719,
+     "Từ BA, bạn có bốn hướng phát triển."
+    ],
+    [
+     459.669,
+     464.994,
+     "Một, tiếp tục làm BA, lên Senior hoặc BA chuyên sâu một lĩnh vực."
+    ],
+    [
+     464.994,
+     470.819,
+     "Hai, quản lý sản phẩm: bắt đầu từ Product Owner, lên Product Manager."
+    ],
+    [
+     470.819,
+     476.869,
+     "Ba, quản lý dự án: từ Project Manager lên quản lý khách hàng, trưởng đơn vị."
+    ],
+    [
+     476.869,
+     481.406,
+     "Bốn, tư vấn: từ Consultant lên Principal, Partner."
+    ],
+    [
+     481.406,
+     484.606,
+     "Cả bốn nhánh đều có thể đi tới cấp điều hành."
+    ],
+    [
+     484.606,
+     490.307,
+     "Và nền tảng chung của cả bốn là kỹ năng BA: hiểu nghiệp vụ, giao tiếp và phân tích."
+    ]
+   ]
+  },
+  {
+   "id": "L01-n14",
+   "start": 490.92,
+   "end": 525.144,
+   "sents": [
+    [
+     491.02,
+     492.97,
+     "Tóm lại buổi một."
+    ],
+    [
+     492.92,
+     499.845,
+     "Business Analysis là hoạt động giúp tổ chức thay đổi, bằng cách xác định nhu cầu và đề xuất giải pháp có giá trị."
+    ],
+    [
+     499.845,
+     504.07,
+     "BA là bất kỳ ai làm việc đó, không phụ thuộc chức danh."
+    ],
+    [
+     504.07,
+     511.058,
+     "BA là cầu nối và người phiên dịch giữa nghiệp vụ và kỹ thuật, giúp mọi bên hiểu giống nhau, tránh câu chuyện cái xích đu."
+    ],
+    [
+     511.058,
+     516.457,
+     "BABOK chia công việc thành sáu khu vực kiến thức, đi cùng sáu nhóm năng lực nền tảng."
+    ],
+    [
+     516.457,
+     520.683,
+     "Và con đường nghề BA rộng mở, có bốn hướng phát triển."
+    ],
+    [
+     520.683,
+     525.133,
+     "Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài."
+    ]
+   ]
+  }
+ ]
+}

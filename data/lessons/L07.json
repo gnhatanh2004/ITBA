@@ -1,0 +1,1842 @@
+{
+ "id": "L07",
+ "session": 7,
+ "module": "M2",
+ "title": "BACCM – Mô hình 6 khái niệm lõi",
+ "goals": [
+  "Nêu được BACCM là gì, xuất xứ từ BABOK và vai trò của nó với BA",
+  "Định nghĩa và cho ví dụ cho 6 khái niệm lõi: Need, Stakeholder, Context, Solution, Change, Value",
+  "Phân loại stakeholder theo 3 nhóm Business, User, Implementation",
+  "Giải thích quan hệ qua lại giữa Need và 5 khái niệm còn lại",
+  "Phân biệt Need với Solution và truy ngược được Need thật sự từ một solution do stakeholder đề xuất",
+  "Áp BACCM để phân tích một tình huống thực tế (đặt đồ ăn, FoodNow, thư viện, SolasMart)"
+ ],
+ "sources": [
+  {
+   "file": "7. BACCM.pdf",
+   "pages": "1-18"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L07-t1",
+   "h": "Mục đích bài học và BACCM là gì",
+   "html": "<p><b>Mục đích:</b> hiểu và áp dụng các khái niệm trong mô hình BACCM vào phân tích nghiệp vụ.</p><p><b>BACCM</b> là viết tắt của <b>Business Analysis Core Concept Model</b> (mô hình khái niệm lõi của phân tích nghiệp vụ).</p><ul><li>Được đề cập trong cuốn <b>BABOK</b> (Business Analysis Body of Knowledge – bộ kiến thức phân tích nghiệp vụ của IIBA).</li><li>Là một <b>khung làm việc (framework)</b> dành cho BA, hỗ trợ BA phân tích và đưa ra giải pháp tối ưu nhất cho các vấn đề.</li></ul><p>Sơ đồ BACCM vẽ 6 khái niệm ở 6 đỉnh, nối với nhau bằng các đường. Mỗi khái niệm đều liên kết với 5 khái niệm còn lại: đổi một khái niệm thì các khái niệm khác cũng bị ảnh hưởng.</p>{{img:L07-img1}}",
+   "src": "7. BACCM.pdf tr.2-4"
+  },
+  {
+   "id": "L07-t2",
+   "h": "6 khái niệm lõi – nhìn nhanh",
+   "html": "<p>BACCM là framework gồm 6 khái niệm giúp BA thấu hiểu và phân tích dự án từ gốc rễ:</p><table><thead><tr><th>Khái niệm</th><th>Nghĩa ngắn theo slide</th><th>Câu hỏi BA tự đặt</th></tr></thead><tbody><tr><td><b>Needs</b> (nhu cầu)</td><td>Vấn đề cần giải quyết hay cơ hội phát triển.</td><td>Ta đang giải quyết vấn đề hay nắm cơ hội gì?</td></tr><tr><td><b>Solutions</b> (giải pháp)</td><td>Cách thức đáp ứng Needs và tạo ra sự thay đổi.</td><td>Cách nào đáp ứng được nhu cầu?</td></tr><tr><td><b>Stakeholders</b> (bên liên quan)</td><td>Người bị ảnh hưởng, tham gia, hoặc cung cấp Solutions.</td><td>Ai có nhu cầu, ai làm, ai bị tác động?</td></tr><tr><td><b>Contexts</b> (bối cảnh)</td><td>Môi trường, văn hóa, thị trường, quy trình hiện tại...</td><td>Điều kiện xung quanh nào chi phối?</td></tr><tr><td><b>Value</b> (giá trị)</td><td>Lợi ích hữu hình (số liệu) hoặc vô hình (danh tiếng).</td><td>Làm xong thì được lợi gì, cho ai?</td></tr><tr><td><b>Changes</b> (thay đổi)</td><td>Các hoạt động chuyển đổi để đạt được Needs.</td><td>Phải thay đổi những gì?</td></tr></tbody></table><p class=\"tip\">Mẹo nhớ: <b>N-S-S-C-V-C</b> – “Nhu cầu sinh ra Giải pháp, cho Người, trong Bối cảnh, tạo Giá trị, nhờ Thay đổi”.</p>",
+   "src": "7. BACCM.pdf tr.5"
+  },
+  {
+   "id": "L07-t3",
+   "h": "Vai trò của BACCM",
+   "html": "<ul><li><b>Định hướng tư duy phân tích.</b> BA thường bị cuốn vào làm task (viết tài liệu, vẽ biểu đồ…). BACCM giúp BA tập trung vào bản chất: vì sao làm, cho ai, được gì.</li><li><b>Giúp phân tích yêu cầu chính xác hơn.</b> Soát đủ 6 khái niệm thì khó bỏ sót một mặt của vấn đề.</li><li><b>Tạo ngôn ngữ chung trong team BA.</b> Mọi người cùng dùng 6 từ khóa Need, Stakeholder, Context, Solution, Change, Value để trao đổi.</li></ul><p class=\"tip\">Ví dụ: BA đang mải vẽ màn hình cho tính năng mới. Dừng lại hỏi “Need là gì? Value cho ai?” giúp BA phát hiện tính năng đó có thật sự cần không.</p>",
+   "src": "7. BACCM.pdf tr.6"
+  },
+  {
+   "id": "L07-t4",
+   "h": "Need – định nghĩa",
+   "html": "<p>Theo BABOK, Need là <i>“A problem, opportunity or constraint with potential value to a stakeholder(s)”</i> – một vấn đề, cơ hội hoặc ràng buộc có giá trị tiềm năng với một hay nhiều stakeholder.</p><ul><li><b>Vấn đề (Problem):</b> điều đang gây ra khó khăn, kém hiệu quả. Ví dụ: nhân viên HR mất nhiều thời gian xử lý hồ sơ giấy.</li><li><b>Cơ hội (Opportunity):</b> điều có thể cải thiện, tối ưu hoặc tận dụng. Ví dụ (tự đặt): khách hàng của SolasMart ngày càng mua online, có thể mở thêm kênh bán online.</li><li>Need là <b>concept cơ sở</b> để tạo ra 5 concept còn lại.</li></ul><p class=\"note\">Slide nhấn mạnh Need là gốc của 5 khái niệm còn lại. BABOK v3 thì nói 6 khái niệm có vai trò ngang nhau, khái niệm nào cũng cần được xem xét. Hai cách nhìn không mâu thuẫn: trong thực hành, BA thường bắt đầu từ Need rồi soát đủ 5 khái niệm kia.</p>",
+   "src": "7. BACCM.pdf tr.7"
+  },
+  {
+   "id": "L07-t5",
+   "h": "Need – đặc điểm và việc BA phải làm",
+   "html": "<ul><li><b>Tồn tại ở nhiều cấp độ</b>, phụ thuộc vào stakeholder. Ví dụ: giám đốc cần tăng doanh thu, thủ kho cần kiểm kê nhanh.</li><li><b>Có độ ưu tiên khác nhau.</b> Không phải need nào cũng làm trước.</li><li><b>Có thể mơ hồ hoặc chưa rõ ràng</b> ở giai đoạn đầu. Ví dụ: “hệ thống phải dễ dùng hơn”.</li><li><b>Thay đổi theo bối cảnh.</b> Luật mới, đối thủ mới có thể làm need thay đổi.</li></ul><p class=\"key\">Need là thứ BA cần <b>khám phá, làm rõ, xác thực và ưu tiên</b>.</p>",
+   "src": "7. BACCM.pdf tr.8"
+  },
+  {
+   "id": "L07-t6",
+   "h": "Stakeholder – định nghĩa và phân loại",
+   "html": "<p>Stakeholder (bên liên quan) là <b>cá nhân, nhóm hoặc tổ chức</b> mà:</p><ul><li>có need cần giải quyết;</li><li>hoặc tham gia vào việc cung cấp giải pháp (solution);</li><li>hoặc bị tác động bởi thay đổi (change).</li></ul><p>Chỉ cần thỏa <b>một</b> trong ba điều trên là stakeholder.</p><p>Phân loại stakeholder theo slide (ghi là theo BABOK):</p><table><thead><tr><th>Nhóm</th><th>Là ai</th><th>Ví dụ</th></tr></thead><tbody><tr><td><b>Business Stakeholders</b></td><td>Người ra quyết định kinh doanh</td><td>Giám đốc, Quản lý, Chủ đầu tư…</td></tr><tr><td><b>User Stakeholders</b></td><td>Người sử dụng cuối</td><td>Nhân viên…</td></tr><tr><td><b>Implementation Stakeholders</b></td><td>Người tham gia triển khai</td><td>Dev, QA, IT support…</td></tr></tbody></table><p class=\"note\">BABOK v3 không chia đúng 3 nhóm này. BABOK liệt kê các vai trò stakeholder cụ thể như Sponsor, Customer, End User, Domain SME, Implementation SME, Operational Support, Project Manager, Regulator, Supplier, Tester. Cách chia 3 nhóm trên slide là cách gom gọn các vai trò đó, dùng để học cho dễ.</p>",
+   "src": "7. BACCM.pdf tr.9"
+  },
+  {
+   "id": "L07-t7",
+   "h": "Stakeholder – BA cần làm gì",
+   "html": "<ul><li><b>Xác định đúng</b> các stakeholder quan trọng. Bỏ sót một bên có thể bỏ sót cả một nhóm need.</li><li><b>Ưu tiên</b> stakeholder theo mức độ ảnh hưởng.</li><li><b>Tạo ra sự đồng thuận</b> giữa các nhóm stakeholder khác nhau, vì mỗi nhóm có need và mong muốn riêng, có khi trái nhau.</li></ul><p class=\"key\">BA cần tìm ra <b>need của các stakeholder</b>.</p><p class=\"tip\">Cách lập danh sách và phân tích stakeholder chi tiết (Stakeholder Register) được học ở bài L04.</p>",
+   "src": "7. BACCM.pdf tr.10"
+  },
+  {
+   "id": "L07-t8",
+   "h": "Context – định nghĩa",
+   "html": "<p>Context (bối cảnh) là <b>môi trường, điều kiện và yếu tố xung quanh</b> mà trong đó nhu cầu kinh doanh (Need) hoặc giải pháp (Solution) đang tồn tại hoặc được đề xuất.</p><p>Context có thể là:</p><ul><li>Chính sách / Luật pháp</li><li>Văn hóa</li><li>Quy trình / Công nghệ</li><li>Thị trường / Đối thủ</li><li>Tài nguyên</li><li>Con người</li></ul><p class=\"tip\">Ví dụ (tự đặt) với SolasMart: quy định về hóa đơn bán hàng (luật), thói quen trả tiền mặt của khách (văn hóa), máy POS đang dùng (công nghệ), đối thủ đã có app (thị trường), ngân sách dự án (tài nguyên), nhân viên quầy lớn tuổi ít dùng máy tính (con người).</p>",
+   "src": "7. BACCM.pdf tr.11"
+  },
+  {
+   "id": "L07-t9",
+   "h": "Context – vì sao phải nắm rõ",
+   "html": "<ul><li><b>Giúp xác định các hạn chế</b> trong phân tích: ngân sách, thời gian, luật, hạ tầng…</li><li><b>Giúp không “ảo tưởng giải pháp”</b>: tránh đề xuất giải pháp đẹp trên giấy nhưng không chạy được trong thực tế.</li></ul><p class=\"key\">Cần nắm rõ Context để đưa ra yêu cầu và giải pháp <b>thực tế, khả thi và có giá trị</b>.</p><p class=\"tip\">Ví dụ (tự đặt): đề xuất cho thư viện một hệ thống mượn sách tự động bằng robot là “ảo tưởng giải pháp” nếu thư viện chỉ có ngân sách nhỏ và chưa có mạng ổn định.</p>",
+   "src": "7. BACCM.pdf tr.12"
+  },
+  {
+   "id": "L07-t10",
+   "h": "Solution",
+   "html": "<ul><li>Solution (giải pháp) là <b>một cách thức để đáp ứng một hoặc nhiều Need</b> đã được xác định.</li><li>BA <b>không nên bị cuốn vào solution quá sớm</b>. Phải luôn truy ngược lại “Need thật sự” phía sau mỗi solution mà stakeholder đề xuất.</li><li>Solution có thể là:<ul><li><b>Công nghệ</b>: phần mềm, ứng dụng;</li><li><b>Quy trình</b>: quy trình mới, tái thiết kế quy trình cũ;</li><li><b>Sự thay đổi trong tổ chức</b>: cơ cấu, vai trò, trách nhiệm.</li></ul></li></ul><p class=\"key\">Solution là kết quả của quá trình phân tích và đề xuất <b>sau khi hiểu rõ Need</b>. Solution <b>không phải lúc nào cũng là phần mềm</b>.</p>",
+   "src": "7. BACCM.pdf tr.13"
+  },
+  {
+   "id": "L07-t11",
+   "h": "Change",
+   "html": "<p>Change (thay đổi) là <b>những thay đổi cần có để thực hiện giải pháp</b>. Change có thể là:</p><ul><li>Thay đổi hệ thống</li><li>Thay đổi quy trình</li><li>Thay đổi vai trò / con người</li><li>Thay đổi tổ chức</li><li>Thay đổi kỹ thuật…</li></ul><p>Phân biệt nhanh: <b>Solution</b> là “cái gì” đáp ứng need; <b>Change</b> là “quá trình chuyển đổi” để đưa solution vào thực tế. Ví dụ: Solution là phần mềm HRM; Change là chuyển từ xử lý hồ sơ thủ công sang dùng phần mềm.</p><p class=\"note\">BABOK v3 định nghĩa Change là “hành động chuyển đổi để đáp ứng một need”. Slide gọi là “những thay đổi cần có để thực hiện giải pháp”. Hai cách nói cùng một ý: need là lý do, solution là cái được đưa vào, change là việc chuyển đổi.</p>",
+   "src": "7. BACCM.pdf tr.14"
+  },
+  {
+   "id": "L07-t12",
+   "h": "Value",
+   "html": "<p>Value (giá trị) là <b>lợi ích đạt được</b> từ việc thực hiện một giải pháp, một sự thay đổi, hoặc đáp ứng một nhu cầu nào đó. Value có thể là:</p><ul><li><b>Hữu hình</b> (đo được bằng số liệu), ví dụ tăng doanh số, giảm thời gian xử lý.</li><li><b>Vô hình</b> (khó đo trực tiếp), ví dụ tăng trải nghiệm, tăng danh tiếng.</li></ul><p class=\"tip\">Mẹo: hỏi “Lợi ích này có đếm, đo được không?”. Có → hữu hình. Không → vô hình.</p>",
+   "src": "7. BACCM.pdf tr.15, tr.5"
+  },
+  {
+   "id": "L07-t13",
+   "h": "Tác động qua lại – Need là trung tâm",
+   "html": "<ul><li><b>Need → Change:</b> Need là lý do để tạo ra sự thay đổi.</li><li><b>Solution → Need:</b> Solution nhằm đáp ứng Need.</li><li><b>Stakeholder → Need:</b> Stakeholder là nguồn gốc của các Need.</li><li><b>Need → Value:</b> mỗi Need được đáp ứng sẽ tạo ra Value.</li><li><b>Context → Need:</b> Context ảnh hưởng đến việc xác định và ưu tiên Need.</li></ul><p class=\"warn\">Một Need chưa được nhận diện đúng sẽ dẫn đến việc chọn sai Change, sai Solution, ảnh hưởng đến Stakeholder, không tạo được Value, và không phù hợp với Context.</p><p><b>Ví dụ trên slide:</b> Need là “Tốn thời gian xử lý hồ sơ nhân sự”.</p>{{img:L07-img2}}<table><thead><tr><th>Yếu tố</th><th>Mối liên hệ với Need</th></tr></thead><tbody><tr><td>Change</td><td>Chuyển từ xử lý hồ sơ thủ công sang dùng phần mềm</td></tr><tr><td>Solution</td><td>Phần mềm HRM tích hợp chức năng quản lý hồ sơ, nghỉ phép</td></tr><tr><td>Stakeholder</td><td>Nhân viên HR</td></tr><tr><td>Value</td><td>Tiết kiệm 50% thời gian làm việc, giảm lỗi nhập sai dữ liệu</td></tr></tbody></table>",
+   "src": "7. BACCM.pdf tr.16"
+  },
+  {
+   "id": "L07-t14",
+   "h": "Need và Solution – dễ nhầm",
+   "html": "<ul><li>Need và Solution <b>rất dễ nhầm</b>. Stakeholder hay nói ra giải pháp (“cần một cái app”, “thêm nút xuất Excel”) thay vì nói nhu cầu.</li><li><b>Một need có thể có nhiều solution.</b> Ví dụ: need “khách chờ lâu khi thanh toán” có thể giải bằng thêm quầy, thêm máy quét mã vạch, hoặc cho tự thanh toán.</li></ul><p class=\"key\">BA cần tìm ra <b>need thật sự</b> và đề xuất <b>solution hiệu quả nhất</b>.</p><table><thead><tr><th>Câu stakeholder nói (solution)</th><th>Câu hỏi truy ngược</th><th>Need có thể là</th></tr></thead><tbody><tr><td>“Cần nút xuất báo cáo ra Excel”</td><td>Xuất ra để làm gì?</td><td>Quản lý cần xem số liệu bán hàng theo ngày để ra quyết định</td></tr><tr><td>“Làm cho chúng tôi một app”</td><td>App giải quyết khó khăn gì?</td><td>Khách khó đặt bàn ngoài giờ gọi điện</td></tr></tbody></table><p class=\"tip\">Mẹo phân biệt: Need trả lời “<b>vì sao / vấn đề gì</b>”, Solution trả lời “<b>làm bằng cách nào</b>”.</p>",
+   "src": "7. BACCM.pdf tr.17"
+  },
+  {
+   "id": "L07-t15",
+   "h": "Dùng BACCM khi phân tích: 6 câu hỏi",
+   "html": "<p>Phần này bổ sung theo BABOK v3 để áp dụng slide vào thực tế. Mỗi khái niệm gắn với một câu hỏi. BA đi lần lượt qua 6 câu hỏi cho một dự án hay một yêu cầu:</p><table><thead><tr><th>Khái niệm</th><th>Câu hỏi</th></tr></thead><tbody><tr><td>Change</td><td>Cần thay đổi những gì (hệ thống, quy trình, con người, tổ chức)?</td></tr><tr><td>Need</td><td>Vấn đề, cơ hội hay ràng buộc nào đang cần giải quyết?</td></tr><tr><td>Solution</td><td>Có những giải pháp nào? Giải pháp nào hiệu quả nhất?</td></tr><tr><td>Stakeholder</td><td>Ai có need, ai cung cấp giải pháp, ai bị tác động?</td></tr><tr><td>Value</td><td>Stakeholder được lợi gì, hữu hình hay vô hình?</td></tr><tr><td>Context</td><td>Môi trường, luật, công nghệ, tài nguyên nào chi phối?</td></tr></tbody></table><p>Thứ tự gợi ý khi làm: <b>Stakeholder → Need → Context → Solution → Change → Value</b>. Đi từ người, tới nhu cầu, xét điều kiện, rồi mới chọn giải pháp.</p><p class=\"warn\">Nếu một khái niệm bị bỏ trống, đó là dấu hiệu phân tích còn thiếu. Ví dụ: không nói được Value thì chưa chứng minh được dự án đáng làm.</p>",
+   "src": "7. BACCM.pdf tr.4-17"
+  }
+ ],
+ "examples": [
+  {
+   "id": "L07-e1",
+   "title": "Ví dụ trên slide: xử lý hồ sơ nhân sự, đủ 6 khái niệm",
+   "html": "<p>Slide cho Need “Tốn thời gian xử lý hồ sơ nhân sự” cùng 4 yếu tố. Bảng dưới giữ nguyên 4 yếu tố của slide và thêm dòng Context (ví dụ tự đặt) để đủ 6 khái niệm.</p><table><thead><tr><th>Khái niệm</th><th>Nội dung</th><th>Giải thích</th></tr></thead><tbody><tr><td>Need</td><td>Tốn thời gian xử lý hồ sơ nhân sự</td><td>Đây là vấn đề (problem): đang gây kém hiệu quả.</td></tr><tr><td>Change</td><td>Chuyển từ xử lý hồ sơ thủ công sang dùng phần mềm</td><td>Thay đổi quy trình và hệ thống làm việc của phòng HR.</td></tr><tr><td>Solution</td><td>Phần mềm HRM tích hợp quản lý hồ sơ, nghỉ phép</td><td>Giải pháp công nghệ đáp ứng need.</td></tr><tr><td>Stakeholder</td><td>Nhân viên HR</td><td>Người có need và là người dùng cuối (User Stakeholder).</td></tr><tr><td>Value</td><td>Tiết kiệm 50% thời gian làm việc, giảm lỗi nhập sai dữ liệu</td><td>Giá trị hữu hình: đo được bằng thời gian và số lỗi.</td></tr><tr><td>Context <i>(ví dụ)</i></td><td>Hồ sơ đang lưu trên giấy và file rời; nhân viên HR quen làm tay</td><td>Context cho biết cần chuyển dữ liệu cũ và đào tạo người dùng.</td></tr></tbody></table><p class=\"tip\">Nhận xét: nếu need bị hiểu sai thành “thiếu máy tính” thì solution sẽ là mua máy, không giảm được thời gian xử lý, và không có value.</p>",
+   "src": "7. BACCM.pdf tr.16"
+  },
+  {
+   "id": "L07-e2",
+   "title": "Áp BACCM vào hệ thống đặt đồ ăn",
+   "html": "<p><b>Tình huống (ví dụ):</b> một quán ăn nhận đơn qua điện thoại. Giờ cao điểm, nhiều cuộc gọi bị nhỡ, đơn ghi tay hay sai món.</p><table><thead><tr><th>Khái niệm</th><th>Phân tích</th></tr></thead><tbody><tr><td>Need</td><td>Mất đơn và sai đơn giờ cao điểm (vấn đề); có thể nhận thêm khách đặt online (cơ hội).</td></tr><tr><td>Stakeholder</td><td>Chủ quán (Business); khách đặt món, nhân viên nhận đơn, shipper (User); đội phát triển, QA (Implementation).</td></tr><tr><td>Context</td><td>Khách quen gọi điện; quán nhỏ, ngân sách hạn chế; đối thủ đã lên app giao đồ ăn.</td></tr><tr><td>Solution</td><td>Hệ thống đặt đồ ăn online: khách tự chọn món, hệ thống gửi đơn cho bếp.</td></tr><tr><td>Change</td><td>Thay đổi quy trình nhận đơn (từ nghe điện thoại sang xem đơn trên màn hình); nhân viên đổi vai trò từ ghi đơn sang xác nhận đơn.</td></tr><tr><td>Value</td><td>Hữu hình: ít đơn sai, ít cuộc gọi nhỡ. Vô hình: khách hài lòng hơn.</td></tr></tbody></table><p class=\"note\">Context “khách quen gọi điện” nhắc BA giữ kênh điện thoại song song, không ép mọi khách dùng app ngay.</p>",
+   "src": "7. BACCM.pdf tr.5, tr.9-15"
+  },
+  {
+   "id": "L07-e3",
+   "title": "FoodNow: stakeholder nói solution, BA tìm need",
+   "html": "<p><b>Tình huống (ví dụ):</b> chủ nhà hàng nói với BA dự án FoodNow (đặt bàn nhà hàng): “Tôi cần một cái app đặt bàn.”</p><p>“Cái app” là <b>solution</b>. BA không vội ghi yêu cầu mà hỏi ngược:</p><ol><li>“Hiện giờ khách đặt bàn thế nào?” → Gọi điện, nhân viên ghi sổ.</li><li>“Cách đó gặp khó khăn gì?” → Ngoài giờ không ai nghe máy; có khi ghi trùng bàn.</li><li>“Hậu quả là gì?” → Mất khách, khách đến không có bàn.</li></ol><p><b>Need thật sự:</b> nhận đặt bàn được cả ngoài giờ và tránh đặt trùng bàn.</p><p>Một need có nhiều solution:</p><table><thead><tr><th>Solution</th><th>Ưu điểm</th><th>Hạn chế</th></tr></thead><tbody><tr><td>App FoodNow riêng</td><td>Chủ động, có dữ liệu khách</td><td>Tốn chi phí, khách phải cài app</td></tr><tr><td>Form đặt bàn trên web, có lịch bàn trống</td><td>Rẻ, khách không phải cài gì</td><td>Ít tính năng</td></tr><tr><td>Quy trình mới: sổ đặt bàn chung dạng bảng tính, có người trực tin nhắn</td><td>Gần như không tốn tiền</td><td>Vẫn phụ thuộc người trực</td></tr></tbody></table><p>BA chọn solution hiệu quả nhất dựa trên Context (ngân sách, thói quen khách) và Value mong đợi.</p>",
+   "src": "7. BACCM.pdf tr.13, tr.17"
+  },
+  {
+   "id": "L07-e4",
+   "title": "Quản lý thư viện: Change và Value",
+   "html": "<p><b>Tình huống (ví dụ):</b> thư viện trường quản lý mượn trả bằng sổ. Độc giả mất nhiều thời gian tìm sách, thủ thư không biết sách nào đang quá hạn.</p><p><b>Solution:</b> phần mềm quản lý thư viện có tra cứu sách và theo dõi hạn trả.</p><p><b>Các Change cần có</b> (theo 5 loại trên slide):</p><table><thead><tr><th>Loại change</th><th>Cụ thể</th></tr></thead><tbody><tr><td>Hệ thống</td><td>Cài phần mềm, nhập dữ liệu sách cũ</td></tr><tr><td>Quy trình</td><td>Mượn trả bằng quét mã thay vì ghi sổ</td></tr><tr><td>Vai trò / con người</td><td>Thủ thư được đào tạo dùng phần mềm, thêm việc nhắc sách quá hạn</td></tr><tr><td>Tổ chức</td><td>Giao một người phụ trách quản trị dữ liệu thư viện</td></tr><tr><td>Kỹ thuật</td><td>Dán mã vạch cho từng cuốn sách, lắp máy quét</td></tr></tbody></table><p><b>Value:</b></p><ul><li>Hữu hình: giảm thời gian tìm sách, giảm số sách quá hạn không ai nhắc.</li><li>Vô hình: độc giả có trải nghiệm tốt hơn, thư viện có hình ảnh hiện đại hơn.</li></ul>",
+   "src": "7. BACCM.pdf tr.14-15"
+  },
+  {
+   "id": "L07-e5",
+   "title": "SolasMart: Context chặn “ảo tưởng giải pháp”",
+   "html": "<p><b>Tình huống (ví dụ):</b> SolasMart (chuỗi bán lẻ) muốn giảm thời gian khách chờ ở quầy. Một thành viên đề xuất: “Lắp quầy tự thanh toán ở mọi cửa hàng.”</p><p>BA xét Context trước khi chấp nhận:</p><table><thead><tr><th>Loại Context</th><th>Câu hỏi BA đặt</th><th>Ảnh hưởng tới solution</th></tr></thead><tbody><tr><td>Tài nguyên</td><td>Ngân sách có đủ cho mọi cửa hàng không?</td><td>Có thể chỉ thử ở vài cửa hàng</td></tr><tr><td>Con người / Văn hóa</td><td>Khách có quen tự quét hàng không?</td><td>Cần nhân viên hướng dẫn giai đoạn đầu</td></tr><tr><td>Quy trình / Công nghệ</td><td>Máy POS và quy trình bán tại quầy hiện tại có nối được không?</td><td>Có thể phải sửa hệ thống bán hàng</td></tr><tr><td>Chính sách / Luật</td><td>Hóa đơn khi khách tự thanh toán xuất thế nào?</td><td>Cần quy định xuất hóa đơn mới</td></tr></tbody></table><p>Kết luận: Context giúp BA thấy hạn chế, từ đó đề xuất solution <b>thực tế, khả thi, có giá trị</b>, ví dụ thêm máy quét mã vạch ở quầy trước, thử quầy tự thanh toán ở một cửa hàng.</p>",
+   "src": "7. BACCM.pdf tr.11-12"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L07-p1",
+   "title": "Phân tích một tình huống theo đủ 6 khái niệm",
+   "task": "<p>Hệ thống đặt đồ ăn (ví dụ): khách phàn nàn đơn giao chậm vì shipper không biết đơn nào đã nấu xong. Hãy phân tích tình huống theo 6 khái niệm BACCM.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Need.</b> Viết need dưới dạng vấn đề hoặc cơ hội, chưa nói tới cách làm. Ví dụ: “Shipper không biết thời điểm món sẵn sàng nên đơn giao chậm”.</p>",
+    "<p><b>Bước 2 – Stakeholder.</b> Liệt kê ai có need, ai cung cấp solution, ai bị change tác động. Xếp vào 3 nhóm Business, User, Implementation.</p>",
+    "<p><b>Bước 3 – Context.</b> Ghi các điều kiện xung quanh: quy trình bếp hiện tại, công nghệ đang dùng, con người, ngân sách.</p>",
+    "<p><b>Bước 4 – Solution.</b> Nêu ít nhất 2 solution khác nhau, trong đó có 1 cái không phải phần mềm.</p>",
+    "<p><b>Bước 5 – Change.</b> Với solution chọn, ghi các thay đổi về hệ thống, quy trình, vai trò.</p>",
+    "<p><b>Bước 6 – Value.</b> Ghi giá trị hữu hình và vô hình, mỗi loại ít nhất 1 ý.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Khái niệm</th><th>Đáp án mẫu</th></tr></thead><tbody><tr><td>Need</td><td>Shipper không biết khi nào món xong, đơn giao chậm, khách phàn nàn.</td></tr><tr><td>Stakeholder</td><td>Business: chủ quán. User: khách hàng, nhân viên bếp, shipper. Implementation: đội dev, QA.</td></tr><tr><td>Context</td><td>Bếp báo món xong bằng cách gọi to; shipper đứng chờ ngoài cửa; quán đã có hệ thống đặt món online.</td></tr><tr><td>Solution</td><td>(1) Thêm trạng thái “Đã nấu xong” trên hệ thống, tự báo cho shipper. (2) Quy trình mới: bếp đặt món xong lên kệ có số đơn, shipper tự lấy.</td></tr><tr><td>Change</td><td>Với (1): hệ thống thêm trạng thái đơn và thông báo; quy trình bếp thêm thao tác bấm “xong”; shipper phải theo dõi thông báo.</td></tr><tr><td>Value</td><td>Hữu hình: giảm thời gian chờ lấy món, giảm phàn nàn. Vô hình: khách hài lòng, shipper đỡ mệt.</td></tr></tbody></table>",
+   "src": "7. BACCM.pdf tr.5-15"
+  },
+  {
+   "id": "L07-p2",
+   "title": "Truy ngược need thật sự từ solution stakeholder đề xuất",
+   "task": "<p>Quản lý kho của SolasMart (ví dụ) nói: “Tôi cần thêm nút xuất danh sách tồn kho ra Excel.” Hãy tìm need thật sự và đề xuất ít nhất 2 solution.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Nhận diện đây là solution (một tính năng cụ thể), chưa phải need.</p>",
+    "<p><b>Bước 2.</b> Hỏi “Xuất Excel xong anh dùng để làm gì?”. Giả sử câu trả lời: “Để lọc ra hàng sắp hết, gửi bộ phận mua hàng.”</p>",
+    "<p><b>Bước 3.</b> Hỏi tiếp “Nếu không làm vậy thì sao?”. Giả sử: “Hàng hết mà không ai biết, khách đến không có hàng.”</p>",
+    "<p><b>Bước 4.</b> Viết need bằng ngôn ngữ vấn đề, không chứa tên tính năng.</p>",
+    "<p><b>Bước 5.</b> Liệt kê nhiều solution cho cùng need, so sánh theo Context và Value, chọn cái hiệu quả nhất.</p>"
+   ],
+   "answer": "<p><b>Need thật sự:</b> bộ phận mua hàng cần biết sớm mặt hàng sắp hết để nhập kịp, tránh hết hàng khi khách cần.</p><p><b>Các solution:</b></p><ul><li>Nút xuất Excel (đúng như đề xuất) – vẫn phải lọc tay.</li><li>Hệ thống tự cảnh báo khi tồn kho dưới mức tối thiểu, gửi thẳng cho bộ phận mua hàng.</li><li>Báo cáo “hàng sắp hết” xem trực tiếp trên hệ thống mỗi sáng.</li></ul><p><b>Chọn:</b> cảnh báo tự động, vì đáp ứng need trực tiếp, bỏ bước lọc tay, giảm rủi ro quên. Nếu Context là ngân sách rất hạn chế, có thể làm báo cáo trước.</p>",
+   "src": "7. BACCM.pdf tr.13, tr.17"
+  },
+  {
+   "id": "L07-p3",
+   "title": "Lập bảng tác động qua lại cho một Need",
+   "task": "<p>Theo mẫu bảng ở slide “Tác động qua lại – Need”, lập bảng cho Need: “Độc giả thư viện mất nhiều thời gian tìm sách” (ví dụ). Thêm dòng Context và viết 1 câu nói hậu quả nếu need bị nhận diện sai.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Kẻ bảng 2 cột: Yếu tố | Mối liên hệ với Need. Các dòng: Change, Solution, Stakeholder, Value, Context.</p>",
+    "<p><b>Bước 2.</b> Stakeholder: ai là nguồn gốc của need này?</p>",
+    "<p><b>Bước 3.</b> Solution: cách nào đáp ứng need? Change: cần chuyển từ gì sang gì?</p>",
+    "<p><b>Bước 4.</b> Value: need được đáp ứng thì tạo ra lợi ích gì?</p>",
+    "<p><b>Bước 5.</b> Context: điều gì ảnh hưởng tới việc xác định và ưu tiên need này?</p>",
+    "<p><b>Bước 6.</b> Viết câu hậu quả theo ý slide: need sai → sai change, sai solution, ảnh hưởng stakeholder, không có value, lệch context.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Yếu tố</th><th>Mối liên hệ với Need</th></tr></thead><tbody><tr><td>Change</td><td>Chuyển từ tra sổ / hỏi thủ thư sang tự tra cứu trên máy</td></tr><tr><td>Solution</td><td>Phần mềm thư viện có chức năng tìm sách theo tên, tác giả, vị trí kệ</td></tr><tr><td>Stakeholder</td><td>Độc giả (nguồn gốc need), thủ thư</td></tr><tr><td>Value</td><td>Giảm thời gian tìm sách; độc giả hài lòng hơn</td></tr><tr><td>Context</td><td>Sách xếp chưa theo mã kệ; thư viện có sẵn vài máy tính</td></tr></tbody></table><p><b>Hậu quả:</b> nếu hiểu need là “thiếu sách” thì sẽ chọn mua thêm sách (sai solution), độc giả vẫn mất thời gian tìm (không có value), và tiền mua sách bị lãng phí.</p>",
+   "src": "7. BACCM.pdf tr.16"
+  },
+  {
+   "id": "L07-p4",
+   "title": "Phân loại stakeholder theo 3 nhóm",
+   "task": "<p>Dự án FoodNow (đặt bàn nhà hàng, ví dụ). Danh sách: chủ chuỗi nhà hàng, quản lý chi nhánh, khách đặt bàn, nhân viên lễ tân, lập trình viên, tester (QA), nhân viên IT support. Hãy xếp vào Business, User, Implementation và nêu need chính của mỗi nhóm.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Với mỗi người, hỏi: người này <b>ra quyết định kinh doanh</b>? Nếu có → Business.</p>",
+    "<p><b>Bước 2.</b> Người này <b>dùng hệ thống hằng ngày</b>? Nếu có → User.</p>",
+    "<p><b>Bước 3.</b> Người này <b>xây, kiểm thử, hỗ trợ vận hành</b> hệ thống? Nếu có → Implementation.</p>",
+    "<p><b>Bước 4.</b> Ghi need chính của từng nhóm. Nhớ: need khác nhau theo cấp độ stakeholder.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Nhóm</th><th>Stakeholder</th><th>Need chính</th></tr></thead><tbody><tr><td>Business</td><td>Chủ chuỗi, quản lý chi nhánh</td><td>Tăng lượt khách, giảm bàn trống</td></tr><tr><td>User</td><td>Khách đặt bàn, nhân viên lễ tân</td><td>Đặt bàn nhanh, không bị trùng; xem lịch bàn dễ</td></tr><tr><td>Implementation</td><td>Lập trình viên, tester, IT support</td><td>Yêu cầu rõ ràng để xây, kiểm thử và vận hành</td></tr></tbody></table><p class=\"note\">Quản lý chi nhánh cũng có thể dùng hệ thống, nhưng vai trò chính là ra quyết định nên xếp Business.</p>",
+   "src": "7. BACCM.pdf tr.9-10"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L07-x1",
+   "title": "Gán nhãn khái niệm BACCM",
+   "level": "de",
+   "task": "<p>Gán mỗi phát biểu (hệ thống đặt đồ ăn, ví dụ) vào một khái niệm: Need, Stakeholder, Context, Solution, Change, Value.</p><ol><li>Khách hay bị giao sai món.</li><li>Shipper.</li><li>Luật về an toàn thực phẩm.</li><li>Ứng dụng đặt món có ảnh và ghi chú món.</li><li>Nhân viên chuyển từ ghi đơn tay sang nhập đơn trên máy.</li><li>Giảm số đơn bị trả lại.</li><li>Đối thủ đã có tính năng theo dõi đơn.</li><li>Khách cảm thấy yên tâm hơn khi đặt món.</li></ol>",
+   "hints": [
+    "Need là vấn đề/cơ hội, Solution là cách làm, Change là việc chuyển đổi.",
+    "Luật và đối thủ thuộc cùng một khái niệm. Lợi ích đo được hay không đo được đều là một khái niệm."
+   ],
+   "answer": "<ol><li>Need (vấn đề).</li><li>Stakeholder (User).</li><li>Context (chính sách/luật pháp).</li><li>Solution (công nghệ).</li><li>Change (thay đổi quy trình, vai trò).</li><li>Value (hữu hình).</li><li>Context (thị trường/đối thủ).</li><li>Value (vô hình).</li></ol>",
+   "src": "7. BACCM.pdf tr.5, tr.7-15"
+  },
+  {
+   "id": "L07-x2",
+   "title": "Phân loại stakeholder dự án thư viện",
+   "level": "de",
+   "task": "<p>Dự án phần mềm quản lý thư viện trường (ví dụ). Xếp vào Business, User hoặc Implementation: hiệu trưởng, trưởng thư viện, thủ thư, sinh viên mượn sách, giảng viên mượn sách, công ty phần mềm (dev), người kiểm thử, nhân viên IT của trường.</p>",
+   "hints": [
+    "Ai ra quyết định đầu tư và phê duyệt?",
+    "Ai dùng phần mềm hằng ngày? Ai làm ra hoặc vận hành nó?"
+   ],
+   "answer": "<ul><li><b>Business:</b> hiệu trưởng, trưởng thư viện.</li><li><b>User:</b> thủ thư, sinh viên, giảng viên.</li><li><b>Implementation:</b> công ty phần mềm (dev), người kiểm thử, nhân viên IT của trường (IT support).</li></ul>",
+   "src": "7. BACCM.pdf tr.9"
+  },
+  {
+   "id": "L07-x3",
+   "title": "Need hay Solution?",
+   "level": "tb",
+   "task": "<p>Mỗi câu dưới đây là Need hay Solution? Câu nào là Solution thì viết lại một Need có thể đứng sau nó.</p><ol><li>“Cần thêm chức năng gửi SMS nhắc lịch đặt bàn.”</li><li>“Khách hay quên giờ đã đặt bàn và không đến.”</li><li>“Thuê thêm 2 thu ngân giờ cao điểm.”</li><li>“Quản lý không nắm được doanh thu từng cửa hàng theo ngày.”</li><li>“Làm dashboard doanh thu.”</li><li>“Nhiều đơn hàng online bị hủy vì hết hàng.”</li></ol>",
+   "hints": [
+    "Need trả lời “vấn đề gì”, Solution trả lời “làm bằng cách nào”.",
+    "Câu 1 và câu 2 là một cặp; câu 4 và câu 5 cũng vậy."
+   ],
+   "answer": "<ol><li>Solution. Need: khách quên giờ đặt bàn, nhà hàng bị bàn trống.</li><li>Need (vấn đề).</li><li>Solution (thay đổi tổ chức/nhân sự). Need: khách chờ thanh toán lâu giờ cao điểm.</li><li>Need (vấn đề).</li><li>Solution. Need: quản lý không nắm được doanh thu theo ngày (câu 4).</li><li>Need (vấn đề). Có nhiều solution: đồng bộ tồn kho với web, giữ hàng khi khách đặt…</li></ol>",
+   "src": "7. BACCM.pdf tr.13, tr.17"
+  },
+  {
+   "id": "L07-x4",
+   "title": "Value và Context cho bán hàng online SolasMart",
+   "level": "tb",
+   "task": "<p>SolasMart (ví dụ) muốn mở kênh bán online. (a) Nêu 3 value hữu hình và 2 value vô hình. (b) Nêu mỗi loại context trên slide 1 yếu tố có thể ảnh hưởng tới dự án.</p>",
+   "hints": [
+    "Hữu hình là đo được bằng số liệu; vô hình là trải nghiệm, danh tiếng.",
+    "Slide có 6 loại context: chính sách/luật pháp, văn hóa, quy trình/công nghệ, thị trường/đối thủ, tài nguyên, con người."
+   ],
+   "answer": "<p><b>(a) Value</b></p><ul><li>Hữu hình: tăng doanh số; thêm số khách mua; giảm lượng hàng tồn nhờ bán thêm kênh.</li><li>Vô hình: khách thấy tiện hơn; thương hiệu hiện đại hơn.</li></ul><p><b>(b) Context</b></p><table><thead><tr><th>Loại</th><th>Ví dụ</th></tr></thead><tbody><tr><td>Chính sách / Luật</td><td>Quy định về thương mại điện tử, hóa đơn điện tử</td></tr><tr><td>Văn hóa</td><td>Khách quen trả tiền khi nhận hàng</td></tr><tr><td>Quy trình / Công nghệ</td><td>Quy trình kho hiện chỉ phục vụ bán tại quầy</td></tr><tr><td>Thị trường / Đối thủ</td><td>Đối thủ đã bán online, có giao nhanh</td></tr><tr><td>Tài nguyên</td><td>Ngân sách, số xe giao hàng</td></tr><tr><td>Con người</td><td>Nhân viên chưa có kinh nghiệm xử lý đơn online</td></tr></tbody></table>",
+   "src": "7. BACCM.pdf tr.11, tr.15"
+  },
+  {
+   "id": "L07-x5",
+   "title": "Tình huống tổng hợp: lệch tồn kho ở SolasMart",
+   "level": "kho",
+   "task": "<p><b>Tình huống (ví dụ):</b> ở SolasMart, số lượng hàng trên hệ thống thường khác số thực tế trong kho. Bán online có khi nhận đơn cho hàng đã hết. Giám đốc yêu cầu: “Mua phần mềm kho mới.”</p><p>Yêu cầu: (1) chỉ ra đâu là solution được đề xuất và need thật sự; (2) phân tích đủ 6 khái niệm; (3) nêu 2 solution khác nhau và chọn 1, giải thích dựa trên Context và Value.</p>",
+   "hints": [
+    "“Mua phần mềm kho mới” là solution. Hỏi: vì sao số trên hệ thống lệch? Lệch ở bước nào?",
+    "Nguyên nhân có thể nằm ở quy trình (nhập, xuất không ghi kịp), không nhất thiết ở phần mềm.",
+    "So sánh các solution theo ngân sách, thời gian, thói quen nhân viên kho, rồi xem value đạt được."
+   ],
+   "answer": "<p><b>(1)</b> Solution được đề xuất: mua phần mềm kho mới. Need thật sự: số tồn kho trên hệ thống phải khớp thực tế để không nhận đơn cho hàng đã hết.</p><p><b>(2) Phân tích BACCM</b></p><table><thead><tr><th>Khái niệm</th><th>Nội dung</th></tr></thead><tbody><tr><td>Need</td><td>Tồn kho trên hệ thống lệch thực tế; đơn online bị hủy vì hết hàng</td></tr><tr><td>Stakeholder</td><td>Business: giám đốc. User: thủ kho, nhân viên bán hàng, khách online. Implementation: IT, nhà cung cấp phần mềm</td></tr><tr><td>Context</td><td>Phiếu nhập/xuất kho ghi tay rồi mới nhập máy cuối ngày; nhiều cửa hàng dùng chung kho; ngân sách có hạn</td></tr><tr><td>Solution</td><td>Xem phần (3)</td></tr><tr><td>Change</td><td>Thay đổi quy trình nhập/xuất (ghi nhận ngay khi phát sinh); vai trò thủ kho thêm việc quét mã; hệ thống đồng bộ tồn kho với kênh online</td></tr><tr><td>Value</td><td>Hữu hình: giảm đơn hủy, giảm chênh lệch kiểm kê. Vô hình: khách online tin tưởng hơn</td></tr></tbody></table><p><b>(3) Solution</b></p><ul><li>A. Mua phần mềm kho mới: tốn kém, lâu, nhưng nếu quy trình vẫn ghi tay cuối ngày thì vẫn lệch.</li><li>B. Sửa quy trình: dùng máy quét để ghi nhập/xuất ngay trên hệ thống hiện có, đồng bộ tồn kho cho web theo thời gian thực.</li></ul><p><b>Chọn B trước</b>, vì nguyên nhân gốc nằm ở quy trình ghi chậm, chi phí thấp hơn, value đạt nhanh. Nếu hệ thống hiện tại không hỗ trợ đồng bộ (Context công nghệ) thì mới cân nhắc A.</p>",
+   "src": "7. BACCM.pdf tr.11-17"
+  },
+  {
+   "id": "L07-x6",
+   "title": "Hậu quả khi nhận diện sai need",
+   "level": "kho",
+   "task": "<p><b>Tình huống (ví dụ):</b> FoodNow có nhiều khách đặt bàn rồi không đến. Đội dự án hiểu need là “khách không thích giao diện app” nên làm lại toàn bộ giao diện. Sau đó tỉ lệ khách không đến vẫn như cũ.</p><p>Dùng ý “Một need chưa được nhận diện đúng…” trên slide để phân tích điều đã xảy ra với từng khái niệm, rồi đề xuất cách BA lẽ ra phải làm.</p>",
+   "hints": [
+    "Đi lần lượt: Change, Solution, Stakeholder, Value, Context.",
+    "Need thật sự có thể là gì? Khách quên lịch, hay đặt giữ chỗ nhiều nơi?"
+   ],
+   "answer": "<table><thead><tr><th>Khái niệm</th><th>Điều đã xảy ra</th></tr></thead><tbody><tr><td>Change</td><td>Chọn sai change: đổi giao diện thay vì đổi quy trình xác nhận đặt bàn</td></tr><tr><td>Solution</td><td>Sai solution: giao diện mới không giải quyết việc khách không đến</td></tr><tr><td>Stakeholder</td><td>Nhà hàng vẫn bị bàn trống; khách quen phải học giao diện mới</td></tr><tr><td>Value</td><td>Không tạo được value: tỉ lệ khách không đến không giảm, tốn chi phí làm lại</td></tr><tr><td>Context</td><td>Không phù hợp context: vấn đề nằm ở thói quen khách, không ở công nghệ</td></tr></tbody></table><p><b>BA lẽ ra phải:</b> khám phá và xác thực need trước (hỏi khách, xem dữ liệu đặt bàn). Nếu need thật là “khách quên lịch” thì solution có thể là nhắc lịch trước giờ hẹn, yêu cầu xác nhận lại; nếu là “khách giữ chỗ nhiều nơi” thì có thể là đặt cọc.</p>",
+   "src": "7. BACCM.pdf tr.8, tr.16-17"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L07-f1",
+   "front": "BACCM",
+   "back": "<p>Business Analysis Core Concept Model – mô hình 6 khái niệm lõi trong BABOK. Framework giúp BA phân tích dự án từ gốc rễ. Mẹo: “Core Concept” = 6 khái niệm lõi.</p>"
+  },
+  {
+   "id": "L07-f2",
+   "front": "BACCM được đề cập trong tài liệu nào?",
+   "back": "<p>Trong cuốn <b>BABOK</b> (Business Analysis Body of Knowledge) của IIBA.</p>"
+  },
+  {
+   "id": "L07-f3",
+   "front": "Kể tên 6 khái niệm của BACCM",
+   "back": "<p>Need, Solution, Stakeholder, Context, Value, Change. Mẹo: “Nhu cầu sinh Giải pháp, cho Người, trong Bối cảnh, tạo Giá trị, nhờ Thay đổi”.</p>"
+  },
+  {
+   "id": "L07-f4",
+   "front": "3 vai trò của BACCM",
+   "back": "<p>(1) Định hướng tư duy, giúp BA tập trung vào bản chất thay vì chỉ làm task; (2) phân tích yêu cầu chính xác hơn; (3) tạo ngôn ngữ chung trong team BA.</p>"
+  },
+  {
+   "id": "L07-f5",
+   "front": "Need (Nhu cầu)",
+   "back": "<p>Vấn đề cần giải quyết hay cơ hội phát triển. Ví dụ: tốn thời gian xử lý hồ sơ nhân sự. Need là concept cơ sở tạo ra 5 concept còn lại.</p>"
+  },
+  {
+   "id": "L07-f6",
+   "front": "Định nghĩa Need theo BABOK",
+   "back": "<p>“A problem, opportunity or constraint with potential value to a stakeholder(s)” – vấn đề, cơ hội hoặc ràng buộc có giá trị tiềm năng với stakeholder.</p>"
+  },
+  {
+   "id": "L07-f7",
+   "front": "Problem (Vấn đề) và Opportunity (Cơ hội)",
+   "back": "<p>Problem: điều đang gây khó khăn, kém hiệu quả (đơn ghi tay hay sai). Opportunity: điều có thể cải thiện, tối ưu, tận dụng (khách chuyển sang mua online).</p>"
+  },
+  {
+   "id": "L07-f8",
+   "front": "4 đặc điểm của Need",
+   "back": "<p>Tồn tại ở nhiều cấp độ (tùy stakeholder); có độ ưu tiên khác nhau; có thể mơ hồ lúc đầu; thay đổi theo bối cảnh.</p>"
+  },
+  {
+   "id": "L07-f9",
+   "front": "BA làm gì với Need?",
+   "back": "<p>Khám phá, làm rõ, xác thực và ưu tiên. Mẹo: “Khám – Rõ – Thực – Ưu”.</p>"
+  },
+  {
+   "id": "L07-f10",
+   "front": "Stakeholder (Bên liên quan)",
+   "back": "<p>Cá nhân, nhóm hoặc tổ chức có need cần giải quyết, hoặc tham gia cung cấp solution, hoặc bị change tác động. Chỉ cần thỏa một điều.</p>"
+  },
+  {
+   "id": "L07-f11",
+   "front": "Business Stakeholders",
+   "back": "<p>Người ra quyết định kinh doanh: giám đốc, quản lý, chủ đầu tư… Ví dụ: chủ chuỗi nhà hàng FoodNow.</p>"
+  },
+  {
+   "id": "L07-f12",
+   "front": "User Stakeholders",
+   "back": "<p>Người sử dụng cuối của giải pháp: nhân viên… Ví dụ: thủ thư dùng phần mềm thư viện hằng ngày.</p>"
+  },
+  {
+   "id": "L07-f13",
+   "front": "Implementation Stakeholders",
+   "back": "<p>Người tham gia triển khai giải pháp: Dev, QA, IT support… Mẹo: “Implementation” = người làm ra và vận hành.</p>"
+  },
+  {
+   "id": "L07-f14",
+   "front": "BA cần làm gì với Stakeholder?",
+   "back": "<p>Xác định đúng stakeholder quan trọng; ưu tiên theo mức độ ảnh hưởng; tạo đồng thuận giữa các nhóm; và tìm ra need của họ.</p>"
+  },
+  {
+   "id": "L07-f15",
+   "front": "Context (Bối cảnh)",
+   "back": "<p>Môi trường, điều kiện, yếu tố xung quanh mà trong đó Need hoặc Solution đang tồn tại hoặc được đề xuất. Ví dụ: luật hóa đơn, ngân sách dự án.</p>"
+  },
+  {
+   "id": "L07-f16",
+   "front": "6 loại Context trên slide",
+   "back": "<p>Chính sách/Luật pháp; Văn hóa; Quy trình/Công nghệ; Thị trường/Đối thủ; Tài nguyên; Con người.</p>"
+  },
+  {
+   "id": "L07-f17",
+   "front": "Vì sao cần nắm rõ Context?",
+   "back": "<p>Giúp xác định hạn chế trong phân tích và tránh “ảo tưởng giải pháp”, để yêu cầu và giải pháp thực tế, khả thi, có giá trị.</p>"
+  },
+  {
+   "id": "L07-f18",
+   "front": "“Ảo tưởng giải pháp”",
+   "back": "<p>Đề xuất giải pháp đẹp trên giấy nhưng không làm được trong bối cảnh thật. Ví dụ: robot cho thư viện ngân sách nhỏ. Cách tránh: xét Context.</p>"
+  },
+  {
+   "id": "L07-f19",
+   "front": "Solution (Giải pháp)",
+   "back": "<p>Cách thức đáp ứng một hoặc nhiều Need đã xác định. Là kết quả phân tích sau khi hiểu rõ Need. Ví dụ: phần mềm HRM.</p>"
+  },
+  {
+   "id": "L07-f20",
+   "front": "3 dạng Solution",
+   "back": "<p>Công nghệ (phần mềm, ứng dụng); Quy trình (mới hoặc tái thiết kế); Thay đổi tổ chức (cơ cấu, vai trò, trách nhiệm). Solution không phải lúc nào cũng là phần mềm.</p>"
+  },
+  {
+   "id": "L07-f21",
+   "front": "Change (Thay đổi)",
+   "back": "<p>Những thay đổi cần có để thực hiện giải pháp. Ví dụ: chuyển từ xử lý hồ sơ thủ công sang dùng phần mềm.</p>"
+  },
+  {
+   "id": "L07-f22",
+   "front": "Các loại Change",
+   "back": "<p>Thay đổi hệ thống, quy trình, vai trò/con người, tổ chức, kỹ thuật…</p>"
+  },
+  {
+   "id": "L07-f23",
+   "front": "Value (Giá trị)",
+   "back": "<p>Lợi ích đạt được từ việc thực hiện giải pháp, thay đổi, hoặc đáp ứng nhu cầu. Hữu hình (tăng doanh số) hoặc vô hình (tăng trải nghiệm).</p>"
+  },
+  {
+   "id": "L07-f24",
+   "front": "Value hữu hình và vô hình",
+   "back": "<p>Hữu hình: đo được bằng số liệu, ví dụ tiết kiệm 50% thời gian. Vô hình: khó đo, ví dụ danh tiếng, trải nghiệm. Mẹo: “đếm được không?”.</p>"
+  },
+  {
+   "id": "L07-f25",
+   "front": "Need liên hệ với 5 khái niệm khác thế nào?",
+   "back": "<p>Need là lý do tạo Change; Solution đáp ứng Need; Stakeholder là nguồn gốc Need; Need được đáp ứng tạo Value; Context ảnh hưởng việc xác định, ưu tiên Need.</p>"
+  },
+  {
+   "id": "L07-f26",
+   "front": "Hậu quả khi Need bị nhận diện sai",
+   "back": "<p>Chọn sai Change, sai Solution, ảnh hưởng Stakeholder, không tạo Value, không phù hợp Context. Mẹo: sai gốc thì sai cả cây.</p>"
+  },
+  {
+   "id": "L07-f27",
+   "front": "Need và Solution khác nhau thế nào?",
+   "back": "<p>Need trả lời “vấn đề gì, vì sao”; Solution trả lời “làm bằng cách nào”. Hai cái rất dễ nhầm. Một need có thể có nhiều solution.</p>"
+  },
+  {
+   "id": "L07-f28",
+   "front": "Khi stakeholder đề xuất sẵn một solution, BA làm gì?",
+   "back": "<p>Không bị cuốn vào solution quá sớm; truy ngược “need thật sự” phía sau, rồi đề xuất solution hiệu quả nhất. Ví dụ: “cần nút xuất Excel” → để làm gì?</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L07-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>BACCM là viết tắt của cụm từ nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Business Analysis Core Competency Model"
+    },
+    {
+     "id": "b",
+     "t": "Business Architecture Core Capability Model"
+    },
+    {
+     "id": "c",
+     "t": "Business Analysis Core Concept Model"
+    },
+    {
+     "id": "d",
+     "t": "Business Analysis Common Change Model"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>BACCM = Business Analysis <b>Core Concept</b> Model, mô hình các khái niệm lõi của phân tích nghiệp vụ. Mẹo: chữ C thứ hai là Concept (khái niệm).</p>",
+   "why_wrong": {
+    "a": "Competency (năng lực) thuộc phần năng lực lõi của BA, không phải tên mô hình này.",
+    "b": "Đây không phải tên mô hình; BACCM nói về phân tích nghiệp vụ, không phải kiến trúc năng lực.",
+    "d": "BACCM có Change là một khái niệm, nhưng tên mô hình là Core Concept Model."
+   },
+   "src": "7. BACCM.pdf tr.4"
+  },
+  {
+   "id": "L07-q2",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, mô hình BACCM được đề cập trong tài liệu nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "PMBOK"
+    },
+    {
+     "id": "b",
+     "t": "Scrum Guide"
+    },
+    {
+     "id": "c",
+     "t": "Đặc tả UML 2.5"
+    },
+    {
+     "id": "d",
+     "t": "BABOK"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>BACCM được đề cập trong cuốn BABOK (Business Analysis Body of Knowledge) – bộ kiến thức chuẩn của nghề BA.</p>",
+   "why_wrong": {
+    "a": "PMBOK là bộ kiến thức quản lý dự án, không phải nơi định nghĩa BACCM.",
+    "b": "Scrum Guide mô tả khung Scrum, không nói về BACCM.",
+    "c": "UML 2.5 là chuẩn ngôn ngữ mô hình hóa, không chứa BACCM."
+   },
+   "src": "7. BACCM.pdf tr.4"
+  },
+  {
+   "id": "L07-q3",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Những khái niệm nào thuộc 6 khái niệm lõi của BACCM? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Value"
+    },
+    {
+     "id": "b",
+     "t": "Requirement"
+    },
+    {
+     "id": "c",
+     "t": "Context"
+    },
+    {
+     "id": "d",
+     "t": "Risk"
+    },
+    {
+     "id": "e",
+     "t": "Change"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>6 khái niệm lõi là Need, Solution, Stakeholder, Context, Value, Change. Value, Context và Change đều nằm trong số đó.</p>",
+   "why_wrong": {
+    "b": "Requirement (yêu cầu) là khái niệm quan trọng của BA nhưng không nằm trong 6 khái niệm lõi của BACCM.",
+    "d": "Risk (rủi ro) không phải một đỉnh của sơ đồ BACCM."
+   },
+   "src": "7. BACCM.pdf tr.5"
+  },
+  {
+   "id": "L07-q4",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Slide nói BACCM giúp “định hướng tư duy phân tích”. Ý này nghĩa là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "BACCM đưa sẵn mẫu tài liệu để BA viết nhanh hơn"
+    },
+    {
+     "id": "b",
+     "t": "BACCM giúp BA không chỉ mải làm task mà tập trung vào bản chất vấn đề"
+    },
+    {
+     "id": "c",
+     "t": "BACCM thay thế cho bước khai thác yêu cầu trực tiếp với các stakeholder"
+    },
+    {
+     "id": "d",
+     "t": "BACCM quy định thứ tự vẽ các sơ đồ trong một dự án"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>BA thường bị cuốn vào làm task (viết tài liệu, vẽ biểu đồ…). BACCM kéo BA về câu hỏi bản chất: need là gì, cho ai, được gì.</p>",
+   "why_wrong": {
+    "a": "BACCM là khung tư duy gồm 6 khái niệm, không phải bộ mẫu tài liệu.",
+    "c": "BACCM hỗ trợ phân tích chứ không thay thế việc khai thác yêu cầu.",
+    "d": "BACCM không quy định thứ tự vẽ sơ đồ."
+   },
+   "src": "7. BACCM.pdf tr.6"
+  },
+  {
+   "id": "L07-q5",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo slide, một vai trò của BACCM là tạo ngôn ngữ chung trong team BA.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide nêu 3 vai trò: định hướng tư duy, phân tích yêu cầu chính xác hơn, và tạo ngôn ngữ chung trong team BA.</p>",
+   "why_wrong": {
+    "s": "Tạo ngôn ngữ chung trong team BA là vai trò thứ ba được ghi rõ trên slide."
+   },
+   "src": "7. BACCM.pdf tr.6"
+  },
+  {
+   "id": "L07-q6",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Định nghĩa Need theo BABOK: “A problem, opportunity or ______ with potential value to a stakeholder(s)”. Từ còn thiếu là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "requirement"
+    },
+    {
+     "id": "b",
+     "t": "constraint"
+    },
+    {
+     "id": "c",
+     "t": "solution"
+    },
+    {
+     "id": "d",
+     "t": "change"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Need là một vấn đề (problem), cơ hội (opportunity) hoặc ràng buộc (constraint) có giá trị tiềm năng với stakeholder.</p>",
+   "why_wrong": {
+    "a": "Requirement là cách diễn đạt need cụ thể, không nằm trong định nghĩa need.",
+    "c": "Solution là cách đáp ứng need, là khái niệm khác.",
+    "d": "Change là hoạt động chuyển đổi, là khái niệm khác của BACCM."
+   },
+   "src": "7. BACCM.pdf tr.7"
+  },
+  {
+   "id": "L07-q7",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Phát biểu nào là một Need dạng <b>cơ hội</b> (Opportunity)?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Đơn đặt món ghi tay ở quán thường xuyên bị ghi sai món và sai địa chỉ"
+    },
+    {
+     "id": "b",
+     "t": "Nhân viên HR mất quá nhiều thời gian để xử lý hồ sơ nhân sự giấy"
+    },
+    {
+     "id": "c",
+     "t": "Khách ngày càng mua online, có thể mở thêm kênh bán"
+    },
+    {
+     "id": "d",
+     "t": "Thủ thư không biết được những cuốn sách nào đang bị quá hạn trả"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Cơ hội là điều có thể cải thiện, tối ưu hoặc tận dụng. Xu hướng mua online là điều có thể tận dụng. Ba câu kia là vấn đề đang gây khó khăn.</p>",
+   "why_wrong": {
+    "a": "Đây là vấn đề (problem): đang gây sai sót, kém hiệu quả.",
+    "b": "Đây là vấn đề: đang gây tốn thời gian.",
+    "d": "Đây là vấn đề: thiếu thông tin đang gây khó khăn cho thủ thư."
+   },
+   "src": "7. BACCM.pdf tr.7"
+  },
+  {
+   "id": "L07-q8",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Need luôn rõ ràng ngay từ đầu, nên BA chỉ cần ghi lại đúng lời stakeholder nói.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Slide nói need có thể mơ hồ hoặc chưa rõ ràng ban đầu. Vì vậy BA phải khám phá, làm rõ, xác thực và ưu tiên need.</p>",
+   "why_wrong": {
+    "d": "Need thường mơ hồ lúc đầu; chép nguyên lời stakeholder dễ bỏ sót need thật sự."
+   },
+   "src": "7. BACCM.pdf tr.8"
+  },
+  {
+   "id": "L07-q9",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Theo slide, Need có những đặc điểm nào? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tồn tại ở nhiều cấp độ, phụ thuộc vào stakeholder"
+    },
+    {
+     "id": "b",
+     "t": "Chỉ do nhóm Business Stakeholders đưa ra"
+    },
+    {
+     "id": "c",
+     "t": "Có độ ưu tiên khác nhau"
+    },
+    {
+     "id": "d",
+     "t": "Giữ nguyên không đổi suốt dự án"
+    },
+    {
+     "id": "e",
+     "t": "Thay đổi theo bối cảnh"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Slide nêu 4 đặc điểm: nhiều cấp độ, độ ưu tiên khác nhau, có thể mơ hồ ban đầu, thay đổi theo bối cảnh.</p>",
+   "why_wrong": {
+    "b": "Mọi stakeholder đều có thể có need, kể cả người dùng cuối; stakeholder là nguồn gốc của need.",
+    "d": "Ngược với slide: need thay đổi theo bối cảnh."
+   },
+   "src": "7. BACCM.pdf tr.8"
+  },
+  {
+   "id": "L07-q10",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, Need là thứ BA cần làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thiết kế, lập trình, kiểm thử và triển khai"
+    },
+    {
+     "id": "b",
+     "t": "Ghi nhận, ký duyệt, đóng gói và lưu trữ"
+    },
+    {
+     "id": "c",
+     "t": "Đề xuất, báo giá, mua sắm và bàn giao"
+    },
+    {
+     "id": "d",
+     "t": "Khám phá, làm rõ, xác thực và ưu tiên"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide ghi: “Need là thứ BA cần khám phá, làm rõ, xác thực và ưu tiên”. Mẹo: Khám – Rõ – Thực – Ưu.</p>",
+   "why_wrong": {
+    "a": "Đây là các bước làm ra phần mềm, chủ yếu do đội triển khai thực hiện.",
+    "b": "Đây là việc quản lý tài liệu, không phải việc BA làm với need.",
+    "c": "Đây là việc mua sắm, không phải cách BA xử lý need."
+   },
+   "src": "7. BACCM.pdf tr.8"
+  },
+  {
+   "id": "L07-q11",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao slide gọi Need là “concept cơ sở để tạo ra 5 concept còn lại”?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì change, solution, value… đều xoay quanh việc đáp ứng need"
+    },
+    {
+     "id": "b",
+     "t": "Vì need luôn phải được viết ở mục đầu tiên của mọi tài liệu BRD và SRS"
+    },
+    {
+     "id": "c",
+     "t": "Vì need chỉ do giám đốc quyết định nên quan trọng nhất"
+    },
+    {
+     "id": "d",
+     "t": "Vì need không bao giờ thay đổi trong suốt dự án"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Need là lý do tạo change, solution nhằm đáp ứng need, need được đáp ứng tạo value, stakeholder là nguồn gốc need, context ảnh hưởng need. Mọi khái niệm đều nối về need.</p>",
+   "why_wrong": {
+    "b": "Vị trí trong tài liệu không phải lý do; slide nói về quan hệ giữa các khái niệm.",
+    "c": "Need đến từ mọi stakeholder, không chỉ giám đốc.",
+    "d": "Need thay đổi theo bối cảnh, nên lý do này sai."
+   },
+   "src": "7. BACCM.pdf tr.7, tr.16"
+  },
+  {
+   "id": "L07-q12",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ở SolasMart (ví dụ), giám đốc muốn “tăng doanh thu toàn chuỗi”, còn thủ kho muốn “kiểm kê nhanh hơn”. Điều này minh họa đặc điểm nào của Need?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Need có thể mơ hồ hoặc chưa rõ ràng ban đầu"
+    },
+    {
+     "id": "b",
+     "t": "Need tồn tại ở nhiều cấp độ, phụ thuộc vào stakeholder"
+    },
+    {
+     "id": "c",
+     "t": "Need chính là solution mà stakeholder đề xuất"
+    },
+    {
+     "id": "d",
+     "t": "Need thay đổi theo bối cảnh thị trường và chính sách của công ty"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Hai người ở hai vị trí khác nhau có need ở hai cấp độ khác nhau: cấp chiến lược và cấp tác nghiệp.</p>",
+   "why_wrong": {
+    "a": "Cả hai need đều khá rõ; điểm khác là cấp độ theo người nói.",
+    "c": "Cả hai câu đều là need (điều muốn đạt), chưa nói cách làm.",
+    "d": "Tình huống không nói gì về bối cảnh thay đổi."
+   },
+   "src": "7. BACCM.pdf tr.8"
+  },
+  {
+   "id": "L07-q13",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trong buổi họp dự án FoodNow (ví dụ), khách hàng nói: “App phải dễ dùng hơn.” Việc BA nên làm trước tiên là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ghi nguyên văn câu đó làm yêu cầu cuối cùng"
+    },
+    {
+     "id": "b",
+     "t": "Đề xuất làm lại toàn bộ giao diện ngay"
+    },
+    {
+     "id": "c",
+     "t": "Hỏi thêm để làm rõ khó ở bước nào, với ai"
+    },
+    {
+     "id": "d",
+     "t": "Bỏ qua vì yêu cầu này không đo được"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Need có thể mơ hồ lúc đầu. BA phải làm rõ: khó ở bước đặt bàn nào, ai gặp khó, hậu quả ra sao, rồi mới xét solution.</p>",
+   "why_wrong": {
+    "a": "Câu này còn mơ hồ, chưa thể làm yêu cầu cuối.",
+    "b": "Nhảy vào solution quá sớm khi chưa hiểu need thật sự.",
+    "d": "Need mơ hồ vẫn có giá trị; việc của BA là làm rõ chứ không bỏ qua."
+   },
+   "src": "7. BACCM.pdf tr.8, tr.13"
+  },
+  {
+   "id": "L07-q14",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Một need có thể được đáp ứng bằng nhiều solution khác nhau.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide “Need và Solution” ghi rõ: 1 need có thể có nhiều solution. BA cần đề xuất solution hiệu quả nhất trong số đó.</p>",
+   "why_wrong": {
+    "s": "Slide khẳng định một need có thể có nhiều solution."
+   },
+   "src": "7. BACCM.pdf tr.17"
+  },
+  {
+   "id": "L07-q15",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, Stakeholder là ai?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chỉ người bỏ tiền đầu tư và ký duyệt ngân sách cho dự án"
+    },
+    {
+     "id": "b",
+     "t": "Chỉ những người sẽ trực tiếp dùng phần mềm hằng ngày sau khi dự án bàn giao"
+    },
+    {
+     "id": "c",
+     "t": "Cá nhân, nhóm, tổ chức có need, cung cấp solution hoặc bị change tác động"
+    },
+    {
+     "id": "d",
+     "t": "Chỉ các thành viên đội dự án gồm BA, dev, QA và PM"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Stakeholder là cá nhân, nhóm hoặc tổ chức có need cần giải quyết, hoặc tham gia cung cấp solution, hoặc bị tác động bởi change. Thỏa một điều là đủ.</p>",
+   "why_wrong": {
+    "a": "Người đầu tư chỉ là một loại stakeholder (Business), không phải toàn bộ.",
+    "b": "Người dùng cuối chỉ là nhóm User Stakeholders.",
+    "d": "Đội dự án là nhóm Implementation; còn nhiều stakeholder khác ngoài đội."
+   },
+   "src": "7. BACCM.pdf tr.9"
+  },
+  {
+   "id": "L07-q16",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Quán ăn làm hệ thống đặt đồ ăn online (ví dụ). Ai là stakeholder của dự án? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Shipper phải đổi cách nhận đơn"
+    },
+    {
+     "id": "b",
+     "t": "Lập trình viên xây hệ thống"
+    },
+    {
+     "id": "c",
+     "t": "Một người ở tỉnh khác chưa từng biết quán"
+    },
+    {
+     "id": "d",
+     "t": "Chủ quán muốn giảm đơn sai"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Shipper bị change tác động, lập trình viên cung cấp solution, chủ quán có need. Mỗi người thỏa một điều kiện của định nghĩa stakeholder.</p>",
+   "why_wrong": {
+    "c": "Người này không có need, không tham gia solution và không bị change tác động."
+   },
+   "src": "7. BACCM.pdf tr.9"
+  },
+  {
+   "id": "L07-q17",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo cách phân loại trên slide, User Stakeholders là nhóm nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Người ra quyết định kinh doanh"
+    },
+    {
+     "id": "b",
+     "t": "Người tham gia triển khai"
+    },
+    {
+     "id": "c",
+     "t": "Cơ quan quản lý nhà nước"
+    },
+    {
+     "id": "d",
+     "t": "Người sử dụng cuối"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>User Stakeholders là người sử dụng cuối, ví dụ nhân viên dùng hệ thống hằng ngày.</p>",
+   "why_wrong": {
+    "a": "Đó là Business Stakeholders (giám đốc, quản lý, chủ đầu tư).",
+    "b": "Đó là Implementation Stakeholders (Dev, QA, IT support).",
+    "c": "Slide không xếp cơ quan nhà nước vào nhóm User."
+   },
+   "src": "7. BACCM.pdf tr.9"
+  },
+  {
+   "id": "L07-q18",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trong dự án phần mềm quản lý thư viện (ví dụ), người kiểm thử (tester) thuộc nhóm stakeholder nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Business Stakeholders"
+    },
+    {
+     "id": "b",
+     "t": "Implementation Stakeholders"
+    },
+    {
+     "id": "c",
+     "t": "User Stakeholders"
+    },
+    {
+     "id": "d",
+     "t": "Không phải stakeholder của dự án"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Tester (QA) tham gia triển khai giải pháp nên thuộc Implementation Stakeholders, cùng nhóm với Dev và IT support.</p>",
+   "why_wrong": {
+    "a": "Tester không ra quyết định kinh doanh.",
+    "c": "Tester kiểm thử chứ không phải người dùng cuối hằng ngày.",
+    "d": "Tester tham gia cung cấp solution nên là stakeholder."
+   },
+   "src": "7. BACCM.pdf tr.9"
+  },
+  {
+   "id": "L07-q19",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>SolasMart (ví dụ) thay hệ thống bán tại quầy. Nhân viên thu ngân hằng ngày dùng hệ thống để tính tiền. Họ thuộc nhóm stakeholder nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "User Stakeholders"
+    },
+    {
+     "id": "b",
+     "t": "Business Stakeholders"
+    },
+    {
+     "id": "c",
+     "t": "Implementation Stakeholders"
+    },
+    {
+     "id": "d",
+     "t": "Không thuộc nhóm nào"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Thu ngân là người sử dụng cuối của hệ thống nên thuộc User Stakeholders.</p>",
+   "why_wrong": {
+    "b": "Thu ngân không ra quyết định kinh doanh.",
+    "c": "Thu ngân không xây hay vận hành kỹ thuật hệ thống.",
+    "d": "Thu ngân bị change tác động và dùng solution nên chắc chắn là stakeholder."
+   },
+   "src": "7. BACCM.pdf tr.9"
+  },
+  {
+   "id": "L07-q20",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao BA cần tạo sự đồng thuận giữa các nhóm stakeholder?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì BABOK cấm triển khai giải pháp khi vẫn còn một stakeholder phản đối"
+    },
+    {
+     "id": "b",
+     "t": "Vì mỗi nhóm có need và ưu tiên riêng, có khi trái nhau"
+    },
+    {
+     "id": "c",
+     "t": "Vì đồng thuận giúp BA bỏ qua bước phân tích need"
+    },
+    {
+     "id": "d",
+     "t": "Vì stakeholder ít ảnh hưởng mới cần được lắng nghe"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Need tồn tại ở nhiều cấp độ, phụ thuộc vào stakeholder. Các nhóm có thể muốn những thứ mâu thuẫn, nên BA phải dung hòa để có hướng đi chung.</p>",
+   "why_wrong": {
+    "a": "BABOK không có quy định như vậy.",
+    "c": "Đồng thuận không thay thế việc phân tích need.",
+    "d": "Ngược với slide: BA ưu tiên stakeholder theo mức độ ảnh hưởng."
+   },
+   "src": "7. BACCM.pdf tr.10"
+  },
+  {
+   "id": "L07-q21",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>BA nên đối xử mọi stakeholder như nhau, không cần ưu tiên ai.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Slide nêu BA cần ưu tiên stakeholder theo mức độ ảnh hưởng, đồng thời xác định đúng stakeholder quan trọng.</p>",
+   "why_wrong": {
+    "d": "Slide yêu cầu ưu tiên stakeholder theo mức độ ảnh hưởng."
+   },
+   "src": "7. BACCM.pdf tr.10"
+  },
+  {
+   "id": "L07-q22",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, Context là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Danh sách tính năng mà phần mềm bắt buộc phải có"
+    },
+    {
+     "id": "b",
+     "t": "Môi trường, điều kiện, yếu tố xung quanh Need hoặc Solution"
+    },
+    {
+     "id": "c",
+     "t": "Lợi ích hữu hình và vô hình doanh nghiệp thu được sau khi dự án kết thúc"
+    },
+    {
+     "id": "d",
+     "t": "Những người bị ảnh hưởng bởi kết quả của dự án"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Context là môi trường, điều kiện và yếu tố xung quanh mà trong đó Need hoặc Solution đang tồn tại hoặc được đề xuất.</p>",
+   "why_wrong": {
+    "a": "Danh sách tính năng là yêu cầu/solution, không phải context.",
+    "c": "Lợi ích thu được là Value.",
+    "d": "Người bị ảnh hưởng là Stakeholder."
+   },
+   "src": "7. BACCM.pdf tr.11"
+  },
+  {
+   "id": "L07-q23",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Trong dự án bán online của SolasMart (ví dụ), yếu tố nào thuộc Context? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Quy định về hóa đơn điện tử"
+    },
+    {
+     "id": "b",
+     "t": "Đối thủ đã có app giao hàng nhanh"
+    },
+    {
+     "id": "c",
+     "t": "Website bán hàng mà dự án sẽ xây"
+    },
+    {
+     "id": "d",
+     "t": "Ngân sách dự án có hạn"
+    },
+    {
+     "id": "e",
+     "t": "Doanh số online tăng sau dự án"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Slide liệt kê context gồm chính sách/luật pháp, văn hóa, quy trình/công nghệ, thị trường/đối thủ, tài nguyên, con người. Quy định hóa đơn là luật, đối thủ là thị trường, ngân sách là tài nguyên.</p>",
+   "why_wrong": {
+    "c": "Website sẽ xây là Solution.",
+    "e": "Doanh số tăng là Value hữu hình."
+   },
+   "src": "7. BACCM.pdf tr.11"
+  },
+  {
+   "id": "L07-q24",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Slide nói nắm rõ Context giúp BA không “ảo tưởng giải pháp”. “Ảo tưởng giải pháp” ở đây là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chọn giải pháp rẻ nhất dù giải pháp đó không đáp ứng need"
+    },
+    {
+     "id": "b",
+     "t": "Coi một solution là need của stakeholder"
+    },
+    {
+     "id": "c",
+     "t": "Đề xuất giải pháp không khả thi vì bỏ qua hạn chế thực tế"
+    },
+    {
+     "id": "d",
+     "t": "Chỉ nghe ý kiến nhóm Business Stakeholders khi chọn giải pháp"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Context giúp xác định các hạn chế (luật, ngân sách, công nghệ, con người…). Bỏ qua chúng, BA dễ đề xuất giải pháp đẹp trên giấy nhưng không làm được.</p>",
+   "why_wrong": {
+    "a": "Đây là lỗi chọn solution kém, không phải lỗi bỏ qua context mà slide nhắc tới.",
+    "b": "Đây là lỗi nhầm need với solution, được nói ở slide khác.",
+    "d": "Đây là lỗi bỏ sót stakeholder, không liên quan trực tiếp tới context."
+   },
+   "src": "7. BACCM.pdf tr.12"
+  },
+  {
+   "id": "L07-q25",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Thư viện trường (ví dụ) có ngân sách nhỏ và mạng chập chờn. Đội dự án đề xuất hệ thống mượn sách bằng robot, chạy hoàn toàn online. BA nên dựa vào khái niệm nào để phản biện đề xuất này?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Value"
+    },
+    {
+     "id": "b",
+     "t": "Change"
+    },
+    {
+     "id": "c",
+     "t": "Stakeholder"
+    },
+    {
+     "id": "d",
+     "t": "Context"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Ngân sách (tài nguyên) và hạ tầng mạng (công nghệ) là context. Context cho thấy đề xuất không khả thi.</p>",
+   "why_wrong": {
+    "a": "Value nói về lợi ích; vấn đề ở đây là đề xuất không khả thi trong điều kiện thực tế.",
+    "b": "Change là việc chuyển đổi; điểm yếu của đề xuất nằm ở điều kiện xung quanh.",
+    "c": "Tình huống không nêu vấn đề về người liên quan mà về ngân sách và hạ tầng."
+   },
+   "src": "7. BACCM.pdf tr.11-12"
+  },
+  {
+   "id": "L07-q26",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, Solution có thể ở những dạng nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Công nghệ, quy trình, hoặc thay đổi trong tổ chức"
+    },
+    {
+     "id": "b",
+     "t": "Chỉ phần mềm hoặc ứng dụng di động"
+    },
+    {
+     "id": "c",
+     "t": "Chỉ quy trình mới thay cho quy trình cũ"
+    },
+    {
+     "id": "d",
+     "t": "Hợp đồng, báo giá và biên bản nghiệm thu được ký với khách hàng"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Solution có thể là công nghệ (phần mềm, ứng dụng), quy trình (mới hoặc tái thiết kế), hoặc thay đổi tổ chức (cơ cấu, vai trò, trách nhiệm).</p>",
+   "why_wrong": {
+    "b": "Slide nhấn mạnh solution không phải lúc nào cũng là phần mềm.",
+    "c": "Quy trình chỉ là một trong ba dạng.",
+    "d": "Đây là giấy tờ dự án, không phải cách đáp ứng need."
+   },
+   "src": "7. BACCM.pdf tr.13"
+  },
+  {
+   "id": "L07-q27",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Mở thêm quầy thu ngân vào giờ cao điểm vẫn có thể là một Solution, dù không có phần mềm nào.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Solution có thể là thay đổi quy trình hoặc tổ chức. Slide nói rõ solution không phải lúc nào cũng là phần mềm.</p>",
+   "why_wrong": {
+    "s": "Slide nói solution có thể là quy trình hoặc thay đổi tổ chức, không bắt buộc là phần mềm."
+   },
+   "src": "7. BACCM.pdf tr.13"
+  },
+  {
+   "id": "L07-q28",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao BA không nên bị cuốn vào solution quá sớm?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì solution do đội dev quyết định, BA không được bàn tới"
+    },
+    {
+     "id": "b",
+     "t": "Vì BABOK không cho phép BA đề xuất bất kỳ solution nào"
+    },
+    {
+     "id": "c",
+     "t": "Vì solution chỉ được nghĩ tới sau khi code xong"
+    },
+    {
+     "id": "d",
+     "t": "Vì solution được đề xuất có thể không trúng need thật sự"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Stakeholder hay đưa sẵn solution. BA phải truy ngược need thật sự phía sau, vì solution chỉ có giá trị khi đáp ứng đúng need.</p>",
+   "why_wrong": {
+    "a": "BA có vai trò đề xuất solution hiệu quả nhất sau khi hiểu need.",
+    "b": "BA vẫn đề xuất solution, chỉ là sau khi hiểu rõ need.",
+    "c": "Solution phải có trước khi xây dựng; slide chỉ nói đừng chọn trước khi hiểu need."
+   },
+   "src": "7. BACCM.pdf tr.13"
+  },
+  {
+   "id": "L07-q29",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, Change là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Lợi ích nhận được sau khi giải pháp đi vào hoạt động"
+    },
+    {
+     "id": "b",
+     "t": "Những thay đổi cần có để thực hiện giải pháp"
+    },
+    {
+     "id": "c",
+     "t": "Yêu cầu mới phát sinh làm dự án bị trễ hạn"
+    },
+    {
+     "id": "d",
+     "t": "Môi trường và điều kiện xung quanh dự án"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Change là những thay đổi cần có để thực hiện giải pháp, ví dụ thay đổi hệ thống, quy trình, vai trò, tổ chức, kỹ thuật.</p>",
+   "why_wrong": {
+    "a": "Lợi ích là Value.",
+    "c": "Đây là yêu cầu thay đổi (change request) trong quản lý yêu cầu, không phải khái niệm Change của BACCM.",
+    "d": "Môi trường xung quanh là Context."
+   },
+   "src": "7. BACCM.pdf tr.14"
+  },
+  {
+   "id": "L07-q30",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Loại nào được slide liệt kê là Change? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thay đổi quy trình"
+    },
+    {
+     "id": "b",
+     "t": "Thay đổi vai trò/con người"
+    },
+    {
+     "id": "c",
+     "t": "Thay đổi đối thủ cạnh tranh"
+    },
+    {
+     "id": "d",
+     "t": "Thay đổi tổ chức"
+    },
+    {
+     "id": "e",
+     "t": "Thay đổi luật của nhà nước"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Slide liệt kê: thay đổi hệ thống, quy trình, vai trò/con người, tổ chức, kỹ thuật. Đây là những thứ tổ chức chủ động đổi để thực hiện giải pháp.</p>",
+   "why_wrong": {
+    "c": "Đối thủ cạnh tranh là yếu tố thị trường, thuộc Context, tổ chức không tự đổi được.",
+    "e": "Luật pháp là Context; dự án phải tuân theo chứ không phải thứ dự án thay đổi."
+   },
+   "src": "7. BACCM.pdf tr.14, tr.11"
+  },
+  {
+   "id": "L07-q31",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong ví dụ trên slide, “Chuyển từ xử lý hồ sơ thủ công sang dùng phần mềm” thuộc khái niệm nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Solution"
+    },
+    {
+     "id": "b",
+     "t": "Need"
+    },
+    {
+     "id": "c",
+     "t": "Change"
+    },
+    {
+     "id": "d",
+     "t": "Value"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Đây là việc chuyển đổi cách làm để đưa giải pháp vào thực tế, tức là Change. Solution trong ví dụ là phần mềm HRM.</p>",
+   "why_wrong": {
+    "a": "Solution là bản thân phần mềm HRM, còn câu này mô tả quá trình chuyển đổi.",
+    "b": "Need là “tốn thời gian xử lý hồ sơ nhân sự”.",
+    "d": "Value là “tiết kiệm 50% thời gian, giảm lỗi nhập sai dữ liệu”."
+   },
+   "src": "7. BACCM.pdf tr.16"
+  },
+  {
+   "id": "L07-q32",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Value nào dưới đây là giá trị <b>hữu hình</b>?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khách hàng có trải nghiệm tốt hơn"
+    },
+    {
+     "id": "b",
+     "t": "Thương hiệu được biết đến rộng hơn"
+    },
+    {
+     "id": "c",
+     "t": "Doanh số bán hàng tăng lên"
+    },
+    {
+     "id": "d",
+     "t": "Nhân viên cảm thấy yên tâm hơn"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Giá trị hữu hình đo được bằng số liệu, như tăng doanh số. Trải nghiệm, danh tiếng, cảm giác là giá trị vô hình.</p>",
+   "why_wrong": {
+    "a": "Trải nghiệm là giá trị vô hình, slide dùng chính ví dụ này.",
+    "b": "Danh tiếng là giá trị vô hình.",
+    "d": "Cảm giác yên tâm khó đo trực tiếp nên là vô hình."
+   },
+   "src": "7. BACCM.pdf tr.15, tr.5"
+  },
+  {
+   "id": "L07-q33",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>SolasMart (ví dụ) mở kênh bán online. Value nào dưới đây là <b>vô hình</b>? (Chọn 2)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khách thấy mua sắm tiện hơn"
+    },
+    {
+     "id": "b",
+     "t": "Doanh thu online tăng theo tháng"
+    },
+    {
+     "id": "c",
+     "t": "Thương hiệu được nhìn nhận hiện đại hơn"
+    },
+    {
+     "id": "d",
+     "t": "Số đơn bị hủy giảm xuống"
+    }
+   ],
+   "answer": [
+    "a",
+    "c"
+   ],
+   "explain": "<p>Sự tiện lợi khách cảm nhận và hình ảnh thương hiệu khó đo trực tiếp nên là vô hình. Doanh thu và số đơn hủy đo được nên là hữu hình.</p>",
+   "why_wrong": {
+    "b": "Doanh thu đo được bằng số liệu nên là hữu hình.",
+    "d": "Số đơn hủy đếm được nên là hữu hình."
+   },
+   "src": "7. BACCM.pdf tr.15"
+  },
+  {
+   "id": "L07-q34",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Theo slide “Tác động qua lại – Need”, quan hệ giữa Stakeholder và Need là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Stakeholder là nguồn gốc của các Need"
+    },
+    {
+     "id": "b",
+     "t": "Need là nguồn gốc sinh ra các Stakeholder"
+    },
+    {
+     "id": "c",
+     "t": "Stakeholder là cách thức đáp ứng Need"
+    },
+    {
+     "id": "d",
+     "t": "Stakeholder là giá trị tạo ra khi Need được đáp ứng"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Need đến từ stakeholder. Vì vậy slide Stakeholder nhấn mạnh: BA cần tìm ra need của các stakeholder.</p>",
+   "why_wrong": {
+    "b": "Chiều quan hệ bị đảo ngược.",
+    "c": "Cách thức đáp ứng Need là Solution.",
+    "d": "Giá trị tạo ra khi Need được đáp ứng là Value."
+   },
+   "src": "7. BACCM.pdf tr.16"
+  },
+  {
+   "id": "L07-q35",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Context chỉ ảnh hưởng tới việc chọn solution, không ảnh hưởng tới việc xác định need.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Slide ghi: Context ảnh hưởng đến việc xác định và ưu tiên Need. Context cũng là nơi solution tồn tại hoặc được đề xuất.</p>",
+   "why_wrong": {
+    "d": "Slide nói rõ Context ảnh hưởng tới cả việc xác định và ưu tiên Need."
+   },
+   "src": "7. BACCM.pdf tr.16"
+  },
+  {
+   "id": "L07-q36",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Theo slide, một Need chưa được nhận diện đúng sẽ dẫn tới hậu quả nào? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chọn sai Change và sai Solution"
+    },
+    {
+     "id": "b",
+     "t": "Không tạo được Value"
+    },
+    {
+     "id": "c",
+     "t": "Stakeholder tự động bị loại khỏi dự án"
+    },
+    {
+     "id": "d",
+     "t": "Không phù hợp với Context"
+    },
+    {
+     "id": "e",
+     "t": "Dự án bắt buộc chuyển sang mô hình Agile"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Slide: need sai dẫn tới chọn sai Change, sai Solution, ảnh hưởng đến Stakeholder, không tạo được Value và không phù hợp với Context. Sai gốc thì sai cả cây.</p>",
+   "why_wrong": {
+    "c": "Slide nói stakeholder bị ảnh hưởng, không nói họ bị loại khỏi dự án.",
+    "e": "Mô hình phát triển không liên quan tới hậu quả của need sai."
+   },
+   "src": "7. BACCM.pdf tr.16"
+  },
+  {
+   "id": "L07-q37",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Thủ kho SolasMart (ví dụ) nói: “Cần thêm nút xuất tồn kho ra Excel.” Câu hỏi nào BA nên hỏi đầu tiên?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Anh muốn file Excel trình bày theo màu nào?"
+    },
+    {
+     "id": "b",
+     "t": "Anh muốn đặt nút ở góc nào trên màn hình?"
+    },
+    {
+     "id": "c",
+     "t": "Anh xuất danh sách đó ra để làm gì?"
+    },
+    {
+     "id": "d",
+     "t": "Anh cần nút này xong trước ngày nào?"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>“Nút xuất Excel” là solution. Hỏi “để làm gì” giúp truy ngược need thật sự, ví dụ cần biết sớm hàng sắp hết. Có need rồi mới so sánh các solution.</p>",
+   "why_wrong": {
+    "a": "Đây là chi tiết trình bày của solution, hỏi lúc này là bị cuốn vào solution quá sớm.",
+    "b": "Vị trí nút là chi tiết giao diện, chưa giúp hiểu need.",
+    "d": "Thời hạn quan trọng nhưng hỏi trước khi hiểu need thì có thể làm nhanh một thứ không cần."
+   },
+   "src": "7. BACCM.pdf tr.13, tr.17"
+  },
+  {
+   "id": "L07-q38",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Chủ nhà hàng FoodNow (ví dụ) đưa ra 4 ý. Ý nào là <b>Need</b>, không phải Solution?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Gửi SMS nhắc khách trước giờ hẹn"
+    },
+    {
+     "id": "b",
+     "t": "Bắt khách đặt cọc trước khi giữ bàn vào giờ cao điểm"
+    },
+    {
+     "id": "c",
+     "t": "Thêm nút hủy bàn trên app"
+    },
+    {
+     "id": "d",
+     "t": "Nhiều khách đặt rồi không đến, bàn bị trống"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Need trả lời “vấn đề gì”: khách không đến làm bàn trống. Ba ý còn lại trả lời “làm bằng cách nào”, là các solution cho cùng một need.</p>",
+   "why_wrong": {
+    "a": "Gửi SMS là cách làm, tức solution.",
+    "b": "Đặt cọc là thay đổi quy trình, tức solution.",
+    "c": "Thêm nút là tính năng phần mềm, tức solution."
+   },
+   "src": "7. BACCM.pdf tr.17"
+  },
+  {
+   "id": "L07-q39",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA phân tích dự án thư viện (ví dụ) đã ghi rõ Need, Stakeholder, Context, Solution, Change nhưng không nêu được dự án mang lại lợi ích gì. Hệ quả chính là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chưa chứng minh được dự án đáng làm vì thiếu Value"
+    },
+    {
+     "id": "b",
+     "t": "Dự án chắc chắn vi phạm luật vì thiếu Context"
+    },
+    {
+     "id": "c",
+     "t": "Dự án không có ai tham gia vì thiếu Stakeholder"
+    },
+    {
+     "id": "d",
+     "t": "Solution bắt buộc phải đổi sang một phần mềm thư viện khác"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Value là lợi ích đạt được khi need được đáp ứng. Thiếu Value thì không trả lời được câu “làm xong được gì”, nên chưa thể thuyết phục là dự án đáng làm.</p>",
+   "why_wrong": {
+    "b": "Context đã được ghi; thứ còn thiếu là Value.",
+    "c": "Stakeholder đã được ghi; thứ còn thiếu là Value.",
+    "d": "Thiếu Value không bắt buộc đổi solution; trước hết cần làm rõ lợi ích."
+   },
+   "src": "7. BACCM.pdf tr.15-16"
+  },
+  {
+   "id": "L07-q40",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Need của SolasMart (ví dụ): “Khách phải chờ lâu khi thanh toán tại quầy.” Phương án nào là Solution cho need này? (Chọn 2)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Trang bị máy quét mã vạch cho quầy"
+    },
+    {
+     "id": "b",
+     "t": "Doanh thu giảm vì khách bỏ về"
+    },
+    {
+     "id": "c",
+     "t": "Mở thêm quầy vào giờ cao điểm"
+    },
+    {
+     "id": "d",
+     "t": "Khách than phiền về thời gian chờ"
+    }
+   ],
+   "answer": [
+    "a",
+    "c"
+   ],
+   "explain": "<p>Một need có nhiều solution: một cái là công nghệ (máy quét), một cái là thay đổi tổ chức (thêm quầy). Cả hai đều là cách đáp ứng need.</p>",
+   "why_wrong": {
+    "b": "Đây là hậu quả của need, cho thấy value nếu giải quyết được, không phải cách làm.",
+    "d": "Đây là biểu hiện của need, không phải solution."
+   },
+   "src": "7. BACCM.pdf tr.13, tr.17"
+  },
+  {
+   "id": "L07-q41",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Trong ví dụ trên slide, “Phần mềm HRM tích hợp quản lý hồ sơ, nghỉ phép” là Value của dự án.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Phần mềm HRM là Solution. Value trong ví dụ là tiết kiệm 50% thời gian làm việc và giảm lỗi nhập sai dữ liệu.</p>",
+   "why_wrong": {
+    "d": "Phần mềm là cách đáp ứng need (Solution); Value là lợi ích nó mang lại."
+   },
+   "src": "7. BACCM.pdf tr.16"
+  },
+  {
+   "id": "L07-q42",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA dự án đặt đồ ăn (ví dụ) ghi: “Quán chỉ có 1 máy tính; nhân viên bếp không quen dùng điện thoại thông minh.” BA đang ghi nhận khái niệm nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Stakeholder"
+    },
+    {
+     "id": "b",
+     "t": "Change"
+    },
+    {
+     "id": "c",
+     "t": "Value"
+    },
+    {
+     "id": "d",
+     "t": "Context"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Số máy tính là tài nguyên, kỹ năng của nhân viên là yếu tố con người. Cả hai là Context, giúp BA thấy hạn chế khi chọn solution.</p>",
+   "why_wrong": {
+    "a": "Câu có nhắc nhân viên bếp nhưng nội dung là điều kiện xung quanh, không phải việc xác định ai liên quan.",
+    "b": "Câu mô tả hiện trạng, chưa nói tới thay đổi nào.",
+    "c": "Câu không nói tới lợi ích đạt được."
+   },
+   "src": "7. BACCM.pdf tr.11-12"
+  }
+ ],
+ "summary": {
+  "points": [
+   "BACCM (Business Analysis Core Concept Model) là framework 6 khái niệm lõi trong BABOK, giúp BA phân tích từ gốc rễ.",
+   "Need: vấn đề, cơ hội (hoặc ràng buộc) có giá trị với stakeholder; là gốc của 5 khái niệm còn lại; BA phải khám phá, làm rõ, xác thực và ưu tiên.",
+   "Stakeholder: cá nhân, nhóm, tổ chức có need, cung cấp solution, hoặc bị change tác động; 3 nhóm Business, User, Implementation.",
+   "Context: môi trường, điều kiện xung quanh (luật, văn hóa, quy trình, công nghệ, thị trường, tài nguyên, con người); giúp tránh ảo tưởng giải pháp.",
+   "Solution: cách đáp ứng need; có thể là công nghệ, quy trình hoặc thay đổi tổ chức; không phải lúc nào cũng là phần mềm.",
+   "Change: những thay đổi cần có để thực hiện giải pháp (hệ thống, quy trình, vai trò, tổ chức, kỹ thuật).",
+   "Value: lợi ích hữu hình (đo được) hoặc vô hình (trải nghiệm, danh tiếng).",
+   "Need sai thì Change, Solution sai, Stakeholder bị ảnh hưởng, không có Value và lệch Context. Một need có thể có nhiều solution."
+  ],
+  "html": "<table><thead><tr><th>Khái niệm</th><th>Một câu để nhớ</th><th>Quan hệ với Need</th></tr></thead><tbody><tr><td>Need</td><td>Vấn đề hoặc cơ hội</td><td>Gốc</td></tr><tr><td>Stakeholder</td><td>Ai có need, làm, bị tác động</td><td>Nguồn gốc của Need</td></tr><tr><td>Context</td><td>Điều kiện xung quanh</td><td>Ảnh hưởng việc xác định, ưu tiên Need</td></tr><tr><td>Solution</td><td>Cách đáp ứng</td><td>Đáp ứng Need</td></tr><tr><td>Change</td><td>Việc chuyển đổi</td><td>Need là lý do tạo ra Change</td></tr><tr><td>Value</td><td>Lợi ích</td><td>Need được đáp ứng tạo ra Value</td></tr></tbody></table><p class=\"key\">Tìm need thật sự trước, chọn solution hiệu quả nhất sau.</p>"
+ },
+ "images": [
+  {
+   "id": "L07-img1",
+   "path": "data/pages/7. BACCM/p-004.jpg",
+   "caption": "Sơ đồ BACCM: 6 khái niệm lõi liên kết với nhau",
+   "crop": [
+    0.59,
+    0.12,
+    0.98,
+    0.915
+   ]
+  },
+  {
+   "id": "L07-img2",
+   "path": "data/pages/7. BACCM/p-016.jpg",
+   "caption": "Ví dụ tác động qua lại quanh Need “Tốn thời gian xử lý hồ sơ nhân sự”",
+   "crop": [
+    0.17,
+    0.49,
+    0.92,
+    0.915
+   ]
+  }
+ ]
+}

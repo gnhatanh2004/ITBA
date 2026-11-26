@@ -1,0 +1,315 @@
+{
+ "lesson": "L12",
+ "chunks": [
+  {
+   "id": "L12-n1",
+   "ref": "L12-t1",
+   "say": "Chào bạn, mình bắt đầu buổi mười hai: quy trình nghiệp vụ và BPMN. Buổi này có ba phần lớn. Phần một là khái niệm Business Process, tức quy trình nghiệp vụ, gồm định nghĩa, đặc điểm, phân loại và các thành phần. Phần hai là mô hình hóa quy trình bằng Flowchart, loại lưu đồ đơn giản ai cũng đọc được. Phần ba là mô hình hóa bằng BPMN, bộ ký hiệu chuẩn quốc tế mà các dự án IT hay dùng. Có một nguyên tắc xuyên suốt cả buổi: BA phải hiểu rõ quy trình nghiệp vụ của khách hàng trước, rồi mới vẽ. Vẽ khi chưa hiểu nghiệp vụ chỉ cho ra một hình đẹp nhưng sai.",
+   "show": {
+    "h": "Buổi 12: Quy trình nghiệp vụ và BPMN",
+    "points": [
+     "Phần 1: Business Process – định nghĩa, đặc điểm, loại, thành phần",
+     "Phần 2: mô hình hóa bằng Flowchart",
+     "Phần 3: mô hình hóa bằng BPMN 2.0",
+     "Nguyên tắc: hiểu nghiệp vụ trước, vẽ sau"
+    ]
+   }
+  },
+  {
+   "id": "L12-n2",
+   "ref": "L12-t1",
+   "say": "Trước hết, Business Process là tập hợp các sự kiện liên quan, các hoạt động và các điểm quyết định, có sự tham gia của nhiều tác nhân và đối tượng, và tất cả cùng dẫn đến một kết quả có giá trị cho ít nhất một khách hàng. Ví dụ ở công ty bán lẻ là quy trình xử lý đơn hàng, ở phòng nhân sự là quy trình duyệt đơn nghỉ phép, ở ngân hàng là quy trình mở tài khoản. Một quy trình có chín đặc điểm, mình gom thành ba nhóm cho dễ nhớ. Nhóm cấu trúc: có mục tiêu, có trình tự với điểm bắt đầu và kết thúc, có đầu vào và đầu ra, gồm nhiều bước liên kết và nhiều vai trò tham gia. Nhóm vận hành: lặp lại và chuẩn hóa, đo lường được, cải tiến và tự động hóa được bằng công nghệ. Nhóm giá trị: mang lại giá trị kinh doanh cho khách hàng. Riêng tính lặp lại là thứ phân biệt quy trình với dự án: dự án làm một lần, còn quy trình chạy đi chạy lại, nên rất đáng để BA mô hình hóa, đo lường và tự động hóa.",
+   "show": {
+    "h": "Business Process là gì",
+    "points": [
+     "Sự kiện + hoạt động + điểm quyết định, nhiều tác nhân và đối tượng",
+     "→ kết quả có giá trị cho ít nhất một khách hàng",
+     "Cấu trúc: mục tiêu, trình tự, input/output, nhiều bước, nhiều vai trò",
+     "Vận hành: lặp lại, chuẩn hóa, đo lường, tự động hóa · Giá trị kinh doanh",
+     "Lặp lại = khác dự án (làm một lần)"
+    ]
+   },
+   "ask": [
+    "L12-q1",
+    "L12-q4"
+   ]
+  },
+  {
+   "id": "L12-n3",
+   "ref": "L12-t3",
+   "say": "Quy trình nghiệp vụ chia làm ba loại. Core Process, quy trình lõi, liên quan trực tiếp đến việc tạo ra giá trị chính, như bán hàng, giao hàng, xử lý thanh toán. Supporting Process, quy trình hỗ trợ, giúp quy trình lõi vận hành được, như quản lý nhân sự, quản lý tài chính. Management Process, quy trình quản lý, dùng để điều phối, giám sát và đánh giá, như lập kế hoạch hay phân tích KPI. Cách phân biệt nhanh là hỏi xem khách hàng có trực tiếp nhận giá trị từ quy trình này không: có thì là Core, không nhưng giúp Core chạy được thì là Supporting, còn nếu lập kế hoạch và đo lường cả tổ chức thì là Management. Với chuỗi bán lẻ SolasMart, bán hàng tại quầy là Core, tuyển dụng nhân viên là Supporting, phân tích KPI từng cửa hàng là Management. Lưu ý cùng một quy trình có thể được xếp khác nhau ở doanh nghiệp khác, ví dụ với công ty logistics thì quản lý kho lại là Core.",
+   "show": {
+    "h": "3 loại Business Process",
+    "points": [
+     "Core: tạo giá trị chính · bán hàng, giao hàng, thanh toán",
+     "Supporting: giúp Core chạy · nhân sự, tài chính",
+     "Management: điều phối, giám sát, đánh giá · kế hoạch, KPI",
+     "Hỏi: khách có trực tiếp nhận giá trị không?"
+    ]
+   },
+   "ask": [
+    "L12-q6",
+    "L12-q7"
+   ]
+  },
+  {
+   "id": "L12-n4",
+   "ref": "L12-t4",
+   "say": "Tiếp theo là sáu thành phần của một quy trình. Sự kiện, Events, xảy ra tức thì, không kéo dài, và thường là yếu tố kích hoạt bước sau, ví dụ nhận được đơn đặt hàng. Hoạt động, Activities, là việc cần thời gian để làm, có thể là một task đơn lẻ hoặc gồm nhiều bước, ví dụ kiểm tra đơn hàng, đóng gói hàng. Điểm quyết định, Decision Points, là chỗ phải chọn và ảnh hưởng tới cách quy trình đi tiếp, ví dụ kiểm tra sản phẩm xong thì chấp nhận hay trả lại. Tác nhân, Actors, là con người, tổ chức, hoặc cả hệ thống phần mềm như hệ thống thanh toán. Đối tượng gồm loại vật chất như hóa đơn giấy, và loại phi vật chất như bản ghi đơn hàng trong cơ sở dữ liệu. Cuối cùng là kết quả, Outcomes, có thể tích cực như đơn hoàn tất, hoặc tiêu cực như đơn thất bại. Mẹo phân biệt: sự kiện là điều đã xảy ra, còn hoạt động là việc phải làm.",
+   "show": {
+    "h": "6 thành phần của Business Process",
+    "points": [
+     "Events: tức thì, kích hoạt · Activities: tốn thời gian",
+     "Decision Points: chọn hướng đi tiếp",
+     "Actors: người, tổ chức, hệ thống phần mềm",
+     "Objects: vật chất (hóa đơn giấy) · phi vật chất (bản ghi điện tử)",
+     "Outcomes: tích cực hoặc tiêu cực"
+    ]
+   },
+   "ask": [
+    "L12-q2",
+    "L12-q8",
+    "L12-q15"
+   ]
+  },
+  {
+   "id": "L12-n5",
+   "ref": "L12-t5",
+   "say": "Có ba cách mô tả một quy trình. Cách thứ nhất là văn bản: viết từng bước bằng lời, dễ hiểu với người không quen đọc sơ đồ. Cách thứ hai là bảng mô tả quy trình, mỗi dòng là một bước với các cột Bước, Người thực hiện, Hoạt động và Hệ thống hỗ trợ, như dòng mẫu trên slide: bước một, giáo vụ tiếp nhận đơn nghỉ học qua email nội bộ. Bảng cho thấy rõ ai làm gì, dùng công cụ gì, và dễ rà soát từng bước. Cách thứ ba là mô hình hóa bằng Flowchart hoặc BPMN, tức vẽ sơ đồ bằng bộ ký hiệu chuẩn. Cách này dùng nhiều trong môi trường IT và dự án lớn, vì mô tả được vai trò, hệ thống, sự kiện và quy tắc xử lý phức tạp. Thực tế BA thường kết hợp: dùng văn bản hoặc bảng để thống nhất với người dùng nghiệp vụ, rồi vẽ BPMN cho đội dự án.",
+   "show": {
+    "h": "3 cách mô tả Business Process",
+    "points": [
+     "Văn bản: từng bước bằng lời, dễ hiểu với người không quen sơ đồ",
+     "Bảng: Bước · Người thực hiện · Hoạt động · Hệ thống hỗ trợ",
+     "Mô hình hóa: Flowchart/BPMN, chuẩn hóa, hợp dự án IT lớn",
+     "Kết hợp: văn bản/bảng cho nghiệp vụ, BPMN cho đội dự án"
+    ]
+   },
+   "ask": [
+    "L12-q13",
+    "L12-q14",
+    "L12-q46"
+   ]
+  },
+  {
+   "id": "L12-n6",
+   "ref": "L12-t7",
+   "say": "Giờ sang phần hai: Flowchart, hay lưu đồ, là dạng biểu đồ trình bày các bước của một quy trình, nối bằng mũi tên theo thứ tự thực hiện. Hình chữ nhật là một bước, thường chỉ có một mũi tên đi ra, còn mũi tên chỉ hướng của dòng chảy. Hình thoi là quyết định, bên trong ghi câu hỏi, và có nhiều mũi tên đi ra, mỗi mũi tên ứng với một câu trả lời, thường là có và không. Hình chữ D là trì hoãn hay chờ đợi, gọi là Delay, hình bình hành là đầu vào hoặc đầu ra, hình có cạnh dưới lượn sóng là tài liệu, còn hình bo tròn hoặc elip là điểm bắt đầu và kết thúc. Hình tròn nhỏ là Connector: slide ghi nó nối sang trang khác, còn theo chuẩn thông dụng, hình tròn nối hai điểm trên cùng trang, nối sang trang khác thì dùng hình ngũ giác. Mẹo nhớ: chữ nhật là làm, thoi là hỏi, chữ D là đợi, bình hành là vào ra, lượn sóng là giấy tờ, bo tròn là mở và đóng.",
+   "show": {
+    "h": "Flowchart và các ký hiệu",
+    "points": [
+     "Chữ nhật = một bước (1 mũi tên ra) · Mũi tên = hướng dòng chảy",
+     "Thoi = quyết định, nhiều mũi tên ra theo câu trả lời",
+     "Chữ D = Delay · Bình hành = Input/Output · Lượn sóng = Document",
+     "Bo tròn/elip = Start/End · Tròn nhỏ = Connector",
+     "Làm · hỏi · đợi · vào ra · giấy tờ · mở đóng"
+    ]
+   },
+   "ask": [
+    "L12-q16",
+    "L12-q17",
+    "L12-q18"
+   ]
+  },
+  {
+   "id": "L12-n7",
+   "ref": "L12-t8",
+   "say": "Giờ mình đọc thử các flowchart trên slide: bắt đầu từ hình bo tròn, đi theo mũi tên, tới hình thoi thì đọc câu hỏi và đi theo từng nhánh. Ví dụ khóa sổ kế toán: thu thập dữ liệu, đối chiếu, ghi bút toán và điều chỉnh, rồi rà soát báo cáo tài chính và hỏi báo cáo có chính xác không. Nếu không, ta điều tra và xử lý chênh lệch rồi quay lại bước rà soát, còn nếu có thì làm báo cáo cuối, phê duyệt nội bộ và khóa kỳ. Ví dụ xử lý đơn hàng: đơn không hợp lệ thì hủy, hợp lệ thì xác nhận, thiếu hàng thì mua hoặc sản xuất rồi nhập kho, sau đó chờ giao, và nếu chưa nhận tiền đặt trước thì quay lại tiếp tục chờ. Ví dụ tuyển dụng: đăng tin, chờ năm ngày bằng ký hiệu chữ D, xem hồ sơ, chưa đủ thì đăng lại và chờ tiếp. Sơ đồ tuyển dụng có tới năm vòng lặp, và mỗi lần quay về đăng lại tin là tốn thêm ít nhất năm ngày. Bài học là hãy tìm các mũi tên quay ngược, vì đó thường là chỗ tốn thời gian và đáng cải tiến.",
+   "show": {
+    "h": "Đọc ví dụ Flowchart",
+    "points": [
+     "Đọc: bo tròn → theo mũi tên → thoi thì đi từng nhánh",
+     "Khóa sổ: không chính xác → xử lý chênh lệch → rà soát lại",
+     "Đơn hàng: chưa nhận tiền đặt trước → quay lại chờ giao",
+     "Tuyển dụng: 5 vòng lặp, mỗi lần đăng lại tốn thêm 5 ngày",
+     "Mũi tên quay ngược = chỗ đáng cải tiến"
+    ],
+    "img": "L12-img8"
+   },
+   "ask": [
+    "L12-q20",
+    "L12-q21"
+   ]
+  },
+  {
+   "id": "L12-n8",
+   "ref": "L12-t9",
+   "say": "Sang phần ba: BPMN là tập hợp các ký hiệu chuẩn để mô hình hóa quy trình của doanh nghiệp. Slide ghi tên đầy đủ là Business Process Modeling and Notation, tên chính thức của chuẩn BPMN 2.0 là Business Process Model and Notation, hai cách gọi cùng chỉ một chuẩn. Ví dụ trên slide là quy trình buổi sáng. Sau Start là một Parallel Gateway, hình thoi có dấu cộng, tách ra ba việc làm song song: đánh răng, chải tóc, thay đồ. Một Parallel Gateway thứ hai gom ba nhánh lại, phải xong cả ba việc mới đi tiếp. Sau đó là Exclusive Gateway, hình thoi trống, chọn đúng một món ăn sáng trong xôi, bánh mì hoặc phở, rồi đi làm. Nếu thay gateway trống bằng Parallel, người này sẽ ăn cả ba món, còn thay bằng Inclusive thì có thể chọn một, hai hoặc cả ba món.",
+   "show": {
+    "h": "BPMN là gì: ví dụ buổi sáng",
+    "points": [
+     "Bộ ký hiệu chuẩn để mô hình hóa quy trình doanh nghiệp",
+     "Tên chuẩn: Business Process Model and Notation",
+     "Parallel Gateway (+): tách 3 việc song song, gộp khi xong cả 3",
+     "Exclusive Gateway (trống): chọn đúng 1 món ăn sáng"
+    ],
+    "img": "L12-img6"
+   },
+   "ask": [
+    "L12-q22",
+    "L12-q23"
+   ]
+  },
+  {
+   "id": "L12-n9",
+   "ref": "L12-t10",
+   "say": "Slide các thành phần của BPMN dẫn tới poster BPMN 2.0, nơi ký hiệu được chia thành nhiều nhóm. Năm nhóm bắt buộc phải nắm là Activities, Events, Gateways, Swimlanes và Data. Collaboration Diagram là ví dụ tổng hợp trên poster, bạn cần đọc hiểu được. Còn Conversations và Choreographies là nhóm nâng cao, chỉ cần biết tên. Theo chuẩn, các ký hiệu cơ bản còn gom thành bốn loại: Flow Objects, Connecting Objects, Swimlanes và Artifacts. Ba Flow Object có hình dạng dễ nhớ: hình tròn là sự kiện, hình chữ nhật bo góc là hoạt động, hình thoi là gateway. Nắm được ba hình này là bạn đã đọc được phần lớn một sơ đồ BPMN.",
+   "show": {
+    "h": "Bản đồ poster BPMN 2.0",
+    "points": [
+     "Bắt buộc: Activities · Events · Gateways · Swimlanes · Data",
+     "Đọc hiểu: Collaboration Diagram",
+     "Nâng cao: Conversations · Choreographies",
+     "Tròn = Event · Chữ nhật bo góc = Activity · Thoi = Gateway"
+    ]
+   }
+  },
+  {
+   "id": "L12-n10",
+   "ref": "L12-t11",
+   "say": "Bắt đầu với nhóm Activities. Task là một đơn vị công việc, vẽ bằng hình chữ nhật bo góc, và nếu có dấu cộng nhỏ ở đáy thì đó là Sub-Process, một quy trình con có thể chi tiết hóa thêm. Viền đôi là Transaction, viền chấm là Event Sub-Process, còn viền đậm là Call Activity, gọi lại một task hoặc process dùng chung. Biểu tượng ở góc trên cho biết loại task: hình người là User Task, người làm với phần mềm hỗ trợ, bàn tay là Manual Task, làm thủ công, bánh răng là Service Task, hệ thống tự động làm. Ngoài ra còn Send Task phong bì đen, Receive Task phong bì trắng, cùng Business Rule Task và Script Task. Dấu ở đáy task là Activity Marker: mũi tên vòng là Loop, ba vạch đứng là Multi-Instance chạy song song, ba vạch ngang là Multi-Instance chạy lần lượt. Về luồng, Sequence Flow nét liền xác định thứ tự, còn Default Flow có gạch chéo ở gốc là nhánh mặc định khi mọi điều kiện khác đều sai.",
+   "show": {
+    "h": "Nhóm Activities",
+    "points": [
+     "Task · Sub-Process (+) · Transaction · Event Sub-Process · Call Activity",
+     "User Task (người) · Manual Task (bàn tay) · Service Task (bánh răng)",
+     "Send · Receive · Business Rule · Script Task",
+     "Markers: Loop · Parallel MI (|||) · Sequential MI (≡)",
+     "Sequence Flow · Default Flow · Conditional Flow"
+    ],
+    "img": "L12-img1"
+   },
+   "ask": [
+    "L12-q24",
+    "L12-q26",
+    "L12-q27"
+   ]
+  },
+  {
+   "id": "L12-n11",
+   "ref": "L12-t12",
+   "say": "Nhóm Events vẽ bằng hình tròn. Viền cho biết vị trí: Start Event một nét mảnh, Intermediate Event hai nét mảnh, End Event một nét đậm. Biểu tượng bên trong cho biết loại, và nếu biểu tượng rỗng là Catching, tức bắt sự kiện, còn tô đen là Throwing, tức phát sự kiện. Các loại hay gặp là None để trống, Message hình phong bì, Timer hình đồng hồ cho mốc hay khoảng thời gian, Error hình tia sét, và Terminate chấm đen đặc, kết thúc ngay lập tức toàn bộ quy trình. Message gửi tới một người nhận xác định, còn Signal hình tam giác giống loa phát thanh, ai quan tâm cũng bắt được. Một event gắn trên viền hoạt động gọi là Boundary Event. Viền liền là Interrupting, ngắt hoạt động, còn viền nét đứt là Non-Interrupting, hoạt động vẫn chạy tiếp.",
+   "show": {
+    "h": "Nhóm Events",
+    "points": [
+     "Start: 1 nét mảnh · Intermediate: 2 nét mảnh · End: 1 nét đậm",
+     "Rỗng = Catching (bắt) · Tô đen = Throwing (phát)",
+     "None · Message · Timer · Error · Signal · Terminate…",
+     "Boundary: viền liền = Interrupting · nét đứt = Non-Interrupting"
+    ],
+    "img": "L12-img2"
+   },
+   "ask": [
+    "L12-q32",
+    "L12-q33",
+    "L12-q34"
+   ]
+  },
+  {
+   "id": "L12-n12",
+   "ref": "L12-t13",
+   "say": "Gateway là hình thoi, dùng để tách hoặc gộp luồng, bản thân nó không làm việc gì mà chỉ điều hướng. Exclusive Gateway, thoi trống hoặc có dấu X, khi tách thì đi đúng một nhánh, khi gộp thì một nhánh tới là đi tiếp. Parallel Gateway có dấu cộng, khi tách thì mọi nhánh chạy cùng lúc, khi gộp thì chờ mọi nhánh xong. Inclusive Gateway có vòng tròn đậm, cho phép một hoặc nhiều nhánh chạy, khi gộp thì chờ các nhánh đang chạy hoàn tất. Event-based Gateway có hình ngũ giác, theo sau là các sự kiện, sự kiện nào xảy ra trước thì đi nhánh đó. Mẹo nhớ: X là chọn một, cộng là làm hết, O là chọn một hoặc nhiều, ngũ giác là ai đến trước. Lỗi hay gặp là tách bằng Exclusive nhưng gộp bằng Parallel, quy trình sẽ kẹt mãi vì chờ một nhánh không bao giờ tới, nên tách và gộp hãy dùng cùng loại gateway.",
+   "show": {
+    "h": "Nhóm Gateways",
+    "points": [
+     "Exclusive (X): đúng 1 nhánh",
+     "Parallel (+): mọi nhánh, gộp thì chờ tất cả",
+     "Inclusive (O): 1 hoặc nhiều nhánh",
+     "Event-based (ngũ giác): sự kiện nào đến trước",
+     "Tách và gộp dùng cùng loại, tránh kẹt quy trình"
+    ],
+    "img": "L12-img3"
+   },
+   "ask": [
+    "L12-q37",
+    "L12-q38",
+    "L12-q40"
+   ]
+  },
+  {
+   "id": "L12-n13",
+   "ref": "L12-t14",
+   "say": "Nhóm Swimlanes trả lời câu hỏi ai làm. Pool là một bên tham gia, còn Lane là làn chia nhỏ trong pool, và mỗi pool hay lane có thể là một tổ chức, một vai trò hoặc một hệ thống. Sequence Flow là nét liền, chỉ dùng trong cùng một pool và được đi qua các lane. Message Flow là nét đứt, gốc tròn, đầu mũi tên rỗng, dùng để trao đổi thông tin giữa hai pool khác nhau, tức là vượt ranh giới tổ chức. Quy tắc vàng là Sequence Flow không được vượt pool, và Message Flow không dùng bên trong một pool. Vì vậy các phòng ban của cùng một công ty thường là lane trong một pool, còn khách hàng hay đối tác là pool riêng. Trên poster, pool của bên ngoài có thể vẽ dạng Black Box, chỉ có tên, còn pool của mình vẽ dạng White Box, có đầy đủ quy trình bên trong.",
+   "show": {
+    "h": "Swimlanes: Pool, Lane, Message Flow",
+    "points": [
+     "Pool = bên tham gia · Lane = vai trò, bộ phận, hệ thống",
+     "Sequence Flow: nét liền, trong một pool",
+     "Message Flow: nét đứt, giữa các pool",
+     "Phòng ban cùng công ty = lane · Đối tác, khách hàng = pool riêng",
+     "Black Box (chỉ tên) · White Box (vẽ đủ bên trong)"
+    ],
+    "img": "L12-img4"
+   },
+   "ask": [
+    "L12-q41",
+    "L12-q42"
+   ]
+  },
+  {
+   "id": "L12-n14",
+   "ref": "L12-t15",
+   "say": "Nhóm Data mô tả thông tin trong quy trình. Data Object là tờ giấy gấp góc, chỉ thông tin chảy qua quy trình như tài liệu, email, thư, và nếu có ba vạch đứng thì là Collection, một tập thông tin như danh sách dòng hàng. Data Input và Data Output là đầu vào và đầu ra của cả quy trình. Data Store là hình trụ, nơi đọc ghi dữ liệu như cơ sở dữ liệu hay tủ hồ sơ, và tồn tại lâu hơn một lần chạy quy trình. Phần tử dữ liệu được nối với hoạt động bằng Data Association, một đường chấm có mũi tên. Ngoài ra còn hai Artifact không đổi luồng chạy: Text Annotation để ghi chú và Group để gom các phần tử cho dễ nhìn. Hai nhóm nâng cao Conversations và Choreographies chỉ mô tả trao đổi tin nhắn giữa các bên, bạn chỉ cần nhận ra khi gặp.",
+   "show": {
+    "h": "Nhóm Data và Artifact",
+    "points": [
+     "Data Object: thông tin của một lần chạy · Collection (|||)",
+     "Data Input · Data Output · Data Association",
+     "Data Store (hình trụ): kho lâu dài, như cơ sở dữ liệu",
+     "Artifact: Text Annotation · Group",
+     "Nâng cao: Conversations · Choreographies"
+    ],
+    "img": "L12-img5"
+   }
+  },
+  {
+   "id": "L12-n15",
+   "ref": "L12-t17",
+   "say": "Giờ mình đọc một sơ đồ BPMN trên slide: xử lý đơn hàng với ba lane Sales, Finance và Warehouse. Bước một, đọc lane để biết ai tham gia, rồi bước hai, tìm Start Event ở lane Sales. Bước ba, đi theo Sequence Flow: Receive Order là User Task, rồi Check Credit có biểu tượng bánh răng nên là Service Task, tức hệ thống tự kiểm tín dụng. Bước bốn, tại mỗi gateway đọc câu hỏi và từng nhánh: tín dụng không đạt thì đơn thất bại, đạt thì làm Fulfill Order, một Sub-Process, rồi nếu hết hàng thì đơn thất bại, còn hàng thì Send Invoice và đơn hoàn tất. Bước năm, đếm kết quả: hai End Event, một tiêu cực là Order failed, một tích cực là Order complete. Slide chỉ vẽ ba lane mà không vẽ khung pool, nhưng theo chuẩn ba lane này nằm trong cùng một pool, nên mũi tên nối giữa các lane là Sequence Flow chứ không phải Message Flow. Nhìn theo sáu thành phần, sơ đồ còn thiếu đối tượng dữ liệu, BA có thể thêm Data Object đơn hàng, hóa đơn và Data Store khách hàng.",
+   "show": {
+    "h": "Đọc sơ đồ BPMN: Sales · Finance · Warehouse",
+    "points": [
+     "Lane → Start Event → theo Sequence Flow",
+     "Receive Order: User Task · Check Credit: Service Task",
+     "Gateway: Credit OK? · Out of stock?",
+     "2 End Event: Order failed · Order complete",
+     "3 lane trong 1 pool → mũi tên giữa lane là Sequence Flow"
+    ],
+    "img": "L12-img7"
+   },
+   "ask": [
+    "L12-q44",
+    "L12-q47"
+   ]
+  },
+  {
+   "id": "L12-n16",
+   "ref": "L12-t18",
+   "say": "Khi chưa có công cụ vẽ, bạn có thể vẽ BPMN bằng lời theo bảy bước. Xác định phạm vi, gồm tên quy trình, sự kiện bắt đầu và các kết quả kết thúc. Liệt kê pool là các bên độc lập, rồi lane là vai trò, bộ phận hoặc hệ thống trong pool chính. Viết luồng chính theo thứ tự, mỗi task là động từ cộng danh từ như kiểm tra đơn hàng, kèm lane thực hiện. Tại mỗi chỗ rẽ, ghi loại gateway, câu hỏi và nhãn nhánh, rồi thêm event và Message Flow giữa các pool. Cuối cùng kiểm lại: mọi nhánh đều tới End Event, gateway tách và gộp cùng loại, không có Sequence Flow vượt pool. So với Flowchart, BPMN chuẩn hóa hơn, có pool và lane cho câu hỏi ai làm, có Parallel Gateway cho việc song song và nhiều loại sự kiện, nên hợp với dự án IT nhiều vai trò, còn Flowchart hợp với quy trình ngắn cần giải thích nhanh.",
+   "show": {
+    "h": "Vẽ BPMN bằng lời, so với Flowchart",
+    "points": [
+     "Phạm vi → Pool → Lane → luồng chính (động từ + danh từ)",
+     "Gateway + nhãn nhánh → Event, Message Flow",
+     "Kiểm: mọi nhánh tới End Event, tách/gộp cùng loại",
+     "Flowchart: đơn giản, quy trình ngắn",
+     "BPMN: Pool/Lane, song song, nhiều Event → dự án IT"
+    ]
+   }
+  },
+  {
+   "id": "L12-n17",
+   "say": "Tóm lại buổi mười hai. Business Process là tập sự kiện, hoạt động và điểm quyết định, có nhiều tác nhân và đối tượng, cùng dẫn tới kết quả có giá trị, và vì lặp lại nên đáng để mô hình hóa. Có ba loại quy trình là Core, Supporting và Management, cùng sáu thành phần là sự kiện, hoạt động, điểm quyết định, tác nhân, đối tượng và kết quả. Có ba cách mô tả là văn bản, bảng và mô hình hóa. Flowchart đơn giản, với chữ nhật là làm, thoi là hỏi, chữ D là đợi. BPMN chuẩn hóa hơn với năm nhóm chính là Activities, Events, Gateways, Swimlanes và Data, và nhớ quy tắc Sequence Flow trong pool, Message Flow giữa các pool. Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài.",
+   "show": {
+    "h": "Tổng kết buổi 12",
+    "points": [
+     "Business Process: lặp lại, tạo kết quả có giá trị",
+     "3 loại: Core · Supporting · Management · 6 thành phần",
+     "3 cách mô tả: văn bản · bảng · mô hình hóa",
+     "Flowchart: làm · hỏi · đợi",
+     "BPMN: Activities · Events · Gateways · Swimlanes · Data"
+    ]
+   }
+  }
+ ]
+}

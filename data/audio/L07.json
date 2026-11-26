@@ -1,0 +1,648 @@
+{
+ "lesson": "L07",
+ "voice": "vi-VN-NamMinhNeural",
+ "hash": "2733b0f609395f68",
+ "duration": 679.968,
+ "chunks": [
+  {
+   "id": "L07-n1",
+   "start": 0.0,
+   "end": 36.768,
+   "sents": [
+    [
+     0.1,
+     6.888,
+     "Chào bạn, mình bắt đầu buổi bảy: BACCM, mô hình sáu khái niệm lõi của phân tích nghiệp vụ."
+    ],
+    [
+     6.838,
+     9.162,
+     "Buổi này đi qua ba phần."
+    ],
+    [
+     9.162,
+     13.637,
+     "Phần đầu, BACCM là gì và nó giúp gì cho BA."
+    ],
+    [
+     13.637,
+     21.075,
+     "Phần giữa, lần lượt sáu khái niệm: Need, Stakeholder, Context, Solution, Change và Value."
+    ],
+    [
+     21.075,
+     29.788,
+     "Phần cuối, cách sáu khái niệm tác động qua lại, cách phân biệt Need với Solution, và cách dùng BACCM để phân tích một tình huống thật."
+    ],
+    [
+     29.788,
+     36.763,
+     "Ví dụ xuyên suốt buổi là quán ăn đặt món online, nhà hàng FoodNow, thư viện trường và chuỗi bán lẻ SolasMart."
+    ]
+   ]
+  },
+  {
+   "id": "L07-n2",
+   "start": 37.368,
+   "end": 96.552,
+   "sents": [
+    [
+     37.468,
+     46.005,
+     "Trước hết, BACCM là viết tắt của Business Analysis Core Concept Model, tức mô hình khái niệm lõi của phân tích nghiệp vụ."
+    ],
+    [
+     45.956,
+     51.306,
+     "Mô hình này nằm trong BABOK, bộ kiến thức phân tích nghiệp vụ của IIBA."
+    ],
+    [
+     51.306,
+     57.981,
+     "Nó là một framework, một khung làm việc giúp BA phân tích vấn đề từ gốc rễ và tìm ra giải pháp tốt nhất."
+    ],
+    [
+     57.981,
+     69.743,
+     "Sáu khái niệm gồm: Need, là vấn đề cần giải quyết hay cơ hội phát triển; Solution, là cách đáp ứng Need; và Stakeholder, là người có nhu cầu, tham gia làm, hoặc bị ảnh hưởng."
+    ],
+    [
+     69.743,
+     80.943,
+     "Tiếp theo là Context, tức bối cảnh xung quanh như thị trường, văn hóa, quy trình; Value, tức lợi ích hữu hình hoặc vô hình; và Change, tức các hoạt động chuyển đổi để đạt được Need."
+    ],
+    [
+     80.943,
+     89.356,
+     "Trên sơ đồ, sáu khái niệm nằm ở sáu đỉnh và nối với tất cả các đỉnh còn lại, nghĩa là đổi một khái niệm thì năm khái niệm kia cũng bị ảnh hưởng."
+    ],
+    [
+     89.356,
+     96.543,
+     "Mẹo nhớ: nhu cầu sinh ra giải pháp, cho người, trong bối cảnh, tạo giá trị, nhờ thay đổi."
+    ]
+   ]
+  },
+  {
+   "id": "L07-n3",
+   "start": 97.152,
+   "end": 135.84,
+   "sents": [
+    [
+     97.252,
+     100.564,
+     "Vậy BACCM giúp BA được gì?"
+    ],
+    [
+     100.514,
+     102.852,
+     "Slide nêu ba vai trò."
+    ],
+    [
+     102.852,
+     112.689,
+     "Thứ nhất, định hướng tư duy phân tích: BA rất dễ bị cuốn vào làm task như viết tài liệu, vẽ biểu đồ, mà quên hỏi vì sao làm, làm cho ai, được gì."
+    ],
+    [
+     112.689,
+     119.352,
+     "Thứ hai, giúp phân tích yêu cầu chính xác hơn, vì soát đủ sáu khái niệm thì khó bỏ sót một mặt của vấn đề."
+    ],
+    [
+     119.352,
+     125.252,
+     "Thứ ba, tạo ngôn ngữ chung trong team BA, ai cũng dùng sáu từ khóa giống nhau khi trao đổi."
+    ],
+    [
+     125.252,
+     132.139,
+     "Ví dụ bạn đang mải vẽ màn hình cho một tính năng mới, hãy dừng lại hỏi: Need ở đây là gì, Value cho ai?"
+    ],
+    [
+     132.139,
+     135.839,
+     "Câu hỏi đó có khi cho thấy tính năng ấy không thật sự cần."
+    ]
+   ]
+  },
+  {
+   "id": "L07-n4",
+   "start": 136.44,
+   "end": 179.136,
+   "sents": [
+    [
+     136.54,
+     139.64,
+     "Giờ đi vào khái niệm đầu tiên, Need."
+    ],
+    [
+     139.59,
+     148.877,
+     "Theo BABOK, Need là một vấn đề, cơ hội hoặc ràng buộc có giá trị tiềm năng với một hay nhiều Stakeholder, tiếng Anh là problem, opportunity hoặc constraint."
+    ],
+    [
+     148.877,
+     155.79,
+     "Vấn đề là điều đang gây khó khăn, kém hiệu quả, ví dụ nhân viên HR mất nhiều thời gian xử lý hồ sơ giấy."
+    ],
+    [
+     155.79,
+     163.852,
+     "Cơ hội là điều có thể cải thiện hay tận dụng, ví dụ khách của SolasMart ngày càng mua online, nên có thể mở thêm kênh bán online."
+    ],
+    [
+     163.852,
+     168.653,
+     "Slide gọi Need là concept cơ sở để tạo ra năm concept còn lại."
+    ],
+    [
+     168.653,
+     172.665,
+     "Còn BABOK phiên bản ba thì coi sáu khái niệm ngang nhau."
+    ],
+    [
+     172.665,
+     179.127,
+     "Hai cách nhìn không mâu thuẫn: trong thực hành, BA thường bắt đầu từ Need rồi soát đủ năm khái niệm kia."
+    ]
+   ]
+  },
+  {
+   "id": "L07-n5",
+   "start": 179.736,
+   "end": 218.304,
+   "sents": [
+    [
+     179.836,
+     182.648,
+     "Need có bốn đặc điểm cần nhớ."
+    ],
+    [
+     182.599,
+     190.198,
+     "Một, Need tồn tại ở nhiều cấp độ, tùy Stakeholder: giám đốc cần tăng doanh thu, còn thủ kho cần kiểm kê nhanh."
+    ],
+    [
+     190.198,
+     194.811,
+     "Hai, Need có độ ưu tiên khác nhau, không phải cái nào cũng làm trước."
+    ],
+    [
+     194.811,
+     199.724,
+     "Ba, Need có thể mơ hồ lúc đầu, kiểu như câu hệ thống phải dễ dùng hơn."
+    ],
+    [
+     199.724,
+     204.911,
+     "Bốn, Need thay đổi theo bối cảnh, ví dụ khi có luật mới hay đối thủ mới."
+    ],
+    [
+     204.911,
+     208.311,
+     "Vì vậy BA không chỉ chép lại lời Stakeholder."
+    ],
+    [
+     208.311,
+     213.636,
+     "Việc của BA với Need là khám phá, làm rõ, xác thực và ưu tiên."
+    ],
+    [
+     213.636,
+     218.298,
+     "Mẹo nhớ bốn chữ: khám, rõ, thực, ưu."
+    ]
+   ]
+  },
+  {
+   "id": "L07-n6",
+   "start": 218.904,
+   "end": 273.744,
+   "sents": [
+    [
+     219.004,
+     222.867,
+     "Khái niệm thứ hai là Stakeholder, bên liên quan."
+    ],
+    [
+     222.816,
+     232.617,
+     "Stakeholder là cá nhân, nhóm hoặc tổ chức có Need cần giải quyết, hoặc tham gia cung cấp Solution, hoặc bị Change tác động, và chỉ cần thỏa một trong ba điều đó."
+    ],
+    [
+     232.617,
+     235.629,
+     "Slide chia Stakeholder làm ba nhóm."
+    ],
+    [
+     235.629,
+     241.242,
+     "Business Stakeholders là người ra quyết định kinh doanh, như giám đốc, chủ đầu tư."
+    ],
+    [
+     241.242,
+     251.742,
+     "User Stakeholders là người dùng cuối, như nhân viên dùng hệ thống hằng ngày, còn Implementation Stakeholders là người triển khai, như lập trình viên, QA, IT support."
+    ],
+    [
+     251.742,
+     261.129,
+     "Slide ghi cách chia này theo BABOK, nhưng BABOK chỉ liệt kê vai trò cụ thể như Sponsor, End User hay Regulator, ba nhóm là cách gom gọn để dễ học."
+    ],
+    [
+     261.129,
+     270.304,
+     "Với Stakeholder, BA cần xác định đúng người quan trọng, ưu tiên theo mức ảnh hưởng, và tạo đồng thuận giữa các nhóm, vì need của họ có khi trái nhau."
+    ],
+    [
+     270.304,
+     273.729,
+     "Mục tiêu cuối cùng là tìm ra need của từng nhóm."
+    ]
+   ]
+  },
+  {
+   "id": "L07-n7",
+   "start": 274.344,
+   "end": 313.296,
+   "sents": [
+    [
+     274.444,
+     277.944,
+     "Khái niệm thứ ba là Context, bối cảnh."
+    ],
+    [
+     277.894,
+     284.707,
+     "Context là môi trường, điều kiện và yếu tố xung quanh, nơi Need hay Solution đang tồn tại hoặc được đề xuất."
+    ],
+    [
+     284.707,
+     293.457,
+     "Slide nêu sáu loại: chính sách và luật pháp, văn hóa, quy trình và công nghệ, thị trường và đối thủ, tài nguyên, và con người."
+    ],
+    [
+     293.457,
+     296.156,
+     "Lấy SolasMart làm ví dụ."
+    ],
+    [
+     296.156,
+     301.531,
+     "Quy định về hóa đơn bán hàng là luật, còn thói quen trả tiền mặt của khách là văn hóa."
+    ],
+    [
+     301.531,
+     308.344,
+     "Máy POS đang dùng là công nghệ, đối thủ đã có app là thị trường, và ngân sách dự án là tài nguyên."
+    ],
+    [
+     308.344,
+     313.294,
+     "Còn nhân viên quầy lớn tuổi, ít dùng máy tính, là yếu tố con người."
+    ]
+   ]
+  },
+  {
+   "id": "L07-n8",
+   "start": 313.896,
+   "end": 360.504,
+   "sents": [
+    [
+     313.996,
+     316.584,
+     "Vì sao phải nắm rõ Context?"
+    ],
+    [
+     316.534,
+     323.409,
+     "Lý do thứ nhất, Context cho BA thấy các hạn chế: ngân sách, thời gian, luật, hạ tầng."
+    ],
+    [
+     323.409,
+     330.546,
+     "Lý do thứ hai, nó giúp BA tránh ảo tưởng giải pháp, tức đề xuất thứ đẹp trên giấy nhưng không chạy được trong thực tế."
+    ],
+    [
+     330.546,
+     337.546,
+     "Ví dụ, SolasMart muốn giảm thời gian khách chờ ở quầy, và có người đề xuất lắp quầy tự thanh toán ở mọi cửa hàng."
+    ],
+    [
+     337.546,
+     347.134,
+     "BA xét Context trước: ngân sách có đủ cho mọi cửa hàng không, khách có quen tự quét hàng không, máy POS hiện tại có nối được không, hóa đơn sẽ xuất thế nào."
+    ],
+    [
+     347.134,
+     354.596,
+     "Từ đó BA đề xuất bước thực tế hơn, như thêm máy quét mã vạch ở quầy trước, rồi thử quầy tự thanh toán ở một cửa hàng."
+    ],
+    [
+     354.596,
+     360.496,
+     "Tóm lại, nắm rõ Context để yêu cầu và giải pháp thực tế, khả thi và có giá trị."
+    ]
+   ]
+  },
+  {
+   "id": "L07-n9",
+   "start": 361.104,
+   "end": 399.24,
+   "sents": [
+    [
+     361.204,
+     364.866,
+     "Khái niệm thứ tư là Solution, giải pháp."
+    ],
+    [
+     364.816,
+     369.441,
+     "Solution là một cách thức để đáp ứng một hoặc nhiều Need đã được xác định."
+    ],
+    [
+     369.441,
+     381.004,
+     "Solution có ba dạng: công nghệ như phần mềm, ứng dụng; quy trình, tức quy trình mới hoặc thiết kế lại quy trình cũ; và thay đổi trong tổ chức, như cơ cấu, vai trò, trách nhiệm."
+    ],
+    [
+     381.004,
+     384.716,
+     "Nghĩa là Solution không phải lúc nào cũng là phần mềm."
+    ],
+    [
+     384.716,
+     389.116,
+     "Điều quan trọng là BA không nên bị cuốn vào Solution quá sớm."
+    ],
+    [
+     389.116,
+     393.604,
+     "Solution là kết quả của phân tích, đến sau khi đã hiểu rõ Need."
+    ],
+    [
+     393.604,
+     399.241,
+     "Khi Stakeholder đưa sẵn một giải pháp, BA luôn truy ngược lại Need thật sự đứng phía sau."
+    ]
+   ]
+  },
+  {
+   "id": "L07-n10",
+   "start": 399.84,
+   "end": 441.624,
+   "sents": [
+    [
+     399.94,
+     403.18,
+     "Khái niệm thứ năm là Change, thay đổi."
+    ],
+    [
+     403.18,
+     412.407,
+     "Slide định nghĩa Change là những thay đổi cần có để thực hiện giải pháp, có thể là thay đổi hệ thống, quy trình, vai trò và con người, tổ chức, hoặc kỹ thuật."
+    ],
+    [
+     412.407,
+     417.333,
+     "BABOK nói là hành động chuyển đổi để đáp ứng một Need, nhưng hai cách nói cùng một ý."
+    ],
+    [
+     417.333,
+     422.89,
+     "Phân biệt nhanh: Solution là cái gì đáp ứng Need, còn Change là quá trình đưa cái đó vào thực tế."
+    ],
+    [
+     422.89,
+     429.732,
+     "Ví dụ Solution là phần mềm HRM, còn Change là chuyển từ xử lý hồ sơ thủ công sang dùng phần mềm."
+    ],
+    [
+     429.732,
+     441.615,
+     "Với thư viện trường dùng phần mềm quản lý, Change gồm cài phần mềm và nhập dữ liệu sách cũ, mượn trả bằng quét mã, đào tạo thủ thư, giao một người quản trị dữ liệu, và dán mã vạch cho từng cuốn sách."
+    ]
+   ]
+  },
+  {
+   "id": "L07-n11",
+   "start": 442.224,
+   "end": 472.584,
+   "sents": [
+    [
+     442.324,
+     445.512,
+     "Khái niệm cuối là Value, giá trị."
+    ],
+    [
+     445.462,
+     451.561,
+     "Value là lợi ích đạt được từ việc thực hiện một giải pháp, một thay đổi, hay đáp ứng một nhu cầu."
+    ],
+    [
+     451.561,
+     453.624,
+     "Value có hai loại."
+    ],
+    [
+     453.624,
+     459.087,
+     "Hữu hình là loại đo được bằng số liệu, như tăng doanh số, giảm thời gian xử lý."
+    ],
+    [
+     459.087,
+     464.224,
+     "Vô hình là loại khó đo trực tiếp, như trải nghiệm tốt hơn hay danh tiếng tăng lên."
+    ],
+    [
+     464.224,
+     469.624,
+     "Mẹo phân biệt rất đơn giản, hãy hỏi: lợi ích này có đếm, đo được không?"
+    ],
+    [
+     469.624,
+     472.574,
+     "Có thì hữu hình, không thì vô hình."
+    ]
+   ]
+  },
+  {
+   "id": "L07-n12",
+   "start": 473.184,
+   "end": 519.048,
+   "sents": [
+    [
+     473.284,
+     477.172,
+     "Giờ ghép sáu khái niệm lại, với Need ở trung tâm."
+    ],
+    [
+     477.122,
+     482.047,
+     "Need là lý do để tạo ra Change, còn Solution nhằm đáp ứng Need."
+    ],
+    [
+     482.047,
+     487.084,
+     "Stakeholder là nguồn gốc của Need, và Need được đáp ứng thì tạo ra Value."
+    ],
+    [
+     487.084,
+     490.859,
+     "Còn Context ảnh hưởng tới việc xác định và ưu tiên Need."
+    ],
+    [
+     490.859,
+     507.209,
+     "Ví dụ trên slide: Need là tốn thời gian xử lý hồ sơ nhân sự, Stakeholder là nhân viên HR, Solution là phần mềm HRM quản lý hồ sơ và nghỉ phép, Change là chuyển từ làm tay sang dùng phần mềm, và Value là tiết kiệm năm mươi phần trăm thời gian, giảm lỗi nhập liệu."
+    ],
+    [
+     507.209,
+     516.684,
+     "Ngược lại, nếu Need bị hiểu sai thành thiếu máy tính, ta sẽ đi mua máy, tức chọn sai Change, sai Solution, không tạo được Value và lệch với Context."
+    ],
+    [
+     516.684,
+     519.034,
+     "Sai gốc thì sai cả cây."
+    ]
+   ]
+  },
+  {
+   "id": "L07-n13",
+   "start": 519.648,
+   "end": 567.816,
+   "sents": [
+    [
+     519.748,
+     523.273,
+     "Một chỗ rất dễ nhầm là Need với Solution."
+    ],
+    [
+     523.223,
+     530.036,
+     "Stakeholder hay nói ra giải pháp, như cần một cái app, hay thêm nút xuất Excel, thay vì nói nhu cầu."
+    ],
+    [
+     530.036,
+     536.773,
+     "Mẹo phân biệt: Need trả lời câu vấn đề gì, vì sao, còn Solution trả lời câu làm bằng cách nào."
+    ],
+    [
+     536.773,
+     542.01,
+     "Ví dụ chủ nhà hàng nói với BA dự án FoodNow rằng tôi cần một cái app đặt bàn."
+    ],
+    [
+     542.01,
+     548.948,
+     "BA không vội ghi yêu cầu mà hỏi ngược: hiện khách đặt bàn thế nào, cách đó gặp khó gì, hậu quả là gì."
+    ],
+    [
+     548.948,
+     556.023,
+     "Hóa ra ngoài giờ không ai nghe máy và có khi ghi trùng bàn, nên Need thật sự là nhận đặt bàn được cả ngoài giờ và tránh trùng bàn."
+    ],
+    [
+     556.023,
+     563.423,
+     "Một Need như vậy có nhiều Solution: app riêng, form đặt bàn trên web, hoặc một sổ đặt bàn chung có người trực tin nhắn."
+    ],
+    [
+     563.423,
+     567.811,
+     "BA chọn cái hiệu quả nhất dựa trên Context và Value mong đợi."
+    ]
+   ]
+  },
+  {
+   "id": "L07-n14",
+   "start": 568.416,
+   "end": 629.904,
+   "sents": [
+    [
+     568.516,
+     572.179,
+     "Cuối cùng là cách dùng BACCM khi phân tích."
+    ],
+    [
+     572.129,
+     580.141,
+     "Mỗi khái niệm gắn với một câu hỏi, và thứ tự gợi ý là đi từ người, tới nhu cầu, xét điều kiện, rồi mới chọn giải pháp."
+    ],
+    [
+     580.141,
+     593.754,
+     "Tức là Stakeholder, ai có Need và ai bị tác động; Need, vấn đề hay cơ hội gì; Context, điều kiện nào chi phối; Solution, có những cách nào; Change, phải thay đổi gì; và Value, được lợi gì."
+    ],
+    [
+     593.754,
+     599.316,
+     "Áp vào một quán ăn nhận đơn qua điện thoại, giờ cao điểm hay nhỡ cuộc gọi và ghi sai món."
+    ],
+    [
+     599.316,
+     609.654,
+     "Need là mất đơn, sai đơn; Stakeholder gồm chủ quán, khách, nhân viên, shipper và đội phát triển; Context là khách quen gọi điện, ngân sách nhỏ."
+    ],
+    [
+     609.654,
+     618.654,
+     "Solution là hệ thống đặt đồ ăn online, Change là nhân viên chuyển từ ghi đơn sang xác nhận đơn, và Value là ít đơn sai, khách hài lòng hơn."
+    ],
+    [
+     618.654,
+     623.041,
+     "Context khách quen gọi điện còn nhắc BA giữ kênh điện thoại song song."
+    ],
+    [
+     623.041,
+     629.891,
+     "Nếu một ô bị bỏ trống, phân tích còn thiếu, và không nói được Value thì chưa chứng minh được dự án đáng làm."
+    ]
+   ]
+  },
+  {
+   "id": "L07-n15",
+   "start": 630.504,
+   "end": 679.968,
+   "sents": [
+    [
+     630.604,
+     632.616,
+     "Tóm lại buổi bảy."
+    ],
+    [
+     632.567,
+     641.229,
+     "BACCM là mô hình sáu khái niệm lõi trong BABOK, giúp BA phân tích từ gốc rễ: vì sao làm, cho ai, được gì."
+    ],
+    [
+     641.229,
+     650.642,
+     "Sáu khái niệm là Need, Stakeholder, Context, Solution, Change và Value, liên kết với nhau, đổi một cái thì các cái khác bị ảnh hưởng."
+    ],
+    [
+     650.642,
+     658.979,
+     "Need là vấn đề hay cơ hội, BA phải khám phá, làm rõ, xác thực và ưu tiên, vì Need sai thì cả phân tích sai theo."
+    ],
+    [
+     658.979,
+     666.091,
+     "Stakeholder gom thành ba nhóm Business, User và Implementation, còn Context giúp tránh ảo tưởng giải pháp."
+    ],
+    [
+     666.091,
+     674.892,
+     "Solution không phải lúc nào cũng là phần mềm, và một Need có thể có nhiều Solution, nên hãy tìm Need thật sự trước, chọn Solution hiệu quả nhất sau."
+    ],
+    [
+     674.892,
+     679.954,
+     "Bạn có thể ôn lại bằng flashcard, hoặc làm phần bài tập và trắc nghiệm của bài."
+    ]
+   ]
+  }
+ ]
+}

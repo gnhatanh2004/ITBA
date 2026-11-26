@@ -1,0 +1,732 @@
+{
+ "lesson": "L03",
+ "voice": "vi-VN-NamMinhNeural",
+ "hash": "b180e7063d5132a4",
+ "duration": 804.168,
+ "chunks": [
+  {
+   "id": "L03-n1",
+   "start": 0.0,
+   "end": 33.72,
+   "sents": [
+    [
+     0.1,
+     4.4,
+     "Chào bạn, mình bắt đầu buổi ba: quy trình phát triển phần mềm."
+    ],
+    [
+     4.35,
+     6.875,
+     "Buổi này có bốn nội dung chính."
+    ],
+    [
+     6.875,
+     13.312,
+     "Thứ nhất là SDLC, vòng đời phát triển phần mềm, với sáu bước và việc BA làm ở từng bước."
+    ],
+    [
+     13.312,
+     17.2,
+     "Thứ hai là mô hình Waterfall, tức mô hình thác nước."
+    ],
+    [
+     17.2,
+     19.65,
+     "Thứ ba là nguyên lý Agile."
+    ],
+    [
+     19.65,
+     24.9,
+     "Và thứ tư là Scrum, đi kèm Kanban và các vị trí trong một dự án phần mềm."
+    ],
+    [
+     24.9,
+     33.7,
+     "Nói gọn, buổi này trả lời ba câu hỏi: phần mềm được làm qua những bước nào, các bước đó được tổ chức theo cách nào, và ai làm gì trong dự án."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n2",
+   "start": 34.32,
+   "end": 76.272,
+   "sents": [
+    [
+     34.42,
+     41.208,
+     "Trước hết, SDLC là viết tắt của Software Development Life Cycle, tức vòng đời phát triển phần mềm."
+    ],
+    [
+     41.157,
+     47.845,
+     "Đó là toàn bộ vòng đời của một sản phẩm phần mềm, từ lúc lên kế hoạch cho tới khi phần mềm được vận hành và bảo trì."
+    ],
+    [
+     47.845,
+     54.433,
+     "Mục tiêu của SDLC là tạo ra phần mềm chất lượng cao, với chi phí thấp và thời gian sản xuất ngắn nhất."
+    ],
+    [
+     54.433,
+     62.545,
+     "SDLC gồm sáu bước: lập kế hoạch, phân tích, thiết kế, lập trình, kiểm thử và tích hợp, rồi bảo trì."
+    ],
+    [
+     62.545,
+     68.72,
+     "Mẹo nhớ là chuỗi sáu chữ: kế, phân, thiết, lập, kiểm, bảo."
+    ],
+    [
+     68.72,
+     76.257,
+     "Tức là phải biết làm gì, cần gì, làm thế nào, rồi mới bắt tay làm, thử, và giữ cho phần mềm chạy tốt."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n3",
+   "start": 76.872,
+   "end": 127.656,
+   "sents": [
+    [
+     76.972,
+     81.159,
+     "Bước một là lập kế hoạch, bước đầu tiên và rất quan trọng."
+    ],
+    [
+     81.109,
+     86.559,
+     "Người thực hiện thường là PM, tức Project Manager, người quản lý dự án."
+    ],
+    [
+     86.559,
+     95.385,
+     "PM xác định phạm vi, thời gian, chi phí, nguồn lực và rủi ro, bằng cách ước tính nỗ lực, phân tích rủi ro và phân công nhiệm vụ."
+    ],
+    [
+     95.385,
+     102.072,
+     "Kết quả là Master plan, tức kế hoạch tổng thể, cùng kế hoạch quản trị rủi ro và các quy định của dự án."
+    ],
+    [
+     102.072,
+     109.135,
+     "Bước hai là phân tích yêu cầu, do BA, PO là chủ sản phẩm, khách hàng và kỹ sư phần mềm cùng làm."
+    ],
+    [
+     109.135,
+     116.672,
+     "Mục tiêu là hiểu rõ yêu cầu chức năng, tức hệ thống phải làm gì, và yêu cầu phi chức năng, tức phải làm tốt tới mức nào."
+    ],
+    [
+     116.672,
+     124.547,
+     "Hoạt động gồm phỏng vấn, khảo sát, phân tích và viết tài liệu, kết quả là biên bản khảo sát, BRD và SRS."
+    ],
+    [
+     124.547,
+     127.635,
+     "Đây là giai đoạn BA làm việc nhiều nhất."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n4",
+   "start": 128.256,
+   "end": 171.264,
+   "sents": [
+    [
+     128.356,
+     130.556,
+     "Bước ba là thiết kế."
+    ],
+    [
+     130.506,
+     136.206,
+     "Người thực hiện là kiến trúc sư phần mềm, tức Software Architect, và lập trình viên cấp cao."
+    ],
+    [
+     136.206,
+     145.356,
+     "Mục tiêu là chuyển yêu cầu thành cấu trúc kỹ thuật: thiết kế kiến trúc, thiết kế cơ sở dữ liệu, thiết kế giao diện và trải nghiệm, tức UI và UX."
+    ],
+    [
+     145.356,
+     149.306,
+     "Kết quả là tài liệu kiến trúc và tài liệu cơ sở dữ liệu."
+    ],
+    [
+     149.306,
+     155.981,
+     "Nói gọn, phân tích trả lời câu hỏi hệ thống cần làm gì, còn thiết kế trả lời làm bằng cách nào về mặt kỹ thuật."
+    ],
+    [
+     155.981,
+     161.993,
+     "Bước bốn là lập trình, hay thực thi, tiếng Anh là Implementation, do lập trình viên làm."
+    ],
+    [
+     161.993,
+     168.168,
+     "Họ viết mã nguồn, review code, và viết unit test, tức tự kiểm từng phần nhỏ của mã."
+    ],
+    [
+     168.168,
+     171.243,
+     "Kết quả là mã nguồn hoạt động đúng yêu cầu."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n5",
+   "start": 171.864,
+   "end": 222.696,
+   "sents": [
+    [
+     171.964,
+     174.289,
+     "Bước năm là kiểm thử."
+    ],
+    [
+     174.239,
+     182.901,
+     "Tham gia có tester, gồm QA và QC, cùng BA, PM và khách hàng, vì họ là người hiểu rõ nhất thế nào là đúng yêu cầu."
+    ],
+    [
+     182.901,
+     190.589,
+     "Mục tiêu là đảm bảo phần mềm chạy đúng yêu cầu và tìm ra lỗi sớm nhất, qua việc viết test case, chạy kiểm thử và kiểm soát lỗi."
+    ],
+    [
+     190.589,
+     193.327,
+     "Kết quả là báo cáo kiểm thử."
+    ],
+    [
+     193.327,
+     203.001,
+     "Bước sáu là bảo trì, do bộ phận hỗ trợ kỹ thuật, kiểm thử và lập trình viên đảm nhận: tiếp nhận yêu cầu, hỗ trợ người dùng, sửa lỗi và nâng cấp tính năng."
+    ],
+    [
+     203.001,
+     212.226,
+     "Slide chia bảo trì thành sáu pha: phân tích yêu cầu, xác định vấn đề, thiết kế giải pháp, thực hiện thay đổi, kiểm thử, rồi triển khai."
+    ],
+    [
+     212.226,
+     218.901,
+     "Ví dụ app FoodNow đã chạy, nhà hàng xin thêm tính năng đặt cọc, thì yêu cầu đó lại đi đủ sáu pha này."
+    ],
+    [
+     218.901,
+     222.677,
+     "Vì vậy bảo trì giống một SDLC thu nhỏ."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n6",
+   "start": 223.296,
+   "end": 273.432,
+   "sents": [
+    [
+     223.396,
+     225.883,
+     "Vì sao phải đi đủ sáu bước?"
+    ],
+    [
+     225.833,
+     237.483,
+     "Theo slide, tuân thủ SDLC giúp giảm rủi ro, kiểm soát tốt chi phí và nguồn lực, giúp phần mềm dễ bảo trì, nâng cấp và mở rộng về sau, và làm khách hàng hài lòng hơn vì đáp ứng đúng nhu cầu."
+    ],
+    [
+     237.483,
+     240.396,
+     "Còn BA đứng ở đâu trong vòng đời này?"
+    ],
+    [
+     240.396,
+     248.046,
+     "Trên slide, BA được nêu tên ở hai bước là phân tích và kiểm thử, còn theo BABOK, BA hỗ trợ cả các bước khác."
+    ],
+    [
+     248.046,
+     258.584,
+     "Lúc lập kế hoạch, BA giúp PM xác định các bên liên quan; lúc thiết kế và lập trình, BA giải thích yêu cầu, trả lời câu hỏi của lập trình viên và quản lý yêu cầu thay đổi."
+    ],
+    [
+     258.584,
+     268.546,
+     "Lúc kiểm thử, BA rà xem test case có phủ đủ quy tắc nghiệp vụ không, và hỗ trợ khách hàng kiểm thử chấp nhận; lúc bảo trì, BA phân tích các yêu cầu thay đổi."
+    ],
+    [
+     268.546,
+     273.421,
+     "Ở bước nào, BA cũng giữ đúng một vai: người đảm bảo đúng nghiệp vụ."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n7",
+   "start": 274.032,
+   "end": 325.512,
+   "sents": [
+    [
+     274.132,
+     279.695,
+     "Các bước SDLC có thể được tổ chức theo nhiều cách, gọi là mô hình phát triển phần mềm."
+    ],
+    [
+     279.644,
+     289.169,
+     "Slide nêu sáu mô hình: xoắn ốc Spiral, lặp Iterative, tăng trưởng Incremental, mô hình chữ V, thác nước Waterfall, và Agile."
+    ],
+    [
+     289.169,
+     300.719,
+     "Spiral đi qua nhiều vòng xoắn, mỗi vòng xác định mục tiêu, đánh giá phương án, quản lý rủi ro bằng mẫu thử, phát triển rồi lập kế hoạch vòng sau; điểm nổi bật là phân tích rủi ro ở mỗi vòng."
+    ],
+    [
+     300.719,
+     305.019,
+     "Iterative làm một bản sơ bộ rồi lặp lại để cải tiến dần."
+    ],
+    [
+     305.019,
+     310.469,
+     "Incremental chia hệ thống thành nhiều phần, giao từng phần, mỗi lần thêm tính năng mới."
+    ],
+    [
+     310.469,
+     319.844,
+     "Mô hình chữ V giống Waterfall, nhưng mỗi bước phát triển có một bước kiểm thử tương ứng, ví dụ yêu cầu đi với kiểm thử chấp nhận, lập trình đi với kiểm thử đơn vị."
+    ],
+    [
+     319.844,
+     325.507,
+     "Lưu ý, slide chỉ nêu tên các mô hình này, phần giải thích là kiến thức chuẩn bổ sung."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n8",
+   "start": 326.112,
+   "end": 381.12,
+   "sents": [
+    [
+     326.212,
+     335.6,
+     "Waterfall, mô hình thác nước, là mô hình tuần tự: các giai đoạn đi theo thứ tự cố định, xong bước này mới sang bước sau, như nước chảy từ trên xuống."
+    ],
+    [
+     335.55,
+     341.712,
+     "Sáu giai đoạn là yêu cầu, thiết kế, phát triển, kiểm thử, triển khai và bảo trì."
+    ],
+    [
+     341.712,
+     349.062,
+     "Ưu điểm là đơn giản, dễ quản lý, dễ lập kế hoạch, tài liệu rõ ràng, và phù hợp cho nhóm mới bắt đầu."
+    ],
+    [
+     349.062,
+     355.612,
+     "Nhược điểm là khó thay đổi yêu cầu, không có phần mềm chạy sớm, không linh hoạt, và phát hiện lỗi muộn."
+    ],
+    [
+     355.612,
+     362.95,
+     "Lỗi lộ ra muộn vì kiểm thử chỉ bắt đầu khi đã lập trình xong toàn bộ, nên nếu hiểu sai yêu cầu từ đầu thì sửa rất tốn kém."
+    ],
+    [
+     362.95,
+     371.675,
+     "Waterfall hợp khi yêu cầu rõ ràng, ổn định, quy mô nhỏ đến vừa, thời gian và ngân sách cố định, và khách hàng không cần tham gia liên tục."
+    ],
+    [
+     371.675,
+     381.112,
+     "Ngược lại, nó không hợp khi khách hay đổi yêu cầu, cần ra mắt sớm để lấy phản hồi, dự án mang tính thử nghiệm, hoặc dự án dài hạn mà công nghệ thay đổi nhanh."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n9",
+   "start": 381.72,
+   "end": 423.888,
+   "sents": [
+    [
+     381.82,
+     385.033,
+     "Giờ sang Agile, nghĩa là linh hoạt."
+    ],
+    [
+     384.983,
+     396.833,
+     "Agile là tập hợp các phương thức phát triển lặp và tăng dần, trong đó yêu cầu và giải pháp được phát triển qua sự cộng tác của các nhóm tự quản và liên chức năng, tức trong nhóm có đủ người phân tích, lập trình và kiểm thử."
+    ],
+    [
+     396.833,
+     402.883,
+     "Nền tảng của Agile là Agile Manifesto, tức tuyên ngôn Agile, gồm bốn giá trị."
+    ],
+    [
+     402.883,
+     407.033,
+     "Một, cá nhân và sự tương hỗ hơn quy trình và công cụ."
+    ],
+    [
+     407.033,
+     410.77,
+     "Hai, sản phẩm dùng được hơn tài liệu về sản phẩm."
+    ],
+    [
+     410.77,
+     414.583,
+     "Ba, cộng tác với khách hàng hơn là đàm phán hợp đồng."
+    ],
+    [
+     414.583,
+     418.47,
+     "Bốn, phản hồi với sự thay đổi hơn là bám theo kế hoạch."
+    ],
+    [
+     418.47,
+     423.87,
+     "Mẹo nhớ bốn vế trái: người, sản phẩm, khách hàng, thay đổi."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n10",
+   "start": 424.488,
+   "end": 475.32,
+   "sents": [
+    [
+     424.588,
+     429.875,
+     "Một điểm hay bị hiểu lầm: chữ hơn trong tuyên ngôn không có nghĩa là bỏ vế phải."
+    ],
+    [
+     429.825,
+     437.563,
+     "Bản gốc tiếng Anh nói rõ quy trình, tài liệu, hợp đồng và kế hoạch vẫn có giá trị, chỉ là Agile coi trọng vế trái hơn."
+    ],
+    [
+     437.563,
+     448.288,
+     "Về ưu điểm, Agile linh hoạt, thích ứng nhanh, giao sản phẩm sớm và liên tục, tăng chất lượng, tăng hợp tác và minh bạch, tạo động lực cho nhóm và giảm rủi ro dự án."
+    ],
+    [
+     448.288,
+     458.313,
+     "Về nhược điểm, Agile khó kiểm soát tổng thể, cần khách hàng tham gia thường xuyên, không hợp dự án cố định về thời gian và chi phí, cũng không hợp dự án đòi quy trình cứng."
+    ],
+    [
+     458.313,
+     463.088,
+     "Bạn để ý, ưu nhược điểm của Agile gần như ngược lại với Waterfall."
+    ],
+    [
+     463.088,
+     468.188,
+     "Slide ghi tiêu đề trang này là WaterFall, nhưng nội dung đúng là của Agile."
+    ],
+    [
+     468.188,
+     475.3,
+     "Thực tế nhiều nhóm Agile vẫn cố định thời gian và ngân sách, còn phạm vi thì linh hoạt, nhưng khi làm bài bạn theo slide."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n11",
+   "start": 475.92,
+   "end": 514.128,
+   "sents": [
+    [
+     476.02,
+     477.525,
+     "Agile giống một chiếc ô."
+    ],
+    [
+     477.525,
+     482.919,
+     "Agile là bộ giá trị và nguyên lý, còn các phương pháp cụ thể là cách hiện thực hóa nó."
+    ],
+    [
+     482.919,
+     488.716,
+     "Dưới chiếc ô Agile có Scrum, Kanban, Lean, DevOps và vài phương pháp khác."
+    ],
+    [
+     488.716,
+     492.993,
+     "Bài này học hai phương pháp phổ biến nhất là Scrum và Kanban."
+    ],
+    [
+     492.993,
+     500.245,
+     "Kanban, tiếng Nhật nghĩa là bảng tín hiệu, dùng một bảng chia cột trạng thái, ví dụ cần làm, đang làm và xong."
+    ],
+    [
+     500.245,
+     507.697,
+     "Mỗi việc là một thẻ, đi dần từ trái sang phải, và nhóm thường giới hạn số việc đang làm cùng lúc để công việc chảy đều."
+    ],
+    [
+     507.697,
+     514.108,
+     "Phần mô tả bảng Kanban này là kiến thức chuẩn bổ sung, slide chỉ nêu Kanban trong bảng so sánh với Scrum."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n12",
+   "start": 514.728,
+   "end": 564.096,
+   "sents": [
+    [
+     514.828,
+     520.565,
+     "Scrum là phương pháp Agile làm việc theo các vòng lặp có thời hạn cố định, gọi là Sprint."
+    ],
+    [
+     520.515,
+     533.49,
+     "Scrum đứng trên ba trụ cột: minh bạch, Transparency, để mọi người thấy và hiểu giống nhau; thanh tra, Inspection, tức thường xuyên kiểm tra công việc; và thích nghi, Adaptation, tức điều chỉnh kịp thời khi cần."
+    ],
+    [
+     533.49,
+     539.353,
+     "Ba trụ cột đi theo chuỗi: có minh bạch mới kiểm tra được, kiểm tra xong mới biết cần chỉnh gì."
+    ],
+    [
+     539.353,
+     551.765,
+     "Bên cạnh đó là năm giá trị: cam kết với mục tiêu và trách nhiệm của nhóm, tập trung vào công việc của Sprint, cởi mở trong giao tiếp và chia sẻ, tôn trọng đồng đội, và dũng cảm nói lên sự thật, đối mặt khó khăn."
+    ],
+    [
+     551.765,
+     557.403,
+     "Tên tiếng Anh là Commitment, Focus, Openness, Respect và Courage."
+    ],
+    [
+     557.403,
+     564.078,
+     "Phân biệt nhé: ba trụ cột nói về cách Scrum vận hành, còn năm giá trị nói về thái độ của từng người trong nhóm."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n13",
+   "start": 564.696,
+   "end": 610.872,
+   "sents": [
+    [
+     564.796,
+     567.621,
+     "Một Scrum Team có ba vai trò."
+    ],
+    [
+     567.571,
+     577.471,
+     "Product Owner, viết tắt PO, quản lý Product Backlog, tức danh sách việc cần làm của sản phẩm, và sắp thứ tự ưu tiên để sản phẩm mang lại giá trị cao nhất."
+    ],
+    [
+     577.471,
+     584.046,
+     "Scrum Master quản lý quy trình Scrum, giữ cho nhóm làm đúng cách, và gỡ các trở ngại làm chậm nhóm."
+    ],
+    [
+     584.046,
+     591.759,
+     "Development Team tự quản lý công việc của mình, và mỗi Sprint tạo ra phần sản phẩm hoàn thành đạt chuẩn Done, gọi là Increment."
+    ],
+    [
+     591.759,
+     598.996,
+     "Slide ghi Development Team, tên chuẩn theo Scrum Guide 2020 là Developers, ý nghĩa không đổi."
+    ],
+    [
+     598.996,
+     602.159,
+     "Scrum không có vai trò nào tên là BA."
+    ],
+    [
+     602.159,
+     610.871,
+     "Trong thực tế, BA thường hỗ trợ PO viết và làm rõ các user story trong Product Backlog, hoặc là một thành viên của Development Team."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n14",
+   "start": 611.472,
+   "end": 664.704,
+   "sents": [
+    [
+     611.572,
+     614.235,
+     "Giờ xem một Sprint chạy thế nào."
+    ],
+    [
+     614.184,
+     622.797,
+     "Ý kiến từ lãnh đạo, khách hàng, người dùng và các bên liên quan được gửi tới Product Owner, rồi PO đưa vào Product Backlog đã xếp hạng."
+    ],
+    [
+     622.797,
+     632.347,
+     "Ở Sprint Planning, nhóm chọn các mục từ trên đỉnh Product Backlog, lấy nhiều nhất mức có thể cam kết giao xong, rồi chia nhỏ thành task để tạo ra Sprint Backlog."
+    ],
+    [
+     632.347,
+     640.147,
+     "Một Sprint kéo dài từ một đến bốn tuần, mỗi hai mươi bốn giờ có Daily Scrum, và tiến độ được theo dõi bằng biểu đồ Burndown."
+    ],
+    [
+     640.147,
+     644.772,
+     "Trong Sprint, ngày kết thúc và phần việc nhóm cam kết không thay đổi."
+    ],
+    [
+     644.772,
+     652.434,
+     "Ví dụ ở app đặt đồ ăn, giữa Sprint khách xin thêm mã giảm giá, thì PO đưa yêu cầu vào Product Backlog cho Sprint sau."
+    ],
+    [
+     652.434,
+     659.947,
+     "Cuối Sprint có Sprint Review để trình diễn sản phẩm lấy góp ý, và Sprint Retrospective để nhìn lại cách làm việc của nhóm."
+    ],
+    [
+     659.947,
+     664.697,
+     "Mẹo nhớ: Review xem sản phẩm, Retrospective xem cách làm."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n15",
+   "start": 665.304,
+   "end": 706.368,
+   "sents": [
+    [
+     665.404,
+     668.192,
+     "Giờ so sánh Scrum và Kanban."
+    ],
+    [
+     668.141,
+     675.391,
+     "Scrum làm theo Sprint có thời hạn cố định, thường từ một đến bốn tuần, và bảng công việc được reset sau mỗi Sprint."
+    ],
+    [
+     675.391,
+     681.654,
+     "Kanban không có thời gian cố định, công việc chạy liên tục qua các cột trạng thái, và bảng không reset."
+    ],
+    [
+     681.654,
+     691.829,
+     "Vì vậy, việc phát triển tính năng mới theo đợt thường hợp với Scrum, còn việc đến liên tục, khó lên kế hoạch trước, như hỗ trợ khách hàng hay sửa lỗi vận hành, thường hợp với Kanban."
+    ],
+    [
+     691.829,
+     698.004,
+     "Nhìn rộng ra cả sáu mô hình, Waterfall và mô hình chữ V chạy tuần tự, khó đón thay đổi."
+    ],
+    [
+     698.004,
+     706.354,
+     "Iterative, Incremental và Spiral có bản dùng thử sớm hơn, còn Agile và Scrum giao sớm, liên tục và đón thay đổi tốt nhất."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n16",
+   "start": 706.968,
+   "end": 761.64,
+   "sents": [
+    [
+     707.068,
+     710.093,
+     "Cuối cùng là các vị trí trong dự án."
+    ],
+    [
+     710.043,
+     716.968,
+     "Quản trị dự án là áp dụng kiến thức, kỹ năng, phương pháp và công cụ vào hoạt động của dự án để đạt mục tiêu."
+    ],
+    [
+     716.968,
+     729.868,
+     "Một dự án được quản trị giỏi khi đem lại lợi ích, đạt mục tiêu, làm hài lòng các bên liên quan, tối ưu nguồn lực, tăng năng suất và chất lượng, luôn trong phạm vi kiểm soát, và chuyển giao sản phẩm đúng hạn, hoạt động tốt."
+    ],
+    [
+     729.868,
+     740.793,
+     "Slide nêu vai trò từng vị trí: Product Owner là người định hình sản phẩm, Project Manager là người đảm bảo dự án thành công, Business Analyst là người đảm bảo đúng nghiệp vụ."
+    ],
+    [
+     740.793,
+     748.043,
+     "Designer tối ưu giao diện và trải nghiệm, Developer lập trình ra sản phẩm, Tester đảm bảo hệ thống có ít lỗi."
+    ],
+    [
+     748.043,
+     754.755,
+     "Ngoài ra còn CTO, DevOps, trưởng nhóm kỹ thuật, Scrum Master, QA và khách hàng."
+    ],
+    [
+     754.755,
+     761.63,
+     "Mẹo phân biệt nhanh: PO lo làm sản phẩm gì, PM lo dự án về đích, BA lo đúng nghiệp vụ."
+    ]
+   ]
+  },
+  {
+   "id": "L03-n17",
+   "start": 762.24,
+   "end": 804.168,
+   "sents": [
+    [
+     762.34,
+     764.278,
+     "Tóm lại buổi ba."
+    ],
+    [
+     764.227,
+     772.465,
+     "SDLC là vòng đời phát triển phần mềm với sáu bước, từ lập kế hoạch tới bảo trì, mỗi bước có người làm, mục tiêu và kết quả riêng."
+    ],
+    [
+     772.465,
+     777.94,
+     "BA làm nhiều nhất ở bước phân tích, nhưng ở bước nào cũng giữ cho sản phẩm đúng nghiệp vụ."
+    ],
+    [
+     777.94,
+     785.44,
+     "Waterfall tuần tự, rõ ràng, hợp với yêu cầu ổn định, còn Agile lặp và tăng dần, đón nhận thay đổi."
+    ],
+    [
+     785.44,
+     793.04,
+     "Scrum có ba trụ cột, năm giá trị, ba vai trò và chạy theo Sprint từ một đến bốn tuần, còn Kanban chạy liên tục."
+    ],
+    [
+     793.04,
+     799.702,
+     "Trong dự án, PO định hình sản phẩm, PM đưa dự án về đích, BA đảm bảo đúng nghiệp vụ."
+    ],
+    [
+     799.702,
+     804.165,
+     "Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài."
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,178 @@
+{
+ "lesson": "L13b",
+ "chunks": [
+  {
+   "id": "L13b-n1",
+   "ref": "L13b-t1",
+   "say": "Chào bạn, mình tiếp tục buổi mười ba với phần đặc tả Use Case, tiếng Anh là Use Case Specification. Ở phần trước, sơ đồ Use Case cho ta biết hệ thống có những chức năng nào và ai dùng chúng. Nhưng sơ đồ chưa nói từng chức năng chạy ra sao. Đặc tả Use Case là tài liệu mô tả chi tiết cách một Use Case cụ thể hoạt động, gồm luồng xử lý chính và các luồng phụ. Nó trả lời các câu hỏi: ai làm gì, hệ thống phản hồi thế nào, khi nào bắt đầu, khi nào kết thúc, và lỗi thì xử lý ra sao. Mỗi hình elip trên sơ đồ thường có một bản đặc tả riêng, viết dạng bảng, mỗi dòng là một trường. Mẹo nhớ: sơ đồ là bản đồ, còn đặc tả là chỉ đường từng bước.",
+   "show": {
+    "h": "Buổi 13: Đặc tả Use Case",
+    "points": [
+     "Use Case Specification: mô tả chi tiết cách một Use Case chạy",
+     "Gồm luồng chính + các luồng phụ của một chức năng",
+     "Sơ đồ: có chức năng gì, ai dùng · Đặc tả: chạy ra sao",
+     "Mỗi elip → một bản đặc tả dạng bảng",
+     "Mẹo: sơ đồ là bản đồ, đặc tả là chỉ đường từng bước"
+    ]
+   },
+   "ask": [
+    "L13b-q1",
+    "L13b-q8"
+   ]
+  },
+  {
+   "id": "L13b-n2",
+   "ref": "L13b-t2",
+   "say": "Bảng đặc tả trên slide có mười sáu trường. Để dễ nhớ, mình chia chúng thành bốn nhóm. Nhóm một là nhận diện, gồm Use Case Name, Use Case ID, Description, Actor và Priority. Nhóm hai là mục đích và điều kiện, gồm Goal, Trigger, Pre-Condition, Post-Condition và Frequency of Use. Nhóm ba là các luồng xử lý: Main Flow, Alternative Flow và Exception Flow. Nhóm bốn là ràng buộc và liên kết: Business Rules, Non-Functional Requirement và Related Documents. Cách chia bốn nhóm chỉ để học cho dễ, còn slide liệt kê theo đúng thứ tự đó trong một bảng ba cột: tên tiếng Anh, tên tiếng Việt, và giải thích kèm ví dụ.",
+   "show": {
+    "h": "16 trường, chia 4 nhóm",
+    "points": [
+     "Nhận diện: Name · ID · Description · Actor · Priority",
+     "Mục đích, điều kiện: Goal · Trigger · Pre-Condition · Post-Condition · Frequency of Use",
+     "Luồng xử lý: Main Flow · Alternative Flow · Exception Flow",
+     "Ràng buộc, liên kết: Business Rules · NFR · Related Documents"
+    ],
+    "img": "L13b-img1"
+   }
+  },
+  {
+   "id": "L13b-n3",
+   "ref": "L13b-t3",
+   "say": "Mình đi vào nhóm một, các trường nhận diện, với ví dụ xuyên suốt của slide là chức năng Thêm nhân viên. Use Case Name là tên chức năng, nên viết dạng động từ cộng đối tượng, giống tên trên sơ đồ. Use Case ID là mã, ví dụ UC1.0, và điều quan trọng nhất là các mã không được trùng nhau. Nhờ mã duy nhất, RTM, test case hay tài liệu khác chỉ cần ghi UC1.0 là biết đang nói chức năng nào. Description là một đến hai câu mô tả tổng quan, ví dụ nhân viên HR sau khi đăng nhập có thể thêm thông tin nhân sự trong công ty. Actor là những ai tương tác với Use Case, ở đây là nhân viên HR. Còn Priority là mức ưu tiên của Use Case này so với các Use Case khác, thường ghi High, Medium hoặc Low.",
+   "show": {
+    "h": "Nhóm 1: các trường nhận diện",
+    "points": [
+     "Use Case Name: động từ + đối tượng, khớp sơ đồ",
+     "Use Case ID: ví dụ UC1.0, không được trùng → truy vết",
+     "Description: 1–2 câu tổng quan",
+     "Actor: ai tương tác · Priority: High / Medium / Low"
+    ]
+   }
+  },
+  {
+   "id": "L13b-n4",
+   "ref": "L13b-t4",
+   "say": "Nhóm hai trả lời các câu hỏi: để làm gì, bắt đầu khi nào, cần gì trước và xong thì ra sao. Goal là mục đích Actor muốn đạt, viết theo góc nhìn Actor, ví dụ nhân viên HR thêm thành công thông tin nhân sự. Trigger là sự kiện hoặc hành động kích hoạt Use Case, ví dụ bấm nút Thêm mới tại màn hình Danh sách nhân sự. Pre-Condition là điều kiện phải đúng trước khi Use Case bắt đầu, ví dụ nhân viên HR đã đăng nhập. Post-Condition là trạng thái của hệ thống sau khi hoàn tất, ví dụ nhân sự mới đã nằm trong danh sách nhân sự của công ty. Hãy để ý, cả Pre-Condition lẫn Post-Condition đều là trạng thái, không phải một bước thao tác. Cuối cùng, Frequency of Use cho biết chức năng diễn ra bao nhiêu lần, ví dụ thường xuyên vào thứ hai hằng tuần, giúp đội kỹ thuật ước lượng tải.",
+   "show": {
+    "h": "Nhóm 2: mục đích và điều kiện",
+    "points": [
+     "Goal: điều Actor muốn đạt, theo góc nhìn Actor",
+     "Trigger: hành động, sự kiện kích hoạt",
+     "Pre-Condition: trạng thái phải đúng trước khi bắt đầu",
+     "Post-Condition: trạng thái hệ thống sau khi hoàn tất",
+     "Frequency of Use: diễn ra bao nhiêu lần → ước lượng tải"
+    ]
+   },
+   "ask": [
+    "L13b-q4",
+    "L13b-q16"
+   ]
+  },
+  {
+   "id": "L13b-n5",
+   "ref": "L13b-t5",
+   "say": "Nhóm ba là phần quan trọng nhất: các luồng xử lý. Main Flow, còn gọi là Basic Flow, là các bước của kịch bản thành công thường gặp nhất. Ở ví dụ Thêm nhân viên, luồng chính đi như sau: nhân viên HR mở màn hình Danh sách nhân sự, bấm Thêm mới, nhập thông tin rồi bấm Gửi xác nhận, hệ thống kiểm tra và lưu dữ liệu, trưởng phòng HR phê duyệt, cuối cùng hệ thống báo lại cho nhân viên HR. Mỗi bước là một câu có chủ ngữ rõ ràng, xen kẽ nhau: Actor làm, Hệ thống phản hồi. Alternative Flow là cách đi khác, ví dụ bấm Thêm nhân sự ngay tại Dashboard. Exception Flow là các tình huống lỗi, ví dụ 6a là thông tin không hợp lệ, 7a là trưởng phòng từ chối phê duyệt. Ký hiệu 6a nghĩa là nhánh rẽ ra tại bước sáu của luồng chính, nhánh thứ hai cùng bước thì ghi 6b. Lưu ý nhỏ: slide viết luồng chính từ bước đăng nhập, còn cách viết phổ biến bắt đầu luôn từ Trigger, cả hai đều được nếu dùng nhất quán.",
+   "show": {
+    "h": "Nhóm 3: ba loại luồng xử lý",
+    "points": [
+     "Main Flow: kịch bản thành công thường gặp nhất",
+     "Mỗi bước một câu, Actor ↔ Hệ thống xen kẽ",
+     "Alternative: cách đi khác · Exception: tình huống lỗi",
+     "6a = nhánh rẽ tại bước 6; nhánh thứ hai ghi 6b",
+     "Slide bắt đầu từ đăng nhập; cách phổ biến bắt đầu từ Trigger"
+    ]
+   },
+   "ask": [
+    "L13b-q6",
+    "L13b-q13"
+   ]
+  },
+  {
+   "id": "L13b-n6",
+   "ref": "L13b-t6",
+   "say": "Nhóm bốn gồm ba trường ràng buộc và liên kết. Business Rules là quy định nghiệp vụ mà hệ thống bắt buộc tuân thủ, ví dụ nhân sự phải có tuổi từ 18 đến 60. Luật này nói nghiệp vụ cho phép gì, và nên ghi riêng ở trường Business Rules, không nhét vào giữa các bước. Khi dữ liệu vi phạm luật, ví dụ nhập tuổi 17, hệ thống sẽ rơi vào luồng ngoại lệ 6a. Non-Functional Requirement, gọi tắt là NFR, nói chức năng phải chạy tốt đến đâu, ví dụ có thể nhập trên điện thoại. Related Documents ghi các tài liệu liên quan để truy vết, ví dụ tài liệu BRD mục số ba.",
+   "show": {
+    "h": "Nhóm 4: ràng buộc và liên kết",
+    "points": [
+     "Business Rules: luật nghiệp vụ, ví dụ tuổi 18–60",
+     "Tách riêng, không trộn vào các bước; vi phạm → Exception",
+     "NFR: chạy tốt đến đâu, ví dụ nhập được trên điện thoại",
+     "Related Documents: ví dụ BRD mục số 3"
+    ]
+   },
+   "ask": [
+    "L13b-q12",
+    "L13b-q21",
+    "L13b-q15"
+   ]
+  },
+  {
+   "id": "L13b-n7",
+   "ref": "L13b-t7",
+   "say": "Giờ mình phân biệt hai trường hay bị nhầm nhất: Trigger và Pre-Condition. Trigger là hành động kích hoạt Use Case, xảy ra ngay lúc bắt đầu, thường là động từ như bấm, chọn, hoặc một sự kiện như đến giờ. Pre-Condition là điều kiện phải đúng từ trước, viết dạng trạng thái như đã đăng nhập, đang có. Slide nhấn mạnh: một Use Case có thể không có Pre-Condition, nhưng thường phải có Trigger, ví dụ trang chủ công khai ai cũng vào được nhưng vẫn cần hành động mở trang. Với ví dụ nổ máy xe trên slide, Trigger là vặn chìa khóa hoặc bấm nút đề, còn Pre-Condition là xe còn xăng, ắc quy còn điện, chìa khóa đúng đã cắm vào ổ. Mẹo nhớ: Trigger là cú bấm công tắc, Pre-Condition là nhà đã có điện. Có điện mà không bấm thì đèn không sáng, bấm mà không có điện thì cũng không sáng.",
+   "show": {
+    "h": "Trigger khác Pre-Condition",
+    "points": [
+     "Trigger: hành động hoặc sự kiện, xảy ra lúc bắt đầu",
+     "Pre-Condition: trạng thái đã đúng từ trước",
+     "Có thể không có Pre-Condition, thường phải có Trigger",
+     "Nổ máy xe: bấm đề · còn xăng, ắc quy còn điện",
+     "Mẹo: bấm công tắc · nhà đã có điện"
+    ]
+   },
+   "ask": [
+    "L13b-q5",
+    "L13b-q10",
+    "L13b-q19"
+   ]
+  },
+  {
+   "id": "L13b-n8",
+   "ref": "L13b-t8",
+   "say": "Cặp thứ hai cần phân biệt là Alternative Flow và Exception Flow. Theo slide, Alternative là luồng đi khác mà kết quả vẫn giống luồng chính, còn Exception là những trường hợp dẫn tới không đạt được kết quả. Câu hỏi kiểm tra rất gọn: nhánh này là một cách làm khác hợp lệ mà Goal vẫn đạt, hay là một lỗi? Ví dụ với Use Case Đặt món, khách bấm đặt lại đơn cũ, hoặc chọn trả tiền mặt thay vì ví điện tử, thì vẫn đặt được đơn, nên là Alternative. Còn món đã hết, thanh toán thất bại, hay địa chỉ ngoài vùng giao thì Goal không đạt, nên là Exception. Lỗi nhập liệu như 6a cũng xếp vào Exception, kể cả khi người dùng sửa lại rồi gửi tiếp được.",
+   "show": {
+    "h": "Alternative Flow khác Exception Flow",
+    "points": [
+     "Alternative: cách làm khác hợp lệ, kết quả vẫn đạt",
+     "Exception: tình huống lỗi, không đạt kết quả",
+     "Câu hỏi: cách làm khác hay là lỗi?",
+     "Đặt món: đặt lại đơn cũ, trả tiền mặt → Alternative",
+     "Hết món, thanh toán thất bại, ngoài vùng giao → Exception"
+    ]
+   },
+   "ask": [
+    "L13b-q11",
+    "L13b-q22"
+   ]
+  },
+  {
+   "id": "L13b-n9",
+   "ref": "L13b-t9",
+   "say": "Để viết một bản đặc tả tốt, bạn có thể đi theo thứ tự sau, đây là phần bổ sung theo kinh nghiệm BA chuẩn. Đầu tiên, viết Name, ID và Actor khớp với sơ đồ Use Case. Tiếp theo, viết Goal theo góc nhìn Actor, rồi viết Post-Condition là trạng thái hệ thống khi Goal đạt. Tách riêng Trigger là hành động và Pre-Condition là trạng thái. Viết Main Flow có đánh số, mỗi bước một hành động, không mô tả màu nút hay cỡ chữ. Sau đó đi lại từng bước và hỏi có cách khác không, có thể lỗi gì, để tìm Alternative và Exception, đánh số theo bước như 5a, 5b. Cuối cùng, đưa luật vào Business Rules, ghi NFR và Related Documents để truy vết.",
+   "show": {
+    "h": "Mẹo viết một bản đặc tả tốt",
+    "points": [
+     "Name, ID, Actor khớp sơ đồ Use Case",
+     "Goal theo góc nhìn Actor → Post-Condition là trạng thái",
+     "Tách Trigger (hành động) và Pre-Condition (trạng thái)",
+     "Main Flow đánh số; mỗi bước hỏi: cách khác? lỗi gì?",
+     "Luật → Business Rules; ghi NFR, Related Documents"
+    ]
+   }
+  },
+  {
+   "id": "L13b-n10",
+   "say": "Tóm lại phần đặc tả Use Case. Đặc tả mô tả chi tiết một chức năng chạy ra sao, còn sơ đồ chỉ cho biết có những chức năng nào và ai dùng. Bảng đặc tả có mười sáu trường, chia bốn nhóm: nhận diện, mục đích và điều kiện, các luồng xử lý, ràng buộc và liên kết. Trigger là hành động, còn Pre-Condition và Post-Condition là trạng thái. Alternative là cách làm khác mà Goal vẫn đạt, Exception là tình huống lỗi. Luật nghiệp vụ tách riêng vào Business Rules, và Use Case ID không được trùng. Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài.",
+   "show": {
+    "h": "Tổng kết: Đặc tả Use Case",
+    "points": [
+     "Sơ đồ: có gì, ai dùng · Đặc tả: chạy ra sao",
+     "16 trường, 4 nhóm",
+     "Trigger là hành động; Pre-Condition, Post-Condition là trạng thái",
+     "Alternative: cách khác vẫn đạt · Exception: lỗi",
+     "Luật → Business Rules; ID không trùng"
+    ]
+   }
+  }
+ ]
+}

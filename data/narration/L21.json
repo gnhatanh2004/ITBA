@@ -1,0 +1,325 @@
+{
+ "lesson": "L21",
+ "chunks": [
+  {
+   "id": "L21-n1",
+   "ref": "L21-t1",
+   "say": "Chào bạn, mình bắt đầu buổi hai mươi mốt: Database và kiểu dữ liệu SQL Server. Buổi này đi qua sáu phần: khái niệm, nguyên tắc thiết kế, các dạng chuẩn hóa, Data type, Query và thực chiến. Phần thực chiến trên slide chỉ có ở trang mục lục, nên bài bù bằng các ví dụ và bài thực hành trên case đặt đồ ăn, FoodNow, thư viện và SolasMart. Vậy vì sao BA cần học database? BA không viết code, nhưng BA cần đọc được ERD và cấu trúc bảng. BA cũng phải mô tả đúng từng trường dữ liệu trong tài liệu: kiểu gì, dài bao nhiêu, bắt buộc hay không. Và khi cần, BA tự viết một câu SELECT đơn giản để kiểm số liệu.",
+   "show": {
+    "h": "Buổi 21: Database và kiểu dữ liệu SQL Server",
+    "points": [
+     "6 phần: Khái niệm · Nguyên tắc thiết kế · Chuẩn hóa",
+     "Data type · Query · Thực chiến (qua ví dụ, thực hành)",
+     "BA đọc được ERD và cấu trúc bảng",
+     "Đặc tả trường dữ liệu: kiểu, độ dài, bắt buộc hay không",
+     "Tự viết SELECT để kiểm số liệu"
+    ]
+   }
+  },
+  {
+   "id": "L21-n2",
+   "ref": "L21-t3",
+   "say": "Đầu tiên là hai khái niệm nền. Cơ sở dữ liệu, tức Database, là tập hợp dữ liệu có cấu trúc, liên quan với nhau, lưu lại để nhiều người và nhiều chương trình cùng dùng. Còn DBMS, hệ quản trị cơ sở dữ liệu, là phần mềm tạo, lưu, truy vấn, cập nhật và bảo vệ dữ liệu đó. Dễ nhớ: Database là cái kho, DBMS là thủ kho, ứng dụng không tự vào kho mà nhờ thủ kho lấy giúp. Cơ sở dữ liệu quan hệ, Relational Database, lưu dữ liệu thành bảng: mỗi cột là một thuộc tính có kiểu riêng, mỗi dòng là một bản ghi, Primary Key là khóa chính xác định duy nhất mỗi dòng, còn Foreign Key là khóa ngoại trỏ sang bảng khác để nối các bảng. SQL Server, MySQL, Oracle, PostgreSQL thuộc nhóm này và dùng SQL để truy vấn. Ngược lại, cơ sở dữ liệu không quan hệ, hay NoSQL, như MongoDB, không bắt buộc bảng có cột cố định, hợp với log hay dữ liệu đổi cấu trúc thường xuyên. Còn đơn hàng, kế toán, kho, những thứ cần toàn vẹn chặt, thì nên dùng loại quan hệ.",
+   "show": {
+    "h": "Database, DBMS và hai loại CSDL",
+    "points": [
+     "Database = cái kho · DBMS = thủ kho",
+     "Relational: bảng, cột, dòng; nối bằng Primary Key / Foreign Key",
+     "SQL Server, MySQL, Oracle, PostgreSQL → dùng SQL",
+     "NoSQL (MongoDB): cấu trúc linh hoạt, hợp log, dữ liệu đổi cấu trúc",
+     "Cần toàn vẹn chặt (đơn hàng, kế toán, kho) → CSDL quan hệ"
+    ]
+   }
+  },
+  {
+   "id": "L21-n3",
+   "ref": "L21-t4",
+   "say": "Khái niệm cuối của phần một là Stored Procedure. Slide ghi Store procedure, tên chuẩn là Stored Procedure, nghĩa là thủ tục lưu sẵn. Đó là một nhóm câu lệnh SQL được đặt tên và lưu ngay trong cơ sở dữ liệu, ứng dụng chỉ cần gọi tên kèm tham số. Lợi ích thứ nhất là dùng lại nhiều lần, không phải viết lại câu SQL. Thứ hai, gom nhiều bước vào một lần gọi, ví dụ thủ tục tạo đơn hàng vừa thêm đơn, vừa thêm chi tiết đơn, vừa trừ tồn kho. Thứ ba, phân quyền được: người dùng được chạy thủ tục nhưng không được sửa bảng trực tiếp.",
+   "show": {
+    "h": "Stored Procedure: thủ tục lưu sẵn",
+    "points": [
+     "Nhóm câu SQL được đặt tên, lưu ngay trong CSDL",
+     "Ứng dụng gọi tên + tham số (EXEC)",
+     "Dùng lại · Gom nhiều bước · Phân quyền",
+     "Slide ghi \"Store procedure\", tên chuẩn: Stored Procedure"
+    ]
+   },
+   "ask": [
+    "L21-q3"
+   ]
+  },
+  {
+   "id": "L21-n4",
+   "ref": "L21-t5",
+   "say": "Sang phần hai, nguyên tắc thiết kế. Slide đưa ra quy trình tám bước nối tiếp. Một, xác định mục đích: cơ sở dữ liệu phục vụ việc gì. Hai, thu thập mọi thông tin cần lưu. Ba, chia thông tin thành các bảng theo đối tượng, và bốn, chuyển mỗi thông tin thành một cột. Năm, chỉ định khóa chính, và sáu, thiết lập quan hệ giữa các bảng. Bảy, tinh chỉnh thiết kế, và tám, áp dụng các quy tắc chuẩn hóa. Với app đặt đồ ăn, ta có bốn bảng customers, dishes, orders và order_items, trong đó order_items là bảng mapping, vì một đơn có nhiều món và một món nằm trong nhiều đơn.",
+   "show": {
+    "h": "Quy trình thiết kế database (8 bước)",
+    "points": [
+     "Mục đích → Thông tin → Bảng → Cột",
+     "Khóa chính → Quan hệ → Tinh chỉnh → Chuẩn hóa",
+     "Ví dụ: customers, dishes, orders, order_items",
+     "Đơn – món là n-n → cần bảng mapping order_items"
+    ],
+    "img": "L21-img1"
+   }
+  },
+  {
+   "id": "L21-n5",
+   "ref": "L21-t7",
+   "say": "Một database tốt cần năm yếu tố: toàn vẹn dữ liệu, hiệu suất cao, có khả năng mở rộng, bảo mật và dễ bảo trì. Để đạt được, slide nêu bảy nguyên tắc, và nguyên tắc số một là tránh dư thừa. Dư thừa là khi cùng một dữ liệu nằm ở nhiều nơi, vừa tốn dung lượng, vừa dễ gây lỗi. Ví dụ số điện thoại khách lưu cả trong bảng khách hàng và từng dòng đơn hàng, khách đổi số mà chỉ sửa một nơi thì hai nơi ra hai số khác nhau. Nhưng có hai ngoại lệ. Một là dư thừa để tối ưu truy vấn, như lưu sẵn total_amount của đơn để báo cáo doanh thu nhanh hơn. Hai là lưu giá trị tại thời điểm xảy ra, như giá món lúc khách đặt, để sau này nhà hàng đổi giá thì đơn cũ vẫn đúng. Nói gọn: dư thừa có chủ đích thì được, dư thừa vô tình thì phải bỏ.",
+   "show": {
+    "h": "5 yếu tố và nguyên tắc #1: Tránh dư thừa",
+    "points": [
+     "Toàn vẹn · Hiệu suất · Mở rộng · Bảo mật · Bảo trì",
+     "Dư thừa: tốn dung lượng; sửa một nơi → dữ liệu mâu thuẫn",
+     "Ngoại lệ 1: tối ưu truy vấn (total_amount)",
+     "Ngoại lệ 2: giữ giá trị tại thời điểm (unit_price)",
+     "Có chủ đích thì được, vô tình thì bỏ"
+    ]
+   },
+   "ask": [
+    "L21-q6",
+    "L21-q7"
+   ]
+  },
+  {
+   "id": "L21-n6",
+   "ref": "L21-t8",
+   "say": "Nguyên tắc số hai: bảng nào cũng phải có khóa chính. Khóa chính đảm bảo không có hai dòng trùng nhau, và là chỗ để bảng khác trỏ tới bằng khóa ngoại. Slide hỏi: những bảng mapping thì sao? Bảng mapping như Emp_Crs, nối nhân viên với khóa học, vẫn cần khóa chính, có thể là khóa ghép từ EmployeeID và CourseID, hoặc thêm một cột ID riêng. Nguyên tắc số ba là hiểu đúng NULL. NULL nghĩa là dữ liệu không xác định, chưa biết hoặc không có, và NULL khác số không, khác chuỗi rỗng. Khóa chính thì không bao giờ được NULL. Vì vậy khi đặc tả, BA ghi rõ trường nào bắt buộc, tức NOT NULL, và trường nào được để trống.",
+   "show": {
+    "h": "#2 Khóa chính · #3 Giá trị NULL",
+    "points": [
+     "Khóa chính: đảm bảo duy nhất + dùng để nối bảng",
+     "Bảng mapping vẫn cần khóa: khóa ghép hoặc cột ID riêng",
+     "NULL = không xác định; khác 0, khác chuỗi rỗng",
+     "Khóa chính không bao giờ NULL",
+     "BA ghi rõ NOT NULL / NULL khi đặc tả"
+    ]
+   },
+   "ask": [
+    "L21-q9",
+    "L21-q10"
+   ]
+  },
+  {
+   "id": "L21-n7",
+   "ref": "L21-t10",
+   "say": "Nguyên tắc số bốn là tính nguyên tố: trường nào chia nhỏ được thì chia. Ví dụ trên slide, cột customer_address chứa cả số nhà, đường, thành phố, bang và mã bưu điện, nên tách thành street, city, state và zip để lọc, thống kê theo từng phần. Với địa chỉ Việt Nam, thường tách số nhà và đường, phường xã, quận huyện, tỉnh thành, nhưng mức tách tùy nhu cầu nghiệp vụ. Nguyên tắc số năm là chọn đúng kiểu dữ liệu, phần này mình học kỹ ở sau. Nguyên tắc số sáu là đánh index, giống mục lục cuối sách, giúp tìm nhanh mà không phải quét cả bảng. Nên đánh trên cột hay dùng để tìm, lọc, nối bảng, nhưng đừng đánh tràn lan, vì index tốn dung lượng và làm việc thêm, sửa chậm hơn. Nguyên tắc số bảy là che giấu thông tin nhạy cảm: mật khẩu lưu dạng băm, số thẻ chỉ hiện bốn số cuối, và phân quyền ai được xem cột nào.",
+   "show": {
+    "h": "#4 Nguyên tố · #5 Kiểu dữ liệu · #6 Index · #7 Bảo mật",
+    "points": [
+     "#4: chia nhỏ trường: address → street, city, state, zip",
+     "#5: chọn đúng loại dữ liệu (học ở phần Data type)",
+     "#6: index như mục lục sách; đánh cột hay tìm, lọc, nối",
+     "Không đánh index tràn lan: tốn dung lượng, thêm/sửa chậm hơn",
+     "#7: mật khẩu băm (hash), thẻ hiện 4 số cuối, phân quyền"
+    ]
+   },
+   "ask": [
+    "L21-q11",
+    "L21-q12",
+    "L21-q13"
+   ]
+  },
+  {
+   "id": "L21-n8",
+   "ref": "L21-t11",
+   "say": "Phần ba là chuẩn hóa, normalization, tức tách bảng theo quy tắc để giảm dư thừa và tránh lỗi khi thêm, sửa, xóa. Slide nêu bốn dạng chuẩn: 1NF, 2NF, 3NF và BCNF, đi theo bậc, muốn đạt bậc sau phải đạt bậc trước. Dạng chuẩn một, 1NF, yêu cầu mỗi ô chỉ chứa giá trị nguyên tử và không có nhóm dữ liệu lặp lại. Ví dụ bảng Employee có ô CourseID chứa hai mã IS200 và LT102, cách sửa là cho mỗi khóa học một dòng riêng. Ví dụ thứ hai là bảng đơn hàng gộp có ô địa chỉ chứa cả Ha Noi lẫn Hung Yen, được tách thành ba bảng customers, addresses và orders. Lưu ý trong hình đó, các cột ngày đặt, mô tả và số điện thoại bị khai kiểu int, chỉ để minh họa cách tách bảng. Đúng ra cột ngày nên là DATE, còn mô tả và số điện thoại nên là chuỗi.",
+   "show": {
+    "h": "Chuẩn hóa và dạng chuẩn 1 (1NF)",
+    "points": [
+     "4 dạng: 1NF → 2NF → 3NF → BCNF, đạt theo bậc",
+     "1NF: giá trị nguyên tử, không có nhóm lặp",
+     "Ô \"IS200, LT102\" → mỗi khóa học một dòng",
+     "Đơn hàng gộp → customers, addresses, orders",
+     "Hình khai int(11) chỉ minh họa: ngày → DATE, SĐT → chuỗi"
+    ],
+    "img": "L21-img2"
+   },
+   "ask": [
+    "L21-q16"
+   ]
+  },
+  {
+   "id": "L21-n9",
+   "ref": "L21-t12",
+   "say": "Dạng chuẩn hai, 2NF: bảng phải đạt 1NF, và mỗi thuộc tính không khóa phải phụ thuộc vào toàn bộ khóa chính. Điều này quan trọng khi khóa chính ghép từ nhiều cột. Nếu một cột chỉ cần một phần của khóa là xác định được, đó là phụ thuộc bộ phận, và bảng vi phạm 2NF. Ví dụ bảng Employee sau 1NF có khóa ghép EmployeeID và CourseID. Name, DeptName, Salary chỉ phụ thuộc EmployeeID, CourseTitle chỉ phụ thuộc CourseID, chỉ DateCompleted mới phụ thuộc cả hai. Cách sửa là tách thành ba bảng Employee, Course và bảng mapping Emp_Crs. Mẹo: bảng đã đạt 1NF mà khóa chính chỉ có một cột thì tự động đạt 2NF.",
+   "show": {
+    "h": "Dạng chuẩn 2 (2NF)",
+    "points": [
+     "Đạt 1NF + thuộc tính không khóa phụ thuộc toàn bộ khóa",
+     "Phụ thuộc bộ phận (chỉ một phần khóa ghép) → vi phạm 2NF",
+     "Name, Salary ← EmployeeID · CourseTitle ← CourseID",
+     "Tách: Employee · Course · Emp_Crs (mapping)",
+     "Khóa một cột + đạt 1NF → tự động đạt 2NF"
+    ],
+    "img": "L21-img4"
+   },
+   "ask": [
+    "L21-q17",
+    "L21-q18"
+   ]
+  },
+  {
+   "id": "L21-n10",
+   "ref": "L21-t13",
+   "say": "Dạng chuẩn ba, 3NF: bảng phải đạt 2NF, và không có thuộc tính không khóa nào phụ thuộc bắc cầu vào khóa chính. Bắc cầu nghĩa là biết A thì xác định được B, biết B thì xác định được C, nên C phụ thuộc A gián tiếp qua B. Ví dụ trên slide là bảng ItemInfo gồm item, price và discount, khóa là item, item xác định price, rồi price lại xác định discount. Vậy discount phụ thuộc bắc cầu, bảng không đạt 3NF, và cách sửa là tách thành ItemInfo gồm item, price, cùng bảng Discount gồm price, discount. Trong ví dụ thư viện, phiếu mượn chứa cả tên độc giả và tên lớp, nên tách thêm bảng DocGia và Lop, đổi tên lớp chỉ cần sửa một dòng. Còn BCNF chặt hơn 3NF, slide ghi Boyce-Code, tên chuẩn là Boyce-Codd. Trong thực tế dự án, thiết kế tới 3NF là đủ dùng.",
+   "show": {
+    "h": "Dạng chuẩn 3 (3NF) và BCNF",
+    "points": [
+     "Đạt 2NF + không phụ thuộc bắc cầu vào khóa",
+     "Bắc cầu: A → B, B → C nên C phụ thuộc A qua B",
+     "ItemInfo(item, price, discount) → ItemInfo(item, price) + Discount(price, discount)",
+     "Thư viện: tách DocGia, Lop khỏi PhieuMuon",
+     "BCNF chặt hơn 3NF; slide ghi \"Boyce-Code\", chuẩn: Boyce-Codd"
+    ],
+    "img": "L21-img5"
+   },
+   "ask": [
+    "L21-q19",
+    "L21-q20"
+   ]
+  },
+  {
+   "id": "L21-n11",
+   "ref": "L21-t14",
+   "say": "Phần bốn là Data type, kiểu dữ liệu. Trong SQL, mỗi cột, biến, biểu thức hay tham số đều thuộc một kiểu dữ liệu, cho biết nó chứa được loại gì: số nguyên, ký tự, tiền tệ, ngày giờ hay chuỗi nhị phân. Chọn đúng kiểu có hai lợi ích. Thứ nhất, chặn dữ liệu không hợp lệ, ví dụ cột kiểu DATE không nhận ngày ba mươi hai. Thứ hai, tối ưu bộ nhớ, ví dụ tuổi dùng TINYINT một byte thay vì BIGINT tám byte. SQL Server chia kiểu dữ liệu thành bảy nhóm, trong đó ba nhóm hay dùng nhất là số, chuỗi ký tự và ngày giờ. Ngoài ra còn chuỗi nhị phân và một số kiểu khác như xml hay uniqueidentifier.",
+   "show": {
+    "h": "Data type: kiểu dữ liệu là gì",
+    "points": [
+     "Mỗi cột, biến, biểu thức, tham số đều có một kiểu",
+     "Lợi ích: chặn dữ liệu sai · tối ưu bộ nhớ",
+     "Hay dùng: số (chính xác, xấp xỉ) · chuỗi (thường, Unicode) · ngày giờ",
+     "Khác: binary, xml, uniqueidentifier…"
+    ],
+    "img": "L21-img6"
+   }
+  },
+  {
+   "id": "L21-n12",
+   "ref": "L21-t15",
+   "say": "Bắt đầu với kiểu số. Nhóm số nguyên đi từ nhỏ tới lớn: bit chỉ lưu không hoặc một, hợp cho trạng thái có hoặc không như còn hàng, hết hàng. Tinyint từ không tới hai trăm năm mươi lăm, chiếm một byte, hợp cho tuổi. Smallint hai byte hợp cho năm, int bốn byte thường dùng cho ID tự tăng, còn bigint tám byte cho số rất lớn như log hệ thống. Với số thập phân, decimal, hay numeric, viết là decimal p s, trong đó p là tổng số chữ số, s là số chữ số sau dấu phẩy, không ghi thì mặc định là mười tám, không. Decimal chính xác tuyệt đối nên dùng cho tiền tệ. Float và real là số xấp xỉ, có thể lệch vài số lẻ, chỉ hợp cho tính toán khoa học. Mẹo nhớ: tiền dùng decimal, khoa học dùng float, vì tiền thì không được lệch một đồng.",
+   "show": {
+    "h": "Kiểu số: chính xác và xấp xỉ",
+    "points": [
+     "bit (0/1) · tinyint (0–255, 1 byte) · smallint (2 byte)",
+     "int (4 byte): ID tự tăng · bigint (8 byte): số rất lớn",
+     "decimal(p,s) = numeric(p,s); mặc định (18,0)",
+     "float, real: số xấp xỉ, có thể lệch",
+     "Tiền → decimal · Khoa học → float"
+    ]
+   },
+   "ask": [
+    "L21-q23",
+    "L21-q27"
+   ]
+  },
+  {
+   "id": "L21-n13",
+   "ref": "L21-t16",
+   "say": "Tiếp theo là kiểu chuỗi, có bốn kiểu chính. Char n là chuỗi độ dài cố định, thiếu thì đệm khoảng trắng, hợp với mã luôn đủ độ dài như mã bưu điện hay mã vạch mười ba số. Varchar n là chuỗi độ dài thay đổi, linh hoạt và tiết kiệm, hợp với email hay dữ liệu không dấu. Thêm chữ n ở đầu, thành nchar và nvarchar, là hỗ trợ Unicode, lưu được tiếng Việt có dấu, đổi lại tốn gấp đôi dung lượng. Cách nhớ: var là variable, độ dài thay đổi, còn n là national, có dấu, và khi chèn chuỗi Unicode thì viết thêm tiền tố N. Vì vậy tên món hay tên khách có dấu thường dùng nvarchar. Cuối cùng, text, ntext và image là kiểu cũ sắp bị loại bỏ, nên thay bằng varchar max, nvarchar max và varbinary max.",
+   "show": {
+    "h": "Kiểu chuỗi: char, varchar, nchar, nvarchar",
+    "points": [
+     "char(n): độ dài cố định → mã bưu điện, mã vạch",
+     "varchar(n): độ dài thay đổi, không dấu",
+     "nchar, nvarchar: Unicode, có dấu tiếng Việt; viết N'...'",
+     "var = variable · n = national",
+     "text → varchar(max) · ntext → nvarchar(max) · image → varbinary(max)"
+    ]
+   },
+   "ask": [
+    "L21-q25",
+    "L21-q26",
+    "L21-q28"
+   ]
+  },
+  {
+   "id": "L21-n14",
+   "ref": "L21-t17",
+   "say": "Nhóm thứ ba là ngày giờ. Date chỉ lưu ngày, ba byte, hợp cho ngày sinh hay ngày đặt hàng. Time chỉ lưu giờ, hợp cho giờ làm việc, giờ vào ra. Datetime lưu cả ngày và giờ, tám byte, phổ biến ở dữ liệu cũ, còn smalldatetime bốn byte chỉ chính xác tới phút, dùng khi không cần giây. Datetime2 là bản mở rộng, chính xác hơn, hợp với dữ liệu thời gian cần độ chính xác cao. Datetimeoffset lưu thêm múi giờ, hợp với hệ thống đa quốc gia hay cloud app. Lưu ý một slide ghi datetime và datetime2 đều ba byte, nhưng bảng tra và tài liệu Microsoft ghi datetime tám byte, datetime2 sáu tới tám byte, nên bài học dùng số của bảng tra.",
+   "show": {
+    "h": "Kiểu ngày giờ",
+    "points": [
+     "date: chỉ ngày (3 byte) · time: chỉ giờ",
+     "datetime (8 byte) · smalldatetime: tới phút (4 byte)",
+     "datetime2: chính xác cao · datetimeoffset: kèm múi giờ",
+     "Slide ghi datetime, datetime2 = 3 byte; bảng tra: 8 và 6–8 byte"
+    ]
+   }
+  },
+  {
+   "id": "L21-n15",
+   "ref": "L21-t18",
+   "say": "Phần năm là Query, truy vấn, bắt đầu với nhóm lệnh thay đổi dữ liệu. INSERT INTO dùng để thêm dòng mới, còn UPDATE kèm SET và WHERE dùng để sửa dữ liệu. Có hai cách xóa. DELETE FROM kèm WHERE xóa các dòng thỏa điều kiện, nhưng bộ đếm ID tự tăng vẫn chạy tiếp, ví dụ bảng có ID một tới năm, xóa hết rồi thêm dòng mới thì dòng đó vẫn có ID sáu. TRUNCATE thì xóa toàn bộ bảng, không có WHERE, và đưa ID về lại từ đầu, cú pháp đầy đủ trong SQL Server là TRUNCATE TABLE. Vì vậy dọn dữ liệu test mà muốn đánh số lại thì dùng TRUNCATE, còn xóa có chọn lọc thì dùng DELETE kèm WHERE. Và nhớ kỹ: UPDATE hay DELETE mà quên WHERE thì sẽ sửa hoặc xóa mọi dòng trong bảng.",
+   "show": {
+    "h": "INSERT, UPDATE, DELETE, TRUNCATE",
+    "points": [
+     "INSERT INTO … VALUES: thêm dòng",
+     "UPDATE … SET … WHERE: sửa dữ liệu",
+     "DELETE … WHERE: xóa có chọn lọc, ID không reset",
+     "TRUNCATE TABLE: xóa toàn bộ, reset ID",
+     "Quên WHERE → sửa/xóa mọi dòng"
+    ]
+   },
+   "ask": [
+    "L21-q34",
+    "L21-q35"
+   ]
+  },
+  {
+   "id": "L21-n16",
+   "ref": "L21-t19",
+   "say": "Tiếp theo là câu lấy dữ liệu, SELECT, viết theo thứ tự: SELECT chọn cột, FROM chọn bảng, WHERE lọc dòng, GROUP BY gom nhóm, HAVING lọc nhóm, ORDER BY sắp xếp tăng hoặc giảm. Điểm dễ nhầm nhất là WHERE lọc từng dòng trước khi nhóm, còn HAVING lọc nhóm sau khi gom, thường đi với hàm tổng hợp. Slide còn ghi chú vài từ khóa: DISTINCT bỏ giá trị trùng, TOP lấy n dòng đầu, LIKE so sánh gần đúng, AS đặt tên cột khi hiển thị. So sánh với NULL phải dùng IS NULL hoặc IS NOT NULL, không dùng dấu bằng. Năm hàm dùng sẵn là MIN, MAX, COUNT, SUM và AVG, tức nhỏ nhất, lớn nhất, đếm, tổng và trung bình. Kết hợp với GROUP BY, ta tính được theo từng nhóm, ví dụ đếm số đơn của từng khách rồi dùng HAVING giữ lại khách có từ ba đơn. Lưu ý COUNT theo một cột thì không đếm dòng NULL, còn COUNT dấu sao thì đếm mọi dòng.",
+   "show": {
+    "h": "SELECT và các hàm tổng hợp",
+    "points": [
+     "SELECT → FROM → WHERE → GROUP BY → HAVING → ORDER BY",
+     "WHERE lọc dòng trước khi nhóm · HAVING lọc nhóm sau khi gom",
+     "DISTINCT · TOP (n) · LIKE · AS · IS NULL / IS NOT NULL",
+     "MIN · MAX · COUNT · SUM · AVG",
+     "COUNT(cột) bỏ NULL · COUNT(*) đếm mọi dòng"
+    ]
+   },
+   "ask": [
+    "L21-q37",
+    "L21-q38"
+   ]
+  },
+  {
+   "id": "L21-n17",
+   "ref": "L21-t21",
+   "say": "Cuối phần Query là kết hợp các bảng. INNER JOIN chỉ trả các bản ghi khớp ở cả hai bảng. LEFT JOIN trả tất cả bản ghi bảng bên trái, kèm bản ghi khớp bên phải, dòng nào không khớp thì cột bên phải nhận NULL. RIGHT JOIN thì ngược lại, còn FULL JOIN lấy tất cả khi có khớp ở bảng trái hoặc bảng phải. Ví dụ FoodNow có ba nhà hàng A, B, C và ba lượt đặt bàn của A và C: INNER JOIN trả ba dòng, nhà hàng B biến mất, còn LEFT JOIN trả bốn dòng, thêm B với giá trị NULL. Vì vậy câu hỏi nghiệp vụ kiểu liệt kê tất cả X, kể cả X chưa có Y, thường là LEFT JOIN. UNION thì khác: JOIN ghép theo chiều ngang, thêm cột, còn UNION ghép theo chiều dọc, nối thêm dòng từ nhiều câu SELECT. Slide tóm UNION là trả về data của tất cả các bảng, nhưng theo chuẩn, UNION còn loại dòng trùng, muốn giữ thì dùng UNION ALL.",
+   "show": {
+    "h": "JOIN và UNION",
+    "points": [
+     "INNER JOIN: chỉ bản ghi khớp ở cả hai bảng",
+     "LEFT JOIN: mọi dòng bên trái, không khớp → NULL",
+     "RIGHT JOIN ngược lại · FULL JOIN: khớp ở trái hoặc phải",
+     "\"Tất cả X, kể cả X chưa có Y\" → LEFT JOIN",
+     "JOIN ghép cột (ngang) · UNION ghép dòng (dọc), bỏ trùng"
+    ],
+    "img": "L21-img7"
+   },
+   "ask": [
+    "L21-q40",
+    "L21-q41",
+    "L21-q42"
+   ]
+  },
+  {
+   "id": "L21-n18",
+   "say": "Tóm lại buổi hai mươi mốt. Database là kho dữ liệu có cấu trúc, DBMS là phần mềm quản lý kho, và cơ sở dữ liệu quan hệ nối các bảng bằng khóa chính, khóa ngoại. Thiết kế đi theo tám bước, giữ bảy nguyên tắc từ tránh dư thừa tới che giấu thông tin nhạy cảm. Chuẩn hóa theo bậc: 1NF giá trị nguyên tử, 2NF không phụ thuộc bộ phận, 3NF không phụ thuộc bắc cầu. Chọn kiểu dữ liệu: tiền dùng decimal, chữ có dấu dùng nvarchar, mã cố định dùng char, ngày dùng date. Về SQL, nhớ WHERE trong UPDATE và DELETE, phân biệt WHERE với HAVING, và dùng LEFT JOIN khi cần lấy cả bản ghi chưa khớp. Bài này nối tiếp buổi ERD: ERD vẽ thực thể và quan hệ, còn database biến thực thể thành bảng có khóa và kiểu dữ liệu. Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài.",
+   "show": {
+    "h": "Tổng kết buổi 21",
+    "points": [
+     "Database = kho · DBMS = thủ kho · nối bảng bằng PK/FK",
+     "8 bước thiết kế · 7 nguyên tắc",
+     "1NF nguyên tử · 2NF hết phụ thuộc bộ phận · 3NF hết bắc cầu",
+     "Tiền → decimal · có dấu → nvarchar · mã cố định → char · ngày → date",
+     "Nhớ WHERE · WHERE vs HAVING · LEFT JOIN lấy cả bản ghi chưa khớp"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,170 @@
+{
+ "lesson": "L14",
+ "chunks": [
+  {
+   "id": "L14-n1",
+   "ref": "L14-t1",
+   "say": "Chào bạn, mình bắt đầu buổi mười bốn: Activity Diagram, hay biểu đồ hoạt động. Activity Diagram là một mô hình logic, dùng để mô hình hóa các hoạt động trong một quy trình nghiệp vụ. Nói cụ thể hơn, nó mô tả luồng xử lý của một Use Case: làm gì trước, làm gì sau, chỗ nào rẽ nhánh, chỗ nào chạy song song, và ai làm. Ở bài trước, bản đặc tả Use Case kể luồng bằng chữ, đánh số từng bước. Activity Diagram vẽ chính các luồng đó thành hình, nên các nhánh và vòng lặp hiện ra rất rõ. Đây là một sơ đồ hành vi trong UML, nhìn khá giống sơ đồ quy trình BPMN nhưng dùng bộ ký hiệu của UML. Mẹo nhớ: Use Case Diagram trả lời làm được gì, còn Activity Diagram trả lời làm theo thứ tự nào.",
+   "show": {
+    "h": "Buổi 14: Activity Diagram (biểu đồ hoạt động)",
+    "points": [
+     "Mô hình hóa các hoạt động trong quy trình nghiệp vụ",
+     "Luồng xử lý của một Use Case: trước/sau, rẽ nhánh, song song, ai làm",
+     "Đặc tả Use Case = chữ · Activity Diagram = hình",
+     "Sơ đồ hành vi của UML, gần giống BPMN",
+     "Use Case Diagram: làm được gì · Activity Diagram: làm theo thứ tự nào"
+    ]
+   }
+  },
+  {
+   "id": "L14-n2",
+   "ref": "L14-t2",
+   "say": "Trước khi đi vào từng ký hiệu, mình nhìn tổng thể sơ đồ mẫu trên slide: rút tiền tại cây ATM. Sơ đồ chia làm ba làn: Customer là khách hàng, ATM Machine là máy ATM, và Bank là ngân hàng. Trên đó slide đánh số mười thành phần, mình gom thành ba nhóm cho dễ nhớ. Nhóm khung gồm Swimlane là các làn, Start là điểm bắt đầu, End là điểm kết thúc. Nhóm luồng gồm Activity là các việc như Enter PIN, và Transition là mũi tên nối các việc. Nhóm điều khiển gồm Branch và Guard Expression để rẽ nhánh theo điều kiện, Merge để gom nhánh, Fork và Join để chạy song song rồi gom lại. Ngoài ra slide còn giới thiệu ký hiệu Note để ghi chú thêm trên sơ đồ.",
+   "show": {
+    "h": "Sơ đồ mẫu: rút tiền ATM, 10 thành phần",
+    "points": [
+     "3 Swimlane: Customer · ATM Machine · Bank",
+     "Khung: Swimlane, Start, End",
+     "Luồng: Activity, Transition",
+     "Điều khiển: Branch + Guard Expression, Merge, Fork, Join",
+     "Thêm: Note/comment để ghi chú"
+    ],
+    "img": "L14-img1"
+   }
+  },
+  {
+   "id": "L14-n3",
+   "ref": "L14-t3",
+   "say": "Thành phần đầu tiên là Swimlane, nghĩa đen là làn bơi. Swimlane dùng để xác định đối tượng nào tham gia hoạt động nào. Sơ đồ được chia thành các cột, mỗi cột mang tên một đối tượng, có thể là người, một bộ phận, hoặc một hệ thống như ngân hàng. Activity nằm trong làn nào thì đối tượng đó làm, và mũi tên đi qua ranh giới làn nghĩa là công việc được chuyển sang đối tượng khác. Tiếp theo là Start và End: Start là điểm bắt đầu luồng, End là điểm kết thúc, vẽ bằng hình tròn đen có một vòng tròn bao ngoài, giống hồng tâm. Một sơ đồ thường có một Start, nhưng có thể có nhiều End, ví dụ một End cho luồng thành công và một End sau thông báo lỗi. Lưu ý, slide trang hai vẽ Start là hình tròn rỗng, còn chuẩn UML và chính sơ đồ ATM dùng hình tròn tô đen. Khi vẽ, bạn hãy dùng hình tròn đen để không nhầm.",
+   "show": {
+    "h": "Swimlane, Start và End",
+    "points": [
+     "Swimlane: mỗi làn là một đối tượng → ai làm việc gì",
+     "Mũi tên qua ranh giới làn = chuyển việc sang đối tượng khác",
+     "Start: hình tròn tô đen · End: hình tròn đen có viền bao (hồng tâm)",
+     "Thường một Start, có thể nhiều End",
+     "Slide tr.2 vẽ Start rỗng; chuẩn UML là hình tròn đen"
+    ],
+    "img": "L14-img2"
+   },
+   "ask": [
+    "L14-q4",
+    "L14-q3",
+    "L14-q16"
+   ]
+  },
+  {
+   "id": "L14-n4",
+   "ref": "L14-t5",
+   "say": "Giờ tới các thành phần của luồng. Activity mô tả hành vi của đối tượng trong quy trình, vẽ bằng hình chữ nhật bo tròn góc, bên trong ghi tên. Tên cần ngắn gọn, đủ nghĩa, và nên bắt đầu bằng động từ. Ví dụ, ghi thông tin người dùng là chưa tốt, vì người đọc không biết làm gì với thông tin đó, còn ghi xem thông tin người dùng thì rõ. Tương tự, đừng đặt tên là bước ba, hãy ghi đúng việc như nhấn nút Đăng ký. Transition là mũi tên, mô tả sự chuyển từ hoạt động này sang hoạt động kia, và chiều mũi tên chính là thứ tự thực hiện. Còn Note, hay comment, vẽ bằng hình tờ giấy gấp một góc, nối với phần tử cần giải thích bằng nét đứt. Note dùng để ghi luật nghiệp vụ hoặc lưu ý, ví dụ link kích hoạt hết hạn sau hai mươi bốn giờ.",
+   "show": {
+    "h": "Activity, Transition và Note",
+    "points": [
+     "Activity: chữ nhật bo góc, tên ngắn gọn, bắt đầu bằng động từ",
+     "\"Thông tin người dùng\" → \"Xem thông tin người dùng\"",
+     "Transition: mũi tên, chiều mũi tên = thứ tự thực hiện",
+     "Note/comment: tờ giấy gấp góc, ghi luật nghiệp vụ hoặc lưu ý"
+    ]
+   },
+   "ask": [
+    "L14-q7",
+    "L14-q14",
+    "L14-q13"
+   ]
+  },
+  {
+   "id": "L14-n5",
+   "ref": "L14-t7",
+   "say": "Bây giờ là nhóm điều khiển, phần dễ nhầm nhất của buổi này. Branch thể hiện rẽ nhánh theo điều kiện, vẽ bằng hình thoi, một luồng vào và nhiều luồng ra. Khi chạy, chỉ một nhánh thỏa điều kiện được đi tiếp. Điều kiện của mỗi nhánh gọi là Guard Expression, ghi trong ngoặc vuông trên mũi tên ra khỏi hình thoi. Trên sơ đồ ATM, đó là các nhãn Valid PIN và Invalid PIN, hay số dư đủ và số dư không đủ. Các Guard nên loại trừ nhau và phủ hết mọi khả năng. Ngược với Branch là Merge, cũng là hình thoi nhưng nhiều luồng vào, một luồng ra, dùng để gom các nhánh về một đường chung. Merge không chờ, luồng nào tới thì đi tiếp luôn, vì trước đó chỉ một nhánh được chọn.",
+   "show": {
+    "h": "Branch, Guard Expression và Merge",
+    "points": [
+     "Branch: hình thoi, 1 vào nhiều ra, chỉ một nhánh được đi",
+     "Guard Expression: điều kiện trong ngoặc vuông, ví dụ [Valid PIN] / [Invalid PIN]",
+     "Các Guard loại trừ nhau, phủ hết mọi khả năng",
+     "Merge: hình thoi, nhiều vào 1 ra, gom nhánh, không chờ"
+    ],
+    "img": "L14-img3"
+   },
+   "ask": [
+    "L14-q10",
+    "L14-q17"
+   ]
+  },
+  {
+   "id": "L14-n6",
+   "ref": "L14-t8",
+   "say": "Fork thể hiện trường hợp xong một hoạt động thì tách ra làm nhiều hoạt động tiếp theo cùng lúc. Ký hiệu là thanh ngang đậm, một luồng vào, nhiều luồng ra. Join cũng là thanh ngang đậm, nhưng nhiều luồng vào, một luồng ra, và Join chờ tất cả luồng vào xong rồi mới đi tiếp. Slide ghi Fork là rẽ nhánh thực hiện nhiều hoạt động, nhưng rẽ nhánh ở đây nghĩa là tách ra chạy song song, mọi nhánh đều chạy, đừng nhầm với Branch. Ví dụ hệ thống đặt đồ ăn: thanh toán xong thì đồng thời gửi đơn cho nhà hàng và gửi xác nhận cho khách, cả hai xong mới chuyển đơn sang đang chuẩn bị, tức là Fork rồi Join. Lỗi hay gặp là gom hai nhánh của một Branch bằng Join, khi đó Join chờ mãi nhánh không chạy và luồng bị kẹt. Mẹo nhớ: hình thoi là hoặc, thanh đen là và.",
+   "show": {
+    "h": "Fork và Join: chạy song song",
+    "points": [
+     "Fork: thanh đậm, 1 vào nhiều ra, mọi nhánh chạy song song",
+     "Join: thanh đậm, nhiều vào 1 ra, chờ đủ mới đi tiếp",
+     "Branch → Merge là \"hoặc\" · Fork → Join là \"và\"",
+     "Lỗi: gom nhánh của Branch bằng Join → luồng bị kẹt"
+    ],
+    "img": "L14-img4"
+   },
+   "ask": [
+    "L14-q8",
+    "L14-q11",
+    "L14-q18"
+   ]
+  },
+  {
+   "id": "L14-n7",
+   "ref": "L14-e1",
+   "say": "Giờ ghép tất cả lại để đọc sơ đồ ATM theo chiều mũi tên. Khách cắm thẻ, nhập PIN, rồi mũi tên đi sang làn Bank để Authorize, tức xác thực PIN. Tại Branch đầu tiên, PIN đúng thì khách nhập số tiền và ngân hàng kiểm tra số dư, còn PIN sai thì luồng đi thẳng tới Merge số chín. Tại Branch thứ hai, nếu đủ số dư thì Fork tách hai việc song song: khách lấy tiền ở khe, ngân hàng trừ tiền trong tài khoản. Join chờ cả hai xong mới tới Show Balance, nên số dư hiện ra là số dư sau khi đã trừ. Nếu không đủ số dư, luồng đi qua một Merge khác để tới thẳng Show Balance, bỏ qua Fork và Join. Sau đó luồng này và luồng PIN sai gặp nhau ở Merge số chín, máy Eject Card, khách nhận thẻ và kết thúc. Nhờ hai Merge, cả ba kịch bản rút thành công, sai PIN và thiếu tiền đều kết thúc bằng việc khách nhận lại thẻ.",
+   "show": {
+    "h": "Đọc sơ đồ ATM theo chiều mũi tên",
+    "points": [
+     "Insert Card → Enter PIN → Authorize (Bank)",
+     "[Invalid PIN] → đi thẳng tới Merge 9",
+     "Đủ số dư: Fork → Take Money From Slot ∥ Debit Account → Join → Show Balance",
+     "Thiếu số dư: Merge → Show Balance, bỏ qua Fork/Join",
+     "Mọi kịch bản: Eject Card → Take Card → End"
+    ],
+    "img": "L14-img1"
+   },
+   "ask": [
+    "L14-q12",
+    "L14-q19",
+    "L14-q20"
+   ]
+  },
+  {
+   "id": "L14-n8",
+   "ref": "L14-t10",
+   "say": "Phần cuối là cách tự vẽ Activity Diagram từ một mô tả quy trình hay một bản đặc tả Use Case. Bước một và hai: liệt kê các đối tượng có làm việc để chia Swimlane, rồi đặt Start ở làn của đối tượng khởi động quy trình. Bước ba, vẽ luồng chính: mỗi bước thành một Activity tên bắt đầu bằng động từ, đặt vào làn của chủ ngữ, nối bằng Transition. Bước bốn, chỗ nào có kiểm tra hay chữ nếu thì đặt Branch có Guard, và mỗi luồng ngoại lệ như 4a, 5a trở thành một nhánh của Branch. Bước năm, việc nào chạy cùng lúc thì dùng Fork, chờ xong cả thì dùng Join. Bước sáu, gom các nhánh quay về đường chung bằng Merge, và đặt End ở mọi điểm kết thúc. Bước bảy, tự kiểm: điều kiện dùng hình thoi chứ không dùng thanh đậm, mọi Branch có Guard, mọi đường đều tới End, tên Activity đều là động từ. Bạn thử áp dụng ngay với bài luyện tập đăng ký tài khoản trên website, gồm hai làn Người dùng và Hệ thống.",
+   "show": {
+    "h": "Vẽ Activity Diagram từ đặc tả Use Case",
+    "points": [
+     "Chia Swimlane theo đối tượng → đặt Start",
+     "Luồng chính: mỗi bước = 1 Activity, đặt vào làn của chủ ngữ",
+     "Kiểm tra / \"nếu\" → Branch + Guard; ngoại lệ 4a, 5a… = một nhánh",
+     "Song song → Fork/Join; gom nhánh → Merge; End ở mọi điểm kết thúc",
+     "Kiểm: Branch có Guard, đường nào cũng tới End, tên là động từ"
+    ]
+   },
+   "ask": [
+    "L14-q15",
+    "L14-q21",
+    "L14-q22"
+   ]
+  },
+  {
+   "id": "L14-n9",
+   "say": "Tóm lại buổi mười bốn. Activity Diagram mô hình hóa các hoạt động trong quy trình nghiệp vụ và mô tả luồng xử lý của một Use Case. Swimlane cho biết ai làm, Start và End đánh dấu điểm đầu và điểm cuối. Activity là hình chữ nhật bo góc, tên bắt đầu bằng động từ, còn Transition là mũi tên chỉ thứ tự. Branch và Merge là hình thoi, dùng cho chữ hoặc: chỉ một nhánh chạy theo Guard. Fork và Join là thanh đậm, dùng cho chữ và: mọi nhánh chạy song song, Join chờ đủ mới đi tiếp. Khi vẽ từ đặc tả, luồng chính thành chuỗi Activity, ngoại lệ thành nhánh của Branch. Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài.",
+   "show": {
+    "h": "Tổng kết buổi 14",
+    "points": [
+     "Activity Diagram = luồng xử lý của một Use Case",
+     "Swimlane: ai làm · Start/End: điểm đầu, điểm cuối",
+     "Activity: tên là động từ · Transition: thứ tự",
+     "Hình thoi (Branch, Merge) = hoặc · Thanh đậm (Fork, Join) = và",
+     "Ngoại lệ trong đặc tả → nhánh của Branch"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,1789 @@
+{
+ "id": "L11b",
+ "session": 11,
+ "module": "M3",
+ "title": "Phân tích tổng quan theo hướng đối tượng",
+ "goals": [
+  "Giải thích được đối tượng (Object) là gì: đặc điểm (attributes) và hành vi (methods)",
+  "Nhận diện được đối tượng nhờ 3 dấu hiệu: có thông tin riêng, có hành động liên quan, đóng vai trò trong quy trình",
+  "Phân biệt được Object (trong hệ thống) và Actor (ngoài hệ thống)",
+  "Thực hiện được 5 bước phân tích hướng đối tượng: Object List, chi tiết Object, sơ đồ Object Relationship, danh sách Actor, danh sách chức năng",
+  "Áp dụng 5 bước cho một hệ thống mẫu như hệ thống đặt đồ ăn hoặc quản lý thư viện"
+ ],
+ "sources": [
+  {
+   "file": "11. Phan tich huong doi tuong.pdf",
+   "pages": "1-24"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L11b-t1",
+   "h": "Mục đích và nội dung buổi học",
+   "html": "<p>Mục đích của buổi học: <b>hiểu và áp dụng phương pháp phân tích tổng quan theo hướng đối tượng</b>.</p><p>Nội dung chính gồm 3 phần:</p><ol><li>Phương pháp phân tích hướng đối tượng.</li><li>Thực hành.</li><li>Q&amp;A (hỏi đáp).</li></ol><p class=\"tip\">Phân tích tổng quan nghĩa là nhìn hệ thống ở mức khái quát: hệ thống có những \"thứ\" gì, ai dùng nó và nó làm được gì. Chi tiết từng màn hình, từng trường dữ liệu sẽ làm ở các bước sau (đặc tả use case, ERD…).</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.2-4"
+  },
+  {
+   "id": "L11b-t2",
+   "h": "Đối tượng (Object) là gì",
+   "html": "<p><b>Đối tượng (Object)</b> là một thực thể cụ thể trong hệ thống, đại diện cho <b>người, vật hoặc khái niệm</b> có vai trò quan trọng trong hoạt động của hệ thống.</p><p>Mỗi đối tượng có hai phần:</p><ul><li><b>Đặc điểm (attributes – thuộc tính)</b>: mô tả thông tin về đối tượng.</li><li><b>Hành vi (methods – phương thức)</b>: thể hiện những gì đối tượng <b>có thể làm</b> hoặc <b>được làm với nó</b>.</li></ul><p class=\"key\">Công thức đơn giản: <b>Đối tượng = Đặc điểm (thông tin) + Hành vi (hành động)</b>.</p><p>Ví dụ trong hệ thống quản lý thư viện, đối tượng <b>Sách</b>:</p><table><thead><tr><th>Phần</th><th>Nội dung</th></tr></thead><tbody><tr><td>Đặc điểm</td><td>Tiêu đề, Tác giả</td></tr><tr><td>Hành vi</td><td>Được mượn, Được trả</td></tr></tbody></table><p class=\"tip\">Mẹo nhớ: đặc điểm là <b>danh từ</b> mô tả (\"có gì\"), hành vi là <b>động từ</b> (\"làm gì / bị làm gì\").</p><p class=\"note\">Trong UML 2.5, \"Sách\" nói chung là một <b>lớp (class)</b>, còn một cuốn sách cụ thể (ví dụ cuốn có mã S001) là một <b>đối tượng (object)</b> – thể hiện của lớp. Slide dùng chữ \"đối tượng\" cho cả hai nghĩa. Ở mức phân tích tổng quan, cách gọi này chấp nhận được.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.5"
+  },
+  {
+   "id": "L11b-t3",
+   "h": "Đặc điểm nhận diện đối tượng",
+   "html": "<p>Một thứ được coi là đối tượng khi có các dấu hiệu sau:</p><table><thead><tr><th>Dấu hiệu</th><th>Ý nghĩa</th><th>Ví dụ (thư viện)</th></tr></thead><tbody><tr><td><b>Có thông tin riêng</b></td><td>Hệ thống cần lưu trữ hoặc quản lý dữ liệu về nó</td><td>Tên sách, Mã thành viên</td></tr><tr><td><b>Có hành động liên quan</b></td><td>Nó làm gì đó hoặc được làm gì đó trong hệ thống</td><td>Sách được mượn, Thành viên đặt hàng</td></tr><tr><td><b>Đóng vai trò trong quy trình</b></td><td>Là một phần của hoạt động chính trong quy trình</td><td>Phiếu mượn trong quy trình mượn sách</td></tr></tbody></table><p class=\"tip\">Kiểm nhanh: nếu một danh từ không có thông tin nào cần lưu, không có hành động nào gắn với nó và không xuất hiện trong quy trình chính, thì nhiều khả năng đó chỉ là <b>thuộc tính</b> của đối tượng khác hoặc không cần đưa vào.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.6"
+  },
+  {
+   "id": "L11b-t4",
+   "h": "Phân tích hướng đối tượng (OOA) là gì",
+   "html": "<p><b>Phân tích hệ thống theo hướng đối tượng (Object-Oriented Analysis – OOA)</b> là phương pháp phân tích yêu cầu bằng cách mô hình hóa hệ thống như một <b>tập hợp các đối tượng</b> có đặc tính và hành vi.</p><p>Nói đơn giản: OOA là cách <b>chia nhỏ hệ thống thành các đối tượng</b>, rồi xem <b>chúng làm gì</b> và <b>liên kết với nhau ra sao</b>.</p><p class=\"tip\">So sánh: cách phân tích theo chức năng bắt đầu từ câu hỏi \"hệ thống làm gì?\"; OOA bắt đầu từ câu hỏi \"hệ thống gồm những thứ gì?\", rồi mới suy ra chức năng.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.7"
+  },
+  {
+   "id": "L11b-t5",
+   "h": "Mục tiêu của phân tích hướng đối tượng",
+   "html": "<ul><li><b>Tạo nền tảng</b> cho thiết kế và phát triển phần mềm theo hướng đối tượng: đội phát triển có thể dùng lại danh sách đối tượng để thiết kế lớp, bảng dữ liệu.</li><li><b>Dễ dàng bảo trì, mở rộng hệ thống</b>: thêm tính năng mới thường chỉ cần thêm đối tượng hoặc thêm hành vi cho đối tượng có sẵn.</li><li><b>Phù hợp với thực tế nghiệp vụ</b> và các <b>thành phần tái sử dụng</b>: đối tượng phản ánh những thứ có thật trong nghiệp vụ (sách, đơn hàng, khách hàng).</li><li><b>Phân rã hệ thống thành các lớp (class)</b> gắn liền với chức năng và vai trò nghiệp vụ.</li></ul>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.8"
+  },
+  {
+   "id": "L11b-t6",
+   "h": "Năm bước phân tích hướng đối tượng",
+   "html": "<p>Slide chia phương pháp thành 5 bước, mỗi bước có một đầu ra (output):</p><table><thead><tr><th>Bước</th><th>Việc cần làm</th><th>Câu hỏi gợi ý</th><th>Output</th></tr></thead><tbody><tr><td>B1</td><td>Xác định các đối tượng chính từ yêu cầu nghiệp vụ</td><td>Ai hoặc cái gì tham gia?</td><td>Danh sách Object (Object List)</td></tr><tr><td>B2</td><td>Xác định thuộc tính và hành vi của từng đối tượng</td><td>Nó có thông tin gì? Nó làm gì / được làm gì?</td><td>Danh sách chi tiết Object</td></tr><tr><td>B3</td><td>Xác định mối quan hệ giữa các đối tượng</td><td>Các đối tượng có quan hệ gì với nhau?</td><td>Sơ đồ Object Relationship</td></tr><tr><td>B4</td><td>Xác định actor tương tác với đối tượng</td><td>Ai dùng hệ thống?</td><td>Danh sách Actor</td></tr><tr><td>B5</td><td>Xác định các chức năng của hệ thống</td><td>Actor làm gì với Object?</td><td>Danh sách chức năng của hệ thống</td></tr></tbody></table>{{img:L11b-img1}}<p class=\"tip\">Mẹo nhớ thứ tự: <b>\"Có gì – Ra sao – Nối nhau – Ai dùng – Làm gì\"</b>.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.9"
+  },
+  {
+   "id": "L11b-t7",
+   "h": "B1 – Xác định các đối tượng chính",
+   "html": "<p><b>Mục tiêu:</b> liệt kê các đối tượng quan trọng trong hệ thống (người, vật, khái niệm).</p><p><b>Cách xác định Object:</b></p><ol><li><b>Tìm danh từ trong mô tả hệ thống</b>: đọc yêu cầu hoặc mô tả hệ thống, chọn các danh từ đại diện cho người, vật hoặc khái niệm.</li><li><b>Trả lời câu hỏi \"Ai hoặc cái gì tham gia?\"</b>: tập trung vào các thực thể tham gia vào hoạt động chính của hệ thống.</li><li><b>Dựa vào quy trình nghiệp vụ</b>: xem xét các bước trong quy trình để tìm đối tượng liên quan.</li></ol><p><b>Output:</b> Danh sách Object (Object List).</p><p class=\"warn\">Không phải danh từ nào cũng là đối tượng. Danh từ như \"Tiêu đề\", \"Ngày mượn\" chỉ là <b>thuộc tính</b> của đối tượng khác. Danh từ quá chung như \"hệ thống\", \"thông tin\" thường bị loại.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.10"
+  },
+  {
+   "id": "L11b-t8",
+   "h": "Phân biệt Object và Actor",
+   "html": "<table><thead><tr><th></th><th>Object (đối tượng)</th><th>Actor (tác nhân)</th></tr></thead><tbody><tr><td>Vị trí</td><td>Nằm <b>trong</b> hệ thống, được hệ thống quản lý</td><td>Ở <b>ngoài</b> hệ thống, tương tác với hệ thống</td></tr><tr><td>Ví dụ</td><td>Sách, Đơn hàng</td><td>Khách hàng, Nhân viên</td></tr></tbody></table><p><b>Lưu ý:</b> trong một số trường hợp, một thực thể có thể <b>vừa là Object</b> (dữ liệu trong hệ thống) <b>vừa là Actor</b> (người dùng hệ thống), tùy ngữ cảnh. Ví dụ: \"Thành viên\" vừa là Object (hệ thống lưu thông tin thành viên) vừa là Actor (thành viên mượn sách).</p><p class=\"tip\">Mẹo: hỏi \"hệ thống <b>lưu</b> nó?\" → Object. Hỏi \"nó <b>dùng</b> hệ thống?\" → Actor. Trả lời có cả hai → vừa là Object vừa là Actor.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.11"
+  },
+  {
+   "id": "L11b-t9",
+   "h": "B2 – Xác định thuộc tính và hành vi của từng đối tượng",
+   "html": "<p><b>Mục tiêu:</b> xác định chi tiết đặc điểm và hành vi của từng đối tượng.</p><p><b>Cách thực hiện:</b></p><ol><li>Bắt đầu với 1 object chính (ví dụ \"Sách\"), mô tả đặc điểm (thông tin) và việc làm (hành động) của đối tượng.<br>Ví dụ: Sách có thông tin \"Tiêu đề\", \"Tác giả\" và việc làm \"Được mượn\", \"Được trả\".</li><li>Tiếp tục với các object còn lại.</li></ol><p><b>Output:</b> Danh sách chi tiết Object, ví dụ:</p><table><thead><tr><th>Đối tượng</th><th>Đặc điểm</th><th>Việc làm</th></tr></thead><tbody><tr><td>Sách</td><td>Tiêu đề, Tác giả</td><td>Được mượn, Được trả</td></tr><tr><td>Thành viên</td><td>Tên, Mã số</td><td>Mượn sách</td></tr><tr><td>Phiếu mượn</td><td>Mã phiếu, Ngày mượn</td><td>Tạo mới</td></tr></tbody></table>{{img:L11b-img2}}",
+   "src": "11. Phan tich huong doi tuong.pdf tr.13"
+  },
+  {
+   "id": "L11b-t10",
+   "h": "B3 – Xác định mối quan hệ giữa các đối tượng",
+   "html": "<p><b>Mục tiêu:</b> xác định mối quan hệ giữa các đối tượng, từ đó vẽ <b>sơ đồ Object Relationship</b> (sơ đồ quan hệ đối tượng).</p><p><b>Cách thực hiện:</b></p><ul><li>Trả lời câu hỏi: \"Các đối tượng có quan hệ gì với nhau?\" hoặc \"Đối tượng này làm gì với đối tượng kia?\"</li><li>Dùng <b>động từ</b> để mô tả quan hệ (Tạo, Chứa, Ghi nhận…).</li><li>Vẽ sơ đồ Object Relationship: mỗi đối tượng là một hộp, mỗi quan hệ là một mũi tên có nhãn động từ.</li></ul><p><b>Output:</b> Sơ đồ Object Relationship. Sơ đồ mẫu của thư viện:</p>{{img:L11b-img3}}<table><thead><tr><th>Từ</th><th>Quan hệ</th><th>Đến</th></tr></thead><tbody><tr><td>Thành viên</td><td>Mượn</td><td>Sách</td></tr><tr><td>Sách</td><td>Được mượn (bởi)</td><td>Thành viên</td></tr><tr><td>Phiếu mượn</td><td>Chứa</td><td>Sách</td></tr><tr><td>Sách</td><td>Thuộc</td><td>Phiếu mượn</td></tr><tr><td>Phiếu mượn</td><td>Thuộc về</td><td>Thành viên</td></tr><tr><td>Thành viên</td><td>Sở hữu</td><td>Phiếu mượn</td></tr></tbody></table><p class=\"tip\">Mỗi cặp đối tượng có thể có 2 mũi tên ngược chiều, đọc từ hai phía: \"Thành viên sở hữu Phiếu mượn\" và \"Phiếu mượn thuộc về Thành viên\".</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.15"
+  },
+  {
+   "id": "L11b-t11",
+   "h": "B4 – Xác định actor tương tác với đối tượng",
+   "html": "<p><b>Mục tiêu:</b> liệt kê người hoặc hệ thống bên ngoài tương tác với hệ thống.</p><p><b>Cách thực hiện:</b></p><ul><li>Actor là thực thể <b>ngoài hệ thống</b>, <b>khởi tạo hoặc dùng</b> chức năng.</li><li>Trả lời câu hỏi <b>\"Ai dùng hệ thống?\"</b></li><li>Phân biệt với Object (nằm trong hệ thống).</li></ul><p><b>Output:</b> Danh sách Actor.</p><p class=\"tip\">Actor không chỉ là người. Một hệ thống bên ngoài, ví dụ cổng thanh toán hay dịch vụ gửi SMS, cũng là actor nếu nó tương tác với hệ thống của mình.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.17"
+  },
+  {
+   "id": "L11b-t12",
+   "h": "B5 – Xác định các chức năng của hệ thống",
+   "html": "<p><b>Mục tiêu:</b> suy ra chức năng từ Actor và Object.</p><p><b>Cách thực hiện:</b></p><ul><li>Hỏi: <b>\"Actor làm gì với Object?\"</b></li><li>Xem <b>hành vi của Object</b> (đã có ở B2).</li></ul><p><b>Output:</b> Danh sách chức năng của hệ thống.</p><p>Ví dụ: Actor \"Thành viên\" + Object \"Sách\" có hành vi \"Được mượn\" → chức năng \"Mượn sách\" (tạo phiếu mượn). Actor \"Thành viên\" + Object \"Sách\" → chức năng \"Xem thông tin sách\".</p><p class=\"tip\">Chức năng nên đặt tên dạng <b>động từ + danh từ</b>: \"Tạo phiếu mượn\", \"Xem thông tin sách\". Đây cũng là cách đặt tên use case ở bài UML.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.19"
+  },
+  {
+   "id": "L11b-t13",
+   "h": "Tổng kết 5 bước và thực hành",
+   "html": "<p>Áp 5 bước cho hệ thống quản lý thư viện:</p><ol><li><b>Object List:</b> Sách, Thành viên, Phiếu mượn.</li><li><b>Chi tiết:</b> Sách (Tiêu đề, Được mượn).</li><li><b>Mối quan hệ:</b> [Thành viên] --- [Phiếu mượn] --- [Sách].</li><li><b>Actor:</b> Thành viên, Nhân viên.</li><li><b>Chức năng:</b> Tạo phiếu mượn, Xem thông tin sách.</li></ol><p>Phần <b>Thực hành</b> của buổi học: phân tích tổng quan một hệ thống (dự án mock – dự án giả lập để luyện tập) bằng phương pháp hướng đối tượng. Xem bài tập L11b-x5 và L11b-x6.</p><p>Tổng kết buổi học gồm hai ý: <b>đối tượng là gì</b> và <b>các bước phân tích theo hướng đối tượng</b>.</p><p class=\"note\">Slide hoạt động của B3 (trang 16) ghi nhiệm vụ \"Liệt kê 3 chức năng cho hệ thống đặt đồ ăn\", trùng với hoạt động của B5. Theo mục tiêu của B3, bài thực hành L11b-p3 hướng dẫn xác định <b>mối quan hệ</b> giữa các đối tượng và vẫn ghi kèm nhiệm vụ gốc của slide.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.16, 21-23"
+  }
+ ],
+ "summary": {
+  "points": [
+   "Đối tượng = Đặc điểm (attributes) + Hành vi (methods); đại diện cho người, vật hoặc khái niệm trong hệ thống.",
+   "Nhận diện đối tượng: có thông tin riêng, có hành động liên quan, đóng vai trò trong quy trình.",
+   "OOA mô hình hóa hệ thống như tập hợp các đối tượng, xem chúng làm gì và liên kết ra sao.",
+   "Object nằm trong hệ thống, được quản lý; Actor ở ngoài, dùng hệ thống. Một thực thể có thể vừa là Object vừa là Actor.",
+   "5 bước: Object List → chi tiết Object → sơ đồ Object Relationship → danh sách Actor → danh sách chức năng.",
+   "Chức năng suy ra từ câu hỏi \"Actor làm gì với Object?\" và hành vi của Object."
+  ],
+  "html": "<table><thead><tr><th>Bước</th><th>Câu hỏi</th><th>Output</th><th>Ví dụ thư viện</th></tr></thead><tbody><tr><td>B1</td><td>Ai hoặc cái gì tham gia?</td><td>Object List</td><td>Sách, Thành viên, Phiếu mượn</td></tr><tr><td>B2</td><td>Có thông tin gì, làm gì?</td><td>Chi tiết Object</td><td>Sách (Tiêu đề, Được mượn)</td></tr><tr><td>B3</td><td>Quan hệ gì với nhau?</td><td>Sơ đồ Object Relationship</td><td>Thành viên – Phiếu mượn – Sách</td></tr><tr><td>B4</td><td>Ai dùng hệ thống?</td><td>Danh sách Actor</td><td>Thành viên, Nhân viên</td></tr><tr><td>B5</td><td>Actor làm gì với Object?</td><td>Danh sách chức năng</td><td>Tạo phiếu mượn, Xem thông tin sách</td></tr></tbody></table><p class=\"warn\">Lỗi hay gặp: đưa thuộc tính (Tiêu đề, Ngày mượn) vào Object List; nhầm Actor với Object; liệt kê chức năng trước khi có Object và Actor.</p>"
+ },
+ "images": [
+  {
+   "id": "L11b-img1",
+   "path": "data/pages/11. Phan tich huong doi tuong/p-009.jpg",
+   "caption": "Năm bước phân tích hướng đối tượng",
+   "crop": [
+    0.0,
+    0.13,
+    1.0,
+    0.9
+   ]
+  },
+  {
+   "id": "L11b-img2",
+   "path": "data/pages/11. Phan tich huong doi tuong/p-013.jpg",
+   "caption": "Danh sách chi tiết Object của hệ thống thư viện",
+   "crop": [
+    0.42,
+    0.57,
+    0.97,
+    0.88
+   ]
+  },
+  {
+   "id": "L11b-img3",
+   "path": "data/pages/11. Phan tich huong doi tuong/p-015.jpg",
+   "caption": "Sơ đồ Object Relationship: Sách, Thành viên, Phiếu mượn",
+   "crop": [
+    0.572,
+    0.46,
+    0.97,
+    0.87
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "id": "L11b-e1",
+   "title": "Áp đủ 5 bước cho hệ thống quản lý thư viện",
+   "html": "<p>Đây là ví dụ xuyên suốt của slide. Ghép các phần lại thành một kết quả phân tích hoàn chỉnh:</p><table><thead><tr><th>Bước</th><th>Kết quả</th><th>Giải thích</th></tr></thead><tbody><tr><td>B1. Object List</td><td>Sách, Thành viên, Phiếu mượn</td><td>Ba danh từ chính của quy trình mượn sách: người (Thành viên), vật (Sách), khái niệm/chứng từ (Phiếu mượn).</td></tr><tr><td>B2. Chi tiết</td><td>Sách: Tiêu đề, Tác giả / Được mượn, Được trả<br>Thành viên: Tên, Mã số / Mượn sách<br>Phiếu mượn: Mã phiếu, Ngày mượn / Tạo mới</td><td>Mỗi đối tượng có phần \"thông tin\" và phần \"việc làm\".</td></tr><tr><td>B3. Quan hệ</td><td>[Thành viên] --- [Phiếu mượn] --- [Sách]</td><td>Thành viên sở hữu Phiếu mượn; Phiếu mượn chứa Sách.</td></tr><tr><td>B4. Actor</td><td>Thành viên, Nhân viên</td><td>Hai bên dùng hệ thống. Thành viên vừa là Actor vừa là Object.</td></tr><tr><td>B5. Chức năng</td><td>Tạo phiếu mượn, Xem thông tin sách</td><td>Thành viên/Nhân viên làm gì với Phiếu mượn và Sách.</td></tr></tbody></table>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.13, 15, 21"
+  },
+  {
+   "id": "L11b-e2",
+   "title": "Đọc sơ đồ Object Relationship của thư viện",
+   "html": "<p>Sơ đồ trên slide có 3 hộp và 6 mũi tên. Cách đọc: <b>[hộp gốc] + [nhãn mũi tên] + [hộp đích]</b>.</p>{{img:L11b-img3}}<ul><li>Thành viên <b>mượn</b> Sách – Sách <b>được mượn</b> bởi Thành viên.</li><li>Phiếu mượn <b>chứa</b> Sách – Sách <b>thuộc</b> Phiếu mượn.</li><li>Thành viên <b>sở hữu</b> Phiếu mượn – Phiếu mượn <b>thuộc về</b> Thành viên.</li></ul><p>Từ sơ đồ, ta hiểu Phiếu mượn là \"cầu nối\" giữa Thành viên và Sách: một lần mượn được ghi nhận bằng một phiếu, phiếu cho biết ai mượn và mượn cuốn nào. Đó là lý do bản tổng kết viết gọn là [Thành viên] --- [Phiếu mượn] --- [Sách].</p><p class=\"tip\">Khi vẽ, mỗi mũi tên nên có nhãn là một động từ. Mũi tên không nhãn khiến người đọc không biết hai đối tượng liên quan thế nào.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.15, 21"
+  },
+  {
+   "id": "L11b-e3",
+   "title": "Lọc danh từ thành Object, Actor và thuộc tính (hệ thống đặt đồ ăn)",
+   "html": "<p>Ví dụ mô tả: \"Khách hàng chọn món ăn trong thực đơn của nhà hàng, thêm vào giỏ hàng rồi đặt đơn hàng. Nhân viên nhà hàng xác nhận đơn và ghi nhận thời gian giao.\"</p><p>Bước 1: gạch chân danh từ – khách hàng, món ăn, thực đơn, nhà hàng, giỏ hàng, đơn hàng, nhân viên nhà hàng, thời gian giao.</p><p>Bước 2: xếp loại từng danh từ:</p><table><thead><tr><th>Danh từ</th><th>Xếp loại</th><th>Lý do</th></tr></thead><tbody><tr><td>Món ăn, Thực đơn, Giỏ hàng, Đơn hàng</td><td>Object</td><td>Hệ thống lưu thông tin và có hành động gắn với chúng (món được chọn, đơn được đặt).</td></tr><tr><td>Khách hàng</td><td>Actor (và Object)</td><td>Dùng hệ thống để đặt món; hệ thống cũng lưu tên, số điện thoại, địa chỉ.</td></tr><tr><td>Nhân viên nhà hàng</td><td>Actor</td><td>Dùng hệ thống để xác nhận đơn.</td></tr><tr><td>Nhà hàng</td><td>Object (tùy phạm vi)</td><td>Nếu app có nhiều nhà hàng thì cần lưu thông tin nhà hàng.</td></tr><tr><td>Thời gian giao</td><td>Thuộc tính</td><td>Chỉ là thông tin của Đơn hàng, không có hành vi riêng.</td></tr></tbody></table>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.10-12"
+  },
+  {
+   "id": "L11b-e4",
+   "title": "Từ hành vi của Object ra chức năng (B5)",
+   "html": "<p>Dùng bảng chi tiết Object ở B2 và danh sách Actor ở B4, đặt câu hỏi \"Actor làm gì với Object?\":</p><table><thead><tr><th>Actor</th><th>Object</th><th>Hành vi của Object</th><th>Chức năng suy ra</th></tr></thead><tbody><tr><td>Thành viên</td><td>Sách</td><td>(được xem)</td><td>Xem thông tin sách</td></tr><tr><td>Thành viên / Nhân viên</td><td>Phiếu mượn</td><td>Tạo mới</td><td>Tạo phiếu mượn</td></tr><tr><td>Nhân viên</td><td>Sách</td><td>Được trả</td><td>Ghi nhận trả sách (ví dụ thêm)</td></tr></tbody></table><p>Hai dòng đầu là chức năng trong bản tổng kết của slide. Dòng thứ ba là ví dụ thêm, suy ra từ hành vi \"Được trả\" của Sách.</p><p class=\"tip\">Mỗi hành vi ở B2 thường gợi ra ít nhất một chức năng. Nếu một hành vi không gắn với chức năng nào, hãy kiểm lại xem có thiếu actor không.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.13, 19, 21"
+  },
+  {
+   "id": "L11b-e5",
+   "title": "Khi một thực thể vừa là Object vừa là Actor",
+   "html": "<table><thead><tr><th>Thực thể</th><th>Vai trò Object (dữ liệu được lưu)</th><th>Vai trò Actor (người dùng hệ thống)</th></tr></thead><tbody><tr><td>Thành viên (thư viện)</td><td>Tên, Mã số thành viên</td><td>Mượn sách, xem thông tin sách</td></tr><tr><td>Khách hàng (đặt đồ ăn)</td><td>Tên, Số điện thoại, Địa chỉ giao</td><td>Đặt món, theo dõi đơn</td></tr><tr><td>Nhân viên (thư viện)</td><td>Chỉ là Object nếu hệ thống quản lý hồ sơ nhân viên</td><td>Tạo phiếu mượn cho thành viên</td></tr></tbody></table><p>Slide nói rõ: một thực thể có thể vừa là Object vừa là Actor <b>tùy ngữ cảnh</b>. Khi viết Object List thì đưa nó vào vì hệ thống lưu dữ liệu về nó; khi viết danh sách Actor thì đưa nó vào vì nó dùng hệ thống.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.11"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L11b-p1",
+   "title": "Nhiệm vụ B1: liệt kê 3 đối tượng cho \"Khách hàng đặt món ăn qua ứng dụng\"",
+   "task": "<p>Mô tả: \"Khách hàng đặt món ăn qua ứng dụng.\" Liệt kê 3 đối tượng. Thời gian gợi ý: 5 phút.</p>",
+   "steps": [
+    "<p>Bước 1: Gạch chân danh từ trong câu mô tả: <b>Khách hàng</b>, <b>món ăn</b>, <b>ứng dụng</b>.</p>",
+    "<p>Bước 2: Hỏi \"Ai hoặc cái gì tham gia?\". Khách hàng là người tham gia; Món ăn là vật được đặt.</p>",
+    "<p>Bước 3: Loại danh từ quá chung. \"Ứng dụng\" chính là hệ thống đang phân tích, không phải một đối tượng bên trong nó.</p>",
+    "<p>Bước 4: Dựa vào quy trình nghiệp vụ. \"Đặt món\" luôn sinh ra một chứng từ ghi lại món nào, của ai, bao nhiêu tiền → <b>Đơn hàng</b>. Đây là đối tượng ẩn, không có sẵn trong câu nhưng có trong quy trình.</p>"
+   ],
+   "answer": "<p>3 đối tượng: <b>Khách hàng</b>, <b>Món ăn</b>, <b>Đơn hàng</b>.</p><p>Có thể kể thêm: Giỏ hàng, Nhà hàng, Thanh toán. \"Ứng dụng\" không phải đối tượng vì nó là chính hệ thống.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.10, 12"
+  },
+  {
+   "id": "L11b-p2",
+   "title": "Nhiệm vụ B2: điền đặc điểm và hành vi cho Khách hàng và Đơn hàng",
+   "task": "<p>Với hệ thống đặt đồ ăn, điền đặc điểm và hành vi cho hai đối tượng: <b>Khách hàng</b> và <b>Đơn hàng</b>. Thời gian gợi ý: 10 phút.</p>",
+   "steps": [
+    "<p>Bước 1: Kẻ bảng 3 cột như slide: Đối tượng | Đặc điểm | Việc làm.</p>",
+    "<p>Bước 2: Với Khách hàng, hỏi \"Hệ thống cần biết gì về khách?\" → Mã khách hàng, Tên, Số điện thoại, Địa chỉ giao hàng.</p>",
+    "<p>Bước 3: Hỏi \"Khách làm gì / được làm gì?\" → Đăng ký tài khoản, Đặt món, Thanh toán, Hủy đơn.</p>",
+    "<p>Bước 4: Làm tương tự với Đơn hàng. Thông tin: Mã đơn, Ngày giờ đặt, Danh sách món, Tổng tiền, Trạng thái. Việc làm: Được tạo, Được xác nhận, Được giao, Được hủy.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Đối tượng</th><th>Đặc điểm</th><th>Việc làm</th></tr></thead><tbody><tr><td>Khách hàng</td><td>Mã khách hàng, Tên, Số điện thoại, Địa chỉ giao hàng</td><td>Đăng ký, Đặt món, Thanh toán, Hủy đơn</td></tr><tr><td>Đơn hàng</td><td>Mã đơn, Ngày giờ đặt, Danh sách món, Tổng tiền, Trạng thái</td><td>Được tạo, Được xác nhận, Được giao, Được hủy</td></tr></tbody></table><p class=\"tip\">Hành vi của Khách hàng thường ở dạng chủ động (đặt, hủy); hành vi của Đơn hàng thường ở dạng bị động (được tạo, được giao) – giống \"Được mượn\" của Sách.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.13-14"
+  },
+  {
+   "id": "L11b-p3",
+   "title": "Nhiệm vụ B3: mối quan hệ giữa các đối tượng của hệ thống đặt đồ ăn",
+   "task": "<p>Slide hoạt động B3 ghi: \"Liệt kê 3 chức năng cho hệ thống đặt đồ ăn\" (10 phút). Vì mục tiêu của B3 là xác định mối quan hệ, bài này yêu cầu: <b>xác định ít nhất 3 mối quan hệ</b> giữa các đối tượng Khách hàng, Đơn hàng, Món ăn và mô tả bằng sơ đồ Object Relationship dạng chữ. Phần 3 chức năng được làm ở L11b-p5.</p>",
+   "steps": [
+    "<p>Bước 1: Lấy Object List từ B1: Khách hàng, Món ăn, Đơn hàng.</p>",
+    "<p>Bước 2: Xét từng cặp, hỏi \"Đối tượng này làm gì với đối tượng kia?\". Khách hàng – Đơn hàng: khách <b>tạo</b> đơn.</p>",
+    "<p>Bước 3: Đơn hàng – Món ăn: đơn <b>chứa</b> món. Món ăn – Đơn hàng: món <b>thuộc</b> đơn.</p>",
+    "<p>Bước 4: Khách hàng – Món ăn: khách <b>chọn</b> món (thông qua đơn hàng).</p>",
+    "<p>Bước 5: Vẽ: mỗi đối tượng một hộp, mỗi quan hệ một mũi tên có nhãn động từ.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Từ</th><th>Quan hệ</th><th>Đến</th></tr></thead><tbody><tr><td>Khách hàng</td><td>Tạo</td><td>Đơn hàng</td></tr><tr><td>Đơn hàng</td><td>Thuộc về</td><td>Khách hàng</td></tr><tr><td>Đơn hàng</td><td>Chứa</td><td>Món ăn</td></tr><tr><td>Khách hàng</td><td>Chọn</td><td>Món ăn</td></tr></tbody></table><p>Sơ đồ rút gọn: [Khách hàng] --tạo--> [Đơn hàng] --chứa--> [Món ăn].</p><p class=\"note\">Nếu làm đúng theo chữ trên slide (liệt kê 3 chức năng) thì đáp án giống L11b-p5: Đặt món, Xác nhận đơn hàng, Thanh toán đơn hàng.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.15-16"
+  },
+  {
+   "id": "L11b-p4",
+   "title": "Nhiệm vụ B4: liệt kê 2 Actor cho hệ thống đặt đồ ăn",
+   "task": "<p>Liệt kê 2 Actor cho hệ thống đặt đồ ăn. Thời gian gợi ý: 5 phút.</p>",
+   "steps": [
+    "<p>Bước 1: Hỏi \"Ai dùng hệ thống?\". Người đặt món là Khách hàng.</p>",
+    "<p>Bước 2: Hỏi tiếp \"Sau khi đơn được đặt, ai xử lý nó?\". Nhà hàng cần nhận và xác nhận đơn → Nhân viên nhà hàng.</p>",
+    "<p>Bước 3: Kiểm lại: cả hai đều ở ngoài hệ thống và khởi tạo hoặc dùng chức năng. Đơn hàng, Món ăn là Object, không phải Actor.</p>"
+   ],
+   "answer": "<p>2 Actor: <b>Khách hàng</b> và <b>Nhân viên nhà hàng</b>.</p><p>Có thể kể thêm: Shipper (người giao hàng), Quản trị viên, Cổng thanh toán (hệ thống bên ngoài).</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.17-18"
+  },
+  {
+   "id": "L11b-p5",
+   "title": "Nhiệm vụ B5: liệt kê 3 chức năng cho hệ thống đặt đồ ăn",
+   "task": "<p>Liệt kê 3 chức năng cho hệ thống đặt đồ ăn. Thời gian gợi ý: 10 phút.</p>",
+   "steps": [
+    "<p>Bước 1: Lấy Actor (Khách hàng, Nhân viên nhà hàng) và Object (Món ăn, Đơn hàng) đã có.</p>",
+    "<p>Bước 2: Hỏi \"Khách hàng làm gì với Món ăn?\" → Xem thực đơn / Chọn món. \"Khách hàng làm gì với Đơn hàng?\" → Đặt món (tạo đơn hàng), Thanh toán.</p>",
+    "<p>Bước 3: Hỏi \"Nhân viên nhà hàng làm gì với Đơn hàng?\" → Xác nhận đơn hàng.</p>",
+    "<p>Bước 4: Đối chiếu với hành vi của Đơn hàng ở B2 (Được tạo, Được xác nhận, Được giao, Được hủy) để không bỏ sót.</p>"
+   ],
+   "answer": "<p>3 chức năng: <b>Đặt món (tạo đơn hàng)</b>, <b>Xác nhận đơn hàng</b>, <b>Thanh toán đơn hàng</b>.</p><p>Có thể kể thêm: Xem thực đơn, Hủy đơn hàng, Theo dõi trạng thái đơn.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.19-20"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L11b-x1",
+   "title": "Phân loại Object hay Actor",
+   "level": "de",
+   "task": "<p>Với hệ thống quản lý thư viện, xếp mỗi mục sau vào Object, Actor, hoặc cả hai: Sách, Thành viên, Phiếu mượn, Nhân viên thư viện, Hệ thống gửi email thông báo (bên ngoài).</p>",
+   "hints": [
+    "<p>Object nằm trong hệ thống và được hệ thống quản lý. Actor ở ngoài và tương tác với hệ thống.</p>",
+    "<p>Nhớ ví dụ \"Thành viên\" trên slide. Actor có thể là một hệ thống bên ngoài.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Mục</th><th>Xếp loại</th></tr></thead><tbody><tr><td>Sách</td><td>Object</td></tr><tr><td>Phiếu mượn</td><td>Object</td></tr><tr><td>Thành viên</td><td>Cả hai (lưu thông tin + mượn sách)</td></tr><tr><td>Nhân viên thư viện</td><td>Actor (thêm Object nếu hệ thống quản lý hồ sơ nhân viên)</td></tr><tr><td>Hệ thống gửi email thông báo</td><td>Actor (hệ thống bên ngoài)</td></tr></tbody></table>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.11, 17"
+  },
+  {
+   "id": "L11b-x2",
+   "title": "Tìm đối tượng từ mô tả FoodNow",
+   "level": "de",
+   "task": "<p>Ví dụ mô tả FoodNow: \"Khách hàng chọn nhà hàng, chọn bàn trống theo ngày giờ và gửi yêu cầu đặt bàn. Nhân viên nhà hàng duyệt yêu cầu và xếp bàn cho khách.\" Lập Object List và chỉ ra danh từ nào bị loại.</p>",
+   "hints": [
+    "<p>Gạch chân mọi danh từ trước, rồi mới xét từng cái.</p>",
+    "<p>Ngày giờ là thông tin của cái gì? Đó là thuộc tính, không phải đối tượng.</p>"
+   ],
+   "answer": "<p><b>Object List:</b> Khách hàng, Nhà hàng, Bàn, Yêu cầu đặt bàn (phiếu đặt bàn).</p><p><b>Actor:</b> Khách hàng, Nhân viên nhà hàng.</p><p><b>Bị loại / là thuộc tính:</b> \"ngày giờ\" là thuộc tính của Yêu cầu đặt bàn; \"bàn trống\" là trạng thái của Bàn.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.10-11"
+  },
+  {
+   "id": "L11b-x3",
+   "title": "Lập danh sách chi tiết Object cho FoodNow",
+   "level": "tb",
+   "task": "<p>Dùng Object List ở bài L11b-x2. Lập bảng Đối tượng | Đặc điểm | Việc làm cho 3 đối tượng: Nhà hàng, Bàn, Yêu cầu đặt bàn.</p>",
+   "hints": [
+    "<p>Làm từng đối tượng một, bắt đầu với đối tượng chính là Yêu cầu đặt bàn.</p>",
+    "<p>Hành vi có thể ở dạng bị động: \"Được duyệt\", \"Được hủy\".</p>"
+   ],
+   "answer": "<table><thead><tr><th>Đối tượng</th><th>Đặc điểm</th><th>Việc làm</th></tr></thead><tbody><tr><td>Nhà hàng</td><td>Mã nhà hàng, Tên, Địa chỉ, Giờ mở cửa</td><td>Được tìm kiếm, Cập nhật thông tin</td></tr><tr><td>Bàn</td><td>Số bàn, Số ghế, Trạng thái (trống/đã đặt)</td><td>Được xếp cho khách, Được giải phóng</td></tr><tr><td>Yêu cầu đặt bàn</td><td>Mã yêu cầu, Ngày giờ đến, Số khách, Trạng thái</td><td>Được tạo, Được duyệt, Được hủy</td></tr></tbody></table>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.13"
+  },
+  {
+   "id": "L11b-x4",
+   "title": "Vẽ sơ đồ Object Relationship cho FoodNow",
+   "level": "tb",
+   "task": "<p>Với các đối tượng Khách hàng, Nhà hàng, Bàn, Yêu cầu đặt bàn, xác định các mối quan hệ (dùng động từ) và mô tả sơ đồ Object Relationship dạng bảng.</p>",
+   "hints": [
+    "<p>Hỏi từng cặp: \"Đối tượng này làm gì với đối tượng kia?\"</p>",
+    "<p>Yêu cầu đặt bàn đóng vai trò giống Phiếu mượn trong ví dụ thư viện: nó nối người với vật.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Từ</th><th>Quan hệ</th><th>Đến</th></tr></thead><tbody><tr><td>Khách hàng</td><td>Tạo</td><td>Yêu cầu đặt bàn</td></tr><tr><td>Yêu cầu đặt bàn</td><td>Thuộc về</td><td>Khách hàng</td></tr><tr><td>Yêu cầu đặt bàn</td><td>Ghi nhận</td><td>Bàn</td></tr><tr><td>Nhà hàng</td><td>Có (chứa)</td><td>Bàn</td></tr><tr><td>Yêu cầu đặt bàn</td><td>Gửi tới</td><td>Nhà hàng</td></tr></tbody></table><p>Sơ đồ rút gọn: [Khách hàng] --- [Yêu cầu đặt bàn] --- [Bàn] --- [Nhà hàng].</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.15"
+  },
+  {
+   "id": "L11b-x5",
+   "title": "Thực hành: phân tích tổng quan hệ thống đặt đồ ăn (dự án mock) theo 5 bước",
+   "level": "kho",
+   "task": "<p>Phần Thực hành của slide: phân tích tổng quan hệ thống (dự án mock) bằng phương pháp hướng đối tượng. Dùng hệ thống đặt đồ ăn làm dự án mock. Trình bày đủ 5 output: Object List, chi tiết Object, quan hệ, Actor, chức năng.</p>",
+   "hints": [
+    "<p>Ghép kết quả các nhiệm vụ L11b-p1 tới L11b-p5 lại, rồi bổ sung chỗ thiếu.</p>",
+    "<p>Nhớ đối tượng ẩn của quy trình như Thanh toán, Giỏ hàng. Nhớ actor là hệ thống bên ngoài.</p>",
+    "<p>Kiểm chéo: mỗi hành vi ở B2 nên gắn với ít nhất một chức năng ở B5.</p>"
+   ],
+   "answer": "<p><b>B1 – Object List:</b> Khách hàng, Nhà hàng, Món ăn, Giỏ hàng, Đơn hàng, Thanh toán.</p><p><b>B2 – Chi tiết:</b></p><table><thead><tr><th>Đối tượng</th><th>Đặc điểm</th><th>Việc làm</th></tr></thead><tbody><tr><td>Khách hàng</td><td>Mã, Tên, SĐT, Địa chỉ</td><td>Đăng ký, Đặt món</td></tr><tr><td>Món ăn</td><td>Mã món, Tên, Giá</td><td>Được chọn, Được cập nhật</td></tr><tr><td>Giỏ hàng</td><td>Danh sách món, Tạm tính</td><td>Thêm món, Xóa món</td></tr><tr><td>Đơn hàng</td><td>Mã đơn, Thời gian, Tổng tiền, Trạng thái</td><td>Được tạo, Được xác nhận, Được giao, Được hủy</td></tr><tr><td>Thanh toán</td><td>Mã giao dịch, Số tiền, Phương thức</td><td>Được ghi nhận</td></tr></tbody></table><p><b>B3 – Quan hệ:</b> Khách hàng sở hữu Giỏ hàng; Giỏ hàng chứa Món ăn; Khách hàng tạo Đơn hàng; Đơn hàng chứa Món ăn; Nhà hàng cung cấp Món ăn; Thanh toán ghi nhận Đơn hàng.</p><p><b>B4 – Actor:</b> Khách hàng, Nhân viên nhà hàng, Shipper, Cổng thanh toán (hệ thống bên ngoài).</p><p><b>B5 – Chức năng:</b> Xem thực đơn, Thêm món vào giỏ, Đặt món, Thanh toán, Xác nhận đơn, Cập nhật trạng thái giao, Hủy đơn.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.9-22"
+  },
+  {
+   "id": "L11b-x6",
+   "title": "Phát hiện lỗi trong một bản phân tích hướng đối tượng",
+   "level": "kho",
+   "task": "<p>Một BA mới nộp bản phân tích hệ thống quản lý thư viện như sau:</p><ul><li>Object List: Sách, Tiêu đề, Ngày mượn, Mượn sách.</li><li>Actor: Phiếu mượn, Nhân viên.</li><li>Chức năng: liệt kê ngay từ đầu, trước khi có Object List.</li></ul><p>Chỉ ra các lỗi theo phương pháp 5 bước và viết lại bản đúng.</p>",
+   "hints": [
+    "<p>Kiểm từng mục trong Object List: đó là đối tượng, thuộc tính hay chức năng?</p>",
+    "<p>Actor phải ở ngoài hệ thống. Phiếu mượn có ở ngoài hệ thống không?</p>",
+    "<p>Chức năng ở B5 suy ra từ đâu?</p>"
+   ],
+   "answer": "<p><b>Lỗi:</b></p><ol><li>\"Tiêu đề\" là thuộc tính của Sách; \"Ngày mượn\" là thuộc tính của Phiếu mượn – không phải đối tượng.</li><li>\"Mượn sách\" là hành vi/chức năng, không phải đối tượng.</li><li>Thiếu Thành viên và Phiếu mượn trong Object List.</li><li>Phiếu mượn nằm trong hệ thống nên là Object, không phải Actor. Thiếu actor Thành viên.</li><li>Chức năng phải suy ra ở B5 từ câu hỏi \"Actor làm gì với Object?\", nên làm sau khi có Object và Actor.</li></ol><p><b>Bản đúng:</b> Object List: Sách, Thành viên, Phiếu mượn. Actor: Thành viên, Nhân viên. Chức năng: Tạo phiếu mượn, Xem thông tin sách.</p>",
+   "src": "11. Phan tich huong doi tuong.pdf tr.10-11, 19, 21"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L11b-f1",
+   "front": "Đối tượng (Object)",
+   "back": "<p>Thực thể cụ thể trong hệ thống, đại diện cho người, vật hoặc khái niệm có vai trò quan trọng. Ví dụ: Sách trong hệ thống thư viện.</p>"
+  },
+  {
+   "id": "L11b-f2",
+   "front": "Công thức đơn giản của đối tượng",
+   "back": "<p>Đối tượng = Đặc điểm (thông tin) + Hành vi (hành động). Mẹo: \"có gì\" + \"làm gì\".</p>"
+  },
+  {
+   "id": "L11b-f3",
+   "front": "Attributes (đặc điểm, thuộc tính)",
+   "back": "<p>Thông tin mô tả đối tượng. Ví dụ: Sách có Tiêu đề, Tác giả. Thường là danh từ.</p>"
+  },
+  {
+   "id": "L11b-f4",
+   "front": "Methods (hành vi, phương thức)",
+   "back": "<p>Những gì đối tượng có thể làm hoặc được làm với nó. Ví dụ: Sách được mượn, được trả. Thường là động từ.</p>"
+  },
+  {
+   "id": "L11b-f5",
+   "front": "Dấu hiệu nhận diện: có thông tin riêng",
+   "back": "<p>Hệ thống cần lưu trữ hoặc quản lý dữ liệu về nó. Ví dụ: Tên sách, Mã thành viên.</p>"
+  },
+  {
+   "id": "L11b-f6",
+   "front": "Dấu hiệu nhận diện: có hành động liên quan",
+   "back": "<p>Nó làm gì đó hoặc được làm gì đó trong hệ thống. Ví dụ: Sách được mượn.</p>"
+  },
+  {
+   "id": "L11b-f7",
+   "front": "Dấu hiệu nhận diện: đóng vai trò trong quy trình",
+   "back": "<p>Là một phần của hoạt động chính trong quy trình. Ví dụ: Phiếu mượn trong quy trình mượn sách.</p>"
+  },
+  {
+   "id": "L11b-f8",
+   "front": "OOA (Object-Oriented Analysis)",
+   "back": "<p>Phân tích hướng đối tượng: phân tích yêu cầu bằng cách mô hình hóa hệ thống như tập hợp các đối tượng có đặc tính và hành vi; xem chúng làm gì, liên kết ra sao.</p>"
+  },
+  {
+   "id": "L11b-f9",
+   "front": "4 mục tiêu của OOA",
+   "back": "<p>Nền tảng cho thiết kế hướng đối tượng; dễ bảo trì, mở rộng; phù hợp thực tế nghiệp vụ và tái sử dụng; phân rã hệ thống thành các lớp (class) gắn với chức năng, vai trò nghiệp vụ.</p>"
+  },
+  {
+   "id": "L11b-f10",
+   "front": "5 bước phân tích hướng đối tượng",
+   "back": "<p>B1 Object List → B2 thuộc tính, hành vi → B3 quan hệ (Object Relationship) → B4 Actor → B5 chức năng. Mẹo: Có gì – Ra sao – Nối nhau – Ai dùng – Làm gì.</p>"
+  },
+  {
+   "id": "L11b-f11",
+   "front": "Mục tiêu của B1",
+   "back": "<p>Liệt kê các đối tượng quan trọng trong hệ thống (người, vật, khái niệm). Output: Danh sách Object (Object List).</p>"
+  },
+  {
+   "id": "L11b-f12",
+   "front": "Tìm danh từ trong mô tả hệ thống",
+   "back": "<p>Cách 1 để tìm Object ở B1: đọc yêu cầu, chọn danh từ đại diện người, vật, khái niệm. Lưu ý: danh từ như \"Tiêu đề\" chỉ là thuộc tính.</p>"
+  },
+  {
+   "id": "L11b-f13",
+   "front": "Câu hỏi \"Ai hoặc cái gì tham gia?\"",
+   "back": "<p>Câu hỏi của B1 để tìm Object, tập trung vào thực thể tham gia hoạt động chính của hệ thống.</p>"
+  },
+  {
+   "id": "L11b-f14",
+   "front": "Dựa vào quy trình nghiệp vụ (B1)",
+   "back": "<p>Xem các bước trong quy trình để tìm đối tượng liên quan, kể cả đối tượng ẩn như Phiếu mượn, Đơn hàng.</p>"
+  },
+  {
+   "id": "L11b-f15",
+   "front": "Object List",
+   "back": "<p>Output của B1: danh sách đối tượng. Ví dụ thư viện: Sách, Thành viên, Phiếu mượn.</p>"
+  },
+  {
+   "id": "L11b-f16",
+   "front": "Object khác Actor thế nào?",
+   "back": "<p>Object nằm trong hệ thống, được hệ thống quản lý (Sách, Đơn hàng). Actor ở ngoài, tương tác với hệ thống (Khách hàng, Nhân viên).</p>"
+  },
+  {
+   "id": "L11b-f17",
+   "front": "Thực thể vừa là Object vừa là Actor",
+   "back": "<p>Có thể, tùy ngữ cảnh. Ví dụ: \"Thành viên\" là Object (lưu thông tin) và là Actor (mượn sách).</p>"
+  },
+  {
+   "id": "L11b-f18",
+   "front": "Mục tiêu và output của B2",
+   "back": "<p>Xác định chi tiết đặc điểm và hành vi của từng đối tượng, bắt đầu từ 1 object chính rồi tiếp tục các object còn lại. Output: Danh sách chi tiết Object.</p>"
+  },
+  {
+   "id": "L11b-f19",
+   "front": "Mục tiêu của B3",
+   "back": "<p>Xác định mối quan hệ giữa các đối tượng, từ đó vẽ sơ đồ Object Relationship. Hỏi: \"Đối tượng này làm gì với đối tượng kia?\"</p>"
+  },
+  {
+   "id": "L11b-f20",
+   "front": "Mô tả quan hệ giữa đối tượng bằng gì?",
+   "back": "<p>Bằng động từ, ví dụ: Tạo, Chứa, Ghi nhận. Ví dụ: Phiếu mượn chứa Sách.</p>"
+  },
+  {
+   "id": "L11b-f21",
+   "front": "Sơ đồ Object Relationship",
+   "back": "<p>Output của B3: các hộp là đối tượng, các mũi tên có nhãn động từ là quan hệ. Ví dụ: [Thành viên] --- [Phiếu mượn] --- [Sách].</p>"
+  },
+  {
+   "id": "L11b-f22",
+   "front": "Actor (tác nhân)",
+   "back": "<p>Thực thể ngoài hệ thống, khởi tạo hoặc dùng chức năng. Có thể là người hoặc hệ thống bên ngoài. Hỏi: \"Ai dùng hệ thống?\"</p>"
+  },
+  {
+   "id": "L11b-f23",
+   "front": "Mục tiêu và output của B4",
+   "back": "<p>Liệt kê người/hệ thống bên ngoài tương tác. Output: Danh sách Actor. Ví dụ thư viện: Thành viên, Nhân viên.</p>"
+  },
+  {
+   "id": "L11b-f24",
+   "front": "Mục tiêu của B5",
+   "back": "<p>Suy ra chức năng từ Actor và Object: hỏi \"Actor làm gì với Object?\" và xem hành vi của Object. Output: Danh sách chức năng.</p>"
+  },
+  {
+   "id": "L11b-f25",
+   "front": "Chức năng mẫu của hệ thống thư viện",
+   "back": "<p>Tạo phiếu mượn, Xem thông tin sách. Đặt tên dạng động từ + danh từ.</p>"
+  },
+  {
+   "id": "L11b-f26",
+   "front": "Phiếu mượn là loại đối tượng gì?",
+   "back": "<p>Đối tượng dạng khái niệm/chứng từ: có thông tin riêng (Mã phiếu, Ngày mượn) và đóng vai trò trong quy trình mượn sách; nối Thành viên với Sách.</p>"
+  },
+  {
+   "id": "L11b-f27",
+   "front": "Dự án mock",
+   "back": "<p>Dự án giả lập dùng để luyện tập. Phần Thực hành của bài: phân tích tổng quan một dự án mock bằng phương pháp hướng đối tượng.</p>"
+  },
+  {
+   "id": "L11b-f28",
+   "front": "Lớp (class) và đối tượng (object) trong UML",
+   "back": "<p>Class là khuôn chung (Sách); object là một thể hiện cụ thể (cuốn sách mã S001). Slide gọi chung cả hai là \"đối tượng\".</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L11b-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>OOA là viết tắt của cụm từ nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Object-Oriented Architecture"
+    },
+    {
+     "id": "b",
+     "t": "Object Operation Analysis"
+    },
+    {
+     "id": "c",
+     "t": "Object-Oriented Analysis"
+    },
+    {
+     "id": "d",
+     "t": "Object-Oriented Application"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>OOA = Object-Oriented Analysis, tức phân tích hệ thống theo hướng đối tượng.</p>",
+   "why_wrong": {
+    "a": "Architecture là kiến trúc, thuộc giai đoạn thiết kế, không phải phân tích.",
+    "b": "Không có thuật ngữ \"Object Operation Analysis\"; chữ O thứ hai là Oriented.",
+    "d": "Application là ứng dụng, không phải phương pháp phân tích."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.7"
+  },
+  {
+   "id": "L11b-q2",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, công thức đơn giản mô tả một đối tượng là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Đối tượng = Đặc điểm + Hành vi"
+    },
+    {
+     "id": "b",
+     "t": "Đối tượng = Actor + Danh sách chức năng của hệ thống"
+    },
+    {
+     "id": "c",
+     "t": "Đối tượng = Dữ liệu + Giao diện"
+    },
+    {
+     "id": "d",
+     "t": "Đối tượng = Bảng + Khóa chính"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Slide nêu: Đối tượng = Đặc điểm (thông tin) + Hành vi (hành động). Mẹo: \"có gì\" + \"làm gì\".</p>",
+   "why_wrong": {
+    "b": "Actor và chức năng là output của B4 và B5, không phải thành phần của đối tượng.",
+    "c": "Giao diện không phải thành phần của đối tượng trong phân tích.",
+    "d": "Bảng và khóa chính là khái niệm cơ sở dữ liệu, không phải công thức của slide."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.5"
+  },
+  {
+   "id": "L11b-q3",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Đặc điểm (attributes) của đối tượng dùng để làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thể hiện việc đối tượng có thể làm"
+    },
+    {
+     "id": "b",
+     "t": "Mô tả thông tin về đối tượng"
+    },
+    {
+     "id": "c",
+     "t": "Chỉ ra người dùng bên ngoài hệ thống"
+    },
+    {
+     "id": "d",
+     "t": "Nối đối tượng này với đối tượng khác"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Attributes mô tả thông tin về đối tượng, ví dụ Sách có Tiêu đề, Tác giả.</p>",
+   "why_wrong": {
+    "a": "Việc đối tượng có thể làm là hành vi (methods).",
+    "c": "Người dùng bên ngoài là Actor.",
+    "d": "Nối các đối tượng là mối quan hệ (B3)."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.5"
+  },
+  {
+   "id": "L11b-q4",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Hành vi (methods) của đối tượng thể hiện điều gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Các trường dữ liệu mà hệ thống cần lưu trữ về đối tượng"
+    },
+    {
+     "id": "b",
+     "t": "Vị trí của đối tượng trong sơ đồ"
+    },
+    {
+     "id": "c",
+     "t": "Danh sách người được phép xem đối tượng"
+    },
+    {
+     "id": "d",
+     "t": "Những gì đối tượng có thể làm hoặc được làm với nó"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Methods thể hiện những gì đối tượng có thể làm hoặc được làm với nó, ví dụ Sách \"Được mượn\", \"Được trả\".</p>",
+   "why_wrong": {
+    "a": "Trường dữ liệu cần lưu là đặc điểm (attributes).",
+    "b": "Vị trí trong sơ đồ không phải là hành vi.",
+    "c": "Quyền xem thuộc về phân quyền, không phải hành vi của đối tượng."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.5"
+  },
+  {
+   "id": "L11b-q5",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Theo slide, đâu là các đặc điểm nhận diện một đối tượng? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Có thông tin riêng mà hệ thống cần lưu"
+    },
+    {
+     "id": "b",
+     "t": "Có giao diện màn hình riêng"
+    },
+    {
+     "id": "c",
+     "t": "Có hành động liên quan"
+    },
+    {
+     "id": "d",
+     "t": "Nằm ngoài hệ thống"
+    },
+    {
+     "id": "e",
+     "t": "Đóng vai trò trong quy trình"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Ba dấu hiệu: có thông tin riêng, có hành động liên quan, đóng vai trò trong quy trình.</p>",
+   "why_wrong": {
+    "b": "Slide không lấy giao diện làm dấu hiệu; nhiều đối tượng không có màn hình riêng.",
+    "d": "Nằm ngoài hệ thống là đặc điểm của Actor."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.6"
+  },
+  {
+   "id": "L11b-q6",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Output của B1 (Xác định các đối tượng chính) là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Danh sách Object (Object List)"
+    },
+    {
+     "id": "b",
+     "t": "Danh sách Actor"
+    },
+    {
+     "id": "c",
+     "t": "Sơ đồ Object Relationship"
+    },
+    {
+     "id": "d",
+     "t": "Danh sách chức năng của hệ thống"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>B1 cho ra Object List. Mỗi bước sau đó có output riêng.</p>",
+   "why_wrong": {
+    "b": "Danh sách Actor là output của B4.",
+    "c": "Sơ đồ Object Relationship là output của B3.",
+    "d": "Danh sách chức năng là output của B5."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.10"
+  },
+  {
+   "id": "L11b-q7",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Bước nào trong 5 bước cho ra sơ đồ Object Relationship?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "B1"
+    },
+    {
+     "id": "b",
+     "t": "B2"
+    },
+    {
+     "id": "c",
+     "t": "B3"
+    },
+    {
+     "id": "d",
+     "t": "B5"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>B3 – Xác định mối quan hệ giữa các đối tượng – có output là sơ đồ Object Relationship.</p>",
+   "why_wrong": {
+    "a": "B1 cho ra Object List.",
+    "b": "B2 cho ra danh sách chi tiết Object.",
+    "d": "B5 cho ra danh sách chức năng."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.9, 15"
+  },
+  {
+   "id": "L11b-q8",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Ở B2, slide hướng dẫn bắt đầu như thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vẽ sơ đồ quan hệ của tất cả đối tượng trước, sau đó mới quay lại điền thông tin cho từng đối tượng"
+    },
+    {
+     "id": "b",
+     "t": "Liệt kê tất cả actor rồi gán thuộc tính cho họ"
+    },
+    {
+     "id": "c",
+     "t": "Chỉ ghi thuộc tính, để hành vi sang B5"
+    },
+    {
+     "id": "d",
+     "t": "Bắt đầu với 1 object chính, mô tả đặc điểm và việc làm, rồi tiếp tục các object còn lại"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>B2 làm lần lượt: bắt đầu từ 1 object chính (ví dụ Sách), mô tả thông tin và hành động, rồi làm tiếp các object khác.</p>",
+   "why_wrong": {
+    "a": "Vẽ sơ đồ quan hệ là việc của B3, sau B2.",
+    "b": "Actor được xác định ở B4; B2 làm với object.",
+    "c": "B2 xác định cả đặc điểm lẫn hành vi."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.13"
+  },
+  {
+   "id": "L11b-q9",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Mục tiêu của B5 là suy ra chức năng của hệ thống từ Actor và Object.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Đúng. B5: suy ra chức năng từ Actor và Object, bằng cách hỏi \"Actor làm gì với Object?\" và xem hành vi của Object.</p>",
+   "why_wrong": {
+    "s": "Slide ghi rõ mục tiêu của B5 là suy ra chức năng từ Actor và Object."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.19"
+  },
+  {
+   "id": "L11b-q10",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Câu hỏi nào được dùng ở B1 để tìm đối tượng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ai dùng hệ thống?"
+    },
+    {
+     "id": "b",
+     "t": "Ai hoặc cái gì tham gia?"
+    },
+    {
+     "id": "c",
+     "t": "Actor làm gì với Object?"
+    },
+    {
+     "id": "d",
+     "t": "Các đối tượng có quan hệ gì với nhau?"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>B1 hỏi \"Ai hoặc cái gì tham gia?\" để tập trung vào thực thể tham gia hoạt động chính.</p>",
+   "why_wrong": {
+    "a": "Đây là câu hỏi của B4 để tìm Actor.",
+    "c": "Đây là câu hỏi của B5 để tìm chức năng.",
+    "d": "Đây là câu hỏi của B3 để tìm quan hệ."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.10"
+  },
+  {
+   "id": "L11b-q11",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, Actor được mô tả là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thực thể ngoài hệ thống, khởi tạo hoặc dùng chức năng"
+    },
+    {
+     "id": "b",
+     "t": "Dữ liệu được hệ thống lưu trữ và quản lý trong cơ sở dữ liệu"
+    },
+    {
+     "id": "c",
+     "t": "Một bước trong quy trình nghiệp vụ"
+    },
+    {
+     "id": "d",
+     "t": "Thuộc tính quan trọng nhất của đối tượng"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Actor là thực thể ngoài hệ thống, khởi tạo hoặc dùng chức năng; tìm bằng câu hỏi \"Ai dùng hệ thống?\".</p>",
+   "why_wrong": {
+    "b": "Dữ liệu được hệ thống quản lý là Object.",
+    "c": "Bước trong quy trình không phải Actor.",
+    "d": "Thuộc tính là đặc điểm của đối tượng, không phải Actor."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.17"
+  },
+  {
+   "id": "L11b-q12",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Đâu là mục tiêu của phân tích hướng đối tượng theo slide? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tạo nền tảng cho thiết kế và phát triển phần mềm theo hướng đối tượng"
+    },
+    {
+     "id": "b",
+     "t": "Thay thế hoàn toàn việc khai thác yêu cầu"
+    },
+    {
+     "id": "c",
+     "t": "Dễ dàng bảo trì, mở rộng hệ thống"
+    },
+    {
+     "id": "d",
+     "t": "Phân rã hệ thống thành các lớp gắn với chức năng và vai trò nghiệp vụ"
+    },
+    {
+     "id": "e",
+     "t": "Bỏ qua quy trình nghiệp vụ để đi thẳng vào dữ liệu"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Slide nêu 4 mục tiêu: nền tảng cho thiết kế hướng đối tượng; dễ bảo trì, mở rộng; phù hợp nghiệp vụ và tái sử dụng; phân rã thành các lớp (class).</p>",
+   "why_wrong": {
+    "b": "OOA dùng kết quả khai thác yêu cầu làm đầu vào, không thay thế nó.",
+    "e": "B1 còn dựa vào quy trình nghiệp vụ để tìm đối tượng, không bỏ qua."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.8"
+  },
+  {
+   "id": "L11b-q13",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Điểm khác nhau cốt lõi giữa Object và Actor là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Object luôn là vật hoặc khái niệm, còn Actor thì luôn luôn phải là một con người cụ thể"
+    },
+    {
+     "id": "b",
+     "t": "Object chỉ chứa số liệu, còn Actor chỉ chứa văn bản"
+    },
+    {
+     "id": "c",
+     "t": "Object nằm trong hệ thống và được quản lý; Actor ở ngoài và tương tác với hệ thống"
+    },
+    {
+     "id": "d",
+     "t": "Object do khách hàng tạo, còn Actor do lập trình viên tạo"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Phân biệt dựa vào vị trí so với hệ thống: Object ở trong, được quản lý; Actor ở ngoài, tương tác. Mẹo: \"hệ thống lưu nó\" hay \"nó dùng hệ thống\".</p>",
+   "why_wrong": {
+    "a": "Object có thể là người (Thành viên), Actor có thể là hệ thống bên ngoài.",
+    "b": "Kiểu dữ liệu không phải tiêu chí phân biệt.",
+    "d": "Ai tạo ra không phải tiêu chí; slide phân biệt theo trong hay ngoài hệ thống."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.11"
+  },
+  {
+   "id": "L11b-q14",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Một thực thể không bao giờ được vừa là Object vừa là Actor trong cùng một hệ thống.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Sai. Slide lưu ý một thực thể có thể vừa là Object vừa là Actor tùy ngữ cảnh, ví dụ \"Thành viên\" vừa được lưu thông tin vừa mượn sách.</p>",
+   "why_wrong": {
+    "d": "Slide đưa ví dụ Thành viên vừa là Object vừa là Actor, nên câu này không đúng."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.11"
+  },
+  {
+   "id": "L11b-q15",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao \"Thành viên\" trong hệ thống thư viện được xem vừa là Object vừa là Actor?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì thành viên có nhiều tên gọi khác nhau"
+    },
+    {
+     "id": "b",
+     "t": "Vì hệ thống lưu thông tin thành viên, và thành viên cũng dùng hệ thống để mượn sách"
+    },
+    {
+     "id": "c",
+     "t": "Vì thành viên cũng chính là nhân viên của thư viện, được giao quản lý kho sách"
+    },
+    {
+     "id": "d",
+     "t": "Vì theo quy ước, mọi người dùng của hệ thống đều tự động trở thành Object trong mô hình"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Thành viên là Object vì hệ thống lưu dữ liệu về họ (tên, mã số), và là Actor vì họ tương tác với hệ thống (mượn sách).</p>",
+   "why_wrong": {
+    "a": "Tên gọi không liên quan đến vai trò Object hay Actor.",
+    "c": "Thành viên là người mượn sách, không phải nhân viên.",
+    "d": "Người dùng chỉ là Object khi hệ thống cần lưu thông tin về họ."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.11"
+  },
+  {
+   "id": "L11b-q16",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Thứ tự nào đúng với 5 bước phân tích hướng đối tượng trên slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Actor → Object → Chức năng → Quan hệ → Thuộc tính"
+    },
+    {
+     "id": "b",
+     "t": "Chức năng → Actor → Object → Thuộc tính và hành vi → Mối quan hệ"
+    },
+    {
+     "id": "c",
+     "t": "Object → Quan hệ → Thuộc tính → Chức năng → Actor"
+    },
+    {
+     "id": "d",
+     "t": "Object → Thuộc tính và hành vi → Quan hệ → Actor → Chức năng"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>B1 Object, B2 thuộc tính và hành vi, B3 quan hệ, B4 Actor, B5 chức năng. Mẹo: Có gì – Ra sao – Nối nhau – Ai dùng – Làm gì.</p>",
+   "why_wrong": {
+    "a": "Slide bắt đầu từ Object, không phải Actor.",
+    "b": "Chức năng là bước cuối vì được suy ra từ Actor và Object.",
+    "c": "Thuộc tính (B2) phải xác định trước quan hệ (B3); Actor đứng trước chức năng."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.9"
+  },
+  {
+   "id": "L11b-q17",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao xác định chức năng (B5) được đặt sau khi đã có Object và Actor?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì chức năng được suy ra từ câu hỏi \"Actor làm gì với Object?\""
+    },
+    {
+     "id": "b",
+     "t": "Vì chức năng ít quan trọng nhất nên làm sau cùng"
+    },
+    {
+     "id": "c",
+     "t": "Vì lập trình viên yêu cầu như vậy"
+    },
+    {
+     "id": "d",
+     "t": "Vì chức năng chỉ được viết sau khi đã có thiết kế giao diện màn hình"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Chức năng là kết quả của việc ghép Actor với Object và hành vi của Object, nên cần có hai thứ đó trước.</p>",
+   "why_wrong": {
+    "b": "Chức năng rất quan trọng; nó đứng cuối vì phụ thuộc vào các bước trước.",
+    "c": "Thứ tự dựa vào logic phân tích, không phải yêu cầu của lập trình viên.",
+    "d": "OOA tổng quan không cần giao diện để suy ra chức năng."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.19"
+  },
+  {
+   "id": "L11b-q18",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>\"Phiếu mượn\" không phải người cũng không phải vật hữu hình. Vì sao nó vẫn là một đối tượng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì nó là người dùng trực tiếp của hệ thống, tự thao tác trên màn hình"
+    },
+    {
+     "id": "b",
+     "t": "Vì nó nằm ngoài hệ thống"
+    },
+    {
+     "id": "c",
+     "t": "Vì nó có thông tin riêng và đóng vai trò trong quy trình mượn sách"
+    },
+    {
+     "id": "d",
+     "t": "Vì nó là một chức năng của hệ thống"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Đối tượng có thể là khái niệm. Phiếu mượn đóng vai trò trong quy trình mượn sách và có thông tin riêng (Mã phiếu, Ngày mượn).</p>",
+   "why_wrong": {
+    "a": "Phiếu mượn không dùng hệ thống, nên không phải người dùng.",
+    "b": "Phiếu mượn được hệ thống quản lý, tức nằm trong hệ thống.",
+    "d": "\"Tạo phiếu mượn\" mới là chức năng; bản thân Phiếu mượn là đối tượng."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.6, 13"
+  },
+  {
+   "id": "L11b-q19",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong sơ đồ Object Relationship của thư viện, quan hệ \"Chứa\" được đọc thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Sách chứa Phiếu mượn"
+    },
+    {
+     "id": "b",
+     "t": "Thành viên chứa Sách"
+    },
+    {
+     "id": "c",
+     "t": "Sách chứa Thành viên"
+    },
+    {
+     "id": "d",
+     "t": "Phiếu mượn chứa Sách"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Mũi tên \"Chứa\" đi từ Phiếu mượn tới Sách: một phiếu mượn ghi các cuốn sách được mượn. Chiều ngược lại là \"Sách thuộc Phiếu mượn\".</p>",
+   "why_wrong": {
+    "a": "Đảo chiều: Sách \"thuộc\" Phiếu mượn, không chứa phiếu.",
+    "b": "Quan hệ giữa Thành viên và Sách là \"Mượn\".",
+    "c": "Không có quan hệ này; Sách \"được mượn\" bởi Thành viên."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.15"
+  },
+  {
+   "id": "L11b-q20",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Ở B3, slide hướng dẫn dùng động từ như Tạo, Chứa, Ghi nhận để mô tả quan hệ giữa các đối tượng.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Đúng. Quan hệ được mô tả bằng động từ, làm nhãn cho mũi tên trên sơ đồ Object Relationship.</p>",
+   "why_wrong": {
+    "s": "Slide B3 ghi rõ \"Dùng động từ để mô tả (Tạo, Chứa, Ghi nhận)\"."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.15"
+  },
+  {
+   "id": "L11b-q21",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao ở B1 nên tìm danh từ trong mô tả hệ thống?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì danh từ thường đại diện cho người, vật hoặc khái niệm – ứng viên của đối tượng"
+    },
+    {
+     "id": "b",
+     "t": "Vì mọi danh từ xuất hiện trong bản mô tả đều chắc chắn là đối tượng, không cần lọc thêm"
+    },
+    {
+     "id": "c",
+     "t": "Vì danh từ luôn là Actor"
+    },
+    {
+     "id": "d",
+     "t": "Vì danh từ chính là tên chức năng"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Danh từ là ứng viên của đối tượng. Sau đó vẫn phải lọc: có danh từ chỉ là thuộc tính (Tiêu đề) hoặc quá chung.</p>",
+   "why_wrong": {
+    "b": "Không phải danh từ nào cũng là đối tượng; nhiều danh từ chỉ là thuộc tính.",
+    "c": "Actor xác định ở B4 bằng câu \"Ai dùng hệ thống?\", không phải mọi danh từ.",
+    "d": "Chức năng thường có dạng động từ + danh từ, không phải danh từ đơn."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.10"
+  },
+  {
+   "id": "L11b-q22",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Phát biểu nào đúng về Actor theo bài học? (Chọn 2)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Actor có thể là người hoặc hệ thống bên ngoài"
+    },
+    {
+     "id": "b",
+     "t": "Actor là dữ liệu được hệ thống lưu trữ và quản lý"
+    },
+    {
+     "id": "c",
+     "t": "Actor khởi tạo hoặc dùng chức năng của hệ thống"
+    },
+    {
+     "id": "d",
+     "t": "Actor được xác định ngay từ B1, cùng lúc với Object"
+    }
+   ],
+   "answer": [
+    "a",
+    "c"
+   ],
+   "explain": "<p>B4 nêu mục tiêu liệt kê người/hệ thống bên ngoài tương tác; Actor là thực thể ngoài hệ thống, khởi tạo hoặc dùng chức năng.</p>",
+   "why_wrong": {
+    "b": "Dữ liệu được lưu là Object.",
+    "d": "Actor được xác định ở B4; B1 xác định Object."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.17"
+  },
+  {
+   "id": "L11b-q23",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Theo slide, OOA mô hình hóa hệ thống như thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Như một chuỗi các bước xử lý tuần tự từ đầu vào đến đầu ra"
+    },
+    {
+     "id": "b",
+     "t": "Như một tập hợp các đối tượng có đặc tính và hành vi"
+    },
+    {
+     "id": "c",
+     "t": "Như một danh sách màn hình"
+    },
+    {
+     "id": "d",
+     "t": "Như các bảng dữ liệu và khóa"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>OOA xem hệ thống là tập hợp các đối tượng có đặc tính và hành vi, rồi xem chúng làm gì, liên kết ra sao.</p>",
+   "why_wrong": {
+    "a": "Chuỗi bước tuần tự là cách nhìn theo quy trình/chức năng.",
+    "c": "Màn hình là thiết kế giao diện, không phải cách OOA mô hình hóa.",
+    "d": "Bảng và khóa là mô hình dữ liệu (ERD, database)."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.7"
+  },
+  {
+   "id": "L11b-q24",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Theo slide, hành vi của đối tượng chỉ gồm những việc mà đối tượng tự làm.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Sai. Hành vi gồm cả những việc đối tượng có thể làm <b>và</b> được làm với nó, ví dụ Sách \"Được mượn\".</p>",
+   "why_wrong": {
+    "d": "Slide định nghĩa methods là việc đối tượng có thể làm hoặc được làm với nó."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.5"
+  },
+  {
+   "id": "L11b-q25",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Câu hỏi \"Đối tượng này làm gì với đối tượng kia?\" giúp BA làm việc gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tìm thuộc tính và thông tin của từng đối tượng"
+    },
+    {
+     "id": "b",
+     "t": "Tìm người dùng hệ thống"
+    },
+    {
+     "id": "c",
+     "t": "Xác định mối quan hệ giữa các đối tượng"
+    },
+    {
+     "id": "d",
+     "t": "Đặt tên cho hệ thống"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Đây là câu hỏi của B3, giúp tìm quan hệ để vẽ sơ đồ Object Relationship.</p>",
+   "why_wrong": {
+    "a": "Thuộc tính tìm ở B2 bằng câu hỏi \"nó có thông tin gì\".",
+    "b": "Người dùng (Actor) tìm ở B4 bằng câu \"Ai dùng hệ thống?\".",
+    "d": "Đặt tên hệ thống không thuộc 5 bước."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.15"
+  },
+  {
+   "id": "L11b-q26",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Ở B1, slide nêu những cách nào để xác định Object? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tìm danh từ trong mô tả hệ thống"
+    },
+    {
+     "id": "b",
+     "t": "Hỏi \"Actor làm gì với Object?\""
+    },
+    {
+     "id": "c",
+     "t": "Trả lời câu hỏi \"Ai hoặc cái gì tham gia?\""
+    },
+    {
+     "id": "d",
+     "t": "Vẽ sơ đồ Object Relationship trước"
+    },
+    {
+     "id": "e",
+     "t": "Dựa vào quy trình nghiệp vụ"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Ba cách ở B1: tìm danh từ, trả lời \"Ai hoặc cái gì tham gia?\", dựa vào các bước của quy trình nghiệp vụ.</p>",
+   "why_wrong": {
+    "b": "Câu hỏi này dùng ở B5 để suy ra chức năng.",
+    "d": "Sơ đồ Object Relationship là output của B3, cần Object List trước."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.10"
+  },
+  {
+   "id": "L11b-q27",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong bản tổng kết 5 bước của hệ thống thư viện, \"Nhân viên\" được xếp vào đâu?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Object List"
+    },
+    {
+     "id": "b",
+     "t": "Danh sách chức năng"
+    },
+    {
+     "id": "c",
+     "t": "Thuộc tính của Phiếu mượn"
+    },
+    {
+     "id": "d",
+     "t": "Danh sách Actor"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Bản tổng kết ghi Actor: Thành viên, Nhân viên. Nhân viên dùng hệ thống (ví dụ tạo phiếu mượn), nên là Actor.</p>",
+   "why_wrong": {
+    "a": "Object List của bản tổng kết chỉ gồm Sách, Thành viên, Phiếu mượn.",
+    "b": "Chức năng là Tạo phiếu mượn, Xem thông tin sách.",
+    "c": "Thuộc tính của Phiếu mượn là Mã phiếu, Ngày mượn."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.21"
+  },
+  {
+   "id": "L11b-q28",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong mục tiêu \"phân rã hệ thống thành các lớp (class)\", chữ \"lớp\" gần nghĩa nhất với điều gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tầng mạng của hệ thống"
+    },
+    {
+     "id": "b",
+     "t": "Nhóm đối tượng cùng loại, gắn với chức năng và vai trò nghiệp vụ"
+    },
+    {
+     "id": "c",
+     "t": "Lớp học đào tạo người dùng"
+    },
+    {
+     "id": "d",
+     "t": "Tầng giao diện người dùng, nơi hiển thị dữ liệu cho người dùng cuối"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Class là khuôn chung cho các đối tượng cùng loại (ví dụ lớp Sách), gắn với chức năng và vai trò nghiệp vụ.</p>",
+   "why_wrong": {
+    "a": "Tầng mạng là khái niệm hạ tầng, không phải class.",
+    "c": "\"Lớp học\" là nghĩa thường ngày, không phải nghĩa trong OOA.",
+    "d": "Tầng giao diện là khái niệm kiến trúc, không phải class trong OOA."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.8"
+  },
+  {
+   "id": "L11b-q29",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ví dụ mô tả: \"Nhân viên nhà hàng cập nhật trạng thái đơn hàng sau khi shipper nhận món.\" Từ nào nên được đưa vào Object List?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Cập nhật"
+    },
+    {
+     "id": "b",
+     "t": "Đơn hàng"
+    },
+    {
+     "id": "c",
+     "t": "Sau khi"
+    },
+    {
+     "id": "d",
+     "t": "Trạng thái nhanh chóng của việc giao"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>\"Đơn hàng\" là danh từ, có thông tin riêng và có hành động liên quan (được cập nhật), nên là đối tượng.</p>",
+   "why_wrong": {
+    "a": "\"Cập nhật\" là động từ, gợi ý hành vi hoặc chức năng.",
+    "c": "\"Sau khi\" là từ nối chỉ thời gian, không phải đối tượng.",
+    "d": "Đây là cụm mô tả; \"trạng thái\" chỉ là thuộc tính của Đơn hàng."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.10"
+  },
+  {
+   "id": "L11b-q30",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Trong hệ thống đặt đồ ăn, mục nào là Actor? (Chọn 2)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Đơn hàng"
+    },
+    {
+     "id": "b",
+     "t": "Khách hàng"
+    },
+    {
+     "id": "c",
+     "t": "Món ăn trong thực đơn"
+    },
+    {
+     "id": "d",
+     "t": "Nhân viên nhà hàng"
+    },
+    {
+     "id": "e",
+     "t": "Giỏ hàng"
+    }
+   ],
+   "answer": [
+    "b",
+    "d"
+   ],
+   "explain": "<p>Hỏi \"Ai dùng hệ thống?\": Khách hàng đặt món, Nhân viên nhà hàng xác nhận đơn. Cả hai ở ngoài hệ thống.</p>",
+   "why_wrong": {
+    "a": "Đơn hàng được hệ thống quản lý, nên là Object.",
+    "c": "Món ăn là dữ liệu trong hệ thống, nên là Object.",
+    "e": "Giỏ hàng là dữ liệu tạm trong hệ thống, nên là Object."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.17-18"
+  },
+  {
+   "id": "L11b-q31",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Khi lập danh sách chi tiết cho Object \"Đơn hàng\" của app đặt đồ ăn, nhóm nào phù hợp nhất với cột Đặc điểm?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Được tạo, Được hủy"
+    },
+    {
+     "id": "b",
+     "t": "Khách hàng, Shipper"
+    },
+    {
+     "id": "c",
+     "t": "Mã đơn, Ngày đặt, Tổng tiền"
+    },
+    {
+     "id": "d",
+     "t": "Đặt món, Thanh toán đơn hàng"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Đặc điểm là thông tin mô tả đối tượng: mã, ngày, tổng tiền của đơn.</p>",
+   "why_wrong": {
+    "a": "Đây là hành vi (việc làm) của Đơn hàng, thuộc cột Việc làm.",
+    "b": "Đây là Actor, không phải thông tin của đơn.",
+    "d": "Đây là chức năng của hệ thống (output B5)."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.13"
+  },
+  {
+   "id": "L11b-q32",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Với FoodNow (đặt bàn nhà hàng), BA hỏi \"Khách hàng làm gì với Bàn?\". Kết quả nào là một chức năng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Số ghế"
+    },
+    {
+     "id": "b",
+     "t": "Nhân viên"
+    },
+    {
+     "id": "c",
+     "t": "Bàn"
+    },
+    {
+     "id": "d",
+     "t": "Đặt bàn"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>\"Actor làm gì với Object?\" cho ra chức năng dạng động từ + danh từ: Khách hàng đặt bàn → chức năng \"Đặt bàn\".</p>",
+   "why_wrong": {
+    "a": "Số ghế là thuộc tính của Bàn.",
+    "b": "Nhân viên là Actor.",
+    "c": "Bàn là Object."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.19"
+  },
+  {
+   "id": "L11b-q33",
+   "type": "tf",
+   "level": "apdung",
+   "q": "<p>Trong hệ thống quản lý thư viện, \"Tiêu đề\" nên được liệt kê thành một Object riêng trong Object List.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Sai. \"Tiêu đề\" là đặc điểm (thuộc tính) của Sách, được ghi ở B2, không phải đối tượng.</p>",
+   "why_wrong": {
+    "d": "Tiêu đề không có hành vi riêng và chỉ mô tả Sách, nên là thuộc tính."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.5, 13"
+  },
+  {
+   "id": "L11b-q34",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ví dụ: FoodNow cho khách đặt cọc qua một cổng thanh toán của bên thứ ba. Trong phân tích hướng đối tượng, cổng thanh toán này là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Actor, vì là hệ thống bên ngoài tương tác với hệ thống"
+    },
+    {
+     "id": "b",
+     "t": "Object, vì nó xử lý tiền và mọi thứ liên quan đến tiền đều cần lưu"
+    },
+    {
+     "id": "c",
+     "t": "Thuộc tính của Bàn"
+    },
+    {
+     "id": "d",
+     "t": "Một chức năng của hệ thống"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>B4 liệt kê người/hệ thống bên ngoài tương tác. Cổng thanh toán nằm ngoài FoodNow và tương tác với nó, nên là Actor.</p>",
+   "why_wrong": {
+    "b": "Liên quan đến tiền không làm nó thành Object; nó nằm ngoài hệ thống. Giao dịch thanh toán được lưu mới là Object.",
+    "c": "Cổng thanh toán không mô tả Bàn.",
+    "d": "\"Thanh toán đặt cọc\" mới là chức năng; cổng thanh toán là bên tham gia."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.17"
+  },
+  {
+   "id": "L11b-q35",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ở B3 của hệ thống đặt đồ ăn, cách mô tả quan hệ nào giữa Khách hàng và Đơn hàng đúng với hướng dẫn của slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Đơn hàng là một loại Khách hàng"
+    },
+    {
+     "id": "b",
+     "t": "Khách hàng là hành vi của Đơn hàng"
+    },
+    {
+     "id": "c",
+     "t": "Khách hàng — tạo — Đơn hàng"
+    },
+    {
+     "id": "d",
+     "t": "Hai đối tượng không thể có quan hệ"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Quan hệ được mô tả bằng động từ đặt trên mũi tên: Khách hàng tạo Đơn hàng.</p>",
+   "why_wrong": {
+    "a": "Đơn hàng và Khách hàng là hai loại đối tượng khác nhau.",
+    "b": "Khách hàng là đối tượng/Actor, không phải hành vi.",
+    "d": "Khách hàng và Đơn hàng có quan hệ rõ: khách tạo đơn."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.15"
+  },
+  {
+   "id": "L11b-q36",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Hệ thống thư viện có Actor Thành viên, Nhân viên và Object Sách (Được mượn, Được trả), Phiếu mượn (Tạo mới). Mục nào là chức năng hợp lý suy ra ở B5? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tạo phiếu mượn"
+    },
+    {
+     "id": "b",
+     "t": "Tiêu đề sách"
+    },
+    {
+     "id": "c",
+     "t": "Xem thông tin sách"
+    },
+    {
+     "id": "d",
+     "t": "Ghi nhận trả sách"
+    },
+    {
+     "id": "e",
+     "t": "Thành viên thư viện"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Chức năng có dạng động từ + danh từ, suy ra từ Actor làm gì với Object. \"Ghi nhận trả sách\" đến từ hành vi \"Được trả\" của Sách.</p>",
+   "why_wrong": {
+    "b": "Tiêu đề là thuộc tính của Sách.",
+    "e": "Thành viên là Actor (và Object), không phải chức năng."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.13, 19, 21"
+  },
+  {
+   "id": "L11b-q37",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Một BA đang hỏi các bên liên quan: \"Ai sẽ dùng hệ thống này?\". BA đang ở bước nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "B1 – xác định đối tượng chính"
+    },
+    {
+     "id": "b",
+     "t": "B4 – xác định actor"
+    },
+    {
+     "id": "c",
+     "t": "B3 – xác định quan hệ"
+    },
+    {
+     "id": "d",
+     "t": "B2 – xác định thuộc tính và hành vi"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>\"Ai dùng hệ thống?\" là câu hỏi của B4 để lập danh sách Actor.</p>",
+   "why_wrong": {
+    "a": "B1 hỏi \"Ai hoặc cái gì tham gia?\" để tìm Object.",
+    "c": "B3 hỏi về quan hệ giữa các đối tượng.",
+    "d": "B2 hỏi về thông tin và việc làm của từng đối tượng."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.17"
+  },
+  {
+   "id": "L11b-q38",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>App đặt đồ ăn cần lưu tên, số điện thoại, địa chỉ của khách. Một BA chỉ ghi \"Khách hàng\" vào danh sách Actor. Nên sửa thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Xóa Khách hàng khỏi danh sách Actor"
+    },
+    {
+     "id": "b",
+     "t": "Đổi Khách hàng thành một chức năng"
+    },
+    {
+     "id": "c",
+     "t": "Ghi thêm Khách hàng vào Object List với các thuộc tính cần lưu"
+    },
+    {
+     "id": "d",
+     "t": "Không cần sửa gì, vì theo định nghĩa Actor không bao giờ có thông tin cần lưu"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Khách hàng vừa dùng hệ thống (Actor) vừa có thông tin cần lưu (Object), giống ví dụ Thành viên trên slide.</p>",
+   "why_wrong": {
+    "a": "Khách hàng vẫn là Actor vì họ đặt món.",
+    "b": "Khách hàng là thực thể, không phải chức năng.",
+    "d": "Slide cho phép một thực thể vừa là Actor vừa là Object khi hệ thống lưu dữ liệu về nó."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.11"
+  },
+  {
+   "id": "L11b-q39",
+   "type": "tf",
+   "level": "apdung",
+   "q": "<p>Trong app đặt đồ ăn, \"Giỏ hàng\" có thể là một đối tượng vì hệ thống lưu các món đã chọn và giỏ có hành động liên quan như thêm món, xóa món.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Đúng. Giỏ hàng có thông tin riêng (danh sách món, tạm tính) và có hành động liên quan, thỏa dấu hiệu nhận diện đối tượng.</p>",
+   "why_wrong": {
+    "s": "Giỏ hàng có đủ dấu hiệu: có thông tin riêng và có hành động liên quan."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.6"
+  },
+  {
+   "id": "L11b-q40",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trong dự án mock, một BA mới liệt kê ngay 20 chức năng trước khi có Object List và danh sách Actor. Theo phương pháp 5 bước, rủi ro chính là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chức năng không được suy ra từ Actor và Object nên dễ thiếu hoặc thừa"
+    },
+    {
+     "id": "b",
+     "t": "Không có rủi ro gì, vì thứ tự các bước phân tích không ảnh hưởng tới kết quả"
+    },
+    {
+     "id": "c",
+     "t": "Sơ đồ Object Relationship sẽ tự sinh ra sai"
+    },
+    {
+     "id": "d",
+     "t": "Actor sẽ tự biến thành Object"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>B5 suy ra chức năng bằng cách hỏi \"Actor làm gì với Object?\" và xem hành vi của Object. Làm ngược thì không có căn cứ kiểm tra đủ hay thiếu.</p>",
+   "why_wrong": {
+    "b": "Slide sắp xếp B5 sau cùng vì chức năng phụ thuộc vào Actor và Object.",
+    "c": "Sơ đồ không tự sinh ra; vấn đề nằm ở danh sách chức năng thiếu căn cứ.",
+    "d": "Thứ tự làm không làm thay đổi bản chất Actor hay Object."
+   },
+   "src": "11. Phan tich huong doi tuong.pdf tr.9, 19"
+  }
+ ]
+}

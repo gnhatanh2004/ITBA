@@ -1,0 +1,359 @@
+{
+ "lesson": "L11c",
+ "voice": "vi-VN-NamMinhNeural",
+ "hash": "643d3317fd3c48fc",
+ "duration": 372.384,
+ "chunks": [
+  {
+   "id": "L11c-n1",
+   "start": 0.0,
+   "end": 30.432,
+   "sents": [
+    [
+     0.1,
+     4.2,
+     "Chào bạn, mình bắt đầu phần phân tích GAP của buổi mười một."
+    ],
+    [
+     4.15,
+     7.875,
+     "Đây là một kỹ thuật nhỏ nhưng BA dùng rất thường xuyên."
+    ],
+    [
+     7.875,
+     10.188,
+     "Phần này có bốn mục tiêu."
+    ],
+    [
+     10.188,
+     17.675,
+     "Thứ nhất, hiểu GAP Analysis là gì, cùng bốn khái niệm As-Is, To-Be, Gap và Action Plan."
+    ],
+    [
+     17.675,
+     21.262,
+     "Thứ hai, nêu được bốn lý do cần phân tích GAP."
+    ],
+    [
+     21.262,
+     25.887,
+     "Thứ ba, đọc và điền được bảng Gap Analysis Template năm cột."
+    ],
+    [
+     25.887,
+     30.425,
+     "Và thứ tư, làm được năm bước phân tích GAP cho một tình huống doanh nghiệp."
+    ]
+   ]
+  },
+  {
+   "id": "L11c-n2",
+   "start": 31.032,
+   "end": 75.672,
+   "sents": [
+    [
+     31.132,
+     42.694,
+     "Trước hết, GAP Analysis, hay phân tích khoảng cách, là phương pháp phân tích khoảng cách giữa hiện tại và mong muốn, rồi đề xuất giải pháp để lấp khoảng cách đó, sao cho giải pháp phù hợp với mục tiêu kinh doanh."
+    ],
+    [
+     42.645,
+     45.044,
+     "Có bốn khái niệm cần nắm."
+    ],
+    [
+     45.044,
+     51.032,
+     "As-Is là trạng thái hiện tại, tức những gì hệ thống, quy trình hay doanh nghiệp đang có."
+    ],
+    [
+     51.032,
+     57.082,
+     "To-Be là trạng thái mong muốn, tức mục tiêu, nhu cầu hay giải pháp mà doanh nghiệp muốn đạt được."
+    ],
+    [
+     57.082,
+     63.657,
+     "Gap là phần chênh lệch giữa As-Is và To-Be, còn Action Plan là các bước chính để lấp khoảng cách."
+    ],
+    [
+     63.657,
+     69.607,
+     "Lưu ý, cái gì đang có thì dù tốt hay xấu vẫn thuộc As-Is, không phải To-Be."
+    ],
+    [
+     69.607,
+     75.657,
+     "Mẹo nhớ bằng bốn câu hỏi: đang ở đâu, muốn tới đâu, thiếu gì, làm gì."
+    ]
+   ]
+  },
+  {
+   "id": "L11c-n3",
+   "start": 76.272,
+   "end": 118.56,
+   "sents": [
+    [
+     76.372,
+     78.985,
+     "Vậy vì sao cần phân tích GAP?"
+    ],
+    [
+     78.934,
+     81.297,
+     "Slide nêu bốn lý do."
+    ],
+    [
+     81.297,
+     84.872,
+     "Một, giúp doanh nghiệp hiểu rõ vấn đề hiện tại."
+    ],
+    [
+     84.872,
+     89.222,
+     "Hai, đảm bảo giải pháp mới thật sự phù hợp với mục tiêu kinh doanh."
+    ],
+    [
+     89.222,
+     96.497,
+     "Ba, là cơ sở để BA viết requirement chính xác, tránh thiếu sót, vì mỗi Gap thường trở thành một hoặc nhiều requirement."
+    ],
+    [
+     96.497,
+     103.935,
+     "Ví dụ Gap chưa có kiểm tra dữ liệu khi nhập đơn sẽ thành requirement: hệ thống kiểm tra định dạng và giá trị bắt buộc khi nhập đơn hàng."
+    ],
+    [
+     103.935,
+     108.897,
+     "Bốn, giúp lập kế hoạch triển khai, chi phí và thời gian sát thực tế."
+    ],
+    [
+     108.897,
+     118.56,
+     "Trong BABOK, ý này nằm ở việc mô tả trạng thái hiện tại, định nghĩa trạng thái tương lai rồi so sánh hai bên, còn slide gom lại thành một kỹ thuật gọn là GAP Analysis."
+    ]
+   ]
+  },
+  {
+   "id": "L11c-n4",
+   "start": 119.16,
+   "end": 171.432,
+   "sents": [
+    [
+     119.26,
+     124.26,
+     "Công cụ chính của phần này là Gap Analysis Template, một bảng năm cột."
+    ],
+    [
+     124.21,
+     127.547,
+     "Area of Focus là lĩnh vực đang phân tích."
+    ],
+    [
+     127.547,
+     131.21,
+     "Current State là hiện tại, tức As-Is."
+    ],
+    [
+     131.21,
+     134.46,
+     "Desired State là mong muốn, tức To-Be."
+    ],
+    [
+     134.46,
+     140.023,
+     "Gap là chênh lệch giữa hai cột đó, còn Action Plan là việc cần làm để lấp Gap."
+    ],
+    [
+     140.023,
+     152.248,
+     "Lấy dòng thời gian phản hồi hỗ trợ khách hàng trên slide: hiện tại trung bình tám giờ, mong muốn giảm còn hai giờ, vậy Gap là chậm sáu giờ, và Action Plan là tuyển hai nhân viên hỗ trợ, triển khai live chat."
+    ],
+    [
+     152.248,
+     164.097,
+     "Các dòng khác đọc tương tự, ví dụ website đang có hai mươi nghìn lượt truy cập mỗi tháng, muốn đạt năm mươi nghìn, thì thiếu ba mươi nghìn lượt, và giải pháp là SEO, content marketing cùng quảng cáo trả phí."
+    ],
+    [
+     164.097,
+     171.423,
+     "Hai điều cần nhớ: Gap nên đo được bằng cách lấy mong muốn so với hiện tại, và Action Plan phải nhắm đúng Gap ở cùng dòng."
+    ]
+   ]
+  },
+  {
+   "id": "L11c-n5",
+   "start": 172.032,
+   "end": 214.608,
+   "sents": [
+    [
+     172.132,
+     175.37,
+     "Để điền bảng đó, ta đi theo năm bước."
+    ],
+    [
+     175.32,
+     182.007,
+     "Bước một, xác định phạm vi: phân tích lĩnh vực nào, quy trình nào, chính là cột Area of Focus."
+    ],
+    [
+     182.007,
+     188.182,
+     "Bước hai, xác định trạng thái hiện tại: đang làm thế nào, số liệu ra sao, vấn đề gì."
+    ],
+    [
+     188.182,
+     193.032,
+     "Bước ba, xác định trạng thái mong muốn: muốn đạt gì và đo bằng gì."
+    ],
+    [
+     193.032,
+     198.332,
+     "Bước bốn, xác định GAP bằng cách so sánh hai trạng thái và chỉ ra phần còn thiếu."
+    ],
+    [
+     198.332,
+     203.082,
+     "Bước năm mới là đề xuất giải pháp, tức kế hoạch hành động để lấp từng Gap."
+    ],
+    [
+     203.082,
+     214.607,
+     "Có hai lỗi hay gặp: nhảy thẳng tới bước năm khi chưa mô tả rõ hiện tại, và ghi Gap thành một giải pháp, như cần mua phần mềm, thay vì ghi phần còn thiếu, như chưa có công cụ tự động tổng hợp số liệu."
+    ]
+   ]
+  },
+  {
+   "id": "L11c-n6",
+   "start": 215.208,
+   "end": 274.872,
+   "sents": [
+    [
+     215.308,
+     218.358,
+     "Giờ áp dụng vào tình huống trên slide."
+    ],
+    [
+     218.308,
+     226.245,
+     "Doanh nghiệp A quản lý đơn hàng bằng Excel, nên hay lỗi nhập liệu, mất thời gian tổng hợp, và số liệu sai sót, không logic."
+    ],
+    [
+     226.245,
+     231.395,
+     "Mong muốn của họ là một hệ thống quản lý đơn hàng, kho và thanh toán tự động."
+    ],
+    [
+     231.395,
+     241.071,
+     "Bước một, ta chia phạm vi theo mong muốn đó: đơn hàng, kho và thanh toán, trong đó phần đơn hàng tách thành nhập đơn, tổng hợp báo cáo và độ chính xác số liệu."
+    ],
+    [
+     241.071,
+     252.945,
+     "Với dòng nhập đơn, As-Is là nhập tay vào Excel, To-Be là nhập trên hệ thống có kiểm tra dữ liệu, Gap là chưa có kiểm tra khi nhập, và Action Plan là xây form nhập đơn có ràng buộc dữ liệu."
+    ],
+    [
+     252.945,
+     260.07,
+     "Với kho, Gap là chưa liên kết đơn hàng với kho, nên giải pháp là module kho tự trừ tồn khi đơn được xác nhận."
+    ],
+    [
+     260.07,
+     267.02,
+     "Với số liệu sai, Gap là dữ liệu rời rạc, tính bằng tay, nên cần lưu tập trung và để hệ thống tự tính."
+    ],
+    [
+     267.02,
+     274.858,
+     "Đề không cho số liệu nên Gap ở đây mô tả bằng lời, còn khi làm thật, BA nên đo thêm số liệu As-Is để Gap đo được."
+    ]
+   ]
+  },
+  {
+   "id": "L11c-n7",
+   "start": 275.472,
+   "end": 327.576,
+   "sents": [
+    [
+     275.572,
+     279.885,
+     "Muốn điền bảng cho đúng, bạn cần phân biệt rõ cách viết từng cột."
+    ],
+    [
+     279.834,
+     288.084,
+     "As-Is mô tả việc đang làm, To-Be mô tả điều muốn đạt, Gap mô tả thứ còn thiếu, còn Action Plan mô tả việc sẽ làm."
+    ],
+    [
+     288.084,
+     295.51,
+     "Mẹo nhanh: câu bắt đầu bằng chữ chưa có thường là Gap, câu bắt đầu bằng động từ như xây hay triển khai thường là Action Plan."
+    ],
+    [
+     295.51,
+     300.122,
+     "Ví dụ một thư viện đang ghi phiếu mượn bằng tay và muốn chuyển lên hệ thống."
+    ],
+    [
+     300.122,
+     309.297,
+     "Gap là chưa có dữ liệu sách số hóa và chưa có chức năng tạo phiếu mượn điện tử, còn Action Plan là nhập dữ liệu sách và xây chức năng Tạo phiếu mượn."
+    ],
+    [
+     309.297,
+     315.422,
+     "Tương tự, nhà hàng dùng FoodNow đang nhận đặt bàn qua điện thoại, ghi sổ và hay xếp trùng bàn."
+    ],
+    [
+     315.422,
+     327.572,
+     "Gap là chưa có kênh đặt bàn online, chưa có trạng thái bàn theo giờ và chưa kiểm tra trùng lịch, nên Action Plan là xây chức năng đặt bàn online, quản lý bàn theo khung giờ, chặn đặt trùng và gửi xác nhận tự động."
+    ]
+   ]
+  },
+  {
+   "id": "L11c-n8",
+   "start": 328.176,
+   "end": 372.384,
+   "sents": [
+    [
+     328.276,
+     330.688,
+     "Tóm lại phần phân tích GAP."
+    ],
+    [
+     330.638,
+     340.214,
+     "GAP Analysis so sánh hiện tại, tức As-Is, với mong muốn, tức To-Be, để tìm ra Gap và đề xuất Action Plan phù hợp mục tiêu kinh doanh."
+    ],
+    [
+     340.214,
+     347.738,
+     "Phân tích GAP giúp hiểu rõ vấn đề, chọn giải pháp đúng mục tiêu, làm cơ sở viết requirement và lập kế hoạch sát thực tế."
+    ],
+    [
+     347.738,
+     355.613,
+     "Gap Analysis Template có năm cột: Area of Focus, Current State, Desired State, Gap và Action Plan."
+    ],
+    [
+     355.613,
+     362.826,
+     "Năm bước đi theo đúng thứ tự đó: phạm vi, hiện tại, mong muốn, GAP, rồi mới tới giải pháp."
+    ],
+    [
+     362.826,
+     367.926,
+     "Nhớ ghi thứ còn thiếu vào cột Gap, còn việc sẽ làm thì để ở Action Plan."
+    ],
+    [
+     367.926,
+     372.376,
+     "Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài."
+    ]
+   ]
+  }
+ ]
+}

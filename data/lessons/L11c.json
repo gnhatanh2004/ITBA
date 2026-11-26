@@ -1,0 +1,912 @@
+{
+ "id": "L11c",
+ "session": 11,
+ "module": "M3",
+ "title": "Phân tích GAP",
+ "goals": [
+  "Giải thích được GAP Analysis (phân tích khoảng cách) và các khái niệm As-Is, To-Be, Gap, Action Plan",
+  "Nêu được 4 lý do cần phân tích GAP",
+  "Đọc và điền được bảng Gap Analysis Template 5 cột",
+  "Thực hiện được 5 bước phân tích GAP cho một tình huống doanh nghiệp"
+ ],
+ "sources": [
+  {
+   "file": "11. Phan tich GAP.pdf",
+   "pages": "1-8"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L11c-t1",
+   "h": "GAP Analysis là gì",
+   "html": "<p><b>GAP Analysis (phân tích khoảng cách)</b> là phương pháp phân tích <b>khoảng cách giữa hiện tại và mong muốn</b>, từ đó <b>đề xuất giải pháp để lấp đầy khoảng cách</b>, đảm bảo giải pháp phù hợp với mục tiêu kinh doanh.</p><table><thead><tr><th>Khái niệm</th><th>Ý nghĩa</th></tr></thead><tbody><tr><td><b>As-Is</b> (trạng thái hiện tại – Current State)</td><td>Những gì hệ thống / quy trình / doanh nghiệp <b>đang có</b>.</td></tr><tr><td><b>To-Be</b> (trạng thái mong muốn – Desired State)</td><td>Mục tiêu, nhu cầu, hay giải pháp mà doanh nghiệp <b>muốn đạt được</b>.</td></tr><tr><td><b>Gap</b> (khoảng cách)</td><td>Phần chênh lệch giữa As-Is và To-Be.</td></tr><tr><td><b>Action Plan</b> (kế hoạch hành động)</td><td>Các bước chính để lấp khoảng cách (key steps to bridge gap).</td></tr></tbody></table>{{img:L11c-img1}}<p class=\"tip\">Mẹo nhớ: <b>Đang ở đâu → Muốn tới đâu → Thiếu gì → Làm gì</b>.</p>",
+   "src": "11. Phan tich GAP.pdf tr.3"
+  },
+  {
+   "id": "L11c-t2",
+   "h": "Tại sao cần phân tích GAP",
+   "html": "<ul><li>Giúp doanh nghiệp <b>hiểu rõ vấn đề hiện tại</b>.</li><li>Đảm bảo giải pháp mới <b>thật sự phù hợp với mục tiêu kinh doanh</b>.</li><li>Là <b>cơ sở để BA viết requirement</b> (yêu cầu) chính xác, tránh thiếu sót.</li><li>Giúp <b>lập kế hoạch triển khai, chi phí, thời gian</b> sát thực tế.</li></ul><p class=\"tip\">Mỗi Gap thường trở thành một hoặc nhiều requirement. Ví dụ Gap \"chưa có kiểm tra dữ liệu khi nhập đơn\" → requirement \"Hệ thống kiểm tra định dạng và giá trị bắt buộc khi nhập đơn hàng\".</p><p class=\"note\">Theo BABOK v3, việc mô tả trạng thái hiện tại (Analyze Current State) và trạng thái tương lai (Define Future State) rồi so sánh chúng là nền để xác định thay đổi cần làm. Slide gom các ý này thành một kỹ thuật gọn là GAP Analysis.</p>",
+   "src": "11. Phan tich GAP.pdf tr.4"
+  },
+  {
+   "id": "L11c-t3",
+   "h": "Gap Analysis Template",
+   "html": "<p>Mẫu bảng phân tích GAP gồm 5 cột:</p><table><thead><tr><th>Cột</th><th>Ghi gì</th></tr></thead><tbody><tr><td><b>Area of Focus</b> (lĩnh vực phân tích)</td><td>Khía cạnh đang xét, ví dụ thời gian phản hồi khách hàng.</td></tr><tr><td><b>Current State</b> (hiện tại – As-Is)</td><td>Số liệu, tình trạng hiện tại.</td></tr><tr><td><b>Desired State</b> (mong muốn – To-Be)</td><td>Mục tiêu muốn đạt.</td></tr><tr><td><b>Gap</b> (khoảng cách)</td><td>Chênh lệch giữa hai cột trên.</td></tr><tr><td><b>Action Plan</b> (kế hoạch hành động)</td><td>Việc cần làm để lấp khoảng cách.</td></tr></tbody></table><p>Ví dụ trên slide:</p><table><thead><tr><th>Area of Focus</th><th>Current State</th><th>Desired State</th><th>Gap</th><th>Action Plan</th></tr></thead><tbody><tr><td>Thời gian phản hồi hỗ trợ khách hàng</td><td>Trung bình 8 giờ</td><td>Giảm còn 2 giờ</td><td>Chậm 6 giờ</td><td>Tuyển 2 nhân viên hỗ trợ; triển khai tính năng chat trực tuyến (live chat)</td></tr><tr><td>Lượng truy cập website</td><td>20.000 lượt/tháng</td><td>50.000 lượt/tháng</td><td>Thiếu 30.000 lượt</td><td>Triển khai chiến lược SEO; đầu tư content marketing và quảng cáo trả phí</td></tr><tr><td>Tỉ lệ hoàn thành đào tạo nhân viên</td><td>60% hoàn thành chương trình onboarding</td><td>Hoàn thành 100%</td><td>40% chưa hoàn thành</td><td>Đặt hạn chót bắt buộc; thêm theo dõi tiến độ đào tạo</td></tr><tr><td>Mức sẵn sàng ra mắt sản phẩm</td><td>Hoàn thành 70% tính năng</td><td>MVP sẵn sàng 100%</td><td>30% tính năng chưa xong</td><td>Phân bổ lại nguồn lực; ưu tiên hạng mục chính trong sprint</td></tr><tr><td>Doanh thu bán hàng</td><td>500 nghìn USD/quý</td><td>800 nghìn USD/quý</td><td>Thiếu 300 nghìn USD</td><td>Mở rộng sang thị trường mới; tối ưu phễu bán hàng</td></tr></tbody></table>{{img:L11c-img2}}<p class=\"tip\">Gap nên đo được: lấy Desired State trừ Current State. Action Plan phải nhắm đúng Gap ở cùng dòng.</p>",
+   "src": "11. Phan tich GAP.pdf tr.5"
+  },
+  {
+   "id": "L11c-t4",
+   "h": "Các bước thực hiện phân tích GAP",
+   "html": "<ol><li><b>Xác định phạm vi phân tích</b>: phân tích lĩnh vực nào, quy trình nào (cột Area of Focus).</li><li><b>Xác định trạng thái hiện tại</b> (As-Is): đang làm thế nào, số liệu ra sao, vấn đề gì.</li><li><b>Xác định trạng thái mong muốn</b> (To-Be): muốn đạt gì, đo bằng gì.</li><li><b>Xác định GAP</b>: so sánh As-Is và To-Be, chỉ ra phần còn thiếu.</li><li><b>Đề xuất giải pháp</b>: kế hoạch hành động để lấp từng Gap.</li></ol>{{img:L11c-img3}}<p class=\"warn\">Lỗi hay gặp: nhảy thẳng tới bước 5 (đề xuất giải pháp) khi chưa mô tả rõ hiện tại; hoặc ghi Gap là một giải pháp (\"cần mua phần mềm\") thay vì phần còn thiếu (\"chưa có công cụ tự động tổng hợp số liệu\").</p>",
+   "src": "11. Phan tich GAP.pdf tr.6"
+  },
+  {
+   "id": "L11c-t5",
+   "h": "Thực hành trên slide: Doanh nghiệp A",
+   "html": "<p>Tình huống: Doanh nghiệp A đang quản lý đơn hàng bằng Excel, dẫn đến nhiều bất cập:</p><ul><li>Xảy ra lỗi nhập liệu.</li><li>Mất thời gian tổng hợp.</li><li>Số liệu sai sót, không logic.</li></ul><p>Doanh nghiệp A mong muốn có một hệ thống giải quyết được các vấn đề: <b>quản lý đơn hàng, kho, thanh toán tự động</b>.</p><p>Yêu cầu: thực hành phân tích GAP cho yêu cầu trên. Bài giải từng bước ở phần Thực hành (L11c-p1).</p>",
+   "src": "11. Phan tich GAP.pdf tr.7"
+  }
+ ],
+ "summary": {
+  "points": [
+   "GAP Analysis phân tích khoảng cách giữa hiện tại (As-Is) và mong muốn (To-Be), rồi đề xuất giải pháp phù hợp mục tiêu kinh doanh.",
+   "Lý do cần GAP: hiểu rõ vấn đề hiện tại; giải pháp phù hợp mục tiêu; cơ sở viết requirement; lập kế hoạch, chi phí, thời gian sát thực tế.",
+   "Template 5 cột: Area of Focus, Current State, Desired State, Gap, Action Plan.",
+   "5 bước: phạm vi → hiện tại → mong muốn → GAP → đề xuất giải pháp."
+  ],
+  "html": "<table><thead><tr><th>Bước</th><th>Câu hỏi</th><th>Cột trong template</th></tr></thead><tbody><tr><td>1. Phạm vi</td><td>Phân tích cái gì?</td><td>Area of Focus</td></tr><tr><td>2. Hiện tại</td><td>Đang ở đâu?</td><td>Current State</td></tr><tr><td>3. Mong muốn</td><td>Muốn tới đâu?</td><td>Desired State</td></tr><tr><td>4. GAP</td><td>Thiếu gì?</td><td>Gap</td></tr><tr><td>5. Giải pháp</td><td>Làm gì để lấp?</td><td>Action Plan</td></tr></tbody></table>"
+ },
+ "images": [
+  {
+   "id": "L11c-img1",
+   "path": "data/pages/11. Phan tich GAP/p-003.jpg",
+   "caption": "Từ Current State tới Desired State qua Action Plan",
+   "crop": [
+    0.533,
+    0.23,
+    0.98,
+    0.79
+   ]
+  },
+  {
+   "id": "L11c-img2",
+   "path": "data/pages/11. Phan tich GAP/p-005.jpg",
+   "caption": "Gap Analysis Template với 5 ví dụ",
+   "crop": [
+    0.02,
+    0.12,
+    0.98,
+    0.912
+   ]
+  },
+  {
+   "id": "L11c-img3",
+   "path": "data/pages/11. Phan tich GAP/p-006.jpg",
+   "caption": "Năm bước thực hiện phân tích GAP",
+   "crop": [
+    0.03,
+    0.18,
+    0.96,
+    0.83
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "id": "L11c-e1",
+   "title": "Đọc một dòng của Gap Analysis Template",
+   "html": "<p>Lấy dòng \"Customer Support Response Time\" (thời gian phản hồi hỗ trợ khách hàng) trên slide và đọc theo 5 cột:</p><table><thead><tr><th>Cột</th><th>Giá trị</th><th>Cách hiểu</th></tr></thead><tbody><tr><td>Area of Focus</td><td>Thời gian phản hồi hỗ trợ</td><td>Phạm vi phân tích (bước 1)</td></tr><tr><td>Current State</td><td>Trung bình 8 giờ</td><td>As-Is (bước 2)</td></tr><tr><td>Desired State</td><td>Giảm còn 2 giờ</td><td>To-Be (bước 3)</td></tr><tr><td>Gap</td><td>Chậm 6 giờ</td><td>8 − 2 = 6 giờ (bước 4)</td></tr><tr><td>Action Plan</td><td>Tuyển 2 nhân viên hỗ trợ; triển khai live chat</td><td>Giải pháp (bước 5)</td></tr></tbody></table><p>Nhận xét: Gap được lượng hóa bằng con số, và hai hành động đều nhắm vào việc rút ngắn thời gian phản hồi.</p><p>Các dòng khác đọc tương tự: lượng truy cập website thiếu 50.000 − 20.000 = 30.000 lượt; doanh thu thiếu 800 − 500 = 300 nghìn USD mỗi quý.</p>",
+   "src": "11. Phan tich GAP.pdf tr.5"
+  },
+  {
+   "id": "L11c-e2",
+   "title": "Phân tích GAP cho hệ thống quản lý thư viện (ví dụ)",
+   "html": "<p>Ví dụ tự đặt: thư viện đang ghi mượn – trả sách bằng sổ giấy và muốn chuyển sang hệ thống quản lý thư viện.</p><table><thead><tr><th>Area of Focus</th><th>As-Is</th><th>To-Be</th><th>Gap</th><th>Action Plan</th></tr></thead><tbody><tr><td>Mượn sách</td><td>Thủ thư ghi phiếu mượn bằng tay</td><td>Tạo phiếu mượn trên hệ thống</td><td>Chưa có chức năng tạo phiếu mượn điện tử</td><td>Xây chức năng Tạo phiếu mượn</td></tr><tr><td>Tra cứu sách</td><td>Thành viên hỏi thủ thư, thủ thư tìm trong sổ</td><td>Thành viên tự tra cứu</td><td>Chưa có dữ liệu sách số hóa và chức năng tìm kiếm</td><td>Nhập dữ liệu sách; xây chức năng Xem thông tin sách</td></tr><tr><td>Quá hạn trả</td><td>Không biết sách nào quá hạn nếu không dò sổ</td><td>Tự động phát hiện sách quá hạn</td><td>Chưa có theo dõi hạn trả</td><td>Thêm thuộc tính hạn trả cho Phiếu mượn; báo cáo quá hạn</td></tr></tbody></table><p class=\"tip\">Chú ý cách viết: As-Is mô tả việc đang làm, Gap mô tả thứ <b>còn thiếu</b>, Action Plan mô tả việc <b>sẽ làm</b>.</p>",
+   "src": "11. Phan tich GAP.pdf tr.3, 5-6"
+  },
+  {
+   "id": "L11c-e3",
+   "title": "Phân tích GAP cho FoodNow – đặt bàn nhà hàng (ví dụ)",
+   "html": "<p>Ví dụ tự đặt: nhà hàng nhận đặt bàn qua điện thoại và ghi vào sổ, thường bị trùng bàn. Nhà hàng muốn dùng FoodNow để khách tự đặt bàn online.</p><ol><li><b>Phạm vi:</b> quy trình đặt bàn.</li><li><b>As-Is:</b> khách gọi điện; nhân viên ghi sổ; không xem được bàn trống theo giờ; đôi khi xếp trùng bàn.</li><li><b>To-Be:</b> khách tự chọn bàn trống và giờ đến trên app; hệ thống tự xác nhận; không trùng bàn.</li><li><b>GAP:</b> chưa có kênh đặt bàn online; chưa có dữ liệu trạng thái bàn theo giờ; chưa có kiểm tra trùng lịch.</li><li><b>Giải pháp:</b> xây chức năng đặt bàn online; quản lý trạng thái bàn theo khung giờ; chặn đặt trùng và gửi xác nhận tự động.</li></ol>",
+   "src": "11. Phan tich GAP.pdf tr.6"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L11c-p1",
+   "title": "Thực hành trên slide: phân tích GAP cho Doanh nghiệp A",
+   "task": "<p>Doanh nghiệp A quản lý đơn hàng bằng Excel, gặp lỗi nhập liệu, mất thời gian tổng hợp, số liệu sai sót, không logic. Doanh nghiệp muốn có hệ thống quản lý đơn hàng, kho, thanh toán tự động. Hãy phân tích GAP.</p>",
+   "steps": [
+    "<p>Bước 1 – Phạm vi: chia yêu cầu thành 3 lĩnh vực theo mong muốn của doanh nghiệp: Quản lý đơn hàng, Quản lý kho, Thanh toán.</p>",
+    "<p>Bước 2 – As-Is: ghi lại hiện trạng từ đề bài: đơn hàng nhập tay vào Excel; tổng hợp thủ công; số liệu sai, không logic. Kho và thanh toán cũng chưa tự động (đề chỉ nói có Excel).</p>",
+    "<p>Bước 3 – To-Be: đơn hàng nhập trên hệ thống có kiểm tra dữ liệu; báo cáo tổng hợp tự động; tồn kho tự cập nhật theo đơn; thanh toán được ghi nhận và đối soát tự động.</p>",
+    "<p>Bước 4 – GAP: so sánh từng dòng, ghi thứ còn thiếu (không ghi giải pháp).</p>",
+    "<p>Bước 5 – Giải pháp: với mỗi Gap, đề xuất hành động cụ thể. Điền tất cả vào bảng 5 cột.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Area of Focus</th><th>Current State</th><th>Desired State</th><th>Gap</th><th>Action Plan</th></tr></thead><tbody><tr><td>Nhập đơn hàng</td><td>Nhập tay vào Excel, hay sai</td><td>Nhập trên hệ thống, dữ liệu được kiểm tra</td><td>Chưa có kiểm tra (validate) khi nhập</td><td>Xây form nhập đơn có ràng buộc dữ liệu, chọn sản phẩm từ danh mục</td></tr><tr><td>Tổng hợp, báo cáo</td><td>Tổng hợp thủ công, mất thời gian</td><td>Báo cáo tự động, tức thời</td><td>Chưa có công cụ tổng hợp tự động</td><td>Xây chức năng báo cáo đơn hàng theo ngày/tháng</td></tr><tr><td>Độ chính xác số liệu</td><td>Sai sót, không logic</td><td>Số liệu đúng, nhất quán</td><td>Dữ liệu rời rạc, tính toán bằng tay</td><td>Lưu dữ liệu tập trung; hệ thống tự tính tổng tiền</td></tr><tr><td>Kho</td><td>Chưa quản lý tự động</td><td>Tồn kho tự cập nhật theo đơn</td><td>Chưa liên kết đơn hàng với kho</td><td>Xây module kho: trừ tồn khi đơn xác nhận, cảnh báo hết hàng</td></tr><tr><td>Thanh toán</td><td>Chưa tự động</td><td>Ghi nhận, đối soát thanh toán tự động</td><td>Chưa có ghi nhận thanh toán gắn với đơn</td><td>Xây module thanh toán, tích hợp cổng thanh toán</td></tr></tbody></table><p class=\"note\">Đề không cho số liệu, nên cột Gap mô tả bằng lời. Khi làm thực tế, BA nên đo thêm số liệu As-Is (ví dụ số lỗi mỗi tuần, số giờ tổng hợp) để Gap đo được như template.</p>",
+   "src": "11. Phan tich GAP.pdf tr.5-7"
+  },
+  {
+   "id": "L11c-p2",
+   "title": "Phân tích GAP cho hệ thống đặt đồ ăn",
+   "task": "<p>Ví dụ tự đặt: một nhà hàng nhận đơn đồ ăn qua tin nhắn mạng xã hội. Nhân viên chép đơn ra giấy, khách hỏi tình trạng đơn phải nhắn lại. Nhà hàng muốn khách đặt món trên ứng dụng và tự theo dõi trạng thái đơn. Hãy phân tích GAP theo 5 bước.</p>",
+   "steps": [
+    "<p>Bước 1 – Phạm vi: quy trình nhận đơn và theo dõi đơn.</p>",
+    "<p>Bước 2 – As-Is: đơn đến qua tin nhắn; chép tay; khách hỏi tình trạng phải nhắn tin.</p>",
+    "<p>Bước 3 – To-Be: khách đặt món trên app; đơn vào hệ thống; khách thấy trạng thái đơn.</p>",
+    "<p>Bước 4 – GAP: liệt kê thứ còn thiếu giữa bước 2 và bước 3.</p>",
+    "<p>Bước 5 – Giải pháp: mỗi Gap một hành động.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Area of Focus</th><th>As-Is</th><th>To-Be</th><th>Gap</th><th>Action Plan</th></tr></thead><tbody><tr><td>Nhận đơn</td><td>Qua tin nhắn, chép tay</td><td>Đặt món trên app</td><td>Chưa có thực đơn điện tử và chức năng đặt món</td><td>Xây chức năng Xem thực đơn, Đặt món</td></tr><tr><td>Xử lý đơn</td><td>Nhân viên đọc giấy</td><td>Đơn hiện trên hệ thống cho nhân viên xác nhận</td><td>Chưa có màn hình quản lý đơn</td><td>Xây chức năng Xác nhận đơn hàng</td></tr><tr><td>Theo dõi đơn</td><td>Khách nhắn hỏi</td><td>Khách tự xem trạng thái</td><td>Chưa lưu và hiển thị trạng thái đơn</td><td>Thêm trạng thái cho Đơn hàng; thông báo khi trạng thái đổi</td></tr></tbody></table>",
+   "src": "11. Phan tich GAP.pdf tr.6"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L11c-x1",
+   "title": "Xếp câu vào đúng cột của template",
+   "level": "de",
+   "task": "<p>Doanh nghiệp A (tình huống trên slide). Xếp mỗi câu sau vào cột As-Is, To-Be, Gap hoặc Action Plan:</p><ol><li>Đơn hàng được nhập tay vào Excel.</li><li>Tồn kho tự cập nhật khi có đơn hàng mới.</li><li>Chưa có liên kết giữa đơn hàng và kho.</li><li>Xây module kho trừ tồn khi đơn được xác nhận.</li><li>Tổng hợp số liệu mất nhiều thời gian.</li><li>Chưa có công cụ tổng hợp tự động.</li></ol>",
+   "hints": [
+    "<p>As-Is: đang có. To-Be: muốn có. Gap: còn thiếu. Action Plan: sẽ làm.</p>",
+    "<p>Câu bắt đầu bằng \"Chưa có\" thường là Gap; câu bắt đầu bằng động từ hành động (\"Xây\", \"Triển khai\") thường là Action Plan.</p>"
+   ],
+   "answer": "<ol><li>As-Is.</li><li>To-Be.</li><li>Gap.</li><li>Action Plan.</li><li>As-Is.</li><li>Gap.</li></ol>",
+   "src": "11. Phan tich GAP.pdf tr.3, 5, 7"
+  },
+  {
+   "id": "L11c-x2",
+   "title": "Từ Gap viết requirement",
+   "level": "tb",
+   "task": "<p>Slide nói phân tích GAP là cơ sở để BA viết requirement chính xác. Từ bảng GAP của Doanh nghiệp A (L11c-p1), viết 4 requirement (yêu cầu) cho hệ thống mới, mỗi requirement chỉ rõ nó lấp Gap nào.</p>",
+   "hints": [
+    "<p>Mỗi Gap là một chỗ thiếu; requirement nói hệ thống phải làm gì để hết thiếu.</p>",
+    "<p>Viết dạng \"Hệ thống phải…\" hoặc \"Người dùng có thể…\".</p>"
+   ],
+   "answer": "<table><thead><tr><th>Gap</th><th>Requirement</th></tr></thead><tbody><tr><td>Chưa có kiểm tra khi nhập</td><td>Hệ thống phải kiểm tra các trường bắt buộc và định dạng số lượng, giá khi nhập đơn hàng.</td></tr><tr><td>Chưa có công cụ tổng hợp tự động</td><td>Người quản lý có thể xem báo cáo tổng đơn hàng và doanh thu theo ngày, tháng.</td></tr><tr><td>Chưa liên kết đơn hàng với kho</td><td>Hệ thống phải tự trừ tồn kho khi đơn hàng được xác nhận.</td></tr><tr><td>Chưa ghi nhận thanh toán gắn với đơn</td><td>Hệ thống phải ghi nhận trạng thái thanh toán của từng đơn hàng.</td></tr></tbody></table>",
+   "src": "11. Phan tich GAP.pdf tr.4, 7"
+  },
+  {
+   "id": "L11c-x3",
+   "title": "Phân tích GAP đầy đủ cho quy trình mượn trả sách",
+   "level": "kho",
+   "task": "<p>Ví dụ tự đặt: thư viện ghi mượn – trả bằng sổ. Thành viên phải đến tận nơi để biết sách còn hay không. Cuối tháng thủ thư đếm tay số lượt mượn để báo cáo. Ban quản lý muốn: thành viên tra cứu sách online, thủ thư tạo phiếu mượn trên hệ thống, báo cáo lượt mượn tự động. Thực hiện đủ 5 bước, trình bày bảng 5 cột và nêu 2 requirement rút ra.</p>",
+   "hints": [
+    "<p>Bước 1: chia phạm vi thành 3 lĩnh vực theo 3 mong muốn của ban quản lý.</p>",
+    "<p>Mỗi dòng: As-Is lấy từ đề, To-Be lấy từ mong muốn, Gap là phần thiếu, Action Plan nhắm đúng Gap.</p>",
+    "<p>Requirement viết từ Gap, không từ As-Is.</p>"
+   ],
+   "answer": "<p><b>Bước 1 – Phạm vi:</b> Tra cứu sách; Mượn – trả; Báo cáo.</p><table><thead><tr><th>Area of Focus</th><th>As-Is</th><th>To-Be</th><th>Gap</th><th>Action Plan</th></tr></thead><tbody><tr><td>Tra cứu sách</td><td>Phải đến thư viện hỏi</td><td>Tra cứu online</td><td>Chưa có dữ liệu sách số hóa và trang tra cứu</td><td>Nhập danh mục sách; xây chức năng tìm kiếm, xem tình trạng sách</td></tr><tr><td>Mượn – trả</td><td>Ghi sổ</td><td>Tạo phiếu mượn trên hệ thống</td><td>Chưa có chức năng phiếu mượn điện tử</td><td>Xây chức năng Tạo phiếu mượn, Ghi nhận trả sách</td></tr><tr><td>Báo cáo</td><td>Đếm tay cuối tháng</td><td>Báo cáo lượt mượn tự động</td><td>Chưa có dữ liệu mượn tập trung và chức năng báo cáo</td><td>Xây báo cáo lượt mượn theo tháng từ dữ liệu phiếu mượn</td></tr></tbody></table><p><b>Requirement:</b> (1) Thành viên có thể tìm sách theo tên, tác giả và xem sách còn hay đã được mượn. (2) Hệ thống phải tự tổng hợp số lượt mượn theo tháng từ các phiếu mượn.</p>",
+   "src": "11. Phan tich GAP.pdf tr.3-7"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L11c-f1",
+   "front": "GAP Analysis (phân tích khoảng cách)",
+   "back": "<p>Phương pháp phân tích khoảng cách giữa hiện tại và mong muốn, rồi đề xuất giải pháp lấp khoảng cách, phù hợp mục tiêu kinh doanh.</p>"
+  },
+  {
+   "id": "L11c-f2",
+   "front": "As-Is",
+   "back": "<p>Trạng thái hiện tại: những gì hệ thống/quy trình/doanh nghiệp đang có. Ví dụ: quản lý đơn hàng bằng Excel.</p>"
+  },
+  {
+   "id": "L11c-f3",
+   "front": "To-Be",
+   "back": "<p>Trạng thái mong muốn: mục tiêu, nhu cầu hay giải pháp doanh nghiệp muốn đạt. Ví dụ: quản lý đơn hàng, kho, thanh toán tự động.</p>"
+  },
+  {
+   "id": "L11c-f4",
+   "front": "Gap (khoảng cách)",
+   "back": "<p>Phần chênh lệch giữa As-Is và To-Be, tức thứ còn thiếu. Ví dụ: 8 giờ − 2 giờ = chậm 6 giờ.</p>"
+  },
+  {
+   "id": "L11c-f5",
+   "front": "Action Plan (kế hoạch hành động)",
+   "back": "<p>Các bước chính để lấp Gap (key steps to bridge gap). Ví dụ: tuyển 2 nhân viên hỗ trợ, triển khai live chat.</p>"
+  },
+  {
+   "id": "L11c-f6",
+   "front": "Area of Focus",
+   "back": "<p>Cột đầu của template: lĩnh vực/khía cạnh đang phân tích, ứng với bước 1 xác định phạm vi. Ví dụ: Website Traffic.</p>"
+  },
+  {
+   "id": "L11c-f7",
+   "front": "Current State và Desired State",
+   "back": "<p>Tên tiếng Anh trong template của As-Is (hiện tại) và To-Be (mong muốn).</p>"
+  },
+  {
+   "id": "L11c-f8",
+   "front": "5 cột của Gap Analysis Template",
+   "back": "<p>Area of Focus → Current State → Desired State → Gap → Action Plan.</p>"
+  },
+  {
+   "id": "L11c-f9",
+   "front": "5 bước phân tích GAP",
+   "back": "<p>1 Xác định phạm vi → 2 Trạng thái hiện tại → 3 Trạng thái mong muốn → 4 Xác định GAP → 5 Đề xuất giải pháp. Mẹo: Đang ở đâu – Muốn tới đâu – Thiếu gì – Làm gì.</p>"
+  },
+  {
+   "id": "L11c-f10",
+   "front": "Lý do 1 và 2 cần phân tích GAP",
+   "back": "<p>Giúp doanh nghiệp hiểu rõ vấn đề hiện tại; đảm bảo giải pháp mới thật sự phù hợp mục tiêu kinh doanh.</p>"
+  },
+  {
+   "id": "L11c-f11",
+   "front": "Lý do 3 và 4 cần phân tích GAP",
+   "back": "<p>Là cơ sở để BA viết requirement chính xác, tránh thiếu sót; giúp lập kế hoạch triển khai, chi phí, thời gian sát thực tế.</p>"
+  },
+  {
+   "id": "L11c-f12",
+   "front": "Gap khác Action Plan thế nào?",
+   "back": "<p>Gap là thứ còn thiếu (\"chưa có kiểm tra dữ liệu\"); Action Plan là việc sẽ làm (\"xây form nhập có ràng buộc\"). Đừng ghi giải pháp vào cột Gap.</p>"
+  },
+  {
+   "id": "L11c-f13",
+   "front": "Từ Gap ra requirement",
+   "back": "<p>Mỗi Gap gợi ra một hoặc nhiều requirement. Ví dụ Gap \"chưa liên kết đơn với kho\" → \"Hệ thống phải tự trừ tồn kho khi đơn được xác nhận\".</p>"
+  },
+  {
+   "id": "L11c-f14",
+   "front": "Tình huống Doanh nghiệp A (slide)",
+   "back": "<p>As-Is: đơn hàng quản lý bằng Excel, lỗi nhập liệu, tổng hợp lâu, số liệu sai. To-Be: hệ thống quản lý đơn hàng, kho, thanh toán tự động.</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L11c-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, GAP Analysis là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phương pháp kiểm thử phần mềm trước khi bàn giao cho khách hàng"
+    },
+    {
+     "id": "b",
+     "t": "Phân tích khoảng cách giữa hiện tại và mong muốn, rồi đề xuất giải pháp"
+    },
+    {
+     "id": "c",
+     "t": "Phương pháp ước lượng chi phí nhân sự và thời gian cho một dự án phần mềm mới"
+    },
+    {
+     "id": "d",
+     "t": "Bảng liệt kê các lỗi và hạn chế của hệ thống cũ đang dùng"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>GAP Analysis phân tích khoảng cách giữa hiện tại và mong muốn, đề xuất giải pháp lấp khoảng cách, phù hợp mục tiêu kinh doanh.</p>",
+   "why_wrong": {
+    "a": "Kiểm thử là hoạt động khác, không so sánh As-Is với To-Be.",
+    "c": "Ước lượng chi phí chỉ là một lợi ích phụ, không phải định nghĩa.",
+    "d": "Lỗi hệ thống cũ chỉ là một phần của As-Is."
+   },
+   "src": "11. Phan tich GAP.pdf tr.3"
+  },
+  {
+   "id": "L11c-q2",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>As-Is trong phân tích GAP chỉ điều gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mục tiêu mà doanh nghiệp muốn đạt được trong tương lai gần"
+    },
+    {
+     "id": "b",
+     "t": "Danh sách hành động cần làm để cải thiện quy trình"
+    },
+    {
+     "id": "c",
+     "t": "Những gì hệ thống/quy trình/doanh nghiệp đang có"
+    },
+    {
+     "id": "d",
+     "t": "Phần chênh lệch giữa hai trạng thái"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>As-Is là trạng thái hiện tại. Mẹo: \"As-Is\" = \"như nó đang là\".</p>",
+   "why_wrong": {
+    "a": "Mục tiêu muốn đạt là To-Be.",
+    "b": "Hành động cần làm là Action Plan.",
+    "d": "Phần chênh lệch là Gap."
+   },
+   "src": "11. Phan tich GAP.pdf tr.3"
+  },
+  {
+   "id": "L11c-q3",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>To-Be trong phân tích GAP chỉ điều gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mục tiêu, nhu cầu hay giải pháp doanh nghiệp muốn đạt"
+    },
+    {
+     "id": "b",
+     "t": "Tình trạng hiện tại của hệ thống, kể cả các lỗi đang tồn tại"
+    },
+    {
+     "id": "c",
+     "t": "Danh sách người dùng của hệ thống sau khi đã triển khai xong"
+    },
+    {
+     "id": "d",
+     "t": "Chi phí của dự án"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>To-Be là trạng thái mong muốn: mục tiêu, nhu cầu, hay giải pháp mà doanh nghiệp muốn đạt được.</p>",
+   "why_wrong": {
+    "b": "Tình trạng hiện tại là As-Is.",
+    "c": "To-Be mô tả trạng thái mong muốn, không phải danh sách người dùng.",
+    "d": "Chi phí là thông tin lập kế hoạch, không phải To-Be."
+   },
+   "src": "11. Phan tich GAP.pdf tr.3"
+  },
+  {
+   "id": "L11c-q4",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Bước đầu tiên trong 5 bước thực hiện phân tích GAP là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Xác định trạng thái mong muốn"
+    },
+    {
+     "id": "b",
+     "t": "Đề xuất giải pháp"
+    },
+    {
+     "id": "c",
+     "t": "Xác định GAP"
+    },
+    {
+     "id": "d",
+     "t": "Xác định phạm vi phân tích"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Thứ tự: phạm vi → hiện tại → mong muốn → GAP → giải pháp. Phải biết phân tích cái gì trước.</p>",
+   "why_wrong": {
+    "a": "Đây là bước 3.",
+    "b": "Đây là bước 5, bước cuối.",
+    "c": "Đây là bước 4."
+   },
+   "src": "11. Phan tich GAP.pdf tr.6"
+  },
+  {
+   "id": "L11c-q5",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong Gap Analysis Template, cột nào ghi các việc cần làm để lấp khoảng cách?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Area of Focus"
+    },
+    {
+     "id": "b",
+     "t": "Action Plan"
+    },
+    {
+     "id": "c",
+     "t": "Desired State"
+    },
+    {
+     "id": "d",
+     "t": "Gap"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Action Plan ghi hành động, ví dụ \"Hire 2 support agents; implement live chat feature\".</p>",
+   "why_wrong": {
+    "a": "Area of Focus ghi lĩnh vực phân tích.",
+    "c": "Desired State ghi trạng thái mong muốn.",
+    "d": "Gap ghi phần chênh lệch, không ghi hành động."
+   },
+   "src": "11. Phan tich GAP.pdf tr.5"
+  },
+  {
+   "id": "L11c-q6",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Theo slide, vì sao cần phân tích GAP? (Chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Giúp doanh nghiệp hiểu rõ vấn đề hiện tại"
+    },
+    {
+     "id": "b",
+     "t": "Thay thế hoàn toàn việc khai thác yêu cầu với các bên liên quan"
+    },
+    {
+     "id": "c",
+     "t": "Là cơ sở để BA viết requirement chính xác, tránh thiếu sót"
+    },
+    {
+     "id": "d",
+     "t": "Giúp lập kế hoạch triển khai, chi phí, thời gian sát thực tế"
+    },
+    {
+     "id": "e",
+     "t": "Bảo đảm dự án không bao giờ phát sinh thay đổi yêu cầu sau này"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Slide nêu 4 lý do: hiểu rõ vấn đề hiện tại; giải pháp phù hợp mục tiêu kinh doanh; cơ sở viết requirement; lập kế hoạch, chi phí, thời gian sát thực tế.</p>",
+   "why_wrong": {
+    "b": "GAP cần thông tin từ khai thác yêu cầu, không thay thế nó.",
+    "e": "Không phương pháp nào bảo đảm không có thay đổi yêu cầu."
+   },
+   "src": "11. Phan tich GAP.pdf tr.4"
+  },
+  {
+   "id": "L11c-q7",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Thứ tự nào đúng với các bước thực hiện phân tích GAP trên slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phạm vi → Hiện tại → Mong muốn → GAP → Giải pháp"
+    },
+    {
+     "id": "b",
+     "t": "Giải pháp → Phạm vi → GAP → Hiện tại → Mong muốn"
+    },
+    {
+     "id": "c",
+     "t": "Mong muốn → Giải pháp → Phạm vi → Hiện tại → GAP"
+    },
+    {
+     "id": "d",
+     "t": "Hiện tại → GAP → Phạm vi → Mong muốn → Giải pháp"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Phải biết phạm vi, mô tả hai trạng thái, so sánh ra GAP rồi mới đề xuất giải pháp.</p>",
+   "why_wrong": {
+    "b": "Đề xuất giải pháp trước khi biết GAP là làm ngược.",
+    "c": "GAP phải có trước giải pháp, phạm vi phải đứng đầu.",
+    "d": "Không thể xác định GAP khi chưa có trạng thái mong muốn."
+   },
+   "src": "11. Phan tich GAP.pdf tr.6"
+  },
+  {
+   "id": "L11c-q8",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>BA nên đề xuất giải pháp trước, rồi mới mô tả trạng thái hiện tại để chứng minh giải pháp đúng.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Sai. Đề xuất giải pháp là bước 5, sau khi đã xác định hiện tại, mong muốn và GAP.</p>",
+   "why_wrong": {
+    "d": "Làm vậy ngược với 5 bước và dễ ra giải pháp không nhắm đúng vấn đề."
+   },
+   "src": "11. Phan tich GAP.pdf tr.6"
+  },
+  {
+   "id": "L11c-q9",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong template mẫu, dòng Customer Support Response Time có Gap \"6-hour delay\". Con số 6 giờ có từ đâu?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Số nhân viên hỗ trợ cần tuyển cộng với số kênh hỗ trợ mới"
+    },
+    {
+     "id": "b",
+     "t": "Thời gian triển khai live chat"
+    },
+    {
+     "id": "c",
+     "t": "Thời gian trung bình khách hàng phải chờ trên trang web"
+    },
+    {
+     "id": "d",
+     "t": "8 giờ hiện tại trừ 2 giờ mong muốn"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Gap = Desired State so với Current State: hiện 8 giờ, muốn 2 giờ, nên chậm 6 giờ.</p>",
+   "why_wrong": {
+    "a": "Số nhân viên thuộc Action Plan, không dùng để tính Gap.",
+    "b": "Template không nêu thời gian triển khai live chat.",
+    "c": "Dòng này đo thời gian phản hồi hỗ trợ, không phải thời gian chờ trên web."
+   },
+   "src": "11. Phan tich GAP.pdf tr.5"
+  },
+  {
+   "id": "L11c-q10",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Câu nào phân biệt đúng Gap và Action Plan?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Gap và Action Plan là hai tên gọi khác nhau của cùng một cột"
+    },
+    {
+     "id": "b",
+     "t": "Gap là thứ còn thiếu; Action Plan là việc sẽ làm để lấp nó"
+    },
+    {
+     "id": "c",
+     "t": "Gap là việc sẽ làm; Action Plan là kết quả đạt được sau dự án"
+    },
+    {
+     "id": "d",
+     "t": "Gap ghi trạng thái hiện tại"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Gap mô tả khoảng chênh (thứ thiếu), Action Plan mô tả hành động lấp khoảng chênh.</p>",
+   "why_wrong": {
+    "a": "Template tách hai cột riêng với nội dung khác nhau.",
+    "c": "Đảo nghĩa; kết quả đạt được là Desired State.",
+    "d": "Trạng thái hiện tại là Current State (As-Is)."
+   },
+   "src": "11. Phan tich GAP.pdf tr.3, 5"
+  },
+  {
+   "id": "L11c-q11",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao phân tích GAP giúp BA viết requirement chính xác, tránh thiếu sót?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì nó chỉ rõ từng chỗ còn thiếu giữa hiện tại và mong muốn, mỗi chỗ thiếu gợi ra yêu cầu"
+    },
+    {
+     "id": "b",
+     "t": "Vì nó thay khách hàng quyết định yêu cầu, không cần hỏi thêm ai"
+    },
+    {
+     "id": "c",
+     "t": "Vì template đã có sẵn requirement được viết mẫu cho mọi loại hệ thống trên thị trường hiện nay"
+    },
+    {
+     "id": "d",
+     "t": "Vì nó chỉ quan tâm tới công nghệ, bỏ qua quy trình và con người"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Mỗi Gap là chỗ hệ thống mới phải đáp ứng. Liệt kê đủ Gap thì requirement ít bị sót.</p>",
+   "why_wrong": {
+    "b": "GAP vẫn dựa vào thông tin và mục tiêu của doanh nghiệp.",
+    "c": "Template chỉ có 5 cột phân tích, không có requirement viết sẵn.",
+    "d": "GAP xét cả quy trình, con người, doanh thu… không chỉ công nghệ."
+   },
+   "src": "11. Phan tich GAP.pdf tr.4"
+  },
+  {
+   "id": "L11c-q12",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>To-Be là phần mô tả những gì hệ thống hiện tại đang chạy tốt và cần giữ nguyên.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Sai. To-Be là trạng thái mong muốn: mục tiêu, nhu cầu, giải pháp muốn đạt. Cái đang có thuộc As-Is.</p>",
+   "why_wrong": {
+    "d": "Mô tả cái đang có (dù tốt hay xấu) là As-Is, không phải To-Be."
+   },
+   "src": "11. Phan tich GAP.pdf tr.3"
+  },
+  {
+   "id": "L11c-q13",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Cột Area of Focus trong template tương ứng với bước nào trong 5 bước?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bước 4 – Xác định GAP giữa hai trạng thái"
+    },
+    {
+     "id": "b",
+     "t": "Bước 5 – Đề xuất giải pháp"
+    },
+    {
+     "id": "c",
+     "t": "Bước 1 – Xác định phạm vi phân tích"
+    },
+    {
+     "id": "d",
+     "t": "Bước 3 – Xác định trạng thái mong muốn của doanh nghiệp"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Area of Focus cho biết đang phân tích lĩnh vực nào, tức là phạm vi phân tích.</p>",
+   "why_wrong": {
+    "a": "Bước 4 ứng với cột Gap.",
+    "b": "Bước 5 ứng với cột Action Plan.",
+    "d": "Bước 3 ứng với cột Desired State."
+   },
+   "src": "11. Phan tich GAP.pdf tr.5-6"
+  },
+  {
+   "id": "L11c-q14",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Xét dòng Website Traffic trong template mẫu. Phát biểu nào đúng? (Chọn 2)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Current State là 20.000 lượt truy cập mỗi tháng"
+    },
+    {
+     "id": "b",
+     "t": "Desired State là 30.000 lượt truy cập mỗi tháng"
+    },
+    {
+     "id": "c",
+     "t": "Gap là thiếu 30.000 lượt truy cập"
+    },
+    {
+     "id": "d",
+     "t": "Action Plan là tuyển thêm 2 nhân viên hỗ trợ khách hàng"
+    }
+   ],
+   "answer": [
+    "a",
+    "c"
+   ],
+   "explain": "<p>Hiện 20.000, muốn 50.000, nên thiếu 30.000. Action Plan là triển khai SEO, đầu tư content marketing và quảng cáo trả phí.</p>",
+   "why_wrong": {
+    "b": "Desired State là 50.000; 30.000 là Gap.",
+    "d": "Tuyển 2 nhân viên hỗ trợ là Action Plan của dòng Customer Support."
+   },
+   "src": "11. Phan tich GAP.pdf tr.5"
+  },
+  {
+   "id": "L11c-q15",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Với tình huống Doanh nghiệp A trên slide, mô tả nào thuộc cột As-Is?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hệ thống quản lý đơn hàng, kho, thanh toán tự động"
+    },
+    {
+     "id": "b",
+     "t": "Chưa có công cụ kiểm tra dữ liệu khi nhập đơn hàng vào hệ thống"
+    },
+    {
+     "id": "c",
+     "t": "Xây module kho trừ tồn khi đơn được xác nhận"
+    },
+    {
+     "id": "d",
+     "t": "Quản lý đơn hàng bằng Excel, hay lỗi nhập liệu"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>As-Is là cái đang có: Excel, lỗi nhập liệu, tổng hợp lâu, số liệu sai.</p>",
+   "why_wrong": {
+    "a": "Đây là mong muốn của doanh nghiệp (To-Be).",
+    "b": "Câu \"chưa có…\" mô tả thứ còn thiếu (Gap).",
+    "c": "Đây là việc sẽ làm (Action Plan)."
+   },
+   "src": "11. Phan tich GAP.pdf tr.7"
+  },
+  {
+   "id": "L11c-q16",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Doanh nghiệp A (slide) muốn giải quyết các vấn đề hiện tại. To-Be phù hợp nhất là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Có hệ thống quản lý đơn hàng, kho, thanh toán tự động"
+    },
+    {
+     "id": "b",
+     "t": "Thuê thêm người nhập liệu để giữ nguyên cách làm bằng Excel như hiện nay"
+    },
+    {
+     "id": "c",
+     "t": "Số liệu sai sót, không logic"
+    },
+    {
+     "id": "d",
+     "t": "Chia file Excel nhỏ hơn cho từng phòng ban để dễ quản lý hơn"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Slide ghi rõ mong muốn: hệ thống giải quyết quản lý đơn hàng, kho, thanh toán tự động.</p>",
+   "why_wrong": {
+    "b": "Vẫn giữ Excel, không đạt mong muốn tự động hóa.",
+    "c": "Đây là vấn đề hiện tại (As-Is).",
+    "d": "Vẫn là Excel thủ công, không phải trạng thái doanh nghiệp mong muốn."
+   },
+   "src": "11. Phan tich GAP.pdf tr.7"
+  },
+  {
+   "id": "L11c-q17",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Với vấn đề \"số liệu sai sót, không logic\" của Doanh nghiệp A, câu nào phù hợp nhất để ghi vào cột Gap?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Nhập liệu thủ công vào Excel"
+    },
+    {
+     "id": "b",
+     "t": "Chưa có cơ chế lưu tập trung và tự tính toán số liệu"
+    },
+    {
+     "id": "c",
+     "t": "Cài phiên bản Excel mới nhất cho toàn bộ nhân viên trong công ty"
+    },
+    {
+     "id": "d",
+     "t": "Số liệu luôn đúng và nhất quán trên mọi báo cáo của doanh nghiệp"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Gap mô tả thứ còn thiếu giữa As-Is và To-Be: chưa có lưu tập trung và tự tính toán.</p>",
+   "why_wrong": {
+    "a": "Đây là cách làm hiện tại (As-Is).",
+    "c": "Đây là một hành động (và không lấp được Gap), không phải Gap.",
+    "d": "Đây là trạng thái mong muốn (To-Be)."
+   },
+   "src": "11. Phan tich GAP.pdf tr.6-7"
+  },
+  {
+   "id": "L11c-q18",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ví dụ: FoodNow đang nhận đặt bàn qua điện thoại, nhân viên ghi sổ; mong muốn khách tự đặt bàn online. Mục nào thuộc cột Action Plan?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khách gọi điện, nhân viên ghi vào sổ"
+    },
+    {
+     "id": "b",
+     "t": "Chưa có kênh đặt bàn online"
+    },
+    {
+     "id": "c",
+     "t": "Xây chức năng đặt bàn online và gửi xác nhận tự động"
+    },
+    {
+     "id": "d",
+     "t": "Khách tự đặt bàn online bất cứ lúc nào trong ngày, kể cả ngoài giờ mở cửa"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Action Plan là việc sẽ làm để lấp Gap; câu bắt đầu bằng động từ hành động \"Xây…\".</p>",
+   "why_wrong": {
+    "a": "Đây là hiện trạng (As-Is).",
+    "b": "Đây là thứ còn thiếu (Gap).",
+    "d": "Đây là trạng thái mong muốn (To-Be)."
+   },
+   "src": "11. Phan tich GAP.pdf tr.5-6"
+  },
+  {
+   "id": "L11c-q19",
+   "type": "tf",
+   "level": "apdung",
+   "q": "<p>Với Doanh nghiệp A, đề xuất \"tách thành nhiều file Excel riêng cho từng kho\" lấp được khoảng cách tới trạng thái mong muốn.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Sai. To-Be là quản lý đơn hàng, kho, thanh toán <b>tự động</b>; thêm file Excel vẫn là thủ công và còn làm dữ liệu rời rạc hơn.</p>",
+   "why_wrong": {
+    "d": "Giải pháp phải đưa doanh nghiệp tới To-Be; nhiều file Excel không tự động hóa được."
+   },
+   "src": "11. Phan tich GAP.pdf tr.3, 7"
+  },
+  {
+   "id": "L11c-q20",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Ví dụ: thư viện đang ghi phiếu mượn bằng tay và muốn quản lý mượn trả trên hệ thống. Mục nào thuộc cột Gap? (Chọn 2)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thủ thư đang ghi phiếu mượn bằng tay vào sổ"
+    },
+    {
+     "id": "b",
+     "t": "Chưa có dữ liệu sách và thành viên trên hệ thống"
+    },
+    {
+     "id": "c",
+     "t": "Xây chức năng Tạo phiếu mượn trên hệ thống mới"
+    },
+    {
+     "id": "d",
+     "t": "Chưa có chức năng tạo phiếu mượn điện tử"
+    }
+   ],
+   "answer": [
+    "b",
+    "d"
+   ],
+   "explain": "<p>Gap là thứ còn thiếu để đi từ sổ tay sang hệ thống: thiếu dữ liệu và thiếu chức năng.</p>",
+   "why_wrong": {
+    "a": "Đây là hiện trạng (As-Is).",
+    "c": "Đây là việc sẽ làm (Action Plan)."
+   },
+   "src": "11. Phan tich GAP.pdf tr.3, 5"
+  }
+ ]
+}

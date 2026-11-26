@@ -1,0 +1,2035 @@
+{
+ "id": "L21",
+ "session": 21,
+ "module": "M6",
+ "title": "Database và kiểu dữ liệu SQL Server",
+ "goals": [
+  "Giải thích được cơ sở dữ liệu, hệ quản trị CSDL (DBMS), CSDL quan hệ, CSDL không quan hệ và Stored Procedure",
+  "Nêu được 8 bước của quy trình thiết kế database và 7 nguyên tắc thiết kế",
+  "Nhận biết bảng vi phạm 1NF, 2NF, 3NF và tách bảng để đạt chuẩn",
+  "Chọn đúng kiểu dữ liệu SQL Server cho từng cột: số, chuỗi, ngày giờ",
+  "Đọc và viết được câu SQL cơ bản: INSERT, UPDATE, DELETE, TRUNCATE, SELECT, hàm tổng hợp, JOIN",
+  "Biết BA dùng kiến thức database ở đâu: đặc tả dữ liệu, kiểm tra quy tắc nghiệp vụ, tự truy vấn số liệu"
+ ],
+ "sources": [
+  {
+   "file": "21. Database.pdf",
+   "pages": "1-30"
+  },
+  {
+   "file": "21. Kieu du lieu trong Sql Server.pdf",
+   "pages": "1-3"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L21-t1",
+   "h": "Bài học gồm những gì",
+   "html": "<p>Slide chia bài thành 6 phần: <b>01 Khái niệm</b>, <b>02 Nguyên tắc thiết kế</b>, <b>03 Các dạng chuẩn hóa</b>, <b>04 Data type</b> (kiểu dữ liệu), <b>05 Query</b> (truy vấn) và <b>06 Thực chiến</b>.</p><p>Tài liệu đi kèm \"Kiểu dữ liệu trong SQL Server\" là bảng tra nhanh: mỗi kiểu dữ liệu có phạm vi, dung lượng, ưu nhược điểm và ví dụ khi nào dùng.</p><p class='note'>Trong slide, mục 06 Thực chiến chỉ có trên trang mục lục, không có trang nội dung riêng. Bài này bù bằng các phần Ví dụ, Thực hành và Bài tập trên case đặt đồ ăn, FoodNow, thư viện và SolasMart.</p><p class='tip'>Vì sao BA cần học database? BA không phải người viết code. Nhưng BA cần đọc được ERD và cấu trúc bảng, mô tả đúng trường dữ liệu trong tài liệu (kiểu, độ dài, bắt buộc hay không), và tự viết câu SELECT đơn giản để kiểm số liệu.</p>",
+   "src": "21. Database.pdf tr.1-2"
+  },
+  {
+   "id": "L21-t2",
+   "h": "Cơ sở dữ liệu và hệ quản trị CSDL (DBMS)",
+   "html": "<p><b>Cơ sở dữ liệu (Database, CSDL)</b> là tập hợp dữ liệu có cấu trúc, liên quan với nhau, được lưu trữ để nhiều người và nhiều chương trình cùng dùng. Ví dụ: toàn bộ dữ liệu khách hàng, món ăn, đơn hàng của một app đặt đồ ăn.</p><p><b>Hệ quản trị CSDL – Database Management System (DBMS)</b> là phần mềm dùng để tạo, lưu, truy vấn, cập nhật và bảo vệ CSDL. Người dùng và ứng dụng không đọc file dữ liệu trực tiếp mà gửi yêu cầu cho DBMS.</p><table><thead><tr><th>Khái niệm</th><th>Là gì</th><th>Ví dụ dễ nhớ</th></tr></thead><tbody><tr><td>Database</td><td>Nơi chứa dữ liệu</td><td>Cái kho</td></tr><tr><td>DBMS</td><td>Phần mềm quản lý kho</td><td>Thủ kho: nhận, cất, tìm, khóa cửa</td></tr></tbody></table><p>Các DBMS phổ biến trên slide: <b>MySQL</b>, <b>MariaDB</b>, <b>PostgreSQL</b>, <b>Microsoft SQL Server</b>, <b>Oracle</b>, <b>IBM DB2</b>, <b>Microsoft Access</b> và <b>MongoDB</b>.</p><p>Bài này dùng <b>SQL Server</b> để học kiểu dữ liệu. <b>SQL (Structured Query Language)</b> là ngôn ngữ chuẩn để làm việc với CSDL quan hệ.</p>",
+   "src": "21. Database.pdf tr.4"
+  },
+  {
+   "id": "L21-t3",
+   "h": "CSDL quan hệ và CSDL không quan hệ",
+   "html": "<p><b>CSDL quan hệ (Relational Database)</b> lưu dữ liệu thành các <b>bảng (table)</b>. Mỗi bảng có:</p><ul><li><b>Cột (column, trường, field)</b>: một thuộc tính, ví dụ <code>customer_name</code>. Mỗi cột có một kiểu dữ liệu.</li><li><b>Dòng (row, bản ghi, record)</b>: một đối tượng cụ thể, ví dụ một khách hàng.</li><li><b>Khóa chính (Primary Key, PK)</b>: cột hoặc nhóm cột xác định duy nhất mỗi dòng.</li><li><b>Khóa ngoại (Foreign Key, FK)</b>: cột trỏ tới khóa chính của bảng khác, dùng để nối các bảng.</li></ul><p>Các bảng liên kết với nhau qua khóa. Ta dùng SQL để truy vấn. Ví dụ: MySQL, SQL Server, Oracle, PostgreSQL.</p><p><b>CSDL không quan hệ (Non-relational, NoSQL)</b> không bắt buộc lưu theo bảng có cột cố định. Dữ liệu có thể lưu dạng document (JSON), key-value, đồ thị… Ví dụ trên slide: <b>MongoDB</b>.</p><table><thead><tr><th>Tiêu chí</th><th>CSDL quan hệ</th><th>CSDL không quan hệ</th></tr></thead><tbody><tr><td>Cấu trúc</td><td>Bảng, cột cố định, khai báo trước</td><td>Linh hoạt, mỗi bản ghi có thể khác nhau</td></tr><tr><td>Liên kết</td><td>Khóa chính, khóa ngoại, JOIN</td><td>Thường lồng dữ liệu vào nhau</td></tr><tr><td>Hợp với</td><td>Đơn hàng, kế toán, kho: cần toàn vẹn chặt</td><td>Log, nội dung thay đổi cấu trúc thường xuyên, dữ liệu rất lớn</td></tr><tr><td>Ví dụ</td><td>SQL Server, MySQL, Oracle</td><td>MongoDB</td></tr></tbody></table>",
+   "src": "21. Database.pdf tr.4"
+  },
+  {
+   "id": "L21-t4",
+   "h": "Stored Procedure",
+   "html": "<p><b>Stored Procedure</b> (slide ghi \"Store procedure\", nghĩa là thủ tục lưu sẵn) là một nhóm câu lệnh SQL được đặt tên và lưu ngay trong CSDL. Ứng dụng chỉ cần gọi tên thủ tục kèm tham số.</p><ul><li>Dùng lại được nhiều lần, không phải viết lại câu SQL.</li><li>Gom nhiều bước vào một lần gọi, ví dụ \"tạo đơn hàng\" gồm thêm đơn, thêm chi tiết đơn, trừ tồn kho.</li><li>Phân quyền được: cho người dùng chạy thủ tục mà không cho sửa bảng trực tiếp.</li></ul><pre><code>-- ví dụ\nCREATE PROCEDURE sp_LayDonTheoKhach @customer_id INT\nAS\n  SELECT order_id, order_date, total_amount\n  FROM orders\n  WHERE customer_id = @customer_id;\n\nEXEC sp_LayDonTheoKhach @customer_id = 3;</code></pre>",
+   "src": "21. Database.pdf tr.4"
+  },
+  {
+   "id": "L21-t5",
+   "h": "Quy trình thiết kế database (8 bước)",
+   "html": "<p>Slide đưa ra quy trình thiết kế database gồm 8 bước nối tiếp:</p>{{img:L21-img1}}<table><thead><tr><th>#</th><th>Bước</th><th>Làm gì (ví dụ app đặt đồ ăn)</th></tr></thead><tbody><tr><td>1</td><td>Xác định mục đích</td><td>CSDL phục vụ việc gì: nhận đơn, quản lý món, thống kê doanh thu</td></tr><tr><td>2</td><td>Thu thập thông tin</td><td>Liệt kê mọi thông tin cần lưu: tên khách, số điện thoại, tên món, giá, ngày đặt…</td></tr><tr><td>3</td><td>Chia thông tin thành các bảng</td><td>Gom theo đối tượng: Khách hàng, Món ăn, Đơn hàng</td></tr><tr><td>4</td><td>Chuyển thông tin thành cột</td><td>Mỗi thông tin thành một cột trong bảng phù hợp</td></tr><tr><td>5</td><td>Chỉ định khóa chính</td><td>customer_id, dish_id, order_id</td></tr><tr><td>6</td><td>Thiết lập quan hệ giữa các bảng</td><td>Đơn hàng có customer_id trỏ tới Khách hàng; đơn và món là n-n nên cần bảng chi tiết đơn</td></tr><tr><td>7</td><td>Tinh chỉnh thiết kế</td><td>Rà lại: thiếu cột nào, cột nào thừa, kiểu dữ liệu đã đúng chưa</td></tr><tr><td>8</td><td>Áp dụng các quy tắc chuẩn hóa</td><td>Kiểm 1NF, 2NF, 3NF và tách bảng nếu vi phạm</td></tr></tbody></table><p class='tip'>Mẹo nhớ: <b>Mục đích → Thông tin → Bảng → Cột → Khóa → Quan hệ → Tinh chỉnh → Chuẩn hóa</b>.</p>",
+   "src": "21. Database.pdf tr.6"
+  },
+  {
+   "id": "L21-t6",
+   "h": "Nguyên tắc chung của một database tốt",
+   "html": "<p>Một CSDL được coi là thiết kế tốt khi đảm bảo 5 yếu tố:</p><table><thead><tr><th>Yếu tố</th><th>Ý nghĩa</th></tr></thead><tbody><tr><td><b>Toàn vẹn dữ liệu</b> (đáng tin cậy)</td><td>Dữ liệu đúng, nhất quán, không mâu thuẫn. Ví dụ: không có đơn hàng trỏ tới khách không tồn tại.</td></tr><tr><td><b>Hiệu suất cao</b></td><td>Truy vấn nhanh khi dữ liệu lớn.</td></tr><tr><td><b>Có khả năng mở rộng</b></td><td>Thêm chức năng, thêm dữ liệu mà không phải làm lại từ đầu.</td></tr><tr><td><b>Bảo mật</b></td><td>Đúng người mới xem, sửa được dữ liệu. Thông tin nhạy cảm được che giấu.</td></tr><tr><td><b>Khả năng bảo trì</b></td><td>Dễ hiểu, dễ sửa, đặt tên rõ ràng.</td></tr></tbody></table>",
+   "src": "21. Database.pdf tr.7"
+  },
+  {
+   "id": "L21-t7",
+   "h": "Nguyên tắc #1: Tránh dư thừa",
+   "html": "<p><b>Dư thừa (redundancy)</b> là khi cùng một dữ liệu nằm ở nhiều bảng (hoặc lặp ở nhiều dòng). Hậu quả:</p><ul><li><b>Tốn dung lượng.</b></li><li><b>Nguy cơ gây lỗi cao</b>: sửa ở chỗ này mà quên chỗ kia thì dữ liệu mâu thuẫn. Ví dụ: số điện thoại khách lưu trong cả bảng Khách hàng và từng dòng Đơn hàng. Khách đổi số, chỉ sửa một nơi, thì hai nơi ra hai số khác nhau.</li></ul><p><b>Ngoại lệ</b> – dư thừa được chấp nhận khi:</p><ul><li><b>Dư thừa mà tối ưu hóa được truy vấn.</b> Ví dụ: lưu sẵn <code>total_amount</code> của đơn để báo cáo doanh thu không phải cộng lại từng dòng chi tiết mỗi lần.</li><li><b>Lưu giá trị tại thời điểm xảy ra.</b> Ví dụ: giá món lúc khách đặt phải lưu vào chi tiết đơn. Sau này nhà hàng đổi giá trong bảng Món ăn thì đơn cũ vẫn giữ đúng giá đã bán.</li></ul><p class='key'>Dư thừa có chủ đích (để nhanh hoặc để giữ lịch sử) thì được. Dư thừa vô tình thì phải bỏ.</p>",
+   "src": "21. Database.pdf tr.8"
+  },
+  {
+   "id": "L21-t8",
+   "h": "Nguyên tắc #2 Khóa chính và #3 Giá trị NULL",
+   "html": "<h4>#2: Khóa chính bắt buộc phải có</h4><ul><li><b>Đảm bảo tính duy nhất</b>: không có hai dòng trùng khóa chính.</li><li><b>Dùng để thiết lập mối quan hệ</b>: bảng khác trỏ tới bảng này qua khóa chính (bằng khóa ngoại).</li></ul><p>Slide đặt câu hỏi: <i>Những bảng mapping thì sao?</i> Bảng mapping (bảng trung gian) là bảng nối hai bảng có quan hệ nhiều-nhiều, ví dụ <code>Emp_Crs</code> nối Nhân viên và Khóa học. Bảng này <b>vẫn cần khóa chính</b>. Có hai cách:</p><ul><li>Dùng <b>khóa chính ghép</b> từ hai khóa ngoại, ví dụ (EmployeeID, CourseID).</li><li>Thêm một cột <b>ID riêng</b> làm khóa chính. Slide 2NF dùng cách này: bảng Emp_Crs có cột ID.</li></ul><h4>#3: Giá trị NULL</h4><ul><li><b>NULL biểu thị dữ liệu không xác định</b> (chưa biết hoặc không có). NULL khác số 0 và khác chuỗi rỗng.</li><li><b>Khóa chính không bao giờ được chứa NULL.</b></li></ul><p class='tip'>Khi đặc tả trường dữ liệu, BA ghi rõ trường nào bắt buộc (NOT NULL) và trường nào được để trống (NULL).</p>",
+   "src": "21. Database.pdf tr.9"
+  },
+  {
+   "id": "L21-t9",
+   "h": "Nguyên tắc #4: Tính nguyên tố",
+   "html": "<p><b>Một trường thông tin có thể chia nhỏ được thì hãy chia nhỏ.</b> Giá trị không chia nhỏ hơn nữa gọi là giá trị nguyên tố (atomic).</p><p>Ví dụ trên slide: cột <code>customer_address</code> chứa cả \"5331 Rexford Court, Montgomery AL 36116\" – gồm số nhà và đường, thành phố, bang, mã bưu điện.</p><table><thead><tr><th>Trước (chưa nguyên tố)</th><th>Sau (đã tách)</th></tr></thead><tbody><tr><td>customer_address = \"5331 Rexford Court, Montgomery AL 36116\"</td><td>street = \"5331 Rexford Court\"<br>city = \"Montgomery\"<br>state = \"AL\"<br>zip = \"36116\"</td></tr></tbody></table><p>Lợi ích: lọc, sắp xếp, thống kê được theo từng phần, ví dụ \"đếm khách theo thành phố\".</p><p class='tip'>Với địa chỉ Việt Nam, ví dụ thường tách: số nhà/đường, phường/xã, quận/huyện, tỉnh/thành phố. Mức chia nhỏ tùy nhu cầu nghiệp vụ: không cần lọc theo phần nào thì không bắt buộc tách phần đó.</p>",
+   "src": "21. Database.pdf tr.10"
+  },
+  {
+   "id": "L21-t10",
+   "h": "Nguyên tắc #5 kiểu dữ liệu, #6 index, #7 thông tin nhạy cảm",
+   "html": "<ul><li><b>#5: Chọn đúng loại dữ liệu.</b> Mỗi cột chọn kiểu vừa đủ: số thì dùng kiểu số, ngày thì dùng kiểu ngày, tiền thì dùng DECIMAL. Chi tiết ở phần Data type.</li><li><b>#6: Đánh index.</b> Index (chỉ mục) giống mục lục cuối sách: giúp tìm dòng nhanh mà không phải quét cả bảng. Nên đánh trên cột hay dùng để tìm kiếm, lọc, nối bảng, ví dụ số điện thoại khách, mã đơn. Đổi lại, index tốn thêm dung lượng và làm thao tác thêm/sửa chậm hơn một chút, nên không đánh tràn lan.</li><li><b>#7: Che giấu thông tin nhạy cảm.</b> Mật khẩu, số thẻ, số CMND/CCCD… không lưu dạng đọc được. Ví dụ: mật khẩu lưu dạng băm (hash), số thẻ chỉ hiện 4 số cuối, phân quyền ai được xem cột nào.</li></ul><table><thead><tr><th>#</th><th>7 nguyên tắc thiết kế (tóm tắt)</th></tr></thead><tbody><tr><td>1</td><td>Tránh dư thừa</td></tr><tr><td>2</td><td>Khóa chính bắt buộc</td></tr><tr><td>3</td><td>Hiểu đúng giá trị NULL</td></tr><tr><td>4</td><td>Tính nguyên tố</td></tr><tr><td>5</td><td>Chọn đúng loại dữ liệu</td></tr><tr><td>6</td><td>Đánh index</td></tr><tr><td>7</td><td>Che giấu thông tin nhạy cảm</td></tr></tbody></table>",
+   "src": "21. Database.pdf tr.11"
+  },
+  {
+   "id": "L21-t11",
+   "h": "Chuẩn hóa và dạng chuẩn 1 (1NF)",
+   "html": "<p><b>Chuẩn hóa (normalization)</b> là cách tách bảng theo các quy tắc để giảm dư thừa và tránh lỗi khi thêm, sửa, xóa. Slide nêu 4 dạng chuẩn:</p><ul><li>Dạng chuẩn 1 (1NF) – First Normal Form</li><li>Dạng chuẩn 2 (2NF) – Second Normal Form</li><li>Dạng chuẩn 3 (3NF) – Third Normal Form</li><li>Dạng chuẩn Boyce-Codd (BCNF)</li></ul><p>Các dạng chuẩn đi theo bậc: muốn đạt 2NF phải đạt 1NF trước, muốn đạt 3NF phải đạt 2NF trước.</p><h4>1NF</h4><p class='key'>Mỗi cột trong bảng chỉ chứa các <b>giá trị nguyên tử</b> (không thể phân tách) và <b>không có nhóm dữ liệu lặp lại</b>.</p><p>Ví dụ 1 trên slide: bảng Employee có ô CourseID chứa hai giá trị \"IS200, LT102\", CourseTitle chứa \"SPSS, Surveys\". Cách sửa: mỗi khóa học thành một dòng riêng. Nhân viên 100 có hai dòng.</p>{{img:L21-img2}}<p>Ví dụ 2 trên slide: bảng đơn hàng gộp có cột address chứa \"Ha Noi, Hung Yen\" (hai địa chỉ trong một ô) và thông tin khách lặp ở nhiều dòng. Cách sửa: tách thành bảng <code>customers</code> (customer_id, customer_name, phone), <code>addresses</code> (customer_id, address – mỗi địa chỉ một dòng) và <code>orders</code> (customer_id, order_id, product_id, order_date, description, quantity, unit_price).</p>{{img:L21-img3}}<p class='note'>Trong hình ví dụ 2, các cột order_date, description, phone được khai kiểu int(11). Đó là cú pháp MySQL và chỉ để minh họa tách bảng. Theo nguyên tắc chọn đúng kiểu dữ liệu: ngày nên là DATE, mô tả và số điện thoại nên là chuỗi (số điện thoại có số 0 đầu, không dùng để tính toán).</p>",
+   "src": "21. Database.pdf tr.13-15"
+  },
+  {
+   "id": "L21-t12",
+   "h": "Dạng chuẩn 2 (2NF)",
+   "html": "<p class='key'>Bảng đạt 2NF khi: <b>đạt 1NF</b> và <b>mỗi thuộc tính phụ thuộc hoàn toàn vào toàn bộ khóa chính</b>.</p><p>\"Phụ thuộc hoàn toàn\" quan trọng khi khóa chính ghép từ nhiều cột. Nếu một cột chỉ cần <i>một phần</i> của khóa là xác định được thì đó là <b>phụ thuộc bộ phận</b> và bảng vi phạm 2NF. (Theo cách nói chuẩn: xét các thuộc tính không khóa.)</p><p>Ví dụ trên slide: bảng Employee sau 1NF có khóa (EmployeeID, CourseID).</p><ul><li>Name, DeptName, Salary chỉ phụ thuộc EmployeeID.</li><li>CourseTitle chỉ phụ thuộc CourseID.</li><li>Chỉ DateCompleted mới phụ thuộc cả hai.</li></ul><p>Cách sửa: tách thành 3 bảng:</p><ul><li><b>Employee</b>(EmployeeID, Name, Dept_name, Salary)</li><li><b>Course</b>(Course_ID, Course_Title)</li><li><b>Emp_Crs</b>(ID, EmployeeID, CourseID, DateCompleted) – bảng mapping nối hai bảng trên</li></ul>{{img:L21-img4}}<p class='tip'>Mẹo: bảng có khóa chính chỉ một cột và đã đạt 1NF thì tự động đạt 2NF.</p>",
+   "src": "21. Database.pdf tr.16"
+  },
+  {
+   "id": "L21-t13",
+   "h": "Dạng chuẩn 3 (3NF) và BCNF",
+   "html": "<p class='key'>Bảng đạt 3NF khi: <b>đạt 2NF</b> và <b>mọi thuộc tính không khóa đều không phụ thuộc bắc cầu vào khóa chính</b>.</p><p><b>Phụ thuộc bắc cầu</b>: A → B và B → C, nên C phụ thuộc A <i>qua</i> B. Ký hiệu A → B đọc là \"biết A thì xác định được B\" (phụ thuộc hàm, viết tắt pth).</p>{{img:L21-img5}}<p><b>Ví dụ 1 (slide):</b> S(sid, sname, city) và Sales(sid, item, price). Trong S, sid → sname, city; sid là khóa chính, sname và city phụ thuộc <b>trực tiếp</b> vào sid. Vậy S đạt 3NF. Sales cũng đạt 3NF.</p><p><b>Ví dụ 2 (slide):</b> ItemInfo(item, price, discount) với item → price và price → discount. Khóa chính là item. discount phụ thuộc bắc cầu vào item qua price, nên bảng <b>không</b> đạt 3NF. Cách sửa: tách thành ItemInfo(item, price) và Discount(price, discount). Hai bảng mới đều đạt 3NF.</p><h4>BCNF (Boyce-Codd Normal Form)</h4><p>Slide chỉ nêu tên BCNF. Theo kiến thức chuẩn, BCNF chặt hơn 3NF: <b>mọi phụ thuộc hàm X → Y thì X phải là siêu khóa</b> (xác định duy nhất mỗi dòng). Phần lớn bảng đạt 3NF cũng đạt BCNF. Trong thực tế dự án, thiết kế tới 3NF là đủ dùng.</p><p class='note'>Slide viết \"Boyce-Code\". Tên chuẩn là Boyce-Codd, theo tên hai nhà khoa học Raymond Boyce và Edgar Codd.</p>",
+   "src": "21. Database.pdf tr.13, 17"
+  },
+  {
+   "id": "L21-t14",
+   "h": "Data type – kiểu dữ liệu là gì",
+   "html": "<p>Trong SQL, <b>mỗi cột, biến, biểu thức, tham số đều thuộc một kiểu dữ liệu</b>.</p><p><b>Kiểu dữ liệu (data type)</b> là thuộc tính chỉ định loại dữ liệu mà đối tượng có thể chứa: số nguyên, ký tự, tiền tệ, ngày giờ, chuỗi nhị phân…</p><p><b>Lợi ích khi chọn đúng kiểu dữ liệu:</b></p><ul><li><b>Ngăn chặn dữ liệu không hợp lệ.</b> Ví dụ: cột kiểu DATE không nhận \"ngày 32\".</li><li><b>Tối ưu hóa bộ nhớ.</b> Ví dụ: tuổi dùng TINYINT (1 byte) thay vì BIGINT (8 byte).</li></ul><p>Sơ đồ nhóm kiểu dữ liệu SQL Server trên slide:</p>{{img:L21-img6}}<table><thead><tr><th>Nhóm</th><th>Các kiểu</th></tr></thead><tbody><tr><td>Exact numerics (số chính xác)</td><td>bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint</td></tr><tr><td>Approx. numerics (số xấp xỉ)</td><td>float, real</td></tr><tr><td>Date &amp; time (ngày giờ)</td><td>date, datetime2, datetime, datetimeoffset, smalldatetime, time</td></tr><tr><td>Character strings (chuỗi ký tự)</td><td>char, text, varchar</td></tr><tr><td>Unicode character strings (chuỗi Unicode)</td><td>nchar, ntext, nvarchar</td></tr><tr><td>Binary strings (chuỗi nhị phân)</td><td>binary, image, varbinary</td></tr><tr><td>Others (khác)</td><td>cursor, hierarchyid, sql_variant, Spatial Geometry Types, table, rowversion, uniqueidentifier, xml, Spatial Geography Types</td></tr></tbody></table><p>Tài liệu tham chiếu trên slide: trang hướng dẫn SQL Server Tutorial về data types và tài liệu Microsoft Learn \"Data types (Transact-SQL)\".</p>",
+   "src": "21. Database.pdf tr.19-20"
+  },
+  {
+   "id": "L21-t15",
+   "h": "Kiểu số: chính xác và xấp xỉ",
+   "html": "<table><thead><tr><th>Kiểu</th><th>Phạm vi</th><th>Dung lượng</th><th>Ưu / nhược</th><th>Khi nào dùng</th></tr></thead><tbody><tr><td><b>bit</b></td><td>0, 1 hoặc NULL</td><td>1 byte (tối đa 8 cột bit dùng chung 1 byte)</td><td>Tiết kiệm, dễ hiểu; chỉ lưu được 2 giá trị</td><td>Giới tính nam/nữ; còn hàng/hết hàng; kích hoạt/không kích hoạt</td></tr><tr><td><b>tinyint</b></td><td>0 → 255</td><td>1 byte</td><td>Nhỏ, tiết kiệm; phạm vi nhỏ, không có số âm</td><td>Tuổi, số lượng nhỏ</td></tr><tr><td><b>smallint</b></td><td>-32,768 → 32,767</td><td>2 byte</td><td>Vừa phải; không hợp số lớn</td><td>Năm</td></tr><tr><td><b>int</b></td><td>-2,147,483,648 → 2,147,483,647</td><td>4 byte</td><td>Phổ biến, hiệu suất cao; dư thừa nếu dữ liệu nhỏ</td><td>ID tự tăng của bảng, số lượng lớn</td></tr><tr><td><b>bigint</b></td><td>-9,223,372,036,854,775,808 → 9,223,372,036,854,775,807</td><td>8 byte</td><td>Lưu số rất lớn; tốn bộ nhớ</td><td>Giao dịch tài chính lớn, log hệ thống</td></tr><tr><td><b>decimal(p,s) / numeric(p,s)</b></td><td>Số thập phân chính xác. p = tổng số chữ số, s = số chữ số phần thập phân</td><td>Tùy p: 1–9 chữ số 5 byte, 10–19 chữ số 9 byte…</td><td>Chính xác tuyệt đối; tốn tài nguyên hơn float</td><td>Tài chính, tiền tệ</td></tr><tr><td><b>float</b></td><td>Số thực xấp xỉ</td><td>8 byte</td><td>Lưu được số rất lớn; có thể sai lệch nhỏ</td><td>Tính toán khoa học. <b>Không dùng cho tiền tệ</b></td></tr><tr><td><b>real</b></td><td>Số thực xấp xỉ, nhỏ hơn float</td><td>4 byte</td><td>Nhẹ hơn float; độ chính xác thấp hơn</td><td>Cần hiệu năng, không cần chính xác tuyệt đối</td></tr></tbody></table><p>Về decimal: viết <code>decimal(p,s)</code>, ví dụ <code>decimal(10,2)</code> lưu được tới 99,999,999.99 (10 chữ số, 2 chữ số sau dấu phẩy). Nếu không ghi p, s thì mặc định là <b>(18,0)</b>. decimal và numeric là hai tên của cùng một kiểu.</p><p class='note'>Slide ghi bit có thể là \"0, 1 or NULL\" và chiếm \"8 column/1 Byte\". Tài liệu bảng tra ghi \"0 hoặc 1, 1 byte\". Hai cách ghi không mâu thuẫn: giá trị là 0 hoặc 1, cột cho phép NULL thì nhận thêm NULL; SQL Server gom tối đa 8 cột bit vào 1 byte.</p><p class='tip'>Mẹo nhớ: <b>Tiền → decimal, khoa học → float</b>. Float \"trôi\" vài số lẻ, tiền thì không được lệch một đồng.</p>",
+   "src": "21. Database.pdf tr.21; 21. Kieu du lieu trong Sql Server.pdf tr.1-2"
+  },
+  {
+   "id": "L21-t16",
+   "h": "Kiểu chuỗi: char, varchar, nchar, nvarchar",
+   "html": "<table><thead><tr><th>Kiểu</th><th>Mô tả</th><th>Ưu / nhược</th><th>Khi nào dùng</th></tr></thead><tbody><tr><td><b>char(n)</b></td><td>Chuỗi độ dài <b>cố định</b> n ký tự. Ngắn hơn n thì được đệm khoảng trắng.</td><td>Nhanh, ổn định; tốn bộ nhớ nếu chuỗi ngắn</td><td>Mã có độ dài cố định: mã nhân viên, mã bưu điện</td></tr><tr><td><b>varchar(n)</b></td><td>Chuỗi độ dài <b>thay đổi</b>, tối đa n ký tự</td><td>Linh hoạt, tiết kiệm; hiệu năng thấp hơn char một chút</td><td>Tên, email, địa chỉ, mô tả (không dấu)</td></tr><tr><td><b>nchar(n)</b></td><td>Như char nhưng hỗ trợ <b>Unicode</b> (đa ngôn ngữ)</td><td>Lưu được tiếng Việt, tiếng Nhật, tiếng Trung…; dung lượng gấp đôi char</td><td>Dữ liệu đa ngôn ngữ, độ dài cố định</td></tr><tr><td><b>nvarchar(n)</b></td><td>Như varchar nhưng hỗ trợ Unicode</td><td>Linh hoạt và đa ngôn ngữ; tốn bộ nhớ hơn varchar</td><td>Tên, địa chỉ có dấu tiếng Việt</td></tr></tbody></table><p>Cách nhớ hai chữ cái đầu:</p><ul><li><b>var</b> = variable: độ dài thay đổi.</li><li><b>n</b> = national: Unicode, lưu được có dấu. Khi chèn chuỗi Unicode, viết tiền tố N, ví dụ <code>N'Nguyễn Văn A'</code>.</li></ul><h4>Lưu ý về text, ntext, image</h4><p><b>text</b> (và các biến thể <b>ntext</b>, <b>image</b>) là kiểu cũ, dùng trong SQL Server 2000/2005 để lưu chuỗi rất dài, lên đến 2GB. Microsoft thông báo các kiểu này sẽ bị loại bỏ trong phiên bản tương lai. Thay bằng:</p><table><thead><tr><th>Kiểu cũ</th><th>Dùng thay</th></tr></thead><tbody><tr><td>text</td><td>varchar(max)</td></tr><tr><td>ntext</td><td>nvarchar(max)</td></tr><tr><td>image</td><td>varbinary(max)</td></tr></tbody></table><p class='note'>Tài liệu bảng tra viết \"Microsoft đã khuyến nghị sử dụng\" (thiếu chữ). Đoạn tiếng Anh ngay dưới cho thấy ý đúng: khuyến nghị <b>không</b> dùng text/ntext/image nữa mà dùng varchar(max), nvarchar(max), varbinary(max).</p>",
+   "src": "21. Kieu du lieu trong Sql Server.pdf tr.2-3; 21. Database.pdf tr.19"
+  },
+  {
+   "id": "L21-t17",
+   "h": "Kiểu ngày giờ",
+   "html": "<table><thead><tr><th>Kiểu</th><th>Lưu gì</th><th>Phạm vi / định dạng</th><th>Dung lượng</th><th>Khi nên dùng</th></tr></thead><tbody><tr><td><b>date</b></td><td>Chỉ ngày, không có giờ</td><td>0001-01-01 đến 9999-12-31; yyyy-MM-dd, VD 2010-10-10</td><td>3 byte</td><td>Ngày sinh, ngày đặt hàng</td></tr><tr><td><b>time(n)</b></td><td>Chỉ giờ, không có ngày</td><td>00:00:00.0000000 đến 23:59:59.9999999; hh:mm:ss, VD 23:59:59; n từ 0 đến 7, mặc định 7</td><td>3–5 byte</td><td>Giờ làm việc, giờ vào/ra</td></tr><tr><td><b>datetime</b></td><td>Ngày và giờ phút giây</td><td>01/01/1753 đến 31/12/9999; yyyy-MM-dd hh:mm:ss, VD 2010-10-10 12:10:30.000</td><td>8 byte</td><td>Dữ liệu cũ, phổ biến</td></tr><tr><td><b>smalldatetime</b></td><td>Ngày và giờ, chỉ chính xác tới phút</td><td>1900 đến 2079</td><td>4 byte</td><td>Khi không cần độ chính xác giây</td></tr><tr><td><b>datetime2(n)</b></td><td>Ngày và giờ, bản mở rộng, chính xác hơn</td><td>0001-01-01 đến 9999-12-31, giờ tới 23:59:59.9999999; yyyy-MM-dd hh:mm:ss.n</td><td>6–8 byte</td><td>Dữ liệu thời gian chính xác cao</td></tr><tr><td><b>datetimeoffset</b></td><td>Ngày giờ kèm múi giờ (timezone)</td><td>VD 2010-10-10 12:10:30 +07:00</td><td>10 byte</td><td>Hệ thống đa quốc gia, cloud app</td></tr></tbody></table><p>Trong <code>time(n)</code> và <code>datetime2(n)</code>, n là số chữ số phần lẻ của giây (0–7). n càng lớn càng chính xác.</p><p class='note'>Slide \"Các kiểu dữ liệu khác hay dùng\" ghi DATETIME và DATETIME2 đều chiếm 3 bytes. Tài liệu bảng tra và tài liệu Microsoft ghi datetime 8 byte, datetime2 6–8 byte (3 byte là dung lượng của DATE). Bài học dùng số của bảng tra.</p>",
+   "src": "21. Database.pdf tr.22-23; 21. Kieu du lieu trong Sql Server.pdf tr.3"
+  },
+  {
+   "id": "L21-t18",
+   "h": "Truy vấn thay đổi giá trị: INSERT, UPDATE, DELETE, TRUNCATE",
+   "html": "<table><thead><tr><th>Việc</th><th>Cú pháp</th></tr></thead><tbody><tr><td>Thêm dữ liệu</td><td><pre><code>INSERT INTO table_name (column1, column2, ...)\nVALUES (value1, value2, ...);</code></pre></td></tr><tr><td>Cập nhật dữ liệu</td><td><pre><code>UPDATE table_name\nSET column1 = value1, column2 = value2, ...\nWHERE condition;</code></pre></td></tr><tr><td>Xóa dữ liệu <b>không reset ID</b></td><td><pre><code>DELETE FROM table_name\nWHERE condition;</code></pre></td></tr><tr><td>Xóa dữ liệu <b>có reset ID</b></td><td><pre><code>TRUNCATE table_name;</code></pre></td></tr></tbody></table><ul><li><b>DELETE</b> xóa các dòng thỏa điều kiện WHERE. Bộ đếm ID tự tăng vẫn chạy tiếp. Ví dụ: xóa dòng ID 1–10, dòng thêm sau có ID 11.</li><li><b>TRUNCATE</b> xóa <b>toàn bộ</b> dữ liệu của bảng và đưa bộ đếm ID về giá trị ban đầu. TRUNCATE không có WHERE. (Cú pháp đầy đủ của SQL Server là <code>TRUNCATE TABLE table_name;</code>.)</li></ul><p class='warn'>UPDATE và DELETE mà quên WHERE thì sẽ sửa hoặc xóa <b>mọi dòng</b> trong bảng.</p><pre><code>-- ví dụ: FoodNow thêm một nhà hàng và sửa số điện thoại\nINSERT INTO restaurants (name, phone) VALUES (N'Nhà hàng A', '0901234567');\nUPDATE restaurants SET phone = '0907654321' WHERE restaurant_id = 5;</code></pre>",
+   "src": "21. Database.pdf tr.26"
+  },
+  {
+   "id": "L21-t19",
+   "h": "Truy vấn lấy giá trị: SELECT",
+   "html": "<p><b>Cú pháp chuẩn</b> (đúng thứ tự viết):</p><pre><code>SELECT column1, column2, ...\nFROM table_name\nWHERE condition1\nGROUP BY column1\nHAVING condition\nORDER BY column1 ASC|DESC;</code></pre><table><thead><tr><th>Mệnh đề</th><th>Ý nghĩa</th></tr></thead><tbody><tr><td>SELECT</td><td>Chọn cột muốn lấy</td></tr><tr><td>FROM</td><td>Lấy từ bảng nào</td></tr><tr><td>WHERE</td><td>Lọc <b>dòng</b> trước khi nhóm</td></tr><tr><td>GROUP BY</td><td>Gom các dòng cùng giá trị thành nhóm (để đếm, cộng theo nhóm)</td></tr><tr><td>HAVING</td><td>Lọc <b>nhóm</b> sau khi gom, thường dùng với hàm tổng hợp</td></tr><tr><td>ORDER BY</td><td>Sắp xếp: ASC tăng dần (mặc định), DESC giảm dần</td></tr></tbody></table><p><b>Ghi chú trên slide:</b></p><ul><li><b>DISTINCT</b>: loại bỏ các giá trị trùng. VD <code>SELECT DISTINCT city FROM customers;</code></li><li><b>TOP (n)</b>: lấy ra n dòng đầu tiên, n là số nguyên.</li><li>So sánh với NULL phải dùng <b>IS NULL</b> hoặc <b>IS NOT NULL</b>, không dùng dấu =.</li><li>Dùng <b>AND, OR, NOT, IN, NOT IN, BETWEEN</b> trong câu điều kiện.</li><li>Dùng <b>LIKE</b> để so sánh gần đúng. VD <code>name LIKE N'Phở%'</code> – tên bắt đầu bằng \"Phở\" (% là chuỗi bất kỳ).</li><li>Dùng <b>AS</b> để đổi tên cột khi hiển thị. VD <code>SELECT COUNT(*) AS so_don</code>.</li></ul><pre><code>-- ví dụ: 5 món đắt nhất còn bán của nhà hàng 2\nSELECT TOP (5) name AS ten_mon, price\nFROM dishes\nWHERE restaurant_id = 2 AND is_available = 1\nORDER BY price DESC;</code></pre>",
+   "src": "21. Database.pdf tr.27"
+  },
+  {
+   "id": "L21-t20",
+   "h": "Các hàm dùng sẵn (hàm tổng hợp)",
+   "html": "<table><thead><tr><th>Hàm</th><th>Trả về</th></tr></thead><tbody><tr><td>MIN()</td><td>Giá trị nhỏ nhất trong cột đã chọn</td></tr><tr><td>MAX()</td><td>Giá trị lớn nhất trong cột đã chọn</td></tr><tr><td>COUNT()</td><td>Số hàng trong một tập hợp</td></tr><tr><td>SUM()</td><td>Tổng của một cột số</td></tr><tr><td>AVG()</td><td>Giá trị trung bình của một cột số</td></tr></tbody></table><p><b>Ví dụ trên slide:</b></p><pre><code>SELECT MIN(Price), MAX(Price), SUM(Price),\n       AVG(Price), COUNT(Price)\nFROM Products\nWHERE Category = 1;</code></pre><p>Câu này trả về một dòng: giá thấp nhất, cao nhất, tổng giá, giá trung bình và số sản phẩm có giá, chỉ tính các sản phẩm thuộc Category 1.</p><p>Kết hợp với GROUP BY để tính theo từng nhóm:</p><pre><code>-- ví dụ: số đơn của từng khách, chỉ lấy khách có từ 3 đơn\nSELECT customer_id, COUNT(*) AS so_don\nFROM orders\nGROUP BY customer_id\nHAVING COUNT(*) &gt;= 3;</code></pre><p class='tip'>COUNT(cột) không đếm dòng có cột đó là NULL. COUNT(*) đếm mọi dòng.</p>",
+   "src": "21. Database.pdf tr.28"
+  },
+  {
+   "id": "L21-t21",
+   "h": "Câu lệnh kết hợp các bảng: JOIN và UNION",
+   "html": "<table><thead><tr><th>Lệnh</th><th>Trả về</th></tr></thead><tbody><tr><td><b>(INNER) JOIN</b></td><td>Các bản ghi có giá trị trùng khớp trong <b>cả hai</b> bảng</td></tr><tr><td><b>LEFT (OUTER) JOIN</b></td><td><b>Tất cả</b> bản ghi bảng bên trái và các bản ghi khớp từ bảng bên phải</td></tr><tr><td><b>RIGHT (OUTER) JOIN</b></td><td><b>Tất cả</b> bản ghi bảng bên phải và các bản ghi khớp từ bảng bên trái</td></tr><tr><td><b>FULL (OUTER) JOIN</b></td><td>Tất cả bản ghi khi có trùng khớp ở bảng trái <b>hoặc</b> bảng phải</td></tr><tr><td><b>UNION</b></td><td>Data của tất cả các bảng (ghép kết quả của nhiều câu SELECT)</td></tr></tbody></table>{{img:L21-img7}}<p>Ở LEFT JOIN, dòng bên trái không có cặp khớp thì các cột bên phải nhận NULL.</p><pre><code>-- ví dụ: mọi khách và đơn của họ, kể cả khách chưa đặt đơn nào\nSELECT c.customer_name, o.order_id\nFROM customers AS c\nLEFT JOIN orders AS o ON o.customer_id = c.customer_id;</code></pre><p>Khác biệt chính: <b>JOIN ghép theo chiều ngang</b> (thêm cột từ bảng khác). <b>UNION ghép theo chiều dọc</b> (nối thêm dòng).</p><p class='note'>Slide tóm UNION là \"trả về data của tất cả các bảng\". Theo SQL chuẩn, UNION nối kết quả của hai (hoặc nhiều) câu SELECT có cùng số cột và kiểu cột tương thích, đồng thời loại dòng trùng. Muốn giữ cả dòng trùng thì dùng UNION ALL.</p>",
+   "src": "21. Database.pdf tr.29"
+  }
+ ],
+ "examples": [
+  {
+   "id": "L21-e1",
+   "title": "Áp quy trình 8 bước cho app đặt đồ ăn",
+   "html": "<p>Ví dụ: thiết kế CSDL cho hệ thống đặt đồ ăn, đi lần lượt 8 bước của slide.</p><ol><li><b>Mục đích:</b> nhận đơn đặt món online, theo dõi trạng thái đơn, thống kê doanh thu theo món.</li><li><b>Thu thập thông tin:</b> tên khách, số điện thoại, địa chỉ giao, tên món, giá, ngày giờ đặt, số lượng, trạng thái đơn.</li><li><b>Chia thành bảng:</b> customers (khách), dishes (món), orders (đơn), order_items (chi tiết đơn).</li><li><b>Chuyển thành cột:</b> xem bảng dưới.</li><li><b>Khóa chính:</b> customer_id, dish_id, order_id, (order_id, dish_id).</li><li><b>Quan hệ:</b> một khách có nhiều đơn (1-n); một đơn có nhiều món và một món nằm trong nhiều đơn (n-n), nên cần bảng mapping order_items.</li><li><b>Tinh chỉnh:</b> thêm cột unit_price vào order_items để lưu giá tại thời điểm đặt (ngoại lệ được phép của nguyên tắc tránh dư thừa).</li><li><b>Chuẩn hóa:</b> kiểm từng bảng đạt 3NF.</li></ol><table><thead><tr><th>Bảng</th><th>Cột (kiểu)</th></tr></thead><tbody><tr><td>customers</td><td><b>customer_id</b> INT (PK), full_name NVARCHAR(100), phone VARCHAR(15), address NVARCHAR(255)</td></tr><tr><td>dishes</td><td><b>dish_id</b> INT (PK), name NVARCHAR(100), price DECIMAL(12,2), is_available BIT</td></tr><tr><td>orders</td><td><b>order_id</b> INT (PK), customer_id INT (FK), order_time DATETIME2, status TINYINT, total_amount DECIMAL(12,2)</td></tr><tr><td>order_items</td><td><b>order_id</b> INT (FK), <b>dish_id</b> INT (FK), quantity SMALLINT, unit_price DECIMAL(12,2)</td></tr></tbody></table><p>Giải thích: total_amount là dư thừa có chủ đích (tối ưu truy vấn báo cáo). unit_price là giá trị tại thời điểm xảy ra. Hai cột này đều thuộc phần ngoại lệ trên slide.</p>",
+   "src": "21. Database.pdf tr.6, 8"
+  },
+  {
+   "id": "L21-e2",
+   "title": "Chuẩn hóa phiếu mượn sách thư viện từ 0NF lên 3NF",
+   "html": "<p>Ví dụ: thủ thư đang ghi mượn sách vào một bảng tính duy nhất:</p><table><thead><tr><th>ma_phieu</th><th>ma_doc_gia</th><th>ten_doc_gia</th><th>ma_lop</th><th>ten_lop</th><th>sach_muon</th><th>ngay_muon</th></tr></thead><tbody><tr><td>P01</td><td>DG1</td><td>An</td><td>L1</td><td>CNTT1</td><td>S01 Toán rời rạc, S02 CSDL</td><td>2024-03-01</td></tr></tbody></table><p><b>Bước 1 – 1NF.</b> Ô sach_muon chứa nhiều sách, vi phạm tính nguyên tử. Tách mỗi sách thành một dòng, tách mã và tên sách thành hai cột. Khóa thành (ma_phieu, ma_sach).</p><p><b>Bước 2 – 2NF.</b> Với khóa (ma_phieu, ma_sach):</p><ul><li>ten_sach chỉ phụ thuộc ma_sach.</li><li>ma_doc_gia, ngay_muon chỉ phụ thuộc ma_phieu.</li></ul><p>Đây là phụ thuộc bộ phận, nên tách thành: Sach(<b>ma_sach</b>, ten_sach), PhieuMuon(<b>ma_phieu</b>, ma_doc_gia, ten_doc_gia, ma_lop, ten_lop, ngay_muon), ChiTietMuon(<b>ma_phieu, ma_sach</b>).</p><p><b>Bước 3 – 3NF.</b> Trong PhieuMuon: ma_phieu → ma_doc_gia → ten_doc_gia, ma_lop; và ma_lop → ten_lop. Đây là phụ thuộc bắc cầu. Tách tiếp: DocGia(<b>ma_doc_gia</b>, ten_doc_gia, ma_lop), Lop(<b>ma_lop</b>, ten_lop), PhieuMuon(<b>ma_phieu</b>, ma_doc_gia, ngay_muon).</p><p><b>Kết quả:</b> 5 bảng Sach, DocGia, Lop, PhieuMuon, ChiTietMuon. Đổi tên lớp chỉ sửa 1 dòng trong bảng Lop.</p>",
+   "src": "21. Database.pdf tr.14-17"
+  },
+  {
+   "id": "L21-e3",
+   "title": "Chọn kiểu dữ liệu cho bảng Sản phẩm SolasMart",
+   "html": "<p>Ví dụ: bảng products của chuỗi bán lẻ SolasMart.</p><table><thead><tr><th>Cột</th><th>Kiểu</th><th>Lý do</th></tr></thead><tbody><tr><td>product_id</td><td>INT</td><td>ID tự tăng của bảng; vài nghìn tới vài triệu sản phẩm vẫn đủ</td></tr><tr><td>barcode</td><td>CHAR(13)</td><td>Mã vạch EAN-13 luôn đủ 13 ký tự: độ dài cố định nên dùng char</td></tr><tr><td>name</td><td>NVARCHAR(200)</td><td>Tên có dấu tiếng Việt, dài ngắn khác nhau</td></tr><tr><td>price</td><td>DECIMAL(12,2)</td><td>Tiền tệ cần chính xác tuyệt đối, không dùng FLOAT</td></tr><tr><td>stock_qty</td><td>INT</td><td>Số lượng tồn có thể lớn hơn 32,767</td></tr><tr><td>weight_kg</td><td>DECIMAL(8,3) hoặc REAL</td><td>Chỉ để hiển thị thì REAL đủ; dùng tính cước thì nên DECIMAL</td></tr><tr><td>is_active</td><td>BIT</td><td>Chỉ có 2 trạng thái: đang bán / ngừng bán</td></tr><tr><td>created_at</td><td>DATETIME2</td><td>Cần ngày và giờ, độ chính xác cao</td></tr><tr><td>description</td><td>NVARCHAR(MAX)</td><td>Mô tả dài, có dấu. Không dùng NTEXT vì sắp bị loại bỏ</td></tr></tbody></table>",
+   "src": "21. Kieu du lieu trong Sql Server.pdf tr.1-3"
+  },
+  {
+   "id": "L21-e4",
+   "title": "Đọc kết quả INNER JOIN và LEFT JOIN trên FoodNow",
+   "html": "<p>Ví dụ: FoodNow có bảng restaurants và bảng bookings (đặt bàn).</p><table><thead><tr><th colspan='2'>restaurants</th><th colspan='3'>bookings</th></tr><tr><th>restaurant_id</th><th>name</th><th>booking_id</th><th>restaurant_id</th><th>guests</th></tr></thead><tbody><tr><td>1</td><td>Nhà hàng A</td><td>101</td><td>1</td><td>4</td></tr><tr><td>2</td><td>Nhà hàng B</td><td>102</td><td>1</td><td>2</td></tr><tr><td>3</td><td>Nhà hàng C</td><td>103</td><td>3</td><td>6</td></tr></tbody></table><pre><code>SELECT r.name, b.booking_id\nFROM restaurants r\nINNER JOIN bookings b ON b.restaurant_id = r.restaurant_id;</code></pre><p><b>INNER JOIN</b> trả 3 dòng: (A, 101), (A, 102), (C, 103). Nhà hàng B không có đơn đặt bàn nên không xuất hiện.</p><p>Đổi thành <b>LEFT JOIN</b> (restaurants bên trái): trả 4 dòng, thêm (B, NULL).</p><p>Muốn tìm <b>nhà hàng chưa có lượt đặt</b>: LEFT JOIN rồi lọc <code>WHERE b.booking_id IS NULL</code>. Kết quả: Nhà hàng B.</p><p class='tip'>Câu hỏi nghiệp vụ \"liệt kê tất cả X, kể cả X chưa có Y\" thường là LEFT JOIN.</p>",
+   "src": "21. Database.pdf tr.27, 29"
+  },
+  {
+   "id": "L21-e5",
+   "title": "DELETE và TRUNCATE khác nhau ở ID",
+   "html": "<p>Ví dụ: bảng test_orders có cột order_id tự tăng, hiện có ID 1 đến 5.</p><table><thead><tr><th>Lệnh</th><th>Kết quả</th><th>Thêm 1 dòng mới thì ID là</th></tr></thead><tbody><tr><td><code>DELETE FROM test_orders WHERE order_id &gt; 3;</code></td><td>Còn ID 1, 2, 3</td><td>6</td></tr><tr><td><code>DELETE FROM test_orders;</code></td><td>Bảng rỗng</td><td>6 (không reset ID)</td></tr><tr><td><code>TRUNCATE TABLE test_orders;</code></td><td>Bảng rỗng</td><td>1 (có reset ID)</td></tr></tbody></table><p>Ứng dụng: BA hoặc tester làm sạch dữ liệu test muốn đánh số lại từ đầu thì dùng TRUNCATE. Muốn xóa có chọn lọc thì dùng DELETE kèm WHERE.</p>",
+   "src": "21. Database.pdf tr.26"
+  },
+  {
+   "id": "L21-e6",
+   "title": "BA đặc tả trường dữ liệu trong tài liệu",
+   "html": "<p>Ví dụ: một phần bảng mô tả dữ liệu (data dictionary) cho màn hình \"Đăng ký thành viên\" của SolasMart. BA dùng kiến thức kiểu dữ liệu, NULL và khóa để viết.</p><table><thead><tr><th>Trường</th><th>Kiểu</th><th>Bắt buộc</th><th>Quy tắc</th></tr></thead><tbody><tr><td>Mã thành viên</td><td>INT, PK, tự tăng</td><td>Có (NOT NULL)</td><td>Hệ thống tự sinh, duy nhất</td></tr><tr><td>Họ tên</td><td>NVARCHAR(100)</td><td>Có</td><td>Có dấu tiếng Việt</td></tr><tr><td>Số điện thoại</td><td>VARCHAR(15)</td><td>Có</td><td>Duy nhất; giữ số 0 đầu nên không dùng INT; đánh index vì hay tra cứu</td></tr><tr><td>Ngày sinh</td><td>DATE</td><td>Không (NULL)</td><td>Không cần giờ</td></tr><tr><td>Giới tính</td><td>BIT</td><td>Không</td><td>NULL = khách không khai</td></tr><tr><td>Mật khẩu</td><td>VARCHAR(255)</td><td>Có</td><td>Lưu dạng băm, không lưu bản đọc được (#7)</td></tr></tbody></table>",
+   "src": "21. Database.pdf tr.9, 11; 21. Kieu du lieu trong Sql Server.pdf tr.1-3"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L21-p1",
+   "title": "Chuẩn hóa bảng đơn hàng gộp trên slide",
+   "task": "<p>Slide 1NF có bảng gộp: customer_id, customer_name, phone, address, order_id, order_date, product_id, description, quantity, unit_price, total_amount. Dòng 1 có address \"Ha Noi, Hung Yen\". Khách Nguyen Van Thuy lặp ở 3 dòng. Hãy tách bảng tới 3NF.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Tìm ô không nguyên tử.</b> address có ô chứa hai địa chỉ (\"Ha Noi, Hung Yen\"). Tách thành bảng addresses(customer_id, address), mỗi địa chỉ một dòng.</p>",
+    "<p><b>Bước 2 – Tìm nhóm lặp.</b> Tên và số điện thoại khách lặp lại ở mỗi đơn. Đưa ra bảng customers(<b>customer_id</b>, customer_name, phone).</p>",
+    "<p><b>Bước 3 – Xác định khóa của phần còn lại.</b> Phần đơn hàng: mỗi dòng là một sản phẩm trong một đơn, khóa là (order_id, product_id).</p>",
+    "<p><b>Bước 4 – Kiểm 2NF.</b> order_date, customer_id chỉ phụ thuộc order_id. description chỉ phụ thuộc product_id. Chỉ quantity, unit_price phụ thuộc cả hai. Tách: orders(<b>order_id</b>, customer_id, order_date), products(<b>product_id</b>, description), order_items(<b>order_id, product_id</b>, quantity, unit_price).</p>",
+    "<p><b>Bước 5 – Kiểm 3NF.</b> total_amount = quantity × unit_price, là giá trị suy ra được. Có thể bỏ, hoặc giữ có chủ đích để tối ưu truy vấn (ngoại lệ của nguyên tắc #1). Các bảng còn lại không có phụ thuộc bắc cầu.</p>",
+    "<p><b>Bước 6 – Chọn kiểu.</b> phone VARCHAR, order_date DATE, description NVARCHAR, unit_price DECIMAL – không dùng int như hình minh họa.</p>"
+   ],
+   "answer": "<ul><li>customers(<b>customer_id</b> INT, customer_name NVARCHAR(100), phone VARCHAR(15))</li><li>addresses(<b>address_id</b> INT, customer_id INT FK, address NVARCHAR(255))</li><li>products(<b>product_id</b> VARCHAR(10), description NVARCHAR(200))</li><li>orders(<b>order_id</b> INT, customer_id INT FK, order_date DATE)</li><li>order_items(<b>order_id</b> FK, <b>product_id</b> FK, quantity INT, unit_price DECIMAL(12,2))</li></ul><p>Slide tách thành 3 bảng (customers, addresses, orders) để minh họa 1NF. Đi tiếp tới 2NF, 3NF thì tách thêm products và order_items như trên.</p>",
+   "src": "21. Database.pdf tr.15-17"
+  },
+  {
+   "id": "L21-p2",
+   "title": "Chọn kiểu dữ liệu cho bảng Đặt bàn FoodNow",
+   "task": "<p>FoodNow cần bảng bookings với các trường: mã đặt bàn, mã nhà hàng, tên khách, số điện thoại, số khách, ngày giờ đến, ghi chú, tiền cọc, đã xác nhận hay chưa, thời điểm tạo (hệ thống chạy cho khách ở nhiều quốc gia). Chọn kiểu SQL Server cho từng trường.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Phân nhóm.</b> Số: mã, số khách, tiền cọc. Chuỗi: tên, điện thoại, ghi chú. Ngày giờ: ngày giờ đến, thời điểm tạo. Đúng/sai: đã xác nhận.</p>",
+    "<p><b>Bước 2 – Số nguyên: chọn kiểu vừa đủ.</b> Mã đặt bàn tăng mãi nên INT (hoặc BIGINT nếu rất nhiều). Số khách một bàn không quá 255 nên TINYINT.</p>",
+    "<p><b>Bước 3 – Tiền.</b> Tiền cọc dùng DECIMAL, không dùng FLOAT.</p>",
+    "<p><b>Bước 4 – Chuỗi.</b> Có dấu tiếng Việt thì nvarchar. Số điện thoại là chuỗi chỉ gồm chữ số, giữ số 0 đầu, nên VARCHAR.</p>",
+    "<p><b>Bước 5 – Ngày giờ.</b> Ngày giờ đến cần cả ngày và giờ. Thời điểm tạo của hệ thống đa quốc gia thì cần múi giờ.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Trường</th><th>Kiểu</th></tr></thead><tbody><tr><td>booking_id</td><td>INT (PK)</td></tr><tr><td>restaurant_id</td><td>INT (FK)</td></tr><tr><td>customer_name</td><td>NVARCHAR(100)</td></tr><tr><td>phone</td><td>VARCHAR(15)</td></tr><tr><td>guests</td><td>TINYINT</td></tr><tr><td>arrival_time</td><td>DATETIME2 (hoặc SMALLDATETIME nếu chỉ cần tới phút)</td></tr><tr><td>note</td><td>NVARCHAR(500)</td></tr><tr><td>deposit</td><td>DECIMAL(12,2)</td></tr><tr><td>is_confirmed</td><td>BIT</td></tr><tr><td>created_at</td><td>DATETIMEOFFSET</td></tr></tbody></table>",
+   "src": "21. Kieu du lieu trong Sql Server.pdf tr.1-3"
+  },
+  {
+   "id": "L21-p3",
+   "title": "Viết câu SELECT thống kê doanh thu SolasMart",
+   "task": "<p>SolasMart có bảng sales(sale_id, store_id, sale_date, amount) và stores(store_id, store_name). Viết câu SQL cho: tổng doanh thu, số hóa đơn và hóa đơn lớn nhất của <b>từng cửa hàng</b> trong tháng 3/2024. Chỉ lấy cửa hàng có tổng doanh thu trên 100 triệu, sắp xếp doanh thu giảm dần, kèm tên cửa hàng.</p>",
+   "steps": [
+    "<p><b>Bước 1 – FROM và JOIN.</b> Cần tên cửa hàng nên nối sales với stores: <code>FROM sales s INNER JOIN stores st ON st.store_id = s.store_id</code>.</p>",
+    "<p><b>Bước 2 – WHERE lọc dòng.</b> Chỉ lấy tháng 3/2024: <code>WHERE s.sale_date BETWEEN '2024-03-01' AND '2024-03-31'</code> (sale_date kiểu DATE).</p>",
+    "<p><b>Bước 3 – GROUP BY.</b> Tính theo từng cửa hàng: <code>GROUP BY st.store_id, st.store_name</code>.</p>",
+    "<p><b>Bước 4 – Hàm tổng hợp và AS.</b> <code>SUM(s.amount) AS doanh_thu, COUNT(*) AS so_hoa_don, MAX(s.amount) AS hd_lon_nhat</code>.</p>",
+    "<p><b>Bước 5 – HAVING lọc nhóm.</b> Điều kiện trên tổng nên dùng HAVING, không dùng WHERE: <code>HAVING SUM(s.amount) &gt; 100000000</code>.</p>",
+    "<p><b>Bước 6 – ORDER BY.</b> <code>ORDER BY doanh_thu DESC</code>.</p>"
+   ],
+   "answer": "<pre><code>SELECT st.store_name,\n       SUM(s.amount) AS doanh_thu,\n       COUNT(*)      AS so_hoa_don,\n       MAX(s.amount) AS hd_lon_nhat\nFROM sales s\nINNER JOIN stores st ON st.store_id = s.store_id\nWHERE s.sale_date BETWEEN '2024-03-01' AND '2024-03-31'\nGROUP BY st.store_id, st.store_name\nHAVING SUM(s.amount) &gt; 100000000\nORDER BY doanh_thu DESC;</code></pre><p>Ghi chú: nếu sale_date là DATETIME/DATETIME2 thì nên viết <code>sale_date &gt;= '2024-03-01' AND sale_date &lt; '2024-04-01'</code> để không mất giao dịch trong ngày 31/3.</p>",
+   "src": "21. Database.pdf tr.27-29"
+  },
+  {
+   "id": "L21-p4",
+   "title": "Thêm, sửa, xóa dữ liệu thư viện",
+   "task": "<p>Bảng books(book_id INT tự tăng, title NVARCHAR(200), author NVARCHAR(100), year SMALLINT, is_available BIT). Viết câu lệnh: (1) thêm sách \"Cơ sở dữ liệu\" của tác giả \"Nguyễn Văn B\", năm 2020, đang có sẵn; (2) đánh dấu sách có book_id = 7 đã cho mượn; (3) xóa các sách xuất bản trước năm 1990; (4) xóa sạch bảng sách test và đánh số lại từ 1.</p>",
+   "steps": [
+    "<p><b>Bước 1 – INSERT.</b> Liệt kê cột (không ghi book_id vì tự tăng), giá trị theo đúng thứ tự. Chuỗi có dấu thêm tiền tố N.</p>",
+    "<p><b>Bước 2 – UPDATE.</b> SET is_available = 0 và luôn có WHERE theo khóa chính.</p>",
+    "<p><b>Bước 3 – DELETE.</b> Xóa có điều kiện thì dùng DELETE … WHERE year &lt; 1990.</p>",
+    "<p><b>Bước 4 – TRUNCATE.</b> Xóa toàn bộ và reset ID thì dùng TRUNCATE.</p>"
+   ],
+   "answer": "<pre><code>INSERT INTO books (title, author, year, is_available)\nVALUES (N'Cơ sở dữ liệu', N'Nguyễn Văn B', 2020, 1);\n\nUPDATE books\nSET is_available = 0\nWHERE book_id = 7;\n\nDELETE FROM books\nWHERE year &lt; 1990;\n\nTRUNCATE TABLE books_test;</code></pre>",
+   "src": "21. Database.pdf tr.26"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L21-x1",
+   "title": "Chọn kiểu dữ liệu cho 10 trường",
+   "level": "de",
+   "task": "<p>Chọn kiểu SQL Server phù hợp nhất cho mỗi trường: (1) tuổi nhân viên; (2) năm xuất bản sách; (3) giá bán món ăn; (4) tên khách hàng có dấu; (5) mã bưu điện 6 ký tự; (6) email; (7) ngày sinh; (8) giờ mở cửa nhà hàng; (9) trạng thái còn hàng/hết hàng; (10) nhiệt độ đo từ cảm biến cho báo cáo khoa học.</p>",
+   "hints": [
+    "<p>Nhìn bảng tra: cột \"Ví dụ\" và \"Khi nên dùng\" gần như trả lời sẵn.</p>",
+    "<p>Tiền khác số đo khoa học ở yêu cầu chính xác tuyệt đối.</p>"
+   ],
+   "answer": "<ol><li>TINYINT</li><li>SMALLINT</li><li>DECIMAL(p,s), ví dụ DECIMAL(12,2)</li><li>NVARCHAR(100)</li><li>CHAR(6)</li><li>VARCHAR(255)</li><li>DATE</li><li>TIME</li><li>BIT</li><li>FLOAT (hoặc REAL nếu không cần chính xác cao)</li></ol>",
+   "src": "21. Kieu du lieu trong Sql Server.pdf tr.1-3"
+  },
+  {
+   "id": "L21-x2",
+   "title": "Thiết kế này vi phạm nguyên tắc nào?",
+   "level": "de",
+   "task": "<p>Với mỗi mô tả, nêu nguyên tắc thiết kế (#1 đến #7) bị vi phạm:</p><ol><li>Bảng khách hàng có cột ho_ten_dia_chi chứa \"Trần B – 12 Lê Lợi, Huế\".</li><li>Bảng lich_su_dang_nhap không có khóa chính.</li><li>Cột mat_khau lưu nguyên văn \"abc123\".</li><li>Tên nhà cung cấp lưu ở bảng NhaCungCap và lặp lại trong mọi dòng của bảng PhieuNhap.</li><li>Cột ngay_dat kiểu NVARCHAR(50), có dòng ghi \"hôm qua\".</li><li>Bảng 5 triệu đơn hàng, ngày nào cũng tìm theo số điện thoại nhưng cột này không có chỉ mục.</li></ol>",
+   "hints": [
+    "<p>Ôn lại bảng 7 nguyên tắc: dư thừa, khóa chính, NULL, nguyên tố, kiểu dữ liệu, index, thông tin nhạy cảm.</p>"
+   ],
+   "answer": "<ol><li>#4 Tính nguyên tố (gộp tên và địa chỉ, địa chỉ cũng chưa tách).</li><li>#2 Khóa chính bắt buộc.</li><li>#7 Che giấu thông tin nhạy cảm.</li><li>#1 Tránh dư thừa (không thuộc ngoại lệ vì tên nhà cung cấp không cần giữ theo thời điểm, trừ khi nghiệp vụ yêu cầu).</li><li>#5 Chọn đúng loại dữ liệu (nên là DATE, sẽ chặn được dữ liệu không hợp lệ).</li><li>#6 Đánh index.</li></ol>",
+   "src": "21. Database.pdf tr.8-11"
+  },
+  {
+   "id": "L21-x3",
+   "title": "Bảng chi tiết hóa đơn đạt 2NF chưa?",
+   "level": "tb",
+   "task": "<p>SolasMart lưu bảng ChiTietHD(<b>ma_hd, ma_sp</b>, ten_sp, don_vi_tinh, so_luong, don_gia_ban, ngay_lap_hd). Khóa chính là (ma_hd, ma_sp). Bảng này đạt 2NF chưa? Nếu chưa, tách lại cho đúng.</p>",
+   "hints": [
+    "<p>Với từng cột không khóa, hỏi: chỉ cần ma_hd, chỉ cần ma_sp, hay cần cả hai mới xác định được?</p>",
+    "<p>don_gia_ban là giá tại thời điểm bán, phụ thuộc cả hóa đơn lẫn sản phẩm.</p>"
+   ],
+   "answer": "<p><b>Chưa đạt 2NF</b> vì có phụ thuộc bộ phận:</p><ul><li>ten_sp, don_vi_tinh chỉ phụ thuộc ma_sp.</li><li>ngay_lap_hd chỉ phụ thuộc ma_hd.</li></ul><p>Tách thành:</p><ul><li>SanPham(<b>ma_sp</b>, ten_sp, don_vi_tinh)</li><li>HoaDon(<b>ma_hd</b>, ngay_lap_hd)</li><li>ChiTietHD(<b>ma_hd, ma_sp</b>, so_luong, don_gia_ban)</li></ul><p>don_gia_ban giữ lại trong ChiTietHD dù SanPham có giá niêm yết: đây là \"lưu giá trị thời điểm xảy ra\", ngoại lệ được chấp nhận.</p>",
+   "src": "21. Database.pdf tr.8, 16"
+  },
+  {
+   "id": "L21-x4",
+   "title": "Tìm và sửa lỗi trong câu SQL",
+   "level": "tb",
+   "task": "<p>Mỗi câu dưới đây có lỗi hoặc cho kết quả sai ý định. Chỉ ra lỗi và sửa.</p><ol><li><code>UPDATE customers SET phone = '0909000111';</code> (ý định: sửa số của khách 15)</li><li><code>SELECT * FROM customers WHERE email = NULL;</code> (ý định: khách chưa có email)</li><li><code>SELECT customer_id, COUNT(*) FROM orders WHERE COUNT(*) &gt; 5 GROUP BY customer_id;</code></li><li><code>INSERT INTO dishes (name, price) VALUES ('Phở bò', 45000);</code> (cột name là NVARCHAR, sau khi lưu bị mất dấu)</li></ol>",
+   "hints": [
+    "<p>Xem lại phần ghi chú của slide \"Truy vấn lấy giá trị\".</p>",
+    "<p>Điều kiện trên kết quả hàm tổng hợp đặt ở đâu?</p>"
+   ],
+   "answer": "<ol><li>Thiếu WHERE nên sửa số điện thoại của <b>mọi</b> khách. Sửa: <code>UPDATE customers SET phone = '0909000111' WHERE customer_id = 15;</code></li><li>So sánh với NULL phải dùng IS NULL: <code>WHERE email IS NULL</code>.</li><li>Không đặt hàm tổng hợp trong WHERE. Dùng HAVING sau GROUP BY: <code>SELECT customer_id, COUNT(*) AS so_don FROM orders GROUP BY customer_id HAVING COUNT(*) &gt; 5;</code></li><li>Chuỗi Unicode thiếu tiền tố N: <code>VALUES (N'Phở bò', 45000)</code>.</li></ol>",
+   "src": "21. Database.pdf tr.26-28"
+  },
+  {
+   "id": "L21-x5",
+   "title": "Viết truy vấn cho app đặt đồ ăn",
+   "level": "tb",
+   "task": "<p>Cho các bảng customers(customer_id, full_name, city), orders(order_id, customer_id, order_date, total_amount). Viết SQL:</p><ol><li>Danh sách thành phố khác nhau có khách hàng.</li><li>3 đơn có giá trị lớn nhất.</li><li>Khách chưa từng đặt đơn nào.</li><li>Giá trị đơn trung bình của khách ở \"Hà Nội\".</li><li>Khách có tên bắt đầu bằng \"Nguyễn\".</li></ol>",
+   "hints": [
+    "<p>Câu 1 dùng DISTINCT, câu 2 dùng TOP và ORDER BY.</p>",
+    "<p>Câu 3: LEFT JOIN rồi lọc phía bên phải IS NULL.</p>",
+    "<p>Câu 4 cần JOIN và AVG; câu 5 dùng LIKE.</p>"
+   ],
+   "answer": "<pre><code>-- 1\nSELECT DISTINCT city FROM customers;\n-- 2\nSELECT TOP (3) * FROM orders ORDER BY total_amount DESC;\n-- 3\nSELECT c.customer_id, c.full_name\nFROM customers c\nLEFT JOIN orders o ON o.customer_id = c.customer_id\nWHERE o.order_id IS NULL;\n-- 4\nSELECT AVG(o.total_amount) AS gia_tri_tb\nFROM orders o\nINNER JOIN customers c ON c.customer_id = o.customer_id\nWHERE c.city = N'Hà Nội';\n-- 5\nSELECT * FROM customers WHERE full_name LIKE N'Nguyễn%';</code></pre><p>Câu 3 cũng có thể viết <code>WHERE customer_id NOT IN (SELECT customer_id FROM orders)</code>.</p>",
+   "src": "21. Database.pdf tr.27-29"
+  },
+  {
+   "id": "L21-x6",
+   "title": "Bảng nhân viên SolasMart và phụ thuộc bắc cầu",
+   "level": "kho",
+   "task": "<p>SolasMart lưu NhanVien(<b>ma_nv</b>, ho_ten, ma_cua_hang, ten_cua_hang, dia_chi_cua_hang, ma_quan_ly_cua_hang, luong). Mỗi cửa hàng có một quản lý. (1) Bảng đạt 1NF, 2NF, 3NF chưa? (2) Nêu bất thường xảy ra khi cửa hàng đổi địa chỉ hoặc khi mở cửa hàng mới chưa có nhân viên. (3) Tách bảng đạt 3NF và chọn kiểu dữ liệu.</p>",
+   "hints": [
+    "<p>Khóa chính chỉ có một cột thì 2NF thế nào?</p>",
+    "<p>Tìm chuỗi ma_nv → ma_cua_hang → …</p>",
+    "<p>Cửa hàng mới chưa có nhân viên thì có dòng nào để lưu địa chỉ cửa hàng không?</p>"
+   ],
+   "answer": "<ol><li>Đạt 1NF (các ô nguyên tử). Đạt 2NF vì khóa chính chỉ một cột. <b>Không đạt 3NF</b>: ma_nv → ma_cua_hang → ten_cua_hang, dia_chi_cua_hang, ma_quan_ly_cua_hang là phụ thuộc bắc cầu.</li><li>Bất thường: cửa hàng có 30 nhân viên thì địa chỉ lặp 30 lần; đổi địa chỉ phải sửa 30 dòng, sót một dòng là mâu thuẫn (bất thường khi sửa). Cửa hàng mới chưa có nhân viên thì không có chỗ lưu (bất thường khi thêm). Xóa nhân viên cuối cùng thì mất luôn thông tin cửa hàng (bất thường khi xóa).</li><li>Tách:<ul><li>CuaHang(<b>ma_cua_hang</b> CHAR(5), ten_cua_hang NVARCHAR(100), dia_chi NVARCHAR(255), ma_quan_ly INT FK → NhanVien)</li><li>NhanVien(<b>ma_nv</b> INT, ho_ten NVARCHAR(100), ma_cua_hang CHAR(5) FK, luong DECIMAL(12,2))</li></ul>Lương cần index? Không, vì ít tra cứu theo lương; nhưng lương là thông tin nhạy cảm nên cần phân quyền xem (#7).</li></ol>",
+   "src": "21. Database.pdf tr.8, 11, 17"
+  },
+  {
+   "id": "L21-x7",
+   "title": "Thiết kế CSDL bán hàng tại quầy SolasMart",
+   "level": "kho",
+   "task": "<p>Quy trình bán hàng tại quầy của SolasMart: thu ngân đăng nhập ca, quét mã vạch sản phẩm, nhập số lượng, áp khuyến mãi (nếu có), khách thanh toán tiền mặt hoặc thẻ, in hóa đơn. Khách có thẻ thành viên thì được cộng điểm. Hãy đi đủ 8 bước của quy trình thiết kế: liệt kê bảng, cột, kiểu dữ liệu, khóa chính, khóa ngoại; kiểm 3NF; chỉ ra cột nào là dư thừa có chủ đích; cột nào cần index; dữ liệu nào nhạy cảm.</p>",
+   "hints": [
+    "<p>Đối tượng chính: nhân viên, ca, sản phẩm, khuyến mãi, thành viên, hóa đơn, chi tiết hóa đơn, thanh toán.</p>",
+    "<p>Hóa đơn và sản phẩm là quan hệ n-n, cần bảng mapping.</p>",
+    "<p>Giá bán và giảm giá trên hóa đơn là giá trị tại thời điểm xảy ra.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Bảng</th><th>Cột chính (kiểu)</th></tr></thead><tbody><tr><td>NhanVien</td><td><b>ma_nv</b> INT, ho_ten NVARCHAR(100), mat_khau_hash VARCHAR(255)</td></tr><tr><td>CaLamViec</td><td><b>ma_ca</b> INT, ma_nv INT FK, bat_dau DATETIME2, ket_thuc DATETIME2 NULL</td></tr><tr><td>SanPham</td><td><b>ma_sp</b> INT, ma_vach CHAR(13) (index, duy nhất), ten_sp NVARCHAR(200), gia_niem_yet DECIMAL(12,2)</td></tr><tr><td>KhuyenMai</td><td><b>ma_km</b> INT, ten NVARCHAR(100), phan_tram DECIMAL(5,2), tu_ngay DATE, den_ngay DATE</td></tr><tr><td>ThanhVien</td><td><b>ma_tv</b> INT, ho_ten NVARCHAR(100), so_dien_thoai VARCHAR(15) (index), diem INT</td></tr><tr><td>HoaDon</td><td><b>ma_hd</b> BIGINT, ma_ca INT FK, ma_tv INT FK NULL, thoi_diem DATETIME2, tong_tien DECIMAL(14,2)</td></tr><tr><td>ChiTietHD</td><td><b>ma_hd</b> FK, <b>ma_sp</b> FK, so_luong INT, don_gia DECIMAL(12,2), ma_km INT FK NULL, tien_giam DECIMAL(12,2)</td></tr><tr><td>ThanhToan</td><td><b>ma_tt</b> INT, ma_hd BIGINT FK, hinh_thuc TINYINT (1 tiền mặt, 2 thẻ), so_tien DECIMAL(14,2), so_the_4_cuoi CHAR(4)</td></tr></tbody></table><ul><li><b>3NF:</b> tên sản phẩm chỉ ở SanPham, tên thành viên chỉ ở ThanhVien; HoaDon không chứa tên nhân viên (lấy qua ma_ca → CaLamViec → NhanVien).</li><li><b>Dư thừa có chủ đích:</b> HoaDon.tong_tien (tối ưu báo cáo); ChiTietHD.don_gia và tien_giam (giá trị tại thời điểm bán).</li><li><b>Index:</b> SanPham.ma_vach (quét mã liên tục), ThanhVien.so_dien_thoai (tra cứu thành viên), HoaDon.thoi_diem (báo cáo theo ngày).</li><li><b>Nhạy cảm:</b> mật khẩu lưu dạng băm; không lưu số thẻ đầy đủ, chỉ 4 số cuối; số điện thoại thành viên cần phân quyền xem.</li><li><b>NULL:</b> ma_tv NULL khi khách vãng lai; ma_km NULL khi không có khuyến mãi; khóa chính không bao giờ NULL.</li><li><b>BIGINT</b> cho ma_hd vì chuỗi nhiều cửa hàng, hóa đơn tăng rất nhanh nhiều năm.</li></ul>",
+   "src": "21. Database.pdf tr.6-11, 13-17; 21. Kieu du lieu trong Sql Server.pdf tr.1-3"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L21-f1",
+   "front": "Database (Cơ sở dữ liệu)",
+   "back": "<p>Tập hợp dữ liệu có cấu trúc, liên quan nhau, lưu để nhiều người và chương trình cùng dùng. Ví dụ: dữ liệu khách, món, đơn của app đặt đồ ăn. Mẹo: Database là <b>cái kho</b>.</p>"
+  },
+  {
+   "id": "L21-f2",
+   "front": "DBMS (Hệ quản trị CSDL)",
+   "back": "<p>Phần mềm tạo, lưu, truy vấn, cập nhật và bảo vệ CSDL. Ví dụ: SQL Server, MySQL, Oracle, PostgreSQL, MongoDB. Mẹo: DBMS là <b>thủ kho</b>.</p>"
+  },
+  {
+   "id": "L21-f3",
+   "front": "CSDL quan hệ (Relational Database)",
+   "back": "<p>Lưu dữ liệu thành bảng có cột cố định, các bảng nối nhau bằng khóa chính và khóa ngoại, truy vấn bằng SQL. Ví dụ: SQL Server, MySQL.</p>"
+  },
+  {
+   "id": "L21-f4",
+   "front": "CSDL không quan hệ (NoSQL)",
+   "back": "<p>Không bắt buộc lưu theo bảng cố định; dữ liệu có thể là document JSON, key-value… Cấu trúc linh hoạt. Ví dụ trên slide: MongoDB.</p>"
+  },
+  {
+   "id": "L21-f5",
+   "front": "Stored Procedure",
+   "back": "<p>Nhóm câu lệnh SQL được đặt tên và lưu sẵn trong CSDL; ứng dụng gọi tên kèm tham số. Ví dụ: <code>EXEC sp_TaoDon @ma_kh = 3</code>. Lợi: dùng lại, gom nhiều bước, phân quyền.</p>"
+  },
+  {
+   "id": "L21-f6",
+   "front": "Quy trình thiết kế database 8 bước",
+   "back": "<p>Mục đích → Thu thập thông tin → Chia thành bảng → Chuyển thành cột → Chỉ định khóa chính → Thiết lập quan hệ → Tinh chỉnh → Áp dụng chuẩn hóa.</p>"
+  },
+  {
+   "id": "L21-f7",
+   "front": "5 yếu tố của database thiết kế tốt",
+   "back": "<p>Toàn vẹn dữ liệu (đáng tin cậy), hiệu suất cao, khả năng mở rộng, bảo mật, khả năng bảo trì.</p>"
+  },
+  {
+   "id": "L21-f8",
+   "front": "Nguyên tắc #1: Tránh dư thừa",
+   "back": "<p>Cùng dữ liệu nằm nhiều bảng thì tốn dung lượng và dễ lỗi. Ngoại lệ: dư thừa giúp tối ưu truy vấn; lưu giá trị tại thời điểm xảy ra (giá lúc bán).</p>"
+  },
+  {
+   "id": "L21-f9",
+   "front": "Lưu giá trị thời điểm xảy ra",
+   "back": "<p>Ngoại lệ của nguyên tắc tránh dư thừa: chép giá trị lúc giao dịch vào bản ghi. Ví dụ: đơn giá trong chi tiết hóa đơn, để đổi giá sản phẩm sau này không làm sai hóa đơn cũ.</p>"
+  },
+  {
+   "id": "L21-f10",
+   "front": "Primary Key (Khóa chính)",
+   "back": "<p>Cột hoặc nhóm cột xác định duy nhất mỗi dòng; dùng để thiết lập quan hệ; <b>không bao giờ NULL</b>. Ví dụ: order_id.</p>"
+  },
+  {
+   "id": "L21-f11",
+   "front": "Foreign Key (Khóa ngoại)",
+   "back": "<p>Cột trỏ tới khóa chính của bảng khác để nối hai bảng. Ví dụ: orders.customer_id trỏ tới customers.customer_id.</p>"
+  },
+  {
+   "id": "L21-f12",
+   "front": "Bảng mapping (bảng trung gian)",
+   "back": "<p>Bảng nối hai bảng có quan hệ n-n. Vẫn cần khóa chính: khóa ghép từ hai khóa ngoại hoặc một cột ID riêng. Ví dụ: Emp_Crs nối Employee và Course.</p>"
+  },
+  {
+   "id": "L21-f13",
+   "front": "NULL",
+   "back": "<p>Biểu thị dữ liệu không xác định (chưa biết/không có). Khác 0 và khác chuỗi rỗng. Khóa chính không được NULL. So sánh dùng IS NULL, không dùng =.</p>"
+  },
+  {
+   "id": "L21-f14",
+   "front": "Tính nguyên tố (Atomic)",
+   "back": "<p>Trường chia nhỏ được thì chia nhỏ. Ví dụ: địa chỉ \"5331 Rexford Court, Montgomery AL 36116\" tách thành đường, thành phố, bang, mã bưu điện.</p>"
+  },
+  {
+   "id": "L21-f15",
+   "front": "Index (Chỉ mục)",
+   "back": "<p>Cấu trúc giúp tìm dòng nhanh như mục lục sách. Đánh trên cột hay tìm, lọc, nối bảng. Đổi lại tốn dung lượng, ghi chậm hơn. Nguyên tắc #6.</p>"
+  },
+  {
+   "id": "L21-f16",
+   "front": "Nguyên tắc #7: Che giấu thông tin nhạy cảm",
+   "back": "<p>Không lưu mật khẩu, số thẻ… dạng đọc được. Ví dụ: băm mật khẩu, chỉ lưu 4 số cuối thẻ, phân quyền xem cột lương.</p>"
+  },
+  {
+   "id": "L21-f17",
+   "front": "Chuẩn hóa (Normalization)",
+   "back": "<p>Tách bảng theo quy tắc để giảm dư thừa, tránh lỗi khi thêm/sửa/xóa. Các dạng trên slide: 1NF, 2NF, 3NF, BCNF. Đi theo bậc.</p>"
+  },
+  {
+   "id": "L21-f18",
+   "front": "1NF (Dạng chuẩn 1)",
+   "back": "<p>Mỗi cột chỉ chứa giá trị nguyên tử và không có nhóm dữ liệu lặp lại. Ví dụ vi phạm: ô CourseID ghi \"IS200, LT102\".</p>"
+  },
+  {
+   "id": "L21-f19",
+   "front": "2NF (Dạng chuẩn 2)",
+   "back": "<p>Đạt 1NF và mỗi thuộc tính phụ thuộc hoàn toàn vào toàn bộ khóa chính (không phụ thuộc một phần khóa ghép). Mẹo: khóa một cột + 1NF thì tự đạt 2NF.</p>"
+  },
+  {
+   "id": "L21-f20",
+   "front": "3NF (Dạng chuẩn 3)",
+   "back": "<p>Đạt 2NF và mọi thuộc tính không khóa không phụ thuộc bắc cầu vào khóa chính. Ví dụ vi phạm: item → price → discount.</p>"
+  },
+  {
+   "id": "L21-f21",
+   "front": "Phụ thuộc bắc cầu",
+   "back": "<p>A → B và B → C nên C phụ thuộc A qua B. Ví dụ: ma_nv → ma_cua_hang → dia_chi_cua_hang. Cách sửa: tách bảng CuaHang riêng.</p>"
+  },
+  {
+   "id": "L21-f22",
+   "front": "BCNF (Boyce-Codd Normal Form)",
+   "back": "<p>Dạng chuẩn chặt hơn 3NF: mọi phụ thuộc hàm X → Y thì X phải là siêu khóa. Slide chỉ nêu tên; thực tế thường dừng ở 3NF.</p>"
+  },
+  {
+   "id": "L21-f23",
+   "front": "Data type (Kiểu dữ liệu)",
+   "back": "<p>Thuộc tính chỉ định loại dữ liệu một cột, biến, tham số có thể chứa. Lợi ích chọn đúng: ngăn dữ liệu không hợp lệ, tối ưu bộ nhớ.</p>"
+  },
+  {
+   "id": "L21-f24",
+   "front": "tinyint, smallint, int, bigint",
+   "back": "<p>1, 2, 4, 8 byte. tinyint 0–255 (tuổi); smallint ±32 nghìn (năm); int ±2,1 tỷ (ID tự tăng); bigint rất lớn (log, giao dịch lớn).</p>"
+  },
+  {
+   "id": "L21-f25",
+   "front": "bit",
+   "back": "<p>Lưu 0, 1 (hoặc NULL). 1 byte, tối đa 8 cột bit dùng chung 1 byte. Dùng cho giới tính, còn hàng/hết hàng, kích hoạt/không.</p>"
+  },
+  {
+   "id": "L21-f26",
+   "front": "decimal(p,s) / numeric(p,s)",
+   "back": "<p>Số thập phân chính xác tuyệt đối; p tổng số chữ số, s số chữ số lẻ; mặc định (18,0). Dùng cho tiền tệ. Ví dụ: decimal(12,2).</p>"
+  },
+  {
+   "id": "L21-f27",
+   "front": "float và real",
+   "back": "<p>Số thực xấp xỉ, có thể sai lệch nhỏ. float 8 byte, real 4 byte (nhẹ hơn, kém chính xác hơn). Dùng cho tính toán khoa học, <b>không dùng cho tiền</b>.</p>"
+  },
+  {
+   "id": "L21-f28",
+   "front": "char(n) và varchar(n)",
+   "back": "<p>char: độ dài cố định, nhanh, tốn chỗ nếu chuỗi ngắn (mã nhân viên, mã bưu điện). varchar: độ dài thay đổi, tiết kiệm (email, mô tả). Mẹo: var = variable.</p>"
+  },
+  {
+   "id": "L21-f29",
+   "front": "nchar(n) và nvarchar(n)",
+   "back": "<p>Như char/varchar nhưng hỗ trợ Unicode: lưu được tiếng Việt, Nhật, Trung; tốn gấp đôi. nvarchar dùng cho tên, địa chỉ có dấu. Mẹo: n = national.</p>"
+  },
+  {
+   "id": "L21-f30",
+   "front": "text, ntext, image",
+   "back": "<p>Kiểu cũ (SQL Server 2000/2005) lưu tới 2GB, sẽ bị loại bỏ. Thay bằng varchar(max), nvarchar(max), varbinary(max).</p>"
+  },
+  {
+   "id": "L21-f31",
+   "front": "date, time, datetime, smalldatetime",
+   "back": "<p>date: chỉ ngày, 3 byte. time: chỉ giờ, 3–5 byte. datetime: ngày giờ 1753–9999, 8 byte. smalldatetime: 1900–2079, 4 byte, không cần chính xác giây.</p>"
+  },
+  {
+   "id": "L21-f32",
+   "front": "datetime2 và datetimeoffset",
+   "back": "<p>datetime2: ngày giờ chính xác cao, 0001–9999, 6–8 byte. datetimeoffset: có múi giờ, 10 byte, dùng cho hệ thống đa quốc gia, cloud app.</p>"
+  },
+  {
+   "id": "L21-f33",
+   "front": "DELETE và TRUNCATE",
+   "back": "<p>DELETE FROM … WHERE: xóa có điều kiện, <b>không reset ID</b>. TRUNCATE: xóa toàn bộ bảng, <b>có reset ID</b>, không có WHERE.</p>"
+  },
+  {
+   "id": "L21-f34",
+   "front": "Thứ tự mệnh đề SELECT",
+   "back": "<p>SELECT → FROM → WHERE → GROUP BY → HAVING → ORDER BY. WHERE lọc dòng, HAVING lọc nhóm. ASC tăng, DESC giảm.</p>"
+  },
+  {
+   "id": "L21-f35",
+   "front": "DISTINCT, TOP (n), LIKE, AS",
+   "back": "<p>DISTINCT bỏ giá trị trùng; TOP (n) lấy n dòng đầu; LIKE so sánh gần đúng (N'Phở%'); AS đổi tên cột khi hiển thị.</p>"
+  },
+  {
+   "id": "L21-f36",
+   "front": "MIN, MAX, COUNT, SUM, AVG",
+   "back": "<p>Nhỏ nhất, lớn nhất, số hàng, tổng, trung bình. Ví dụ slide: SELECT MIN(Price), MAX(Price), SUM(Price), AVG(Price), COUNT(Price) FROM Products WHERE Category = 1.</p>"
+  },
+  {
+   "id": "L21-f37",
+   "front": "INNER, LEFT, RIGHT, FULL JOIN",
+   "back": "<p>INNER: dòng khớp ở cả hai bảng. LEFT: tất cả bên trái + khớp bên phải. RIGHT: ngược lại. FULL: tất cả hai bên. Mẹo: nhớ hình hai vòng tròn.</p>"
+  },
+  {
+   "id": "L21-f38",
+   "front": "UNION",
+   "back": "<p>Ghép kết quả nhiều câu SELECT theo chiều dọc (nối dòng), cần cùng số cột; loại dòng trùng (UNION ALL giữ lại). JOIN thì ghép theo chiều ngang.</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L21-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>DBMS (Database Management System) là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tập dữ liệu khách hàng, đơn hàng của doanh nghiệp được lưu tập trung trên máy chủ"
+    },
+    {
+     "id": "b",
+     "t": "Phần mềm để tạo, lưu, truy vấn và bảo vệ CSDL"
+    },
+    {
+     "id": "c",
+     "t": "Ngôn ngữ dùng để viết câu truy vấn"
+    },
+    {
+     "id": "d",
+     "t": "Sơ đồ thực thể và quan hệ giữa các bảng"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>DBMS là phần mềm quản lý CSDL, ví dụ SQL Server, MySQL, Oracle. Mẹo: database là cái kho, DBMS là thủ kho.</p>",
+   "why_wrong": {
+    "a": "Đó là bản thân cơ sở dữ liệu, không phải hệ quản trị.",
+    "c": "Đó là SQL, ngôn ngữ để làm việc với DBMS.",
+    "d": "Đó là ERD, mô hình thiết kế dữ liệu."
+   },
+   "src": "21. Database.pdf tr.4"
+  },
+  {
+   "id": "L21-q2",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong danh sách DBMS phổ biến trên slide, hệ nào là CSDL <b>không quan hệ</b> (NoSQL)?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "PostgreSQL"
+    },
+    {
+     "id": "b",
+     "t": "SQL Server"
+    },
+    {
+     "id": "c",
+     "t": "MongoDB"
+    },
+    {
+     "id": "d",
+     "t": "MariaDB"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>MongoDB lưu dữ liệu dạng document (giống JSON), không bắt buộc bảng có cột cố định. Các hệ còn lại là CSDL quan hệ dùng SQL.</p>",
+   "why_wrong": {
+    "a": "PostgreSQL là CSDL quan hệ.",
+    "b": "SQL Server là CSDL quan hệ, chính là hệ dùng trong bài.",
+    "d": "MariaDB là nhánh của MySQL, là CSDL quan hệ."
+   },
+   "src": "21. Database.pdf tr.4"
+  },
+  {
+   "id": "L21-q3",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Phát biểu nào mô tả đúng <b>Stored Procedure</b>?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Một bảng tạm do DBMS tạo ra và chỉ tồn tại trong lúc câu truy vấn đang chạy"
+    },
+    {
+     "id": "b",
+     "t": "Bản sao lưu dữ liệu được lưu định kỳ"
+    },
+    {
+     "id": "c",
+     "t": "Nhóm câu SQL đặt tên, lưu sẵn trong CSDL, gọi lại bằng tên"
+    },
+    {
+     "id": "d",
+     "t": "Quy trình 8 bước để thiết kế database"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Stored Procedure (slide ghi \"Store procedure\") là thủ tục lưu sẵn: gom nhiều câu SQL, nhận tham số, gọi lại nhiều lần bằng EXEC.</p>",
+   "why_wrong": {
+    "a": "Bảng tạm là khái niệm khác, không phải thủ tục.",
+    "b": "Sao lưu (backup) không phải Stored Procedure.",
+    "d": "Chữ \"procedure\" ở đây là thủ tục SQL, không phải quy trình thiết kế."
+   },
+   "src": "21. Database.pdf tr.4"
+  },
+  {
+   "id": "L21-q4",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo quy trình thiết kế database trên slide, bước nào đứng <b>ngay sau</b> \"Chỉ định khóa chính\"?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chuyển thông tin thành các cột"
+    },
+    {
+     "id": "b",
+     "t": "Thiết lập quan hệ các bảng"
+    },
+    {
+     "id": "c",
+     "t": "Áp dụng các quy tắc chuẩn hóa"
+    },
+    {
+     "id": "d",
+     "t": "Tinh chỉnh thiết kế"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Thứ tự: mục đích → thu thập thông tin → chia bảng → chuyển thành cột → khóa chính → <b>quan hệ</b> → tinh chỉnh → chuẩn hóa. Có khóa chính rồi mới nối bảng bằng khóa được.</p>",
+   "why_wrong": {
+    "a": "Chuyển thành cột đứng trước bước chỉ định khóa chính.",
+    "c": "Chuẩn hóa là bước cuối cùng.",
+    "d": "Tinh chỉnh đứng sau bước thiết lập quan hệ."
+   },
+   "src": "21. Database.pdf tr.6"
+  },
+  {
+   "id": "L21-q5",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Những yếu tố nào nằm trong danh sách \"nguyên tắc chung\" của một database thiết kế tốt? (chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Toàn vẹn dữ liệu"
+    },
+    {
+     "id": "b",
+     "t": "Có khả năng mở rộng"
+    },
+    {
+     "id": "c",
+     "t": "Dùng càng ít bảng càng tốt"
+    },
+    {
+     "id": "d",
+     "t": "Khả năng bảo trì"
+    },
+    {
+     "id": "e",
+     "t": "Mỗi bảng có đủ cột cho mọi báo cáo"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Slide nêu 5 yếu tố: toàn vẹn dữ liệu, hiệu suất cao, khả năng mở rộng, bảo mật, khả năng bảo trì.</p>",
+   "why_wrong": {
+    "c": "Ít bảng thường kéo theo dư thừa; chuẩn hóa còn tách thêm bảng.",
+    "e": "Nhồi đủ cột cho mọi báo cáo vào một bảng gây dư thừa, trái nguyên tắc #1."
+   },
+   "src": "21. Database.pdf tr.7"
+  },
+  {
+   "id": "L21-q6",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao slide nói dữ liệu dư thừa có \"nguy cơ gây lỗi cao\"?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì DBMS không cho phép lưu hai giá trị giống nhau ở hai bảng khác nhau trong cùng CSDL"
+    },
+    {
+     "id": "b",
+     "t": "Vì sửa một nơi mà quên nơi khác thì các bản sao mâu thuẫn"
+    },
+    {
+     "id": "c",
+     "t": "Vì dư thừa làm khóa chính bị NULL"
+    },
+    {
+     "id": "d",
+     "t": "Vì bảng dư thừa không thể đánh index"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Cùng một dữ liệu nằm nhiều chỗ thì mỗi lần cập nhật phải sửa đủ mọi chỗ. Sót một chỗ là dữ liệu mâu thuẫn, mất toàn vẹn.</p>",
+   "why_wrong": {
+    "a": "DBMS vẫn cho lưu giá trị trùng ở cột không có ràng buộc duy nhất.",
+    "c": "Dư thừa không liên quan việc khóa chính nhận NULL.",
+    "d": "Bảng có dư thừa vẫn đánh index được."
+   },
+   "src": "21. Database.pdf tr.8"
+  },
+  {
+   "id": "L21-q7",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trong app đặt đồ ăn, bảng chi tiết đơn có cột <code>unit_price</code> chép từ giá món lúc khách đặt, dù bảng Món ăn đã có cột giá. Nhận định nào đúng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Sai nguyên tắc tránh dư thừa, nên bỏ cột unit_price"
+    },
+    {
+     "id": "b",
+     "t": "Sai dạng chuẩn 1 vì giá không nguyên tố"
+    },
+    {
+     "id": "c",
+     "t": "Chỉ chấp nhận được nếu unit_price là một phần của khóa chính"
+    },
+    {
+     "id": "d",
+     "t": "Chấp nhận được: đây là lưu giá trị tại thời điểm xảy ra"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide nêu hai ngoại lệ của nguyên tắc tránh dư thừa, một là \"lưu giá trị thời điểm xảy ra\". Nhà hàng đổi giá sau này thì đơn cũ vẫn đúng giá đã bán.</p>",
+   "why_wrong": {
+    "a": "Bỏ cột thì đơn cũ sẽ hiện giá mới, sai thực tế đã bán.",
+    "b": "Giá là một con số, đã nguyên tố.",
+    "c": "Giá không bao giờ dùng làm khóa chính; ngoại lệ không phụ thuộc vào khóa."
+   },
+   "src": "21. Database.pdf tr.8"
+  },
+  {
+   "id": "L21-q8",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo slide, khóa chính được phép để trống (NULL) nếu dòng đó chưa có đủ thông tin.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Slide ghi rõ: khóa chính không bao giờ có thể lưu trữ giá trị NULL, vì khóa chính phải xác định duy nhất từng dòng.</p>",
+   "why_wrong": {
+    "d": "Khóa chính NULL thì không phân biệt được dòng, trái nguyên tắc #2 và #3."
+   },
+   "src": "21. Database.pdf tr.9"
+  },
+  {
+   "id": "L21-q9",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Slide hỏi \"Những bảng mapping thì sao?\". Với bảng mapping Emp_Crs nối Employee và Course, cách hiểu nào đúng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Không cần khóa chính, vì mọi cột của bảng mapping đều đã là khóa ngoại trỏ sang bảng khác"
+    },
+    {
+     "id": "b",
+     "t": "Vẫn cần khóa chính: khóa ghép hai khóa ngoại hoặc cột ID riêng"
+    },
+    {
+     "id": "c",
+     "t": "Bảng mapping phải dùng tên nhân viên làm khóa chính"
+    },
+    {
+     "id": "d",
+     "t": "Bảng mapping chỉ dùng cho quan hệ 1-1"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Nguyên tắc #2: khóa chính là bắt buộc. Bảng mapping có thể dùng khóa ghép (EmployeeID, CourseID) hoặc một cột ID riêng như bảng Emp_Crs trên slide 2NF.</p>",
+   "why_wrong": {
+    "a": "Không có khóa chính thì không đảm bảo tính duy nhất, trái nguyên tắc #2.",
+    "c": "Tên có thể trùng và có thể đổi, không hợp làm khóa.",
+    "d": "Bảng mapping dùng cho quan hệ nhiều-nhiều."
+   },
+   "src": "21. Database.pdf tr.9, 16"
+  },
+  {
+   "id": "L21-q10",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Trong cột số lượng tồn kho, giá trị NULL có ý nghĩa giống hệt giá trị 0.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>NULL biểu thị dữ liệu không xác định (chưa biết). Số 0 là đã biết và bằng 0: hết hàng. Hai giá trị khác nhau về nghiệp vụ.</p>",
+   "why_wrong": {
+    "d": "0 là giá trị cụ thể, còn NULL là chưa có giá trị; trộn hai thứ sẽ báo cáo sai."
+   },
+   "src": "21. Database.pdf tr.9"
+  },
+  {
+   "id": "L21-q11",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Quản lý SolasMart muốn thống kê số thành viên theo tỉnh, nhưng cột <code>dia_chi</code> đang lưu cả \"12 Lê Lợi, Phường 1, Quận 3, TP.HCM\". Thiết kế này vi phạm nguyên tắc nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tính nguyên tố – trường chia nhỏ được thì phải chia nhỏ"
+    },
+    {
+     "id": "b",
+     "t": "Che giấu thông tin nhạy cảm, vì địa chỉ đầy đủ của khách là dữ liệu cá nhân"
+    },
+    {
+     "id": "c",
+     "t": "Đánh index"
+    },
+    {
+     "id": "d",
+     "t": "Khóa chính bắt buộc"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Nguyên tắc #4: một trường có thể chia nhỏ được thì hãy chia nhỏ. Tách số nhà/đường, phường, quận, tỉnh thì mới lọc, đếm theo tỉnh được.</p>",
+   "why_wrong": {
+    "b": "Vấn đề ở đây là không tách được để thống kê, không phải lộ thông tin.",
+    "c": "Index giúp tìm nhanh nhưng không tách được tỉnh khỏi chuỗi địa chỉ.",
+    "d": "Đề bài không nói gì về khóa chính."
+   },
+   "src": "21. Database.pdf tr.10"
+  },
+  {
+   "id": "L21-q12",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Bảng đơn hàng FoodNow có 10 triệu dòng. Nhân viên chăm sóc khách thường tra đơn theo số điện thoại và mỗi lần tra mất gần 1 phút. Theo các nguyên tắc thiết kế trên slide, đề xuất nào phù hợp nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Đổi cột số điện thoại sang kiểu BIGINT"
+    },
+    {
+     "id": "b",
+     "t": "Xóa bớt đơn cũ bằng TRUNCATE"
+    },
+    {
+     "id": "c",
+     "t": "Đánh index cho cột số điện thoại"
+    },
+    {
+     "id": "d",
+     "t": "Gộp bảng khách hàng vào bảng đơn hàng"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Nguyên tắc #6: đánh index cho cột hay dùng để tìm kiếm. Index giống mục lục, giúp DBMS không phải quét cả 10 triệu dòng.</p>",
+   "why_wrong": {
+    "a": "Số điện thoại có số 0 đầu, nên là chuỗi; đổi kiểu không giải quyết tốc độ tra cứu.",
+    "b": "TRUNCATE xóa toàn bộ bảng, mất dữ liệu thật.",
+    "d": "Gộp bảng gây dư thừa và không làm tra cứu nhanh hơn."
+   },
+   "src": "21. Database.pdf tr.11"
+  },
+  {
+   "id": "L21-q13",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>BA review bảng <code>members</code> của SolasMart. Những cột nào vi phạm nguyên tắc #7 \"Che giấu thông tin nhạy cảm\"? (chọn 2)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "password lưu nguyên văn mật khẩu khách nhập"
+    },
+    {
+     "id": "b",
+     "t": "full_name kiểu NVARCHAR(100)"
+    },
+    {
+     "id": "c",
+     "t": "card_number lưu đủ 16 số thẻ, ai đăng nhập cũng xem được"
+    },
+    {
+     "id": "d",
+     "t": "member_id là INT tự tăng"
+    },
+    {
+     "id": "e",
+     "t": "created_at kiểu DATETIME2, ghi thời điểm khách đăng ký"
+    }
+   ],
+   "answer": [
+    "a",
+    "c"
+   ],
+   "explain": "<p>Mật khẩu phải lưu dạng băm; số thẻ đầy đủ không nên lưu hoặc phải che (ví dụ chỉ 4 số cuối) và phân quyền xem.</p>",
+   "why_wrong": {
+    "b": "Họ tên kiểu nvarchar là chọn kiểu đúng, không phải lộ thông tin nhạy cảm.",
+    "d": "ID tự tăng là cách đặt khóa chính bình thường.",
+    "e": "Thời điểm tạo không phải thông tin nhạy cảm."
+   },
+   "src": "21. Database.pdf tr.11"
+  },
+  {
+   "id": "L21-q14",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao <b>KHÔNG</b> nên đánh index cho mọi cột trong bảng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Index tốn thêm dung lượng và làm thêm, sửa dữ liệu chậm hơn"
+    },
+    {
+     "id": "b",
+     "t": "Index làm câu SELECT chậm đi"
+    },
+    {
+     "id": "c",
+     "t": "Vì cột đã đánh index thì không được chứa NULL, nên nhiều trường tùy chọn sẽ không lưu được"
+    },
+    {
+     "id": "d",
+     "t": "Mỗi bảng chỉ được có đúng một index"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Index giúp đọc nhanh nhưng DBMS phải cập nhật index mỗi khi ghi dữ liệu, và index chiếm chỗ. Chỉ đánh trên cột hay tìm, lọc, nối bảng.</p>",
+   "why_wrong": {
+    "b": "Index giúp SELECT nhanh hơn, không chậm đi.",
+    "c": "Cột có index thường vẫn chứa NULL được.",
+    "d": "Một bảng có thể có nhiều index."
+   },
+   "src": "21. Database.pdf tr.11"
+  },
+  {
+   "id": "L21-q15",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, một bảng đạt dạng chuẩn 1 (1NF) khi nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mọi thuộc tính phụ thuộc hoàn toàn vào toàn bộ khóa chính"
+    },
+    {
+     "id": "b",
+     "t": "Không có thuộc tính nào phụ thuộc bắc cầu vào khóa chính"
+    },
+    {
+     "id": "c",
+     "t": "Bảng có ít nhất một khóa ngoại trỏ sang bảng khác"
+    },
+    {
+     "id": "d",
+     "t": "Mỗi cột chỉ chứa giá trị nguyên tử, không có nhóm lặp"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>1NF: giá trị nguyên tử (không phân tách được) và không có nhóm lặp. Mẹo: 1NF là \"mỗi ô một giá trị\".</p>",
+   "why_wrong": {
+    "a": "Đó là điều kiện thêm của 2NF.",
+    "b": "Đó là điều kiện thêm của 3NF.",
+    "c": "Khóa ngoại không phải điều kiện của dạng chuẩn nào."
+   },
+   "src": "21. Database.pdf tr.14"
+  },
+  {
+   "id": "L21-q16",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Bảng Employee có dòng: EmployeeID = 100, CourseID = \"IS200, LT102\", CourseTitle = \"SPSS, Surveys\". Bảng này vi phạm điều gì và sửa thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vi phạm 3NF; tách CourseTitle ra bảng riêng"
+    },
+    {
+     "id": "b",
+     "t": "Vi phạm 1NF; mỗi khóa học thành một dòng riêng"
+    },
+    {
+     "id": "c",
+     "t": "Vi phạm 2NF; bỏ cột CourseID khỏi bảng Employee"
+    },
+    {
+     "id": "d",
+     "t": "Không vi phạm vì thông tin vẫn đầy đủ"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Một ô chứa hai mã khóa học là giá trị không nguyên tử, vi phạm 1NF. Slide sửa bằng cách tách thành hai dòng: (100, IS200, SPSS) và (100, LT102, Surveys).</p>",
+   "why_wrong": {
+    "a": "Phải đạt 1NF trước rồi mới xét 3NF; lỗi gốc ở đây là ô nhiều giá trị.",
+    "c": "Bỏ CourseID làm mất thông tin, không phải cách chuẩn hóa.",
+    "d": "Đầy đủ nhưng không lọc, đếm được theo từng khóa học; đây chính là lỗi 1NF."
+   },
+   "src": "21. Database.pdf tr.14"
+  },
+  {
+   "id": "L21-q17",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Bảng Emp_Course(<b>EmployeeID, CourseID</b>, Name, DateCompleted) có khóa chính ghép (EmployeeID, CourseID). Cột nào làm bảng vi phạm 2NF?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "DateCompleted"
+    },
+    {
+     "id": "b",
+     "t": "CourseID"
+    },
+    {
+     "id": "c",
+     "t": "Name"
+    },
+    {
+     "id": "d",
+     "t": "EmployeeID"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Name chỉ phụ thuộc EmployeeID – một phần của khóa ghép. Đây là phụ thuộc bộ phận, trái điều kiện \"phụ thuộc hoàn toàn vào toàn bộ khóa chính\" của 2NF.</p>",
+   "why_wrong": {
+    "a": "Ngày hoàn thành cần biết cả nhân viên lẫn khóa học, nên phụ thuộc toàn bộ khóa.",
+    "b": "CourseID là một phần khóa chính, không xét phụ thuộc.",
+    "d": "EmployeeID là một phần khóa chính, không xét phụ thuộc."
+   },
+   "src": "21. Database.pdf tr.16"
+  },
+  {
+   "id": "L21-q18",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Một bảng đã đạt 1NF và có khóa chính chỉ gồm một cột thì chắc chắn đạt 2NF.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Phụ thuộc bộ phận chỉ xảy ra khi khóa có từ hai cột trở lên. Khóa một cột thì không có \"một phần khóa\", nên 1NF đồng nghĩa với 2NF.</p>",
+   "why_wrong": {
+    "s": "Không thể phụ thuộc vào một phần của khóa chỉ có một cột."
+   },
+   "src": "21. Database.pdf tr.16"
+  },
+  {
+   "id": "L21-q19",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Ví dụ trên slide: ItemInfo(item, price, discount) với item → price và price → discount, khóa chính là item. Vì sao bảng <b>KHÔNG</b> đạt 3NF?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì discount phụ thuộc bắc cầu vào item thông qua price"
+    },
+    {
+     "id": "b",
+     "t": "Vì price là số thập phân nên không được coi là giá trị nguyên tử trong 1NF"
+    },
+    {
+     "id": "c",
+     "t": "Vì khóa chính item là khóa ghép"
+    },
+    {
+     "id": "d",
+     "t": "Vì bảng không có khóa ngoại"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>item → price → discount là chuỗi bắc cầu. 3NF yêu cầu thuộc tính không khóa không phụ thuộc bắc cầu. Slide tách thành ItemInfo(item, price) và Discount(price, discount).</p>",
+   "why_wrong": {
+    "b": "price là một con số, đã nguyên tử.",
+    "c": "item là khóa một cột, không phải khóa ghép.",
+    "d": "Thiếu khóa ngoại không phải điều kiện vi phạm dạng chuẩn."
+   },
+   "src": "21. Database.pdf tr.17"
+  },
+  {
+   "id": "L21-q20",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Thư viện có bảng DocGia(<b>ma_doc_gia</b>, ho_ten, ma_khoa, ten_khoa). Mỗi khoa có một tên. Cách xử lý nào đúng theo chuẩn hóa?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Giữ nguyên vì bảng đã có khóa chính"
+    },
+    {
+     "id": "b",
+     "t": "Tách ho_ten thành hai cột ho và ten để đạt 3NF theo nguyên tắc nguyên tố"
+    },
+    {
+     "id": "c",
+     "t": "Gộp ma_khoa và ten_khoa thành một cột"
+    },
+    {
+     "id": "d",
+     "t": "Tách bảng Khoa(ma_khoa, ten_khoa), DocGia chỉ giữ ma_khoa"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>ma_doc_gia → ma_khoa → ten_khoa là phụ thuộc bắc cầu, vi phạm 3NF. Tách bảng Khoa thì đổi tên khoa chỉ sửa một dòng.</p>",
+   "why_wrong": {
+    "a": "Có khóa chính chưa đủ; vẫn còn phụ thuộc bắc cầu.",
+    "b": "Tách họ tên liên quan tính nguyên tố, không xử lý phụ thuộc bắc cầu.",
+    "c": "Gộp hai cột làm giá trị không nguyên tử, vi phạm cả 1NF."
+   },
+   "src": "21. Database.pdf tr.17"
+  },
+  {
+   "id": "L21-q21",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong 4 dạng chuẩn slide liệt kê, dạng nào <b>chặt hơn</b> 3NF?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "1NF"
+    },
+    {
+     "id": "b",
+     "t": "Boyce-Codd (BCNF)"
+    },
+    {
+     "id": "c",
+     "t": "2NF"
+    },
+    {
+     "id": "d",
+     "t": "Không dạng nào, 3NF là cao nhất"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide liệt kê 1NF, 2NF, 3NF và BCNF. BCNF yêu cầu mọi phụ thuộc hàm đều xuất phát từ siêu khóa, nên chặt hơn 3NF.</p>",
+   "why_wrong": {
+    "a": "1NF là dạng thấp nhất.",
+    "c": "2NF thấp hơn 3NF.",
+    "d": "Slide có nêu thêm BCNF sau 3NF."
+   },
+   "src": "21. Database.pdf tr.13"
+  },
+  {
+   "id": "L21-q22",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Slide nêu những lợi ích nào khi chọn đúng kiểu dữ liệu? (chọn 2)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ngăn chặn dữ liệu không hợp lệ"
+    },
+    {
+     "id": "b",
+     "t": "Không cần khóa chính nữa"
+    },
+    {
+     "id": "c",
+     "t": "Tối ưu hóa bộ nhớ"
+    },
+    {
+     "id": "d",
+     "t": "Tự động chuẩn hóa bảng lên 3NF"
+    }
+   ],
+   "answer": [
+    "a",
+    "c"
+   ],
+   "explain": "<p>Hai lợi ích trên slide: ngăn dữ liệu không hợp lệ (ví dụ cột DATE không nhận \"ngày 32\") và tối ưu bộ nhớ (tuổi dùng TINYINT 1 byte).</p>",
+   "why_wrong": {
+    "b": "Khóa chính vẫn bắt buộc, không liên quan kiểu dữ liệu.",
+    "d": "Chuẩn hóa là việc tách bảng, kiểu dữ liệu không làm thay."
+   },
+   "src": "21. Database.pdf tr.19"
+  },
+  {
+   "id": "L21-q23",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Cột <code>so_tien_thanh_toan</code> trong bảng thanh toán của SolasMart nên dùng kiểu nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "FLOAT"
+    },
+    {
+     "id": "b",
+     "t": "REAL"
+    },
+    {
+     "id": "c",
+     "t": "DECIMAL(14,2)"
+    },
+    {
+     "id": "d",
+     "t": "VARCHAR(20)"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Tiền tệ cần chính xác tuyệt đối nên dùng DECIMAL/NUMERIC. Mẹo: tiền → decimal, khoa học → float.</p>",
+   "why_wrong": {
+    "a": "FLOAT là số xấp xỉ, có thể lệch nhỏ; bảng tra ghi rõ không dùng cho tiền tệ.",
+    "b": "REAL còn kém chính xác hơn FLOAT.",
+    "d": "Lưu tiền dạng chuỗi thì không cộng, so sánh đúng được và không chặn được dữ liệu sai."
+   },
+   "src": "21. Kieu du lieu trong Sql Server.pdf tr.1"
+  },
+  {
+   "id": "L21-q24",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Kiểu <code>tinyint</code> trong SQL Server có phạm vi và dung lượng thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "-128 đến 127, 1 byte"
+    },
+    {
+     "id": "b",
+     "t": "-32,768 đến 32,767, 2 byte"
+    },
+    {
+     "id": "c",
+     "t": "0 đến 65,535, 2 byte"
+    },
+    {
+     "id": "d",
+     "t": "0 đến 255, 1 byte"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>tinyint: 0 → 255, 1 byte, không có số âm. Ví dụ trên slide: tuổi của người.</p>",
+   "why_wrong": {
+    "a": "SQL Server tinyint không có số âm.",
+    "b": "Đó là phạm vi của smallint.",
+    "c": "SQL Server không có kiểu số nguyên 2 byte không dấu như vậy."
+   },
+   "src": "21. Database.pdf tr.21"
+  },
+  {
+   "id": "L21-q25",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Cột <code>ten_mon</code> của FoodNow lưu các tên như \"Bún chả Hà Nội\", độ dài từ 5 đến 80 ký tự. Kiểu nào phù hợp nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "CHAR(100)"
+    },
+    {
+     "id": "b",
+     "t": "NVARCHAR(100)"
+    },
+    {
+     "id": "c",
+     "t": "VARCHAR(100)"
+    },
+    {
+     "id": "d",
+     "t": "NCHAR(100)"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Tên có dấu tiếng Việt cần Unicode (chữ N), độ dài thay đổi cần var. Bảng tra: nvarchar cho tên, địa chỉ có dấu tiếng Việt.</p>",
+   "why_wrong": {
+    "a": "CHAR không hỗ trợ Unicode và luôn chiếm đủ 100 ký tự.",
+    "c": "VARCHAR không hỗ trợ Unicode, dễ mất dấu.",
+    "d": "NCHAR có Unicode nhưng độ dài cố định, phí chỗ với tên ngắn."
+   },
+   "src": "21. Kieu du lieu trong Sql Server.pdf tr.2"
+  },
+  {
+   "id": "L21-q26",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao bảng tra gợi ý dùng <code>char(n)</code> cho mã bưu điện, mã nhân viên?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì char hỗ trợ Unicode tốt hơn varchar nên lưu mã có chữ và số an toàn hơn"
+    },
+    {
+     "id": "b",
+     "t": "Vì char lưu được chuỗi dài hơn varchar"
+    },
+    {
+     "id": "c",
+     "t": "Vì các mã này luôn đủ độ dài cố định, char nhanh và không phí chỗ"
+    },
+    {
+     "id": "d",
+     "t": "Vì char tự sinh mã tăng dần"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>char(n) là chuỗi độ dài cố định: nhanh, ổn định, nhưng tốn chỗ nếu chuỗi ngắn hơn n. Với mã luôn đủ độ dài thì nhược điểm này biến mất.</p>",
+   "why_wrong": {
+    "a": "Unicode là đặc điểm của nchar/nvarchar, không phải char.",
+    "b": "char không lưu được dài hơn varchar.",
+    "d": "Kiểu chuỗi không tự sinh mã; tự tăng là việc của cột số nguyên IDENTITY."
+   },
+   "src": "21. Kieu du lieu trong Sql Server.pdf tr.2"
+  },
+  {
+   "id": "L21-q27",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Kiểu FLOAT chiếm 8 byte nên lưu số tiền chính xác tuyệt đối, phù hợp cho dữ liệu kế toán.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>FLOAT là số thực xấp xỉ, có thể sai lệch nhỏ. Bảng tra ghi FLOAT dùng cho tính toán khoa học, không dùng cho tiền tệ. Kế toán dùng DECIMAL.</p>",
+   "why_wrong": {
+    "d": "Dung lượng lớn không làm FLOAT thành chính xác; bản chất vẫn là xấp xỉ."
+   },
+   "src": "21. Kieu du lieu trong Sql Server.pdf tr.1"
+  },
+  {
+   "id": "L21-q28",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo lưu ý trong bảng tra, kiểu <code>ntext</code> nên được thay bằng kiểu nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "nvarchar(max)"
+    },
+    {
+     "id": "b",
+     "t": "varchar(max)"
+    },
+    {
+     "id": "c",
+     "t": "varbinary(max)"
+    },
+    {
+     "id": "d",
+     "t": "nchar(255)"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>text, ntext, image sẽ bị loại bỏ. Thay lần lượt bằng varchar(max), nvarchar(max), varbinary(max). ntext có chữ n (Unicode) thì thay bằng nvarchar(max).</p>",
+   "why_wrong": {
+    "b": "varchar(max) thay cho text, không có Unicode.",
+    "c": "varbinary(max) thay cho image (dữ liệu nhị phân).",
+    "d": "nchar(255) có độ dài cố định và quá ngắn so với ntext."
+   },
+   "src": "21. Kieu du lieu trong Sql Server.pdf tr.3"
+  },
+  {
+   "id": "L21-q29",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Màn hình đăng ký thành viên SolasMart có trường \"Ngày sinh\". Kiểu nào vừa đủ và đúng nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "DATETIME"
+    },
+    {
+     "id": "b",
+     "t": "DATE"
+    },
+    {
+     "id": "c",
+     "t": "NVARCHAR(10)"
+    },
+    {
+     "id": "d",
+     "t": "DATETIMEOFFSET"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Ngày sinh chỉ cần ngày, không cần giờ. DATE lưu yyyy-MM-dd, 3 byte; bảng tra lấy đúng ví dụ ngày sinh.</p>",
+   "why_wrong": {
+    "a": "DATETIME lưu thêm giờ không cần thiết và tốn 8 byte.",
+    "c": "Lưu ngày dạng chuỗi không chặn được ngày sai như 31/02.",
+    "d": "Múi giờ không có ý nghĩa với ngày sinh, lại tốn 10 byte."
+   },
+   "src": "21. Kieu du lieu trong Sql Server.pdf tr.3"
+  },
+  {
+   "id": "L21-q30",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>FoodNow mở rộng ra 5 nước, cần lưu thời điểm khách đặt bàn kèm múi giờ địa phương để đối soát. Chọn kiểu nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "SMALLDATETIME"
+    },
+    {
+     "id": "b",
+     "t": "TIME"
+    },
+    {
+     "id": "c",
+     "t": "DATETIME2"
+    },
+    {
+     "id": "d",
+     "t": "DATETIMEOFFSET"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>DATETIMEOFFSET lưu ngày giờ kèm múi giờ (timezone), 10 byte. Bảng tra: dùng cho hệ thống đa quốc gia, cloud app.</p>",
+   "why_wrong": {
+    "a": "SMALLDATETIME không có múi giờ và chỉ tới năm 2079.",
+    "b": "TIME chỉ có giờ, không có ngày.",
+    "c": "DATETIME2 chính xác cao nhưng không lưu múi giờ."
+   },
+   "src": "21. Kieu du lieu trong Sql Server.pdf tr.3"
+  },
+  {
+   "id": "L21-q31",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Khi nào bảng tra gợi ý dùng <code>smalldatetime</code>?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khi không cần độ chính xác tới giây"
+    },
+    {
+     "id": "b",
+     "t": "Khi cần lưu múi giờ"
+    },
+    {
+     "id": "c",
+     "t": "Khi chỉ cần lưu giờ, không cần ngày"
+    },
+    {
+     "id": "d",
+     "t": "Khi cần lưu ngày trước năm 1753"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>smalldatetime: ngày và giờ trong khoảng 1900–2079, 4 byte, dùng khi không cần chính xác tới giây.</p>",
+   "why_wrong": {
+    "b": "Lưu múi giờ là việc của datetimeoffset.",
+    "c": "Chỉ lưu giờ là kiểu time.",
+    "d": "smalldatetime chỉ bắt đầu từ năm 1900; ngày rất cũ phải dùng date hoặc datetime2."
+   },
+   "src": "21. Kieu du lieu trong Sql Server.pdf tr.3"
+  },
+  {
+   "id": "L21-q32",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Khai báo <code>decimal</code> mà không ghi (p,s) thì mặc định là gì theo slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "(10,2)"
+    },
+    {
+     "id": "b",
+     "t": "(38,0)"
+    },
+    {
+     "id": "c",
+     "t": "(18,0)"
+    },
+    {
+     "id": "d",
+     "t": "(18,2)"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide ghi decimal mặc định là 18,0: 18 chữ số, không có phần thập phân. Vì vậy khi lưu tiền có số lẻ phải ghi rõ s, ví dụ decimal(12,2).</p>",
+   "why_wrong": {
+    "a": "(10,2) là ví dụ hay gặp cho tiền, không phải mặc định.",
+    "b": "38 là độ chính xác tối đa, không phải mặc định.",
+    "d": "Mặc định có s = 0, không phải 2."
+   },
+   "src": "21. Database.pdf tr.21"
+  },
+  {
+   "id": "L21-q33",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, câu lệnh nào dùng để \"xóa dữ liệu có reset ID\"?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "DELETE FROM table_name WHERE condition;"
+    },
+    {
+     "id": "b",
+     "t": "UPDATE table_name SET id = 0;"
+    },
+    {
+     "id": "c",
+     "t": "DROP table_name;"
+    },
+    {
+     "id": "d",
+     "t": "TRUNCATE table_name;"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide chia hai cách xóa: DELETE … WHERE là xóa không reset ID; TRUNCATE là xóa có reset ID.</p>",
+   "why_wrong": {
+    "a": "DELETE là cách xóa không reset ID.",
+    "b": "UPDATE chỉ sửa giá trị, không xóa dòng nào.",
+    "c": "Slide không dùng DROP; DROP xóa luôn cả bảng chứ không chỉ dữ liệu."
+   },
+   "src": "21. Database.pdf tr.26"
+  },
+  {
+   "id": "L21-q34",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Tester cần xóa các đơn hàng đã hủy (status = 3) trong bảng orders, giữ nguyên các đơn khác. Câu nào đúng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "TRUNCATE orders WHERE status = 3;"
+    },
+    {
+     "id": "b",
+     "t": "DELETE FROM orders WHERE status = 3;"
+    },
+    {
+     "id": "c",
+     "t": "DELETE FROM orders;"
+    },
+    {
+     "id": "d",
+     "t": "UPDATE orders SET status = NULL WHERE status = 3;"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Xóa có chọn lọc dùng DELETE FROM … WHERE điều kiện. TRUNCATE không nhận WHERE vì luôn xóa toàn bộ bảng.</p>",
+   "why_wrong": {
+    "a": "TRUNCATE không có WHERE; câu này lỗi cú pháp.",
+    "c": "Thiếu WHERE thì xóa mọi đơn hàng.",
+    "d": "UPDATE chỉ đổi giá trị cột, dòng vẫn còn trong bảng."
+   },
+   "src": "21. Database.pdf tr.26"
+  },
+  {
+   "id": "L21-q35",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Câu <code>UPDATE customers SET city = N'Huế';</code> (không có WHERE) chỉ cập nhật dòng đầu tiên của bảng.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>WHERE là điều kiện chọn dòng cần sửa. Không có WHERE thì UPDATE áp lên <b>mọi dòng</b> của bảng: mọi khách đều thành ở Huế.</p>",
+   "why_wrong": {
+    "d": "SQL không có quy tắc \"chỉ sửa dòng đầu\"; thiếu WHERE nghĩa là không lọc gì."
+   },
+   "src": "21. Database.pdf tr.26"
+  },
+  {
+   "id": "L21-q36",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Muốn lấy các thành viên chưa có email (cột email là NULL), điều kiện nào đúng theo ghi chú trên slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "WHERE email = NULL"
+    },
+    {
+     "id": "b",
+     "t": "WHERE email = ''"
+    },
+    {
+     "id": "c",
+     "t": "WHERE email IS NULL"
+    },
+    {
+     "id": "d",
+     "t": "WHERE email LIKE NULL"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide ghi: muốn so sánh với NULL thì dùng IS NULL hoặc IS NOT NULL. Phép = với NULL không bao giờ cho kết quả đúng.</p>",
+   "why_wrong": {
+    "a": "= NULL không trả dòng nào vì NULL không bằng bất cứ giá trị nào.",
+    "b": "Chuỗi rỗng khác NULL; câu này bỏ sót dòng NULL.",
+    "d": "LIKE dùng so sánh gần đúng chuỗi, không dùng để kiểm NULL."
+   },
+   "src": "21. Database.pdf tr.27"
+  },
+  {
+   "id": "L21-q37",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong câu SELECT có GROUP BY, khác biệt giữa WHERE và HAVING là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "WHERE lọc nhóm sau khi gom, HAVING lọc dòng trước khi gom"
+    },
+    {
+     "id": "b",
+     "t": "WHERE dùng cho điều kiện trên cột số, HAVING dùng cho điều kiện trên cột chuỗi"
+    },
+    {
+     "id": "c",
+     "t": "Hai mệnh đề giống nhau, chỉ khác tên"
+    },
+    {
+     "id": "d",
+     "t": "WHERE lọc dòng trước khi gom nhóm, HAVING lọc nhóm sau khi gom"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Thứ tự: FROM → WHERE (lọc dòng) → GROUP BY (gom) → HAVING (lọc nhóm). Điều kiện như COUNT(*) &gt; 5 phải đặt ở HAVING.</p>",
+   "why_wrong": {
+    "a": "Đảo ngược vai trò của hai mệnh đề.",
+    "b": "Cả hai đều lọc được mọi kiểu dữ liệu; khác nhau ở thời điểm lọc.",
+    "c": "Hai mệnh đề lọc ở hai giai đoạn khác nhau."
+   },
+   "src": "21. Database.pdf tr.27"
+  },
+  {
+   "id": "L21-q38",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA muốn biết SolasMart đang có khách ở những tỉnh nào, mỗi tỉnh chỉ hiện một lần. Câu SQL nào đúng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "SELECT DISTINCT province FROM customers;"
+    },
+    {
+     "id": "b",
+     "t": "SELECT TOP (1) province FROM customers;"
+    },
+    {
+     "id": "c",
+     "t": "SELECT province AS DISTINCT FROM customers;"
+    },
+    {
+     "id": "d",
+     "t": "SELECT COUNT(province) FROM customers;"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>DISTINCT loại bỏ các giá trị trùng, nên mỗi tỉnh chỉ xuất hiện một lần.</p>",
+   "why_wrong": {
+    "b": "TOP (1) chỉ lấy một dòng đầu tiên.",
+    "c": "AS dùng để đổi tên cột, không loại trùng.",
+    "d": "COUNT trả về số dòng có tỉnh, không liệt kê tên tỉnh."
+   },
+   "src": "21. Database.pdf tr.27"
+  },
+  {
+   "id": "L21-q39",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Câu ví dụ trên slide <code>SELECT MIN(Price), MAX(Price), SUM(Price), AVG(Price), COUNT(Price) FROM Products WHERE Category = 1;</code> trả về gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mỗi sản phẩm thuộc Category 1 một dòng, mỗi dòng kèm đủ 5 cột MIN, MAX, SUM, AVG, COUNT"
+    },
+    {
+     "id": "b",
+     "t": "Một dòng: giá nhỏ nhất, lớn nhất, tổng, trung bình và số sản phẩm của Category 1"
+    },
+    {
+     "id": "c",
+     "t": "Một dòng thống kê cho toàn bộ bảng Products"
+    },
+    {
+     "id": "d",
+     "t": "Mỗi category một dòng thống kê"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>WHERE lọc còn Category 1; các hàm tổng hợp không có GROUP BY gộp toàn bộ dòng còn lại thành <b>một</b> dòng kết quả.</p>",
+   "why_wrong": {
+    "a": "Hàm tổng hợp gộp nhiều dòng thành một, không trả từng sản phẩm.",
+    "c": "WHERE Category = 1 đã lọc bỏ các category khác.",
+    "d": "Muốn mỗi category một dòng thì cần GROUP BY Category."
+   },
+   "src": "21. Database.pdf tr.28"
+  },
+  {
+   "id": "L21-q40",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Quản lý thư viện cần danh sách <b>mọi</b> độc giả kèm số phiếu mượn, kể cả độc giả chưa mượn lần nào. Với <code>docgia</code> đặt bên trái, nên dùng kiểu kết hợp nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "INNER JOIN"
+    },
+    {
+     "id": "b",
+     "t": "UNION"
+    },
+    {
+     "id": "c",
+     "t": "LEFT JOIN"
+    },
+    {
+     "id": "d",
+     "t": "RIGHT JOIN"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>LEFT JOIN giữ toàn bộ bản ghi bảng bên trái (độc giả) và lấy bản ghi khớp bên phải (phiếu mượn). Độc giả chưa mượn vẫn có dòng, phần phiếu mượn là NULL.</p>",
+   "why_wrong": {
+    "a": "INNER JOIN bỏ mất độc giả chưa mượn vì không có bản ghi khớp.",
+    "b": "UNION nối dòng của các câu SELECT, không ghép độc giả với phiếu mượn.",
+    "d": "RIGHT JOIN giữ toàn bộ bảng bên phải (phiếu mượn), không giữ độc giả chưa mượn."
+   },
+   "src": "21. Database.pdf tr.29"
+  },
+  {
+   "id": "L21-q41",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Bảng restaurants có 3 nhà hàng (ID 1, 2, 3). Bảng bookings có 4 lượt đặt: 2 lượt của nhà hàng 1, 2 lượt của nhà hàng 3. <code>restaurants INNER JOIN bookings</code> theo restaurant_id trả về bao nhiêu dòng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "3 dòng"
+    },
+    {
+     "id": "b",
+     "t": "5 dòng"
+    },
+    {
+     "id": "c",
+     "t": "7 dòng"
+    },
+    {
+     "id": "d",
+     "t": "4 dòng"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>INNER JOIN chỉ trả bản ghi khớp ở cả hai bảng: mỗi lượt đặt ghép với nhà hàng của nó, được 4 dòng. Nhà hàng 2 không có lượt đặt nên không xuất hiện.</p>",
+   "why_wrong": {
+    "a": "Số dòng theo số cặp khớp, không theo số nhà hàng.",
+    "b": "5 dòng là kết quả LEFT JOIN (thêm nhà hàng 2 với NULL).",
+    "c": "INNER JOIN không cộng dồn số dòng hai bảng."
+   },
+   "src": "21. Database.pdf tr.29"
+  },
+  {
+   "id": "L21-q42",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Những phát biểu nào đúng về JOIN và UNION? (chọn 2)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "FULL OUTER JOIN trả bản ghi khi có khớp ở bảng trái hoặc bảng phải"
+    },
+    {
+     "id": "b",
+     "t": "UNION ghép thêm các cột của bảng thứ hai vào bên phải bảng thứ nhất"
+    },
+    {
+     "id": "c",
+     "t": "LEFT JOIN và INNER JOIN luôn cho cùng số dòng"
+    },
+    {
+     "id": "d",
+     "t": "JOIN ghép theo chiều ngang (thêm cột), UNION ghép theo chiều dọc (thêm dòng)"
+    }
+   ],
+   "answer": [
+    "a",
+    "d"
+   ],
+   "explain": "<p>FULL OUTER JOIN lấy cả phần khớp lẫn phần không khớp của hai bên. JOIN nối bảng theo khóa để thêm cột, còn UNION nối kết quả các câu SELECT thành thêm dòng.</p>",
+   "why_wrong": {
+    "b": "Thêm cột là việc của JOIN; UNION nối dòng.",
+    "c": "LEFT JOIN có thể nhiều dòng hơn vì giữ cả bản ghi bên trái không khớp."
+   },
+   "src": "21. Database.pdf tr.29"
+  },
+  {
+   "id": "L21-q43",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo ghi chú trên slide, toán tử LIKE dùng để so sánh gần đúng, ví dụ tìm tên món bắt đầu bằng \"Phở\".</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide ghi: sử dụng LIKE để so sánh gần đúng. Ví dụ <code>WHERE name LIKE N'Phở%'</code>, dấu % thay cho chuỗi bất kỳ.</p>",
+   "why_wrong": {
+    "s": "LIKE đúng là toán tử so sánh gần đúng theo mẫu."
+   },
+   "src": "21. Database.pdf tr.27"
+  }
+ ],
+ "summary": {
+  "points": [
+   "Database là nơi chứa dữ liệu có cấu trúc; DBMS là phần mềm quản lý nó (SQL Server, MySQL, Oracle, MongoDB…)",
+   "CSDL quan hệ lưu theo bảng, nối nhau bằng khóa chính và khóa ngoại; CSDL không quan hệ (MongoDB) có cấu trúc linh hoạt",
+   "Quy trình thiết kế 8 bước: mục đích → thông tin → bảng → cột → khóa chính → quan hệ → tinh chỉnh → chuẩn hóa",
+   "DB tốt: toàn vẹn, hiệu suất, mở rộng, bảo mật, bảo trì; 7 nguyên tắc từ tránh dư thừa tới che giấu thông tin nhạy cảm",
+   "1NF: giá trị nguyên tử, không nhóm lặp; 2NF: không phụ thuộc bộ phận vào khóa; 3NF: không phụ thuộc bắc cầu",
+   "Chọn kiểu: tiền dùng decimal, khoa học dùng float; có dấu tiếng Việt dùng nvarchar; mã cố định dùng char; ngày dùng date",
+   "SQL: INSERT/UPDATE/DELETE (không reset ID)/TRUNCATE (reset ID); SELECT … WHERE … GROUP BY … HAVING … ORDER BY",
+   "Hàm MIN, MAX, COUNT, SUM, AVG; JOIN ghép cột (INNER, LEFT, RIGHT, FULL), UNION ghép dòng"
+  ],
+  "html": "<table><thead><tr><th>Phần</th><th>Cần nhớ</th><th>BA dùng khi nào</th></tr></thead><tbody><tr><td>Khái niệm</td><td>Database, DBMS, quan hệ / không quan hệ, Stored Procedure</td><td>Trao đổi với dev, đọc tài liệu kiến trúc</td></tr><tr><td>Nguyên tắc thiết kế</td><td>8 bước, 5 yếu tố, 7 nguyên tắc</td><td>Review thiết kế dữ liệu, viết ERD</td></tr><tr><td>Chuẩn hóa</td><td>1NF → 2NF → 3NF (→ BCNF)</td><td>Phát hiện dữ liệu lặp, mâu thuẫn trong biểu mẫu nghiệp vụ</td></tr><tr><td>Data type</td><td>Số chính xác / xấp xỉ, chuỗi có n / không n, ngày giờ</td><td>Đặc tả trường dữ liệu trong SRS/FSD</td></tr><tr><td>Query</td><td>INSERT, UPDATE, DELETE, TRUNCATE, SELECT, hàm tổng hợp, JOIN, UNION</td><td>Tự kiểm số liệu, viết test data, kiểm bug</td></tr></tbody></table><p>Bài này nối tiếp L20 ERD: ERD vẽ thực thể và quan hệ, còn L21 biến thực thể thành bảng có khóa, kiểu dữ liệu và chuẩn hóa, rồi truy vấn bằng SQL.</p>"
+ },
+ "images": [
+  {
+   "id": "L21-img1",
+   "path": "data/pages/21. Database/p-006.jpg",
+   "caption": "Quy trình thiết kế database (8 bước)",
+   "crop": [
+    0.02,
+    0.06,
+    0.98,
+    0.92
+   ]
+  },
+  {
+   "id": "L21-img2",
+   "path": "data/pages/21. Database/p-014.jpg",
+   "caption": "1NF: tách ô nhiều khóa học thành nhiều dòng",
+   "crop": [
+    0.47,
+    0.18,
+    1,
+    1
+   ]
+  },
+  {
+   "id": "L21-img3",
+   "path": "data/pages/21. Database/p-015.jpg",
+   "caption": "1NF: bảng đơn hàng gộp tách thành customers, addresses, orders",
+   "crop": [
+    0.15,
+    0.18,
+    1,
+    1
+   ]
+  },
+  {
+   "id": "L21-img4",
+   "path": "data/pages/21. Database/p-016.jpg",
+   "caption": "2NF: tách Employee, Emp_Crs, Course",
+   "crop": [
+    0.07,
+    0.38,
+    1,
+    1
+   ]
+  },
+  {
+   "id": "L21-img5",
+   "path": "data/pages/21. Database/p-017.jpg",
+   "caption": "3NF: ví dụ phụ thuộc bắc cầu",
+   "crop": [
+    0.32,
+    0.18,
+    1,
+    1
+   ]
+  },
+  {
+   "id": "L21-img6",
+   "path": "data/pages/21. Database/p-019.jpg",
+   "caption": "Các nhóm kiểu dữ liệu SQL Server",
+   "crop": [
+    0.44,
+    0,
+    1,
+    1
+   ]
+  },
+  {
+   "id": "L21-img7",
+   "path": "data/pages/21. Database/p-029.jpg",
+   "caption": "INNER, LEFT, RIGHT, FULL OUTER JOIN",
+   "crop": [
+    0,
+    0.68,
+    1,
+    1
+   ]
+  }
+ ]
+}

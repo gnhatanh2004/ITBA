@@ -1,0 +1,1971 @@
+{
+ "id": "L04",
+ "session": 4,
+ "module": "M2",
+ "title": "Tiếp cận dự án và Stakeholder",
+ "goals": [
+  "Liệt kê được 13 bước BA tiếp cận một dự án, từ lúc nhận yêu cầu đến khi nghiệm thu",
+  "Gắn được từng việc của BA với 6 lĩnh vực kiến thức (knowledge area) của BABOK",
+  "Nêu được định nghĩa Stakeholder theo BABOK và lý do phải quản lý Stakeholder",
+  "Phân loại Stakeholder theo Primary/Secondary/Key, theo ma trận Power – Interest và theo RACI",
+  "Chọn đúng chiến lược quản lý cho từng ô của ma trận Power – Interest",
+  "Điền đầy đủ một Stakeholder Register theo từng cột của template",
+  "Giải thích Scope, Scope creep và các nguyên nhân gây Scope creep"
+ ],
+ "sources": [
+  {
+   "file": "4. Tiep can du an.pdf",
+   "pages": "1-25"
+  },
+  {
+   "file": "4. Stakeholder_Register_Template.xlsx",
+   "pages": "sheet Stakeholder Register"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L04-t1",
+   "h": "Bài này học gì",
+   "html": "<p>Bài có ba phần lớn:</p><ol><li><b>Các bước tiếp cận dự án</b>: khi được giao một dự án mới, BA làm những việc gì, theo thứ tự nào.</li><li><b>Quản lý Stakeholder (bên liên quan)</b>: tìm ra ai liên quan đến dự án, phân loại họ, chọn cách làm việc với từng người và ghi lại vào Stakeholder Register.</li><li><b>Phạm vi dự án (Scope)</b>: phạm vi là gì và làm sao tránh Scope creep (phạm vi phình to mất kiểm soát).</li></ol><p><b>Tình huống giả định dùng xuyên suốt bài:</b> Bạn là BA chính của công ty. Cấp trên giao việc: “Công ty A đang muốn làm phần mềm Quản lý nhân sự (HRM), em hãy làm BA cho dự án này”. Nhiệm vụ đặt ra là liệt kê các công việc theo trình tự, từ khi tiếp cận dự án đến khi kết thúc dự án. Đáp án mẫu nằm ở tab Thực hành.</p>",
+   "src": "4. Tiep can du an.pdf tr.2-4"
+  },
+  {
+   "id": "L04-t2",
+   "h": "Ôn tập 6 lĩnh vực kiến thức cốt lõi (Knowledge Area)",
+   "html": "<p>BABOK (Business Analysis Body of Knowledge – bộ kiến thức chuẩn về phân tích nghiệp vụ của IIBA) chia công việc BA thành <b>6 lĩnh vực kiến thức</b>. Các bước tiếp cận dự án đều dựa trên 6 lĩnh vực này.</p>{{img:L04-img1}}<ul><li><b>Business Analysis Planning and Monitoring</b> (Lập kế hoạch và giám sát BA) – nằm trên cùng, chi phối mọi lĩnh vực khác.</li><li><b>Elicitation and Collaboration</b> (Khai thác yêu cầu và cộng tác).</li><li><b>Requirements Life Cycle Management</b> (Quản lý vòng đời yêu cầu).</li><li><b>Strategy Analysis</b> (Phân tích chiến lược).</li><li><b>Requirements Analysis and Design Definition</b> (Phân tích yêu cầu và định nghĩa thiết kế), viết tắt RADD.</li><li><b>Solution Evaluation</b> (Đánh giá giải pháp).</li></ul><p>Các mũi tên hai chiều trong sơ đồ cho thấy các lĩnh vực <b>không chạy theo một đường thẳng</b>. Chúng đan xen và lặp lại nhiều lần trong suốt dự án.</p><p class=\"tip\">Mẹo nhớ: <b>P-E-R-S-R-S</b> = Plan, Elicit, Requirements life cycle, Strategy, Requirements analysis, Solution evaluation.</p>",
+   "src": "4. Tiep can du an.pdf tr.5"
+  },
+  {
+   "id": "L04-t3",
+   "h": "BA làm gì trong từng lĩnh vực",
+   "html": "<table><thead><tr><th>Lĩnh vực</th><th>Việc BA làm (theo slide)</th></tr></thead><tbody><tr><td>Business Analysis Planning and Monitoring</td><td><ul><li>Lập kế hoạch BA</li><li>Xác định stakeholder</li><li>Lựa chọn kỹ thuật khảo sát</li><li>Lập kế hoạch quản lý yêu cầu</li><li>Theo dõi và điều chỉnh hoạt động BA</li></ul></td></tr><tr><td>Elicitation and Collaboration</td><td><ul><li>Chuẩn bị khảo sát</li><li>Thực hiện khảo sát (interview – phỏng vấn, workshop – hội thảo…)</li><li>Xác nhận lại thông tin thu thập</li><li>Cộng tác với stakeholder xuyên suốt dự án</li></ul></td></tr><tr><td>Requirements Life Cycle Management</td><td><ul><li>Quản lý phiên bản</li><li>Truy vết yêu cầu</li><li>Xác định độ ưu tiên</li><li>Phân tích và phê duyệt yêu cầu</li><li>Quản lý thay đổi (Change Request – yêu cầu thay đổi)</li></ul></td></tr><tr><td>Strategy Analysis</td><td><ul><li>Phân tích hiện trạng (AS-IS)</li><li>Xác định Need (nhu cầu)</li><li>Đề xuất giải pháp (To-Be – trạng thái mong muốn)</li><li>Xác nhận giải pháp</li></ul></td></tr><tr><td>Requirements Analysis and Design Definition</td><td><ul><li>Phân loại yêu cầu BR (nghiệp vụ), FR (chức năng), NFR (phi chức năng)</li><li>Mô hình hóa quy trình</li><li>Xây dựng Use Case, User Story</li><li>Thiết kế mô hình dữ liệu</li><li>Xây dựng giải pháp</li><li>Xác nhận yêu cầu đã sẵn sàng cho kỹ thuật</li></ul></td></tr><tr><td>Solution Evaluation</td><td><ul><li>Đánh giá giải pháp sau khi triển khai</li><li>Kiểm tra giá trị mang lại</li><li>Đề xuất cải tiến</li><li>Phân tích lỗi, khoảng trống</li></ul></td></tr></tbody></table><p class=\"tip\">Cách phân biệt nhanh: <b>Strategy Analysis</b> trả lời “vì sao làm và làm gì” (AS-IS, Need, To-Be). <b>RADD</b> trả lời “cụ thể hệ thống ra sao” (FR, NFR, use case, dữ liệu). <b>Requirements Life Cycle Management</b> trông coi yêu cầu sau khi đã có (phiên bản, truy vết, ưu tiên, thay đổi).</p>",
+   "src": "4. Tiep can du an.pdf tr.6-8"
+  },
+  {
+   "id": "L04-t4",
+   "h": "13 bước tiếp cận dự án",
+   "html": "<p>Slide tóm tắt hành trình của BA trong một dự án thành 13 bước:</p><table><thead><tr><th>#</th><th>Bước</th><th>Ý chính</th></tr></thead><tbody><tr><td>1</td><td>Tiếp nhận yêu cầu, tìm hiểu về yêu cầu</td><td>Hiểu khách hàng muốn gì, bối cảnh ra sao.</td></tr><tr><td>2</td><td>Xác định Stakeholder</td><td>Tìm ra ai liên quan, ai quyết định, ai sử dụng.</td></tr><tr><td>3</td><td>Xác định phạm vi ban đầu</td><td>Vạch ranh giới sơ bộ: làm gì, không làm gì.</td></tr><tr><td>4</td><td>Lập kế hoạch phân tích</td><td>Lên lịch, chọn kỹ thuật khảo sát, chia việc.</td></tr><tr><td>5</td><td>Thu thập thông tin</td><td>Phỏng vấn, workshop, đọc tài liệu, quan sát…</td></tr><tr><td>6</td><td>Xác định yêu cầu</td><td>Rút ra và phân loại yêu cầu từ thông tin đã thu.</td></tr><tr><td>7</td><td>Mô hình hóa</td><td>Vẽ quy trình, use case, mô hình dữ liệu.</td></tr><tr><td>8</td><td>Xác định phạm vi</td><td>Chốt phạm vi chính thức sau khi đã hiểu rõ yêu cầu.</td></tr><tr><td>9</td><td>Viết tài liệu</td><td>BRD, SRS, FSD… (học ở bài 16).</td></tr><tr><td>10</td><td>Làm việc với team phát triển</td><td>Giải thích yêu cầu, trả lời câu hỏi của dev.</td></tr><tr><td>11</td><td>Hỗ trợ kiểm thử</td><td>Cùng tester kiểm hệ thống có đúng yêu cầu.</td></tr><tr><td>12</td><td>UAT với Khách hàng</td><td>UAT (User Acceptance Testing – kiểm thử chấp nhận người dùng): khách hàng tự kiểm.</td></tr><tr><td>13</td><td>Nghiệm thu kết thúc dự án</td><td>Khách hàng ký nhận, đóng dự án.</td></tr></tbody></table><p>Bước 3 và bước 8 đều là phạm vi nhưng khác nhau: bước 3 là phạm vi <b>sơ bộ</b> để lập kế hoạch. Bước 8 là phạm vi <b>đã được làm rõ</b> sau khi thu thập, phân tích và mô hình hóa yêu cầu.</p><p class=\"note\">Thứ tự 13 bước là khung tham khảo của slide. Trong thực tế, nhất là dự án Agile, các bước 5–9 lặp lại nhiều vòng chứ không làm một lần.</p>",
+   "src": "4. Tiep can du an.pdf tr.9"
+  },
+  {
+   "id": "L04-t5",
+   "h": "Stakeholder là gì",
+   "html": "<p><b>Theo BABOK:</b> Một Stakeholder (bên liên quan) là một <b>cá nhân, nhóm hoặc tổ chức</b> có liên quan hoặc bị ảnh hưởng bởi dự án hoặc sản phẩm.</p>{{img:L04-img2}}<p>Hình trên slide nêu các nhóm stakeholder thường gặp: Investors (nhà đầu tư), Society (xã hội, cộng đồng), Employees (nhân viên), Regulators (cơ quan quản lý), Suppliers (nhà cung cấp), Customers (khách hàng), Creditors (chủ nợ, bên cho vay).</p><p>Điểm cần nhớ: stakeholder <b>không chỉ là người dùng hệ thống</b>. Người không bao giờ mở phần mềm vẫn có thể là stakeholder nếu bị dự án ảnh hưởng, ví dụ cơ quan thuế hay nhà cung cấp.</p>",
+   "src": "4. Tiep can du an.pdf tr.10"
+  },
+  {
+   "id": "L04-t6",
+   "h": "Tại sao cần quản lý Stakeholder",
+   "html": "<ul><li>Stakeholder là <b>nguồn cung cấp yêu cầu chính</b>, nên cần xác định đúng người để tránh bỏ sót yêu cầu quan trọng.</li><li>Mỗi stakeholder có góc nhìn, mục tiêu khác nhau, nên cần quản lý để yêu cầu <b>không mâu thuẫn</b>.</li><li>Tạo sự <b>đồng thuận</b>, tránh xung đột giữa các stakeholder.</li><li>Quyết định quan trọng phụ thuộc vào stakeholder: <b>Ai xác nhận? Ai phê duyệt?</b></li><li><b>Quản lý kỳ vọng</b>, tránh yêu cầu “trên trời” hoặc ngoài phạm vi dự án.</li><li><b>Giảm rủi ro</b> thay đổi yêu cầu.</li></ul><p class=\"tip\">Bỏ sót một stakeholder thường phát hiện ra rất muộn, lúc UAT hoặc khi đã đưa vào dùng. Khi đó, sửa yêu cầu tốn kém hơn nhiều.</p>",
+   "src": "4. Tiep can du an.pdf tr.11"
+  },
+  {
+   "id": "L04-t7",
+   "h": "Phân loại Stakeholder: Primary, Secondary, Key",
+   "html": "<table><thead><tr><th>Nhóm</th><th>Là ai?</th><th>Tầm quan trọng</th></tr></thead><tbody><tr><td>Primary Stakeholders (chính)</td><td>Người được hưởng lợi trực tiếp hoặc bị ảnh hưởng trực tiếp bởi dự án/hệ thống.</td><td>Sử dụng hệ thống, chịu ảnh hưởng trực tiếp. Ví dụ: nhân viên HR trong hệ thống HRM.</td></tr><tr><td>Secondary Stakeholders (thứ cấp)</td><td>Người bị ảnh hưởng gián tiếp, hoặc có liên quan nhưng không sử dụng sản phẩm chính.</td><td>Hỗ trợ, phối hợp, chịu ảnh hưởng không trực tiếp. Ví dụ: phòng IT hỗ trợ vận hành hệ thống.</td></tr><tr><td>Key Stakeholders (then chốt)</td><td>Nhóm có quyền lực ảnh hưởng lớn đến dự án hoặc quyết định cuối cùng.</td><td>Ra quyết định, phê duyệt, tài trợ. Ví dụ: Sponsor (nhà tài trợ dự án), Director (giám đốc), PO (Product Owner – chủ sản phẩm).</td></tr></tbody></table><p class=\"tip\">Câu hỏi để phân nhóm: Người này <b>dùng trực tiếp</b>? → Primary. Chỉ <b>hỗ trợ, phối hợp</b>? → Secondary. Có quyền <b>quyết, duyệt, chi tiền</b>? → Key.</p>",
+   "src": "4. Tiep can du an.pdf tr.12"
+  },
+  {
+   "id": "L04-t8",
+   "h": "Các cách phân loại Stakeholder khác",
+   "html": "<ul><li><b>Theo vai trò:</b> Business Stakeholders (phía nghiệp vụ, trong tổ chức khách hàng), External Stakeholders (bên ngoài tổ chức: khách hàng cuối, nhà cung cấp, cơ quan quản lý…), Solution Stakeholders (phía tạo và vận hành giải pháp: dev, tester, IT…).</li><li><b>Theo mức độ ảnh hưởng:</b> Power – Interest Grid (lưới quyền lực – mức độ quan tâm). Xem mục tiếp theo.</li><li><b>Theo vị trí trong vòng đời sản phẩm:</b> Người ra quyết định (Decision Maker), Người sử dụng sản phẩm (End User), Người tạo ra sản phẩm.</li><li><b>Theo mức độ tham gia (RACI):</b><ul><li><b>R</b>esponsible – Người trực tiếp thực hiện.</li><li><b>A</b>ccountable – Người chịu trách nhiệm cuối cùng.</li><li><b>C</b>onsulted – Người được tham vấn.</li><li><b>I</b>nformed – Người cần được thông báo.</li></ul></li></ul><p>RACI được gắn <b>theo từng công việc</b>. Một người có thể là R ở việc này và I ở việc khác. Theo thông lệ, mỗi công việc chỉ nên có <b>một</b> người A, để rõ ai chịu trách nhiệm cuối cùng.</p><p class=\"note\">Ba nhóm “Business / External / Solution” là cách chia của slide. BABOK v3 không chia ba nhóm như vậy mà liệt kê các vai trò cụ thể (Sponsor, End User, Domain SME, Regulator, Supplier, Tester…). Hai cách không mâu thuẫn, chỉ khác mức gom nhóm.</p><p>Các cách phân loại <b>độc lập với nhau</b>. Một người có thể cùng lúc là Primary, nằm ở ô High Power – High Interest, và là A trong RACI của việc duyệt yêu cầu.</p>",
+   "src": "4. Tiep can du an.pdf tr.13"
+  },
+  {
+   "id": "L04-t9",
+   "h": "3 bước quản lý Stakeholder và Bước 1",
+   "html": "<p>Quản lý stakeholder gồm 3 bước:</p><ol><li><b>Bước 1: Xác định và phân tích Stakeholder.</b></li><li><b>Bước 2: Lập kế hoạch tương tác</b> (Plan Engagement).</li><li><b>Bước 3: Quản lý và duy trì</b> (Manage &amp; Monitor).</li></ol><h4>Bước 1: Xác định và phân tích</h4><p>Đặt 4 câu hỏi để không bỏ sót ai:</p><ul><li>Ai là người quyết định dự án?</li><li>Ai là người sử dụng hệ thống?</li><li>Ai là người vận hành hệ thống?</li><li>Ai là người bị ảnh hưởng trực tiếp/gián tiếp bởi dự án?</li></ul><p>Sau đó dùng <b>Stakeholder Analysis Matrix</b> (ma trận phân tích stakeholder) để phân loại theo <b>quyền lực</b> (Power/Influence – trục dọc) và <b>mức độ quan tâm</b> (Interest – trục ngang).</p>{{img:L04-img3}}<p>Ví dụ trên slide là một dự án đường sắt: bốn ô gồm <b>Key players</b> (ảnh hưởng cao, quan tâm cao), <b>Meet their needs</b> (ảnh hưởng cao, quan tâm thấp), <b>Show consideration</b> (ảnh hưởng thấp, quan tâm cao) và <b>Least important</b> (cả hai thấp).</p>",
+   "src": "4. Tiep can du an.pdf tr.14-15"
+  },
+  {
+   "id": "L04-t10",
+   "h": "Chiến lược quản lý theo ma trận Power – Interest",
+   "html": "<table><thead><tr><th>Nhóm</th><th>Là ai?</th><th>Chiến lược quản lý</th></tr></thead><tbody><tr><td>High Power – High Interest</td><td>Người ra quyết định, ảnh hưởng trực tiếp đến phạm vi, chi phí, tiến độ. Ví dụ: Trưởng phòng nhân sự.</td><td><ul><li>Cần tham gia thường xuyên vào các buổi Elicitation</li><li>Báo cáo tiến độ liên tục</li><li>Lấy ý kiến phê duyệt trước khi thay đổi yêu cầu</li></ul></td></tr><tr><td>High Power – Low Interest</td><td>Người có quyền lực cao nhưng không quan tâm đến chi tiết. Ví dụ: Ban giám đốc.</td><td><ul><li>Báo cáo định kỳ, ngắn gọn</li><li>Chỉ liên hệ khi có vấn đề nghiêm trọng hoặc cần quyết định chiến lược</li><li>Tránh “làm phiền” họ bằng chi tiết nhỏ</li></ul></td></tr><tr><td>Low Power – High Interest</td><td>Người không có quyền quyết định nhưng dùng hệ thống hằng ngày, cung cấp insight (hiểu biết) thực tế. Ví dụ: nhân viên nghiệp vụ.</td><td><ul><li>Lắng nghe, thu thập ý kiến chi tiết qua Elicitation</li><li>Giữ họ trong vòng thông tin để tăng mức độ chấp nhận</li></ul></td></tr><tr><td>Low Power – Low Interest</td><td>Người gần như không ảnh hưởng đến quyết định hoặc kết quả.</td><td><ul><li>Cập nhật thông tin khi cần thiết</li><li>Không cần tham gia sâu vào Elicitation</li><li>Đảm bảo không bị bỏ quên hoàn toàn để tránh “ngòi nổ tiềm ẩn”</li></ul></td></tr></tbody></table><p class=\"tip\">Nhiều tài liệu khác gọi bốn ô là: Manage closely (quản lý chặt), Keep satisfied (giữ hài lòng), Keep informed (giữ thông tin), Monitor (theo dõi). Ý nghĩa trùng với bảng trên.</p>",
+   "src": "4. Tiep can du an.pdf tr.15-16"
+  },
+  {
+   "id": "L04-t11",
+   "h": "Bước 2 và Bước 3",
+   "html": "<h4>Bước 2: Lập kế hoạch tương tác (Plan Engagement)</h4><ul><li>Xác định <b>kỹ thuật Elicitation</b> nào cần áp dụng cho từng stakeholder (phỏng vấn, workshop, khảo sát, quan sát… – học ở bài 5).</li><li>Xác định <b>thời gian</b>: lúc nào cần Elicitation với stakeholder nào?</li></ul><h4>Bước 3: Quản lý và duy trì (Manage &amp; Monitor)</h4><ul><li>Giao tiếp thường xuyên, minh bạch.</li><li>Ghi nhận phản hồi và phản hồi lại.</li><li>Xử lý xung đột.</li><li>Theo dõi thay đổi: stakeholder mới xuất hiện, vai trò thay đổi.</li></ul><p>Bước 3 kéo dài suốt dự án. Khi có stakeholder mới hoặc vai trò thay đổi, BA quay lại Bước 1 và Bước 2 cho người đó, rồi cập nhật Stakeholder Register.</p>",
+   "src": "4. Tiep can du an.pdf tr.14, 17"
+  },
+  {
+   "id": "L04-t12",
+   "h": "Stakeholder Register là gì",
+   "html": "<p><b>Stakeholder Register</b> (sổ đăng ký bên liên quan) là tài liệu ghi lại danh sách <b>tất cả</b> các bên liên quan của dự án, gồm: thông tin, vai trò, mức độ ảnh hưởng, mức độ quan tâm, nhu cầu, và chiến lược giao tiếp cho từng stakeholder.</p><p><b>Mục đích:</b></p><ul><li>Xác định tất cả các bên liên quan đến dự án.</li><li>Giúp nhóm dự án hiểu rõ mức độ ảnh hưởng và kỳ vọng của từng stakeholder.</li><li>Hỗ trợ lập kế hoạch quản lý stakeholder hiệu quả.</li><li>Cung cấp thông tin để giám sát và kiểm soát sự tham gia của stakeholder trong suốt vòng đời dự án.</li></ul><p class=\"tip\">Register là tài liệu <b>sống</b>: tạo ở Bước 1, dùng ở Bước 2, cập nhật ở Bước 3.</p>",
+   "src": "4. Tiep can du an.pdf tr.18"
+  },
+  {
+   "id": "L04-t13",
+   "h": "Cách điền Stakeholder Register theo từng cột",
+   "html": "<p>Template của khóa học có 10 cột. Ảnh dưới là bản điền mẫu cho dự án HRM:</p>{{img:L04-img4}}<table><thead><tr><th>Cột</th><th>Điền gì</th><th>Mẫu trong template (HRM)</th><th>Lỗi hay gặp</th></tr></thead><tbody><tr><td>STT</td><td>Số thứ tự. Nên xếp người quan trọng (Key, High Power) lên trước.</td><td>1, 2, 3…</td><td>–</td></tr><tr><td>Tên</td><td>Tên người cụ thể. Nếu là cả nhóm thì ghi tên nhóm.</td><td>Nguyễn Văn A; Team Dev</td><td>Chỉ ghi chức danh, không biết hỏi ai.</td></tr><tr><td>Vai trò</td><td>Chức danh hoặc vai trò đối với dự án.</td><td>Sponsor; HR Manager; IT Manager; Nhà cung cấp giải pháp chấm công</td><td>Lẫn vai trò với cột Phân loại.</td></tr><tr><td>Phân loại</td><td>Primary / Secondary / Key (mục Phân loại ở trên).</td><td>Sponsor → Key; HR Manager → Primary; IT Manager → Secondary</td><td>Ghi “Cao/Thấp” vào cột này.</td></tr><tr><td>Nhu cầu</td><td>Stakeholder <b>mong gì</b> từ dự án, viết từ góc nhìn của họ.</td><td>“Quản lý hồ sơ, chấm công, tuyển dụng”; “Cung cấp API và hỗ trợ kết nối”</td><td>Ghi nhiệm vụ trong công ty thay vì mong muốn với dự án.</td></tr><tr><td>Mức độ ảnh hưởng</td><td>Quyền lực với dự án: Cao / Trung bình / Thấp.</td><td>Sponsor: Cao; Nhân viên HR: Thấp</td><td>Nhầm “dùng nhiều” với “ảnh hưởng lớn”.</td></tr><tr><td>Mức độ quan tâm</td><td>Mức quan tâm đến chi tiết dự án: Cao / Trung bình / Thấp.</td><td>Sponsor: Thấp; HR Manager: Cao</td><td>Cho rằng người quyền cao thì quan tâm cao.</td></tr><tr><td>Chiến lược quản lý</td><td>Lấy từ ô tương ứng trên ma trận Power – Interest (2 cột trước quyết định cột này).</td><td>Sponsor (Cao/Thấp): báo cáo định kỳ, ngắn gọn, chỉ liên hệ khi có vấn đề nghiêm trọng…</td><td>Chiến lược không khớp với mức ảnh hưởng/quan tâm.</td></tr><tr><td>Tần suất trao đổi</td><td>Bao lâu liên lạc một lần, khớp với chiến lược.</td><td>Hàng tháng; Hàng tuần; Cách tuần; Khi cần thiết; Hằng ngày</td><td>Ghi “thường xuyên” – không đo được.</td></tr><tr><td>Người quản lý Stakeholder</td><td>Thành viên <b>nhóm dự án</b> phụ trách liên lạc với stakeholder đó.</td><td>PM; BA; Tech Lead; BA/Tech Lead</td><td>Ghi tên sếp trực tiếp của stakeholder.</td></tr></tbody></table><p>Thứ tự điền nên là: Tên, Vai trò → Phân loại → Nhu cầu → Ảnh hưởng, Quan tâm → Chiến lược → Tần suất → Người quản lý. Cột sau dựa vào cột trước.</p><p class=\"note\">Template gốc ghi tiêu đề cột là “Tần xuất trao đổi”. Bài này viết đúng chính tả là “Tần suất”. Các ô “…” trong template là chỗ để người học tự điền.</p>",
+   "src": "4. Tiep can du an.pdf tr.19; 4. Stakeholder_Register_Template.xlsx"
+  },
+  {
+   "id": "L04-t14",
+   "h": "Phạm vi dự án (Scope)",
+   "html": "<p><b>Scope</b> (phạm vi) là phạm vi công việc cần phải thực hiện để bàn giao đúng sản phẩm/dịch vụ theo yêu cầu.</p><p>Scope là thông tin cần được <b>thống nhất với khách hàng trước khi bắt đầu dự án</b>.</p><p>Một phạm vi tốt nói rõ cả <b>những gì làm</b> (in-scope) và <b>những gì không làm</b> (out-of-scope). Ví dụ: dự án HRM làm hồ sơ, chấm công, tuyển dụng; không làm tính lương.</p>",
+   "src": "4. Tiep can du an.pdf tr.21"
+  },
+  {
+   "id": "L04-t15",
+   "h": "Scope creep và nguyên nhân",
+   "html": "<p><b>Scope creep</b> (phạm vi “bò lan”) là hiện tượng phạm vi dự án không được kiểm soát chặt chẽ, dẫn đến xuất hiện các yêu cầu mới hoặc thay đổi so với kế hoạch ban đầu. Hiểu đơn giản: <b>Scope creep là mất kiểm soát về phạm vi.</b></p>{{img:L04-img5}}<p>Hình bập bênh: phía Specs (đặc tả), Effort (công sức), Resources (nguồn lực) nặng dần lên, đẩy phía Cost (chi phí) và Time (thời gian) tăng lên, dự án “Out of Control” (mất kiểm soát).</p><p><b>Lý do gây ra Scope creep:</b></p><ul><li>Hiểu sai yêu cầu.</li><li>Yêu cầu không rõ ràng, mơ hồ.</li><li>Khách hàng thay đổi yêu cầu liên tục.</li><li>Không thống nhất Scope từ đầu.</li><li>Không có quy trình Change Request.</li><li>BA/PM quá chiều khách hàng.</li><li>Bối cảnh thay đổi.</li><li>Dự án kéo dài quá lâu.</li></ul><p>Thay đổi yêu cầu <b>không phải lúc nào cũng là scope creep</b>. Nếu thay đổi đi qua Change Request, được đánh giá tác động (chi phí, thời gian) và được phê duyệt, phạm vi vẫn đang được kiểm soát. Scope creep là khi thay đổi lọt vào mà không ai kiểm soát.</p><p class=\"tip\">Cách phòng: chốt scope bằng văn bản từ đầu, viết yêu cầu rõ ràng, có quy trình Change Request, biết nói “ghi nhận và đánh giá” thay vì “OK làm luôn”.</p>",
+   "src": "4. Tiep can du an.pdf tr.22-23"
+  }
+ ],
+ "examples": [
+  {
+   "id": "L04-e1",
+   "title": "Gắn 13 bước tiếp cận với 6 lĩnh vực kiến thức",
+   "html": "<p>Mỗi bước trong 13 bước chủ yếu thuộc một lĩnh vực của BABOK. Bảng dưới giúp thấy vì sao phải “ôn tập 6 lĩnh vực” trước khi học các bước.</p><table><thead><tr><th>Bước</th><th>Lĩnh vực chính</th><th>Lý do</th></tr></thead><tbody><tr><td>1. Tiếp nhận, tìm hiểu yêu cầu</td><td>Strategy Analysis</td><td>Hiểu hiện trạng và nhu cầu ban đầu.</td></tr><tr><td>2. Xác định Stakeholder</td><td>Planning and Monitoring</td><td>Slide liệt kê “xác định stakeholder” trong lĩnh vực này.</td></tr><tr><td>3. Xác định phạm vi ban đầu</td><td>Strategy Analysis</td><td>Phác giải pháp To-Be ở mức sơ bộ.</td></tr><tr><td>4. Lập kế hoạch phân tích</td><td>Planning and Monitoring</td><td>Lập kế hoạch BA, chọn kỹ thuật khảo sát.</td></tr><tr><td>5. Thu thập thông tin</td><td>Elicitation and Collaboration</td><td>Phỏng vấn, workshop, xác nhận thông tin.</td></tr><tr><td>6. Xác định yêu cầu</td><td>RADD</td><td>Phân loại BR, FR, NFR.</td></tr><tr><td>7. Mô hình hóa</td><td>RADD</td><td>Mô hình hóa quy trình, use case, dữ liệu.</td></tr><tr><td>8. Xác định phạm vi</td><td>Requirements Life Cycle Management</td><td>Phân tích, ưu tiên và phê duyệt yêu cầu để chốt phạm vi.</td></tr><tr><td>9. Viết tài liệu</td><td>RADD</td><td>Đặc tả yêu cầu, xác nhận sẵn sàng cho kỹ thuật.</td></tr><tr><td>10. Làm việc với team phát triển</td><td>Elicitation and Collaboration</td><td>Cộng tác xuyên suốt dự án.</td></tr><tr><td>11. Hỗ trợ kiểm thử</td><td>Requirements Life Cycle Management</td><td>Truy vết yêu cầu sang test case, quản lý thay đổi.</td></tr><tr><td>12. UAT với khách hàng</td><td>Solution Evaluation</td><td>Kiểm tra giải pháp có mang lại giá trị.</td></tr><tr><td>13. Nghiệm thu</td><td>Solution Evaluation</td><td>Đánh giá kết quả, ghi nhận đề xuất cải tiến.</td></tr></tbody></table><p class=\"note\">Bảng ghép này là ví dụ để dễ hình dung, không có trên slide. Một bước thường chạm nhiều lĩnh vực. Ví dụ, Planning and Monitoring (theo dõi, điều chỉnh hoạt động BA) diễn ra suốt 13 bước.</p>",
+   "src": "4. Tiep can du an.pdf tr.5-9"
+  },
+  {
+   "id": "L04-e2",
+   "title": "Đọc Stakeholder Register mẫu của dự án HRM",
+   "html": "<p>Template trên slide đã điền sẵn 6 stakeholder cho dự án HRM của Công ty A. Đọc từng dòng để thấy logic của các cột:</p><table><thead><tr><th>Stakeholder</th><th>Phân loại</th><th>Ảnh hưởng / Quan tâm</th><th>Vì sao chiến lược và tần suất như vậy</th></tr></thead><tbody><tr><td>Nguyễn Văn A – Sponsor</td><td>Key</td><td>Cao / Thấp</td><td>Ô High Power – Low Interest → báo cáo định kỳ, ngắn gọn, <b>hàng tháng</b>. PM phụ trách vì Sponsor quan tâm tiến độ, ngân sách hơn là chức năng.</td></tr><tr><td>Trần Thị B – HR Manager</td><td>Primary</td><td>Cao / Cao</td><td>Ô High Power – High Interest → tham gia elicitation thường xuyên, báo cáo liên tục, lấy duyệt trước khi đổi yêu cầu, <b>hàng tuần</b>. BA phụ trách vì đây là nguồn yêu cầu chính.</td></tr><tr><td>Lê Văn C – IT Manager</td><td>Secondary</td><td>Trung bình / Trung bình</td><td>Lo tích hợp và hạ tầng, nên <b>Tech Lead</b> phụ trách, <b>cách tuần</b>.</td></tr><tr><td>Phạm Thị D – Nhân viên HR</td><td>Primary</td><td>Thấp / Trung bình</td><td>Dùng hệ thống hằng ngày nhưng không quyết định. BA lắng nghe ý kiến chi tiết, <b>cách tuần</b>.</td></tr><tr><td>Đặng Hoài E – Nhà cung cấp giải pháp chấm công</td><td>Secondary</td><td>Trung bình / Thấp</td><td>Chỉ cần khi kết nối API → <b>khi cần thiết</b>, BA/Tech Lead phụ trách.</td></tr><tr><td>Team Dev</td><td>Secondary</td><td>Trung bình / Trung bình</td><td>Làm việc <b>hằng ngày</b> với BA/Tech Lead để phát triển chức năng.</td></tr></tbody></table><p>Điểm đáng chú ý: HR Manager là <b>Primary</b> (dùng trực tiếp) nhưng lại có quyền lực <b>Cao</b>. Hai cách phân loại độc lập, nên không có gì mâu thuẫn.</p>",
+   "src": "4. Tiep can du an.pdf tr.19; 4. Stakeholder_Register_Template.xlsx"
+  },
+  {
+   "id": "L04-e3",
+   "title": "Đọc ma trận Power – Interest của dự án đường sắt",
+   "html": "<p>Slide dùng một dự án đường sắt làm ví dụ cho Stakeholder Analysis Matrix:</p><table><thead><tr><th>Ô</th><th>Stakeholder trên slide</th><th>Cách hiểu</th></tr></thead><tbody><tr><td>Key players (ảnh hưởng cao, quan tâm cao)</td><td>Ministry of I&amp;W (Bộ Hạ tầng), NS (công ty đường sắt), Train commuters (hành khách đi tàu), Suppliers (nhà cung cấp vật tư và ICT)</td><td>Quản lý chặt, mời tham gia thường xuyên.</td></tr><tr><td>Meet their needs (ảnh hưởng cao, quan tâm thấp)</td><td>NS employees (nhân viên NS), Citizens living nearby rails (dân sống gần đường ray)</td><td>Giữ họ hài lòng, báo cáo ngắn gọn, không làm phiền bằng chi tiết.</td></tr><tr><td>Show consideration (ảnh hưởng thấp, quan tâm cao)</td><td>Other railway (đường sắt khác), Prorail (đơn vị quản lý hạ tầng ray), Commuters having to cross the railroads (người phải băng qua đường ray), Car commuter (người đi ô tô)</td><td>Giữ trong vòng thông tin, lắng nghe ý kiến.</td></tr><tr><td>Least important (cả hai thấp)</td><td>Other public transport providers (tram/bus – xe điện, xe buýt)</td><td>Cập nhật khi cần, không bỏ quên hoàn toàn.</td></tr></tbody></table><p>Bài học: vị trí trên ma trận phụ thuộc <b>từng dự án</b>. Cùng là “người dân”, trong dự án này họ có ảnh hưởng cao vì có thể phản đối việc xây dựng.</p>",
+   "src": "4. Tiep can du an.pdf tr.15"
+  },
+  {
+   "id": "L04-e4",
+   "title": "Scope creep trong dự án app đặt đồ ăn (ví dụ)",
+   "html": "<p><b>Ví dụ:</b> Dự án app đặt đồ ăn đã chốt scope gồm: xem thực đơn, đặt món, thanh toán online, theo dõi đơn.</p><table><thead><tr><th>Tình huống</th><th>Có phải scope creep?</th><th>Nguyên nhân theo slide</th></tr></thead><tbody><tr><td>Giữa dự án, khách nói “thêm tích điểm đổi quà nhé, nhỏ thôi”. BA đồng ý ngay, không đánh giá tác động.</td><td>Có</td><td>BA/PM quá chiều; không có quy trình Change Request.</td></tr><tr><td>Tài liệu ghi “hệ thống giao hàng nhanh”. Dev hiểu 30 phút, khách hiểu 15 phút, phải làm lại thuật toán điều phối.</td><td>Có</td><td>Yêu cầu không rõ ràng, mơ hồ; hiểu sai yêu cầu.</td></tr><tr><td>Dự án kéo dài 18 tháng, đối thủ ra tính năng mới, khách liên tục đòi bổ sung.</td><td>Có</td><td>Dự án kéo dài quá lâu; bối cảnh thay đổi; khách đổi yêu cầu liên tục.</td></tr><tr><td>Khách muốn thêm thanh toán ví điện tử. BA lập Change Request, ước lượng thêm 2 tuần, Sponsor duyệt, kế hoạch được cập nhật.</td><td>Không</td><td>Thay đổi có kiểm soát, đi qua quy trình Change Request.</td></tr></tbody></table>",
+   "src": "4. Tiep can du an.pdf tr.22-23"
+  },
+  {
+   "id": "L04-e5",
+   "title": "Bảng RACI cho một số việc của dự án HRM (ví dụ)",
+   "html": "<p><b>Ví dụ</b> dựa trên các vai trò trong template HRM:</p><table><thead><tr><th>Công việc</th><th>Sponsor</th><th>HR Manager</th><th>BA</th><th>Nhân viên HR</th><th>Team Dev</th></tr></thead><tbody><tr><td>Thu thập yêu cầu chấm công</td><td>I</td><td>C</td><td>R, A</td><td>C</td><td>I</td></tr><tr><td>Phê duyệt danh sách chức năng</td><td>I</td><td>A</td><td>R</td><td>I</td><td>I</td></tr><tr><td>Phê duyệt đầu tư dự án</td><td>A</td><td>R</td><td>C</td><td>–</td><td>–</td></tr><tr><td>Phát triển chức năng tuyển dụng</td><td>–</td><td>I</td><td>C</td><td>–</td><td>R</td></tr></tbody></table><p>Đọc bảng: ở việc “Phê duyệt danh sách chức năng”, HR Manager là <b>A</b> vì slide nói Trưởng phòng nhân sự là người quyết định chức năng. BA là <b>R</b> vì soạn danh sách. Mỗi dòng chỉ có một <b>A</b>.</p><p class=\"note\">Ở dòng cuối, người chịu trách nhiệm cuối cùng (A) thường là Tech Lead hoặc PM, không có cột trong bảng ví dụ này.</p>",
+   "src": "4. Tiep can du an.pdf tr.13, 20"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L04-p1",
+   "title": "Liệt kê công việc BA từ khi nhận đến khi kết thúc dự án HRM",
+   "task": "<p><b>Tình huống (slide 4):</b> Bạn là BA chính. Cấp trên giao: “Công ty A đang muốn làm phần mềm Quản lý nhân sự, em hãy làm BA cho dự án này”. Hãy đưa ra các công việc theo trình tự từ khi tiếp cận dự án đến khi kết thúc dự án.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Chia giai đoạn.</b> Chia hành trình thành 4 chặng: Chuẩn bị → Khảo sát và phân tích → Tài liệu và phát triển → Kiểm thử và bàn giao.</p>",
+    "<p><b>Bước 2 – Chặng Chuẩn bị.</b> Hỏi: ai giao việc, mục tiêu là gì, ai liên quan, làm đến đâu, kế hoạch ra sao. Ta có các việc 1–4: tiếp nhận yêu cầu, xác định stakeholder, xác định phạm vi ban đầu, lập kế hoạch phân tích.</p>",
+    "<p><b>Bước 3 – Chặng Khảo sát và phân tích.</b> Thu thập thông tin → xác định yêu cầu → mô hình hóa → chốt phạm vi (việc 5–8).</p>",
+    "<p><b>Bước 4 – Chặng Tài liệu và phát triển.</b> Viết tài liệu → làm việc với team phát triển (việc 9–10).</p>",
+    "<p><b>Bước 5 – Chặng Kiểm thử và bàn giao.</b> Hỗ trợ kiểm thử → UAT với khách hàng → nghiệm thu (việc 11–13).</p>",
+    "<p><b>Bước 6 – Cụ thể hóa cho HRM.</b> Với mỗi việc, viết một câu “làm gì với ai” cho dự án HRM. Đối chiếu với đáp án mẫu.</p>"
+   ],
+   "answer": "<ol><li><b>Tiếp nhận yêu cầu:</b> gặp cấp trên/Công ty A, hỏi mục tiêu (quản lý hồ sơ, chấm công, tuyển dụng…), ngân sách, thời hạn.</li><li><b>Xác định stakeholder:</b> Ban Lãnh đạo, Trưởng phòng nhân sự, nhân viên HR, bộ phận IT, nhân viên các phòng ban, nhà cung cấp máy chấm công (nếu có).</li><li><b>Xác định phạm vi ban đầu:</b> các phân hệ dự kiến làm và không làm.</li><li><b>Lập kế hoạch phân tích:</b> lịch phỏng vấn, workshop; chọn kỹ thuật cho từng nhóm.</li><li><b>Thu thập thông tin:</b> phỏng vấn Trưởng phòng nhân sự, quan sát nhân viên HR, đọc biểu mẫu hiện có.</li><li><b>Xác định yêu cầu:</b> phân loại BR, FR, NFR.</li><li><b>Mô hình hóa:</b> vẽ quy trình tuyển dụng, chấm công; use case; mô hình dữ liệu.</li><li><b>Xác định phạm vi:</b> chốt phạm vi chính thức với Trưởng phòng nhân sự, trình Ban Lãnh đạo.</li><li><b>Viết tài liệu:</b> BRD/SRS.</li><li><b>Làm việc với team phát triển:</b> giải thích yêu cầu, trả lời câu hỏi.</li><li><b>Hỗ trợ kiểm thử:</b> rà test case với tester.</li><li><b>UAT:</b> nhân viên HR và Trưởng phòng nhân sự dùng thử.</li><li><b>Nghiệm thu:</b> ký biên bản, kết thúc dự án.</li></ol>",
+   "src": "4. Tiep can du an.pdf tr.4, 9"
+  },
+  {
+   "id": "L04-p2",
+   "title": "Phân tích stakeholder dự án HRM từ đoạn mô tả",
+   "task": "<p><b>Thực hành với tình huống giả định ở slide 4:</b> “Trưởng phòng nhân sự sẽ làm việc với nhân sự các phòng ban để nắm bắt nhu cầu và đưa đánh giá hiện trạng. Trưởng phòng nhân sự sẽ là người quyết định các chức năng của hệ thống, sau đó lập báo cáo đề xuất Ban Lãnh đạo phê duyệt đầu tư dự án. Bộ phận IT sẽ có nhiệm vụ đảm bảo hệ thống vận hành ổn định.”</p><p>Hãy xác định stakeholder, phân loại Primary/Secondary/Key, xếp vào ma trận Power – Interest và nêu chiến lược quản lý.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Gạch chân danh từ chỉ người/nhóm.</b> Ta có: Trưởng phòng nhân sự, nhân sự các phòng ban, Ban Lãnh đạo, Bộ phận IT.</p>",
+    "<p><b>Bước 2 – Hỏi 4 câu của Bước 1.</b> Ai quyết định? (Ban Lãnh đạo duyệt đầu tư; Trưởng phòng nhân sự quyết chức năng). Ai sử dụng? (phòng nhân sự; nhân sự các phòng ban). Ai vận hành? (Bộ phận IT). Ai bị ảnh hưởng? (toàn bộ nhân viên). Thêm người đoạn văn không nhắc nhưng có thể có: nhân viên phòng nhân sự trực tiếp dùng hệ thống.</p>",
+    "<p><b>Bước 3 – Phân loại Primary/Secondary/Key.</b> Ai dùng trực tiếp → Primary. Ai hỗ trợ → Secondary. Ai duyệt, chi tiền → Key.</p>",
+    "<p><b>Bước 4 – Chấm ảnh hưởng và quan tâm.</b> Mỗi người chấm Cao/Thấp cho hai trục, rồi đặt vào ô của ma trận.</p>",
+    "<p><b>Bước 5 – Lấy chiến lược từ bảng 4 ô</b> và ghi vào bảng kết quả.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Stakeholder</th><th>Phân loại</th><th>Ảnh hưởng / Quan tâm</th><th>Chiến lược</th></tr></thead><tbody><tr><td>Ban Lãnh đạo</td><td>Key</td><td>Cao / Thấp</td><td>Báo cáo định kỳ, ngắn gọn; chỉ liên hệ khi cần phê duyệt đầu tư hoặc có vấn đề nghiêm trọng.</td></tr><tr><td>Trưởng phòng nhân sự</td><td>Key (quyết định chức năng) và cũng là người dùng</td><td>Cao / Cao</td><td>Tham gia thường xuyên vào elicitation; báo cáo tiến độ liên tục; lấy ý kiến phê duyệt trước khi đổi yêu cầu.</td></tr><tr><td>Nhân viên phòng nhân sự</td><td>Primary</td><td>Thấp / Cao</td><td>Lắng nghe, thu thập ý kiến chi tiết; giữ trong vòng thông tin.</td></tr><tr><td>Nhân sự các phòng ban</td><td>Primary (dùng các chức năng tự phục vụ, nếu có) hoặc Secondary</td><td>Thấp / Trung bình</td><td>Thu thập nhu cầu qua Trưởng phòng nhân sự hoặc khảo sát; cập nhật thông tin khi cần.</td></tr><tr><td>Bộ phận IT</td><td>Secondary</td><td>Trung bình / Trung bình</td><td>Mời vào các buổi bàn về hạ tầng, tích hợp, vận hành; trao đổi cách tuần.</td></tr></tbody></table><p class=\"note\">Template mẫu xếp HR Manager là Primary. Đoạn mô tả ở đây nói rõ Trưởng phòng nhân sự quyết định chức năng, nên xếp Key cũng hợp lý. Điều quan trọng là ô trên ma trận (Cao/Cao) và chiến lược đi kèm.</p>",
+   "src": "4. Tiep can du an.pdf tr.12, 14-16, 20"
+  },
+  {
+   "id": "L04-p3",
+   "title": "Điền Stakeholder Register cho SolasMart theo từng cột",
+   "task": "<p><b>Bối cảnh (giả định cho bài tập):</b> Siêu thị SolasMart đang bán tại quầy bằng máy POS, nhận đơn online qua Zalo, Facebook, điện thoại và ghi vào file Excel. Kho cũng theo dõi bằng Excel. Ban Giám đốc muốn xây dựng <b>hệ thống quản lý bán hàng và kho</b> để nối bán tại quầy, bán online và kho. Bạn là BA.</p><p>Dựa trên các quy trình, quy định của SolasMart, hãy điền Stakeholder Register (10 cột) cho ít nhất 8 stakeholder.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Tìm stakeholder từ tài liệu.</b> Đọc mục “Các bên tham gia” của từng quy trình: bán tại quầy (khách hàng, thu ngân, nhân viên hỗ trợ quầy, trưởng ca/quản lý quầy), bán online (khách hàng, nhân viên CSKH, nhân viên kho, nhân viên giao hàng, kế toán), nhập kho (nhà cung cấp, quản lý kho, nhân viên kho, kế toán). Thêm người ra quyết định: Ban Giám đốc. Thêm người vận hành: bộ phận kỹ thuật. Thêm phía làm giải pháp: Team Dev.</p>",
+    "<p><b>Bước 2 – Cột Tên, Vai trò.</b> Tài liệu không có tên người, nên cột Tên ghi tên nhóm/bộ phận. Khi đi khảo sát thật, thay bằng tên người đại diện.</p>",
+    "<p><b>Bước 3 – Cột Phân loại.</b> Ai thao tác trên hệ thống mới (thu ngân, CSKH, nhân viên kho) → Primary. Ai duyệt và chi tiền (Ban Giám đốc) → Key. Ai hỗ trợ, bị ảnh hưởng gián tiếp (nhà cung cấp, kỹ thuật, Team Dev) → Secondary.</p>",
+    "<p><b>Bước 4 – Cột Nhu cầu.</b> Lấy từ “Mục đích” và các điểm đau trong quy trình. Ví dụ quy trình online ghi “vì chưa có hệ thống, nhân viên phải nhập đơn thủ công” và “kiểm tra tồn kho thủ công”, nên CSKH cần xem tồn kho ngay, không phải hỏi kho qua Zalo.</p>",
+    "<p><b>Bước 5 – Cột Ảnh hưởng, Quan tâm.</b> Chấm Cao/Trung bình/Thấp. Quyền quyết định → ảnh hưởng. Mức dính líu hằng ngày → quan tâm.</p>",
+    "<p><b>Bước 6 – Cột Chiến lược, Tần suất.</b> Tra bảng 4 ô. Cao/Cao → hàng tuần, tham gia elicitation. Cao/Thấp → hàng tháng, báo cáo ngắn. Thấp/Cao → lắng nghe, cách tuần. Thấp/Thấp → khi cần thiết.</p>",
+    "<p><b>Bước 7 – Cột Người quản lý Stakeholder.</b> Ai trong nhóm dự án giữ liên lạc: PM với Ban Giám đốc, BA với nghiệp vụ, Tech Lead với kỹ thuật.</p>"
+   ],
+   "answer": "<table><thead><tr><th>STT</th><th>Tên</th><th>Vai trò</th><th>Phân loại</th><th>Nhu cầu</th><th>Ảnh hưởng</th><th>Quan tâm</th><th>Chiến lược quản lý</th><th>Tần suất</th><th>Người quản lý</th></tr></thead><tbody><tr><td>1</td><td>Ban Giám đốc SolasMart</td><td>Sponsor</td><td>Key</td><td>Kiểm soát doanh thu, tồn kho; giảm thất thoát</td><td>Cao</td><td>Thấp</td><td>Báo cáo định kỳ, ngắn gọn; chỉ liên hệ khi cần quyết định chiến lược</td><td>Hàng tháng</td><td>PM</td></tr><tr><td>2</td><td>Quản lý siêu thị / Trưởng ca</td><td>Quản lý vận hành</td><td>Primary</td><td>Xem báo cáo cuối ca, kiểm tra đơn hoàn, hủy, giao lỗi</td><td>Cao</td><td>Cao</td><td>Tham gia thường xuyên vào elicitation; báo cáo liên tục; duyệt trước khi đổi yêu cầu</td><td>Hàng tuần</td><td>BA</td></tr><tr><td>3</td><td>Thu ngân</td><td>Người dùng POS</td><td>Primary</td><td>Tính tiền nhanh, chính xác; xử lý được barcode lỗi, nhiều phương thức thanh toán</td><td>Thấp</td><td>Cao</td><td>Lắng nghe, quan sát tại quầy; giữ trong vòng thông tin</td><td>Cách tuần</td><td>BA</td></tr><tr><td>4</td><td>Nhân viên CSKH / trực page</td><td>Người nhận đơn online</td><td>Primary</td><td>Xem tồn kho ngay, nhập đơn không qua Excel</td><td>Thấp</td><td>Cao</td><td>Lắng nghe, thu thập ý kiến chi tiết</td><td>Cách tuần</td><td>BA</td></tr><tr><td>5</td><td>Quản lý kho, nhân viên kho</td><td>Người quản lý nhập, xuất, tồn</td><td>Primary</td><td>Nhập, xuất, kiểm kê chính xác; tồn kho cập nhật sau mỗi lần xuất</td><td>Trung bình</td><td>Cao</td><td>Mời vào workshop quy trình kho; báo cáo tiến độ phần kho</td><td>Hàng tuần</td><td>BA</td></tr><tr><td>6</td><td>Kế toán</td><td>Đối soát</td><td>Primary</td><td>Đối soát COD, đối chiếu phiếu nhập với hóa đơn</td><td>Trung bình</td><td>Trung bình</td><td>Phỏng vấn về báo cáo, đối soát; cập nhật khi có thay đổi liên quan</td><td>Cách tuần</td><td>BA</td></tr><tr><td>7</td><td>Nhân viên giao hàng</td><td>Giao đơn online, thu COD</td><td>Secondary</td><td>Nhận đúng địa chỉ, SĐT; báo trạng thái giao</td><td>Thấp</td><td>Trung bình</td><td>Cập nhật thông tin khi cần; hỏi ý kiến khi làm phần giao hàng</td><td>Khi cần thiết</td><td>BA</td></tr><tr><td>8</td><td>Nhà cung cấp</td><td>Giao hàng nhập kho</td><td>Secondary</td><td>Chứng từ nhập được đối chiếu nhanh, rõ ràng</td><td>Thấp</td><td>Thấp</td><td>Cập nhật khi cần; không cần tham gia sâu vào elicitation</td><td>Khi cần thiết</td><td>BA</td></tr><tr><td>9</td><td>Bộ phận kỹ thuật</td><td>Vận hành thiết bị, POS</td><td>Secondary</td><td>Hệ thống ổn định, dễ xử lý sự cố POS</td><td>Trung bình</td><td>Trung bình</td><td>Mời vào các buổi bàn về hạ tầng, sự cố</td><td>Cách tuần</td><td>Tech Lead</td></tr><tr><td>10</td><td>Team Dev</td><td>Team</td><td>Secondary</td><td>Yêu cầu rõ ràng để phát triển</td><td>Trung bình</td><td>Trung bình</td><td>Trao đổi trực tiếp, giải đáp yêu cầu</td><td>Hằng ngày</td><td>BA/Tech Lead</td></tr></tbody></table><p>Khách hàng mua hàng cũng là stakeholder (bị ảnh hưởng trực tiếp bởi tốc độ thanh toán, giao hàng). Thường ghi ở dạng nhóm, ảnh hưởng Thấp, quan tâm Trung bình, thu ý kiến qua khảo sát.</p><p class=\"note\">Mức Cao/Thấp ở trên là đánh giá giả định. Khi làm thật, BA xác nhận lại qua phỏng vấn.</p>",
+   "src": "4. Tiep can du an.pdf tr.12, 16, 19; 4. Stakeholder_Register_Template.xlsx; Quy trinh ban hang tai quay.docx; Quy trinh ban hang qua kenh truc tuyen.docx; Quy trinh nhap kho.docx"
+  },
+  {
+   "id": "L04-p4",
+   "title": "Lập kế hoạch tương tác (Bước 2) cho SolasMart",
+   "task": "<p>Từ Stakeholder Register SolasMart ở bài trước, lập kế hoạch tương tác: với mỗi nhóm, chọn kỹ thuật elicitation và thời điểm làm việc.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Nhóm theo ô ma trận.</b> Cao/Cao: Quản lý siêu thị. Cao/Thấp: Ban Giám đốc. Thấp/Cao: thu ngân, CSKH, nhân viên kho. Thấp/Thấp: nhà cung cấp.</p>",
+    "<p><b>Bước 2 – Chọn kỹ thuật theo đặc điểm.</b> Người quyết định, ít thời gian → phỏng vấn ngắn. Nhiều người làm cùng việc → khảo sát hoặc workshop. Việc thao tác tay tại chỗ → quan sát.</p>",
+    "<p><b>Bước 3 – Xếp thời điểm theo 13 bước.</b> Đầu dự án: gặp Sponsor chốt mục tiêu. Giai đoạn thu thập: khảo sát người dùng. Trước khi chốt phạm vi: workshop xác nhận.</p>",
+    "<p><b>Bước 4 – Ghi thành bảng</b> “Stakeholder – Kỹ thuật – Thời điểm – Mục tiêu”.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Stakeholder</th><th>Kỹ thuật</th><th>Thời điểm</th><th>Mục tiêu</th></tr></thead><tbody><tr><td>Ban Giám đốc</td><td>Phỏng vấn ngắn</td><td>Tuần đầu; khi chốt phạm vi</td><td>Mục tiêu, ngân sách, phê duyệt</td></tr><tr><td>Quản lý siêu thị / Trưởng ca</td><td>Phỏng vấn sâu, workshop</td><td>Giai đoạn thu thập; trước khi chốt phạm vi</td><td>Quy trình, quy định, báo cáo cần có</td></tr><tr><td>Thu ngân</td><td>Quan sát tại quầy, phỏng vấn nhóm</td><td>Giai đoạn thu thập, chọn giờ đông và giờ vắng</td><td>Thao tác thật, các tình huống ngoại lệ (barcode lỗi, POS treo)</td></tr><tr><td>Nhân viên CSKH</td><td>Quan sát, phân tích file Excel đơn hàng</td><td>Giai đoạn thu thập</td><td>Cách nhận đơn đa kênh, điểm nghẽn khi hỏi tồn kho</td></tr><tr><td>Quản lý kho, nhân viên kho</td><td>Workshop, phân tích phiếu nhập, xuất, kiểm kê</td><td>Giai đoạn thu thập</td><td>Quy trình nhập, xuất, kiểm kê; biểu mẫu</td></tr><tr><td>Nhà cung cấp</td><td>Không khảo sát sâu; hỏi qua quản lý kho</td><td>Khi cần</td><td>Chứng từ giao hàng</td></tr></tbody></table><p class=\"note\">Chi tiết từng kỹ thuật elicitation học ở bài 5. Bảng này chỉ minh họa Bước 2 của quản lý stakeholder.</p>",
+   "src": "4. Tiep can du an.pdf tr.16-17; Quy trinh ban hang tai quay.docx; Quy trinh ban hang qua kenh truc tuyen.docx"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L04-x1",
+   "title": "Phân loại Primary, Secondary, Key cho app đặt đồ ăn",
+   "level": "de",
+   "task": "<p><b>Ví dụ:</b> Một công ty xây dựng app đặt đồ ăn. Hãy phân loại các stakeholder sau vào Primary, Secondary hoặc Key: (1) Khách đặt món; (2) Giám đốc công ty, người duyệt ngân sách; (3) Nhà hàng đối tác nhận đơn trên app; (4) Tài xế giao hàng dùng app tài xế; (5) Ngân hàng cung cấp cổng thanh toán; (6) Bộ phận IT vận hành máy chủ; (7) Product Owner.</p>",
+   "hints": [
+    "<p>Câu hỏi 1: Người này có dùng app hằng ngày không?</p>",
+    "<p>Câu hỏi 2: Người này có quyền duyệt, chi tiền hay quyết định cuối cùng không?</p>"
+   ],
+   "answer": "<ul><li><b>Primary:</b> (1) khách đặt món, (3) nhà hàng đối tác, (4) tài xế – đều dùng trực tiếp và hưởng lợi trực tiếp.</li><li><b>Secondary:</b> (5) ngân hàng cổng thanh toán, (6) bộ phận IT – hỗ trợ, phối hợp, không dùng sản phẩm chính.</li><li><b>Key:</b> (2) Giám đốc, (7) Product Owner – ra quyết định, phê duyệt (slide lấy ví dụ Sponsor, Director, PO).</li></ul>",
+   "src": "4. Tiep can du an.pdf tr.12"
+  },
+  {
+   "id": "L04-x2",
+   "title": "Điền tiếp cột Chiến lược quản lý còn trống trong template",
+   "level": "de",
+   "task": "<p>Trong Stakeholder Register mẫu, các dòng 3–6 để “…” ở cột Chiến lược quản lý. Hãy điền chiến lược cho: Lê Văn C – IT Manager (Trung bình/Trung bình); Phạm Thị D – Nhân viên HR (Thấp/Trung bình); Đặng Hoài E – Nhà cung cấp giải pháp chấm công (Trung bình/Thấp); Team Dev (Trung bình/Trung bình).</p>",
+   "hints": [
+    "<p>Mức “Trung bình” không có ô riêng. Hãy xem người đó gần ô nào hơn, dựa vào cột Nhu cầu và Tần suất đã có.</p>",
+    "<p>Nhân viên HR dùng hệ thống hằng ngày, giống ví dụ “nhân viên nghiệp vụ” ở ô Low Power – High Interest.</p>"
+   ],
+   "answer": "<ul><li><b>IT Manager:</b> mời vào các buổi bàn về tích hợp, hạ tầng; báo cáo tiến độ phần kỹ thuật; hỏi ý kiến trước khi chốt giải pháp kỹ thuật. Cách tuần, Tech Lead phụ trách.</li><li><b>Nhân viên HR:</b> lắng nghe, thu thập ý kiến chi tiết qua elicitation; giữ trong vòng thông tin để tăng mức độ chấp nhận (ô Low Power – High Interest).</li><li><b>Nhà cung cấp giải pháp chấm công:</b> cập nhật thông tin khi cần; chỉ làm việc sâu khi đặc tả và kiểm thử kết nối API; không cần tham gia elicitation nghiệp vụ.</li><li><b>Team Dev:</b> trao đổi hằng ngày; giải thích yêu cầu; báo ngay khi yêu cầu thay đổi.</li></ul>",
+   "src": "4. Tiep can du an.pdf tr.16, 19; 4. Stakeholder_Register_Template.xlsx"
+  },
+  {
+   "id": "L04-x3",
+   "title": "Ghép việc BA với lĩnh vực kiến thức",
+   "level": "tb",
+   "task": "<p>Xếp mỗi việc sau vào đúng 1 trong 6 lĩnh vực kiến thức: (a) Vẽ quy trình đặt bàn của FoodNow; (b) Lập ma trận truy vết yêu cầu; (c) Phân tích quy trình bán hàng hiện tại của SolasMart (AS-IS); (d) Chọn kỹ thuật khảo sát cho từng stakeholder; (e) Tổ chức workshop với thủ thư; (f) Ba tháng sau go-live, đo xem thời gian thanh toán tại quầy có giảm không; (g) Xử lý Change Request thêm báo cáo; (h) Xây dựng User Story.</p>",
+   "hints": [
+    "<p>Nhớ bảng “BA làm gì trong từng lĩnh vực”: mỗi lĩnh vực có 4–6 việc.</p>",
+    "<p>“Sau khi triển khai” và “giá trị mang lại” là dấu hiệu của Solution Evaluation.</p>"
+   ],
+   "answer": "<ul><li>(a) Vẽ quy trình → RADD (mô hình hóa quy trình).</li><li>(b) Ma trận truy vết → Requirements Life Cycle Management (truy vết yêu cầu).</li><li>(c) AS-IS → Strategy Analysis.</li><li>(d) Chọn kỹ thuật khảo sát → Business Analysis Planning and Monitoring.</li><li>(e) Workshop → Elicitation and Collaboration.</li><li>(f) Đo kết quả sau go-live → Solution Evaluation.</li><li>(g) Change Request → Requirements Life Cycle Management.</li><li>(h) User Story → RADD.</li></ul>",
+   "src": "4. Tiep can du an.pdf tr.6-8"
+  },
+  {
+   "id": "L04-x4",
+   "title": "Nhận diện scope creep ở dự án FoodNow",
+   "level": "tb",
+   "task": "<p><b>Ví dụ:</b> Dự án FoodNow (đặt bàn nhà hàng) chốt phạm vi: tìm nhà hàng, đặt bàn, hủy bàn, nhắc lịch. Trong 3 tháng phát triển: (1) chủ nhà hàng nhắn trực tiếp cho dev xin thêm “gọi món trước” và dev làm luôn; (2) yêu cầu ghi “nhắc lịch kịp thời”, sau đó khách đòi nhắc cả SMS và email trước 24 giờ và 2 giờ; (3) PM nói “khách là thượng đế” nên nhận thêm tính năng đánh giá nhà hàng; (4) khách muốn thêm thanh toán đặt cọc, BA lập Change Request và Sponsor duyệt kèm thêm thời gian. Trường hợp nào là scope creep? Nguyên nhân theo slide là gì? Đề xuất cách phòng.</p>",
+   "hints": [
+    "<p>Scope creep là <b>mất kiểm soát</b> về phạm vi, không phải mọi thay đổi.</p>",
+    "<p>Đối chiếu từng trường hợp với 8 nguyên nhân trên slide.</p>"
+   ],
+   "answer": "<ul><li>(1) <b>Scope creep</b>: không có quy trình Change Request, yêu cầu đi thẳng tới dev.</li><li>(2) <b>Scope creep</b>: yêu cầu không rõ ràng, mơ hồ (“kịp thời” không đo được), dẫn đến hiểu sai.</li><li>(3) <b>Scope creep</b>: BA/PM quá chiều.</li><li>(4) <b>Không phải</b>: thay đổi có kiểm soát qua Change Request.</li></ul><p><b>Cách phòng:</b> chốt scope bằng văn bản với khách hàng trước khi bắt đầu; viết yêu cầu đo được (ví dụ: “gửi nhắc qua SMS trước giờ đặt 2 giờ”); quy định mọi yêu cầu mới phải gửi BA và đi qua Change Request; BA/PM ghi nhận và đánh giá tác động thay vì nhận ngay.</p>",
+   "src": "4. Tiep can du an.pdf tr.21-23"
+  },
+  {
+   "id": "L04-x5",
+   "title": "Lập bảng RACI cho SolasMart",
+   "level": "tb",
+   "task": "<p>Dự án hệ thống quản lý bán hàng và kho của SolasMart (giả định như tab Thực hành). Lập bảng RACI cho 3 việc: (1) Khảo sát quy trình nhập kho; (2) Phê duyệt tài liệu yêu cầu phần bán hàng online; (3) UAT chức năng thanh toán tại quầy. Các vai trò: Ban Giám đốc, Quản lý siêu thị, BA, Quản lý kho, Thu ngân, Tester.</p>",
+   "hints": [
+    "<p>Mỗi việc chỉ nên có một A.</p>",
+    "<p>Người “làm tay” là R; người cần được hỏi ý kiến là C; người chỉ cần biết kết quả là I.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Việc</th><th>Ban Giám đốc</th><th>Quản lý siêu thị</th><th>BA</th><th>Quản lý kho</th><th>Thu ngân</th><th>Tester</th></tr></thead><tbody><tr><td>Khảo sát quy trình nhập kho</td><td>–</td><td>I</td><td>R, A</td><td>C</td><td>–</td><td>I</td></tr><tr><td>Phê duyệt tài liệu yêu cầu bán hàng online</td><td>I</td><td>A</td><td>R</td><td>C</td><td>–</td><td>I</td></tr><tr><td>UAT thanh toán tại quầy</td><td>I</td><td>A</td><td>C</td><td>–</td><td>R</td><td>C</td></tr></tbody></table><p>Giải thích: thu ngân là người dùng thật nên trực tiếp làm UAT (R). Quản lý siêu thị ký xác nhận (A). Đáp án khác vẫn được chấp nhận nếu mỗi việc có đúng một A và lý do hợp lý.</p>",
+   "src": "4. Tiep can du an.pdf tr.9, 13; Quy trinh ban hang tai quay.docx"
+  },
+  {
+   "id": "L04-x6",
+   "title": "Cập nhật stakeholder khi dự án SolasMart thay đổi",
+   "level": "kho",
+   "task": "<p>Dự án SolasMart (giả định) đã sang tháng thứ 3. Có 3 sự việc: (1) Ban Giám đốc quyết định thuê một <b>đơn vị vận chuyển bên ngoài</b> thay cho nhân viên giao hàng nội bộ, hệ thống phải gửi đơn sang đơn vị này. (2) Quản lý kho cũ nghỉ việc; người mới rất quan tâm đến hệ thống và có quyền đề xuất thay đổi quy trình kho. (3) Trưởng ca đề nghị thêm chức năng chấm công vân tay cho nhân viên vào hệ thống bán hàng. Với mỗi sự việc, BA cần làm gì với stakeholder và phạm vi? Cập nhật Stakeholder Register thế nào?</p>",
+   "hints": [
+    "<p>Bước 3 của quản lý stakeholder: theo dõi stakeholder mới xuất hiện, vai trò thay đổi.</p>",
+    "<p>Chấm công có nằm trong phạm vi “quản lý bán hàng và kho” không? Nếu không thì đi đường nào?</p>",
+    "<p>Quy định nhân sự của SolasMart ghi chấm công qua máy vân tay. Đây là quy trình nhân sự, không phải bán hàng.</p>"
+   ],
+   "answer": "<ol><li><b>Đơn vị vận chuyển mới</b> là stakeholder mới. BA quay lại Bước 1: phân tích (Secondary, ảnh hưởng Trung bình vì quyết định cách kết nối, quan tâm Trung bình). Bước 2: lên lịch làm việc về định dạng đơn và trạng thái giao. Thêm một dòng vào Register (Người quản lý: BA/Tech Lead; Tần suất: khi cần thiết, dày hơn lúc làm tích hợp). Dòng “Nhân viên giao hàng” giảm ảnh hưởng và quan tâm, ghi chú vai trò thay đổi. Việc kết nối đơn vị vận chuyển là thay đổi phạm vi, phải đi qua Change Request và Ban Giám đốc duyệt.</li><li><b>Quản lý kho mới:</b> vai trò thay đổi. Cập nhật Tên; nâng mức Quan tâm lên Cao và Ảnh hưởng lên Cao/Trung bình; đổi chiến lược sang tham gia elicitation thường xuyên, hàng tuần. Sắp xếp buổi giới thiệu và xác nhận lại các yêu cầu kho đã có, tránh người mới phủ nhận yêu cầu cũ.</li><li><b>Chấm công vân tay:</b> ngoài phạm vi đã thống nhất. Đồng ý ngay là “BA/PM quá chiều”, gây scope creep. BA ghi nhận, giải thích phạm vi, nếu cần thì lập Change Request để Ban Giám đốc quyết định (làm sau hoặc làm dự án riêng). Trưởng ca giữ nguyên dòng trong Register, ghi nhận nhu cầu mới vào danh sách chờ.</li></ol>",
+   "src": "4. Tiep can du an.pdf tr.16-17, 21-23; Quy dinh quan ly nhan su.docx; Quy trinh ban hang qua kenh truc tuyen.docx"
+  },
+  {
+   "id": "L04-x7",
+   "title": "Lập Stakeholder Register cho hệ thống quản lý thư viện",
+   "level": "kho",
+   "task": "<p><b>Ví dụ:</b> Một trường đại học xây dựng hệ thống quản lý thư viện (mượn, trả, tra cứu sách, phạt quá hạn). Các bên: Hiệu trưởng (duyệt ngân sách), Trưởng thư viện, thủ thư, sinh viên, giảng viên, phòng IT của trường, phòng Tài chính (thu tiền phạt), nhà cung cấp máy quét mã vạch. Lập Stakeholder Register đủ 10 cột cho ít nhất 6 bên, đánh dấu ai nằm ở ô nào của ma trận, rồi nêu 2 rủi ro nếu bỏ sót phòng Tài chính.</p>",
+   "hints": [
+    "<p>Bắt đầu bằng 4 câu hỏi: ai quyết định, ai dùng, ai vận hành, ai bị ảnh hưởng.</p>",
+    "<p>Sinh viên đông nhưng quyền thấp. Nghĩ cách thu ý kiến số đông.</p>",
+    "<p>Rủi ro bỏ sót: yêu cầu bị thiếu, phát hiện muộn ở UAT.</p>"
+   ],
+   "answer": "<table><thead><tr><th>STT</th><th>Tên</th><th>Vai trò</th><th>Phân loại</th><th>Nhu cầu</th><th>AH</th><th>QT</th><th>Chiến lược</th><th>Tần suất</th><th>Người QL</th></tr></thead><tbody><tr><td>1</td><td>Hiệu trưởng</td><td>Sponsor</td><td>Key</td><td>Thư viện hiện đại, đúng ngân sách</td><td>Cao</td><td>Thấp</td><td>Báo cáo định kỳ, ngắn gọn</td><td>Hàng tháng</td><td>PM</td></tr><tr><td>2</td><td>Trưởng thư viện</td><td>Chủ nghiệp vụ</td><td>Primary</td><td>Quản lý kho sách, thống kê mượn trả</td><td>Cao</td><td>Cao</td><td>Tham gia elicitation thường xuyên; duyệt trước khi đổi yêu cầu</td><td>Hàng tuần</td><td>BA</td></tr><tr><td>3</td><td>Thủ thư</td><td>Người dùng</td><td>Primary</td><td>Mượn, trả nhanh bằng mã vạch</td><td>Thấp</td><td>Cao</td><td>Quan sát, lắng nghe; giữ thông tin</td><td>Cách tuần</td><td>BA</td></tr><tr><td>4</td><td>Sinh viên</td><td>Bạn đọc</td><td>Primary</td><td>Tra cứu, gia hạn online</td><td>Thấp</td><td>Trung bình</td><td>Khảo sát bằng phiếu; cập nhật khi cần</td><td>Khi cần thiết</td><td>BA</td></tr><tr><td>5</td><td>Phòng IT</td><td>Vận hành</td><td>Secondary</td><td>Hệ thống ổn định, dễ bảo trì</td><td>Trung bình</td><td>Trung bình</td><td>Mời bàn về hạ tầng</td><td>Cách tuần</td><td>Tech Lead</td></tr><tr><td>6</td><td>Phòng Tài chính</td><td>Thu tiền phạt</td><td>Secondary</td><td>Số tiền phạt chính xác, đối soát được</td><td>Trung bình</td><td>Thấp</td><td>Hỏi ý kiến khi đặc tả phần phạt</td><td>Khi cần thiết</td><td>BA</td></tr><tr><td>7</td><td>Nhà cung cấp máy quét</td><td>Nhà cung cấp</td><td>Secondary</td><td>Thiết bị tương thích</td><td>Thấp</td><td>Thấp</td><td>Cập nhật khi cần</td><td>Khi cần thiết</td><td>Tech Lead</td></tr></tbody></table><p><b>Rủi ro nếu bỏ sót phòng Tài chính:</b> (1) thiếu yêu cầu về cách thu và đối soát tiền phạt, đến UAT mới phát hiện nên phải sửa tốn kém; (2) cách tính phạt mâu thuẫn với quy định tài chính, quyết định không được xác nhận đúng người.</p>",
+   "src": "4. Tiep can du an.pdf tr.11-12, 14-16, 19"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L04-f1",
+   "front": "Stakeholder (bên liên quan) theo BABOK",
+   "back": "<p>Cá nhân, nhóm hoặc tổ chức có liên quan hoặc bị ảnh hưởng bởi dự án hoặc sản phẩm.</p><p>Mẹo: không chỉ người dùng. Ai “bị ảnh hưởng” cũng tính.</p>"
+  },
+  {
+   "id": "L04-f2",
+   "front": "6 lĩnh vực kiến thức (Knowledge Area) của BABOK",
+   "back": "<p>Planning and Monitoring; Elicitation and Collaboration; Requirements Life Cycle Management; Strategy Analysis; Requirements Analysis and Design Definition; Solution Evaluation.</p>"
+  },
+  {
+   "id": "L04-f3",
+   "front": "Business Analysis Planning and Monitoring gồm việc gì?",
+   "back": "<p>Lập kế hoạch BA, xác định stakeholder, lựa chọn kỹ thuật khảo sát, lập kế hoạch quản lý yêu cầu, theo dõi và điều chỉnh hoạt động BA.</p>"
+  },
+  {
+   "id": "L04-f4",
+   "front": "Elicitation and Collaboration gồm việc gì?",
+   "back": "<p>Chuẩn bị khảo sát, thực hiện khảo sát (interview, workshop…), xác nhận lại thông tin thu thập, cộng tác với stakeholder xuyên suốt dự án.</p>"
+  },
+  {
+   "id": "L04-f5",
+   "front": "Requirements Life Cycle Management gồm việc gì?",
+   "back": "<p>Quản lý phiên bản, truy vết yêu cầu, xác định độ ưu tiên, phân tích và phê duyệt yêu cầu, quản lý thay đổi (Change Request).</p><p>Mẹo: “trông coi” yêu cầu sau khi đã có.</p>"
+  },
+  {
+   "id": "L04-f6",
+   "front": "Strategy Analysis gồm việc gì?",
+   "back": "<p>Phân tích hiện trạng (AS-IS), xác định Need, đề xuất giải pháp (To-Be), xác nhận giải pháp.</p><p>Mẹo: trả lời “vì sao làm, làm gì”.</p>"
+  },
+  {
+   "id": "L04-f7",
+   "front": "Requirements Analysis and Design Definition (RADD) gồm việc gì?",
+   "back": "<p>Phân loại BR/FR/NFR, mô hình hóa quy trình, xây dựng Use Case/User Story, thiết kế mô hình dữ liệu, xây dựng giải pháp, xác nhận yêu cầu sẵn sàng cho kỹ thuật.</p>"
+  },
+  {
+   "id": "L04-f8",
+   "front": "Solution Evaluation gồm việc gì?",
+   "back": "<p>Đánh giá giải pháp sau khi triển khai, kiểm tra giá trị mang lại, đề xuất cải tiến, phân tích lỗi và khoảng trống.</p>"
+  },
+  {
+   "id": "L04-f9",
+   "front": "13 bước tiếp cận dự án (bước 1–7)",
+   "back": "<p>1 Tiếp nhận, tìm hiểu yêu cầu · 2 Xác định Stakeholder · 3 Xác định phạm vi ban đầu · 4 Lập kế hoạch phân tích · 5 Thu thập thông tin · 6 Xác định yêu cầu · 7 Mô hình hóa.</p>"
+  },
+  {
+   "id": "L04-f10",
+   "front": "13 bước tiếp cận dự án (bước 8–13)",
+   "back": "<p>8 Xác định phạm vi · 9 Viết tài liệu · 10 Làm việc với team phát triển · 11 Hỗ trợ kiểm thử · 12 UAT với khách hàng · 13 Nghiệm thu kết thúc dự án.</p>"
+  },
+  {
+   "id": "L04-f11",
+   "front": "Phạm vi ban đầu khác phạm vi ở bước 8 thế nào?",
+   "back": "<p>Bước 3: phạm vi sơ bộ, đủ để lập kế hoạch. Bước 8: phạm vi đã làm rõ sau khi thu thập, xác định yêu cầu và mô hình hóa.</p>"
+  },
+  {
+   "id": "L04-f12",
+   "front": "UAT",
+   "back": "<p>User Acceptance Testing – kiểm thử chấp nhận người dùng. Khách hàng tự kiểm hệ thống trước khi nghiệm thu (bước 12).</p>"
+  },
+  {
+   "id": "L04-f13",
+   "front": "Primary Stakeholder",
+   "back": "<p>Người hưởng lợi hoặc bị ảnh hưởng <b>trực tiếp</b>, thường dùng hệ thống. Ví dụ: nhân viên HR trong hệ thống HRM; thu ngân với POS của SolasMart.</p>"
+  },
+  {
+   "id": "L04-f14",
+   "front": "Secondary Stakeholder",
+   "back": "<p>Bị ảnh hưởng <b>gián tiếp</b> hoặc liên quan nhưng không dùng sản phẩm chính; hỗ trợ, phối hợp. Ví dụ: phòng IT hỗ trợ vận hành.</p>"
+  },
+  {
+   "id": "L04-f15",
+   "front": "Key Stakeholder",
+   "back": "<p>Có quyền lực lớn với dự án hoặc quyết định cuối cùng: ra quyết định, phê duyệt, tài trợ. Ví dụ: Sponsor, Director, PO.</p>"
+  },
+  {
+   "id": "L04-f16",
+   "front": "Phân loại stakeholder theo vai trò",
+   "back": "<p>Business Stakeholders (phía nghiệp vụ), External Stakeholders (bên ngoài tổ chức), Solution Stakeholders (phía làm và vận hành giải pháp).</p>"
+  },
+  {
+   "id": "L04-f17",
+   "front": "Phân loại theo vị trí trong vòng đời sản phẩm",
+   "back": "<p>Người ra quyết định (Decision Maker), Người sử dụng sản phẩm (End User), Người tạo ra sản phẩm.</p>"
+  },
+  {
+   "id": "L04-f18",
+   "front": "RACI",
+   "back": "<p>Responsible – trực tiếp làm; Accountable – chịu trách nhiệm cuối cùng; Consulted – được tham vấn; Informed – được thông báo.</p><p>Mẹo: mỗi việc chỉ một A.</p>"
+  },
+  {
+   "id": "L04-f19",
+   "front": "3 bước quản lý Stakeholder",
+   "back": "<p>1. Xác định và phân tích → 2. Lập kế hoạch tương tác (Plan Engagement) → 3. Quản lý và duy trì (Manage &amp; Monitor).</p>"
+  },
+  {
+   "id": "L04-f20",
+   "front": "4 câu hỏi để xác định stakeholder",
+   "back": "<p>Ai quyết định dự án? Ai sử dụng hệ thống? Ai vận hành hệ thống? Ai bị ảnh hưởng trực tiếp/gián tiếp?</p><p>Mẹo: Quyết – Dùng – Vận hành – Ảnh hưởng.</p>"
+  },
+  {
+   "id": "L04-f21",
+   "front": "Chiến lược cho High Power – High Interest",
+   "back": "<p>Tham gia thường xuyên vào elicitation, báo cáo tiến độ liên tục, lấy ý kiến phê duyệt trước khi thay đổi yêu cầu. Ví dụ: Trưởng phòng nhân sự.</p>"
+  },
+  {
+   "id": "L04-f22",
+   "front": "Chiến lược cho High Power – Low Interest",
+   "back": "<p>Báo cáo định kỳ, ngắn gọn; chỉ liên hệ khi có vấn đề nghiêm trọng hoặc cần quyết định chiến lược; tránh “làm phiền” bằng chi tiết nhỏ. Ví dụ: Ban giám đốc.</p>"
+  },
+  {
+   "id": "L04-f23",
+   "front": "Chiến lược cho Low Power – High Interest",
+   "back": "<p>Lắng nghe, thu thập ý kiến chi tiết qua elicitation; giữ trong vòng thông tin để tăng mức độ chấp nhận. Ví dụ: nhân viên nghiệp vụ.</p>"
+  },
+  {
+   "id": "L04-f24",
+   "front": "Chiến lược cho Low Power – Low Interest",
+   "back": "<p>Cập nhật thông tin khi cần; không cần tham gia sâu vào elicitation; nhưng không được bỏ quên hoàn toàn để tránh “ngòi nổ tiềm ẩn”.</p>"
+  },
+  {
+   "id": "L04-f25",
+   "front": "Stakeholder Register",
+   "back": "<p>Tài liệu ghi danh sách tất cả bên liên quan: thông tin, vai trò, mức độ ảnh hưởng, mức độ quan tâm, nhu cầu, chiến lược giao tiếp. Cập nhật suốt vòng đời dự án.</p>"
+  },
+  {
+   "id": "L04-f26",
+   "front": "10 cột của Stakeholder Register template",
+   "back": "<p>STT, Tên, Vai trò, Phân loại, Nhu cầu, Mức độ ảnh hưởng, Mức độ quan tâm, Chiến lược quản lý, Tần suất trao đổi, Người quản lý Stakeholder.</p>"
+  },
+  {
+   "id": "L04-f27",
+   "front": "Cột “Người quản lý Stakeholder” ghi gì?",
+   "back": "<p>Thành viên nhóm dự án phụ trách liên lạc với stakeholder đó (PM, BA, Tech Lead…). Không phải sếp của stakeholder.</p>"
+  },
+  {
+   "id": "L04-f28",
+   "front": "Scope (phạm vi dự án)",
+   "back": "<p>Phạm vi công việc cần thực hiện để bàn giao đúng sản phẩm/dịch vụ theo yêu cầu. Phải thống nhất với khách hàng trước khi bắt đầu dự án.</p>"
+  },
+  {
+   "id": "L04-f29",
+   "front": "Scope creep",
+   "back": "<p>Phạm vi không được kiểm soát chặt chẽ, xuất hiện yêu cầu mới hoặc thay đổi so với kế hoạch ban đầu. Hiểu đơn giản: mất kiểm soát về phạm vi.</p>"
+  },
+  {
+   "id": "L04-f30",
+   "front": "8 lý do gây Scope creep",
+   "back": "<p>Hiểu sai yêu cầu; yêu cầu mơ hồ; khách đổi yêu cầu liên tục; không thống nhất scope từ đầu; không có quy trình Change Request; BA/PM quá chiều; bối cảnh thay đổi; dự án kéo dài quá lâu.</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L04-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo BABOK, Stakeholder là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Người trực tiếp sử dụng phần mềm hằng ngày sau khi dự án bàn giao hệ thống"
+    },
+    {
+     "id": "b",
+     "t": "Người góp vốn và phê duyệt ngân sách cho dự án"
+    },
+    {
+     "id": "c",
+     "t": "Cá nhân, nhóm hoặc tổ chức có liên quan hoặc bị ảnh hưởng bởi dự án/sản phẩm"
+    },
+    {
+     "id": "d",
+     "t": "Thành viên nhóm dự án gồm PM, BA, dev và tester làm việc trực tiếp trên sản phẩm"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>BABOK định nghĩa stakeholder rộng: cá nhân, nhóm hoặc tổ chức, chỉ cần có liên quan hoặc bị ảnh hưởng bởi dự án/sản phẩm.</p>",
+   "why_wrong": {
+    "a": "Người dùng chỉ là một loại stakeholder, không phải toàn bộ.",
+    "b": "Đó là Sponsor, một Key stakeholder, quá hẹp so với định nghĩa.",
+    "d": "Nhóm dự án cũng là stakeholder, nhưng stakeholder còn gồm khách hàng, nhà cung cấp, cơ quan quản lý…"
+   },
+   "src": "4. Tiep can du an.pdf tr.10"
+  },
+  {
+   "id": "L04-q2",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>“Xác định stakeholder” và “Lựa chọn kỹ thuật khảo sát” thuộc lĩnh vực kiến thức nào theo slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Business Analysis Planning and Monitoring"
+    },
+    {
+     "id": "b",
+     "t": "Elicitation and Collaboration"
+    },
+    {
+     "id": "c",
+     "t": "Requirements Analysis and Design Definition"
+    },
+    {
+     "id": "d",
+     "t": "Requirements Life Cycle Management"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Đây là việc lập kế hoạch trước khi khảo sát, nên thuộc Business Analysis Planning and Monitoring.</p>",
+   "why_wrong": {
+    "b": "Elicitation and Collaboration là chuẩn bị và thực hiện khảo sát, không phải chọn kỹ thuật ở bước lập kế hoạch.",
+    "c": "RADD lo phân loại yêu cầu, mô hình hóa, use case, dữ liệu; không phải chọn stakeholder hay kỹ thuật khảo sát.",
+    "d": "Lĩnh vực này quản lý phiên bản, truy vết, thay đổi yêu cầu."
+   },
+   "src": "4. Tiep can du an.pdf tr.6"
+  },
+  {
+   "id": "L04-q3",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Phân tích hiện trạng (AS-IS) và xác định Need là việc của lĩnh vực nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Solution Evaluation"
+    },
+    {
+     "id": "b",
+     "t": "Strategy Analysis"
+    },
+    {
+     "id": "c",
+     "t": "Requirements Analysis and Design Definition"
+    },
+    {
+     "id": "d",
+     "t": "Elicitation and Collaboration"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Strategy Analysis gồm: phân tích AS-IS, xác định Need, đề xuất To-Be, xác nhận giải pháp.</p>",
+   "why_wrong": {
+    "a": "Solution Evaluation đánh giá giải pháp sau khi triển khai.",
+    "c": "RADD phân loại yêu cầu, mô hình hóa, chưa phải phân tích hiện trạng để tìm Need.",
+    "d": "Elicitation là thu thập thông tin, không phải bước phân tích chiến lược."
+   },
+   "src": "4. Tiep can du an.pdf tr.7"
+  },
+  {
+   "id": "L04-q4",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Truy vết yêu cầu và quản lý Change Request thuộc lĩnh vực nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Business Analysis Planning and Monitoring"
+    },
+    {
+     "id": "b",
+     "t": "Strategy Analysis"
+    },
+    {
+     "id": "c",
+     "t": "Solution Evaluation"
+    },
+    {
+     "id": "d",
+     "t": "Requirements Life Cycle Management"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Requirements Life Cycle Management quản lý yêu cầu suốt vòng đời: phiên bản, truy vết, ưu tiên, phê duyệt, thay đổi.</p>",
+   "why_wrong": {
+    "a": "Lĩnh vực này chỉ lập kế hoạch quản lý yêu cầu, không trực tiếp truy vết hay xử lý CR.",
+    "b": "Strategy Analysis lo AS-IS, Need, To-Be.",
+    "c": "Solution Evaluation đánh giá giải pháp sau triển khai."
+   },
+   "src": "4. Tiep can du an.pdf tr.7"
+  },
+  {
+   "id": "L04-q5",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn <b>các</b> bước thuộc quy trình 3 bước quản lý Stakeholder trên slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Xác định và phân tích Stakeholder"
+    },
+    {
+     "id": "b",
+     "t": "Ký hợp đồng trách nhiệm với Stakeholder"
+    },
+    {
+     "id": "c",
+     "t": "Lập kế hoạch tương tác (Plan Engagement)"
+    },
+    {
+     "id": "d",
+     "t": "Quản lý và duy trì (Manage & Monitor)"
+    },
+    {
+     "id": "e",
+     "t": "Viết đặc tả yêu cầu cho từng Stakeholder"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>3 bước: Xác định và phân tích → Lập kế hoạch tương tác → Quản lý và duy trì.</p>",
+   "why_wrong": {
+    "b": "Slide không có bước ký hợp đồng với stakeholder.",
+    "e": "Viết đặc tả là việc viết tài liệu yêu cầu, không phải bước quản lý stakeholder."
+   },
+   "src": "4. Tiep can du an.pdf tr.14"
+  },
+  {
+   "id": "L04-q6",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong RACI, chữ <b>A</b> (Accountable) là ai?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Người trực tiếp thực hiện công việc"
+    },
+    {
+     "id": "b",
+     "t": "Người chịu trách nhiệm cuối cùng"
+    },
+    {
+     "id": "c",
+     "t": "Người được hỏi ý kiến trước khi làm"
+    },
+    {
+     "id": "d",
+     "t": "Người cần được thông báo kết quả"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Accountable là người chịu trách nhiệm cuối cùng. Mẹo: A = “ai ký tên chịu”.</p>",
+   "why_wrong": {
+    "a": "Đó là R – Responsible.",
+    "c": "Đó là C – Consulted.",
+    "d": "Đó là I – Informed."
+   },
+   "src": "4. Tiep can du an.pdf tr.13"
+  },
+  {
+   "id": "L04-q7",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, Scope (phạm vi dự án) là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Danh sách chức năng do đội phát triển tự đề xuất dựa trên năng lực kỹ thuật của mình"
+    },
+    {
+     "id": "b",
+     "t": "Tổng ngân sách và thời gian được duyệt cho dự án"
+    },
+    {
+     "id": "c",
+     "t": "Danh sách tất cả stakeholder và chiến lược giao tiếp"
+    },
+    {
+     "id": "d",
+     "t": "Phạm vi công việc cần thực hiện để bàn giao đúng sản phẩm theo yêu cầu"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Scope là phạm vi công việc cần làm để bàn giao đúng sản phẩm/dịch vụ theo yêu cầu, và phải được thống nhất với khách hàng.</p>",
+   "why_wrong": {
+    "a": "Scope được thống nhất với khách hàng, không phải do dev tự đề xuất.",
+    "b": "Ngân sách và thời gian bị scope ảnh hưởng nhưng không phải là scope.",
+    "c": "Đó là Stakeholder Register."
+   },
+   "src": "4. Tiep can du an.pdf tr.21"
+  },
+  {
+   "id": "L04-q8",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Theo định nghĩa trên slide, Stakeholder Register ghi lại những thông tin nào của từng stakeholder?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vai trò và nhu cầu"
+    },
+    {
+     "id": "b",
+     "t": "Mức lương và đánh giá KPI"
+    },
+    {
+     "id": "c",
+     "t": "Mức độ ảnh hưởng và mức độ quan tâm"
+    },
+    {
+     "id": "d",
+     "t": "Chiến lược giao tiếp"
+    },
+    {
+     "id": "e",
+     "t": "Danh sách test case phụ trách"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Register gồm thông tin, vai trò, mức độ ảnh hưởng, mức độ quan tâm, nhu cầu và chiến lược giao tiếp.</p>",
+   "why_wrong": {
+    "b": "Lương, KPI là thông tin nhân sự nội bộ, không thuộc Register.",
+    "e": "Test case thuộc tài liệu kiểm thử, không phải Register."
+   },
+   "src": "4. Tiep can du an.pdf tr.18"
+  },
+  {
+   "id": "L04-q9",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo slide, Scope là thông tin cần được thống nhất với khách hàng trước khi bắt đầu dự án.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide ghi rõ: Scope cần được thống nhất với khách hàng trước khi bắt đầu dự án. Không thống nhất từ đầu là một nguyên nhân gây scope creep.</p>",
+   "why_wrong": {
+    "s": "Slide khẳng định điều này; scope chốt muộn dễ dẫn đến scope creep."
+   },
+   "src": "4. Tiep can du an.pdf tr.21"
+  },
+  {
+   "id": "L04-q10",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong 13 bước tiếp cận dự án, bước nào ngay sau “Xác định Stakeholder”?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Xác định phạm vi ban đầu"
+    },
+    {
+     "id": "b",
+     "t": "Lập kế hoạch phân tích"
+    },
+    {
+     "id": "c",
+     "t": "Thu thập thông tin"
+    },
+    {
+     "id": "d",
+     "t": "Tiếp nhận yêu cầu, tìm hiểu về yêu cầu"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Thứ tự: 1 Tiếp nhận yêu cầu → 2 Xác định Stakeholder → 3 Xác định phạm vi ban đầu → 4 Lập kế hoạch phân tích → 5 Thu thập thông tin…</p>",
+   "why_wrong": {
+    "b": "Lập kế hoạch phân tích là bước 4, sau khi có phạm vi ban đầu.",
+    "c": "Thu thập thông tin là bước 5.",
+    "d": "Tiếp nhận yêu cầu là bước 1, đứng trước."
+   },
+   "src": "4. Tiep can du an.pdf tr.9"
+  },
+  {
+   "id": "L04-q11",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Trong 13 bước tiếp cận dự án, UAT với Khách hàng diễn ra trước bước Hỗ trợ kiểm thử.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Hỗ trợ kiểm thử là bước 11, UAT với khách hàng là bước 12. Đội dự án kiểm trước, khách hàng kiểm chấp nhận sau.</p>",
+   "why_wrong": {
+    "d": "Thứ tự ngược lại: kiểm thử nội bộ (11) rồi mới UAT (12)."
+   },
+   "src": "4. Tiep can du an.pdf tr.9"
+  },
+  {
+   "id": "L04-q12",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Slide lấy những ví dụ nào cho nhóm Key Stakeholders?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Sponsor"
+    },
+    {
+     "id": "b",
+     "t": "Phòng IT hỗ trợ vận hành"
+    },
+    {
+     "id": "c",
+     "t": "Director"
+    },
+    {
+     "id": "d",
+     "t": "PO (Product Owner)"
+    },
+    {
+     "id": "e",
+     "t": "Nhân viên HR dùng hệ thống HRM"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Key Stakeholders ra quyết định, phê duyệt, tài trợ. Slide lấy ví dụ: Sponsor, Director, PO.</p>",
+   "why_wrong": {
+    "b": "Phòng IT hỗ trợ vận hành là ví dụ của Secondary.",
+    "e": "Nhân viên HR trong HRM là ví dụ của Primary."
+   },
+   "src": "4. Tiep can du an.pdf tr.12"
+  },
+  {
+   "id": "L04-q13",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Việc nào sau đây thuộc Solution Evaluation?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Xác nhận yêu cầu đã sẵn sàng cho đội kỹ thuật phát triển"
+    },
+    {
+     "id": "b",
+     "t": "Xác định độ ưu tiên của yêu cầu"
+    },
+    {
+     "id": "c",
+     "t": "Kiểm tra giá trị mang lại sau khi triển khai"
+    },
+    {
+     "id": "d",
+     "t": "Chuẩn bị câu hỏi cho buổi khảo sát"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Solution Evaluation: đánh giá giải pháp sau triển khai, kiểm tra giá trị mang lại, đề xuất cải tiến, phân tích lỗi và khoảng trống.</p>",
+   "why_wrong": {
+    "a": "Đó là việc cuối của RADD, trước khi phát triển.",
+    "b": "Đó là Requirements Life Cycle Management.",
+    "d": "Đó là Elicitation and Collaboration."
+   },
+   "src": "4. Tiep can du an.pdf tr.8"
+  },
+  {
+   "id": "L04-q14",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Điểm khác cốt lõi giữa Primary và Secondary Stakeholder là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Primary có quyền phê duyệt, Secondary thì không"
+    },
+    {
+     "id": "b",
+     "t": "Primary bị ảnh hưởng trực tiếp, Secondary bị ảnh hưởng gián tiếp"
+    },
+    {
+     "id": "c",
+     "t": "Primary là người trong công ty khách hàng, Secondary là tổ chức ở ngoài công ty"
+    },
+    {
+     "id": "d",
+     "t": "Primary được mời họp, Secondary chỉ nhận email"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Primary hưởng lợi hoặc bị ảnh hưởng trực tiếp, thường dùng hệ thống. Secondary bị ảnh hưởng gián tiếp hoặc không dùng sản phẩm chính.</p>",
+   "why_wrong": {
+    "a": "Quyền phê duyệt là đặc trưng của Key, không phải ranh giới Primary/Secondary.",
+    "c": "Phòng IT nội bộ là Secondary; khách hàng bên ngoài có thể là Primary.",
+    "d": "Cách liên lạc phụ thuộc chiến lược quản lý, không định nghĩa nhóm."
+   },
+   "src": "4. Tiep can du an.pdf tr.12"
+  },
+  {
+   "id": "L04-q15",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Theo slide, vì sao cần quản lý Stakeholder? Chọn các lý do đúng.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Stakeholder là nguồn cung cấp yêu cầu chính, cần tránh bỏ sót"
+    },
+    {
+     "id": "b",
+     "t": "Để giảm số người cần khảo sát xuống thấp nhất"
+    },
+    {
+     "id": "c",
+     "t": "Để quản lý kỳ vọng, tránh yêu cầu “trên trời” hoặc ngoài phạm vi"
+    },
+    {
+     "id": "d",
+     "t": "Để biết ai xác nhận, ai phê duyệt các quyết định quan trọng"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Slide nêu: nguồn yêu cầu chính, tránh mâu thuẫn, tạo đồng thuận, biết ai xác nhận/phê duyệt, quản lý kỳ vọng, giảm rủi ro thay đổi yêu cầu.</p>",
+   "why_wrong": {
+    "b": "Mục tiêu là xác định đúng và đủ người, không phải khảo sát càng ít càng tốt."
+   },
+   "src": "4. Tiep can du an.pdf tr.11"
+  },
+  {
+   "id": "L04-q16",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Với nhóm High Power – Low Interest, chiến lược nào đúng theo slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mời tham gia mọi buổi Elicitation để lấy yêu cầu chi tiết"
+    },
+    {
+     "id": "b",
+     "t": "Chỉ cập nhật thông tin khi cần, không cần quan tâm nhiều tới họ"
+    },
+    {
+     "id": "c",
+     "t": "Gửi toàn bộ biên bản họp hằng ngày để họ nắm được mọi chi tiết"
+    },
+    {
+     "id": "d",
+     "t": "Báo cáo định kỳ, ngắn gọn; chỉ liên hệ khi cần quyết định lớn"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Họ có quyền cao nhưng không quan tâm chi tiết, nên báo cáo ngắn, định kỳ, chỉ liên hệ khi có vấn đề nghiêm trọng hoặc cần quyết định chiến lược. Tránh “làm phiền” bằng chi tiết nhỏ.</p>",
+   "why_wrong": {
+    "a": "Đó là chiến lược cho High Power – High Interest.",
+    "b": "Đó là chiến lược cho Low – Low; bỏ bê người quyền cao rất rủi ro.",
+    "c": "Gửi chi tiết hằng ngày chính là “làm phiền” mà slide khuyên tránh."
+   },
+   "src": "4. Tiep can du an.pdf tr.16"
+  },
+  {
+   "id": "L04-q17",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao slide khuyên giữ nhóm Low Power – High Interest “trong vòng thông tin”?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Để tăng mức độ chấp nhận hệ thống của chính những người dùng hằng ngày"
+    },
+    {
+     "id": "b",
+     "t": "Vì họ là người có quyền phê duyệt mọi thay đổi yêu cầu trong suốt dự án"
+    },
+    {
+     "id": "c",
+     "t": "Vì họ là người tài trợ ngân sách dự án"
+    },
+    {
+     "id": "d",
+     "t": "Để họ thay BA viết tài liệu yêu cầu"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Nhóm này dùng hệ thống hằng ngày và cung cấp insight thực tế. Giữ họ trong vòng thông tin giúp họ chấp nhận hệ thống khi đưa vào dùng.</p>",
+   "why_wrong": {
+    "b": "Nhóm này không có quyền quyết định (Low Power).",
+    "c": "Người tài trợ là Sponsor, thuộc nhóm quyền lực cao.",
+    "d": "Viết tài liệu là việc của BA, không phải mục đích giữ thông tin."
+   },
+   "src": "4. Tiep can du an.pdf tr.16"
+  },
+  {
+   "id": "L04-q18",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Nhóm Low Power – Low Interest gần như không ảnh hưởng đến kết quả, nên có thể bỏ qua hoàn toàn trong suốt dự án.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Slide nhấn mạnh: phải đảm bảo nhóm này không bị bỏ quên hoàn toàn để tránh “ngòi nổ tiềm ẩn”. Chỉ là không cần tham gia sâu vào elicitation.</p>",
+   "why_wrong": {
+    "d": "Bỏ quên hoàn toàn có thể thành “ngòi nổ tiềm ẩn”; vẫn phải cập nhật thông tin khi cần."
+   },
+   "src": "4. Tiep can du an.pdf tr.16"
+  },
+  {
+   "id": "L04-q19",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trường hợp nào <b>KHÔNG</b> phải scope creep?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Dev tự thêm tính năng vì khách nhắn riêng cho dev"
+    },
+    {
+     "id": "b",
+     "t": "Khách thêm tính năng qua Change Request, đã đánh giá tác động và được duyệt"
+    },
+    {
+     "id": "c",
+     "t": "PM nhận thêm yêu cầu vì ngại làm khách phật lòng"
+    },
+    {
+     "id": "d",
+     "t": "Yêu cầu mơ hồ khiến đội dự án phải làm thêm nhiều phần không có trong kế hoạch ban đầu"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Scope creep là <b>mất kiểm soát</b> về phạm vi. Thay đổi đi qua Change Request, có đánh giá và phê duyệt là thay đổi có kiểm soát.</p>",
+   "why_wrong": {
+    "a": "Không có quy trình Change Request nên yêu cầu lọt thẳng vào – đúng là scope creep.",
+    "c": "“BA/PM quá chiều” là một nguyên nhân của scope creep.",
+    "d": "Yêu cầu không rõ ràng, mơ hồ là nguyên nhân gây scope creep."
+   },
+   "src": "4. Tiep can du an.pdf tr.22-23"
+  },
+  {
+   "id": "L04-q20",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Những yếu tố nào được slide nêu là lý do gây ra Scope creep?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Có quy trình Change Request rõ ràng"
+    },
+    {
+     "id": "b",
+     "t": "BA/PM quá chiều"
+    },
+    {
+     "id": "c",
+     "t": "Dùng ma trận Power – Interest để phân loại stakeholder"
+    },
+    {
+     "id": "d",
+     "t": "Dự án kéo dài quá lâu"
+    }
+   ],
+   "answer": [
+    "b",
+    "d"
+   ],
+   "explain": "<p>8 lý do: hiểu sai yêu cầu; yêu cầu mơ hồ; khách đổi yêu cầu liên tục; không thống nhất scope từ đầu; không có quy trình CR; BA/PM quá chiều; bối cảnh thay đổi; dự án kéo dài quá lâu.</p>",
+   "why_wrong": {
+    "a": "Slide nêu “không có” quy trình CR mới là nguyên nhân; có quy trình thì giúp chống scope creep.",
+    "c": "Phân loại stakeholder là công cụ quản lý, không gây mất kiểm soát phạm vi."
+   },
+   "src": "4. Tiep can du an.pdf tr.23"
+  },
+  {
+   "id": "L04-q21",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>13 bước có cả “Xác định phạm vi ban đầu” (bước 3) và “Xác định phạm vi” (bước 8). Vì sao cần hai lần?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bước 3 do PM làm, bước 8 do BA làm"
+    },
+    {
+     "id": "b",
+     "t": "Bước 8 chỉ là nhắc lại nguyên văn phạm vi ở bước 3 để khách hàng ký xác nhận"
+    },
+    {
+     "id": "c",
+     "t": "Bước 3 là phạm vi sơ bộ; bước 8 chốt phạm vi sau khi đã làm rõ yêu cầu"
+    },
+    {
+     "id": "d",
+     "t": "Bước 3 dành cho dự án nhỏ, bước 8 dành cho dự án lớn"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Đầu dự án chỉ đủ thông tin để vạch phạm vi sơ bộ, phục vụ lập kế hoạch. Sau thu thập, xác định yêu cầu và mô hình hóa, BA mới chốt được phạm vi chính xác.</p>",
+   "why_wrong": {
+    "a": "Slide không chia hai bước theo người làm; cả hai đều nằm trong việc của BA.",
+    "b": "Bước 8 có thêm thông tin từ bước 5–7 nên phạm vi có thể khác bước 3.",
+    "d": "Cả hai bước đều áp dụng cho cùng một dự án."
+   },
+   "src": "4. Tiep can du an.pdf tr.9"
+  },
+  {
+   "id": "L04-q22",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong Stakeholder Register, hai cột “Mức độ ảnh hưởng” và “Mức độ quan tâm” được dùng trực tiếp để làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tính điểm KPI cho stakeholder"
+    },
+    {
+     "id": "b",
+     "t": "Xếp stakeholder vào ô ma trận Power – Interest và chọn chiến lược quản lý"
+    },
+    {
+     "id": "c",
+     "t": "Quyết định stakeholder thuộc nhóm Primary hay Secondary trong cột Phân loại"
+    },
+    {
+     "id": "d",
+     "t": "Xác định thứ tự ưu tiên của từng yêu cầu"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Hai cột này chính là hai trục của ma trận. Ô trên ma trận cho ra chiến lược quản lý và tần suất trao đổi.</p>",
+   "why_wrong": {
+    "a": "Register không đánh giá KPI.",
+    "c": "Primary/Secondary dựa vào mức ảnh hưởng trực tiếp hay gián tiếp, không dựa vào quyền lực và mức quan tâm.",
+    "d": "Ưu tiên yêu cầu thuộc Requirements Life Cycle Management, không do hai cột này quyết định."
+   },
+   "src": "4. Tiep can du an.pdf tr.15-16, 19"
+  },
+  {
+   "id": "L04-q23",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Cột “Người quản lý Stakeholder” trong template nên ghi gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Cấp trên trực tiếp của stakeholder trong công ty khách hàng"
+    },
+    {
+     "id": "b",
+     "t": "Người phê duyệt ngân sách dự án"
+    },
+    {
+     "id": "c",
+     "t": "Tên người thay thế khi stakeholder nghỉ"
+    },
+    {
+     "id": "d",
+     "t": "Thành viên nhóm dự án phụ trách liên lạc với stakeholder đó"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Template ghi các giá trị như PM, BA, Tech Lead, BA/Tech Lead – đều là người trong nhóm dự án chịu trách nhiệm làm việc với stakeholder đó.</p>",
+   "why_wrong": {
+    "a": "Template không ghi sếp của stakeholder mà ghi PM, BA, Tech Lead.",
+    "b": "Người duyệt ngân sách là Sponsor, đã là một dòng riêng.",
+    "c": "Template không có khái niệm người thay thế."
+   },
+   "src": "4. Stakeholder_Register_Template.xlsx; 4. Tiep can du an.pdf tr.19"
+  },
+  {
+   "id": "L04-q24",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Việc nào thuộc <b>Bước 3: Quản lý và duy trì</b> (Manage &amp; Monitor)?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Giao tiếp thường xuyên, minh bạch"
+    },
+    {
+     "id": "b",
+     "t": "Xử lý xung đột giữa các stakeholder"
+    },
+    {
+     "id": "c",
+     "t": "Chọn kỹ thuật Elicitation cho từng stakeholder"
+    },
+    {
+     "id": "d",
+     "t": "Hỏi “Ai là người quyết định dự án?”"
+    },
+    {
+     "id": "e",
+     "t": "Theo dõi stakeholder mới xuất hiện, vai trò thay đổi"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "e"
+   ],
+   "explain": "<p>Bước 3 gồm: giao tiếp thường xuyên, minh bạch; ghi nhận và phản hồi; xử lý xung đột; theo dõi thay đổi về stakeholder.</p>",
+   "why_wrong": {
+    "c": "Chọn kỹ thuật Elicitation thuộc Bước 2 – Lập kế hoạch tương tác.",
+    "d": "Đây là câu hỏi của Bước 1 – Xác định và phân tích."
+   },
+   "src": "4. Tiep can du an.pdf tr.17"
+  },
+  {
+   "id": "L04-q25",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Một stakeholder có thể vừa là Primary, vừa nằm ở ô High Power – High Interest của ma trận.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Các cách phân loại độc lập. Trong template HRM, HR Manager được xếp Primary và có ảnh hưởng Cao, quan tâm Cao.</p>",
+   "why_wrong": {
+    "s": "Template mẫu có đúng trường hợp này (HR Manager: Primary, Cao/Cao)."
+   },
+   "src": "4. Tiep can du an.pdf tr.13, 19"
+  },
+  {
+   "id": "L04-q26",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Stakeholder Register chỉ cần lập một lần ở đầu dự án, sau đó không cần cập nhật.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Mục đích của Register là cung cấp thông tin để giám sát và kiểm soát sự tham gia của stakeholder <b>trong suốt vòng đời dự án</b>. Khi có stakeholder mới hoặc vai trò thay đổi, phải cập nhật.</p>",
+   "why_wrong": {
+    "d": "Bước 3 yêu cầu theo dõi stakeholder mới và vai trò thay đổi, nên Register phải được cập nhật."
+   },
+   "src": "4. Tiep can du an.pdf tr.17-18"
+  },
+  {
+   "id": "L04-q27",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong ma trận ví dụ trên slide (trục dọc: Influence, trục ngang: Interest), ô “Key players” nằm ở đâu?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ảnh hưởng cao, quan tâm thấp"
+    },
+    {
+     "id": "b",
+     "t": "Ảnh hưởng thấp, quan tâm cao"
+    },
+    {
+     "id": "c",
+     "t": "Ảnh hưởng cao, quan tâm cao"
+    },
+    {
+     "id": "d",
+     "t": "Ảnh hưởng thấp, quan tâm thấp"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Key players ở góc trên phải: ảnh hưởng cao và quan tâm cao, cần quản lý chặt.</p>",
+   "why_wrong": {
+    "a": "Ô này là “Meet their needs”.",
+    "b": "Ô này là “Show consideration”.",
+    "d": "Ô này là “Least important”."
+   },
+   "src": "4. Tiep can du an.pdf tr.15"
+  },
+  {
+   "id": "L04-q28",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Bước 2 – Lập kế hoạch tương tác chủ yếu trả lời câu hỏi nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Dùng kỹ thuật Elicitation nào, vào lúc nào, với stakeholder nào?"
+    },
+    {
+     "id": "b",
+     "t": "Ai là người bị ảnh hưởng trực tiếp/gián tiếp bởi dự án?"
+    },
+    {
+     "id": "c",
+     "t": "Xung đột giữa các stakeholder trong suốt dự án sẽ được xử lý ra sao?"
+    },
+    {
+     "id": "d",
+     "t": "Hệ thống sau triển khai có mang lại giá trị không?"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Bước 2 gồm: xác định kỹ thuật Elicitation cần áp dụng cho các stakeholder và thời gian Elicitation với từng người.</p>",
+   "why_wrong": {
+    "b": "Đây là câu hỏi của Bước 1.",
+    "c": "Xử lý xung đột thuộc Bước 3.",
+    "d": "Đây là việc của Solution Evaluation."
+   },
+   "src": "4. Tiep can du an.pdf tr.17"
+  },
+  {
+   "id": "L04-q29",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Sau buổi phỏng vấn, BA gửi lại biên bản để stakeholder xác nhận thông tin đã ghi đúng. Việc này thuộc lĩnh vực nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Requirements Analysis and Design Definition"
+    },
+    {
+     "id": "b",
+     "t": "Elicitation and Collaboration"
+    },
+    {
+     "id": "c",
+     "t": "Solution Evaluation"
+    },
+    {
+     "id": "d",
+     "t": "Strategy Analysis"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>“Xác nhận lại thông tin thu thập” là việc của Elicitation and Collaboration, ngay sau khi thực hiện khảo sát.</p>",
+   "why_wrong": {
+    "a": "RADD có “xác nhận yêu cầu đã sẵn sàng cho kỹ thuật”, khác với xác nhận thông tin vừa thu thập.",
+    "c": "Solution Evaluation đánh giá giải pháp sau triển khai.",
+    "d": "Strategy Analysis có “xác nhận giải pháp”, không phải xác nhận biên bản khảo sát."
+   },
+   "src": "4. Tiep can du an.pdf tr.6"
+  },
+  {
+   "id": "L04-q30",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Phân loại theo vị trí trong vòng đời sản phẩm, team phát triển (dev) thuộc nhóm nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Người ra quyết định (Decision Maker)"
+    },
+    {
+     "id": "b",
+     "t": "Người sử dụng sản phẩm (End User)"
+    },
+    {
+     "id": "c",
+     "t": "Người được thông báo (Informed)"
+    },
+    {
+     "id": "d",
+     "t": "Người tạo ra sản phẩm"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Ba nhóm theo vòng đời sản phẩm: Decision Maker, End User, Người tạo ra sản phẩm. Team dev xây dựng sản phẩm.</p>",
+   "why_wrong": {
+    "a": "Team dev không quyết định phạm vi hay đầu tư.",
+    "b": "Dev không phải người dùng cuối của sản phẩm.",
+    "c": "Informed là mức tham gia trong RACI, không thuộc cách phân loại theo vòng đời."
+   },
+   "src": "4. Tiep can du an.pdf tr.13"
+  },
+  {
+   "id": "L04-q31",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Theo slide, “Đề xuất giải pháp (To-Be)” là việc thuộc lĩnh vực Requirements Analysis and Design Definition.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Slide xếp “Đề xuất giải pháp (To-Be)” vào Strategy Analysis, cùng với AS-IS, Need và xác nhận giải pháp. RADD thì “xây dựng giải pháp” ở mức chi tiết.</p>",
+   "why_wrong": {
+    "d": "To-Be nằm trong Strategy Analysis; dễ nhầm vì RADD có mục “xây dựng giải pháp”."
+   },
+   "src": "4. Tiep can du an.pdf tr.7-8"
+  },
+  {
+   "id": "L04-q32",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>SolasMart làm hệ thống bán hàng mới. Thu ngân dùng máy POS cả ca, rất quan tâm hệ thống mới nhưng không có quyền quyết định. BA nên áp dụng chiến lược nào với nhóm thu ngân?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Báo cáo định kỳ hàng tháng, ngắn gọn, tránh làm phiền họ bằng chi tiết nhỏ"
+    },
+    {
+     "id": "b",
+     "t": "Lấy ý kiến phê duyệt của họ trước mỗi thay đổi yêu cầu"
+    },
+    {
+     "id": "c",
+     "t": "Lắng nghe, thu thập ý kiến chi tiết và giữ họ trong vòng thông tin"
+    },
+    {
+     "id": "d",
+     "t": "Chỉ cập nhật khi cần, không mời tham gia khảo sát"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Thu ngân thuộc ô Low Power – High Interest: người dùng hằng ngày, cung cấp insight thực tế. Chiến lược là lắng nghe qua elicitation và giữ họ trong vòng thông tin để tăng mức độ chấp nhận.</p>",
+   "why_wrong": {
+    "a": "Đó là chiến lược cho High Power – Low Interest như Ban Giám đốc.",
+    "b": "Thu ngân không có quyền phê duyệt; việc này dành cho nhóm High Power – High Interest.",
+    "d": "Đó là chiến lược Low – Low; bỏ qua người dùng chính sẽ thiếu yêu cầu thực tế."
+   },
+   "src": "4. Tiep can du an.pdf tr.16; Quy trinh ban hang tai quay.docx"
+  },
+  {
+   "id": "L04-q33",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ban Giám đốc SolasMart duyệt đầu tư cho dự án nhưng ít quan tâm đến từng màn hình. Cách điền cột Chiến lược và Tần suất nào hợp lý nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Báo cáo ngắn gọn, liên hệ khi cần quyết định chiến lược – Hàng tháng"
+    },
+    {
+     "id": "b",
+     "t": "Tham gia mọi buổi workshop về màn hình – Hằng ngày"
+    },
+    {
+     "id": "c",
+     "t": "Gửi chi tiết từng thay đổi nhỏ trên màn hình để họ nắm tình hình – Hàng tuần"
+    },
+    {
+     "id": "d",
+     "t": "Không cần liên lạc vì đã duyệt đầu tư – Khi kết thúc dự án"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Ban Giám đốc ở ô High Power – Low Interest. Template mẫu với Sponsor cũng ghi: báo cáo định kỳ, ngắn gọn, tần suất hàng tháng.</p>",
+   "why_wrong": {
+    "b": "Bắt người ít quan tâm chi tiết dự mọi workshop là lãng phí và gây khó chịu.",
+    "c": "Gửi chi tiết nhỏ chính là “làm phiền” mà slide khuyên tránh.",
+    "d": "Người quyền cao không được bỏ quên; họ vẫn cần báo cáo định kỳ và quyết định khi có vấn đề."
+   },
+   "src": "4. Tiep can du an.pdf tr.16, 19"
+  },
+  {
+   "id": "L04-q34",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trong dự án HRM, Trưởng phòng nhân sự làm việc với các phòng ban để nắm nhu cầu và là người quyết định các chức năng của hệ thống. Người này thuộc ô nào của ma trận Power – Interest?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Low Power – High Interest"
+    },
+    {
+     "id": "b",
+     "t": "High Power – Low Interest"
+    },
+    {
+     "id": "c",
+     "t": "Low Power – Low Interest"
+    },
+    {
+     "id": "d",
+     "t": "High Power – High Interest"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Quyết định chức năng nên quyền lực cao; trực tiếp làm việc về nhu cầu nên quan tâm cao. Slide cũng lấy Trưởng phòng nhân sự làm ví dụ cho ô High Power – High Interest.</p>",
+   "why_wrong": {
+    "a": "Người này có quyền quyết định chức năng, không phải Low Power.",
+    "b": "Người này quan tâm sát chi tiết chức năng, không phải Low Interest.",
+    "c": "Cả quyền lực và mức quan tâm đều cao."
+   },
+   "src": "4. Tiep can du an.pdf tr.16, 20"
+  },
+  {
+   "id": "L04-q35",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Dự án FoodNow đang chạy. Một nhà hàng đối tác xin thêm tính năng “gọi món trước”. BA thấy “cũng nhỏ” nên đồng ý ngay, không đánh giá tác động. Theo slide, đây là nguyên nhân scope creep nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bối cảnh thay đổi"
+    },
+    {
+     "id": "b",
+     "t": "BA/PM quá chiều"
+    },
+    {
+     "id": "c",
+     "t": "Dự án kéo dài quá lâu"
+    },
+    {
+     "id": "d",
+     "t": "Hiểu sai yêu cầu"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>BA nhận yêu cầu ngoài phạm vi chỉ vì muốn chiều đối tác, không qua đánh giá – đúng nguyên nhân “BA/PM quá chiều”.</p>",
+   "why_wrong": {
+    "a": "Không có thay đổi nào về thị trường hay quy định trong tình huống.",
+    "c": "Tình huống không nói gì về thời gian dự án.",
+    "d": "BA hiểu đúng yêu cầu, chỉ là nhận nó mà không kiểm soát."
+   },
+   "src": "4. Tiep can du an.pdf tr.23"
+  },
+  {
+   "id": "L04-q36",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Dự án quản lý kho của SolasMart. Nhà cung cấp chỉ chở hàng đến kho kèm hóa đơn, phiếu giao hàng, và không dùng hệ thống mới. Nhà cung cấp thuộc nhóm nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Primary Stakeholder"
+    },
+    {
+     "id": "b",
+     "t": "Key Stakeholder"
+    },
+    {
+     "id": "c",
+     "t": "Secondary Stakeholder"
+    },
+    {
+     "id": "d",
+     "t": "Không phải stakeholder"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Nhà cung cấp có liên quan (quy trình nhập kho thay đổi ảnh hưởng đến họ) nhưng không dùng sản phẩm chính, nên là Secondary.</p>",
+   "why_wrong": {
+    "a": "Primary là người dùng hoặc bị ảnh hưởng trực tiếp bởi hệ thống; nhà cung cấp không dùng hệ thống.",
+    "b": "Nhà cung cấp không ra quyết định, phê duyệt hay tài trợ dự án.",
+    "d": "Theo BABOK, ai có liên quan hoặc bị ảnh hưởng đều là stakeholder; Suppliers còn có trong hình minh họa trên slide."
+   },
+   "src": "4. Tiep can du an.pdf tr.10, 12; Quy trinh nhap kho.docx"
+  },
+  {
+   "id": "L04-q37",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Dự án quản lý thư viện, việc “Phê duyệt danh sách yêu cầu”: BA soạn danh sách, Trưởng thư viện ký duyệt, thủ thư được hỏi ý kiến trước khi chốt, Hiệu trưởng nhận báo cáo kết quả. Thủ thư có vai trò RACI nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "C – Consulted"
+    },
+    {
+     "id": "b",
+     "t": "A – Accountable"
+    },
+    {
+     "id": "c",
+     "t": "R – Responsible"
+    },
+    {
+     "id": "d",
+     "t": "I – Informed"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Thủ thư được hỏi ý kiến trước khi chốt, nên là Consulted. BA là R, Trưởng thư viện là A, Hiệu trưởng là I.</p>",
+   "why_wrong": {
+    "b": "A là Trưởng thư viện, người ký duyệt và chịu trách nhiệm cuối cùng.",
+    "c": "R là BA, người trực tiếp soạn danh sách.",
+    "d": "I là Hiệu trưởng, chỉ nhận báo cáo kết quả, không được hỏi ý kiến."
+   },
+   "src": "4. Tiep can du an.pdf tr.13"
+  },
+  {
+   "id": "L04-q38",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Giữa dự án SolasMart, Ban Giám đốc quyết định thuê một đơn vị vận chuyển bên ngoài để giao đơn online. Việc đầu tiên BA nên làm với đơn vị này là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chờ đến UAT rồi mời họ dùng thử"
+    },
+    {
+     "id": "b",
+     "t": "Bỏ qua vì họ không thuộc công ty SolasMart"
+    },
+    {
+     "id": "c",
+     "t": "Yêu cầu dev kết nối ngay với hệ thống của họ theo cách dev thấy hợp lý nhất"
+    },
+    {
+     "id": "d",
+     "t": "Phân tích họ như stakeholder mới và cập nhật Stakeholder Register"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Bước 3 yêu cầu theo dõi stakeholder mới xuất hiện. BA quay lại Bước 1 (phân tích), Bước 2 (lập kế hoạch tương tác), rồi cập nhật Register.</p>",
+   "why_wrong": {
+    "a": "Chờ đến UAT mới làm việc sẽ phát hiện thiếu yêu cầu quá muộn.",
+    "b": "Stakeholder có thể là tổ chức bên ngoài (External Stakeholder).",
+    "c": "Kết nối khi chưa làm rõ yêu cầu và chưa kiểm soát phạm vi dễ gây scope creep."
+   },
+   "src": "4. Tiep can du an.pdf tr.13, 17"
+  },
+  {
+   "id": "L04-q39",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ở SolasMart, Quản lý kho muốn bắt buộc quét barcode mỗi lần xuất hàng; nhân viên CSKH muốn bỏ bước quét để soạn đơn online nhanh hơn. Theo Bước 3 – Quản lý và duy trì, BA nên làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chọn theo ý người nói to nhất trong buổi họp"
+    },
+    {
+     "id": "b",
+     "t": "Làm rõ nhu cầu hai bên, rồi đưa người có quyền quyết định chốt"
+    },
+    {
+     "id": "c",
+     "t": "Ghi cả hai yêu cầu vào tài liệu để đội phát triển tự chọn phương án phù hợp"
+    },
+    {
+     "id": "d",
+     "t": "Bỏ cả hai yêu cầu để tránh xung đột"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Xử lý xung đột là việc của Bước 3. BA làm rõ lý do của mỗi bên (kiểm soát tồn kho và tốc độ giao), tìm phương án, rồi để người có quyền (ví dụ Quản lý siêu thị) quyết định. Quản lý stakeholder giúp biết “ai phê duyệt”.</p>",
+   "why_wrong": {
+    "a": "Quyết định theo giọng nói không đảm bảo đúng người có quyền phê duyệt.",
+    "c": "Hai yêu cầu mâu thuẫn để lại cho dev là đẩy rủi ro sang phát triển.",
+    "d": "Bỏ yêu cầu không giải quyết nhu cầu thật và gây mất đồng thuận."
+   },
+   "src": "4. Tiep can du an.pdf tr.11, 17; Quy dinh Quan ly kho.docx"
+  },
+  {
+   "id": "L04-q40",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Một học viên điền một dòng Register: “Tên: Nhóm thu ngân · Vai trò: Người dùng POS · Phân loại: Cao · Nhu cầu: Tính tiền nhanh · Ảnh hưởng: Thấp · Quan tâm: Cao”. Cột nào điền sai?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vai trò"
+    },
+    {
+     "id": "b",
+     "t": "Nhu cầu"
+    },
+    {
+     "id": "c",
+     "t": "Phân loại"
+    },
+    {
+     "id": "d",
+     "t": "Ảnh hưởng"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Cột Phân loại nhận Primary / Secondary / Key. “Cao” là giá trị của cột Ảnh hưởng hoặc Quan tâm. Thu ngân dùng trực tiếp nên phải ghi Primary.</p>",
+   "why_wrong": {
+    "a": "“Người dùng POS” mô tả đúng vai trò.",
+    "b": "“Tính tiền nhanh” đúng là mong muốn của thu ngân với hệ thống.",
+    "d": "Thu ngân không có quyền quyết định, nên ảnh hưởng Thấp là hợp lý."
+   },
+   "src": "4. Stakeholder_Register_Template.xlsx; 4. Tiep can du an.pdf tr.12, 19"
+  },
+  {
+   "id": "L04-q41",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Dự án SolasMart đã chốt phạm vi “bán tại quầy và kho”. Những dấu hiệu nào cho thấy dự án đang bị scope creep?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Trưởng ca nhắn riêng, dev tự thêm phần nhận đơn online"
+    },
+    {
+     "id": "b",
+     "t": "Ban Giám đốc duyệt Change Request thêm báo cáo, kế hoạch được cập nhật"
+    },
+    {
+     "id": "c",
+     "t": "Yêu cầu “hệ thống chạy nhanh” không có con số, mỗi lần demo lại bị đòi nhanh hơn"
+    },
+    {
+     "id": "d",
+     "t": "BA gửi văn bản phạm vi để Ban Giám đốc ký xác nhận"
+    },
+    {
+     "id": "e",
+     "t": "Dự án kéo dài, các báo cáo mới liên tục được thêm mà không qua Change Request"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>(a) không có quy trình CR; (c) yêu cầu mơ hồ; (e) dự án kéo dài và không có CR. Cả ba đều làm phạm vi mất kiểm soát.</p>",
+   "why_wrong": {
+    "b": "Thay đổi qua CR, có phê duyệt và cập nhật kế hoạch là thay đổi có kiểm soát.",
+    "d": "Chốt scope bằng văn bản là cách phòng scope creep, không phải dấu hiệu."
+   },
+   "src": "4. Tiep can du an.pdf tr.21-23"
+  },
+  {
+   "id": "L04-q42",
+   "type": "tf",
+   "level": "apdung",
+   "q": "<p>Quản lý siêu thị SolasMart đề nghị thêm báo cáo KPI thu ngân. BA lập Change Request, ước lượng thêm 1 tuần, Ban Giám đốc duyệt và kế hoạch được cập nhật. Đây là scope creep.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Scope creep là mất kiểm soát phạm vi. Ở đây thay đổi đi qua Change Request, được đánh giá và phê duyệt, nên phạm vi vẫn được kiểm soát.</p>",
+   "why_wrong": {
+    "d": "Có yêu cầu mới không đồng nghĩa với scope creep; điểm mấu chốt là thay đổi có được kiểm soát hay không."
+   },
+   "src": "4. Tiep can du an.pdf tr.22-23"
+  },
+  {
+   "id": "L04-q43",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Dự án hệ thống bán hàng và kho của SolasMart. Theo slide, nhóm nào <b>KHÔNG</b> cần tham gia sâu vào Elicitation?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bảo vệ siêu thị, gần như không bị hệ thống ảnh hưởng"
+    },
+    {
+     "id": "b",
+     "t": "Thu ngân dùng POS hằng ngày"
+    },
+    {
+     "id": "c",
+     "t": "Quản lý kho phụ trách nhập, xuất, kiểm kê và báo cáo tồn kho"
+    },
+    {
+     "id": "d",
+     "t": "Quản lý siêu thị quyết định chức năng"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Nhóm Low Power – Low Interest không cần tham gia sâu vào Elicitation, chỉ cập nhật khi cần và không bỏ quên hoàn toàn. Với hệ thống bán hàng và kho, bảo vệ thuộc nhóm này.</p>",
+   "why_wrong": {
+    "b": "Thu ngân là Low Power – High Interest, cần lắng nghe ý kiến chi tiết qua elicitation.",
+    "c": "Quản lý kho là nguồn yêu cầu chính của phần kho.",
+    "d": "Người quyết định chức năng (High – High) cần tham gia thường xuyên vào elicitation."
+   },
+   "src": "4. Tiep can du an.pdf tr.16; Quy dinh van hanh.docx"
+  },
+  {
+   "id": "L04-q44",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>BA kiểm tra Stakeholder Register của SolasMart. Những dòng nào có Chiến lược và Tần suất <b>khớp</b> với mức Ảnh hưởng/Quan tâm?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ban Giám đốc – Cao/Thấp – Báo cáo định kỳ, ngắn gọn – Hàng tháng"
+    },
+    {
+     "id": "b",
+     "t": "Thu ngân – Thấp/Cao – Báo cáo định kỳ, tránh làm phiền – Hàng tháng"
+    },
+    {
+     "id": "c",
+     "t": "Quản lý siêu thị – Cao/Cao – Cập nhật khi cần thiết – Khi cần thiết"
+    },
+    {
+     "id": "d",
+     "t": "Nhà cung cấp – Thấp/Thấp – Cập nhật khi cần, không tham gia sâu – Khi cần thiết"
+    }
+   ],
+   "answer": [
+    "a",
+    "d"
+   ],
+   "explain": "<p>Cao/Thấp → báo cáo định kỳ, ngắn gọn. Thấp/Thấp → cập nhật khi cần, không tham gia sâu. Chiến lược phải lấy từ đúng ô ma trận.</p>",
+   "why_wrong": {
+    "b": "Thấp/Cao phải là lắng nghe, thu ý kiến chi tiết, giữ trong vòng thông tin; đây lại dùng chiến lược của ô Cao/Thấp.",
+    "c": "Cao/Cao phải tham gia thường xuyên vào elicitation, báo cáo liên tục, không phải “khi cần thiết”."
+   },
+   "src": "4. Tiep can du an.pdf tr.16, 19"
+  }
+ ],
+ "summary": {
+  "points": [
+   "Các bước tiếp cận dự án: 13 bước từ tiếp nhận yêu cầu đến nghiệm thu, dựa trên 6 lĩnh vực kiến thức của BABOK.",
+   "Stakeholder là cá nhân, nhóm hoặc tổ chức liên quan hoặc bị ảnh hưởng bởi dự án/sản phẩm.",
+   "Phân loại stakeholder: Primary/Secondary/Key; theo vai trò; Power – Interest; theo vòng đời sản phẩm; RACI.",
+   "Quản lý stakeholder gồm 3 bước: Xác định và phân tích → Lập kế hoạch tương tác → Quản lý và duy trì.",
+   "Mỗi ô của ma trận Power – Interest có chiến lược riêng; ô thấp – thấp vẫn không được bỏ quên.",
+   "Stakeholder Register có 10 cột; cột Ảnh hưởng và Quan tâm quyết định Chiến lược và Tần suất trao đổi.",
+   "Scope phải thống nhất với khách hàng trước khi bắt đầu; tránh Scope creep bằng scope rõ ràng và quy trình Change Request."
+  ],
+  "html": "<table><thead><tr><th>Phần</th><th>Câu hỏi cốt lõi</th><th>Công cụ</th></tr></thead><tbody><tr><td>Tiếp cận dự án</td><td>Làm gì, theo thứ tự nào?</td><td>13 bước; 6 knowledge area</td></tr><tr><td>Stakeholder</td><td>Ai liên quan? Làm việc với họ thế nào?</td><td>Primary/Secondary/Key; ma trận Power – Interest; RACI; Stakeholder Register</td></tr><tr><td>Phạm vi</td><td>Làm đến đâu thì dừng?</td><td>Scope thống nhất từ đầu; Change Request chống Scope creep</td></tr></tbody></table><p>Ba phần nối với nhau: stakeholder là nguồn yêu cầu; yêu cầu tạo nên phạm vi; phạm vi muốn đổi phải qua stakeholder có quyền phê duyệt.</p>"
+ },
+ "images": [
+  {
+   "id": "L04-img1",
+   "path": "data/pages/4. Tiep can du an/p-005.jpg",
+   "caption": "6 lĩnh vực kiến thức cốt lõi của BABOK",
+   "crop": [
+    0.27,
+    0.12,
+    0.99,
+    0.88
+   ]
+  },
+  {
+   "id": "L04-img2",
+   "path": "data/pages/4. Tiep can du an/p-010.jpg",
+   "caption": "Các nhóm stakeholder thường gặp",
+   "crop": [
+    0.03,
+    0.35,
+    0.98,
+    0.84
+   ]
+  },
+  {
+   "id": "L04-img3",
+   "path": "data/pages/4. Tiep can du an/p-015.jpg",
+   "caption": "Stakeholder Analysis Matrix: ảnh hưởng (dọc) và mức độ quan tâm (ngang)",
+   "crop": [
+    0.47,
+    0.11,
+    0.99,
+    0.89
+   ]
+  },
+  {
+   "id": "L04-img4",
+   "path": "data/pages/4. Tiep can du an/p-019.jpg",
+   "caption": "Stakeholder Register điền mẫu cho dự án HRM",
+   "crop": [
+    0.0,
+    0.25,
+    1.0,
+    0.67
+   ]
+  },
+  {
+   "id": "L04-img5",
+   "path": "data/pages/4. Tiep can du an/p-022.jpg",
+   "caption": "Scope creep làm chi phí và thời gian tăng, dự án mất kiểm soát",
+   "crop": [
+    0.45,
+    0.15,
+    1.0,
+    0.8
+   ]
+  }
+ ]
+}

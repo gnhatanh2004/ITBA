@@ -1,0 +1,719 @@
+{
+ "lesson": "L06",
+ "voice": "vi-VN-NamMinhNeural",
+ "hash": "4eae093cd9f0b9dc",
+ "duration": 781.344,
+ "chunks": [
+  {
+   "id": "L06-n1",
+   "start": 0.0,
+   "end": 29.712,
+   "sents": [
+    [
+     0.1,
+     4.237,
+     "Chào bạn, mình bắt đầu buổi sáu: quản lý yêu cầu."
+    ],
+    [
+     4.188,
+     6.6,
+     "Buổi này gồm hai phần lớn."
+    ],
+    [
+     6.6,
+     14.85,
+     "Phần đầu là các công cụ quản lý yêu cầu: quy trình xử lý Change Request, ma trận truy vết RTM, và cách xếp độ ưu tiên bằng MoSCoW."
+    ],
+    [
+     14.85,
+     23.012,
+     "Phần sau là các kỹ năng làm việc hằng ngày của BA: viết email chuyên nghiệp, quản lý tài liệu dự án, và log công việc trên Azure DevOps."
+    ],
+    [
+     23.012,
+     29.7,
+     "Bạn có thể nhớ gọn: thay đổi, truy vết, ưu tiên, rồi email, tài liệu, task."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n2",
+   "start": 30.312,
+   "end": 77.472,
+   "sents": [
+    [
+     30.412,
+     33.525,
+     "Đầu tiên, quản lý yêu cầu là gì?"
+    ],
+    [
+     33.474,
+     46.9,
+     "Requirements Management là quá trình tổ chức, theo dõi, kiểm soát, cập nhật và truyền thông mọi yêu cầu trong suốt vòng đời dự án, từ lúc yêu cầu hình thành, qua phân tích, phê duyệt, triển khai, cho tới nghiệm thu và bảo trì."
+    ],
+    [
+     46.9,
+     55.6,
+     "Nói gọn, yêu cầu không phải viết một lần rồi để đó, mà nó sinh ra, bị sửa, được xếp ưu tiên, được làm và được kiểm thử."
+    ],
+    [
+     55.6,
+     57.775,
+     "Vì sao phải quản lý?"
+    ],
+    [
+     57.775,
+     62.962,
+     "Thứ nhất, để tránh hiểu nhầm giữa khách hàng, BA, Dev và Tester."
+    ],
+    [
+     62.962,
+     71.037,
+     "Thứ hai, để mọi thay đổi đều được ghi nhận và phê duyệt, và truy vết được yêu cầu đến từ đâu, đã thiết kế, code, test chưa."
+    ],
+    [
+     71.037,
+     77.462,
+     "Thứ ba, để phát hiện sớm yêu cầu thiếu hay mâu thuẫn, và cuối cùng là để sản phẩm đúng nhu cầu khách hàng."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n3",
+   "start": 78.072,
+   "end": 112.416,
+   "sents": [
+    [
+     78.172,
+     82.347,
+     "Slide vẽ chín hoạt động quản lý yêu cầu nối nhau thành một vòng."
+    ],
+    [
+     82.297,
+     85.272,
+     "Mình gom thành ba nhóm cho dễ nhớ."
+    ],
+    [
+     85.272,
+     92.472,
+     "Nhóm đầu là làm ra yêu cầu: lập kế hoạch, xác định và khai thác yêu cầu, phân tích, rồi viết thành tài liệu."
+    ],
+    [
+     92.472,
+     100.609,
+     "Nhóm giữa là chốt yêu cầu: xếp độ ưu tiên, ví dụ bằng MoSCoW, và xác nhận yêu cầu đúng nhu cầu, tức Validation."
+    ],
+    [
+     100.609,
+     108.809,
+     "Nhóm cuối là giữ yêu cầu trong suốt dự án: truy vết bằng RTM, quản lý thay đổi bằng Change Request, và theo dõi, kiểm soát."
+    ],
+    [
+     108.809,
+     112.41,
+     "Ba công cụ chính của buổi hôm nay nằm đúng trong vòng này."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n4",
+   "start": 113.016,
+   "end": 145.272,
+   "sents": [
+    [
+     113.116,
+     116.74,
+     "Giờ tới công cụ thứ nhất: Change Request, viết tắt là CR."
+    ],
+    [
+     116.74,
+     122.574,
+     "CR là một yêu cầu chính thức, được đề xuất khi cần thay đổi một phần của sản phẩm hoặc dự án."
+    ],
+    [
+     122.574,
+     129.36,
+     "Thay đổi có thể là nghiệp vụ, phạm vi, thiết kế, kiến trúc và công nghệ, hoặc mốc thời gian và công sức."
+    ],
+    [
+     129.36,
+     134.475,
+     "CR có thể đến từ khách hàng, từ BA, từ Dev hay từ PM."
+    ],
+    [
+     134.475,
+     139.755,
+     "Nhưng dù đến từ ai, nó cũng phải đi qua quy trình quản lý thay đổi để được kiểm soát."
+    ],
+    [
+     139.755,
+     145.254,
+     "Mẹo nhớ: ai cũng được đề xuất, nhưng không ai được làm luôn khi chưa qua quy trình."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n5",
+   "start": 145.872,
+   "end": 194.76,
+   "sents": [
+    [
+     145.972,
+     148.935,
+     "Quy trình xử lý CR có sáu bước."
+    ],
+    [
+     148.885,
+     161.622,
+     "Một, tiếp nhận: ghi nhận yêu cầu, gán mã CR, ghi người yêu cầu và ngày yêu cầu, rồi hai, phân tích: thay đổi là gì, vì sao, thêm sửa bỏ chức năng nào, ảnh hưởng tới phần nào khác."
+    ],
+    [
+     161.622,
+     172.272,
+     "Ba, ước lượng effort: tốn bao nhiêu thời gian, chi phí, tài nguyên, có làm lùi lịch không, rồi bốn, phê duyệt: người có thẩm quyền quyết định đồng ý hay từ chối."
+    ],
+    [
+     172.272,
+     182.885,
+     "Năm, triển khai: cập nhật tài liệu, code và test theo CR đã duyệt, rồi sáu, nghiệm thu và theo dõi: kiểm kết quả, cập nhật RTM và nhật ký thay đổi."
+    ],
+    [
+     182.885,
+     188.947,
+     "Mẹo nhớ sáu chữ: nhận, hiểu, đo, duyệt, làm, kiểm."
+    ],
+    [
+     188.947,
+     194.76,
+     "Để ý bước đo đứng trước bước duyệt, vì người duyệt cần biết thay đổi tốn bao nhiêu thì mới quyết được."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n6",
+   "start": 195.36,
+   "end": 247.104,
+   "sents": [
+    [
+     195.46,
+     200.248,
+     "Sáu bước đó được ghi lại trên phiếu yêu cầu thay đổi, Change Request Form."
+    ],
+    [
+     200.198,
+     209.31,
+     "Đầu phiếu có tên dự án, mã CR ghép từ chữ CR, ngày và số thứ tự, kèm ngày yêu cầu, rồi tới năm phần đi song song với sáu bước."
+    ],
+    [
+     209.31,
+     216.635,
+     "Phần một và hai là tiếp nhận: ai yêu cầu, tên yêu cầu, mô tả chi tiết, lý do và lợi ích mong đợi."
+    ],
+    [
+     216.635,
+     227.823,
+     "Phần ba là phân tích và ước lượng: phạm vi gồm chức năng bổ sung, thay đổi, loại bỏ, rồi kế hoạch, chi phí, tài nguyên, rủi ro, độ ưu tiên và độ phức tạp."
+    ],
+    [
+     227.823,
+     233.798,
+     "Phần bốn là phê duyệt: đồng ý hoặc từ chối, và khi từ chối thì bắt buộc ghi rõ lý do."
+    ],
+    [
+     233.798,
+     238.673,
+     "Phần năm là triển khai: ngày bắt đầu, ngày xong, người phụ trách."
+    ],
+    [
+     238.673,
+     247.098,
+     "Ví dụ thư viện muốn thêm giá tiền cho đầu sách sau khi thiết kế đã chốt, thì Dev không tự thêm cột ngay sau buổi họp, mà mọi thứ đi qua phiếu và phê duyệt."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n7",
+   "start": 247.704,
+   "end": 295.248,
+   "sents": [
+    [
+     247.804,
+     253.942,
+     "Công cụ thứ hai là ma trận truy vết, Requirements Traceability Matrix, viết tắt RTM."
+    ],
+    [
+     253.892,
+     261.841,
+     "Đây là một bảng liên kết mỗi yêu cầu từ nguồn gốc của nó tới các sản phẩm công việc tương ứng: tài liệu thiết kế, code, kiểm thử."
+    ],
+    [
+     261.841,
+     264.404,
+     "RTM có bốn mục tiêu."
+    ],
+    [
+     264.404,
+     269.654,
+     "Một, không bỏ sót yêu cầu: dòng nào trống cột thiết kế hay test là thấy ngay."
+    ],
+    [
+     269.654,
+     274.767,
+     "Hai, kiểm soát phạm vi: thứ gì không có trong RTM là ngoài phạm vi."
+    ],
+    [
+     274.767,
+     279.779,
+     "Ba, dễ kiểm tra tiến độ và chất lượng qua cột kết quả kiểm thử và phiên bản."
+    ],
+    [
+     279.779,
+     287.341,
+     "Bốn, hỗ trợ quản lý thay đổi: khi một yêu cầu đổi, biết ngay tài liệu, task, testcase nào bị ảnh hưởng."
+    ],
+    [
+     287.341,
+     295.242,
+     "Theo BABOK, truy vết có hai chiều: xuôi từ yêu cầu tới thiết kế, code, test, và ngược từ test hay code về lại yêu cầu."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n8",
+   "start": 295.848,
+   "end": 337.944,
+   "sents": [
+    [
+     295.948,
+     300.136,
+     "Giờ mình đọc template RTM của dự án thư viện thông minh."
+    ],
+    [
+     300.086,
+     305.711,
+     "Mỗi dòng là một yêu cầu, đọc từ trái sang phải, từ nguồn gốc tới kết quả."
+    ],
+    [
+     305.711,
+     317.911,
+     "Bên trái là thông tin yêu cầu: mã yêu cầu duy nhất, mô tả một câu, nguồn yêu cầu như khách hàng hay khảo sát người dùng, ngày yêu cầu, độ ưu tiên theo MoSCoW, và phân loại Function hay Non-Function."
+    ],
+    [
+     317.911,
+     325.048,
+     "Ở giữa là các cột truy vết: tài liệu thiết kế như FSD, mã task trên công cụ quản lý, dải testcase."
+    ],
+    [
+     325.048,
+     331.048,
+     "Bên phải là kết quả: kết quả kiểm thử Pass hay Fail, phiên bản triển khai và ngày triển khai."
+    ],
+    [
+     331.048,
+     337.923,
+     "Muốn biết một chức năng có trong bản nào và đã test đạt chưa, bạn xem cột kết quả kiểm thử và cột phiên bản triển khai."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n9",
+   "start": 338.544,
+   "end": 382.296,
+   "sents": [
+    [
+     338.644,
+     343.806,
+     "Đọc kỹ các dòng, bạn sẽ thấy hai dòng trống cột thiết kế, task và test."
+    ],
+    [
+     343.756,
+     350.906,
+     "Dòng cộng điểm sau mỗi đơn hàng là Won't Have, trống là hợp lý, vì các bên đã thống nhất không làm ở phiên bản này."
+    ],
+    [
+     350.906,
+     356.531,
+     "Còn dòng mã hóa dữ liệu nhạy cảm là Must Have, loại Non-Function, mà cũng trống."
+    ],
+    [
+     356.531,
+     363.244,
+     "Đây là lỗ hổng truy vết: yêu cầu bắt buộc nhưng chưa có thiết kế, chưa có test, BA phải xử lý ngay."
+    ],
+    [
+     363.244,
+     369.806,
+     "File mẫu còn có sheet Change Log ghi ngày, mã yêu cầu, thay đổi, người thực hiện và trạng thái mới."
+    ],
+    [
+     369.806,
+     378.281,
+     "Lưu ý, template ghi mã CR ở cột mã yêu cầu, còn theo chuẩn thì RTM dùng mã yêu cầu riêng và CR có sổ theo dõi riêng."
+    ],
+    [
+     378.281,
+     382.281,
+     "Khi làm thật, bạn chọn một cách đặt mã và dùng thống nhất."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n10",
+   "start": 382.896,
+   "end": 422.808,
+   "sents": [
+    [
+     382.996,
+     390.934,
+     "Công cụ thứ ba là MoSCoW, phương pháp xếp độ ưu tiên với bốn mức: Must have, Should have, Could have và Won't have."
+    ],
+    [
+     390.884,
+     394.671,
+     "Hai chữ o chỉ để đọc cho dễ, không mang nghĩa."
+    ],
+    [
+     394.671,
+     401.584,
+     "Must Have là bắt buộc, thiếu thì hệ thống không hoạt động, ví dụ quản lý sách và mượn trả trong hệ thống thư viện."
+    ],
+    [
+     401.584,
+     409.684,
+     "Có ba dấu hiệu nhận ra Must: liên quan tới hầu hết nghiệp vụ, liên quan pháp luật hoặc an toàn thông tin, và không có giải pháp thay thế."
+    ],
+    [
+     409.684,
+     417.409,
+     "Should Have là quan trọng, mang lại giá trị đáng kể, nhưng chưa có thì hệ thống vẫn chạy, và có cách làm thủ công thay thế."
+    ],
+    [
+     417.409,
+     422.809,
+     "Ví dụ chức năng báo cáo của thư viện: thiếu nó thì thủ thư vẫn tổng hợp bằng tay được."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n11",
+   "start": 423.408,
+   "end": 469.584,
+   "sents": [
+    [
+     423.508,
+     435.383,
+     "Could Have là có thì tốt, nhưng tác động không đáng kể tới mục tiêu kinh doanh, thường là cải tiến nhỏ về trải nghiệm hoặc tính năng phụ, ví dụ tiện ích lịch, thời tiết, hay màn danh sách cho chọn cột hiển thị."
+    ],
+    [
+     435.333,
+     444.383,
+     "Won't Have là yêu cầu được các bên liên quan đồng ý sẽ không làm trong phiên bản này, ví dụ chưa gửi OTP qua SMS khi chưa đăng ký tên thương hiệu."
+    ],
+    [
+     444.383,
+     451.421,
+     "Muốn xếp Won't, BA phải thống nhất với Stakeholder và đưa ra căn cứ để họ quyết định, chứ không tự bỏ."
+    ],
+    [
+     451.421,
+     456.346,
+     "Và Won't Have không có nghĩa là xóa vĩnh viễn, nó chỉ là không làm lần này."
+    ],
+    [
+     456.346,
+     460.396,
+     "Câu hỏi nhanh để xếp mức: thiếu nó thì hệ thống có chạy không?"
+    ],
+    [
+     460.396,
+     464.521,
+     "Không chạy là Must, chạy được nhưng làm tay vất vả là Should."
+    ],
+    [
+     464.521,
+     469.571,
+     "Chạy bình thường, chỉ kém tiện là Could, còn đã thống nhất để sau là Won't."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n12",
+   "start": 470.184,
+   "end": 509.184,
+   "sents": [
+    [
+     470.284,
+     473.634,
+     "Sang phần kỹ năng, bắt đầu với email."
+    ],
+    [
+     473.584,
+     477.384,
+     "BA dùng email để để lại bằng chứng bằng văn bản."
+    ],
+    [
+     477.384,
+     489.409,
+     "Bạn cần gửi email khi xác nhận yêu cầu sau họp, khi có câu hỏi cần làm rõ, khi gửi tài liệu đề nghị xác nhận, khi có Change Request, khi báo rủi ro, bàn giao tài liệu, mời họp hay báo cáo tiến độ."
+    ],
+    [
+     489.409,
+     494.922,
+     "Nói miệng thì dễ quên, dễ cãi, cái gì đã chốt thì phải có email xác nhận."
+    ],
+    [
+     494.922,
+     500.684,
+     "Về người nhận, ô To nên chỉ có một người, là người chịu trách nhiệm cao nhất về việc đó."
+    ],
+    [
+     500.684,
+     509.172,
+     "Những người khác để ở ô CC, theo hai nguyên tắc: khách hàng trước, đơn vị triển khai sau, và trong mỗi bên thì chức vụ cao hơn đứng trước."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n13",
+   "start": 509.784,
+   "end": 551.232,
+   "sents": [
+    [
+     509.884,
+     513.447,
+     "Email cần rõ ràng, ngắn gọn và lịch sự."
+    ],
+    [
+     513.396,
+     517.534,
+     "Slide đưa một câu để bàn: anh chị chốt cho em vấn đề này."
+    ],
+    [
+     517.534,
+     525.771,
+     "Câu này chưa chuyên nghiệp vì chữ chốt là văn nói, nghe như ra lệnh, lại không nói rõ vấn đề nào, không có hạn phản hồi, không có lý do."
+    ],
+    [
+     525.771,
+     534.284,
+     "Cách viết tốt hơn là nhờ anh chị xem xét và xác nhận giúp em một phương án cụ thể, trước một hạn cụ thể, để nhóm phát triển kịp làm phần nào."
+    ],
+    [
+     534.284,
+     543.134,
+     "Tiêu đề email cũng phải cụ thể, có mã hoặc từ khóa, theo công thức: loại việc trong ngoặc vuông, cộng nội dung cụ thể, cộng tên dự án."
+    ],
+    [
+     543.134,
+     551.221,
+     "Ví dụ, xác nhận yêu cầu, chức năng quản lý sách, dự án quản lý thư viện thông minh, chứ đừng chỉ ghi trơn chức năng quản lý sách."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n14",
+   "start": 551.832,
+   "end": 596.496,
+   "sents": [
+    [
+     551.932,
+     554.182,
+     "Thân email có ba phần."
+    ],
+    [
+     554.132,
+     564.944,
+     "Mở đầu bằng lời chào trang trọng, chỉ chào một người ở vị trí cao nhất, rồi cảm ơn vì buổi họp hay góp ý, và nội dung tiếng Việt thì chào tiếng Việt, nội dung tiếng Anh thì chào tiếng Anh."
+    ],
+    [
+     564.944,
+     574.907,
+     "Phần chính nên dùng danh sách đánh số hoặc bảng, theo bố cục: bối cảnh họp ngày nào với ai, những gì đã chốt, rồi những gì cần xác nhận, mỗi ý một câu hỏi đóng."
+    ],
+    [
+     574.907,
+     580.019,
+     "Kết thư có lời nhắc deadline nhẹ nhàng, rồi ký tên kèm vị trí trong dự án."
+    ],
+    [
+     580.019,
+     582.432,
+     "Thêm ba lưu ý khi gửi."
+    ],
+    [
+     582.432,
+     590.544,
+     "Một, nội dung quá dài thì đưa vào file đính kèm, và hai, gửi trong giờ hành chính, làm việc với nước ngoài thì không gửi vào ngày nghỉ."
+    ],
+    [
+     590.544,
+     596.482,
+     "Ba, soạn xong nội dung rồi mới điền người nhận, để tránh lỡ tay gửi khi email chưa hoàn chỉnh."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n15",
+   "start": 597.096,
+   "end": 648.624,
+   "sents": [
+    [
+     597.196,
+     604.645,
+     "Kỹ năng thứ hai là quản lý tài liệu dự án, để tài liệu có tổ chức, dễ tìm, dễ theo dõi phiên bản và được bảo mật."
+    ],
+    [
+     604.645,
+     609.527,
+     "Bạn tạo một thư mục gốc cho dự án, chia thành tám thư mục con đánh số."
+    ],
+    [
+     609.527,
+     620.776,
+     "Một là Project Initiation, tài liệu khởi động, hai là Requirements, chứa SRS, user story, wireframe, ba là Design, chứa kiến trúc và mô hình dữ liệu."
+    ],
+    [
+     620.776,
+     628.924,
+     "Tiếp theo là Development, Testing và Deployment, rồi Change Logs chứa phiếu CR và nhật ký thay đổi, cuối cùng là Report."
+    ],
+    [
+     628.924,
+     635.184,
+     "Ảnh minh họa ghi thư mục đầu là Project, còn phần chữ ghi Project Initiation, hai tên cùng một ý."
+    ],
+    [
+     635.184,
+     642.54,
+     "Tên file đặt theo cấu trúc: tên đơn vị, tên dự án, tên tài liệu, phiên bản, ngày, nối với nhau bằng dấu gạch dưới."
+    ],
+    [
+     642.54,
+     648.621,
+     "Ví dụ ABC, FoodNow, SRS, phiên bản một chấm không, kèm ngày lập."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n16",
+   "start": 649.224,
+   "end": 688.824,
+   "sents": [
+    [
+     649.324,
+     652.974,
+     "Về phiên bản, một chấm không là bản đầu tiên."
+    ],
+    [
+     652.924,
+     662.312,
+     "Sửa nhỏ như lỗi chính tả thì tăng số sau dấu chấm, thành một chấm một, còn thay đổi nội dung quan trọng, ví dụ một CR được duyệt, thì lên hai chấm không."
+    ],
+    [
+     662.312,
+     668.987,
+     "Bản cũ có thể lưu thủ công vào thư mục phụ, hoặc dùng công cụ tự động như SharePoint, Google Drive hay Git."
+    ],
+    [
+     668.987,
+     674.424,
+     "Mỗi loại tài liệu cần người chịu trách nhiệm cập nhật, và nên kiểm tra định kỳ hằng tháng."
+    ],
+    [
+     674.424,
+     684.087,
+     "Về bảo mật, phân quyền theo vai trò: Read-Only cho người chỉ cần đọc, Editor cho người chịu trách nhiệm cập nhật, Admin cho người quản lý quyền và cấu trúc thư mục."
+    ],
+    [
+     684.087,
+     688.812,
+     "Tài liệu quan trọng thì mã hóa hoặc lưu ở nơi an toàn có bảo mật hai lớp."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n17",
+   "start": 689.424,
+   "end": 738.888,
+   "sents": [
+    [
+     689.524,
+     694.349,
+     "Kỹ năng cuối là log công việc trên Azure DevOps, với năm loại work item."
+    ],
+    [
+     694.299,
+     701.062,
+     "User Story mô tả chức năng theo mong muốn người dùng, Task chia việc cụ thể trong từng sprint, Bug ghi lỗi."
+    ],
+    [
+     701.062,
+     707.661,
+     "Epic nhóm các User Story liên quan để nhìn tổng quan, còn Issue ghi vấn đề đang cản trở tiến độ."
+    ],
+    [
+     707.661,
+     715.149,
+     "Để tạo, bạn vào Boards, chọn Work Items, chọn New Work Item, chọn loại, nhập thông tin rồi Save."
+    ],
+    [
+     715.149,
+     722.799,
+     "Trường quan trọng nhất của User Story là Acceptance Criteria, tiêu chí chấp nhận, là điều kiện để coi yêu cầu đã hoàn thành."
+    ],
+    [
+     722.799,
+     733.536,
+     "Hai trường hay bị nhầm là Priority và mức độ nghiêm trọng, Severity: Priority nói việc cấp bách tới đâu, còn Severity nói nó ảnh hưởng tới hệ thống hay người dùng nặng tới đâu."
+    ],
+    [
+     733.536,
+     738.874,
+     "Lưu ý tài liệu dùng số, và mức một luôn là cao nhất, đừng nhầm với MoSCoW."
+    ]
+   ]
+  },
+  {
+   "id": "L06-n18",
+   "start": 739.488,
+   "end": 781.344,
+   "sents": [
+    [
+     739.588,
+     741.638,
+     "Tóm lại buổi sáu."
+    ],
+    [
+     741.588,
+     746.838,
+     "Quản lý yêu cầu kéo dài suốt vòng đời dự án, không phải viết một lần rồi để đó."
+    ],
+    [
+     746.838,
+     753.963,
+     "Mọi thay đổi đi qua Change Request với sáu bước: nhận, hiểu, đo, duyệt, làm, kiểm."
+    ],
+    [
+     753.963,
+     760.501,
+     "RTM nối mỗi yêu cầu từ nguồn gốc tới thiết kế, task, test, giúp phát hiện chỗ bị bỏ sót."
+    ],
+    [
+     760.501,
+     766.513,
+     "MoSCoW xếp ưu tiên bằng câu hỏi thiếu nó thì sao, và Won't Have chỉ là không làm lần này."
+    ],
+    [
+     766.513,
+     776.876,
+     "Bên cạnh đó là ba kỹ năng hằng ngày: email có bằng chứng và đúng bố cục, tài liệu có thư mục, tên file và phiên bản rõ ràng, và work item được log đủ trên Azure DevOps."
+    ],
+    [
+     776.876,
+     781.326,
+     "Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài."
+    ]
+   ]
+  }
+ ]
+}

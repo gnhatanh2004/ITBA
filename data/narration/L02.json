@@ -1,0 +1,329 @@
+{
+ "lesson": "L02",
+ "chunks": [
+  {
+   "id": "L02-n1",
+   "ref": "L02-t1",
+   "say": "Chào bạn, mình bắt đầu buổi hai: kiến thức IT cơ bản cho IT BA. Buổi này có bốn phần. Phần một, những mảng kiến thức IT mà một BA nên biết. Phần hai, các mô hình triển khai hệ thống, từ mô hình tổng thể tới Client Server, N-Tier, Monolithic và Microservices. Phần ba, đường truyền mạng, gồm các zone, địa chỉ IP, DNS và DHCP. Phần bốn, các công nghệ khác như ngôn ngữ lập trình và hệ quản trị cơ sở dữ liệu. Mục tiêu không phải để bạn thành kỹ sư, mà để bạn đọc được sơ đồ hệ thống và nói chuyện được với team kỹ thuật.",
+   "show": {
+    "h": "Buổi 2: Kiến thức IT cơ bản cho IT BA",
+    "points": [
+     "Kiến thức IT cần biết",
+     "Các mô hình triển khai",
+     "Đường truyền mạng: zone, IP, DNS, DHCP",
+     "Công nghệ khác: ngôn ngữ lập trình, hệ quản trị CSDL"
+    ]
+   }
+  },
+  {
+   "id": "L02-n2",
+   "ref": "L02-t1",
+   "say": "Vì sao IT BA cần kiến thức IT? Một IT BA không cần code giỏi như Dev, nhưng cần đủ hiểu biết để làm được mấy việc sau. Hiểu ngôn ngữ của team phát triển và làm việc với họ hiệu quả hơn. Hiểu hệ thống vận hành thế nào ở tầng kỹ thuật. Dịch yêu cầu business thành yêu cầu kỹ thuật khả thi, phân tích yêu cầu ít rủi ro hơn, từ đó đưa ra giải pháp thực tế hơn cho khách hàng và tăng giá trị của chính BA. Ví dụ khách nói: khách đặt món xong thì nhà bếp thấy ngay. BA có kiến thức IT hiểu đây là yêu cầu cập nhật gần như tức thời, và hỏi Dev cách đẩy thông báo, thay vì viết một câu mơ hồ. Nhớ lại buổi trước: BA là người phiên dịch, muốn dịch đúng thì phải hiểu cả tiếng nghiệp vụ lẫn tiếng kỹ thuật.",
+   "show": {
+    "h": "Vì sao IT BA cần kiến thức IT",
+    "points": [
+     "Không cần code giỏi như Dev",
+     "Hiểu ngôn ngữ team, hiểu hệ thống ở tầng kỹ thuật",
+     "Dịch yêu cầu business → yêu cầu kỹ thuật khả thi, ít rủi ro",
+     "Giải pháp thực tế hơn, tăng giá trị của BA"
+    ]
+   },
+   "ask": [
+    "L02-q1",
+    "L02-q2"
+   ]
+  },
+  {
+   "id": "L02-n3",
+   "ref": "L02-t2",
+   "say": "Vậy BA nên biết những mảng nào? Bạn không cần biết tất cả, chỉ cần biết tên và vai trò của từng mảng. Nhóm thứ nhất là hệ thống và kiến trúc: các loại mô hình như Client Server, Web-based, Mobile app, Cloud-based, rồi đường truyền mạng, và các thiết bị như Server, Firewall. Nhóm thứ hai là công nghệ và dữ liệu: ngôn ngữ lập trình, Database, và mảng Integration và API, tức cách hai phần mềm nói chuyện với nhau. Nhóm thứ ba là bảo mật, quy trình phát triển phần mềm SDLC, và Testing, Quality Assurance. Về các mô hình: Web-based mở bằng trình duyệt, không cần cài; Mobile app cài trên điện thoại, gọi tới server qua API; còn Cloud-based chạy trên hạ tầng thuê của nhà cung cấp đám mây. SDLC, API và Database sẽ được học kỹ ở các bài sau.",
+   "show": {
+    "h": "Những mảng kiến thức IT BA nên biết",
+    "points": [
+     "Hệ thống & kiến trúc: mô hình, đường truyền mạng, thiết bị",
+     "Mô hình: Client–Server · Web-based · Mobile app · Cloud-based",
+     "Công nghệ · Database · Integration & API",
+     "Security · SDLC · Testing & QA"
+    ]
+   }
+  },
+  {
+   "id": "L02-n4",
+   "ref": "L02-t3",
+   "say": "Phần hai là các mô hình. Slide giới thiệu bốn mức, đi từ khái quát tới cụ thể. Mô hình tổng thể cho biết hệ thống gồm những phân hệ nào, liên thông với ai bên ngoài. Mô hình vật lý cho biết có những máy chủ, thiết bị nào, đặt ở vùng mạng nào. Mô hình logic cho biết các khối phần mềm nối với nhau ra sao, còn mô hình chi tiết đi tới từng API, từng cơ sở dữ liệu, từng nhóm người dùng. Ví dụ mô hình tổng thể trên slide là một hệ thống y tế: lõi là HIS, hệ thống thông tin bệnh viện, kết nối với RIS PACS quản lý ảnh chẩn đoán, LIS quản lý xét nghiệm, bệnh án điện tử EMR, và liên thông dữ liệu với Bảo hiểm xã hội, Trung tâm y tế quốc gia. Mô hình này cho BA bức tranh lớn: hệ thống mình làm nằm ở đâu, phải tích hợp với ai.",
+   "show": {
+    "h": "Bốn mức mô hình · Mô hình tổng thể",
+    "points": [
+     "Tổng thể → Vật lý → Logic → Chi tiết",
+     "Tổng thể: các phân hệ + liên thông với bên ngoài",
+     "Ví dụ y tế: HIS ↔ RIS/PACS, LIS, EMR, EHR",
+     "Liên thông: Bảo hiểm xã hội, Trung tâm y tế quốc gia…",
+     "Bức tranh lớn: phạm vi hệ thống, tích hợp với ai"
+    ],
+    "img": "L02-img1"
+   },
+   "ask": [
+    "L02-q5"
+   ]
+  },
+  {
+   "id": "L02-n5",
+   "ref": "L02-t4",
+   "say": "Mô hình vật lý cho thấy thiết bị thật và vùng mạng mà chúng nằm. Hãy đọc theo đường đi của một yêu cầu. Khách hàng ở ngoài Internet gửi yêu cầu, đi qua Firewall, tức tường lửa lọc lưu lượng. Tiếp theo là Load Balancer, chia đều yêu cầu cho nhiều máy chủ để không máy nào bị quá tải. Yêu cầu tới Web FE hoặc Gateway ở DMZ, rồi qua một Firewall nữa vào Server API ở Internal Zone để xử lý nghiệp vụ. Cuối cùng là DB chính ở Database Zone, được sao lưu sang DB Backup, bên cạnh là Server File. Slide vẽ nhiều Web FE và nhiều Server API để chịu tải lớn, và nếu một máy hỏng thì vẫn còn máy khác chạy. Để ý dữ liệu quý nhất nằm sâu nhất: kẻ tấn công vượt được firewall đầu tiên mới chỉ tới DMZ.",
+   "show": {
+    "h": "Mô hình vật lý",
+    "points": [
+     "Thiết bị thật + vùng mạng (zone)",
+     "Internet → Firewall → Load Balancer → Web FE / Gateway (DMZ)",
+     "→ Firewall → Server API (Internal) → DB chính (Database Zone)",
+     "Nhiều máy 1…n: chịu tải, còn máy khác khi một máy hỏng",
+     "Dữ liệu quý nhất nằm sâu nhất"
+    ],
+    "img": "L02-img2"
+   },
+   "ask": [
+    "L02-q6",
+    "L02-q7"
+   ]
+  },
+  {
+   "id": "L02-n6",
+   "ref": "L02-t5",
+   "say": "Khác với mô hình vật lý, mô hình logic không quan tâm máy chủ hay vùng mạng cụ thể, mà vẽ các khối phần mềm và luồng dữ liệu giữa chúng. Từ Website nghiệp vụ, yêu cầu đi qua Firewall, Load balancer, Web FE và Gateway, qua một Firewall nữa để vào Internal zone. Ở đó khối Backend nhận và xử lý yêu cầu. Backend đặt việc vào Queue, tức Message Queue, hàng đợi thông điệp, rồi các service phía sau lấy ra xử lý dần. Nhờ hàng đợi, hệ thống không bị nghẽn khi nhiều yêu cầu dồn tới cùng lúc. Các service nghiệp vụ đọc dữ liệu nghiệp vụ và ghi vào Database summary, bên cạnh có Cache Redis là bộ nhớ đệm để đọc nhanh. Slide chỉ ghi tên tắt các service như LDN, HMN mà không giải thích. Gặp chỗ như vậy, BA nên hỏi lại team xem mỗi service phụ trách nghiệp vụ gì, đừng tự đoán.",
+   "show": {
+    "h": "Mô hình logic",
+    "points": [
+     "Khối phần mềm + luồng dữ liệu, không quan tâm máy chủ",
+     "Website → Firewall → Load balancer → Web FE / GW → Backend",
+     "Message Queue: xếp việc chờ, tránh nghẽn khi tải cao",
+     "Service → Database summary · Cache Redis đọc nhanh",
+     "Tên tắt chưa rõ (LDN, HMN…) → hỏi lại team"
+    ],
+    "img": "L02-img3"
+   },
+   "ask": [
+    "L02-q8",
+    "L02-q14",
+    "L02-q12"
+   ]
+  },
+  {
+   "id": "L02-n7",
+   "ref": "L02-t6",
+   "say": "Mô hình chi tiết đi tới từng API, từng cơ sở dữ liệu và từng nhóm người dùng. Ví dụ trên slide là một hệ thống giám sát thiết bị có cảnh báo. Thiết bị gửi tín hiệu tới hệ thống xử lý tín hiệu, hệ thống này gọi API giao tiếp với thiết bị. API đó gọi API Log History để ghi lịch sử vào cơ sở dữ liệu Mongo, nơi chứa rất nhiều log với cấu trúc linh hoạt, và ghi dữ liệu vào cơ sở dữ liệu tổng hợp dùng SQL. Để báo cho người dùng, API gọi dịch vụ SMS và cuộc gọi, đồng thời gửi yêu cầu tới Socket. Socket là kênh kết nối luôn mở, bắn cảnh báo ngay tới Mobile App và CMS mà người dùng không cần tải lại. Từ luồng này, BA rút ra yêu cầu: cảnh báo đi qua những kênh nào, lịch sử lưu ở đâu, ai được xem.",
+   "show": {
+    "h": "Mô hình chi tiết",
+    "points": [
+     "Từng API · từng CSDL · từng nhóm người dùng",
+     "Device → xử lý tín hiệu → API giao tiếp với thiết bị",
+     "Lịch sử: API Log History → CSDL Mongo · tổng hợp: SQL",
+     "Cảnh báo: SMS + CALL, Socket → Mobile App, CMS",
+     "Căn cứ viết đặc tả chức năng và đặc tả API"
+    ],
+    "img": "L02-img4"
+   },
+   "ask": [
+    "L02-q9",
+    "L02-q10",
+    "L02-q11"
+   ]
+  },
+  {
+   "id": "L02-n8",
+   "ref": "L02-t7",
+   "say": "Giờ sang các kiểu kiến trúc, bắt đầu với Client Server, mô hình cơ bản nhất. Client là bên gửi yêu cầu và nhận kết quả, ví dụ máy trạm, laptop, điện thoại. Server nhận yêu cầu, xử lý và trả kết quả về. Đường truyền nối hai bên, có thể là mạng Internet hoặc LAN, tức mạng nội bộ. Ví dụ khách mở app đặt đồ ăn và bấm xem thực đơn. App là client, gửi yêu cầu qua Internet tới server, server lấy thực đơn từ cơ sở dữ liệu rồi trả về để app hiển thị. Mẹo nhớ: Client hỏi, Server trả lời, còn đường truyền là con đường chở câu hỏi và câu trả lời.",
+   "show": {
+    "h": "Mô hình Client – Server",
+    "points": [
+     "Client: gửi yêu cầu, nhận kết quả (máy trạm, laptop, điện thoại)",
+     "Server: nhận yêu cầu, xử lý, trả kết quả",
+     "Đường truyền: Internet hoặc LAN",
+     "Mẹo: Client hỏi · Server trả lời"
+    ],
+    "img": "L02-img5"
+   },
+   "ask": [
+    "L02-q15",
+    "L02-q17"
+   ]
+  },
+  {
+   "id": "L02-n9",
+   "ref": "L02-t8",
+   "say": "N-Tier nghĩa là nhiều tầng: hệ thống được chia thành các tầng riêng, mỗi tầng một trách nhiệm. Tầng presentation tương tác trực tiếp với người dùng. Tầng business logic xử lý nghiệp vụ, còn tầng data access thao tác với Database. Ngoài ra còn các tầng phụ như tầng tích hợp, tầng bảo mật, tầng caching. Hình trên slide vẽ yêu cầu đi từ trên xuống, kết quả trả từ dưới lên, mỗi tầng chỉ làm việc với tầng kề bên. Slide gọi chung là N-Tier, còn theo chuẩn, tier là tầng triển khai, layer là lớp tổ chức code. Ví dụ chức năng đặt bàn của FoodNow: màn hình chọn giờ và số khách là presentation; quy tắc không nhận đặt bàn khi nhà hàng đã kín chỗ là business logic; lưu đơn vào cơ sở dữ liệu là data access. Biết vậy, khi khách muốn đổi một quy tắc, BA biết thay đổi nằm ở business logic chứ không phải ở giao diện.",
+   "show": {
+    "h": "Mô hình N-Tier",
+    "points": [
+     "Presentation: tương tác với người dùng",
+     "Business logic: xử lý nghiệp vụ, quy tắc",
+     "Data access: thao tác với Database",
+     "Tầng phụ: tích hợp · bảo mật · caching",
+     "Yêu cầu đi xuống, kết quả trả lên"
+    ],
+    "img": "L02-img6"
+   },
+   "ask": [
+    "L02-q18",
+    "L02-q19",
+    "L02-q21"
+   ]
+  },
+  {
+   "id": "L02-n10",
+   "ref": "L02-t9",
+   "say": "Tiếp theo là cặp Monolithic và Microservices. Monolithic là nguyên khối: giao diện, xử lý nghiệp vụ và truy cập dữ liệu gói trong một ứng dụng, dùng chung một cơ sở dữ liệu. Nó hợp dự án nhỏ đến trung bình, cần phát triển nhanh giai đoạn đầu, triển khai đơn giản. Microservices chia thành nhiều service nhỏ, mỗi service lo một việc và thường có cơ sở dữ liệu riêng. Nó hợp hệ thống lớn, cần mở rộng cao, nhưng đòi hỏi đội ngũ có kinh nghiệm và hạ tầng hiện đại. Ví dụ quán nhỏ làm app đặt món có thể chọn Monolithic để ra mắt nhanh, còn chuỗi SolasMart có bán tại quầy, bán online, kho và nhân sự thì hợp Microservices, nếu team đủ kinh nghiệm. Mẹo nhớ: Monolithic là một căn nhà lớn, sửa một phòng có thể ảnh hưởng cả nhà. Microservices là dãy nhà nhỏ, sửa nhà này không ảnh hưởng nhà kia, nhưng phải quản lý nhiều nhà.",
+   "show": {
+    "h": "Monolithic và Microservices",
+    "points": [
+     "Monolithic: một khối, chung một CSDL",
+     "→ dự án nhỏ, trung bình; ra nhanh; triển khai đơn giản",
+     "Microservices: nhiều service nhỏ, thường CSDL riêng",
+     "→ hệ thống lớn, mở rộng cao; cần team giỏi + hạ tầng hiện đại",
+     "Mẹo: một căn nhà lớn · dãy nhà nhỏ"
+    ],
+    "img": "L02-img7"
+   },
+   "ask": [
+    "L02-q22",
+    "L02-q23",
+    "L02-q24"
+   ]
+  },
+  {
+   "id": "L02-n11",
+   "ref": "L02-t10",
+   "say": "Phần ba là đường truyền mạng, bắt đầu với zone. Zone là cách chia mạng thành các vùng an ninh, dựa trên mức độ tin cậy và chức năng. Mục tiêu là giảm rủi ro nếu một vùng bị tấn công, đồng thời dễ quản lý bảo mật và dễ tuân thủ chính sách. BA không cần biết cấu hình mạng, nhưng cần hiểu zone để xác định yêu cầu phi chức năng về bảo mật và triển khai, trao đổi với team hạ tầng, và đánh giá rủi ro của hệ thống. Trong dự án lớn, đây cũng là kiến thức để viết tài liệu GPKT, thường hiểu là tài liệu giải pháp kỹ thuật. Mẹo nhớ: zone giống các vòng cửa của một tòa nhà, càng vào trong càng ít người được vào, đồ càng quý.",
+   "show": {
+    "h": "Zone trong mạng",
+    "points": [
+     "Chia mạng thành vùng an ninh theo mức tin cậy + chức năng",
+     "Mục tiêu: giảm rủi ro khi một vùng bị tấn công, dễ quản lý bảo mật",
+     "BA dùng để: viết NFR bảo mật, triển khai; đánh giá rủi ro",
+     "Đầu vào cho tài liệu GPKT",
+     "Mẹo: các vòng cửa của tòa nhà"
+    ]
+   }
+  },
+  {
+   "id": "L02-n12",
+   "ref": "L02-t11",
+   "say": "Slide liệt kê sáu loại zone. External hay Internet Zone là vùng mạng ngoài, không tin cậy. DMZ là vùng trung gian giữa Internet và mạng nội bộ, tin cậy thấp, nơi đặt website, Web FE và Gateway. Internal Zone là mạng nội bộ, tin cậy cao, chứa service nghiệp vụ và API. Database Zone chứa dữ liệu cực kỳ quan trọng, rất tin cậy. Hai vùng còn lại có chức năng riêng: Guest Zone dành cho khách, như Wi-Fi Guest, không vào được mạng công ty, còn Management Zone dành cho quản trị như giám sát và sao lưu. Vậy thứ tự tin cậy tăng dần là External, DMZ, Internal, rồi Database; đừng nhầm DMZ là vùng an toàn nhất, nó chỉ là sảnh chờ của tòa nhà. Biết vậy, BA viết được yêu cầu như: cơ sở dữ liệu khách hàng đặt ở Database Zone, không truy cập trực tiếp từ Internet, chỉ server API nội bộ được kết nối.",
+   "show": {
+    "h": "Các loại zone",
+    "points": [
+     "External → DMZ → Internal → Database: tin cậy tăng dần",
+     "DMZ: sảnh chờ, đặt Web FE, Gateway, website",
+     "Internal: service nghiệp vụ, API · Database: dữ liệu, file",
+     "Guest: Wi-Fi khách · Management: monitoring, backup",
+     "NFR: CSDL ở Database Zone, chỉ API nội bộ kết nối"
+    ]
+   },
+   "ask": [
+    "L02-q27",
+    "L02-q28",
+    "L02-q31"
+   ]
+  },
+  {
+   "id": "L02-n13",
+   "ref": "L02-t12",
+   "say": "Tiếp theo là địa chỉ IP, viết tắt của Internet Protocol Address. IP là dãy số định danh thiết bị trên Internet và trong mạng nội bộ, và mọi thiết bị muốn giao tiếp với nhau đều phải có IP. ISP là nhà cung cấp dịch vụ Internet, như VNPT, FPT Telecom, Viettel, CMC Telecom. Trong một ngôi nhà, máy tính và điện thoại mỗi máy có một Private IP riêng, cùng nối tới một Router. Router có một Public IP do ISP cấp, và đi qua ISP để ra Internet. Mẹo nhớ: Private IP là số phòng trong tòa nhà, còn Public IP là địa chỉ của cả tòa nhà mà bưu điện, tức ISP, biết.",
+   "show": {
+    "h": "Địa chỉ IP và ISP",
+    "points": [
+     "IP: dãy số định danh thiết bị, thiết bị nào giao tiếp cũng cần IP",
+     "ISP: VNPT, FPT Telecom, Viettel, CMC Telecom…",
+     "Thiết bị trong nhà: Private IP → Router: Public IP → ISP → Internet",
+     "Mẹo: Private IP = số phòng · Public IP = địa chỉ tòa nhà"
+    ]
+   }
+  },
+  {
+   "id": "L02-n14",
+   "ref": "L02-t13",
+   "say": "Địa chỉ IP được phân loại theo hai cách. Theo phiên bản, IPv4 gồm bốn nhóm số thập phân cách nhau bằng dấu chấm, dài 32 bit, chỉ khoảng 4,3 tỷ địa chỉ nên không đủ dùng. IPv6 gồm tám nhóm số thập lục phân cách nhau bằng dấu hai chấm, dài 128 bit, đủ để mỗi thiết bị có địa chỉ riêng. Theo phạm vi, có IP private và IP public. IP private nằm trong ba dải: dải bắt đầu bằng 10, dải từ 172.16 tới 172.31, và dải bắt đầu bằng 192.168. Địa chỉ nằm ngoài ba dải này là IP public, được định danh duy nhất trên Internet. Ví dụ 172.20 là private, nhưng 172.40 là public vì nằm ngoài dải từ 172.16 tới 172.31. Lưu ý hình trên slide ghi một con số địa chỉ IPv6, thực ra đó là số lần IPv6 nhiều hơn IPv4, còn ý cần nhớ không đổi: IPv6 nhiều địa chỉ hơn rất nhiều.",
+   "show": {
+    "h": "Phân loại địa chỉ IP",
+    "points": [
+     "IPv4: 4 nhóm số thập phân, 32 bit, khoảng 4,3 tỷ địa chỉ",
+     "IPv6: 8 nhóm thập lục phân, 128 bit, nhiều hơn rất nhiều",
+     "Private: 10.x · 172.16–172.31.x · 192.168.x",
+     "Ngoài 3 dải → Public, duy nhất trên Internet"
+    ],
+    "img": "L02-img8"
+   },
+   "ask": [
+    "L02-q35",
+    "L02-q36"
+   ]
+  },
+  {
+   "id": "L02-n15",
+   "ref": "L02-t14",
+   "say": "Muốn xem IP của máy mình thì làm sao? IP public thì vào trang whatismyipaddress.com, trang sẽ hiện IP cùng tên ISP và quốc gia. IP private thì trên Windows mở cmd gõ ipconfig, còn trên Linux hay macOS mở terminal gõ ifconfig. Hai địa chỉ khác nhau là bình thường, vì máy bạn dùng IP private, còn trang web chỉ thấy IP public của router. Có hai giao thức tác động tới IP. DNS, hệ thống phân giải tên miền, đổi tên miền dễ nhớ thành địa chỉ IP để máy tìm tới server. DHCP tự động cấp IP cho thiết bị khi vào mạng, không cần cấu hình tay. Mẹo nhớ: DNS là danh bạ, đổi tên ra số; DHCP là lễ tân phát số phòng cho thiết bị mới vào.",
+   "show": {
+    "h": "Kiểm tra IP; DNS và DHCP",
+    "points": [
+     "IP public: whatismyipaddress.com",
+     "IP private: ipconfig (Windows) · ifconfig (Linux, macOS)",
+     "DNS: tên miền → địa chỉ IP (danh bạ)",
+     "DHCP: tự động cấp IP khi vào mạng (lễ tân phát số phòng)"
+    ]
+   },
+   "ask": [
+    "L02-q37",
+    "L02-q39",
+    "L02-q40"
+   ]
+  },
+  {
+   "id": "L02-n16",
+   "ref": "L02-t15",
+   "say": "Phần bốn là công nghệ. BA không cần viết code, nhưng nên biết tên và thế mạnh của các ngôn ngữ phổ biến. JavaScript dùng cho web, cả front-end lẫn back-end. Python mạnh về phân tích dữ liệu, AI, học máy và tự động hóa. Java dùng cho ứng dụng doanh nghiệp, Android và hệ thống lớn; C Sharp cho ứng dụng Windows và game Unity; còn C và C++ cho phần mềm hệ thống, nhúng, hiệu năng cao. Hệ thống cũng chia hai phía: Frontend là phần người dùng nhìn thấy, như nút đặt món, ảnh món ăn, viết bằng JavaScript, HTML, CSS. Backend chạy trên server, lo tính tiền, kiểm tra món còn hay hết, lưu đơn, viết bằng C Sharp, Java và nhiều công nghệ khác. Lưu ý slide xếp React-native vào nhóm ngôn ngữ, còn theo chuẩn đó là một framework viết bằng JavaScript để làm app di động.",
+   "show": {
+    "h": "Ngôn ngữ lập trình, Frontend và Backend",
+    "points": [
+     "JavaScript: web · Python: dữ liệu, AI, tự động hóa",
+     "Java: doanh nghiệp, Android · C#: Windows, Unity · C/C++: hệ thống, nhúng",
+     "Frontend: phần người dùng thấy (JavaScript, HTML, CSS)",
+     "Backend: chạy trên server, xử lý nghiệp vụ (C#, Java, Node.js…)",
+     "React-native là framework, không phải ngôn ngữ"
+    ]
+   }
+  },
+  {
+   "id": "L02-n17",
+   "ref": "L02-t17",
+   "say": "Cuối cùng là hệ quản trị cơ sở dữ liệu, viết tắt DBMS, phần mềm để lưu, truy vấn và quản lý dữ liệu. Mình chia làm hai nhóm cho dễ nhớ. Nhóm thứ nhất lưu dữ liệu dạng bảng và dùng ngôn ngữ SQL. Trong nhóm này, SQL Server của Microsoft tích hợp tốt với hệ sinh thái .NET, còn Oracle cho doanh nghiệp lớn, mạnh về bảo mật và mở rộng. MySQL miễn phí, phổ biến cho web; PostgreSQL mạnh với truy vấn phức tạp; SQLite nhẹ, không cần server, hợp app nhỏ và mobile app. Nhóm thứ hai là NoSQL: MongoDB lưu dữ liệu dạng JSON, hợp web và app; Redis cực nhanh, dùng làm cache và lưu phiên đăng nhập. Việc chọn hệ nào do team kỹ thuật quyết, còn BA biết đặc điểm để hiểu ràng buộc và ghi đúng vào tài liệu.",
+   "show": {
+    "h": "Hệ quản trị cơ sở dữ liệu (DBMS)",
+    "points": [
+     "Dạng bảng, dùng SQL: SQL Server · Oracle · MySQL · PostgreSQL · SQLite",
+     "SQL Server: hệ sinh thái .NET · Oracle: doanh nghiệp lớn, bảo mật",
+     "MySQL: miễn phí, web · PostgreSQL: truy vấn phức tạp · SQLite: nhẹ, mobile",
+     "NoSQL: MongoDB (JSON) · Redis (cache, session)",
+     "Team kỹ thuật chọn, BA hiểu ràng buộc"
+    ]
+   },
+   "ask": [
+    "L02-q43",
+    "L02-q44",
+    "L02-q45"
+   ]
+  },
+  {
+   "id": "L02-n18",
+   "say": "Tóm lại buổi hai. IT BA không cần code giỏi, nhưng cần đủ kiến thức IT để hiểu team và dịch yêu cầu nghiệp vụ thành yêu cầu kỹ thuật khả thi. Bốn mức mô hình đi từ tổng thể, vật lý, logic tới chi tiết. Client gửi yêu cầu, Server trả lời; N-Tier chia hệ thống thành presentation, business logic và data access; Monolithic hợp dự án nhỏ cần ra nhanh, còn Microservices hợp hệ thống lớn khi team và hạ tầng sẵn sàng. Zone chia mạng theo mức tin cậy, từ External, DMZ, Internal tới Database, là căn cứ để viết yêu cầu phi chức năng về bảo mật. IP định danh thiết bị, có private và public; DNS đổi tên miền thành IP, DHCP tự cấp IP. Và BA nên biết thế mạnh của các ngôn ngữ lập trình và hệ quản trị cơ sở dữ liệu phổ biến. Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài.",
+   "show": {
+    "h": "Tổng kết buổi 2",
+    "points": [
+     "IT BA cần hiểu IT, không cần code giỏi",
+     "Mô hình: tổng thể → vật lý → logic → chi tiết",
+     "Client–Server · N-Tier · Monolithic vs Microservices",
+     "Zone · IP private/public · ISP · DNS · DHCP",
+     "Ngôn ngữ lập trình và hệ quản trị CSDL phổ biến"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,282 @@
+{
+ "lesson": "L11a",
+ "chunks": [
+  {
+   "id": "L11a-n1",
+   "ref": "L11a-t1",
+   "say": "Chào bạn, mình bắt đầu buổi mười một: yêu cầu chức năng và yêu cầu phi chức năng. Mục đích của buổi này là hiểu và áp dụng được phương pháp phân tích tổng quan theo hướng chức năng. Buổi học đi qua bốn phần. Phần một là các khái niệm cơ bản: yêu cầu chức năng, yêu cầu phi chức năng, phân tích tổng quan và phân tích chi tiết. Phần hai là năm bước phân tích tổng quan theo hướng chức năng. Phần ba là cách vẽ sơ đồ chức năng tổng quan, gọi là BFD, Business Function Diagram. Phần cuối là hỏi đáp.",
+   "show": {
+    "h": "Buổi 11: Yêu cầu chức năng và phi chức năng",
+    "points": [
+     "Khái niệm: FR, NFR, phân tích tổng quan, phân tích chi tiết",
+     "5 bước phân tích tổng quan theo hướng chức năng",
+     "Vẽ BFD – Business Function Diagram",
+     "Q&A"
+    ]
+   }
+  },
+  {
+   "id": "L11a-n2",
+   "ref": "L11a-t2",
+   "say": "Đầu tiên là yêu cầu chức năng, viết tắt FR, tức Functional Requirement. FR là mô tả về hành vi, chức năng, nghiệp vụ cụ thể mà hệ thống phải thực hiện để đáp ứng nhu cầu người dùng. Nó trả lời hai câu hỏi: hệ thống sẽ làm gì, và người dùng có thể thao tác gì trên hệ thống. Ví dụ trên slide: người dùng có thể đăng ký tài khoản, hoặc hệ thống gửi email xác nhận khi người dùng đặt hàng. Cách viết thường gặp là chủ thể, cộng động từ hành động, cộng đối tượng, chẳng hạn khách hàng có thể hủy đơn khi nhà hàng chưa xác nhận đơn. Mẹo nhớ: FR là động từ của hệ thống, thấy một hành động cụ thể như đăng ký, gửi, tìm, duyệt, tính thì nghĩ ngay tới FR.",
+   "show": {
+    "h": "Yêu cầu chức năng (Functional Requirement – FR)",
+    "points": [
+     "Hành vi, chức năng, nghiệp vụ cụ thể hệ thống phải làm",
+     "Trả lời: Hệ thống làm gì? Người dùng thao tác được gì?",
+     "Mẫu câu: chủ thể + động từ hành động + đối tượng",
+     "Mẹo: FR là “động từ” của hệ thống"
+    ]
+   },
+   "ask": [
+    "L11a-q3"
+   ]
+  },
+  {
+   "id": "L11a-n3",
+   "ref": "L11a-t3",
+   "say": "Ngược lại, yêu cầu phi chức năng, viết tắt NFR, tức Non-Functional Requirement, không mô tả một hành vi cụ thể. NFR nói về chất lượng, hiệu suất, bảo mật, độ ổn định và khả năng mở rộng của hệ thống. Nói cách khác, FR nói hệ thống làm gì, còn NFR nói hệ thống thực hiện việc đó như thế nào và cần tốt tới mức nào. Ví dụ trên slide: hệ thống phải xử lý năm nghìn người dùng đồng thời mà không bị gián đoạn. Hay: thời gian phản hồi cho mỗi thao tác không được vượt quá hai giây. Mẹo nhớ: nếu FR là động từ, thì NFR là tính từ của hệ thống, như nhanh, an toàn, ổn định, dễ dùng, mở rộng được.",
+   "show": {
+    "h": "Yêu cầu phi chức năng (Non-Functional Requirement – NFR)",
+    "points": [
+     "Không phải hành vi cụ thể, mà là tiêu chí chất lượng tổng thể",
+     "Chất lượng · hiệu suất · bảo mật · ổn định · mở rộng",
+     "Trả lời: Hệ thống vận hành thế nào? Cần “tốt” ra sao?",
+     "Mẹo: NFR là “tính từ” của hệ thống"
+    ]
+   }
+  },
+  {
+   "id": "L11a-n4",
+   "ref": "L11a-t4",
+   "say": "Đặt hai loại cạnh nhau, slide so sánh theo bốn tiêu chí. Về câu hỏi, FR trả lời hệ thống làm gì, còn NFR trả lời hệ thống vận hành như thế nào. Về nội dung, FR mô tả chức năng cụ thể gắn với quy trình nghiệp vụ, còn NFR mô tả chất lượng, giới hạn, tính chất, liên quan tới hiệu suất, bảo mật, UX và tiêu chuẩn kỹ thuật. Về kiểm thử, FR test rõ ràng được, còn NFR có thể phải đo bằng công cụ chuyên biệt. Ví dụ test chức năng đăng ký tài khoản, bạn chỉ cần thao tác rồi xem có tài khoản mới hay không. Nhưng muốn test năm nghìn người dùng đồng thời, bạn không thể nhờ năm nghìn người bấm cùng lúc, mà phải dùng công cụ load test để giả lập và đo. Cuối cùng, FR và NFR đi cùng nhau: tìm món theo tên là FR, còn kết quả hiện trong hai giây là NFR đi kèm.",
+   "show": {
+    "h": "So sánh FR và NFR",
+    "points": [
+     "FR: hệ thống làm gì · chức năng cụ thể · quy trình nghiệp vụ",
+     "NFR: vận hành thế nào · chất lượng, giới hạn · hiệu suất, bảo mật, UX",
+     "FR test rõ ràng; NFR cần công cụ đo (load test…)",
+     "Một FR thường kèm vài NFR"
+    ],
+    "img": "L11a-img1"
+   },
+   "ask": [
+    "L11a-q7",
+    "L11a-q38"
+   ]
+  },
+  {
+   "id": "L11a-n5",
+   "ref": "L11a-t5",
+   "say": "Vậy NFR gồm những nhóm nào? Slide chỉ nêu các khía cạnh chất lượng, chưa chia nhóm chính thức, nên mình gom lại thành ba cụm cho dễ nhớ. Cụm thứ nhất là chạy nhanh và chạy bền: hiệu suất, tức Performance, hỏi nhanh đến đâu và chịu tải bao nhiêu; độ ổn định, Reliability, hỏi có chạy liên tục và ít lỗi không; khả dụng, Availability, hỏi hệ thống sẵn sàng bao nhiêu phần trăm thời gian. Cụm thứ hai là an toàn và lớn lên được: bảo mật, Security, bảo vệ dữ liệu và quyền truy cập; khả năng mở rộng, Scalability, khi thêm người dùng hay thêm chi nhánh thì sao. Cụm thứ ba là dễ dùng và đúng chuẩn: trải nghiệm người dùng, UX hay Usability, và tiêu chuẩn kỹ thuật, ví dụ chạy được trên Chrome và Edge bản mới nhất. Ngoài slide, theo BABOK và chuẩn ISO 25010 còn có thêm khả năng bảo trì, tương thích và tuân thủ pháp lý.",
+   "show": {
+    "h": "Các nhóm NFR thường gặp",
+    "points": [
+     "Performance · Reliability · Availability: nhanh, bền, sẵn sàng",
+     "Security · Scalability: an toàn, mở rộng được",
+     "UX/Usability · Tiêu chuẩn kỹ thuật: dễ dùng, đúng nền tảng",
+     "Bổ sung ngoài slide: Maintainability, Compatibility, Compliance"
+    ]
+   },
+   "ask": [
+    "L11a-q8"
+   ]
+  },
+  {
+   "id": "L11a-n6",
+   "ref": "L11a-t6",
+   "say": "Gặp một câu yêu cầu, làm sao phân loại nhanh? Bạn hỏi ba câu. Câu này mô tả một hành động như tạo, gửi, tìm, duyệt, tính thì là FR. Câu này mô tả mức độ tốt như nhanh, an toàn, ổn định, dễ dùng thì là NFR. Còn nếu chứa cả hai, ví dụ khách thanh toán qua ví điện tử và giao dịch phải xong trong năm giây, thì tách ra một FR và một NFR. Thêm nữa, NFR phải đo được: câu hệ thống phải nhanh là mơ hồ, nên viết lại thành trang danh sách món tải xong trong hai giây khi có một nghìn người dùng đồng thời. Mẹo kiểm là đưa câu NFR cho tester, nếu tester hỏi bao nhiêu thì đạt, câu đó chưa đo được. Và cẩn thận bẫy chủ ngữ: hệ thống gửi email xác nhận vẫn là FR, còn hệ thống phải bảo mật mới là NFR.",
+   "show": {
+    "h": "Phân loại FR/NFR và viết NFR đo được",
+    "points": [
+     "Hành động (tạo, gửi, tìm, duyệt, tính) → FR",
+     "Mức độ tốt (nhanh, an toàn, ổn định, dễ dùng) → NFR",
+     "Câu lẫn cả hai → tách 1 FR + 1 NFR",
+     "NFR phải có con số và điều kiện đo",
+     "Bẫy: chữ “Hệ thống” đầu câu không quyết định loại"
+    ]
+   },
+   "ask": [
+    "L11a-q9",
+    "L11a-q10",
+    "L11a-q5"
+   ]
+  },
+  {
+   "id": "L11a-n7",
+   "ref": "L11a-t7",
+   "say": "Phần tiếp theo là phân tích tổng quan, tiếng Anh là High-level Requirement Analysis. Đây là quá trình xử lý và tổ chức các yêu cầu thô ban đầu thu được từ Stakeholder, để có cái nhìn tổng thể về giải pháp cần xây dựng. Mục tiêu là làm rõ phạm vi hệ thống, xác định các nhóm chức năng chính, các nhóm người dùng và quan hệ giữa người dùng với chức năng, xác định các yêu cầu phi chức năng, và chuẩn bị cho phân tích chi tiết. Trong đó, phân tích tổng quan chức năng tập trung xác định các nhóm chức năng chính, giống một bản đồ chức năng cấp cao. Nó không đi vào giao diện hay logic xử lý, và là kết quả của kỹ thuật Functional Decomposition, tức phân rã chức năng. Ba sản phẩm đầu ra hay gặp là Function List, Permission Matrix và BFD.",
+   "show": {
+    "h": "Phân tích tổng quan (High-level Requirement Analysis)",
+    "points": [
+     "Tổ chức yêu cầu thô → bức tranh tổng thể về giải pháp",
+     "Rõ phạm vi · nhóm chức năng · nhóm người dùng · NFR",
+     "Tổng quan chức năng = bản đồ chức năng cấp cao, không UI, không logic",
+     "Đầu ra: Function List · Permission Matrix · BFD"
+    ]
+   }
+  },
+  {
+   "id": "L11a-n8",
+   "ref": "L11a-t9",
+   "say": "Sau tổng quan mới tới phân tích chi tiết chức năng, Detailed Functional Analysis. Giai đoạn này mô tả sâu từng chức năng: logic xử lý, dữ liệu vào và ra, điều kiện nghiệp vụ, giao diện UI và UX, và luồng sử dụng, User Flow. Mục tiêu là làm rõ mỗi chức năng chạy ra sao, làm cơ sở để lập trình, kiểm thử, thiết kế giao diện, và hạn chế hiểu sai yêu cầu khi phát triển. Đầu ra của mỗi chức năng thường gồm Use Case, Wireframe hoặc Mockup, mô hình dữ liệu, Business Rules và ý tưởng Test case. Tóm lại, tổng quan hỏi hệ thống có những chức năng gì và ai dùng, và được làm trước. Chi tiết hỏi từng chức năng chạy cụ thể thế nào, và chỉ làm sau khi đã có tổng quan.",
+   "show": {
+    "h": "Phân tích chi tiết chức năng (Detailed Functional Analysis)",
+    "points": [
+     "Logic · dữ liệu vào/ra · điều kiện · UI/UX · User Flow",
+     "Cơ sở để lập trình, kiểm thử, thiết kế UI",
+     "Đầu ra: Use Case, Wireframe/Mockup, Business Rules, Test case idea",
+     "Tổng quan làm trước (gì, ai) → Chi tiết làm sau (chạy ra sao)"
+    ]
+   },
+   "ask": [
+    "L11a-q48",
+    "L11a-q41"
+   ]
+  },
+  {
+   "id": "L11a-n9",
+   "ref": "L11a-t11",
+   "say": "Để làm phân tích tổng quan, bài này dùng phân tích hướng chức năng, Function-Oriented Analysis. Đây là phương pháp truyền thống, tập trung vào việc hệ thống cần làm gì, thông qua danh sách chức năng gắn với từng người dùng. Mỗi chức năng tương ứng với hành động của một người dùng, nên khách hàng nhìn danh sách là biết hệ thống đã đủ việc họ cần hay chưa. Phương pháp có năm bước: một, tổng hợp yêu cầu thô; hai, xác định vai trò người dùng, ra User List; ba, xác định chức năng chính, ra Function List; bốn, lập ma trận phân quyền, Permission Matrix; năm, vẽ sơ đồ BFD. Các bước nối tiếp nhau: User List thành cột, Function List thành hàng của ma trận, và Level 1 của cây chức năng thành các khối của BFD. Mẹo nhớ thứ tự: gom, ai, làm gì, được phép gì, vẽ.",
+   "show": {
+    "h": "Hướng chức năng: 5 bước phân tích tổng quan",
+    "points": [
+     "Function-Oriented: tập trung hệ thống làm gì, theo từng người dùng",
+     "B1 Yêu cầu thô → B2 User List → B3 Function List",
+     "B4 Permission Matrix → B5 BFD",
+     "Mẹo: Gom – Ai – Làm gì – Được phép gì – Vẽ"
+    ],
+    "img": "L11a-img2"
+   },
+   "ask": [
+    "L11a-q46",
+    "L11a-q42"
+   ]
+  },
+  {
+   "id": "L11a-n10",
+   "ref": "L11a-t12",
+   "say": "Bước một là tổng hợp và phân loại yêu cầu từ người dùng. Mục tiêu là hiểu rõ mong muốn, vấn đề và kỳ vọng mà Stakeholder đưa ra ban đầu. Bạn đọc lại nội dung từ interview, workshop, survey và tài liệu, rồi viết lại các yêu cầu ở dạng tự nhiên. Ví dụ: tôi muốn tạo lớp học mới, học viên cần biết lịch học của mình, giáo viên phải điểm danh học viên mỗi buổi. Đầu ra là danh sách yêu cầu thô, raw requirement list. Gợi ý thêm, hãy đánh số từng yêu cầu và ghi nguồn, ai nói, buổi nào, để sau này truy vết. Lưu ý, ở bước này chỉ cần gom đủ và viết rõ, còn việc phân loại FR hay NFR, thuộc vai trò nào, được làm dần ở các bước sau.",
+   "show": {
+    "h": "B1: Tổng hợp yêu cầu thô",
+    "points": [
+     "Nguồn: interview, workshop, survey, tài liệu",
+     "Viết lại dạng tự nhiên, chưa cần phân loại",
+     "Đánh số YC01, YC02… và ghi nguồn để truy vết",
+     "Output: raw requirement list"
+    ]
+   },
+   "ask": [
+    "L11a-q22"
+   ]
+  },
+  {
+   "id": "L11a-n11",
+   "ref": "L11a-t13",
+   "say": "Bước hai là xác định vai trò người dùng. Với từng yêu cầu, bạn hỏi: ai là người cần tính năng này? Các vai trò giống nhau được gom thành một User Role. Có bốn câu hỏi gợi ý: ai sẽ đăng nhập hệ thống, ai tạo hoặc cập nhật thông tin, ai chỉ đọc hoặc giám sát, và ai phê duyệt, ra quyết định. Đầu ra là User List kèm mô tả nhiệm vụ của từng vai trò. Ví dụ với hệ thống quản lý lớp học: giáo vụ tạo lớp và gán giáo viên; giáo viên xem lớp mình dạy và điểm danh; học viên đăng ký lớp và xem lịch học.",
+   "show": {
+    "h": "B2: Xác định vai trò người dùng (User List)",
+    "points": [
+     "Mỗi yêu cầu → hỏi “Ai cần tính năng này?”",
+     "Gom vai trò giống nhau thành 1 User Role",
+     "Ai đăng nhập · ai tạo/cập nhật · ai chỉ xem · ai phê duyệt",
+     "Ví dụ: Giáo vụ · Giáo viên · Học viên"
+    ]
+   },
+   "ask": [
+    "L11a-q23",
+    "L11a-q24"
+   ]
+  },
+  {
+   "id": "L11a-n12",
+   "ref": "L11a-t14",
+   "say": "Bước ba là xác định chức năng chính, dùng kỹ thuật Functional Decomposition, tức chia chức năng lớn thành chức năng nhỏ, từng tầng một. Từ mỗi User Role, ta ra nhóm chức năng cấp cao, gọi là Level 1, ví dụ học viên cần đăng ký lớp học. Từ Level 1 phân rã ra Level 2, là việc người dùng làm: tìm lớp, chọn lớp, gửi yêu cầu, xác nhận. Nếu cần thì phân rã tiếp Level 3, là các xử lý bên trong: xác nhận gồm gửi email, ghi log hệ thống, cập nhật trạng thái. Slide còn có ví dụ quản lý lớp học, chia thành tạo lớp mới, gán giáo viên, cập nhật thông tin lớp và theo dõi trạng thái lớp. Quy tắc quan trọng: các chức năng con cộng lại phải đủ để làm xong chức năng cha. Kết quả của bước ba là Function List, xếp theo cây Level 1, Level 2, Level 3. Lưu ý, slide bước ba ghi output là User List, đó là chép nhầm từ bước hai, output đúng là Function List.",
+   "show": {
+    "h": "B3: Function List bằng Functional Decomposition",
+    "points": [
+     "User Role → Level 1: nhóm nghiệp vụ (“Quản lý…”)",
+     "Level 2: chức năng người dùng thực hiện",
+     "Level 3 (nếu cần): các bước xử lý bên trong",
+     "Chức năng con cộng lại phải đủ làm xong chức năng cha",
+     "Slide B3 ghi output User List → đúng là Function List"
+    ],
+    "img": "L11a-img3"
+   },
+   "ask": [
+    "L11a-q26",
+    "L11a-q27"
+   ]
+  },
+  {
+   "id": "L11a-n13",
+   "ref": "L11a-t15",
+   "say": "Bước bốn là xây dựng ma trận phân quyền, Permission Matrix. Mục tiêu là biết rõ user nào được dùng chức năng nào, ở mức nào: xem, tạo, sửa hay xóa. Bảng có hàng là các chức năng lấy từ bước ba, cột là các User Role lấy từ bước hai, và ô giao nhau ghi quyền. Slide dùng ba ký hiệu: dấu tích là có quyền, dấu nhân là không có quyền, kính lúp là chỉ xem. Ví dụ hàng cập nhật thông tin lớp: giáo vụ được sửa, còn giáo viên và học viên chỉ xem. Ở quầy thu ngân SolasMart, dòng xác nhận giá khi barcode sai giá chỉ trưởng ca có quyền, đúng với quy trình gọi trưởng ca tới xác nhận.",
+   "show": {
+    "h": "B4: Ma trận phân quyền (Permission Matrix)",
+    "points": [
+     "Hàng = chức năng (B3) · Cột = User Role (B2)",
+     "Ô giao nhau: ✅ có quyền · ❌ không · 🔍 chỉ xem",
+     "Mức quyền: xem / tạo / sửa / xóa",
+     "SolasMart: chỉ Trưởng ca xác nhận giá khi barcode sai"
+    ]
+   },
+   "ask": [
+    "L11a-q30",
+    "L11a-q31"
+   ]
+  },
+  {
+   "id": "L11a-n14",
+   "ref": "L11a-t17",
+   "say": "Bước năm là vẽ sơ đồ chức năng tổng quan, BFD, tức Business Function Diagram. BFD mô tả các nhóm chức năng chính và mối liên kết giữa chúng, giúp BA trao đổi bức tranh tổng thể với Stakeholder. Nguyên tắc là chỉ vẽ các khối Level 1 trong cây chức năng, không đi vào Level 2 hay Level 3, nên làm tốt bước ba thì vẽ BFD rất dễ. BFD có bốn thành phần: khối chức năng là hình chữ nhật cho một nhóm nghiệp vụ; tên khối ngắn gọn, rõ nghiệp vụ; mũi tên thể hiện trao đổi thông tin hoặc phụ thuộc chức năng, ví dụ muốn ghi danh thì phải có lớp học đã tạo; và tác nhân bên ngoài, có thể là người dùng hoặc hệ thống khác. Slide ghi bước năm là tùy chọn, nhưng bài thực hành cuối buổi yêu cầu nộp BFD, nên trong khóa này bạn luôn vẽ. Về tên khối, slide ghi danh từ cộng động từ, nhưng ví dụ lại theo mẫu Quản lý cộng đối tượng, như Quản lý học viên, bạn hãy theo mẫu ví dụ.",
+   "show": {
+    "h": "B5: Sơ đồ BFD và các thành phần",
+    "points": [
+     "Chỉ vẽ khối Level 1, nối bằng mũi tên",
+     "Function block · Tên khối · Relationship Arrow · Tác nhân bên ngoài",
+     "Mũi tên = trao đổi thông tin hoặc phụ thuộc chức năng",
+     "Slide ghi Optional → trong khóa này luôn vẽ BFD",
+     "Tên khối: “Quản lý” + đối tượng nghiệp vụ"
+    ]
+   },
+   "ask": [
+    "L11a-q36",
+    "L11a-q35"
+   ]
+  },
+  {
+   "id": "L11a-n15",
+   "ref": "L11a-t19",
+   "say": "Khi vẽ BFD, bạn nhớ bốn lưu ý. Gọi đúng tên chức năng, tránh viết tắt, ví dụ không viết QL KH mà viết Quản lý khách hàng. Hạn chế quá nhiều khối, vì BFD chỉ có Level 1 nên thường chỉ vài khối. Không mô tả logic xử lý, điều kiện hay công thức, những thứ đó để dành cho phân tích chi tiết, và luôn ưu tiên sự đơn giản. Công cụ vẽ có thể dùng Visio hoặc Diagram.net, tức draw.io. Xem ví dụ hệ thống Quản lý Bán hàng trên slide: ba khối Level 1 là Quản lý Khách hàng, Quản lý Đơn hàng, Quản lý Sản phẩm, cả ba cùng cung cấp dữ liệu cho khối Báo cáo và Thống kê. Sơ đồ không có thêm sản phẩm hay tính chiết khấu, vì đó là Level 2, Level 3, nằm trong Function List.",
+   "show": {
+    "h": "Lưu ý khi vẽ BFD · Ví dụ Quản lý Bán hàng",
+    "points": [
+     "Tên đầy đủ, không viết tắt (“QL KH” → “Quản lý khách hàng”)",
+     "Ít khối, chỉ Level 1 · không mô tả logic · ưu tiên đơn giản",
+     "Công cụ: Visio, Diagram.net (draw.io)",
+     "Ví dụ: 3 khối Quản lý → Báo cáo & Thống kê"
+    ],
+    "img": "L11a-img5"
+   },
+   "ask": [
+    "L11a-q37",
+    "L11a-q40"
+   ]
+  },
+  {
+   "id": "L11a-n16",
+   "say": "Tóm lại buổi này. FR trả lời hệ thống làm gì, NFR trả lời hệ thống vận hành thế nào và tốt ra sao; câu nào lẫn cả hai thì tách, và NFR phải có con số đo được. Phân tích tổng quan biến yêu cầu thô thành bức tranh tổng thể, còn phân tích chi tiết làm sau, mô tả sâu từng chức năng. Phương pháp hướng chức năng có năm bước: yêu cầu thô, User List, Function List, Permission Matrix và BFD. Functional Decomposition chia chức năng thành Level 1, Level 2, Level 3, và BFD chỉ vẽ các khối Level 1. Bạn có thể ôn lại bằng flashcard, làm phần thực hành SolasMart, hoặc làm phần trắc nghiệm của bài.",
+   "show": {
+    "h": "Tổng kết buổi 11",
+    "points": [
+     "FR = làm gì · NFR = tốt ra sao, phải đo được",
+     "Tổng quan làm trước, chi tiết làm sau",
+     "5 bước: Yêu cầu thô → User List → Function List → Permission Matrix → BFD",
+     "Functional Decomposition: Level 1 → 2 → 3",
+     "BFD: chỉ Level 1, tên rõ, ít khối"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,2157 @@
+{
+ "id": "L11a",
+ "session": 11,
+ "module": "M3",
+ "title": "Yêu cầu chức năng và phi chức năng",
+ "goals": [
+  "Phân biệt được yêu cầu chức năng (FR) và yêu cầu phi chức năng (NFR), phân loại đúng một câu yêu cầu",
+  "Nhận diện các nhóm NFR thường gặp và viết NFR đo được",
+  "Giải thích được phân tích tổng quan và phân tích chi tiết chức năng khác nhau thế nào",
+  "Thực hiện 5 bước phân tích tổng quan theo hướng chức năng: yêu cầu thô, User List, Function List, Permission Matrix, BFD",
+  "Áp dụng kỹ thuật Functional Decomposition để phân rã chức năng thành Level 1, 2, 3",
+  "Lập ma trận phân quyền và vẽ sơ đồ BFD cho một hệ thống"
+ ],
+ "sources": [
+  {
+   "file": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf",
+   "pages": "1-35"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L11a-t1",
+   "h": "Mục đích và lộ trình buổi học",
+   "html": "<p>Chủ đề buổi học: <b>Phân tích tổng quan</b> và <b>phân tích tổng quan theo hướng chức năng</b>. Mục đích là hiểu và áp dụng được phương pháp phân tích tổng quan theo hướng chức năng.</p><p>Buổi học gồm 4 phần:</p><ol><li>Các khái niệm cơ bản: yêu cầu chức năng, yêu cầu phi chức năng, phân tích tổng quan, phân tích chi tiết.</li><li>Phương pháp phân tích tổng quan theo hướng chức năng (5 bước).</li><li>Hướng dẫn vẽ Business Function Diagram (BFD – sơ đồ chức năng tổng quan).</li><li>Q&amp;A (hỏi đáp).</li></ol>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.2-4"
+  },
+  {
+   "id": "L11a-t2",
+   "h": "Yêu cầu chức năng (Functional Requirement – FR)",
+   "html": "<p><b>Yêu cầu chức năng</b> là những mô tả về <b>hành vi, chức năng, nghiệp vụ cụ thể mà hệ thống phải thực hiện</b> nhằm đáp ứng nhu cầu của người dùng.</p><p>FR trả lời hai câu hỏi:</p><ul><li><i>Hệ thống sẽ làm gì?</i></li><li><i>Người dùng có thể thao tác gì trên hệ thống?</i></li></ul><p>Ví dụ trên slide:</p><ul><li>Người dùng có thể đăng ký tài khoản.</li><li>Hệ thống gửi email xác nhận khi người dùng đặt hàng.</li></ul><p>Cách viết thường gặp: <b>chủ thể</b> (người dùng hoặc hệ thống) + <b>động từ hành động</b> + <b>đối tượng</b>. Ví dụ: “Khách hàng có thể hủy đơn khi nhà hàng chưa xác nhận đơn” (ví dụ tự đặt cho hệ thống đặt đồ ăn).</p><p class=\"tip\">Mẹo nhớ: FR là “động từ” của hệ thống. Thấy một hành động cụ thể (đăng ký, gửi, tìm, duyệt, in, tính) thì nghĩ ngay đến FR.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5"
+  },
+  {
+   "id": "L11a-t3",
+   "h": "Yêu cầu phi chức năng (Non-Functional Requirement – NFR)",
+   "html": "<p><b>Yêu cầu phi chức năng</b> là những yêu cầu không liên quan đến <b>hành vi cụ thể</b>, mà liên quan đến <b>chất lượng, hiệu suất, tính bảo mật, độ ổn định, khả năng mở rộng</b> của hệ thống.</p><p>Nói cách khác, NFR không mô tả hệ thống <i>làm gì</i>, mà mô tả hệ thống <i>thực hiện như thế nào</i>: chất lượng, hiệu suất, bảo mật, khả dụng… NFR không thể hiện hành vi cụ thể mà là <b>các tiêu chí đánh giá chất lượng tổng thể</b> của hệ thống.</p><p>NFR trả lời hai câu hỏi:</p><ul><li><i>Hệ thống hoạt động như thế nào?</i></li><li><i>Hệ thống cần “tốt” ra sao?</i></li></ul><p>Ví dụ trên slide:</p><ul><li>Hệ thống phải xử lý 5000 người dùng đồng thời mà không bị gián đoạn.</li><li>Thời gian phản hồi cho mỗi thao tác không được vượt quá 2 giây.</li></ul><p class=\"tip\">Mẹo nhớ: NFR là “tính từ” của hệ thống: nhanh, an toàn, ổn định, dễ dùng, mở rộng được.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.6, tr.13"
+  },
+  {
+   "id": "L11a-t4",
+   "h": "So sánh FR và NFR",
+   "html": "<table><thead><tr><th>Tiêu chí</th><th>Yêu cầu chức năng</th><th>Yêu cầu phi chức năng</th></tr></thead><tbody><tr><td>Trả lời câu hỏi</td><td>Hệ thống <b>làm gì?</b></td><td>Hệ thống <b>vận hành như thế nào?</b></td></tr><tr><td>Mô tả</td><td>Chức năng cụ thể</td><td>Chất lượng, giới hạn, tính chất</td></tr><tr><td>Liên quan đến</td><td>Quy trình nghiệp vụ</td><td>Hiệu suất, bảo mật, UX, tiêu chuẩn kỹ thuật</td></tr><tr><td>Dễ kiểm thử không?</td><td>Có thể test rõ ràng</td><td>Có thể cần đo lường bằng công cụ chuyên biệt</td></tr></tbody></table>{{img:L11a-img1}}<p>Vì sao FR dễ test hơn? Test FR “người dùng đăng ký tài khoản” chỉ cần thao tác và xem kết quả: có tài khoản mới hay không. Còn NFR “xử lý 5000 người dùng đồng thời” thì không thể nhờ 5000 người bấm cùng lúc; phải dùng công cụ kiểm thử tải (load test) để giả lập và đo.</p><p>FR và NFR đi cùng nhau: một FR thường kèm vài NFR. Ví dụ FR “Khách hàng tìm món ăn theo tên” đi kèm NFR “Kết quả tìm kiếm hiển thị trong ≤ 2 giây” (ví dụ).</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.7"
+  },
+  {
+   "id": "L11a-t5",
+   "h": "Các nhóm yêu cầu phi chức năng",
+   "html": "<p>Slide nhắc tới các khía cạnh chất lượng: chất lượng, hiệu suất, bảo mật, độ ổn định, khả năng mở rộng, khả dụng, UX, tiêu chuẩn kỹ thuật. Bảng dưới gom chúng thành nhóm để dễ nhận diện. Các câu ở cột ví dụ là ví dụ tự đặt, trừ hai câu ghi “slide”.</p><table><thead><tr><th>Nhóm NFR</th><th>Câu hỏi đặt ra</th><th>Ví dụ</th></tr></thead><tbody><tr><td>Hiệu suất (Performance)</td><td>Nhanh đến đâu, chịu tải bao nhiêu?</td><td>Phản hồi mỗi thao tác ≤ 2 giây; xử lý 5000 người dùng đồng thời (slide)</td></tr><tr><td>Bảo mật (Security)</td><td>Dữ liệu và quyền truy cập được bảo vệ ra sao?</td><td>Mật khẩu được mã hóa khi lưu; phiên đăng nhập tự hết hạn sau 15 phút không thao tác</td></tr><tr><td>Độ ổn định, tin cậy (Reliability)</td><td>Có chạy liên tục, không gián đoạn, ít lỗi?</td><td>Không gián đoạn khi tải cao; mất kết nối mạng thì không mất hóa đơn đang lập</td></tr><tr><td>Khả dụng, sẵn sàng (Availability)</td><td>Sẵn sàng phục vụ bao nhiêu phần trăm thời gian?</td><td>Hoạt động 99,5% thời gian mỗi tháng</td></tr><tr><td>Khả năng mở rộng (Scalability)</td><td>Khi người dùng, dữ liệu, chi nhánh tăng thì sao?</td><td>Thêm chi nhánh mới mà không phải sửa phần mềm</td></tr><tr><td>Trải nghiệm, dễ dùng (UX, Usability)</td><td>Người dùng thao tác có dễ không?</td><td>Thu ngân mới làm quen được màn hình thanh toán trong 1 ca làm việc</td></tr><tr><td>Tiêu chuẩn kỹ thuật</td><td>Phải theo chuẩn, nền tảng nào?</td><td>Chạy được trên trình duyệt Chrome và Edge phiên bản mới nhất</td></tr></tbody></table><p class=\"note\">Slide chỉ nêu các khía cạnh trên, không chia nhóm NFR chính thức. Theo kiến thức chuẩn (BABOK v3, ISO/IEC 25010) còn có thêm các nhóm như khả năng bảo trì (Maintainability), tương thích (Compatibility), tuân thủ pháp lý (Compliance). Đây là phần bổ sung, không có trên slide.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.6, tr.7, tr.13"
+  },
+  {
+   "id": "L11a-t6",
+   "h": "Cách phân loại FR/NFR và viết NFR đo được",
+   "html": "<p>Ba câu hỏi để phân loại nhanh một câu yêu cầu:</p><ol><li>Câu này mô tả một <b>hành động</b> mà người dùng hoặc hệ thống thực hiện (tạo, gửi, tìm, duyệt, tính)? → FR.</li><li>Câu này mô tả <b>mức độ tốt</b> của hệ thống (nhanh, an toàn, ổn định, dễ dùng, chịu tải)? → NFR.</li><li>Câu chứa cả hai? → Tách thành một FR và một NFR.</li></ol><p>Ví dụ câu lẫn cả hai: “Khách hàng thanh toán qua ví điện tử và giao dịch phải hoàn tất trong 5 giây” (ví dụ).</p><ul><li>FR: Khách hàng thanh toán đơn hàng qua ví điện tử.</li><li>NFR: Giao dịch thanh toán hoàn tất trong ≤ 5 giây.</li></ul><p><b>NFR phải đo được.</b> Slide nói NFR có thể cần đo lường bằng công cụ chuyên biệt, nên NFR cần có con số và điều kiện đo. “Hệ thống phải nhanh” là câu mơ hồ, không kiểm được. Viết lại: “Trang danh sách món tải xong trong ≤ 2 giây khi có 1000 người dùng đồng thời” (ví dụ).</p><p class=\"warn\">Bẫy hay gặp: thấy chữ “Hệ thống” ở đầu câu liền cho là FR. “Hệ thống gửi email xác nhận” là FR vì có hành động cụ thể; “Hệ thống phải bảo mật” là NFR vì chỉ nói về tính chất.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5-7"
+  },
+  {
+   "id": "L11a-t7",
+   "h": "Phân tích tổng quan (High-level Requirement Analysis)",
+   "html": "<p><b>Phân tích tổng quan</b> là quá trình <b>xử lý và tổ chức các yêu cầu thô ban đầu</b> (thu được từ stakeholder – bên liên quan), nhằm hình thành <b>cái nhìn tổng thể về giải pháp cần xây dựng</b>.</p><p><b>Mục tiêu:</b></p><ul><li>Làm rõ phạm vi của hệ thống.</li><li>Xác định các nhóm chức năng chính.</li><li>Xác định các nhóm người dùng và mối quan hệ giữa người dùng và chức năng.</li><li>Chuẩn bị cơ sở cho phân tích chi tiết sau này.</li><li>Xác định các yêu cầu phi chức năng.</li></ul><p>Ví dụ: sau các buổi phỏng vấn cho hệ thống FoodNow (đặt bàn nhà hàng), BA có hàng chục câu yêu cầu rời rạc. Phân tích tổng quan giúp trả lời: hệ thống gồm những khối chức năng nào, ai dùng khối nào, phạm vi dừng ở đâu, và hệ thống cần đạt chất lượng gì (ví dụ).</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.8"
+  },
+  {
+   "id": "L11a-t8",
+   "h": "Phân tích tổng quan chức năng",
+   "html": "<p><b>Phân tích tổng quan chức năng</b> là giai đoạn <b>xác định các nhóm chức năng chính của hệ thống</b> dựa trên yêu cầu nghiệp vụ ban đầu, người dùng và các mục tiêu tổng thể. Đây là bước đầu tiên để hình dung toàn cảnh hệ thống sẽ gồm những chức năng gì.</p><p><b>Mục tiêu:</b></p><ul><li>Hiểu được hệ thống sẽ hỗ trợ những nghiệp vụ nào.</li><li>Phân loại chức năng theo từng nhóm logic.</li><li>Chuẩn bị cho việc phân tích chi tiết sau này.</li></ul><p><b>Đặc điểm:</b></p><ul><li>Xem như <b>“bản đồ chức năng cấp cao”</b> của hệ thống.</li><li>Không đi vào chi tiết giao diện hay logic xử lý.</li><li>Là kết quả của việc áp dụng kỹ thuật <b>Functional Decomposition</b> (phân rã chức năng).</li><li>Thường thể hiện qua: danh sách chức năng chính (Function List), sơ đồ chức năng tổng quan (Business Function Diagram – BFD), phân quyền (Permission Matrix).</li></ul><p class=\"key\">Ba sản phẩm đầu ra hay gặp của phân tích tổng quan chức năng: Function List, Permission Matrix, BFD.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.9-10"
+  },
+  {
+   "id": "L11a-t9",
+   "h": "Phân tích chi tiết chức năng (Detailed Functional Analysis)",
+   "html": "<p><b>Phân tích chi tiết chức năng</b> là giai đoạn <b>mô tả sâu từng chức năng cụ thể</b>, bao gồm:</p><ul><li>Logic xử lý.</li><li>Dữ liệu đầu vào/đầu ra.</li><li>Điều kiện nghiệp vụ.</li><li>Giao diện người dùng (UI/UX).</li><li>Luồng sử dụng (User Flow).</li></ul><p><b>Mục tiêu:</b> làm rõ cách mỗi chức năng hoạt động; làm cơ sở để lập trình, kiểm thử, thiết kế UI; hạn chế hiểu sai yêu cầu khi phát triển.</p><p><b>Đặc điểm:</b> áp dụng <b>sau khi</b> đã phân tích tổng quan. Mỗi chức năng sẽ có mô tả chi tiết gồm: Use Case, Wireframe/Mockup (bản phác giao diện), mô hình dữ liệu liên quan, quy tắc nghiệp vụ (Business Rules), trường hợp kiểm thử (Test case idea).</p><table><thead><tr><th>Tiêu chí</th><th>Phân tích tổng quan</th><th>Phân tích chi tiết</th></tr></thead><tbody><tr><td>Câu hỏi chính</td><td>Hệ thống gồm những chức năng gì, ai dùng?</td><td>Từng chức năng chạy cụ thể ra sao?</td></tr><tr><td>Mức độ</td><td>Bản đồ cấp cao, không đi vào giao diện hay logic</td><td>Logic, dữ liệu vào/ra, điều kiện, UI/UX, User Flow</td></tr><tr><td>Thời điểm</td><td>Làm trước</td><td>Làm sau khi có tổng quan</td></tr><tr><td>Đầu ra</td><td>Function List, Permission Matrix, BFD</td><td>Use Case, Wireframe/Mockup, mô hình dữ liệu, Business Rules, Test case idea</td></tr></tbody></table>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.9-12"
+  },
+  {
+   "id": "L11a-t10",
+   "h": "Phân tích hướng chức năng (Function-Oriented Analysis)",
+   "html": "<p><b>Phân tích hướng chức năng</b> là phương pháp truyền thống trong kỹ thuật phần mềm, tập trung vào <b>việc xác định hệ thống cần làm gì</b>, thông qua việc xây dựng <b>danh sách chức năng</b> tương ứng với các tác nhân (người dùng).</p><ul><li>Tập trung vào xử lý chức năng thay vì cấu trúc dữ liệu.</li><li>Mỗi chức năng tương ứng với hành động của một người dùng.</li><li>Dễ triển khai và trực quan với người dùng không chuyên.</li></ul><p>Vì đi từ “ai làm gì”, kết quả của phương pháp này dễ đem ra trao đổi với khách hàng: họ nhìn danh sách chức năng là biết hệ thống có đủ việc họ cần hay chưa. Bài L11b sẽ học cách tiếp cận khác là phân tích hướng đối tượng.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.15"
+  },
+  {
+   "id": "L11a-t11",
+   "h": "5 bước phân tích tổng quan theo hướng chức năng",
+   "html": "{{img:L11a-img2}}<table><thead><tr><th>Bước</th><th>Việc làm</th><th>Đầu ra</th></tr></thead><tbody><tr><td>B1</td><td>Tổng hợp và phân loại yêu cầu từ người dùng</td><td>Danh sách yêu cầu thô (raw requirement list)</td></tr><tr><td>B2</td><td>Xác định các vai trò của người dùng</td><td>User List kèm mô tả nhiệm vụ</td></tr><tr><td>B3</td><td>Xác định các chức năng chính</td><td>Function List</td></tr><tr><td>B4</td><td>Xây dựng ma trận phân quyền</td><td>Permission Matrix</td></tr><tr><td>B5</td><td>Vẽ sơ đồ chức năng tổng quan (Optional)</td><td>BFD minh họa toàn hệ thống</td></tr></tbody></table><p>Các bước nối tiếp nhau: B2 cung cấp cột, B3 cung cấp hàng cho ma trận ở B4; Level 1 của B3 là các khối của BFD ở B5.</p><p class=\"tip\">Mẹo nhớ thứ tự: <b>Gom – Ai – Làm gì – Được phép gì – Vẽ</b>.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.16"
+  },
+  {
+   "id": "L11a-t12",
+   "h": "B1: Tổng hợp và phân loại yêu cầu từ người dùng",
+   "html": "<p><b>Mục tiêu:</b> hiểu rõ những mong muốn, vấn đề và kỳ vọng mà stakeholder đề xuất ban đầu.</p><p><b>Hướng dẫn thực hiện:</b></p><ul><li>Đọc lại nội dung từ interview (phỏng vấn), workshop (hội thảo), survey (khảo sát), tài liệu…</li><li>Viết lại các yêu cầu dạng tự nhiên, chưa cần phân loại. Ví dụ: “Tôi muốn tạo lớp học mới”; “Học viên cần biết lịch học của mình”; “Giáo viên phải điểm danh học viên mỗi buổi”.</li></ul><p><b>Output:</b> danh sách yêu cầu thô (raw requirement list).</p><p>Gợi ý thêm: đánh số từng yêu cầu (YC01, YC02…) và ghi nguồn (ai nói, buổi nào) để sau này truy vết. Ở B1 chỉ cần gom đủ và viết lại cho rõ; việc phân loại (FR hay NFR, thuộc vai trò nào, nhóm chức năng nào) được làm dần ở các bước sau.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.17"
+  },
+  {
+   "id": "L11a-t13",
+   "h": "B2: Xác định vai trò người dùng (User List)",
+   "html": "<p><b>Mục tiêu:</b> xác định <b>các nhóm người dùng chính</b> sẽ tương tác với hệ thống.</p><p><b>Cách thực hiện:</b></p><ul><li>Nhìn vào từng yêu cầu → hỏi: “Ai là người cần tính năng này?”</li><li>Gom nhóm các vai trò giống nhau thành 1 User Role (vai trò người dùng).</li><li>Gợi ý câu hỏi: “Ai sẽ đăng nhập hệ thống?”; “Ai là người tạo thông tin / cập nhật?”; “Ai cần chỉ đọc / giám sát?”; “Ai phê duyệt / ra quyết định?”</li></ul><p><b>Output:</b> danh sách vai trò người dùng (User List) kèm mô tả nhiệm vụ.</p><p>Ví dụ User List cho hệ thống quản lý lớp học (ví dụ tự đặt từ các yêu cầu thô ở B1):</p><table><thead><tr><th>User Role</th><th>Mô tả nhiệm vụ</th></tr></thead><tbody><tr><td>Giáo vụ</td><td>Tạo lớp mới, gán giáo viên, cập nhật thông tin lớp</td></tr><tr><td>Giáo viên</td><td>Xem lớp mình dạy, điểm danh học viên mỗi buổi</td></tr><tr><td>Học viên</td><td>Đăng ký lớp, xem lịch học của mình</td></tr></tbody></table>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.18"
+  },
+  {
+   "id": "L11a-t14",
+   "h": "B3: Xác định chức năng chính (Function List) bằng Functional Decomposition",
+   "html": "<p><b>Functional Decomposition</b> (phân rã chức năng) là chia một chức năng lớn thành các chức năng nhỏ hơn, từng tầng một:</p><ul><li>Từ mỗi User Role → xác định nhóm chức năng cấp cao (<b>Level 1</b>). Ví dụ: “Học viên” → Quản lý lịch học, đăng ký lớp.</li><li>Từ mỗi chức năng cấp cao → phân rã ra chức năng con (<b>Level 2</b>). Ví dụ: “Đăng ký lớp học” → Tìm lớp → Chọn lớp → Gửi yêu cầu → Xác nhận.</li><li>(Nếu cần) tiếp tục phân rã (<b>Level 3</b>). Ví dụ: “Xác nhận” → Gửi email → Ghi log hệ thống → Cập nhật trạng thái.</li></ul><p>Ví dụ trên slide, chức năng cấp cao “Quản lý lớp học” được phân rã thành:</p><pre>Quản lý lớp học\n├── Tạo lớp mới\n├── Gán giáo viên\n├── Cập nhật thông tin lớp\n└── Theo dõi trạng thái lớp</pre><p>Cùng nội dung đó vẽ dưới dạng Functional Decomposition Diagram (sơ đồ phân rã chức năng), rồi phân rã tiếp “Tạo lớp học” thành Nhập thông tin, Chọn thời gian, Gán khóa học:</p>{{img:L11a-img3}}{{img:L11a-img4}}<p>Kết quả của B3 là <b>Function List</b>: danh sách chức năng xếp theo cây Level 1 → Level 2 → Level 3.</p><p class=\"tip\">Mẹo: Level 1 là nhóm nghiệp vụ (hay mở đầu bằng “Quản lý…”); Level 2 là chức năng cụ thể người dùng thực hiện; Level 3 là các bước xử lý bên trong. Khi phân rã, các chức năng con cộng lại phải đủ để làm xong chức năng cha.</p><p class=\"note\">Slide B3 (tr.19) chép nhầm nội dung của B2: mục tiêu ghi “xác định các nhóm người dùng chính”, output ghi “User List”. Bài học theo tiêu đề B3 và các slide tr.20–23: mục tiêu của B3 là xác định các chức năng chính, output là Function List.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.19-23"
+  },
+  {
+   "id": "L11a-t15",
+   "h": "B4: Xây dựng ma trận phân quyền (Permission Matrix)",
+   "html": "<p><b>Mục tiêu:</b> biết rõ <b>user nào được dùng chức năng nào và ở mức độ nào</b> (xem / tạo / sửa / xóa…).</p><p><b>Cách thực hiện:</b> lập bảng, trong đó:</p><ul><li><b>Hàng</b> là các chức năng (từ bước 3).</li><li><b>Cột</b> là các User Role (từ bước 2).</li><li><b>Ô giao nhau</b> thể hiện quyền, điền dấu: ✅ có quyền; ❌ không có quyền; 🔍 chỉ xem.</li></ul><p><b>Output:</b> ma trận phân quyền.</p><p>Ví dụ ma trận cho hệ thống quản lý lớp học (ví dụ tự đặt):</p><table><thead><tr><th>Chức năng</th><th>Giáo vụ</th><th>Giáo viên</th><th>Học viên</th></tr></thead><tbody><tr><td>Tạo lớp mới</td><td>✅</td><td>❌</td><td>❌</td></tr><tr><td>Gán giáo viên</td><td>✅</td><td>❌</td><td>❌</td></tr><tr><td>Cập nhật thông tin lớp</td><td>✅</td><td>🔍</td><td>🔍</td></tr><tr><td>Điểm danh</td><td>🔍</td><td>✅</td><td>❌</td></tr><tr><td>Đăng ký lớp</td><td>❌</td><td>❌</td><td>✅</td></tr></tbody></table><p>Cách đọc: theo hàng “Cập nhật thông tin lớp”, Giáo vụ được sửa, Giáo viên và Học viên chỉ xem được thông tin lớp.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.24"
+  },
+  {
+   "id": "L11a-t16",
+   "h": "B5: Vẽ sơ đồ chức năng tổng quan (BFD) – tùy chọn",
+   "html": "<p><b>Mục tiêu:</b> diễn tả <b>các nhóm chức năng cấp cao</b> trong hệ thống và mối quan hệ tổng thể.</p><p><b>Hướng dẫn:</b></p><ul><li>Chỉ vẽ các khối tương ứng với <b>Level 1 trong cây chức năng</b>.</li><li>Kết nối các khối bằng mũi tên để thể hiện luồng tổng quan.</li><li>Không đi vào chi tiết Level 2 hoặc Level 3 ở đây.</li><li><b>Functional Decomposition giúp tạo BFD dễ và đúng hơn</b>, chỉ cần lấy Level 1 đưa lên sơ đồ.</li></ul><p><b>Output:</b> BFD minh họa toàn hệ thống.</p><p class=\"note\">Slide B5 ghi BFD là bước tùy chọn (Optional), nhưng bài thực hành cuối buổi (tr.32) yêu cầu nộp đủ User List, Function List và BFD. Khi làm bài trong khóa này, hãy luôn vẽ BFD.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.25, tr.32"
+  },
+  {
+   "id": "L11a-t17",
+   "h": "BFD là gì và các thành phần",
+   "html": "<p><b>Business Function Diagram (BFD)</b> là sơ đồ mô tả <b>tổng quan các nhóm chức năng chính của hệ thống</b> và <b>mối liên kết giữa các chức năng đó</b>. BFD giúp thể hiện bức tranh tổng thể của hệ thống từ góc nhìn chức năng, phục vụ giao tiếp giữa BA và stakeholder.</p><table><thead><tr><th>Thành phần</th><th>Ý nghĩa</th></tr></thead><tbody><tr><td>Khối chức năng (Function block)</td><td>Đơn vị chức năng chính của hệ thống. Mỗi khối thể hiện một nhóm nghiệp vụ có cùng mục tiêu, vẽ bằng một hình chữ nhật chứa tên chức năng (module).</td></tr><tr><td>Tên khối</td><td>Tiêu đề mô tả rõ chức năng chính của khối: ngắn gọn, dễ hiểu, đại diện cho nghiệp vụ cụ thể. Ví dụ “Quản lý học viên”, “Quản lý lớp học”.</td></tr><tr><td>Mối quan hệ giữa các khối (Relationship Arrow)</td><td>Mỗi khối có thể nối với 1 hoặc nhiều khối khác bằng mũi tên, thể hiện: có <b>trao đổi thông tin</b> hoặc dữ liệu; hoặc có <b>sự phụ thuộc chức năng</b> (ví dụ: muốn ghi danh thì phải có lớp học đã tạo).</td></tr><tr><td>Tác nhân bên ngoài (nếu có)</td><td>Người dùng (user role) hoặc hệ thống bên ngoài tương tác với các khối chức năng.</td></tr></tbody></table><p class=\"note\">Về quy tắc đặt tên khối, slide ghi “danh từ + động từ (danh từ thường đứng đầu)”, nhưng các ví dụ đi kèm (“Quản lý học viên”, “Quản lý lớp học”) lại mở đầu bằng “Quản lý”. Hãy đặt tên theo đúng mẫu ví dụ: <b>“Quản lý” + đối tượng nghiệp vụ</b>. Ngoài ra, một số giáo trình phân tích thiết kế hệ thống vẽ BFD dạng cây phân rã đầy đủ, không có mũi tên luồng; bài này theo slide: BFD chỉ vẽ Level 1 và dùng mũi tên thể hiện trao đổi thông tin hoặc phụ thuộc.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.27-28"
+  },
+  {
+   "id": "L11a-t18",
+   "h": "Lưu ý khi vẽ BFD và công cụ",
+   "html": "<ul><li><b>Gọi đúng tên chức năng:</b> tránh viết tắt, tránh tên không rõ hành động. Ví dụ “QL KH” nên viết đầy đủ “Quản lý khách hàng”.</li><li><b>Hạn chế quá nhiều khối:</b> BFD chỉ chứa Level 1, nên thường chỉ vài khối.</li><li><b>Không mô tả xử lý logic:</b> điều kiện, công thức, các bước xử lý để dành cho phân tích chi tiết.</li><li><b>Ưu tiên tính đơn giản:</b> BFD là sơ đồ tổng quan, không cần chi tiết cấp thấp.</li></ul><p><b>Công cụ vẽ:</b> Visio, Diagram.net (draw.io).</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.29-30"
+  },
+  {
+   "id": "L11a-t19",
+   "h": "Ví dụ BFD: Hệ thống Quản lý Bán hàng",
+   "html": "{{img:L11a-img5}}<p>Đọc sơ đồ trên slide:</p><ul><li>Khối gốc “Quản lý Bán hàng” là toàn hệ thống.</li><li>Ba khối Level 1: Quản lý Khách hàng, Quản lý Đơn hàng, Quản lý Sản phẩm.</li><li>Cả ba khối cùng cung cấp dữ liệu cho khối “Báo cáo &amp; Thống kê”: báo cáo cần dữ liệu khách hàng, đơn hàng và sản phẩm.</li></ul><p>Sơ đồ không có chi tiết như “Thêm sản phẩm” hay “Tính chiết khấu”: những thứ đó là Level 2, Level 3 và nằm trong Function List.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.31"
+  },
+  {
+   "id": "L11a-t20",
+   "h": "Thực hành trên slide và tổng kết",
+   "html": "<p><b>Thực hành (slide):</b> phân tích tổng quan hệ thống (dự án mock) bằng phương pháp hướng chức năng, xác định đầy đủ output: User List, Function List, BFD. Bài này có lời giải mẫu ở tab Thực hành (L11a-p2).</p><p><b>Tổng kết buổi học:</b></p><ul><li>Phương pháp phân tích tổng quan hệ thống bằng hướng chức năng.</li><li>Các output của phương pháp: danh sách yêu cầu thô, User List, Function List, Permission Matrix, BFD.</li><li>Sơ đồ BFD và cách vẽ.</li></ul>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.32-33"
+  }
+ ],
+ "summary": {
+  "points": [
+   "FR trả lời “Hệ thống làm gì?”: hành vi, chức năng, nghiệp vụ cụ thể; test rõ ràng được.",
+   "NFR trả lời “Hệ thống vận hành như thế nào, tốt ra sao?”: hiệu suất, bảo mật, độ ổn định, khả năng mở rộng, UX…; thường phải đo bằng công cụ chuyên biệt.",
+   "Câu yêu cầu lẫn cả hành động và chất lượng thì tách thành một FR và một NFR; NFR phải có con số đo được.",
+   "Phân tích tổng quan tổ chức yêu cầu thô thành bức tranh tổng thể: phạm vi, nhóm chức năng, nhóm người dùng, NFR. Phân tích chi tiết làm sau, mô tả sâu từng chức năng.",
+   "5 bước hướng chức năng: B1 yêu cầu thô → B2 User List → B3 Function List → B4 Permission Matrix → B5 BFD.",
+   "Functional Decomposition: User Role → Level 1 → Level 2 → (Level 3).",
+   "Permission Matrix: hàng là chức năng, cột là User Role, ô giao nhau ghi có quyền / không có quyền / chỉ xem.",
+   "BFD chỉ vẽ các khối Level 1, nối bằng mũi tên thể hiện trao đổi thông tin hoặc phụ thuộc; tên rõ, ít khối, không mô tả logic."
+  ],
+  "html": "<p>Bài học đi từ khái niệm đến phương pháp. Đầu tiên phân biệt FR và NFR. Sau đó dùng phân tích tổng quan theo hướng chức năng để biến yêu cầu thô thành các sản phẩm có cấu trúc. Các sản phẩm này là nền cho phân tích chi tiết (Use Case, Wireframe, Business Rules) ở các bài sau.</p><table><thead><tr><th>Bước</th><th>Hỏi</th><th>Đầu ra</th><th>Dùng ở đâu tiếp</th></tr></thead><tbody><tr><td>B1</td><td>Stakeholder muốn gì?</td><td>Yêu cầu thô</td><td>Nguồn cho B2, B3 và danh sách NFR</td></tr><tr><td>B2</td><td>Ai dùng hệ thống?</td><td>User List</td><td>Cột của Permission Matrix</td></tr><tr><td>B3</td><td>Hệ thống làm gì?</td><td>Function List (Level 1–3)</td><td>Hàng của Permission Matrix; Level 1 lên BFD</td></tr><tr><td>B4</td><td>Ai được làm gì, mức nào?</td><td>Permission Matrix</td><td>Thiết kế phân quyền, kiểm thử</td></tr><tr><td>B5</td><td>Các nhóm chức năng liên kết ra sao?</td><td>BFD</td><td>Trao đổi với stakeholder</td></tr></tbody></table>"
+ },
+ "images": [
+  {
+   "id": "L11a-img1",
+   "path": "data/pages/11. Yeu cau chuc nang va yeu cau phi chuc nang/p-007.jpg",
+   "caption": "Bảng so sánh yêu cầu chức năng và phi chức năng (slide)",
+   "crop": [
+    0.06,
+    0.26,
+    0.89,
+    0.8
+   ]
+  },
+  {
+   "id": "L11a-img2",
+   "path": "data/pages/11. Yeu cau chuc nang va yeu cau phi chuc nang/p-016.jpg",
+   "caption": "5 bước phân tích tổng quan theo hướng chức năng",
+   "crop": [
+    0.04,
+    0.14,
+    0.95,
+    0.85
+   ]
+  },
+  {
+   "id": "L11a-img3",
+   "path": "data/pages/11. Yeu cau chuc nang va yeu cau phi chuc nang/p-022.jpg",
+   "caption": "Functional Decomposition Diagram: Quản lý lớp học (Level 1 → Level 2)",
+   "crop": [
+    0.18,
+    0.52,
+    0.825,
+    0.955
+   ]
+  },
+  {
+   "id": "L11a-img4",
+   "path": "data/pages/11. Yeu cau chuc nang va yeu cau phi chuc nang/p-023.jpg",
+   "caption": "Phân rã tiếp chức năng Tạo lớp học",
+   "crop": [
+    0.23,
+    0.47,
+    0.82,
+    0.92
+   ]
+  },
+  {
+   "id": "L11a-img5",
+   "path": "data/pages/11. Yeu cau chuc nang va yeu cau phi chuc nang/p-031.jpg",
+   "caption": "Ví dụ BFD – Hệ thống Quản lý Bán hàng",
+   "crop": [
+    0.23,
+    0.27,
+    0.77,
+    0.89
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "id": "L11a-e1",
+   "title": "Phân loại FR/NFR cho hệ thống đặt đồ ăn",
+   "html": "<p>Ví dụ: BA nhận 8 câu yêu cầu cho app đặt đồ ăn. Cách làm: với mỗi câu, hỏi “câu này nói hệ thống <i>làm gì</i> hay nói hệ thống <i>tốt ra sao</i>?”.</p><table><thead><tr><th>#</th><th>Câu yêu cầu</th><th>Loại</th><th>Lý do</th></tr></thead><tbody><tr><td>1</td><td>Khách hàng tìm món theo tên hoặc loại món</td><td>FR</td><td>Hành động cụ thể của người dùng</td></tr><tr><td>2</td><td>Khách hàng thêm món vào giỏ hàng</td><td>FR</td><td>Hành động cụ thể</td></tr><tr><td>3</td><td>Hệ thống gửi thông báo cho nhà hàng khi có đơn mới</td><td>FR</td><td>Hành vi của hệ thống, test được: có đơn thì có thông báo</td></tr><tr><td>4</td><td>Trang thực đơn tải xong trong ≤ 2 giây</td><td>NFR – hiệu suất</td><td>Nói về tốc độ, không thêm hành động mới</td></tr><tr><td>5</td><td>Giờ cao điểm, hệ thống phục vụ 3000 người đặt cùng lúc mà không gián đoạn</td><td>NFR – hiệu suất, ổn định</td><td>Nói về sức chịu tải</td></tr><tr><td>6</td><td>Thông tin thẻ thanh toán được mã hóa khi truyền và lưu</td><td>NFR – bảo mật</td><td>Nói về mức độ an toàn dữ liệu</td></tr><tr><td>7</td><td>Khách hàng đánh giá món sau khi nhận hàng</td><td>FR</td><td>Hành động cụ thể</td></tr><tr><td>8</td><td>Người dùng mới đặt được đơn đầu tiên mà không cần hướng dẫn</td><td>NFR – UX</td><td>Nói về độ dễ dùng</td></tr></tbody></table><p class=\"tip\">Câu 3 bắt đầu bằng “Hệ thống” nhưng vẫn là FR, vì nó mô tả một hành vi cụ thể. Đừng phân loại theo chủ ngữ.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5-7"
+  },
+  {
+   "id": "L11a-e2",
+   "title": "Đọc cây Functional Decomposition của hệ thống quản lý lớp học",
+   "html": "<p>Ghép các ví dụ trên slide thành một cây chức năng đầy đủ:</p><pre>Hệ thống quản lý lớp học\n├── Quản lý lớp học                (Level 1)\n│   ├── Tạo lớp học                (Level 2)\n│   │   ├── Nhập thông tin         (Level 3)\n│   │   ├── Chọn thời gian\n│   │   └── Gán khóa học\n│   ├── Cập nhật lớp học\n│   ├── Gán giáo viên\n│   └── Theo dõi lớp học\n└── Đăng ký lớp học                (Level 1, từ vai trò Học viên)\n    ├── Tìm lớp                    (Level 2)\n    ├── Chọn lớp\n    ├── Gửi yêu cầu\n    └── Xác nhận\n        ├── Gửi email              (Level 3)\n        ├── Ghi log hệ thống\n        └── Cập nhật trạng thái</pre><p>Giải thích:</p><ul><li><b>Level 1</b> là nhóm nghiệp vụ, lấy từ vai trò người dùng (ví dụ “Học viên” cần đăng ký lớp).</li><li><b>Level 2</b> là các chức năng người dùng thực hiện trong nhóm đó.</li><li><b>Level 3</b> chỉ làm khi cần, ví dụ để nói rõ “Xác nhận” gồm những xử lý gì.</li><li>Cây này chính là <b>Function List</b>. Lấy riêng Level 1 thì có các khối để vẽ BFD.</li></ul>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.20-23"
+  },
+  {
+   "id": "L11a-e3",
+   "title": "Permission Matrix cho quầy thu ngân SolasMart",
+   "html": "<p>Quy trình bán hàng tại quầy của SolasMart có các bên: Khách hàng, Thu ngân, Nhân viên hỗ trợ quầy, Trưởng ca / Quản lý quầy. Ba vai trò sau đăng nhập máy POS. Ví dụ ma trận phân quyền (tự đặt dựa trên quy trình):</p><table><thead><tr><th>Chức năng</th><th>Thu ngân</th><th>Nhân viên hỗ trợ quầy</th><th>Trưởng ca / Quản lý quầy</th></tr></thead><tbody><tr><td>Bắt đầu phiên thanh toán</td><td>✅</td><td>❌</td><td>✅</td></tr><tr><td>Quét mã / nhập mã tay sản phẩm</td><td>✅</td><td>❌</td><td>✅</td></tr><tr><td>Cân hàng và in tem barcode</td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td>Xác nhận giá khi barcode sai giá</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Thu tiền và in hóa đơn</td><td>✅</td><td>❌</td><td>✅</td></tr><tr><td>Xem doanh thu ca</td><td>🔍</td><td>❌</td><td>✅</td></tr></tbody></table><p>Cách lập: hàng lấy từ Function List (B3), cột lấy từ User List (B2). Mỗi ô trả lời câu hỏi “vai trò này được làm chức năng này ở mức nào?”. Dòng “Xác nhận giá” chỉ Trưởng ca có quyền, đúng với quy trình: barcode sai giá thì gọi trưởng ca xác nhận.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.24; Quy trinh ban hang tai quay.docx"
+  },
+  {
+   "id": "L11a-e4",
+   "title": "Từ cây chức năng đến BFD: hệ thống quản lý thư viện",
+   "html": "<p>Ví dụ: cây chức năng của thư viện có 4 nhóm Level 1: Quản lý sách, Quản lý độc giả, Quản lý mượn trả, Báo cáo thống kê. Theo hướng dẫn B5, chỉ đưa 4 khối này lên BFD rồi nối mũi tên:</p><pre>+---------------+        +-----------------+\n| Quản lý sách  |        | Quản lý độc giả |\n+---------------+        +-----------------+\n         \\                    /\n          v                  v\n        +--------------------+\n        | Quản lý mượn trả   |\n        +--------------------+\n                  |\n                  v\n        +--------------------+\n        | Báo cáo thống kê   |\n        +--------------------+</pre><ul><li>Quản lý sách → Quản lý mượn trả: phụ thuộc chức năng, phải có sách trong danh mục thì mới cho mượn.</li><li>Quản lý độc giả → Quản lý mượn trả: phải có thẻ độc giả thì mới mượn được.</li><li>Quản lý mượn trả → Báo cáo thống kê: trao đổi dữ liệu, báo cáo lấy số liệu mượn trả.</li></ul><p>Sơ đồ không có “Gia hạn”, “Tính phí trễ hạn”: đó là Level 2, nằm trong Function List.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.25, tr.27-31"
+  },
+  {
+   "id": "L11a-e5",
+   "title": "Tách câu yêu cầu lẫn FR và NFR: SolasMart",
+   "html": "<p>Ví dụ: các câu yêu cầu thô của SolasMart thường nói cả “làm gì” lẫn “tốt ra sao” trong một câu. BA tách ra để mỗi câu chỉ kiểm một điều.</p><table><thead><tr><th>Câu gốc</th><th>FR</th><th>NFR</th></tr></thead><tbody><tr><td>Khách đặt hàng online, trang đặt hàng phải chịu được 2000 người truy cập cùng lúc</td><td>Khách hàng đặt hàng online</td><td>Trang đặt hàng phục vụ 2000 người dùng đồng thời không gián đoạn</td></tr><tr><td>Thu ngân quét mã vạch, mỗi lần quét phải hiện giá trong 1 giây</td><td>Thu ngân quét mã vạch, POS hiển thị tên hàng, giá, số lượng, khuyến mãi</td><td>Thông tin hiển thị trong ≤ 1 giây sau mỗi lần quét</td></tr><tr><td>Khách theo dõi trạng thái đơn online, trạng thái cập nhật chậm nhất 1 phút sau khi kho xác nhận</td><td>Khách hàng xem trạng thái đơn hàng</td><td>Trạng thái được cập nhật trong ≤ 1 phút</td></tr></tbody></table><p>Lợi ích: tester viết test chức năng cho cột FR, và dùng công cụ đo cho cột NFR.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5-7; Quy trinh ban hang tai quay.docx"
+  },
+  {
+   "id": "L11a-e6",
+   "title": "Viết lại NFR mơ hồ thành NFR đo được",
+   "html": "<p>Ví dụ: stakeholder thường nói NFR bằng tính từ. BA phải thêm con số và điều kiện để kiểm được.</p><table><thead><tr><th>Câu mơ hồ</th><th>Nhóm</th><th>Viết lại (ví dụ)</th></tr></thead><tbody><tr><td>Hệ thống phải nhanh</td><td>Hiệu suất</td><td>Mỗi thao tác trên màn hình bán hàng phản hồi trong ≤ 2 giây khi 200 quầy cùng hoạt động</td></tr><tr><td>Hệ thống phải ổn định</td><td>Độ ổn định, khả dụng</td><td>Hệ thống hoạt động 99,5% thời gian trong giờ mở cửa mỗi tháng</td></tr><tr><td>Hệ thống phải bảo mật</td><td>Bảo mật</td><td>Mật khẩu được lưu dạng mã hóa; dữ liệu giữa máy POS và máy chủ được truyền qua kết nối mã hóa (HTTPS)</td></tr><tr><td>Hệ thống phải dễ dùng</td><td>UX</td><td>Thu ngân mới tự làm được một giao dịch thanh toán sau ≤ 30 phút hướng dẫn</td></tr><tr><td>Hệ thống phải mở rộng tốt</td><td>Khả năng mở rộng</td><td>Thêm cửa hàng mới chỉ bằng cấu hình, không sửa mã nguồn, hỗ trợ tối thiểu 50 cửa hàng</td></tr></tbody></table><p class=\"tip\">Mẹo kiểm: đưa câu NFR cho tester. Nếu tester hỏi “bao nhiêu thì đạt?”, câu đó chưa đo được.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.6-7, tr.13"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L11a-p1",
+   "title": "Phân loại yêu cầu của hệ thống quản lý thư viện",
+   "task": "<p>Phân loại 8 câu yêu cầu sau thành FR hoặc NFR. Với NFR, ghi nhóm. Câu nào lẫn cả hai thì tách ra (ví dụ).</p><ol><li>Thủ thư thêm sách mới vào danh mục.</li><li>Độc giả tìm sách theo tên tác giả.</li><li>Hệ thống tự gửi email nhắc khi sách sắp đến hạn trả.</li><li>Kết quả tìm kiếm hiển thị trong ≤ 2 giây với kho 100.000 đầu sách.</li><li>Trong giờ mở cửa, hệ thống ngừng ngoài kế hoạch không quá 1 giờ mỗi tháng.</li><li>Độc giả gia hạn mượn sách online, thao tác gia hạn không quá 3 lần bấm.</li><li>Mật khẩu của độc giả được lưu dạng mã hóa.</li><li>Thủ thư lập báo cáo số lượt mượn theo tháng.</li></ol>",
+   "steps": [
+    "<p><b>Bước 1.</b> Đọc từng câu, gạch chân động từ hành động (thêm, tìm, gửi, gia hạn, lập). Câu 1, 2, 3, 6, 8 có động từ hành động.</p>",
+    "<p><b>Bước 2.</b> Với câu có động từ, hỏi: “câu này có kèm tiêu chí chất lượng không?”. Câu 6 kèm “không quá 3 lần bấm”, đó là tiêu chí dễ dùng, nên câu 6 là câu lẫn cả hai.</p>",
+    "<p><b>Bước 3.</b> Các câu còn lại (4, 5, 7) chỉ nói về tốc độ, độ ổn định, an toàn, nên là NFR.</p>",
+    "<p><b>Bước 4.</b> Gắn nhóm NFR: câu 4 hiệu suất; câu 5 độ ổn định, khả dụng; câu 7 bảo mật; phần NFR của câu 6 là UX.</p>",
+    "<p><b>Bước 5.</b> Tách câu 6 thành 1 FR và 1 NFR rồi viết bảng kết quả.</p>"
+   ],
+   "answer": "<table><thead><tr><th>#</th><th>Loại</th><th>Ghi chú</th></tr></thead><tbody><tr><td>1</td><td>FR</td><td>Hành động của thủ thư</td></tr><tr><td>2</td><td>FR</td><td>Hành động của độc giả</td></tr><tr><td>3</td><td>FR</td><td>Hành vi cụ thể của hệ thống</td></tr><tr><td>4</td><td>NFR – hiệu suất</td><td>Có con số, đo được</td></tr><tr><td>5</td><td>NFR – độ ổn định, khả dụng</td><td>Có con số, đo được</td></tr><tr><td>6</td><td>FR + NFR</td><td>FR: Độc giả gia hạn mượn sách online. NFR (UX): Thao tác gia hạn không quá 3 lần bấm.</td></tr><tr><td>7</td><td>NFR – bảo mật</td><td>Nói về mức an toàn dữ liệu</td></tr><tr><td>8</td><td>FR</td><td>Hành động của thủ thư</td></tr></tbody></table>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5-7"
+  },
+  {
+   "id": "L11a-p2",
+   "title": "Thực hành trên slide: phân tích tổng quan quầy thu ngân SolasMart",
+   "task": "<p>Đây là bài thực hành trên slide: phân tích tổng quan một hệ thống (dự án mock) bằng phương pháp hướng chức năng, xác định đủ output User List, Function List, BFD. Dự án mock: phần mềm bán hàng tại quầy của siêu thị SolasMart, dựa trên “Quy trình bán hàng tại quầy”.</p><p>Tóm tắt quy trình: khách đưa hàng lên quầy; thu ngân bấm “Start Transaction”, quét barcode từng món (POS hiện tên, giá, số lượng, khuyến mãi); hàng cân phải được cân và in tem trước, chưa cân thì nhân viên hỗ trợ cân; barcode không đọc được thì nhập mã tay, sai giá thì gọi trưởng ca xác nhận; thu ngân đọc lại tổng tiền, bỏ hoặc đổi sản phẩm nếu khách yêu cầu; khách chọn tiền mặt, thẻ, chuyển khoản QR hoặc kết hợp; POS in hóa đơn, có thể in lại; kết thúc phiên.</p>",
+   "steps": [
+    "<p><b>B1 – Yêu cầu thô.</b> Đọc quy trình, viết lại mỗi việc thành một câu tự nhiên, đánh số. Ví dụ: YC01 “Thu ngân cần bắt đầu phiên thanh toán”; YC02 “Thu ngân quét barcode để POS hiện tên, giá, khuyến mãi”; YC03 “Nhập mã tay khi barcode không đọc được”; YC04 “Trưởng ca xác nhận giá khi barcode sai giá”; YC05 “Khách trả bằng tiền mặt, thẻ, QR hoặc kết hợp”; YC06 “In và in lại hóa đơn”…</p>",
+    "<p><b>B2 – User List.</b> Với mỗi YC, hỏi “ai cần việc này?”. Gom vai trò: Thu ngân, Nhân viên hỗ trợ quầy, Trưởng ca / Quản lý quầy. Khách hàng và ngân hàng không đăng nhập POS, ghi là tác nhân bên ngoài.</p>",
+    "<p><b>B3 – Function List.</b> Gom các YC theo nhóm nghiệp vụ thành Level 1, rồi liệt kê Level 2 bên dưới. Dùng tên “Quản lý + đối tượng”, không viết tắt.</p>",
+    "<p><b>B4 – Permission Matrix</b> (không bắt buộc trong đề nhưng nên làm). Hàng là chức năng Level 2, cột là 3 vai trò, ô ghi ✅ / ❌ / 🔍. Xem mẫu ở ví dụ L11a-e3.</p>",
+    "<p><b>B5 – BFD.</b> Chỉ đưa các khối Level 1 lên sơ đồ, nối mũi tên theo luồng dữ liệu hoặc phụ thuộc, thêm tác nhân bên ngoài nếu cần.</p>"
+   ],
+   "answer": "<p>Đáp án mẫu (có thể khác cách chia nhóm, miễn hợp lý):</p><h5>User List</h5><table><thead><tr><th>Vai trò</th><th>Nhiệm vụ</th></tr></thead><tbody><tr><td>Thu ngân</td><td>Mở phiên, quét hoặc nhập mã hàng, sửa giỏ hàng, thu tiền, in hóa đơn, kết thúc phiên</td></tr><tr><td>Nhân viên hỗ trợ quầy</td><td>Cân hàng, in tem barcode, đổi sản phẩm cho khách</td></tr><tr><td>Trưởng ca / Quản lý quầy</td><td>Xác nhận giá khi barcode sai giá, giám sát các quầy</td></tr><tr><td>Tác nhân bên ngoài</td><td>Khách hàng (quét QR, nhập PIN), ngân hàng (xác nhận giao dịch)</td></tr></tbody></table><h5>Function List</h5><pre>Bán hàng tại quầy\n├── Quản lý phiên giao dịch\n│   ├── Đăng nhập POS\n│   ├── Bắt đầu phiên (Start Transaction)\n│   └── Kết thúc phiên\n├── Quản lý giỏ hàng\n│   ├── Quét mã sản phẩm\n│   ├── Nhập mã tay\n│   ├── Thay đổi số lượng / bỏ sản phẩm\n│   └── Xác nhận giỏ hàng (tổng tiền, tổng số lượng)\n├── Quản lý hàng cân và giá\n│   ├── Cân hàng, in tem barcode\n│   └── Xác nhận giá\n├── Quản lý thanh toán\n│   ├── Thanh toán tiền mặt (tính tiền thừa)\n│   ├── Thanh toán thẻ\n│   ├── Thanh toán chuyển khoản QR\n│   ├── Thanh toán kết hợp\n│   └── Hủy giao dịch\n└── Quản lý hóa đơn\n    ├── In hóa đơn\n    └── In lại hóa đơn</pre><h5>BFD</h5><pre>[Quản lý phiên giao dịch]\n          |\n          v\n[Quản lý giỏ hàng] &lt;--- [Quản lý hàng cân và giá]\n          |\n          v\n[Quản lý thanh toán] &lt;---&gt; (Ngân hàng)\n          |\n          v\n[Quản lý hóa đơn]</pre><p>Giải thích mũi tên: phải mở phiên mới thêm được hàng; tem cân và giá xác nhận cung cấp dữ liệu cho giỏ hàng; thanh toán dùng tổng tiền của giỏ và trao đổi với ngân hàng; hóa đơn lập từ giao dịch đã thanh toán.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.16-25, tr.32; Quy trinh ban hang tai quay.docx"
+  },
+  {
+   "id": "L11a-p3",
+   "title": "Phân rã chức năng “Đặt món” của hệ thống đặt đồ ăn",
+   "task": "<p>Áp dụng Functional Decomposition theo đúng mẫu slide (User Role → Level 1 → Level 2 → Level 3) cho vai trò <b>Khách hàng</b> của hệ thống đặt đồ ăn. Phân rã đến Level 3 cho chức năng “Xác nhận đơn”.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Từ User Role “Khách hàng”, hỏi “khách hàng cần làm những nhóm việc gì?”. Chọn Level 1: Quản lý tài khoản, Đặt món, Theo dõi đơn hàng.</p>",
+    "<p><b>Bước 2.</b> Lấy Level 1 “Đặt món”, liệt kê các chức năng con theo thứ tự khách làm: Tìm món → Thêm vào giỏ → Chỉnh sửa giỏ → Chọn địa chỉ giao → Thanh toán → Xác nhận đơn.</p>",
+    "<p><b>Bước 3.</b> Chọn chức năng Level 2 còn “to” là “Xác nhận đơn”, hỏi “hệ thống phải làm gì khi xác nhận?” để ra Level 3: Gửi thông báo cho nhà hàng, Gửi xác nhận cho khách, Ghi log, Cập nhật trạng thái đơn.</p>",
+    "<p><b>Bước 4.</b> Kiểm tra: các chức năng con cộng lại có đủ để làm xong chức năng cha không? Có chỗ nào lẫn tiêu chí chất lượng (NFR) vào cây không? Nếu có thì đưa sang danh sách NFR.</p>"
+   ],
+   "answer": "<pre>Khách hàng\n├── Quản lý tài khoản              (Level 1)\n├── Đặt món                        (Level 1)\n│   ├── Tìm món                    (Level 2)\n│   ├── Thêm vào giỏ\n│   ├── Chỉnh sửa giỏ\n│   ├── Chọn địa chỉ giao\n│   ├── Thanh toán\n│   └── Xác nhận đơn\n│       ├── Gửi thông báo cho nhà hàng   (Level 3)\n│       ├── Gửi xác nhận cho khách\n│       ├── Ghi log hệ thống\n│       └── Cập nhật trạng thái đơn\n└── Theo dõi đơn hàng              (Level 1)</pre><p>Lưu ý: câu như “xác nhận đơn trong ≤ 3 giây” không đưa vào cây, vì đó là NFR (hiệu suất).</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.20-23"
+  },
+  {
+   "id": "L11a-p4",
+   "title": "Lập Permission Matrix cho FoodNow (đặt bàn nhà hàng)",
+   "task": "<p>Ví dụ: FoodNow có 3 vai trò: Khách hàng, Nhân viên nhà hàng, Quản lý nhà hàng. Chức năng: Tìm nhà hàng; Đặt bàn; Hủy đặt bàn; Xác nhận đặt bàn; Cập nhật sơ đồ bàn; Xem báo cáo đặt bàn. Quy định: khách chỉ hủy được đặt bàn của mình; nhân viên xác nhận đặt bàn và xem được sơ đồ bàn; chỉ quản lý được sửa sơ đồ bàn và xem báo cáo. Hãy lập ma trận phân quyền.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Kẻ bảng: hàng là 6 chức năng (từ B3), cột là 3 vai trò (từ B2).</p>",
+    "<p><b>Bước 2.</b> Đi từng hàng, đọc quy định để điền ✅ (có quyền), ❌ (không có quyền), 🔍 (chỉ xem).</p>",
+    "<p><b>Bước 3.</b> Ghi chú cho ô có điều kiện, ví dụ khách “chỉ hủy đặt bàn của mình”.</p>",
+    "<p><b>Bước 4.</b> Rà theo cột: mỗi vai trò có đủ quyền để làm hết nhiệm vụ trong User List chưa?</p>"
+   ],
+   "answer": "<table><thead><tr><th>Chức năng</th><th>Khách hàng</th><th>Nhân viên nhà hàng</th><th>Quản lý nhà hàng</th></tr></thead><tbody><tr><td>Tìm nhà hàng</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Đặt bàn</td><td>✅</td><td>❌</td><td>❌</td></tr><tr><td>Hủy đặt bàn</td><td>✅ (chỉ đơn của mình)</td><td>❌</td><td>❌</td></tr><tr><td>Xác nhận đặt bàn</td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td>Cập nhật sơ đồ bàn</td><td>❌</td><td>🔍</td><td>✅</td></tr><tr><td>Xem báo cáo đặt bàn</td><td>❌</td><td>❌</td><td>✅</td></tr></tbody></table><p>Đề không nói quản lý có xác nhận đặt bàn hay không. Ở đây giả định là có (quản lý thường làm được việc của nhân viên), và cần hỏi lại stakeholder để chốt.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.24"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L11a-x1",
+   "title": "Phân loại 10 yêu cầu của FoodNow",
+   "level": "de",
+   "task": "<p>Ví dụ: ghi FR hoặc NFR cho từng câu.</p><ol><li>Khách hàng tìm nhà hàng theo khu vực.</li><li>Khách hàng chọn ngày, giờ và số người để đặt bàn.</li><li>Trang kết quả tìm kiếm hiển thị trong ≤ 2 giây.</li><li>Hệ thống gửi SMS xác nhận sau khi nhà hàng nhận đặt bàn.</li><li>Hệ thống phục vụ 5000 người dùng đồng thời vào tối thứ Bảy.</li><li>Mật khẩu tài khoản khách hàng được lưu dạng mã hóa.</li><li>Quản lý nhà hàng cập nhật sơ đồ bàn.</li><li>Ứng dụng chạy được trên Android và iOS phiên bản mới nhất.</li><li>Khách hàng hủy đặt bàn trước giờ hẹn.</li><li>Hệ thống hoạt động 99,5% thời gian mỗi tháng.</li></ol>",
+   "hints": [
+    "<p>Hỏi từng câu: có động từ hành động cụ thể không?</p>",
+    "<p>Câu 4 bắt đầu bằng “Hệ thống” nhưng có hành động “gửi SMS”. Câu 8 nói về nền tảng chạy được, tức tiêu chuẩn kỹ thuật.</p>"
+   ],
+   "answer": "<p>FR: 1, 2, 4, 7, 9. NFR: 3 (hiệu suất), 5 (hiệu suất, ổn định), 6 (bảo mật), 8 (tiêu chuẩn kỹ thuật), 10 (khả dụng).</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5-7"
+  },
+  {
+   "id": "L11a-x2",
+   "title": "Gắn nhóm cho NFR của SolasMart",
+   "level": "de",
+   "task": "<p>Ví dụ: ghi nhóm NFR (hiệu suất, bảo mật, độ ổn định/khả dụng, khả năng mở rộng, UX, tiêu chuẩn kỹ thuật) cho từng câu.</p><ol><li>Máy POS hiện giá trong ≤ 1 giây sau mỗi lần quét.</li><li>Dữ liệu thẻ của khách không được lưu trên máy POS.</li><li>Khi mất mạng, quầy vẫn bán được và đồng bộ lại khi có mạng, không mất hóa đơn.</li><li>Mở thêm siêu thị mới chỉ cần cấu hình, không sửa phần mềm.</li><li>Nút thanh toán đủ lớn và đặt cùng vị trí trên mọi màn hình để thu ngân bấm nhanh.</li><li>Website bán online chạy được trên Chrome, Edge, Safari phiên bản mới nhất.</li></ol>",
+   "hints": [
+    "<p>Với mỗi câu, hỏi “câu này trả lời câu hỏi chất lượng nào: nhanh? an toàn? không gián đoạn? lớn thêm được? dễ dùng? theo chuẩn nào?”.</p>"
+   ],
+   "answer": "<p>1 – hiệu suất; 2 – bảo mật; 3 – độ ổn định (không mất dữ liệu khi có sự cố); 4 – khả năng mở rộng; 5 – UX; 6 – tiêu chuẩn kỹ thuật.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.6-7, tr.13"
+  },
+  {
+   "id": "L11a-x3",
+   "title": "Sắp xếp 5 bước và đầu ra",
+   "level": "de",
+   "task": "<p>Các đầu ra sau đang bị xáo trộn: Permission Matrix; danh sách yêu cầu thô; BFD; User List; Function List. Hãy xếp chúng theo đúng thứ tự 5 bước phân tích tổng quan theo hướng chức năng và cho biết bước nào được ghi là tùy chọn.</p>",
+   "hints": [
+    "<p>Phải biết “ai” trước khi biết “ai được làm gì”.</p>",
+    "<p>Bước cuối là sơ đồ.</p>"
+   ],
+   "answer": "<p>B1 danh sách yêu cầu thô → B2 User List → B3 Function List → B4 Permission Matrix → B5 BFD. Slide ghi B5 (vẽ BFD) là Optional, nhưng bài thực hành cuối buổi vẫn yêu cầu nộp BFD.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.16-25"
+  },
+  {
+   "id": "L11a-x4",
+   "title": "Tách câu yêu cầu lẫn FR và NFR",
+   "level": "tb",
+   "task": "<p>Ví dụ: tách mỗi câu sau của hệ thống đặt đồ ăn thành FR và NFR.</p><ol><li>Khách hàng xem vị trí shipper trên bản đồ, vị trí cập nhật mỗi 10 giây.</li><li>Nhà hàng nhận thông báo đơn mới bằng âm thanh, thông báo đến trong ≤ 5 giây sau khi khách đặt.</li><li>Khách hàng thanh toán bằng thẻ, số thẻ phải được mã hóa.</li><li>Khách hàng lọc món theo giá; trang lọc phải dùng được trên điện thoại màn hình nhỏ.</li></ol>",
+   "hints": [
+    "<p>Phần chứa động từ hành động là FR.</p>",
+    "<p>Phần chứa con số thời gian, “mã hóa”, “dùng được trên…” là NFR. Ghi luôn nhóm.</p>"
+   ],
+   "answer": "<table><thead><tr><th>#</th><th>FR</th><th>NFR</th></tr></thead><tbody><tr><td>1</td><td>Khách hàng xem vị trí shipper trên bản đồ</td><td>Vị trí cập nhật tối thiểu mỗi 10 giây (hiệu suất)</td></tr><tr><td>2</td><td>Hệ thống thông báo đơn mới cho nhà hàng bằng âm thanh</td><td>Thông báo đến trong ≤ 5 giây (hiệu suất)</td></tr><tr><td>3</td><td>Khách hàng thanh toán bằng thẻ</td><td>Số thẻ được mã hóa (bảo mật)</td></tr><tr><td>4</td><td>Khách hàng lọc món theo giá</td><td>Trang lọc hiển thị và thao tác được trên màn hình điện thoại nhỏ (UX / tiêu chuẩn kỹ thuật)</td></tr></tbody></table>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5-7"
+  },
+  {
+   "id": "L11a-x5",
+   "title": "Viết lại NFR mơ hồ cho hệ thống thư viện",
+   "level": "tb",
+   "task": "<p>Ví dụ: 4 câu NFR sau chưa kiểm được. Hãy viết lại cho đo được và ghi nhóm.</p><ol><li>Tìm sách phải nhanh.</li><li>Hệ thống không được hay sập.</li><li>Dữ liệu độc giả phải an toàn.</li><li>Sau này thư viện mở thêm cơ sở thì hệ thống vẫn dùng được.</li></ol>",
+   "hints": [
+    "<p>Thêm con số: bao nhiêu giây, bao nhiêu phần trăm, bao nhiêu người hoặc cơ sở.</p>",
+    "<p>Thêm điều kiện đo: với bao nhiêu đầu sách, trong khoảng thời gian nào.</p>"
+   ],
+   "answer": "<ol><li>Hiệu suất: Kết quả tìm sách hiển thị trong ≤ 2 giây với kho 100.000 đầu sách và 300 người tìm cùng lúc.</li><li>Độ ổn định/khả dụng: Hệ thống sẵn sàng 99,5% thời gian trong giờ mở cửa mỗi tháng.</li><li>Bảo mật: Mật khẩu độc giả lưu dạng mã hóa; dữ liệu truyền qua kết nối mã hóa.</li><li>Khả năng mở rộng: Thêm cơ sở mới chỉ bằng cấu hình, hỗ trợ tối thiểu 10 cơ sở mà không giảm hiệu suất đã cam kết.</li></ol><p>Các con số trên là ví dụ; con số thật phải chốt với stakeholder.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.6-7, tr.13"
+  },
+  {
+   "id": "L11a-x6",
+   "title": "Lập User List từ yêu cầu thô của thư viện",
+   "level": "tb",
+   "task": "<p>Ví dụ: danh sách yêu cầu thô sau buổi phỏng vấn:</p><ol><li>“Tôi muốn thêm sách mới và sửa thông tin sách.”</li><li>“Độc giả cần tìm sách và xem sách còn hay hết.”</li><li>“Thủ thư cho mượn và nhận trả sách.”</li><li>“Ban giám đốc muốn xem báo cáo lượt mượn mỗi tháng.”</li><li>“Độc giả muốn gia hạn sách online.”</li><li>“Cần người tạo tài khoản cho thủ thư mới và khóa tài khoản người nghỉ việc.”</li></ol><p>Câu 1 do thủ thư nói. Hãy lập User List kèm mô tả nhiệm vụ.</p>",
+   "hints": [
+    "<p>Với mỗi câu hỏi “Ai là người cần tính năng này?”.</p>",
+    "<p>Dùng gợi ý câu hỏi của slide: ai tạo/cập nhật, ai chỉ đọc/giám sát, ai quản trị tài khoản.</p>"
+   ],
+   "answer": "<table><thead><tr><th>User Role</th><th>Nhiệm vụ</th></tr></thead><tbody><tr><td>Thủ thư</td><td>Thêm và sửa thông tin sách; cho mượn, nhận trả sách (câu 1, 3)</td></tr><tr><td>Độc giả</td><td>Tìm sách, xem tình trạng sách, gia hạn online (câu 2, 5)</td></tr><tr><td>Ban giám đốc</td><td>Chỉ xem báo cáo, giám sát (câu 4)</td></tr><tr><td>Quản trị hệ thống</td><td>Tạo, khóa tài khoản người dùng (câu 6)</td></tr></tbody></table><p>Ban giám đốc là vai trò “chỉ đọc / giám sát”. Câu 6 không nói rõ ai, nên đặt vai trò Quản trị hệ thống và ghi chú hỏi lại stakeholder.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.17-18"
+  },
+  {
+   "id": "L11a-x7",
+   "title": "Phân rã “Quản lý mượn trả” đến Level 3",
+   "level": "tb",
+   "task": "<p>Phân rã chức năng Level 1 “Quản lý mượn trả” của hệ thống quản lý thư viện thành Level 2, và phân rã tiếp một chức năng Level 2 thành Level 3. Trình bày dạng cây như slide.</p>",
+   "hints": [
+    "<p>Nghĩ theo vòng đời một lượt mượn: mượn → gia hạn → trả → trễ hạn.</p>",
+    "<p>Chọn “Trả sách” để phân rã Level 3: hệ thống phải làm những gì khi nhận sách?</p>"
+   ],
+   "answer": "<pre>Quản lý mượn trả                  (Level 1)\n├── Cho mượn sách                 (Level 2)\n├── Gia hạn mượn\n├── Nhận trả sách\n│   ├── Quét mã sách              (Level 3)\n│   ├── Kiểm tra hạn trả\n│   ├── Tính phí trễ hạn (nếu có)\n│   └── Cập nhật trạng thái sách\n└── Theo dõi sách quá hạn</pre><p>Ví dụ đáp án, cách đặt tên có thể khác. Kiểm: các chức năng con cộng lại phải đủ để làm xong chức năng cha; không đưa NFR (như “trả sách trong ≤ 3 giây”) vào cây.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.20-23"
+  },
+  {
+   "id": "L11a-x8",
+   "title": "Tìm lỗi trong bản phân tích tổng quan",
+   "level": "kho",
+   "task": "<p>Một BA mới nộp bản phân tích tổng quan hệ thống đặt đồ ăn (ví dụ):</p><ul><li>Function List có dòng “Hệ thống phản hồi trong ≤ 2 giây”.</li><li>Permission Matrix: hàng là Khách hàng, Nhà hàng, Shipper; cột là các chức năng.</li><li>BFD có 14 khối, gồm cả “Nhập mã giảm giá”, “Kiểm tra điều kiện mã: đơn ≥ 100.000đ”.</li><li>Một khối BFD tên “QL ĐH”.</li><li>Phần phân tích tổng quan có kèm Wireframe màn hình giỏ hàng.</li></ul><p>Chỉ ra từng lỗi, giải thích theo bài học và đề xuất sửa.</p>",
+   "hints": [
+    "<p>Đối chiếu với: định nghĩa NFR; cách lập Permission Matrix; hướng dẫn B5 và lưu ý khi vẽ BFD.</p>",
+    "<p>Phân tích tổng quan có đi vào giao diện không?</p>"
+   ],
+   "answer": "<ol><li>“Phản hồi ≤ 2 giây” là NFR (hiệu suất), không phải chức năng → chuyển sang danh sách NFR.</li><li>Permission Matrix đảo hàng và cột. Slide quy định hàng là chức năng (B3), cột là User Role (B2) → đổi lại.</li><li>BFD quá nhiều khối và có Level 2/3 (“Nhập mã giảm giá”) cùng logic xử lý (“đơn ≥ 100.000đ”) → chỉ giữ khối Level 1; điều kiện đưa vào Business Rules khi phân tích chi tiết.</li><li>“QL ĐH” viết tắt → đổi thành “Quản lý đơn hàng”.</li><li>Wireframe thuộc phân tích chi tiết; phân tích tổng quan không đi vào chi tiết giao diện → để sang giai đoạn chi tiết.</li></ol>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.6, tr.10-12, tr.24-25, tr.29"
+  },
+  {
+   "id": "L11a-x9",
+   "title": "Tình huống tổng hợp: kênh bán online của SolasMart",
+   "level": "kho",
+   "task": "<p>Ví dụ: yêu cầu thô sau buổi workshop về kênh bán online của SolasMart:</p><ul><li>“Khách muốn xem sản phẩm, thêm vào giỏ và đặt hàng trên website.”</li><li>“Khách cần thanh toán online hoặc trả tiền khi nhận hàng, và xem đơn đang ở đâu.”</li><li>“Nhân viên kho nhận đơn, soạn hàng và cập nhật trạng thái đơn.”</li><li>“Nhân viên chăm sóc khách hàng xử lý yêu cầu hủy đơn.”</li><li>“Quản lý xem báo cáo doanh thu online, chỉnh giá và khuyến mãi.”</li><li>“Website phải chịu được đợt khuyến mãi lớn, trang không được chậm quá 3 giây.”</li><li>“Thông tin thanh toán của khách phải an toàn.”</li></ul><p>Hãy làm đủ: (1) User List; (2) Function List Level 1–2; (3) Permission Matrix; (4) BFD; (5) danh sách NFR đo được.</p>",
+   "hints": [
+    "<p>Có 4 vai trò đăng nhập: Khách hàng, Nhân viên kho, Nhân viên chăm sóc khách hàng, Quản lý.</p>",
+    "<p>Hai câu cuối là NFR, không đưa vào Function List.</p>",
+    "<p>BFD chỉ cần 5–6 khối Level 1; ngân hàng/cổng thanh toán là tác nhân bên ngoài.</p>"
+   ],
+   "answer": "<h5>(1) User List</h5><table><thead><tr><th>Vai trò</th><th>Nhiệm vụ</th></tr></thead><tbody><tr><td>Khách hàng</td><td>Xem sản phẩm, đặt hàng, thanh toán, theo dõi đơn</td></tr><tr><td>Nhân viên kho</td><td>Nhận đơn, soạn hàng, cập nhật trạng thái</td></tr><tr><td>Nhân viên CSKH</td><td>Xử lý hủy đơn</td></tr><tr><td>Quản lý</td><td>Xem báo cáo, chỉnh giá, khuyến mãi</td></tr></tbody></table><h5>(2) Function List</h5><pre>Bán hàng online SolasMart\n├── Quản lý sản phẩm: Xem sản phẩm; Cập nhật giá\n├── Quản lý khuyến mãi: Tạo khuyến mãi; Áp khuyến mãi\n├── Quản lý giỏ hàng và đặt hàng: Thêm vào giỏ; Đặt hàng\n├── Quản lý thanh toán: Thanh toán online; Thanh toán khi nhận hàng\n├── Quản lý đơn hàng: Nhận đơn; Soạn hàng; Cập nhật trạng thái; Theo dõi đơn; Hủy đơn\n└── Báo cáo doanh thu: Xem báo cáo doanh thu online</pre><h5>(3) Permission Matrix (trích)</h5><table><thead><tr><th>Chức năng</th><th>Khách hàng</th><th>NV kho</th><th>NV CSKH</th><th>Quản lý</th></tr></thead><tbody><tr><td>Đặt hàng</td><td>✅</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td>Cập nhật trạng thái đơn</td><td>❌</td><td>✅</td><td>❌</td><td>❌</td></tr><tr><td>Theo dõi đơn</td><td>🔍</td><td>🔍</td><td>🔍</td><td>🔍</td></tr><tr><td>Hủy đơn</td><td>❌</td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td>Cập nhật giá, khuyến mãi</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Xem báo cáo doanh thu</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td></tr></tbody></table><h5>(4) BFD</h5><pre>[Quản lý sản phẩm] [Quản lý khuyến mãi]\n          \\          /\n           v        v\n[Quản lý giỏ hàng và đặt hàng]\n              |\n              v\n[Quản lý thanh toán] &lt;---&gt; (Cổng thanh toán)\n              |\n              v\n[Quản lý đơn hàng]\n              |\n              v\n[Báo cáo doanh thu]</pre><h5>(5) NFR</h5><ul><li>Hiệu suất: mỗi trang tải trong ≤ 3 giây khi có [số người dùng đồng thời cần chốt] trong đợt khuyến mãi.</li><li>Bảo mật: dữ liệu thanh toán được mã hóa khi truyền, không lưu số thẻ đầy đủ.</li></ul><p>Con số người dùng đồng thời chưa có trong yêu cầu thô, BA phải hỏi lại stakeholder thay vì tự đặt.</p>",
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5-7, tr.16-31"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L11a-f1",
+   "front": "Functional Requirement – FR (yêu cầu chức năng)",
+   "back": "<p>Mô tả hành vi, chức năng, nghiệp vụ cụ thể mà hệ thống phải thực hiện để đáp ứng nhu cầu người dùng. Ví dụ: người dùng đăng ký tài khoản. Mẹo: FR là “động từ” của hệ thống.</p>"
+  },
+  {
+   "id": "L11a-f2",
+   "front": "FR trả lời những câu hỏi nào?",
+   "back": "<p>“Hệ thống sẽ làm gì?” và “Người dùng có thể thao tác gì trên hệ thống?”.</p>"
+  },
+  {
+   "id": "L11a-f3",
+   "front": "Non-Functional Requirement – NFR (yêu cầu phi chức năng)",
+   "back": "<p>Yêu cầu không mô tả hành vi cụ thể mà mô tả hệ thống vận hành như thế nào: chất lượng, hiệu suất, bảo mật, độ ổn định, khả năng mở rộng. Ví dụ: phản hồi ≤ 2 giây. Mẹo: NFR là “tính từ”.</p>"
+  },
+  {
+   "id": "L11a-f4",
+   "front": "NFR trả lời những câu hỏi nào?",
+   "back": "<p>“Hệ thống hoạt động như thế nào?” và “Hệ thống cần ‘tốt’ ra sao?”.</p>"
+  },
+  {
+   "id": "L11a-f5",
+   "front": "Hai ví dụ NFR trên slide",
+   "back": "<p>Hệ thống phải xử lý 5000 người dùng đồng thời mà không bị gián đoạn; thời gian phản hồi mỗi thao tác không vượt quá 2 giây.</p>"
+  },
+  {
+   "id": "L11a-f6",
+   "front": "FR hay NFR dễ kiểm thử hơn?",
+   "back": "<p>FR: có thể test rõ ràng (làm và xem kết quả). NFR: có thể cần đo lường bằng công cụ chuyên biệt, ví dụ công cụ kiểm thử tải.</p>"
+  },
+  {
+   "id": "L11a-f7",
+   "front": "FR và NFR liên quan đến gì? (theo bảng so sánh)",
+   "back": "<p>FR liên quan đến quy trình nghiệp vụ. NFR liên quan đến hiệu suất, bảo mật, UX, tiêu chuẩn kỹ thuật.</p>"
+  },
+  {
+   "id": "L11a-f8",
+   "front": "Câu yêu cầu lẫn cả FR và NFR thì xử lý sao?",
+   "back": "<p>Tách thành một FR và một NFR. Ví dụ “Thu ngân quét mã, giá hiện trong 1 giây” → FR: quét mã hiện giá; NFR: hiển thị ≤ 1 giây.</p>"
+  },
+  {
+   "id": "L11a-f9",
+   "front": "NFR đo được là gì?",
+   "back": "<p>NFR có con số và điều kiện để kiểm. “Hệ thống phải nhanh” là mơ hồ; “trang tải ≤ 2 giây với 1000 người dùng đồng thời” là đo được. Mẹo: tester không phải hỏi “bao nhiêu thì đạt?”.</p>"
+  },
+  {
+   "id": "L11a-f10",
+   "front": "Các nhóm NFR hay gặp",
+   "back": "<p>Hiệu suất, bảo mật, độ ổn định/tin cậy, khả dụng, khả năng mở rộng, UX (dễ dùng), tiêu chuẩn kỹ thuật. Kiến thức chuẩn bổ sung: bảo trì, tương thích, tuân thủ.</p>"
+  },
+  {
+   "id": "L11a-f11",
+   "front": "High-level Requirement Analysis (phân tích tổng quan)",
+   "back": "<p>Quá trình xử lý và tổ chức các yêu cầu thô ban đầu từ stakeholder để hình thành cái nhìn tổng thể về giải pháp cần xây dựng.</p>"
+  },
+  {
+   "id": "L11a-f12",
+   "front": "5 mục tiêu của phân tích tổng quan",
+   "back": "<p>Làm rõ phạm vi; xác định nhóm chức năng chính; xác định nhóm người dùng và quan hệ người dùng – chức năng; chuẩn bị cho phân tích chi tiết; xác định yêu cầu phi chức năng.</p>"
+  },
+  {
+   "id": "L11a-f13",
+   "front": "Phân tích tổng quan chức năng",
+   "back": "<p>Giai đoạn xác định các nhóm chức năng chính dựa trên yêu cầu nghiệp vụ ban đầu, người dùng và mục tiêu tổng thể. Là “bản đồ chức năng cấp cao”, không đi vào giao diện hay logic xử lý.</p>"
+  },
+  {
+   "id": "L11a-f14",
+   "front": "Ba hình thức thể hiện phân tích tổng quan chức năng",
+   "back": "<p>Function List (danh sách chức năng chính), BFD (sơ đồ chức năng tổng quan), Permission Matrix (phân quyền).</p>"
+  },
+  {
+   "id": "L11a-f15",
+   "front": "Detailed Functional Analysis (phân tích chi tiết chức năng)",
+   "back": "<p>Mô tả sâu từng chức năng: logic xử lý, dữ liệu vào/ra, điều kiện nghiệp vụ, UI/UX, User Flow. Làm sau phân tích tổng quan. Mục tiêu: làm cơ sở lập trình, kiểm thử, thiết kế UI; hạn chế hiểu sai yêu cầu.</p>"
+  },
+  {
+   "id": "L11a-f16",
+   "front": "Mỗi chức năng khi phân tích chi tiết có những mô tả gì?",
+   "back": "<p>Use Case, Wireframe/Mockup, mô hình dữ liệu liên quan, quy tắc nghiệp vụ (Business Rules), trường hợp kiểm thử (Test case idea).</p>"
+  },
+  {
+   "id": "L11a-f17",
+   "front": "Function-Oriented Analysis (phân tích hướng chức năng)",
+   "back": "<p>Phương pháp truyền thống, tập trung xác định hệ thống cần làm gì qua danh sách chức năng theo tác nhân. Ưu tiên xử lý chức năng hơn cấu trúc dữ liệu; mỗi chức năng ứng với hành động của một người dùng; trực quan với người không chuyên.</p>"
+  },
+  {
+   "id": "L11a-f18",
+   "front": "5 bước phân tích hướng chức năng",
+   "back": "<p>B1 tổng hợp yêu cầu thô → B2 User List → B3 Function List → B4 Permission Matrix → B5 BFD (Optional). Mẹo: Gom – Ai – Làm gì – Được phép gì – Vẽ.</p>"
+  },
+  {
+   "id": "L11a-f19",
+   "front": "B1: đầu ra và cách làm",
+   "back": "<p>Đọc lại kết quả interview, workshop, survey, tài liệu; viết lại yêu cầu dạng tự nhiên, chưa cần phân loại. Đầu ra: danh sách yêu cầu thô (raw requirement list).</p>"
+  },
+  {
+   "id": "L11a-f20",
+   "front": "User List (B2)",
+   "back": "<p>Danh sách vai trò người dùng kèm mô tả nhiệm vụ. Cách làm: hỏi “Ai cần tính năng này?” cho từng yêu cầu, rồi gom vai trò giống nhau thành một User Role.</p>"
+  },
+  {
+   "id": "L11a-f21",
+   "front": "Bốn câu hỏi gợi ý để tìm User Role",
+   "back": "<p>Ai sẽ đăng nhập hệ thống? Ai tạo / cập nhật thông tin? Ai chỉ đọc / giám sát? Ai phê duyệt / ra quyết định?</p>"
+  },
+  {
+   "id": "L11a-f22",
+   "front": "Functional Decomposition (phân rã chức năng)",
+   "back": "<p>Chia chức năng lớn thành chức năng nhỏ theo tầng: User Role → Level 1 (nhóm chức năng cấp cao) → Level 2 (chức năng con) → Level 3 nếu cần. Ví dụ: Đăng ký lớp → Tìm lớp, Chọn lớp, Gửi yêu cầu, Xác nhận.</p>"
+  },
+  {
+   "id": "L11a-f23",
+   "front": "Permission Matrix (ma trận phân quyền)",
+   "back": "<p>Bảng cho biết user nào dùng chức năng nào ở mức nào (xem/tạo/sửa/xóa). Hàng là chức năng (B3), cột là User Role (B2), ô giao nhau ghi quyền.</p>"
+  },
+  {
+   "id": "L11a-f24",
+   "front": "Ba ký hiệu trong Permission Matrix của slide",
+   "back": "<p>✅ có quyền; ❌ không có quyền; 🔍 chỉ xem.</p>"
+  },
+  {
+   "id": "L11a-f25",
+   "front": "Business Function Diagram – BFD",
+   "back": "<p>Sơ đồ mô tả tổng quan các nhóm chức năng chính của hệ thống và mối liên kết giữa chúng; giúp BA giao tiếp với stakeholder. Chỉ vẽ khối Level 1 của cây chức năng.</p>"
+  },
+  {
+   "id": "L11a-f26",
+   "front": "Bốn thành phần của BFD",
+   "back": "<p>Khối chức năng (hình chữ nhật, một nhóm nghiệp vụ); tên khối; mũi tên quan hệ (trao đổi thông tin hoặc phụ thuộc chức năng); tác nhân bên ngoài (user role hoặc hệ thống ngoài) nếu có.</p>"
+  },
+  {
+   "id": "L11a-f27",
+   "front": "Mũi tên giữa hai khối BFD thể hiện gì?",
+   "back": "<p>Có trao đổi thông tin/dữ liệu, hoặc có sự phụ thuộc chức năng. Ví dụ: muốn ghi danh thì phải có lớp học đã tạo.</p>"
+  },
+  {
+   "id": "L11a-f28",
+   "front": "Lưu ý khi vẽ BFD",
+   "back": "<p>Gọi đúng tên chức năng, tránh viết tắt; hạn chế quá nhiều khối; không mô tả xử lý logic; ưu tiên đơn giản vì BFD là sơ đồ tổng quan.</p>"
+  },
+  {
+   "id": "L11a-f29",
+   "front": "Công cụ vẽ BFD được giới thiệu",
+   "back": "<p>Visio và Diagram.net (draw.io).</p>"
+  },
+  {
+   "id": "L11a-f30",
+   "front": "Quan hệ giữa Functional Decomposition và BFD",
+   "back": "<p>Functional Decomposition giúp tạo BFD dễ và đúng hơn: chỉ cần lấy Level 1 của cây chức năng đưa lên sơ đồ, không vẽ Level 2, Level 3.</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L11a-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, yêu cầu chức năng (FR) là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Các tiêu chí đánh giá chất lượng tổng thể của hệ thống"
+    },
+    {
+     "id": "b",
+     "t": "Mô tả hành vi, chức năng, nghiệp vụ cụ thể hệ thống phải thực hiện"
+    },
+    {
+     "id": "c",
+     "t": "Các giới hạn về hiệu suất, bảo mật và độ ổn định của hệ thống"
+    },
+    {
+     "id": "d",
+     "t": "Mô tả cấu trúc các bảng dữ liệu và quan hệ giữa chúng mà hệ thống lưu trữ"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>FR mô tả hành vi, chức năng, nghiệp vụ cụ thể mà hệ thống phải thực hiện để đáp ứng nhu cầu người dùng. Mẹo: FR là “động từ” của hệ thống.</p>",
+   "why_wrong": {
+    "a": "Tiêu chí đánh giá chất lượng tổng thể là cách slide mô tả NFR.",
+    "c": "Hiệu suất, bảo mật, độ ổn định là các khía cạnh của NFR.",
+    "d": "Cấu trúc dữ liệu thuộc mô hình dữ liệu, không phải định nghĩa FR."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5"
+  },
+  {
+   "id": "L11a-q2",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Yêu cầu phi chức năng (NFR) trả lời câu hỏi nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hệ thống sẽ làm gì?"
+    },
+    {
+     "id": "b",
+     "t": "Người dùng có thể thao tác gì trên hệ thống?"
+    },
+    {
+     "id": "c",
+     "t": "Ai được dùng chức năng nào?"
+    },
+    {
+     "id": "d",
+     "t": "Hệ thống cần “tốt” ra sao?"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>NFR trả lời “Hệ thống hoạt động như thế nào?” và “Hệ thống cần ‘tốt’ ra sao?”.</p>",
+   "why_wrong": {
+    "a": "“Hệ thống sẽ làm gì?” là câu hỏi của FR.",
+    "b": "Thao tác của người dùng là câu hỏi của FR.",
+    "c": "Ai dùng chức năng nào là câu hỏi của Permission Matrix."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.6"
+  },
+  {
+   "id": "L11a-q3",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA của app đặt đồ ăn nhận 4 câu yêu cầu. Câu nào là <b>yêu cầu chức năng</b>?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Trang thực đơn tải xong trong ≤ 2 giây với mạng 4G thông thường"
+    },
+    {
+     "id": "b",
+     "t": "Thông tin thẻ thanh toán được mã hóa khi lưu vào cơ sở dữ liệu"
+    },
+    {
+     "id": "c",
+     "t": "Hệ thống gửi thông báo cho nhà hàng khi có đơn mới"
+    },
+    {
+     "id": "d",
+     "t": "Hệ thống hoạt động ổn định 99,5% thời gian mỗi tháng"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>“Gửi thông báo khi có đơn mới” là một hành vi cụ thể, test được bằng cách đặt đơn rồi xem nhà hàng có nhận thông báo không. Câu bắt đầu bằng “Hệ thống” vẫn có thể là FR.</p>",
+   "why_wrong": {
+    "a": "Tốc độ tải trang là NFR nhóm hiệu suất.",
+    "b": "Mã hóa dữ liệu là NFR nhóm bảo mật.",
+    "d": "Thời gian sẵn sàng là NFR nhóm khả dụng."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5-7"
+  },
+  {
+   "id": "L11a-q4",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ví dụ: giả sử ở quầy thu ngân SolasMart có yêu cầu: “Máy POS phải hiển thị giá trong ≤ 1 giây sau mỗi lần quét mã”. Câu này thuộc loại nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "FR, vì có hành động quét mã"
+    },
+    {
+     "id": "b",
+     "t": "NFR nhóm bảo mật"
+    },
+    {
+     "id": "c",
+     "t": "NFR nhóm hiệu suất"
+    },
+    {
+     "id": "d",
+     "t": "NFR nhóm khả năng mở rộng"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Câu này không thêm hành động mới mà đặt giới hạn tốc độ cho hành động đã có (quét mã hiện giá). Đó là NFR về hiệu suất, giống ví dụ “phản hồi không quá 2 giây” trên slide.</p>",
+   "why_wrong": {
+    "a": "Hành động quét mã là FR riêng; phần “≤ 1 giây” là tiêu chí chất lượng nên câu này là NFR.",
+    "b": "Câu không nói về bảo vệ dữ liệu hay quyền truy cập.",
+    "d": "Câu không nói về việc tăng số người dùng hay chi nhánh."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.6-7"
+  },
+  {
+   "id": "L11a-q5",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Câu yêu cầu bắt đầu bằng chữ “Hệ thống…” thì luôn là yêu cầu phi chức năng.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Sai. Ví dụ trên slide “Hệ thống gửi email xác nhận khi người dùng đặt hàng” là FR vì mô tả hành vi cụ thể. Phân loại theo nội dung (làm gì hay tốt ra sao), không theo chủ ngữ.</p>",
+   "why_wrong": {
+    "d": "Chủ ngữ “Hệ thống” không quyết định loại yêu cầu; slide có FR bắt đầu bằng “Hệ thống”."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5"
+  },
+  {
+   "id": "L11a-q6",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo bảng so sánh trên slide, yêu cầu phi chức năng <b>liên quan đến</b> những gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hiệu suất, bảo mật, UX, tiêu chuẩn kỹ thuật"
+    },
+    {
+     "id": "b",
+     "t": "Quy trình nghiệp vụ mà hệ thống phải thực hiện"
+    },
+    {
+     "id": "c",
+     "t": "Logic xử lý, dữ liệu đầu vào/đầu ra của từng chức năng"
+    },
+    {
+     "id": "d",
+     "t": "Danh sách vai trò người dùng"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Bảng so sánh: FR liên quan đến quy trình nghiệp vụ; NFR liên quan đến hiệu suất, bảo mật, UX, tiêu chuẩn kỹ thuật.</p>",
+   "why_wrong": {
+    "b": "Quy trình nghiệp vụ là cột của FR.",
+    "c": "Logic xử lý, dữ liệu vào/ra là nội dung phân tích chi tiết chức năng.",
+    "d": "Vai trò người dùng là đầu ra của B2 (User List)."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.7"
+  },
+  {
+   "id": "L11a-q7",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao NFR thường khó kiểm thử hơn FR?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì NFR không cần kiểm thử"
+    },
+    {
+     "id": "b",
+     "t": "Vì NFR chỉ do lập trình viên tự đặt ra"
+    },
+    {
+     "id": "c",
+     "t": "Vì NFR có thể cần đo bằng công cụ chuyên biệt"
+    },
+    {
+     "id": "d",
+     "t": "Vì NFR không được ghi vào tài liệu yêu cầu nên tester không có căn cứ để kiểm"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>FR có thể test rõ ràng (làm và xem kết quả). NFR như “5000 người dùng đồng thời” phải giả lập và đo bằng công cụ chuyên biệt.</p>",
+   "why_wrong": {
+    "a": "NFR vẫn phải kiểm thử, chỉ là cách kiểm khác.",
+    "b": "NFR đến từ stakeholder và do BA phân tích, không phải lập trình viên tự đặt.",
+    "d": "NFR là một phần của yêu cầu và phải được ghi lại."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.7"
+  },
+  {
+   "id": "L11a-q8",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Ví dụ: giả sử FoodNow (đặt bàn nhà hàng) có các yêu cầu sau. Chọn các <b>yêu cầu phi chức năng</b>.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khách hàng đặt bàn theo ngày, giờ và số người"
+    },
+    {
+     "id": "b",
+     "t": "Trang kết quả tìm nhà hàng hiển thị trong ≤ 2 giây"
+    },
+    {
+     "id": "c",
+     "t": "Hệ thống gửi SMS xác nhận sau khi nhà hàng nhận đặt bàn"
+    },
+    {
+     "id": "d",
+     "t": "Mật khẩu tài khoản khách hàng được lưu dạng mã hóa"
+    },
+    {
+     "id": "e",
+     "t": "Quản lý nhà hàng cập nhật sơ đồ bàn"
+    }
+   ],
+   "answer": [
+    "b",
+    "d"
+   ],
+   "explain": "<p>b nói về tốc độ (hiệu suất), d nói về mức an toàn dữ liệu (bảo mật). Ba câu còn lại đều mô tả hành động cụ thể nên là FR.</p>",
+   "why_wrong": {
+    "a": "Đặt bàn là hành động cụ thể của khách hàng, là FR.",
+    "c": "Gửi SMS là hành vi cụ thể của hệ thống, là FR.",
+    "e": "Cập nhật sơ đồ bàn là hành động cụ thể của quản lý, là FR."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5-7"
+  },
+  {
+   "id": "L11a-q9",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Thủ thư nói: “Tôi cần in phiếu mượn cho độc giả, và phiếu phải in xong trong 3 giây”. BA nên ghi yêu cầu này thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ghi một FR, vì câu có hành động in phiếu"
+    },
+    {
+     "id": "b",
+     "t": "Ghi một NFR, vì câu có con số 3 giây cần đo bằng công cụ chuyên biệt"
+    },
+    {
+     "id": "c",
+     "t": "Bỏ phần 3 giây vì thủ thư không phải người kỹ thuật"
+    },
+    {
+     "id": "d",
+     "t": "Tách thành một FR (in phiếu mượn) và một NFR (≤ 3 giây)"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Câu lẫn cả hành động (in phiếu) và tiêu chí chất lượng (3 giây). Tách ra để FR được test chức năng, NFR được đo riêng.</p>",
+   "why_wrong": {
+    "a": "Ghi một FR sẽ làm mất tiêu chí thời gian cần đo.",
+    "b": "Ghi một NFR sẽ làm mất chức năng in phiếu.",
+    "c": "Tiêu chí thời gian là kỳ vọng thật của stakeholder, không được bỏ."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5-7"
+  },
+  {
+   "id": "L11a-q10",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ví dụ: giả sử quản lý SolasMart nói: “Phần mềm quầy phải dễ dùng”. Cách viết lại nào biến câu này thành NFR <b>đo được</b>?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phần mềm quầy phải thật dễ dùng, thân thiện và trực quan với mọi thu ngân"
+    },
+    {
+     "id": "b",
+     "t": "Thu ngân mới tự làm được một giao dịch sau ≤ 30 phút hướng dẫn"
+    },
+    {
+     "id": "c",
+     "t": "Thu ngân có thể thanh toán bằng tiền mặt, thẻ hoặc QR"
+    },
+    {
+     "id": "d",
+     "t": "Giao diện đẹp, hiện đại, dùng nhiều màu sắc bắt mắt"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Câu b có con số (30 phút) và điều kiện đo (thu ngân mới, một giao dịch), nên tester kiểm được đạt hay không.</p>",
+   "why_wrong": {
+    "a": "Chỉ thêm tính từ, vẫn không có con số để đo.",
+    "c": "Đây là FR về phương thức thanh toán, không phải tiêu chí dễ dùng.",
+    "d": "“Đẹp, hiện đại” là cảm nhận, không đo được."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.6-7"
+  },
+  {
+   "id": "L11a-q11",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Tên tiếng Anh của “phân tích tổng quan” trên slide là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Detailed Functional Analysis"
+    },
+    {
+     "id": "b",
+     "t": "Function-Oriented Analysis"
+    },
+    {
+     "id": "c",
+     "t": "High-level Requirement Analysis"
+    },
+    {
+     "id": "d",
+     "t": "Functional Decomposition"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Phân tích tổng quan = High-level Requirement Analysis: xử lý và tổ chức yêu cầu thô để có cái nhìn tổng thể về giải pháp.</p>",
+   "why_wrong": {
+    "a": "Detailed Functional Analysis là phân tích chi tiết chức năng.",
+    "b": "Function-Oriented Analysis là phân tích hướng chức năng (một phương pháp).",
+    "d": "Functional Decomposition là kỹ thuật phân rã chức năng."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.8"
+  },
+  {
+   "id": "L11a-q12",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn các <b>mục tiêu của phân tích tổng quan</b> theo slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Làm rõ phạm vi của hệ thống"
+    },
+    {
+     "id": "b",
+     "t": "Thiết kế wireframe cho từng màn hình"
+    },
+    {
+     "id": "c",
+     "t": "Xác định các nhóm chức năng chính"
+    },
+    {
+     "id": "d",
+     "t": "Viết test case chi tiết cho từng chức năng"
+    },
+    {
+     "id": "e",
+     "t": "Xác định các yêu cầu phi chức năng"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Mục tiêu của phân tích tổng quan: làm rõ phạm vi, xác định nhóm chức năng chính, xác định nhóm người dùng và quan hệ với chức năng, chuẩn bị cho phân tích chi tiết, xác định NFR.</p>",
+   "why_wrong": {
+    "b": "Wireframe thuộc phân tích chi tiết chức năng.",
+    "d": "Test case idea cho từng chức năng thuộc phân tích chi tiết."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.8"
+  },
+  {
+   "id": "L11a-q13",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Phát biểu nào <b>KHÔNG</b> đúng về phân tích tổng quan chức năng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Được xem như bản đồ chức năng cấp cao của hệ thống"
+    },
+    {
+     "id": "b",
+     "t": "Là kết quả của việc áp dụng Functional Decomposition"
+    },
+    {
+     "id": "c",
+     "t": "Thường thể hiện qua Function List, BFD, Permission Matrix"
+    },
+    {
+     "id": "d",
+     "t": "Mô tả chi tiết giao diện và logic xử lý từng chức năng"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Phân tích tổng quan chức năng không đi vào chi tiết giao diện hay logic xử lý; việc đó thuộc phân tích chi tiết.</p>",
+   "why_wrong": {
+    "a": "Đúng với slide: “bản đồ chức năng cấp cao”.",
+    "b": "Đúng với slide: là kết quả áp dụng Functional Decomposition.",
+    "c": "Đúng với slide: ba hình thức thể hiện thường gặp."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.10"
+  },
+  {
+   "id": "L11a-q14",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Phân tích chi tiết chức năng được áp dụng vào lúc nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Trước khi thu thập yêu cầu từ stakeholder"
+    },
+    {
+     "id": "b",
+     "t": "Sau khi đã phân tích tổng quan"
+    },
+    {
+     "id": "c",
+     "t": "Cùng lúc với việc gom yêu cầu thô ở B1"
+    },
+    {
+     "id": "d",
+     "t": "Sau khi lập trình viên code xong"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide ghi rõ đặc điểm: phân tích chi tiết được áp dụng sau khi đã phân tích tổng quan.</p>",
+   "why_wrong": {
+    "a": "Chưa có yêu cầu thì không có gì để phân tích chi tiết.",
+    "c": "B1 chỉ gom yêu cầu thô, thuộc phân tích tổng quan.",
+    "d": "Phân tích chi tiết là cơ sở để lập trình, nên phải làm trước khi code."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.12"
+  },
+  {
+   "id": "L11a-q15",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Khi phân tích chi tiết, mỗi chức năng có những mô tả nào trong các mục sau?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Use Case"
+    },
+    {
+     "id": "b",
+     "t": "BFD toàn hệ thống"
+    },
+    {
+     "id": "c",
+     "t": "Wireframe/Mockup"
+    },
+    {
+     "id": "d",
+     "t": "Trường hợp kiểm thử (Test case idea)"
+    },
+    {
+     "id": "e",
+     "t": "User List"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Mỗi chức năng có: Use Case, Wireframe/Mockup, mô hình dữ liệu liên quan, Business Rules, Test case idea.</p>",
+   "why_wrong": {
+    "b": "BFD là sơ đồ tổng quan toàn hệ thống, thuộc phân tích tổng quan.",
+    "e": "User List là đầu ra của B2 trong phân tích tổng quan."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.12"
+  },
+  {
+   "id": "L11a-q16",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Một trong các mục tiêu của phân tích chi tiết chức năng là hạn chế hiểu sai yêu cầu khi phát triển.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Đúng. Mục tiêu của phân tích chi tiết: làm rõ cách mỗi chức năng hoạt động, làm cơ sở để lập trình, kiểm thử, thiết kế UI, và hạn chế hiểu sai yêu cầu khi phát triển.</p>",
+   "why_wrong": {
+    "s": "Slide liệt kê “hạn chế hiểu sai yêu cầu khi phát triển” là mục tiêu của phân tích chi tiết."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.11"
+  },
+  {
+   "id": "L11a-q17",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Phân tích hướng chức năng (Function-Oriented Analysis) tập trung vào điều gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Cấu trúc dữ liệu và quan hệ giữa các đối tượng"
+    },
+    {
+     "id": "b",
+     "t": "Hạ tầng máy chủ và mạng của hệ thống"
+    },
+    {
+     "id": "c",
+     "t": "Việc xác định hệ thống cần làm gì"
+    },
+    {
+     "id": "d",
+     "t": "Màu sắc và bố cục giao diện người dùng"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Phương pháp này tập trung xác định hệ thống cần làm gì, qua danh sách chức năng theo tác nhân, và ưu tiên xử lý chức năng thay vì cấu trúc dữ liệu.</p>",
+   "why_wrong": {
+    "a": "Slide nói phương pháp này tập trung vào xử lý chức năng <i>thay vì</i> cấu trúc dữ liệu.",
+    "b": "Hạ tầng không phải trọng tâm của phân tích chức năng.",
+    "d": "Giao diện là việc của phân tích chi tiết và thiết kế UI."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.15"
+  },
+  {
+   "id": "L11a-q18",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Trong phân tích hướng chức năng, mỗi chức năng tương ứng với hành động của một người dùng.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Đúng. Đây là một đặc điểm trên slide, vì vậy danh sách chức năng được xây dựng theo từng tác nhân (người dùng).</p>",
+   "why_wrong": {
+    "s": "Slide nêu rõ “mỗi chức năng tương ứng với hành động của một người dùng”."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.15"
+  },
+  {
+   "id": "L11a-q19",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong 5 bước phân tích tổng quan theo hướng chức năng, bước 4 (B4) là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Xác định các vai trò của người dùng"
+    },
+    {
+     "id": "b",
+     "t": "Xây dựng ma trận phân quyền"
+    },
+    {
+     "id": "c",
+     "t": "Vẽ sơ đồ chức năng tổng quan"
+    },
+    {
+     "id": "d",
+     "t": "Xác định các chức năng chính"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Thứ tự: B1 tổng hợp yêu cầu, B2 User List, B3 Function List, B4 Permission Matrix, B5 BFD. Mẹo: Gom – Ai – Làm gì – Được phép gì – Vẽ.</p>",
+   "why_wrong": {
+    "a": "Xác định vai trò người dùng là B2.",
+    "c": "Vẽ BFD là B5.",
+    "d": "Xác định chức năng chính là B3."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.16"
+  },
+  {
+   "id": "L11a-q20",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao phải làm User List (B2) trước Permission Matrix (B4)?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì B4 là bước tùy chọn nên làm sau cùng"
+    },
+    {
+     "id": "b",
+     "t": "Vì các User Role ở B2 là cột của ma trận"
+    },
+    {
+     "id": "c",
+     "t": "Vì B2 đã vẽ sẵn BFD cho B4 dùng"
+    },
+    {
+     "id": "d",
+     "t": "Vì ma trận phân quyền không cần danh sách chức năng"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Ma trận lấy cột từ User Role (B2) và hàng từ chức năng (B3). Chưa có hai danh sách này thì chưa lập được ma trận.</p>",
+   "why_wrong": {
+    "a": "Bước được ghi tùy chọn là B5 (BFD), không phải B4.",
+    "c": "B2 không vẽ BFD; BFD là B5.",
+    "d": "Ma trận cần chức năng từ B3 làm hàng."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.24"
+  },
+  {
+   "id": "L11a-q21",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Đầu ra (output) của B1 – Tổng hợp và phân loại yêu cầu từ người dùng là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Danh sách yêu cầu thô (raw requirement list)"
+    },
+    {
+     "id": "b",
+     "t": "User List kèm mô tả nhiệm vụ của từng vai trò"
+    },
+    {
+     "id": "c",
+     "t": "Function List dạng cây theo từng User Role"
+    },
+    {
+     "id": "d",
+     "t": "Ma trận phân quyền"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>B1 đọc lại kết quả interview, workshop, survey, tài liệu và viết lại thành danh sách yêu cầu thô.</p>",
+   "why_wrong": {
+    "b": "User List là output của B2.",
+    "c": "Function List là output của B3.",
+    "d": "Ma trận phân quyền là output của B4."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.17"
+  },
+  {
+   "id": "L11a-q22",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Ở B1, BA phải phân loại ngay từng yêu cầu thành FR hoặc NFR trước khi ghi vào danh sách.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Sai. Slide hướng dẫn viết lại các yêu cầu dạng tự nhiên, <b>chưa cần phân loại</b>. Việc phân loại làm dần ở các bước sau.</p>",
+   "why_wrong": {
+    "d": "Slide ghi rõ ở B1 chỉ viết lại yêu cầu dạng tự nhiên, chưa cần phân loại."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.17"
+  },
+  {
+   "id": "L11a-q23",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trong yêu cầu thô của thư viện có câu: “Ban giám đốc muốn xem báo cáo lượt mượn mỗi tháng”. Khi lập User List, ban giám đốc nên được ghi thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vai trò tạo và cập nhật thông tin sách"
+    },
+    {
+     "id": "b",
+     "t": "Vai trò chỉ đọc / giám sát"
+    },
+    {
+     "id": "c",
+     "t": "Tác nhân bên ngoài giống hệ thống ngân hàng"
+    },
+    {
+     "id": "d",
+     "t": "Không ghi vì ban giám đốc không thao tác gì"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Gợi ý câu hỏi ở B2 có “Ai cần chỉ đọc / giám sát?”. Ban giám đốc chỉ xem báo cáo nên là vai trò chỉ đọc / giám sát.</p>",
+   "why_wrong": {
+    "a": "Yêu cầu không nói ban giám đốc tạo hay sửa thông tin.",
+    "c": "Ban giám đốc là người dùng của thư viện, không phải hệ thống bên ngoài.",
+    "d": "Xem báo cáo vẫn là thao tác trên hệ thống, nên phải có trong User List."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.18"
+  },
+  {
+   "id": "L11a-q24",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Quy trình bán hàng tại quầy SolasMart ghi: “Barcode sai giá thì gọi trưởng ca để xác nhận giá”. Khi lập User List, BA nên làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Gộp trưởng ca vào vai trò Thu ngân vì cùng đứng ở quầy"
+    },
+    {
+     "id": "b",
+     "t": "Bỏ qua trưởng ca vì trưởng ca không trực tiếp bán hàng"
+    },
+    {
+     "id": "c",
+     "t": "Thêm vai trò Trưởng ca / Quản lý quầy, nhiệm vụ xác nhận giá"
+    },
+    {
+     "id": "d",
+     "t": "Ghi trưởng ca là hệ thống bên ngoài tương tác với máy POS của quầy thu ngân"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Hỏi “Ai là người cần tính năng này?” cho yêu cầu xác nhận giá thì ra trưởng ca. Đây là vai trò “phê duyệt / ra quyết định”, khác quyền của thu ngân nên phải là User Role riêng.</p>",
+   "why_wrong": {
+    "a": "Gộp vào thu ngân sẽ trao quyền xác nhận giá cho thu ngân, sai với quy trình.",
+    "b": "Trưởng ca có thao tác trên hệ thống (xác nhận giá) nên phải có trong User List.",
+    "d": "Trưởng ca là người trong tổ chức, không phải hệ thống bên ngoài."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.18; Quy trinh ban hang tai quay.docx"
+  },
+  {
+   "id": "L11a-q25",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo kỹ thuật Functional Decomposition trên slide, các nhóm chức năng cấp cao (Level 1) được xác định từ đâu?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Từ mỗi màn hình của hệ thống"
+    },
+    {
+     "id": "b",
+     "t": "Từ mỗi bảng trong cơ sở dữ liệu"
+    },
+    {
+     "id": "c",
+     "t": "Từ mỗi trường hợp kiểm thử"
+    },
+    {
+     "id": "d",
+     "t": "Từ mỗi User Role"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Từ mỗi User Role → nhóm chức năng cấp cao (Level 1). Ví dụ: “Học viên” → Quản lý lịch học, đăng ký lớp.</p>",
+   "why_wrong": {
+    "a": "Màn hình thuộc thiết kế giao diện, không phải điểm bắt đầu phân rã.",
+    "b": "Phân tích hướng chức năng ưu tiên chức năng, không đi từ cấu trúc dữ liệu.",
+    "c": "Test case idea thuộc phân tích chi tiết."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.20"
+  },
+  {
+   "id": "L11a-q26",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Slide phân rã “Đăng ký lớp học” thành Tìm lớp, Chọn lớp, Gửi yêu cầu, Xác nhận; rồi phân rã “Xác nhận” thành Gửi email, Ghi log hệ thống, Cập nhật trạng thái. “Ghi log hệ thống” ở cấp nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Level 1"
+    },
+    {
+     "id": "b",
+     "t": "Level 2"
+    },
+    {
+     "id": "c",
+     "t": "Level 3"
+    },
+    {
+     "id": "d",
+     "t": "Không thuộc cây vì là NFR"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>“Đăng ký lớp học” là Level 1, “Xác nhận” là Level 2, các việc con của “Xác nhận” là Level 3.</p>",
+   "why_wrong": {
+    "a": "Level 1 là “Đăng ký lớp học”.",
+    "b": "Level 2 là “Xác nhận”, chức năng cha của “Ghi log hệ thống”.",
+    "d": "Ghi log là một xử lý cụ thể của hệ thống, không phải tiêu chí chất lượng."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.20"
+  },
+  {
+   "id": "L11a-q27",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ví dụ: BA phân rã “Quản lý thực đơn” của nhà hàng thành: Thêm món, Sửa món, Ẩn món, Trang thực đơn tải ≤ 2 giây. Lỗi trong cây này là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "“Trang thực đơn tải ≤ 2 giây” là NFR, không phải chức năng con"
+    },
+    {
+     "id": "b",
+     "t": "“Ẩn món” phải đưa lên làm Level 1"
+    },
+    {
+     "id": "c",
+     "t": "Cây sai vì chưa phân rã đến Level 3 cho từng chức năng con như Thêm món, Sửa món"
+    },
+    {
+     "id": "d",
+     "t": "“Quản lý thực đơn” phải nằm ở Level 2"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Function List chỉ chứa chức năng. Tiêu chí tốc độ là NFR nhóm hiệu suất, cần đưa sang danh sách NFR.</p>",
+   "why_wrong": {
+    "b": "“Ẩn món” là việc cụ thể bên trong quản lý thực đơn, đúng là Level 2.",
+    "c": "Level 3 chỉ làm khi cần, không bắt buộc.",
+    "d": "“Quản lý thực đơn” là nhóm nghiệp vụ, hợp lý ở Level 1."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.6, tr.20"
+  },
+  {
+   "id": "L11a-q28",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Khi lập Permission Matrix theo slide, các <b>hàng</b> của bảng là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Các User Role từ bước 2"
+    },
+    {
+     "id": "b",
+     "t": "Các màn hình của hệ thống"
+    },
+    {
+     "id": "c",
+     "t": "Các chức năng từ bước 3"
+    },
+    {
+     "id": "d",
+     "t": "Các yêu cầu phi chức năng"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Hàng là các chức năng (từ B3), cột là các User Role (từ B2), ô giao nhau thể hiện quyền.</p>",
+   "why_wrong": {
+    "a": "User Role là cột, không phải hàng.",
+    "b": "Ma trận phân quyền theo chức năng, không theo màn hình.",
+    "d": "NFR không được phân quyền theo vai trò."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.24"
+  },
+  {
+   "id": "L11a-q29",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong ma trận phân quyền trên slide, ký hiệu kính lúp (🔍) ở ô giao nhau có nghĩa gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Có quyền đầy đủ"
+    },
+    {
+     "id": "b",
+     "t": "Không có quyền"
+    },
+    {
+     "id": "c",
+     "t": "Cần cấp trên phê duyệt"
+    },
+    {
+     "id": "d",
+     "t": "Chỉ xem"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide dùng ba ký hiệu: ✅ có quyền, ❌ không có quyền, 🔍 chỉ xem.</p>",
+   "why_wrong": {
+    "a": "Có quyền dùng dấu ✅.",
+    "b": "Không có quyền dùng dấu ❌.",
+    "c": "Slide không có ký hiệu cho việc cần phê duyệt."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.24"
+  },
+  {
+   "id": "L11a-q30",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ví dụ: giả sử ma trận phân quyền FoodNow có hàng “Cập nhật sơ đồ bàn”: Khách hàng ❌, Nhân viên nhà hàng 🔍, Quản lý nhà hàng ✅. Một nhân viên muốn dời bàn số 5 sang vị trí khác trên sơ đồ. Điều nào đúng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Nhân viên tự sửa sơ đồ được vì có quyền xem sơ đồ bàn"
+    },
+    {
+     "id": "b",
+     "t": "Nhân viên chỉ xem được, phải nhờ quản lý cập nhật"
+    },
+    {
+     "id": "c",
+     "t": "Nhân viên hoàn toàn không nhìn thấy sơ đồ bàn trên hệ thống"
+    },
+    {
+     "id": "d",
+     "t": "Khách hàng có thể tự dời bàn khi đặt"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>🔍 là chỉ xem. Chỉ cột Quản lý có ✅ nên chỉ quản lý được cập nhật sơ đồ bàn.</p>",
+   "why_wrong": {
+    "a": "Thấy được (chỉ xem) không đồng nghĩa với được sửa.",
+    "c": "🔍 nghĩa là nhân viên vẫn xem được sơ đồ.",
+    "d": "Cột Khách hàng là ❌, không có quyền."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.24"
+  },
+  {
+   "id": "L11a-q31",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Chọn các phát biểu <b>đúng</b> về Permission Matrix theo slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ô giao nhau giữa hàng và cột thể hiện quyền"
+    },
+    {
+     "id": "b",
+     "t": "Được lập ngay từ B1, trước khi có User List"
+    },
+    {
+     "id": "c",
+     "t": "Cho biết mức độ quyền như xem, tạo, sửa, xóa"
+    },
+    {
+     "id": "d",
+     "t": "Chỉ thuộc giai đoạn phân tích chi tiết chức năng"
+    }
+   ],
+   "answer": [
+    "a",
+    "c"
+   ],
+   "explain": "<p>Mục tiêu của B4 là biết user nào được dùng chức năng nào và ở mức nào (xem/tạo/sửa/xóa); ô giao nhau thể hiện quyền.</p>",
+   "why_wrong": {
+    "b": "Ma trận lấy cột từ User List nên phải lập sau B2.",
+    "d": "Phân quyền là một hình thức thể hiện của phân tích tổng quan chức năng."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.10, tr.24"
+  },
+  {
+   "id": "L11a-q32",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>BFD trong bài học là viết tắt của cụm nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Basic Function Flow Diagram"
+    },
+    {
+     "id": "b",
+     "t": "Business Function Diagram"
+    },
+    {
+     "id": "c",
+     "t": "Business Flow Document"
+    },
+    {
+     "id": "d",
+     "t": "Backend Function Design Document"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>BFD = Business Function Diagram, sơ đồ chức năng tổng quan của hệ thống.</p>",
+   "why_wrong": {
+    "a": "Basic Flow là luồng chính trong đặc tả use case; BFD không phải sơ đồ luồng.",
+    "c": "BFD là sơ đồ (diagram), không phải tài liệu (document).",
+    "d": "BFD nhìn từ góc nghiệp vụ, không phải tài liệu thiết kế backend."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.27"
+  },
+  {
+   "id": "L11a-q33",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Theo hướng dẫn B5, BFD chỉ vẽ các khối tương ứng với cấp nào trong cây chức năng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Level 1"
+    },
+    {
+     "id": "b",
+     "t": "Level 2"
+    },
+    {
+     "id": "c",
+     "t": "Level 3"
+    },
+    {
+     "id": "d",
+     "t": "Mọi cấp từ Level 1 đến Level 3"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Chỉ vẽ khối Level 1, không đi vào Level 2 hoặc Level 3. BFD là sơ đồ tổng quan.</p>",
+   "why_wrong": {
+    "b": "Slide dặn không đi vào chi tiết Level 2 trên BFD.",
+    "c": "Level 3 là xử lý chi tiết, không đưa lên BFD.",
+    "d": "Vẽ mọi cấp làm sơ đồ quá nhiều khối, trái lưu ý “hạn chế quá nhiều khối”."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.25"
+  },
+  {
+   "id": "L11a-q34",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Trong BFD, mũi tên nối hai khối chức năng có thể thể hiện sự phụ thuộc chức năng giữa chúng.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Đúng. Mũi tên thể hiện có trao đổi thông tin/dữ liệu, hoặc có sự phụ thuộc chức năng, ví dụ muốn ghi danh thì phải có lớp học đã tạo.</p>",
+   "why_wrong": {
+    "s": "Slide liệt kê sự phụ thuộc chức năng là một ý nghĩa của mũi tên quan hệ."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.28"
+  },
+  {
+   "id": "L11a-q35",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Thành phần nào của BFD có thể là một hệ thống bên ngoài, ví dụ cổng thanh toán của ngân hàng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khối chức năng (Function block)"
+    },
+    {
+     "id": "b",
+     "t": "Tên khối"
+    },
+    {
+     "id": "c",
+     "t": "Mối quan hệ giữa các khối"
+    },
+    {
+     "id": "d",
+     "t": "Tác nhân bên ngoài"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Tác nhân bên ngoài (nếu có) có thể là người dùng (user role) hoặc hệ thống bên ngoài tương tác với các khối chức năng.</p>",
+   "why_wrong": {
+    "a": "Khối chức năng là nhóm nghiệp vụ bên trong hệ thống đang phân tích.",
+    "b": "Tên khối chỉ là tiêu đề của khối chức năng.",
+    "c": "Mối quan hệ là mũi tên nối các khối, không phải một bên tham gia."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.28"
+  },
+  {
+   "id": "L11a-q36",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trên BFD của hệ thống quản lý thư viện, BA vẽ mũi tên từ khối “Quản lý sách” sang khối “Quản lý mượn trả”. Lý do hợp lý nhất là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hai khối cùng do thủ thư sử dụng"
+    },
+    {
+     "id": "b",
+     "t": "Phải có sách trong danh mục thì mới cho mượn được"
+    },
+    {
+     "id": "c",
+     "t": "Để thể hiện thứ tự các màn hình mà thủ thư bấm qua trên ứng dụng"
+    },
+    {
+     "id": "d",
+     "t": "Để ghi công thức tính phí trả sách trễ hạn"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Mũi tên thể hiện phụ thuộc chức năng: mượn trả cần dữ liệu sách đã có, giống ví dụ slide “muốn ghi danh thì phải có lớp học đã tạo”.</p>",
+   "why_wrong": {
+    "a": "Cùng người dùng không phải lý do để nối mũi tên.",
+    "c": "BFD không mô tả luồng màn hình.",
+    "d": "BFD không mô tả xử lý logic hay công thức."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.28-29"
+  },
+  {
+   "id": "L11a-q37",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Một BFD của hệ thống đặt đồ ăn có các khối sau. Chọn các khối <b>vi phạm</b> lưu ý khi vẽ BFD.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "QL KH"
+    },
+    {
+     "id": "b",
+     "t": "Quản lý đơn hàng"
+    },
+    {
+     "id": "c",
+     "t": "Nếu đơn từ 500.000đ thì miễn phí giao hàng"
+    },
+    {
+     "id": "d",
+     "t": "Báo cáo và thống kê"
+    },
+    {
+     "id": "e",
+     "t": "Nhập số lượng vào ô thứ 3 của form"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>a viết tắt, không rõ tên chức năng; c mô tả xử lý logic; e là chi tiết cấp thấp về giao diện. BFD cần tên rõ ràng, không logic, ưu tiên đơn giản.</p>",
+   "why_wrong": {
+    "b": "Tên đầy đủ, rõ nghiệp vụ, đúng cấp nhóm chức năng.",
+    "d": "Là một nhóm chức năng cấp cao hợp lệ, giống ví dụ BFD trên slide."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.29"
+  },
+  {
+   "id": "L11a-q38",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Một yêu cầu chức năng thường đứng riêng, không đi kèm yêu cầu phi chức năng nào.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Sai. FR và NFR thường đi cùng nhau: FR “tìm món theo tên” có thể kèm NFR “kết quả hiện trong ≤ 2 giây”. FR nói làm gì, NFR nói làm tốt đến đâu.</p>",
+   "why_wrong": {
+    "d": "Phần lớn chức năng đều có tiêu chí chất lượng đi kèm như tốc độ, bảo mật, độ dễ dùng."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5-7"
+  },
+  {
+   "id": "L11a-q39",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Slide giới thiệu những công cụ nào để vẽ BFD?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Microsoft Excel và Word"
+    },
+    {
+     "id": "b",
+     "t": "Jira và Confluence"
+    },
+    {
+     "id": "c",
+     "t": "Visio và Diagram.net"
+    },
+    {
+     "id": "d",
+     "t": "Figma và Adobe Photoshop"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide Tools nêu hai công cụ: Visio và Diagram.net (draw.io).</p>",
+   "why_wrong": {
+    "a": "Excel và Word là công cụ văn phòng, slide không nêu để vẽ BFD.",
+    "b": "Jira và Confluence dùng quản lý công việc và tài liệu.",
+    "d": "Figma và Photoshop dùng thiết kế giao diện, hình ảnh."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.30"
+  },
+  {
+   "id": "L11a-q40",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong ví dụ BFD “Hệ thống Quản lý Bán hàng”, ba khối Quản lý Khách hàng, Quản lý Đơn hàng, Quản lý Sản phẩm cùng nối xuống “Báo cáo &amp; Thống kê”. Cách hiểu nào đúng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Báo cáo là Level 3 của cả ba khối"
+    },
+    {
+     "id": "b",
+     "t": "Ba khối phải chạy lần lượt trước báo cáo"
+    },
+    {
+     "id": "c",
+     "t": "Báo cáo là tác nhân bên ngoài hệ thống"
+    },
+    {
+     "id": "d",
+     "t": "Báo cáo lấy dữ liệu từ cả ba khối"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Mũi tên thể hiện trao đổi thông tin: báo cáo, thống kê cần dữ liệu khách hàng, đơn hàng và sản phẩm.</p>",
+   "why_wrong": {
+    "a": "BFD chỉ vẽ Level 1; “Báo cáo &amp; Thống kê” là một khối Level 1.",
+    "b": "BFD thể hiện liên kết tổng quan, không phải thứ tự chạy.",
+    "c": "Báo cáo là một nhóm chức năng bên trong hệ thống."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.31"
+  },
+  {
+   "id": "L11a-q41",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA đang làm phân tích tổng quan cho FoodNow. PM đề nghị BA vẽ ngay wireframe màn hình đặt bàn để đưa vào tài liệu tổng quan. Phản hồi nào phù hợp với bài học?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Wireframe thuộc phân tích chi tiết, nên làm sau khi chốt tổng quan"
+    },
+    {
+     "id": "b",
+     "t": "Wireframe là đầu ra bắt buộc của phân tích tổng quan"
+    },
+    {
+     "id": "c",
+     "t": "Bỏ qua phân tích tổng quan để vẽ wireframe trước cho nhanh, rồi suy ngược ra danh sách chức năng"
+    },
+    {
+     "id": "d",
+     "t": "Vẽ wireframe ngay trên BFD cho gọn"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Phân tích tổng quan không đi vào chi tiết giao diện. Wireframe/Mockup là mô tả của phân tích chi tiết, làm sau khi đã có tổng quan.</p>",
+   "why_wrong": {
+    "b": "Đầu ra của tổng quan là Function List, Permission Matrix, BFD, không có wireframe.",
+    "c": "Phân tích chi tiết phải làm sau phân tích tổng quan.",
+    "d": "BFD không chứa chi tiết giao diện."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.10, tr.12"
+  },
+  {
+   "id": "L11a-q42",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA vừa gom xong 40 câu yêu cầu thô cho hệ thống quản lý thư viện. Thứ tự làm tiếp theo nào đúng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "BFD → User List → Function List → Permission Matrix"
+    },
+    {
+     "id": "b",
+     "t": "Permission Matrix → User List → Function List → BFD"
+    },
+    {
+     "id": "c",
+     "t": "Function List → BFD → User List → Permission Matrix"
+    },
+    {
+     "id": "d",
+     "t": "User List → Function List → Permission Matrix → BFD"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Sau B1 là B2 User List, B3 Function List, B4 Permission Matrix, B5 BFD. Ma trận cần cả User List và Function List; BFD lấy Level 1 từ Function List.</p>",
+   "why_wrong": {
+    "a": "Chưa có cây chức năng thì chưa biết khối Level 1 nào để vẽ BFD.",
+    "b": "Chưa có vai trò và chức năng thì chưa lập được ma trận.",
+    "c": "User List phải có trước để phân rã chức năng từ từng User Role."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.16"
+  },
+  {
+   "id": "L11a-q43",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Ví dụ: BA lập Function List cho phần mềm bán hàng tại quầy SolasMart. Chọn các mục <b>nên</b> có trong Function List.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Quét mã sản phẩm"
+    },
+    {
+     "id": "b",
+     "t": "In lại hóa đơn"
+    },
+    {
+     "id": "c",
+     "t": "POS hiển thị giá trong ≤ 1 giây sau khi quét"
+    },
+    {
+     "id": "d",
+     "t": "Thanh toán chuyển khoản qua QR"
+    },
+    {
+     "id": "e",
+     "t": "Phần mềm hoạt động 99,5% thời gian mỗi tháng"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Function List chỉ gồm chức năng (FR): quét mã, in lại hóa đơn, thanh toán QR đều có trong quy trình bán hàng tại quầy. Hai mục còn lại là NFR, ghi vào danh sách NFR.</p>",
+   "why_wrong": {
+    "c": "Giới hạn thời gian hiển thị là NFR hiệu suất.",
+    "e": "Thời gian sẵn sàng là NFR khả dụng."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.6, tr.20; Quy trinh ban hang tai quay.docx"
+  },
+  {
+   "id": "L11a-q44",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Các mục tiêu “hiểu được hệ thống sẽ hỗ trợ những nghiệp vụ nào” và “phân loại chức năng theo từng nhóm logic” thuộc khái niệm nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phân tích chi tiết chức năng"
+    },
+    {
+     "id": "b",
+     "t": "Phân tích tổng quan chức năng"
+    },
+    {
+     "id": "c",
+     "t": "Yêu cầu phi chức năng"
+    },
+    {
+     "id": "d",
+     "t": "Ma trận phân quyền (Permission Matrix)"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Phân tích tổng quan chức năng có 3 mục tiêu: hiểu hệ thống hỗ trợ nghiệp vụ nào, phân loại chức năng theo nhóm logic, chuẩn bị cho phân tích chi tiết.</p>",
+   "why_wrong": {
+    "a": "Phân tích chi tiết nhằm làm rõ cách mỗi chức năng hoạt động.",
+    "c": "NFR là tiêu chí chất lượng, không phải một giai đoạn phân tích.",
+    "d": "Ma trận phân quyền nhằm biết ai được dùng chức năng nào."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.9"
+  },
+  {
+   "id": "L11a-q45",
+   "type": "tf",
+   "level": "apdung",
+   "q": "<p>Yêu cầu “Thủ thư đánh dấu một cuốn sách là bị hỏng” là yêu cầu phi chức năng, vì nó nói về chất lượng của sách.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Sai. Đây là FR: thủ thư thực hiện một hành động cụ thể trên hệ thống (đánh dấu sách hỏng). NFR nói về chất lượng của <i>hệ thống</i>, không phải chất lượng của đồ vật được quản lý.</p>",
+   "why_wrong": {
+    "d": "Chữ “chất lượng” ở đây là tình trạng cuốn sách, còn yêu cầu mô tả một hành động cụ thể nên là FR."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.5-6"
+  },
+  {
+   "id": "L11a-q46",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Đặc điểm nào của phân tích hướng chức năng giúp BA dễ trao đổi kết quả với khách hàng không rành kỹ thuật?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tập trung vào cấu trúc bảng dữ liệu"
+    },
+    {
+     "id": "b",
+     "t": "Mô tả chi tiết thuật toán xử lý"
+    },
+    {
+     "id": "c",
+     "t": "Dễ triển khai và trực quan với người dùng không chuyên"
+    },
+    {
+     "id": "d",
+     "t": "Dùng ký hiệu UML lớp và đối tượng để mô tả chính xác cấu trúc của hệ thống"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide nêu phân tích hướng chức năng dễ triển khai và trực quan với người dùng không chuyên: khách nhìn danh sách chức năng là biết hệ thống làm được gì.</p>",
+   "why_wrong": {
+    "a": "Phương pháp này ưu tiên xử lý chức năng thay vì cấu trúc dữ liệu.",
+    "b": "Thuật toán chi tiết khó hiểu với người không chuyên và không phải trọng tâm.",
+    "d": "Lớp và đối tượng thuộc phân tích hướng đối tượng."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.15"
+  },
+  {
+   "id": "L11a-q47",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao slide nói Functional Decomposition giúp tạo BFD dễ và đúng hơn?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì nó tự động sinh ra wireframe cho từng khối chức năng"
+    },
+    {
+     "id": "b",
+     "t": "Vì chỉ cần lấy Level 1 của cây chức năng đưa lên sơ đồ"
+    },
+    {
+     "id": "c",
+     "t": "Vì nó thay thế được ma trận phân quyền"
+    },
+    {
+     "id": "d",
+     "t": "Vì nó liệt kê sẵn các yêu cầu phi chức năng cho từng khối"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Cây phân rã đã có sẵn các nhóm Level 1; BA chỉ cần đưa chúng lên BFD và nối mũi tên.</p>",
+   "why_wrong": {
+    "a": "Functional Decomposition không tạo wireframe.",
+    "c": "Ma trận phân quyền là bước riêng (B4), vẫn cần làm.",
+    "d": "Cây phân rã chỉ chứa chức năng, không chứa NFR."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.25"
+  },
+  {
+   "id": "L11a-q48",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Điểm khác nhau chính giữa phân tích tổng quan và phân tích chi tiết chức năng là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tổng quan chỉ dành cho yêu cầu phi chức năng, còn chi tiết chỉ dành cho yêu cầu chức năng"
+    },
+    {
+     "id": "b",
+     "t": "Tổng quan do lập trình viên làm, chi tiết do BA làm"
+    },
+    {
+     "id": "c",
+     "t": "Tổng quan là bản đồ cấp cao, chi tiết mô tả sâu từng chức năng"
+    },
+    {
+     "id": "d",
+     "t": "Tổng quan làm sau khi đã có chi tiết"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Tổng quan xác định các nhóm chức năng, không đi vào giao diện hay logic; chi tiết mô tả logic, dữ liệu vào/ra, điều kiện, UI/UX, User Flow của từng chức năng.</p>",
+   "why_wrong": {
+    "a": "Phân tích tổng quan xác định cả nhóm chức năng lẫn NFR.",
+    "b": "Cả hai giai đoạn đều là việc phân tích của BA.",
+    "d": "Phân tích chi tiết được áp dụng sau phân tích tổng quan."
+   },
+   "src": "11. Yeu cau chuc nang va yeu cau phi chuc nang.pdf tr.9-12"
+  }
+ ]
+}

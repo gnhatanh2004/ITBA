@@ -1,0 +1,299 @@
+{
+ "lesson": "L20",
+ "chunks": [
+  {
+   "id": "L20-n1",
+   "ref": "L20-t1",
+   "say": "Chào bạn, mình bắt đầu buổi hai mươi: ERD, biểu đồ quan hệ thực thể. Buổi này có ba phần. Phần một, ERD là gì và vì sao BA cần nó. Phần hai, các thành phần của ERD: thực thể, thuộc tính, quan hệ, và bộ ký hiệu chân chim. Phần ba, thực hành: đọc hai ERD mẫu trên slide, rồi tự vẽ ERD từ một mô tả nghiệp vụ. Học xong, bạn sẽ đọc được một ERD và tự vẽ được ERD đơn giản cho thư viện, FoodNow hay SolasMart.",
+   "show": {
+    "h": "Buổi 20: ERD – Biểu đồ quan hệ thực thể",
+    "points": [
+     "Phần 1: ERD là gì, vì sao BA cần",
+     "Phần 2: Entity · Attribute · Relationship · Cardinality",
+     "Phần 3: đọc ERD mẫu và tự vẽ ERD"
+    ]
+   }
+  },
+  {
+   "id": "L20-n2",
+   "ref": "L20-t1",
+   "say": "Tên ERD ghép từ ba chữ tiếng Anh: Entity là thực thể, Relationship là quan hệ, Diagram là biểu đồ. Vậy ERD, Entity Relationship Diagram, là biểu đồ quan hệ giữa các thực thể. Đây là một trong những công cụ không thể thiếu của Business Analyst. ERD có ba thành phần. Entity là cái cần lưu thông tin, ví dụ Sinh viên, Sách. Attribute là thông tin cụ thể của thực thể, ví dụ mã, họ tên. Relationship là cách các thực thể nối với nhau, ví dụ Sinh viên mượn Sách. Vì sao BA cần ERD? Vì nó cho thấy hệ thống phải nhớ những dữ liệu gì và dữ liệu nối nhau ra sao. BA dùng ERD để thống nhất khái niệm nghiệp vụ với khách hàng, rồi chuyển cho dev thiết kế cơ sở dữ liệu. ERD còn giúp phát hiện sớm yêu cầu bị thiếu, chẳng hạn: một đơn hàng có được nhiều món không?",
+   "show": {
+    "h": "ERD là gì",
+    "points": [
+     "ERD = Entity Relationship Diagram: biểu đồ quan hệ giữa các thực thể",
+     "3 thành phần: Entity · Attribute · Relationship",
+     "Cho thấy hệ thống cần nhớ dữ liệu gì, nối nhau ra sao",
+     "Thống nhất với khách hàng → chuyển dev thiết kế database"
+    ]
+   },
+   "ask": [
+    "L20-q1",
+    "L20-q2"
+   ]
+  },
+  {
+   "id": "L20-n3",
+   "ref": "L20-t2",
+   "say": "Thành phần đầu tiên là thực thể, Entity. Thực thể là đối tượng để lưu trữ thông tin, và nó luôn là danh từ. Thực thể có thể hữu hình, như Sinh viên, hoặc vô hình, như Khóa học. Cả hai đều là thực thể, miễn là hệ thống cần lưu thông tin về nó. Ký hiệu của thực thể là hình chữ nhật, tên ghi bên trong, slide lấy ví dụ EMPLOYEE. Mẹo tìm thực thể: gạch chân các danh từ trong mô tả nghiệp vụ, rồi giữ lại danh từ nào hệ thống phải lưu nhiều bản ghi và có thông tin riêng. Còn danh từ chỉ là một giá trị, như tên hay giá, thì thường là thuộc tính chứ không phải thực thể.",
+   "show": {
+    "h": "Thực thể (Entity)",
+    "points": [
+     "Đối tượng lưu trữ thông tin, luôn là danh từ",
+     "Hữu hình (Sinh viên) hoặc vô hình (Khóa học)",
+     "Ký hiệu: hình chữ nhật, tên ghi bên trong",
+     "Mẹo: gạch chân danh từ, giữ cái cần lưu nhiều bản ghi"
+    ]
+   },
+   "ask": [
+    "L20-q3",
+    "L20-q4"
+   ]
+  },
+  {
+   "id": "L20-n4",
+   "ref": "L20-t3",
+   "say": "Thực thể chia thành mạnh và yếu. Thực thể mạnh không phụ thuộc thực thể nào để tồn tại và có khóa chính riêng, ví dụ Sách với mã sách, tên sách. Ký hiệu là hình chữ nhật khung đơn. Thực thể yếu thì tồn tại phụ thuộc vào thực thể mạnh, ví dụ Chi tiết sách, ký hiệu là hình chữ nhật khung đôi. Hiểu nhanh thế này: thư viện có đầu sách Lập trình C, mua về năm cuốn, mỗi cuốn là một Chi tiết sách. Xóa đầu sách đi thì các cuốn cụ thể không còn ý nghĩa, nên Chi tiết sách là thực thể yếu. Slide ghi thực thể yếu không có khóa chính riêng. Theo kiến thức chuẩn, nó thường có khóa bộ phận, partial key, như Serial, và chỉ định danh được khi ghép với khóa của thực thể mạnh, tức mã sách cộng Serial. Mẹo nhớ: yếu thì cần hai lớp áo.",
+   "show": {
+    "h": "Thực thể mạnh và thực thể yếu",
+    "points": [
+     "Mạnh: tự tồn tại, có khóa riêng · khung đơn (Sach)",
+     "Yếu: phụ thuộc thực thể mạnh · khung đôi (ChiTietSach)",
+     "Partial key: MaSach + Serial mới định danh được",
+     "Mẹo: yếu thì cần hai lớp áo"
+    ],
+    "img": "L20-img4"
+   },
+   "ask": [
+    "L20-q7",
+    "L20-q8",
+    "L20-q44"
+   ]
+  },
+  {
+   "id": "L20-n5",
+   "ref": "L20-t4",
+   "say": "Loại thứ ba là thực thể kết hợp, associative entity. Nó sinh ra từ quan hệ giữa hai thực thể khác, thường là quan hệ nhiều-nhiều, và có thể có thuộc tính riêng. Ví dụ Mượn sách: một sinh viên mượn nhiều sách, một sách được nhiều sinh viên mượn. Ngày mượn, ngày trả không thuộc riêng sinh viên hay sách, mà thuộc về từng lần mượn. Ký hiệu là hình thoi nằm trong hình chữ nhật. Loại cuối là thực thể cha và thực thể con, supertype và subtype. Thực thể cha chứa phần chung, thực thể con chứa phần riêng, ví dụ Phương tiện gồm Xe ô tô và Xe máy. Trên hình, cha nối xuống một vòng tròn, từ vòng tròn nối sang các con. Slide không giải thích chữ d trong vòng tròn. Theo ký hiệu chuẩn, d là disjoint, tách rời, mỗi bản ghi cha chỉ thuộc một loại con. Còn o là overlap, chồng lấn, một bản ghi thuộc được nhiều loại con.",
+   "show": {
+    "h": "Thực thể kết hợp, thực thể cha – con",
+    "points": [
+     "Kết hợp: sinh ra từ quan hệ N:N, có thuộc tính riêng (MuonSach)",
+     "Ký hiệu: hình thoi nằm trong hình chữ nhật",
+     "Cha chứa phần chung, con chứa phần riêng (PhuongTien → XeOto, XeMay)",
+     "Vòng tròn: d = disjoint (tách rời) · o = overlap (chồng lấn)"
+    ],
+    "img": "L20-img5"
+   },
+   "ask": [
+    "L20-q6",
+    "L20-q9",
+    "L20-q39"
+   ]
+  },
+  {
+   "id": "L20-n6",
+   "ref": "L20-t5",
+   "say": "Thành phần thứ hai là thuộc tính, Attribute. Thuộc tính là những thông tin mô tả thực thể, ví dụ Sinh viên có mã, họ tên, địa chỉ. Ký hiệu là hình elip, nối bằng một đường thẳng vào thực thể. Trong nhiều công cụ vẽ, thuộc tính được liệt kê ngay trong khung thực thể thay cho elip. Slide chia thuộc tính thành sáu loại, mình đi theo từng câu hỏi. Câu đầu tiên: có bao nhiêu giá trị? Thuộc tính đơn trị chỉ có một giá trị tại một thời điểm, như một nhân viên có một tên, một ngày sinh, một số CMND, vẽ bằng elip đơn. Thuộc tính đa trị có thể có nhiều giá trị, như một sinh viên có nhiều số điện thoại, vẽ bằng elip đôi. Lỗi hay gặp là dồn hai số điện thoại vào một ô và vẽ elip đơn.",
+   "show": {
+    "h": "Thuộc tính: đơn trị và đa trị",
+    "points": [
+     "Attribute: thông tin mô tả thực thể · hình elip",
+     "Đơn trị: một giá trị (tên, ngày sinh, số CMND) · elip đơn",
+     "Đa trị: nhiều giá trị (nhiều số điện thoại) · elip đôi",
+     "Lỗi hay gặp: dồn nhiều số vào một ô"
+    ],
+    "img": "L20-img6"
+   },
+   "ask": [
+    "L20-q10",
+    "L20-q12",
+    "L20-q41"
+   ]
+  },
+  {
+   "id": "L20-n7",
+   "ref": "L20-t6",
+   "say": "Câu hỏi thứ hai: chia nhỏ được không? Thuộc tính đơn, hay nguyên tử, không chia nhỏ hơn được, như giới tính, điểm trung bình. Thuộc tính phức hợp thì phân được thành nhiều thành phần, như Address chia thành street, district, city, tức đường, quận, thành phố. Câu hỏi thứ ba: có tính ra được không? Thuộc tính dẫn xuất được tính từ thuộc tính khác, như tổng tiền bằng số lượng nhân đơn giá, hay tuổi tính từ ngày sinh. Nó thường không lưu trong cơ sở dữ liệu và vẽ bằng elip nét đứt. Lưu ý, một thuộc tính có thể thuộc nhiều loại cùng lúc. Ví dụ địa chỉ giao hàng của khách: một khách có nhiều địa chỉ nên là đa trị, mỗi địa chỉ lại chia được thành đường, quận, thành phố nên cũng là phức hợp.",
+   "show": {
+    "h": "Thuộc tính đơn, phức hợp, dẫn xuất",
+    "points": [
+     "Đơn (nguyên tử): không chia nhỏ (giới tính, điểm trung bình)",
+     "Phức hợp: chia thành phần (Address → street, district, city)",
+     "Dẫn xuất: tính từ thuộc tính khác, thường không lưu · elip nét đứt",
+     "Một thuộc tính có thể vừa đa trị vừa phức hợp"
+    ],
+    "img": "L20-img7"
+   },
+   "ask": [
+    "L20-q13",
+    "L20-q14",
+    "L20-q11"
+   ]
+  },
+  {
+   "id": "L20-n8",
+   "ref": "L20-t7",
+   "say": "Câu hỏi cuối: có định danh duy nhất không? Thuộc tính khóa là thuộc tính duy nhất của thực thể, chính là khóa chính trong Database, như mã sản phẩm, mã sách. Ký hiệu là elip có tên gạch chân. Slide vẽ thuộc tính đơn ProductId cũng có gạch chân, nhưng theo chuẩn, gạch chân là dấu hiệu của khóa, thuộc tính đơn chỉ là elip thường. Để vẽ ERD đầy đủ, bạn cần thêm ba khái niệm. Khóa chính, Primary Key, định danh từng bản ghi, không trùng, không rỗng. Khóa ngoại, Foreign Key, là thuộc tính trỏ tới khóa chính của thực thể khác, như mã sinh viên trong Mượn sách. Khóa ghép là khóa chính gồm nhiều thuộc tính, hay gặp ở thực thể kết hợp và thực thể yếu. Quy tắc cần nhớ: ở quan hệ một-nhiều, khóa của phía một đặt làm khóa ngoại ở phía nhiều. Một khách hàng có nhiều đơn hàng, thì mã khách hàng nằm trong Đơn hàng.",
+   "show": {
+    "h": "Thuộc tính khóa, khóa chính, khóa ngoại",
+    "points": [
+     "Khóa: duy nhất, tên gạch chân (ProductId, Mã sách)",
+     "PK (Primary Key): không trùng, không rỗng",
+     "FK (Foreign Key): trỏ tới PK của thực thể khác",
+     "Khóa ghép: nhiều thuộc tính, hay gặp ở thực thể kết hợp, yếu",
+     "Quy tắc: FK đặt ở phía n của quan hệ 1-n"
+    ],
+    "img": "L20-img8"
+   },
+   "ask": [
+    "L20-q15",
+    "L20-q17",
+    "L20-q29"
+   ]
+  },
+  {
+   "id": "L20-n9",
+   "ref": "L20-t8",
+   "say": "Thành phần thứ ba là quan hệ, Relationship. Trong Ví dụ 1 của slide, quan hệ vẽ bằng hình thoi và đặt tên bằng động từ: Customer Orders Item, Company Produces Item. Theo số lượng, có ba kiểu quan hệ. Một-một, như một nhân viên có một tài khoản đăng nhập. Một-nhiều, như một hóa đơn có nhiều dòng hóa đơn, mỗi dòng chỉ thuộc một hóa đơn. Nhiều-nhiều, như sinh viên mượn sách. Để biết là kiểu nào, bạn hỏi hai câu theo hai chiều: một A có bao nhiêu B, và một B có bao nhiêu A. Hai chiều đều nhiều thì là nhiều-nhiều. Một chiều nhiều, chiều kia một thì là một-nhiều. Cả hai chiều là một thì là một-một. Quan hệ nhiều-nhiều được tách thành hai quan hệ một-nhiều qua một thực thể kết hợp, như Sinh viên, Mượn sách, Sách. Lý do là để có chỗ lưu thông tin của từng lần giao dịch, như ngày mượn, ngày trả.",
+   "show": {
+    "h": "Quan hệ và ba kiểu 1-1, 1-n, n-n",
+    "points": [
+     "Relationship: hình thoi, tên là động từ (Orders, Produces)",
+     "1-1: nhân viên – tài khoản · 1-n: hóa đơn – dòng hóa đơn",
+     "n-n: sinh viên – sách",
+     "Hỏi 2 chiều: một A có mấy B? một B có mấy A?",
+     "n-n → tách qua thực thể kết hợp: SinhVien 1-n MuonSach n-1 Sach"
+    ]
+   },
+   "ask": [
+    "L20-q26",
+    "L20-q24",
+    "L20-q40"
+   ]
+  },
+  {
+   "id": "L20-n10",
+   "ref": "L20-t9",
+   "say": "Giờ tới cardinality, hay bản số: số lượng bản ghi có thể tham gia quan hệ. Slide dùng ký hiệu chân chim, Crow's Foot, đặt ở đầu đường nối. Bạn chỉ cần nhớ ba nét: vòng tròn là không, gạch đứng là một, chân chim là nhiều. Ghép lại được sáu ký hiệu. Nhóm một gồm một gạch là đơn thuần một, và hai gạch là một và bắt buộc phải có một. Nhóm nhiều gồm chân chim là đơn thuần nhiều, và gạch cộng chân chim là một hoặc nhiều, ít nhất phải có một dữ liệu. Nhóm có vòng tròn gồm vòng tròn cộng gạch là không hoặc một, và vòng tròn cộng chân chim là không hoặc nhiều. Hai ký hiệu có vòng tròn là Optional, không có dữ liệu cũng được. Hai gạch và gạch cộng chân chim là Required, bắt buộc. Dấu gần thực thể nhất là số tối đa, dấu xa hơn là số tối thiểu.",
+   "show": {
+    "h": "Cardinality: 6 ký hiệu chân chim",
+    "points": [
+     "Vòng tròn = 0 · gạch = 1 · chân chim = nhiều",
+     "Một gạch: một · hai gạch: một và bắt buộc",
+     "Chân chim: nhiều · gạch + chân chim: một hoặc nhiều",
+     "Vòng tròn + gạch: không hoặc một · vòng tròn + chân chim: không hoặc nhiều",
+     "Dấu sát thực thể = tối đa, dấu xa = tối thiểu"
+    ],
+    "img": "L20-img3"
+   },
+   "ask": [
+    "L20-q18",
+    "L20-q19",
+    "L20-q28"
+   ]
+  },
+  {
+   "id": "L20-n11",
+   "ref": "L20-e5",
+   "say": "Đọc ký hiệu thế nào cho đúng? Ký hiệu đặt sát thực thể X cho biết một bản ghi của thực thể bên kia gắn với bao nhiêu X. Lấy ví dụ FoodNow cho khách đặt bàn. Hỏi chiều thứ nhất: một khách hàng có bao nhiêu đơn đặt bàn? Có thể chưa đặt lần nào, hoặc đặt nhiều lần, nên đặt không hoặc nhiều ở đầu Đơn đặt bàn. Hỏi chiều ngược lại: một đơn đặt bàn thuộc bao nhiêu khách? Đúng một và bắt buộc, nên đặt hai gạch ở đầu Khách hàng. Kết quả là Khách hàng một-nhiều Đơn đặt bàn, mã khách hàng nằm trong Đơn đặt bàn. Làm tương tự với Nhà hàng và Bàn: nhà hàng lên FoodNow phải có bàn, nên đầu Bàn là một hoặc nhiều. Lỗi hay gặp nhất là đặt ký hiệu nhầm đầu. Hãy nhớ: nằm sát thực thể nào thì đếm thực thể đó.",
+   "show": {
+    "h": "Đọc cardinality hai chiều: FoodNow đặt bàn",
+    "points": [
+     "Ký hiệu sát X = số X ứng với một bản ghi bên kia",
+     "Một khách → không hoặc nhiều đơn (đầu Đơn đặt bàn)",
+     "Một đơn → đúng một khách, bắt buộc (đầu Khách hàng)",
+     "Nhà hàng – Bàn: một hoặc nhiều ở đầu Bàn",
+     "Lỗi hay gặp: đặt ký hiệu nhầm đầu"
+    ]
+   },
+   "ask": [
+    "L20-q27",
+    "L20-q22",
+    "L20-q30"
+   ]
+  },
+  {
+   "id": "L20-n12",
+   "ref": "L20-e1",
+   "say": "Bây giờ mình đọc Ví dụ 1 trên slide, một ERD thương mại điện tử. Chú thích ghi: hình chữ nhật là Entity, hình thoi là Action, tức quan hệ, elip là Attribute. Customer có ba thuộc tính Name, Address, E-mail. Item có Name và Price. Mỗi hình thoi đọc thành một câu chủ ngữ, động từ, tân ngữ. Company Produces Item, công ty sản xuất mặt hàng. Customer Orders Item, khách hàng đặt mặt hàng. Đường Order Creates Shopping Cart có hai gạch ở cả hai đầu, nghĩa là một và bắt buộc ở mỗi phía, tức quan hệ một-một. Có hai điểm cần lưu ý. Sơ đồ trộn hình thoi kiểu Chen với đầu nối chân chim, khi tự vẽ bạn nên chọn một kiểu thống nhất. Và hình thoi Verifies chỉ nối với một thực thể là Credit Card, trong khi mỗi quan hệ nên nối đủ hai thực thể.",
+   "show": {
+    "h": "Ví dụ 1: ERD thương mại điện tử",
+    "points": [
+     "Chữ nhật = Entity · thoi = Action · elip = Attribute",
+     "Đọc mỗi hình thoi thành câu: Company Produces Item",
+     "Order Creates Shopping Cart: hai gạch hai đầu → 1-1",
+     "Lưu ý: trộn Chen với Crow's Foot; Verifies chỉ nối một thực thể"
+    ],
+    "img": "L20-img1"
+   },
+   "ask": [
+    "L20-q31",
+    "L20-q32",
+    "L20-q45"
+   ]
+  },
+  {
+   "id": "L20-n13",
+   "ref": "L20-e2",
+   "say": "Ví dụ 2 là ERD của một cửa hàng, quản lý nhà cung cấp, hợp đồng, nhập kho, hàng hóa, sổ nhật ký và hóa đơn bán lẻ. Ở đây thuộc tính được liệt kê ngay trong khung, khóa được gạch chân, như mã hàng của Hàng hóa, số phiếu của Phiếu nhập kho. Điều đáng học nhất là mẫu chứng từ, dòng, hàng hóa, lặp lại ba lần. Hợp đồng đi với Dòng HĐCCH, Phiếu nhập kho đi với Dòng PNK, Hóa đơn bán lẻ đi với Dòng HĐBL. Một chứng từ có nhiều dòng, mỗi dòng gắn với một hàng hóa. Thực chất, các Dòng chính là thực thể kết hợp, tách quan hệ nhiều-nhiều giữa chứng từ và hàng hóa. Một điểm nữa: Ví dụ 2 liệt kê thành tiền, tổng tiền như thuộc tính thường, dù đó là dẫn xuất. Dự án hay lưu lại các giá trị này để giữ đúng số tiền tại lúc lập phiếu.",
+   "show": {
+    "h": "Ví dụ 2: ERD cửa hàng (nhập kho, bán lẻ)",
+    "points": [
+     "Thuộc tính liệt kê trong khung, khóa gạch chân (Mã hàng, Số phiếu)",
+     "Mẫu chứng từ → dòng → hàng hóa lặp lại 3 lần",
+     "Dòng HĐCCH · Dòng PNK · Dòng HĐBL = thực thể kết hợp tách n-n",
+     "Thành tiền, Tổng tiền là dẫn xuất nhưng hay được lưu trên chứng từ"
+    ],
+    "img": "L20-img2"
+   }
+  },
+  {
+   "id": "L20-n14",
+   "ref": "L20-t11",
+   "say": "Phần ba là thực hành vẽ ERD. Mình gom thành bảy bước. Một, đọc mô tả nghiệp vụ, gạch chân danh từ để chọn thực thể. Hai, liệt kê thuộc tính, đánh dấu khóa, đa trị, phức hợp, dẫn xuất. Ba, tìm động từ nối hai danh từ, đó là quan hệ. Bốn, xác định cardinality bằng hai câu hỏi hai chiều, kể cả bắt buộc hay tùy chọn. Năm, tách quan hệ nhiều-nhiều thành thực thể kết hợp, đưa ngày, số lượng, đơn giá của lần giao dịch vào đó. Sáu, đặt khóa ngoại ở phía nhiều. Bảy, rà lại với khách hàng bằng cách đọc to từng quan hệ thành câu, ví dụ: một hóa đơn có một hoặc nhiều dòng hóa đơn, đúng không? Lỗi hay gặp là lấy tên người dùng hay tên màn hình làm thực thể, dồn đa trị vào một ô, quên tách nhiều-nhiều, và đặt khóa ngoại ở phía một.",
+   "show": {
+    "h": "Bảy bước vẽ ERD",
+    "points": [
+     "Danh từ → thực thể · liệt kê, đánh dấu thuộc tính",
+     "Động từ → quan hệ · cardinality hỏi 2 chiều",
+     "Tách n-n · đặt FK ở phía n",
+     "Đọc to từng quan hệ thành câu để khách hàng xác nhận",
+     "Lỗi: lấy tên màn hình làm thực thể, quên tách n-n, FK ở phía 1"
+    ]
+   },
+   "ask": [
+    "L20-q5",
+    "L20-q38",
+    "L20-q42"
+   ]
+  },
+  {
+   "id": "L20-n15",
+   "ref": "L20-p3",
+   "say": "Áp dụng thử với nghiệp vụ bán tại quầy của SolasMart. Thu ngân lập hóa đơn bán lẻ cho khách, hóa đơn có nhiều dòng, mỗi dòng là một hàng hóa với số lượng, đơn giá, thành tiền. Khách có thể là thành viên, hoặc khách vãng lai không lưu thông tin. Thực thể gồm Nhân viên, Hóa đơn bán lẻ, Hàng hóa và Khách hàng thành viên. Hóa đơn và hàng hóa là nhiều-nhiều, nên tách ra Dòng hóa đơn. Điểm then chốt nằm ở chỗ tùy chọn. Mỗi hóa đơn bắt buộc có đúng một nhân viên lập, nên đầu Nhân viên là hai gạch. Phía Khách hàng thành viên là không hoặc một, vì khách vãng lai không có bản ghi. Và một hóa đơn phải có ít nhất một dòng, nên đầu Dòng hóa đơn là một hoặc nhiều. Phần thực hành còn hai bài thư viện và FoodNow đặt bàn, bạn tự làm rồi so với đáp án.",
+   "show": {
+    "h": "Thực hành: ERD bán hàng tại quầy SolasMart",
+    "points": [
+     "Thực thể: NhanVien, HoaDonBanLe, HangHoa, KhachHangThanhVien",
+     "Hóa đơn – hàng hóa là n-n → tách DongHoaDon",
+     "Đầu NhanVien: hai gạch · đầu KhachHangThanhVien: không hoặc một",
+     "Đầu DongHoaDon: một hoặc nhiều"
+    ]
+   }
+  },
+  {
+   "id": "L20-n16",
+   "say": "Tóm lại buổi hai mươi. ERD là biểu đồ quan hệ giữa các thực thể, gồm ba thành phần Entity, Attribute và Relationship. Thực thể là danh từ, vẽ bằng hình chữ nhật, có loại mạnh, yếu, kết hợp, và cha con. Thuộc tính vẽ bằng elip, có sáu loại: đơn trị, đa trị, đơn, phức hợp, dẫn xuất và khóa. Quan hệ đặt tên bằng động từ, có ba kiểu một-một, một-nhiều, nhiều-nhiều. Cardinality nhớ ba nét: vòng tròn là không, gạch là một, chân chim là nhiều. Và câu thần chú để vẽ: danh từ là thực thể, động từ là quan hệ, nhiều-nhiều thì tách đôi, khóa ngoại về phía nhiều. Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài.",
+   "show": {
+    "h": "Tổng kết buổi 20",
+    "points": [
+     "ERD = Entity + Attribute + Relationship",
+     "Thực thể: mạnh, yếu, kết hợp, cha – con",
+     "6 loại thuộc tính: đơn trị, đa trị, đơn, phức hợp, dẫn xuất, khóa",
+     "Quan hệ 1-1, 1-n, n-n · vòng tròn = 0, gạch = 1, chân chim = nhiều",
+     "Danh từ → thực thể, động từ → quan hệ, n-n tách đôi, FK về phía n"
+    ]
+   }
+  }
+ ]
+}

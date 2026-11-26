@@ -1,0 +1,2281 @@
+{
+ "id": "L02",
+ "session": 2,
+ "module": "M1",
+ "title": "Kiến thức cơ bản về IT cho ITBA",
+ "goals": [
+  "Giải thích được vì sao IT BA cần kiến thức IT và các mảng kiến thức IT BA nên biết",
+  "Đọc được mô hình tổng thể, mô hình vật lý, mô hình logic và mô hình chi tiết của một hệ thống",
+  "Phân biệt được mô hình Client–Server, N-Tier, Monolithic và Microservices",
+  "Nêu được các zone trong mạng và dùng chúng để xác định yêu cầu phi chức năng về bảo mật, triển khai",
+  "Phân biệt IPv4/IPv6, IP public/IP private; hiểu vai trò của ISP, DNS, DHCP",
+  "Biết ngôn ngữ lập trình và hệ quản trị cơ sở dữ liệu phổ biến dùng cho mục đích gì"
+ ],
+ "sources": [
+  {
+   "file": "2. Kien thuc co ban ve IT.pdf",
+   "pages": "1-22"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L02-t1",
+   "h": "Vì sao IT BA cần kiến thức IT",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.2-4",
+   "html": "<p>Bài này thuộc khóa ITBA, chủ đề <b>Kiến thức IT cơ bản cho ITBA</b>. Nội dung gồm 4 phần: kiến thức IT cần biết, các mô hình triển khai, đường truyền mạng, và công nghệ khác.</p><p>Một IT BA (Business Analyst làm trong dự án công nghệ thông tin) <b>không cần code giỏi như Dev</b> (Developer – lập trình viên), nhưng cần đủ kiến thức IT để:</p><ul><li>Hiểu ngôn ngữ của team phát triển, làm việc với team hiệu quả hơn.</li><li>Hiểu cách hệ thống vận hành ở tầng kỹ thuật.</li><li>Dịch yêu cầu business (nghiệp vụ) thành yêu cầu kỹ thuật khả thi.</li><li>Phân tích yêu cầu khả thi hơn, ít rủi ro hơn về mặt kỹ thuật.</li><li>Đưa ra giải pháp tổng thể và thực tế hơn cho khách hàng.</li><li>Tăng giá trị của BA.</li></ul><p class=\"tip\">Mẹo nhớ: BA là “người phiên dịch” giữa khách hàng và Dev. Muốn dịch đúng thì phải hiểu cả hai thứ tiếng: tiếng nghiệp vụ và tiếng kỹ thuật.</p><p>Ví dụ: khách hàng muốn “khách đặt món xong thì nhà bếp thấy ngay”. BA có kiến thức IT sẽ hiểu đây là yêu cầu cập nhật gần như tức thời, cần hỏi Dev về cách đẩy thông báo, thay vì viết một câu mơ hồ.</p>"
+  },
+  {
+   "id": "L02-t2",
+   "h": "Những mảng kiến thức IT BA nên biết",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.5",
+   "html": "<p>Một IT BA <b>không cần biết tất cả</b>, nhưng nên biết các mảng sau:</p><table><thead><tr><th>Mảng</th><th>Nội dung chính</th><th>Hiểu nhanh</th></tr></thead><tbody><tr><td rowspan=\"3\">Hệ thống và kiến trúc CNTT</td><td>Các loại mô hình: Client–Server, Web-based, Mobile app, Cloud-based</td><td>Hệ thống được dựng theo kiểu nào, người dùng truy cập qua đâu</td></tr><tr><td>Đường truyền mạng: vùng mạng (zone), IP…</td><td>Dữ liệu đi qua những vùng mạng nào, thiết bị nhận diện nhau ra sao</td></tr><tr><td>Thiết bị trong hệ thống: Server, Firewall…</td><td>Máy chủ chạy ứng dụng, tường lửa chặn truy cập trái phép</td></tr><tr><td>Công nghệ</td><td>Ngôn ngữ lập trình…</td><td>Team dùng công cụ gì để xây hệ thống</td></tr><tr><td>Cơ sở dữ liệu (Database)</td><td>Nơi lưu dữ liệu, hệ quản trị CSDL</td><td>Dữ liệu được lưu ở đâu, dạng nào</td></tr><tr><td>Integration &amp; API</td><td>Giao tiếp giữa các hệ thống</td><td>Hai phần mềm “nói chuyện” với nhau thế nào</td></tr><tr><td>Bảo mật (Security)</td><td>Phân quyền, mã hóa, chống truy cập trái phép</td><td>Ai được xem, ai được sửa dữ liệu nào</td></tr><tr><td>Quy trình phát triển phần mềm (SDLC)</td><td>Software Development Life Cycle – vòng đời phát triển phần mềm</td><td>Dự án đi qua các giai đoạn nào, BA tham gia ở đâu</td></tr><tr><td>Testing &amp; Quality Assurance</td><td>Kiểm thử và đảm bảo chất lượng</td><td>Làm sao biết phần mềm chạy đúng yêu cầu</td></tr></tbody></table><p>Giải thích ngắn các loại mô hình trên slide:</p><ul><li><b>Web-based</b> (chạy trên web): người dùng mở bằng trình duyệt, không cần cài đặt.</li><li><b>Mobile app</b> (ứng dụng di động): cài trên điện thoại, thường gọi tới server qua API.</li><li><b>Cloud-based</b> (dựa trên đám mây): hệ thống chạy trên hạ tầng thuê của nhà cung cấp đám mây thay vì máy chủ tự đặt tại công ty.</li></ul><p class=\"note\">SDLC được học kỹ ở bài L03, API ở bài L23, Database ở bài L20–L21. Bài này chỉ giới thiệu để biết tên và vai trò.</p>"
+  },
+  {
+   "id": "L02-t3",
+   "h": "Bốn mức mô hình hệ thống và mô hình tổng thể",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.6",
+   "html": "<p>Slide giới thiệu 4 mức mô hình, từ khái quát tới cụ thể. Mỗi mức trả lời một câu hỏi khác nhau:</p><table><thead><tr><th>Mức</th><th>Trả lời câu hỏi</th><th>Slide</th></tr></thead><tbody><tr><td>Mô hình tổng thể</td><td>Hệ thống gồm những phân hệ nào, liên thông với ai bên ngoài?</td><td>tr.6</td></tr><tr><td>Mô hình vật lý</td><td>Có những máy chủ, thiết bị mạng nào, đặt ở vùng mạng nào?</td><td>tr.7</td></tr><tr><td>Mô hình logic</td><td>Các khối phần mềm (service, hàng đợi, CSDL) nối với nhau ra sao?</td><td>tr.8</td></tr><tr><td>Mô hình chi tiết</td><td>Từng API, từng CSDL, từng nhóm người dùng tương tác cụ thể thế nào?</td><td>tr.9</td></tr></tbody></table><h4>Mô hình tổng thể (ví dụ hệ thống y tế trên slide)</h4>{{img:L02-img1}}<ul><li>Bên ngoài: <b>Bảo hiểm xã hội Việt Nam</b>, <b>Trung tâm y tế quốc gia</b>, <b>Phần mềm dược quốc gia</b>. Hệ thống trao đổi với các đơn vị này qua <b>liên thông dữ liệu</b>.</li><li>Lõi là <b>hệ thống HIS</b> (Hospital Information System – hệ thống thông tin bệnh viện) với các phân hệ: tiếp đón, lâm sàng, cận lâm sàng, ngoại trú, nội trú, nhà thuốc, AI…</li><li>HIS kết nối <b>hệ thống RIS/PACS</b> (quản lý và lưu trữ ảnh chẩn đoán như X-quang, CT) và <b>hệ thống LIS</b> (quản lý xét nghiệm).</li><li><b>Bệnh án điện tử EMR</b> (Electronic Medical Record – hồ sơ bệnh án tại một cơ sở khám chữa bệnh) nối với HIS và các bệnh viện.</li><li><b>Hồ sơ sức khỏe điện tử EHR</b> (Electronic Health Record – hồ sơ sức khỏe của người dân) và <b>kho dữ liệu về y tế</b> phục vụ sở y tế, trung tâm y tế, trung tâm kiểm soát bệnh tật và người dân (qua điện thoại).</li></ul><p class=\"tip\">Mô hình tổng thể giúp BA thấy “bức tranh lớn”: phạm vi hệ thống mình làm nằm ở đâu, phải tích hợp với ai. Đây là đầu vào để hỏi về Integration &amp; API.</p>"
+  },
+  {
+   "id": "L02-t4",
+   "h": "Mô hình vật lý",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.7",
+   "html": "<p>Mô hình vật lý cho thấy <b>thiết bị thật</b> (máy chủ, tường lửa, thiết bị mạng) và chúng nằm ở <b>vùng mạng</b> nào.</p>{{img:L02-img2}}<table><thead><tr><th>Thành phần</th><th>Vai trò</th><th>Nằm ở</th></tr></thead><tbody><tr><td>Khách hàng, người dùng quản trị, trục tích hợp dữ liệu</td><td>Truy cập hệ thống qua Internet</td><td>External/Internet Zone</td></tr><tr><td>Firewall (tường lửa)</td><td>Lọc, chặn lưu lượng giữa các vùng mạng</td><td>Giữa các zone</td></tr><tr><td>Load Balancer (cân bằng tải)</td><td>Chia đều yêu cầu cho nhiều máy chủ để không máy nào bị quá tải</td><td>Trước DMZ</td></tr><tr><td>Web FE 1…n (máy chủ web front-end)</td><td>Phục vụ giao diện web cho người dùng</td><td>DMZ</td></tr><tr><td>Gateway (cổng giao tiếp)</td><td>Điểm vào duy nhất, chuyển yêu cầu từ ngoài vào các API bên trong</td><td>DMZ</td></tr><tr><td>Server API 1…n</td><td>Xử lý nghiệp vụ, cung cấp API</td><td>Internal Zone</td></tr><tr><td>DB chính, DB Backup, Server File</td><td>Lưu dữ liệu; DB chính sao lưu sang DB Backup; Server File lưu tệp</td><td>Database Zone</td></tr><tr><td>Người dùng quản trị (nội bộ)</td><td>Truy cập qua firewall riêng</td><td>Internal Zone</td></tr><tr><td>Thiết bị của khách (GUEST)</td><td>Chỉ dùng Internet, tách khỏi mạng công ty</td><td>Guest Zone / Wi-Fi Zone</td></tr></tbody></table><p>Ví dụ đọc luồng: khách hàng → Internet → Firewall → Load Balancer → Web FE (DMZ) → Firewall → Server API (Internal Zone) → DB chính (Database Zone).</p><p class=\"tip\">Có nhiều Web FE và nhiều Server API (1…n) là để chịu tải lớn và còn máy khác chạy nếu một máy hỏng.</p>"
+  },
+  {
+   "id": "L02-t5",
+   "h": "Mô hình logic",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.8",
+   "html": "<p>Mô hình logic cho thấy <b>các khối phần mềm</b> và luồng dữ liệu giữa chúng, không quan tâm máy chủ cụ thể.</p>{{img:L02-img3}}<ul><li><b>WAN zone</b>: Website quản trị, Website nghiệp vụ. <b>Internet zone</b>: API chia sẻ dữ liệu cho bên ngoài.</li><li>Lưu lượng đi qua <b>Firewall</b> → <b>Load balancer</b> → <b>Web FE</b> và <b>GW</b> (Gateway) → Firewall → vào <b>Internal zone</b>.</li><li><b>Backend</b>: các Service BE xử lý yêu cầu.</li><li><b>Queue</b>: Message Queue (hàng đợi thông điệp) – BE đặt việc vào hàng đợi, các service phía sau lấy ra xử lý dần. Nhờ vậy hệ thống không bị nghẽn khi nhiều yêu cầu dồn cùng lúc.</li><li><b>Service</b>: các service nghiệp vụ (trên slide ghi tắt LDN, HMN, CRD, DTS) đọc <b>Dữ liệu nghiệp vụ</b> và ghi vào <b>Database summary</b> (CSDL tổng hợp theo từng service).</li><li><b>Database system</b>: CSDL hệ thống và <b>Cache (Redis)</b> – bộ nhớ đệm để đọc nhanh.</li></ul><p class=\"note\">Slide chỉ ghi tên viết tắt của các service nghiệp vụ, không giải thích nghĩa. Khi đọc mô hình thật, BA nên hỏi lại team để biết mỗi service phụ trách nghiệp vụ gì.</p>"
+  },
+  {
+   "id": "L02-t6",
+   "h": "Mô hình chi tiết",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.9",
+   "html": "<p>Mô hình chi tiết đi tới từng API, từng CSDL và từng nhóm người dùng. Ví dụ trên slide là một hệ thống giám sát thiết bị có cảnh báo.</p>{{img:L02-img4}}<table><thead><tr><th>Nhóm</th><th>Thành phần và việc làm</th></tr></thead><tbody><tr><td>Thiết bị</td><td>Device gửi tín hiệu tới <b>Hệ thống xử lý tín hiệu</b>; hệ thống này gọi API gửi thông tin thiết bị.</td></tr><tr><td>API</td><td><b>API giao tiếp với thiết bị</b>: nhận dữ liệu thiết bị, gọi API Log History để ghi lịch sử, gọi yêu cầu SMS + Call và cập nhật kết quả, gửi yêu cầu bắn socket cảnh báo.<br><b>API Log History</b>: đọc/ghi log lịch sử, lấy log trả về cho web.<br><b>API Web Back-end + API cho App</b>: phục vụ Mobile App, CMS, Portal; đọc/ghi CSDL tổng hợp và cache; gọi service gửi email.</td></tr><tr><td>Socket</td><td>Kênh kết nối luôn mở, đẩy cảnh báo ngay tới app và CMS (“bắn socket”) mà không cần người dùng tải lại.</td></tr><tr><td>CSDL</td><td><b>CSDL lịch sử thiết bị (Mongo)</b> – dữ liệu log nhiều, dạng linh hoạt; <b>CSDL tổng hợp (SQL)</b> có <b>CSDL Backup</b>; <b>Cache (Redis)</b>.</td></tr><tr><td>Dịch vụ phụ</td><td><b>SMS + CALL</b>, <b>Gửi email</b>, <b>Service giám sát kết nối hệ thống</b> (kiểm tra dữ liệu, gọi gửi email khi có sự cố).</td></tr><tr><td>Người dùng và kênh</td><td>Thành viên thường, Admin, Super Admin, NPP &amp; ĐLDV, Nhân viên, QTHT, Khách hàng; truy cập qua <b>Mobile App</b>, <b>CMS</b> (Content Management System – trang quản trị nội dung) hoặc <b>Portal</b> (cổng thông tin).</td></tr></tbody></table><p class=\"tip\">Mô hình chi tiết giúp BA biết dữ liệu nằm ở đâu, chức năng nào gọi API nào. Đây là căn cứ để viết đặc tả chức năng và đặc tả API.</p>"
+  },
+  {
+   "id": "L02-t7",
+   "h": "Mô hình Client – Server",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.10",
+   "html": "<p><b>Client – Server</b> (máy khách – máy chủ) là mô hình cơ bản nhất. Thành phần:</p><ul><li><b>Client</b>: gửi yêu cầu và nhận về kết quả. Ví dụ: máy trạm (workstation), điện thoại thông minh, laptop.</li><li><b>Server</b>: nhận yêu cầu, xử lý và trả về kết quả.</li><li><b>Đường truyền</b>: là mạng Internet hoặc LAN (Local Area Network – mạng nội bộ)…</li></ul>{{img:L02-img5}}<p>Ví dụ: khách mở app đặt đồ ăn trên điện thoại (client), bấm xem thực đơn. App gửi yêu cầu qua Internet tới server. Server lấy thực đơn từ CSDL và trả về để app hiển thị.</p><p class=\"tip\">Mẹo nhớ: Client “hỏi”, Server “trả lời”, đường truyền là “con đường” chở câu hỏi và câu trả lời.</p>"
+  },
+  {
+   "id": "L02-t8",
+   "h": "Mô hình N-Tier",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.11",
+   "html": "<p><b>N-Tier</b> (nhiều tầng): hệ thống được chia thành các tầng riêng biệt, mỗi tầng có trách nhiệm cụ thể. Thành phần:</p><ul><li><b>Tầng presentation</b> (giao diện người dùng): tương tác trực tiếp với người dùng.</li><li><b>Tầng business logic</b>: xử lý các nghiệp vụ.</li><li><b>Tầng data access</b>: thao tác với Database.</li><li>Các tầng phụ khác như: tầng tích hợp, tầng bảo mật, tầng caching…</li></ul>{{img:L02-img6}}<p>Hình minh họa trên slide vẽ 4 lớp: Presentation Layer (UI Interaction / Front-End Logic), Business Layer (Business Rules / Process Management), Data Access Layer (Data Retrieval / Data Modification), Entity Layer (Domain – các thực thể dữ liệu). Yêu cầu đi từ trên xuống, kết quả trả từ dưới lên; mỗi tầng chỉ làm việc với tầng kề bên.</p><p>Ví dụ với chức năng đặt bàn của FoodNow: màn hình chọn giờ và số khách là tầng presentation; quy tắc “không nhận đặt bàn khi nhà hàng đã kín chỗ” là tầng business logic; lưu đơn đặt bàn vào CSDL là tầng data access.</p><p class=\"note\">Theo cách dùng chuẩn, “tier” thường chỉ tầng triển khai vật lý (chạy trên máy khác nhau), còn “layer” là lớp tổ chức code. Slide dùng N-Tier theo nghĩa rộng, gồm cả các layer logic như Entity Layer. Khi học bài này, hiểu theo slide: chia hệ thống thành các tầng có trách nhiệm riêng.</p>"
+  },
+  {
+   "id": "L02-t9",
+   "h": "Monolithic và Microservices",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.12",
+   "html": "{{img:L02-img7}}<table><thead><tr><th></th><th>Monolithic (nguyên khối)</th><th>Microservices (vi dịch vụ)</th></tr></thead><tbody><tr><td>Cấu trúc</td><td>Một khối duy nhất gồm User Interface, Business Layer, Data Interface, dùng chung một CSDL</td><td>Nhiều service nhỏ, mỗi service lo một việc và thường có CSDL riêng</td></tr><tr><td>Phù hợp</td><td>Dự án nhỏ đến trung bình, phát triển nhanh giai đoạn đầu, đơn giản về mặt triển khai</td><td>Hệ thống lớn, yêu cầu mở rộng cao</td></tr><tr><td>Đòi hỏi</td><td>Ít: một ứng dụng, một lần triển khai</td><td>Đội ngũ có kinh nghiệm và hạ tầng hiện đại</td></tr></tbody></table><p>Ví dụ: một quán nhỏ làm app đặt món đơn giản có thể chọn Monolithic để ra mắt nhanh. Chuỗi bán lẻ như SolasMart có bán tại quầy, bán online, kho và nhân sự, cần mở rộng từng phần độc lập thì Microservices hợp hơn, nếu team đủ kinh nghiệm.</p><p class=\"tip\">Mẹo nhớ: Monolithic là “một căn nhà lớn”, sửa một phòng có thể ảnh hưởng cả nhà. Microservices là “dãy nhà nhỏ”, sửa nhà này không ảnh hưởng nhà kia, nhưng phải quản lý nhiều nhà.</p>"
+  },
+  {
+   "id": "L02-t10",
+   "h": "Zone trong mạng: khái niệm và mục tiêu",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.13",
+   "html": "<p><b>Zone</b> (vùng mạng) là cách phân chia mạng nội bộ thành các vùng (vùng an ninh) khác nhau dựa trên <b>mức độ tin cậy</b> và <b>chức năng</b>.</p><p><b>Mục tiêu chính:</b></p><ul><li>Giảm thiểu rủi ro nếu một vùng bị tấn công.</li><li>Dễ quản lý bảo mật, dễ tuân thủ chính sách.</li></ul><p><b>BA không cần biết cấu hình mạng</b> nhưng cần hiểu các zone để:</p><ul><li>Xác định yêu cầu phi chức năng về bảo mật và triển khai.</li><li>Đủ kiến thức để trao đổi với khách hàng, đối tác, team hạ tầng.</li><li>Đánh giá rủi ro của hệ thống.</li><li>Đây là phần kiến thức quan trọng để viết được tài liệu GPKT (thường hiểu là tài liệu giải pháp kỹ thuật) trong các dự án lớn.</li></ul><p>Ví dụ: biết CSDL đặt ở Database Zone, BA có thể viết yêu cầu phi chức năng “CSDL khách hàng không được truy cập trực tiếp từ Internet, chỉ server API trong mạng nội bộ được kết nối”.</p><p class=\"tip\">Mẹo nhớ: zone giống các vòng cửa của một tòa nhà. Càng vào trong, càng ít người được vào, đồ càng quý.</p>"
+  },
+  {
+   "id": "L02-t11",
+   "h": "Các loại zone",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.14",
+   "html": "<table><thead><tr><th>Zone</th><th>Mô tả</th><th>Ví dụ</th></tr></thead><tbody><tr><td>External/Internet Zone</td><td>Vùng mạng ngoài, không tin cậy</td><td>(Internet, người dùng bên ngoài)</td></tr><tr><td>DMZ (Demilitarized Zone – vùng phi quân sự)</td><td>Vùng trung gian giữa Internet và mạng nội bộ. Tin cậy thấp</td><td>Các ứng dụng website tĩnh</td></tr><tr><td>Internal Zone (LAN)</td><td>Mạng nội bộ. Tin cậy cao</td><td>Service nghiệp vụ, API…</td></tr><tr><td>Database Zone</td><td>Chứa dữ liệu cực kỳ quan trọng. Rất tin cậy</td><td>Database, File</td></tr><tr><td>Guest Zone</td><td>Dành cho khách, không truy cập được mạng công ty</td><td>Wifi-Guest</td></tr><tr><td>Management Zone</td><td>Dành riêng cho quản trị hệ thống</td><td>Monitoring (giám sát), Backup (sao lưu)</td></tr></tbody></table><p>Thứ tự tin cậy tăng dần theo slide: External (không tin cậy) → DMZ (thấp) → Internal (cao) → Database (rất tin cậy).</p><p class=\"tip\">Mẹo nhớ DMZ: là “sảnh chờ” của tòa nhà, khách bên ngoài vào được tới đây nhưng không vào được phòng làm việc bên trong.</p>"
+  },
+  {
+   "id": "L02-t12",
+   "h": "Địa chỉ IP và ISP",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.15",
+   "html": "<p><b>Địa chỉ IP</b> (Internet Protocol Address):</p><ul><li>Là dãy số dùng để định danh thiết bị trên môi trường Internet và mạng nội bộ.</li><li>Mọi thiết bị muốn giao tiếp với nhau đều phải có IP.</li></ul><p><b>ISP</b> (Internet Service Provider) là nhà cung cấp dịch vụ Internet, ví dụ VNPT, FPT Telecom, Viettel, CMC Telecom…</p><p>Hình trên slide: nhiều máy tính, điện thoại trong nhà có IP riêng dạng 192.168.1.x (<b>Private IP</b>). Tất cả nối tới một <b>Router</b> (bộ định tuyến). Router có một <b>Public IP</b> (ví dụ 82.129.70.111) do ISP cấp, và đi qua ISP để ra Internet.</p><p class=\"tip\">Mẹo nhớ: IP giống số nhà. Private IP là số phòng trong một tòa nhà, Public IP là địa chỉ của cả tòa nhà mà bưu điện (ISP) biết.</p>"
+  },
+  {
+   "id": "L02-t13",
+   "h": "Phân loại địa chỉ IP",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.16",
+   "html": "<h4>Theo phiên bản</h4>{{img:L02-img8}}<table><thead><tr><th></th><th>IPv4</th><th>IPv6</th></tr></thead><tbody><tr><td>Cấu trúc</td><td>4 nhóm số, 32 bit</td><td>8 nhóm số, 128 bit</td></tr><tr><td>Ví dụ</td><td>192.168.1.1</td><td>2001:0db8:85a3:0000:0000:8a2e:0370:7334</td></tr><tr><td>Cách viết</td><td>Số thập phân cách nhau bằng dấu chấm</td><td>Số thập lục phân (chữ và số) cách nhau bằng dấu hai chấm, được viết rút gọn</td></tr><tr><td>Số lượng</td><td>Khoảng 4,3 tỷ địa chỉ, không đủ nên phải dùng lại (nhiều máy chung một IP public)</td><td>Rất lớn, mỗi thiết bị có thể có địa chỉ riêng</td></tr><tr><td>Cấu hình</td><td>DHCP hoặc cấu hình tay</td><td>Hỗ trợ tự cấu hình</td></tr><tr><td>Năm triển khai (theo hình)</td><td>1981</td><td>1998</td></tr></tbody></table><p class=\"note\">Hình trên slide ghi IPv6 có 7,9×10^28 địa chỉ. Theo kiến thức chuẩn, IPv6 có 2^128 ≈ 3,4×10^38 địa chỉ; con số 7,9×10^28 là số lần IPv6 nhiều hơn IPv4. Ý cần nhớ không đổi: IPv6 nhiều địa chỉ hơn IPv4 rất nhiều.</p><h4>IP Public và IP Private</h4><p>Slide liệt kê 3 dải địa chỉ:</p><ul><li>Lớp A: 10.0.0.0 – 10.255.255.255</li><li>Lớp B: 172.16.0.0 – 172.31.255.255</li><li>Lớp C: 192.168.0.0 – 192.168.255.255</li></ul><p>Đây là các dải <b>IP Private</b>: chỉ dùng trong mạng nội bộ, không đi thẳng ra Internet. Địa chỉ nằm ngoài 3 dải này (trừ một số dải đặc biệt) là <b>IP Public</b>, được định danh duy nhất trên Internet. Hình minh họa: laptop, điện thoại trong Private Network có IP 192.168.0.x; router có Public IP Address để ra Internet.</p><p class=\"note\">Slide chỉ ghi “Lớp A/B/C”. Theo chuẩn (RFC 1918), ba dải trên là dải IP private nằm trong các lớp A, B, C; toàn bộ lớp A, B, C rộng hơn nhiều và phần còn lại là IP public.</p>"
+  },
+  {
+   "id": "L02-t14",
+   "h": "Kiểm tra IP; DNS và DHCP",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.17",
+   "html": "<h4>Kiểm tra địa chỉ IP</h4><ul><li><b>IP Public</b>: truy cập trang whatismyipaddress.com. Trang hiển thị IP public cùng thông tin như ISP, quốc gia, tỉnh/thành, kiểu cấp phát (ví dụ “Likely Static IP” – nhiều khả năng là IP tĩnh).</li><li><b>IP Private</b>: mở cmd gõ <code>ipconfig</code> (Windows) hoặc <code>ifconfig</code> (Linux, macOS).</li></ul><h4>Giao thức tác động đến IP</h4><ul><li><b>DNS</b> (Domain Name System – hệ thống phân giải tên miền): đổi tên miền dễ nhớ (ví dụ www.tenmien.vn) thành địa chỉ IP để máy tính tìm tới server.</li><li><b>DHCP</b> (Dynamic Host Configuration Protocol – giao thức cấu hình máy động): tự động cấp IP cho thiết bị khi vào mạng, không cần cấu hình tay.</li></ul><p class=\"tip\">Mẹo nhớ: DNS là “danh bạ” (tên → số), DHCP là “lễ tân phát số phòng” cho thiết bị mới vào mạng.</p><p class=\"note\">Slide ghi “mở cmd gõ ipconfig hoặc ifconfig”. Cụ thể: ipconfig dùng trong cmd của Windows; ifconfig dùng trong terminal của Linux/macOS.</p>"
+  },
+  {
+   "id": "L02-t15",
+   "h": "Ngôn ngữ lập trình",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.18",
+   "html": "<table><thead><tr><th>Ngôn ngữ</th><th>Dùng nhiều cho</th></tr></thead><tbody><tr><td>JavaScript</td><td>Phát triển web (front-end và back-end)</td></tr><tr><td>Python</td><td>Phân tích dữ liệu, AI, học máy, backend web, tự động hóa</td></tr><tr><td>Java</td><td>Ứng dụng doanh nghiệp, Android, hệ thống lớn</td></tr><tr><td>C# (C-Sharp)</td><td>Ứng dụng Windows, game (Unity), web (ASP.NET)</td></tr><tr><td>C/C++</td><td>Phần mềm hệ thống, nhúng, game, hiệu năng cao</td></tr><tr><td>Khác</td><td>PHP, Swift, React-native, Ruby…</td></tr></tbody></table><p>BA không cần viết code bằng các ngôn ngữ này. Biết tên và thế mạnh giúp BA hiểu khi Dev nói “phần này viết bằng Python để xử lý dữ liệu” hoặc khi khách hàng yêu cầu dùng công nghệ cụ thể.</p><p class=\"note\">Slide xếp React-native vào “ngôn ngữ khác”. Theo chuẩn, React-native là framework (bộ khung) viết bằng JavaScript để làm app di động, không phải một ngôn ngữ riêng.</p>"
+  },
+  {
+   "id": "L02-t16",
+   "h": "Nền tảng, Frontend và Backend",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.19",
+   "html": "<table><thead><tr><th>Nền tảng</th><th>Công nghệ ví dụ (theo slide)</th></tr></thead><tbody><tr><td>Web-based</td><td>C#, Java, JavaScript…</td></tr><tr><td>Mobile</td><td>Swift, Objective-C…</td></tr><tr><td>Desktop</td><td>WinForm, Java Swing…</td></tr><tr><td>Game</td><td>Unity</td></tr><tr><td>Nhúng</td><td>C, C++, Assembly…</td></tr><tr><td>Máy học, AI</td><td>Python</td></tr></tbody></table><ul><li><b>Frontend</b> (phần người dùng nhìn thấy, chạy trên trình duyệt hoặc app): JavaScript, HTML, CSS…</li><li><b>Backend</b> (phần chạy trên server, xử lý nghiệp vụ và dữ liệu): C#, Java, Node.js…</li></ul><p>Ví dụ: trong app đặt đồ ăn, nút “Đặt món”, ảnh món ăn là frontend; tính tiền, kiểm tra món còn hay hết, lưu đơn là backend.</p><p class=\"note\">Theo chuẩn: Swift và Objective-C dùng cho iOS; Android thường dùng Kotlin hoặc Java. WinForm, Java Swing và Unity là framework/công cụ chứ không phải ngôn ngữ; Node.js là môi trường chạy JavaScript phía server. Slide gộp chung để chỉ “công nghệ hay dùng”.</p>"
+  },
+  {
+   "id": "L02-t17",
+   "h": "Hệ quản trị cơ sở dữ liệu",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.20",
+   "html": "<p><b>Hệ quản trị cơ sở dữ liệu</b> (DBMS – Database Management System) là phần mềm dùng để lưu, truy vấn và quản lý dữ liệu.</p><table><thead><tr><th>Hệ quản trị</th><th>Đặc điểm</th></tr></thead><tbody><tr><td>SQL Server</td><td>Do Microsoft phát triển, tích hợp tốt với hệ sinh thái .NET</td></tr><tr><td>Oracle</td><td>Doanh nghiệp lớn sử dụng, tính năng bảo mật và mở rộng cao</td></tr><tr><td>MySQL</td><td>Miễn phí, phổ biến, dùng nhiều trong web</td></tr><tr><td>PostgreSQL</td><td>Mạnh mẽ, hỗ trợ tốt cho các truy vấn phức tạp</td></tr><tr><td>SQLite</td><td>Nhẹ, không cần server, dùng cho app nhỏ và mobile app</td></tr><tr><td>MongoDB</td><td>Dữ liệu lưu dưới dạng JSON, rất phổ biến cho web và app</td></tr><tr><td>Redis</td><td>Cực nhanh, dùng làm cache, lưu session (phiên đăng nhập)</td></tr></tbody></table><p>Năm hệ đầu (SQL Server, Oracle, MySQL, PostgreSQL, SQLite) lưu dữ liệu dạng bảng và dùng ngôn ngữ SQL. MongoDB và Redis thuộc nhóm NoSQL (không lưu dạng bảng quan hệ).</p><p>Liên hệ mô hình chi tiết tr.9: CSDL lịch sử thiết bị dùng Mongo (nhiều log, cấu trúc linh hoạt), CSDL tổng hợp dùng SQL, còn Cache dùng Redis để đọc nhanh.</p><p class=\"note\">MongoDB thực tế lưu dạng BSON (bản nhị phân của JSON); nói “dạng JSON” như slide là cách hiểu đơn giản, đủ dùng cho BA.</p>"
+  }
+ ],
+ "examples": [
+  {
+   "id": "L02-e1",
+   "title": "Đọc mô hình vật lý: một yêu cầu của khách đi qua những đâu",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.7, tr.14",
+   "html": "<p>Tình huống: khách hàng mở website trên laptop và bấm xem lịch sử đơn hàng. Đọc theo mô hình vật lý trên slide:</p><table><thead><tr><th>Bước</th><th>Đi qua</th><th>Zone</th><th>Việc xảy ra</th></tr></thead><tbody><tr><td>1</td><td>Laptop khách → Internet</td><td>External/Internet Zone</td><td>Trình duyệt (client) gửi yêu cầu</td></tr><tr><td>2</td><td>Firewall</td><td>Ranh giới Internet – DMZ</td><td>Chỉ cho lưu lượng hợp lệ đi vào</td></tr><tr><td>3</td><td>Load Balancer</td><td>Trước DMZ</td><td>Chọn một Web FE đang rảnh</td></tr><tr><td>4</td><td>Web FE / Gateway</td><td>DMZ</td><td>Nhận yêu cầu, chuyển tiếp vào trong</td></tr><tr><td>5</td><td>Firewall</td><td>Ranh giới DMZ – Internal</td><td>Lớp chặn thứ hai</td></tr><tr><td>6</td><td>Server API</td><td>Internal Zone</td><td>Xử lý nghiệp vụ “lấy lịch sử đơn của khách này”</td></tr><tr><td>7</td><td>DB chính</td><td>Database Zone</td><td>Trả dữ liệu; DB chính được sao lưu sang DB Backup</td></tr></tbody></table><p><b>Giải thích:</b> dữ liệu quý nhất nằm sâu nhất. Kẻ tấn công vượt được firewall đầu tiên mới chỉ tới DMZ, vẫn còn firewall và Internal Zone chắn trước CSDL. Đây đúng là mục tiêu “giảm rủi ro nếu một vùng bị tấn công” của việc chia zone.</p>"
+  },
+  {
+   "id": "L02-e2",
+   "title": "Client–Server và N-Tier trong app đặt đồ ăn (ví dụ)",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.10-11, tr.19",
+   "html": "<p>Ví dụ: khách dùng app đặt đồ ăn, chọn 2 món và bấm “Đặt món”.</p><table><thead><tr><th>Mô hình</th><th>Thành phần</th><th>Trong tình huống này</th></tr></thead><tbody><tr><td rowspan=\"3\">Client–Server</td><td>Client</td><td>App trên điện thoại của khách gửi yêu cầu đặt món</td></tr><tr><td>Đường truyền</td><td>Internet (4G hoặc Wi-Fi)</td></tr><tr><td>Server</td><td>Nhận yêu cầu, tạo đơn, trả về “Đặt món thành công” và mã đơn</td></tr><tr><td rowspan=\"3\">N-Tier</td><td>Presentation</td><td>Màn hình giỏ hàng, nút “Đặt món”, thông báo kết quả (frontend)</td></tr><tr><td>Business logic</td><td>Kiểm tra món còn bán không, tính tổng tiền, áp mã giảm giá (backend)</td></tr><tr><td>Data access</td><td>Ghi đơn hàng và chi tiết món vào CSDL</td></tr></tbody></table><p><b>Giải thích:</b> khi khách hàng nói “muốn đổi cách tính phí giao hàng”, BA biết thay đổi nằm ở tầng business logic, không phải ở giao diện. Nhờ vậy BA mô tả yêu cầu đúng chỗ và Dev ước lượng chính xác hơn.</p>"
+  },
+  {
+   "id": "L02-e3",
+   "title": "Chọn Monolithic hay Microservices (ví dụ)",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.12",
+   "html": "<table><thead><tr><th>Tình huống (ví dụ)</th><th>Gợi ý</th><th>Lý do theo slide</th></tr></thead><tbody><tr><td>FoodNow muốn ra mắt nhanh bản đầu của chức năng đặt bàn cho vài nhà hàng thử nghiệm, team nhỏ</td><td>Monolithic</td><td>Dự án nhỏ đến trung bình, cần phát triển nhanh giai đoạn đầu, triển khai đơn giản</td></tr><tr><td>SolasMart có bán tại quầy, bán online, kho, nhân sự; mùa khuyến mãi lượng đơn online tăng mạnh, cần mở rộng riêng phần bán online</td><td>Microservices</td><td>Hệ thống lớn, yêu cầu mở rộng cao; tách service bán online để tăng máy chủ riêng cho nó</td></tr><tr><td>Hệ thống lớn nhưng team mới, chưa có hạ tầng triển khai hiện đại</td><td>Cân nhắc kỹ, có thể bắt đầu Monolithic</td><td>Microservices đòi hỏi đội ngũ có kinh nghiệm và hạ tầng hiện đại</td></tr></tbody></table><p><b>Giải thích:</b> BA không quyết kiến trúc thay Solution Architect hay Tech Lead, nhưng cần hiểu đánh đổi để đặt câu hỏi đúng: quy mô, tốc độ ra mắt, nhu cầu mở rộng, năng lực team.</p>"
+  },
+  {
+   "id": "L02-e4",
+   "title": "Từ zone ra yêu cầu phi chức năng cho SolasMart (ví dụ)",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.13-14",
+   "html": "<p>Ví dụ: SolasMart xây hệ thống bán online và cho khách dùng Wi-Fi tại cửa hàng. BA dùng bảng zone để viết yêu cầu phi chức năng (NFR – Non-Functional Requirement):</p><table><thead><tr><th>Zone</th><th>Yêu cầu phi chức năng (ví dụ)</th></tr></thead><tbody><tr><td>DMZ</td><td>Website bán hàng đặt ở DMZ; không lưu dữ liệu khách hàng trên máy chủ web.</td></tr><tr><td>Internal Zone</td><td>Service xử lý đơn hàng, thanh toán chỉ nhận kết nối từ DMZ qua firewall.</td></tr><tr><td>Database Zone</td><td>CSDL khách hàng và đơn hàng không được truy cập trực tiếp từ Internet; có bản sao lưu.</td></tr><tr><td>Guest Zone</td><td>Wi-Fi cho khách tại cửa hàng tách riêng, không truy cập được máy POS và mạng nội bộ.</td></tr><tr><td>Management Zone</td><td>Công cụ giám sát và sao lưu chỉ quản trị viên hệ thống truy cập được.</td></tr></tbody></table><p><b>Giải thích:</b> BA không cấu hình mạng. BA chỉ cần biết thành phần nào nằm ở đâu để viết yêu cầu rõ ràng, rồi trao đổi với team hạ tầng. Những yêu cầu này là đầu vào cho tài liệu GPKT.</p>"
+  },
+  {
+   "id": "L02-e5",
+   "title": "Đọc mô hình chi tiết: luồng cảnh báo thiết bị",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.9",
+   "html": "<p>Đọc mô hình chi tiết trên slide theo một luồng: thiết bị phát hiện sự cố và người dùng nhận cảnh báo.</p><ol><li>Device gửi tín hiệu tới <b>Hệ thống xử lý tín hiệu</b>.</li><li>Hệ thống xử lý tín hiệu gọi <b>API giao tiếp với thiết bị</b> để gửi thông tin thiết bị.</li><li>API này gọi <b>API Log History</b> ghi lịch sử vào <b>CSDL lịch sử thiết bị (Mongo)</b>, và ghi dữ liệu vào <b>CSDL tổng hợp (SQL)</b>.</li><li>API gọi <b>SMS + CALL</b> để nhắn tin, gọi điện báo người dùng, rồi cập nhật kết quả.</li><li>API gửi yêu cầu tới <b>Socket</b>; Socket “bắn” cảnh báo tức thời tới Mobile App và CMS.</li><li>Người dùng mở web xem lại: <b>API Web Back-end</b> lấy log lịch sử qua API Log History.</li><li>Song song, <b>Service giám sát kết nối hệ thống</b> kiểm tra dữ liệu và gọi service gửi email khi có sự cố.</li></ol><p><b>Giải thích:</b> từ luồng này BA có thể rút ra yêu cầu: cảnh báo phải đến bằng những kênh nào (SMS, cuộc gọi, socket trên app, email), lịch sử lưu ở đâu, ai được xem. Mô hình chi tiết là cầu nối giữa nghiệp vụ và đặc tả kỹ thuật.</p>"
+  },
+  {
+   "id": "L02-e6",
+   "title": "Chọn hệ quản trị CSDL theo nhu cầu (ví dụ)",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.20",
+   "html": "<table><thead><tr><th>Nhu cầu (ví dụ)</th><th>Hệ quản trị hợp lý</th><th>Vì sao (theo slide)</th></tr></thead><tbody><tr><td>Công ty đang dùng toàn bộ công nghệ .NET của Microsoft</td><td>SQL Server</td><td>Tích hợp tốt với hệ sinh thái .NET</td></tr><tr><td>Website nhỏ, ngân sách thấp, muốn miễn phí</td><td>MySQL</td><td>Miễn phí, phổ biến, dùng nhiều trong web</td></tr><tr><td>App đặt đồ ăn cần lưu giỏ hàng tạm và phiên đăng nhập, đọc rất nhanh</td><td>Redis</td><td>Cực nhanh, dùng làm cache, lưu session</td></tr><tr><td>App ghi chú chạy trên điện thoại, lưu dữ liệu ngay trên máy</td><td>SQLite</td><td>Nhẹ, không cần server, dùng cho app nhỏ và mobile app</td></tr><tr><td>Báo cáo tổng hợp nhiều bảng, truy vấn phức tạp</td><td>PostgreSQL</td><td>Hỗ trợ tốt cho các truy vấn phức tạp</td></tr><tr><td>Ngân hàng, doanh nghiệp lớn đặt nặng bảo mật và mở rộng</td><td>Oracle</td><td>Doanh nghiệp lớn dùng, bảo mật và mở rộng cao</td></tr></tbody></table><p><b>Giải thích:</b> việc chọn CSDL do team kỹ thuật quyết. BA biết đặc điểm từng hệ để hiểu ràng buộc (chi phí bản quyền, tốc độ, nền tảng) và ghi đúng vào tài liệu.</p>"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L02-p1",
+   "title": "Phân rã chức năng đặt bàn FoodNow theo Client–Server và N-Tier",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.10-11",
+   "task": "<p>FoodNow có chức năng: khách chọn nhà hàng, ngày giờ, số người rồi bấm “Đặt bàn”. Hệ thống kiểm tra còn bàn trống không; nếu còn thì lưu đơn và báo thành công. Hãy chỉ ra client, server, đường truyền và việc của từng tầng N-Tier.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Tìm client.</b> Hỏi: ai gửi yêu cầu? Ở đây là app hoặc website FoodNow trên thiết bị của khách.</p>",
+    "<p><b>Bước 2 – Tìm server.</b> Hỏi: ai nhận, xử lý và trả kết quả? Là máy chủ FoodNow.</p>",
+    "<p><b>Bước 3 – Đường truyền.</b> Khách dùng điện thoại ở nhà nên đi qua Internet.</p>",
+    "<p><b>Bước 4 – Tầng presentation.</b> Liệt kê những gì khách nhìn và bấm: chọn nhà hàng, chọn ngày giờ, nhập số người, nút “Đặt bàn”, thông báo kết quả.</p>",
+    "<p><b>Bước 5 – Tầng business logic.</b> Liệt kê quy tắc: kiểm tra bàn trống theo giờ và số người; không cho đặt giờ đã qua.</p>",
+    "<p><b>Bước 6 – Tầng data access.</b> Liệt kê thao tác dữ liệu: đọc danh sách bàn và lịch đặt; ghi đơn đặt bàn mới.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Thành phần</th><th>Đáp án mẫu</th></tr></thead><tbody><tr><td>Client</td><td>App/website FoodNow trên thiết bị của khách</td></tr><tr><td>Server</td><td>Máy chủ FoodNow</td></tr><tr><td>Đường truyền</td><td>Internet</td></tr><tr><td>Presentation</td><td>Màn hình chọn nhà hàng, ngày giờ, số người; nút Đặt bàn; thông báo thành công/thất bại</td></tr><tr><td>Business logic</td><td>Kiểm tra còn bàn phù hợp số người tại giờ đó; chặn giờ đã qua; tạo mã đặt bàn</td></tr><tr><td>Data access</td><td>Đọc bàn và lịch đặt từ CSDL; ghi đơn đặt bàn</td></tr></tbody></table>"
+  },
+  {
+   "id": "L02-p2",
+   "title": "Xếp thành phần hệ thống SolasMart vào đúng zone",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.7, tr.13-14",
+   "task": "<p>Ví dụ hệ thống SolasMart có các thành phần: (1) website bán hàng online, (2) service xử lý đơn hàng, (3) CSDL khách hàng, (4) Wi-Fi cho khách tại cửa hàng, (5) công cụ giám sát máy chủ, (6) thư mục lưu file hóa đơn, (7) công cụ sao lưu dữ liệu. Xếp mỗi thành phần vào một zone.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Chép lại bảng 6 zone: External, DMZ, Internal, Database, Guest, Management.</p>",
+    "<p><b>Bước 2.</b> Với mỗi thành phần, hỏi: người ngoài Internet có cần chạm trực tiếp không? Có, nhưng chỉ là trang web → DMZ.</p>",
+    "<p><b>Bước 3.</b> Thành phần xử lý nghiệp vụ, API → Internal Zone.</p>",
+    "<p><b>Bước 4.</b> Dữ liệu và file quan trọng → Database Zone.</p>",
+    "<p><b>Bước 5.</b> Phục vụ khách vãng lai, không được vào mạng công ty → Guest Zone.</p>",
+    "<p><b>Bước 6.</b> Dùng để quản trị, giám sát, sao lưu → Management Zone.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Thành phần</th><th>Zone</th></tr></thead><tbody><tr><td>(1) Website bán hàng online</td><td>DMZ</td></tr><tr><td>(2) Service xử lý đơn hàng</td><td>Internal Zone</td></tr><tr><td>(3) CSDL khách hàng</td><td>Database Zone</td></tr><tr><td>(4) Wi-Fi cho khách</td><td>Guest Zone</td></tr><tr><td>(5) Công cụ giám sát máy chủ</td><td>Management Zone</td></tr><tr><td>(6) Thư mục lưu file hóa đơn</td><td>Database Zone (slide ghi ví dụ “Database, File”)</td></tr><tr><td>(7) Công cụ sao lưu</td><td>Management Zone (slide ghi ví dụ “Monitoring, Backup”)</td></tr></tbody></table>"
+  },
+  {
+   "id": "L02-p3",
+   "title": "Kiểm tra IP của máy mình và phân loại IP",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.15-17",
+   "task": "<p>Tìm IP private và IP public của máy bạn đang dùng. Sau đó phân loại các địa chỉ: 192.168.1.10; 8.8.8.8; 172.20.5.1; 172.40.1.1; 10.1.2.3; 2001:0db8:85a3:0000:0000:8a2e:0370:7334.</p>",
+   "steps": [
+    "<p><b>Bước 1 – IP private.</b> Trên Windows mở cmd, gõ <code>ipconfig</code>; trên Linux/macOS mở terminal, gõ <code>ifconfig</code>. Tìm dòng IPv4 Address, thường dạng 192.168.x.x.</p>",
+    "<p><b>Bước 2 – IP public.</b> Mở trình duyệt, vào whatismyipaddress.com. Ghi lại IP và tên ISP hiển thị.</p>",
+    "<p><b>Bước 3 – So sánh.</b> Hai IP khác nhau vì nhiều thiết bị trong nhà dùng chung một IP public của router.</p>",
+    "<p><b>Bước 4 – Phân loại phiên bản.</b> 4 nhóm số cách bằng dấu chấm là IPv4; 8 nhóm cách bằng dấu hai chấm là IPv6.</p>",
+    "<p><b>Bước 5 – Phân loại private/public.</b> So từng IPv4 với 3 dải: 10.x.x.x; 172.16.x.x–172.31.x.x; 192.168.x.x. Nằm trong dải là private, ngoài dải là public.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Địa chỉ</th><th>Phiên bản</th><th>Loại</th></tr></thead><tbody><tr><td>192.168.1.10</td><td>IPv4</td><td>Private (dải 192.168.x.x)</td></tr><tr><td>8.8.8.8</td><td>IPv4</td><td>Public</td></tr><tr><td>172.20.5.1</td><td>IPv4</td><td>Private (nằm trong 172.16–172.31)</td></tr><tr><td>172.40.1.1</td><td>IPv4</td><td>Public (172.40 nằm ngoài 172.16–172.31)</td></tr><tr><td>10.1.2.3</td><td>IPv4</td><td>Private (dải 10.x.x.x)</td></tr><tr><td>2001:0db8:…:7334</td><td>IPv6</td><td>Ví dụ IPv6 trên slide (8 nhóm số)</td></tr></tbody></table><p>IP private và public của máy bạn tùy mạng; IP private thường dạng 192.168.x.x, IP public là IP router do ISP cấp.</p>"
+  },
+  {
+   "id": "L02-p4",
+   "title": "Đọc mô hình logic và kể lại luồng xử lý bằng lời",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.8",
+   "task": "<p>Dựa vào mô hình logic trên slide tr.8, kể lại bằng lời đường đi của một yêu cầu từ <b>Website nghiệp vụ</b> tới <b>Database summary</b>, và nói vai trò của Message Queue và Cache (Redis).</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Tìm điểm xuất phát: Website nghiệp vụ trong WAN zone.</p>",
+    "<p><b>Bước 2.</b> Lần theo mũi tên: Firewall → Load balancer → Web FE/GW trong internal zone đầu.</p>",
+    "<p><b>Bước 3.</b> Qua Firewall thứ hai vào Internal zone chính, tới khối backend (Service BE).</p>",
+    "<p><b>Bước 4.</b> Từ backend sang queue (Message Queue), rồi tới khối service (các service nghiệp vụ).</p>",
+    "<p><b>Bước 5.</b> Service đọc Dữ liệu nghiệp vụ và ghi/đọc Database summary.</p>",
+    "<p><b>Bước 6.</b> Ghi chú khối Database system (CSDL hệ thống, Cache Redis) nối với backend và service.</p>"
+   ],
+   "answer": "<p>Website nghiệp vụ (WAN zone) → Firewall → Load balancer chia tải → Web FE / Gateway → Firewall → Service BE trong backend xử lý yêu cầu → đặt việc vào Message Queue → các service nghiệp vụ lấy việc ra xử lý, đọc Database nghiệp vụ → ghi kết quả vào Database summary.</p><ul><li><b>Message Queue</b>: hàng đợi, giúp backend không phải chờ service xử lý xong; khi nhiều yêu cầu dồn tới, việc được xếp hàng và xử lý dần nên hệ thống không nghẽn.</li><li><b>Cache (Redis)</b>: lưu tạm dữ liệu hay đọc để trả nhanh, giảm tải cho CSDL.</li></ul>"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L02-x1",
+   "title": "Ghép ngôn ngữ lập trình với mục đích",
+   "level": "de",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.18-19",
+   "task": "<p>Ghép mỗi nhu cầu với ngôn ngữ/công nghệ phù hợp theo slide: (1) làm game bằng Unity; (2) phân tích dữ liệu, AI; (3) app Android, hệ thống doanh nghiệp lớn; (4) phần mềm nhúng hiệu năng cao; (5) giao diện web chạy trên trình duyệt; (6) web bằng ASP.NET.</p><p>Lựa chọn: Python, Java, C#, C/C++, JavaScript/HTML/CSS.</p>",
+   "hints": [
+    "<p>Xem bảng ngôn ngữ ở tr.18: mỗi ngôn ngữ có 2–4 thế mạnh.</p>",
+    "<p>Unity và ASP.NET cùng dùng một ngôn ngữ của Microsoft.</p>"
+   ],
+   "answer": "<p>(1) C#; (2) Python; (3) Java; (4) C/C++; (5) JavaScript, HTML, CSS (frontend); (6) C#.</p>"
+  },
+  {
+   "id": "L02-x2",
+   "title": "Giải thích DNS và DHCP cho khách hàng không chuyên",
+   "level": "de",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.15-17",
+   "task": "<p>Chủ cửa hàng SolasMart hỏi: “Sao gõ tên website là vào được, không cần nhớ số? Và sao khách vào Wi-Fi là dùng được ngay, không ai phải cài gì?”. Viết 3–5 câu trả lời dễ hiểu.</p>",
+   "hints": [
+    "<p>Câu hỏi thứ nhất liên quan tới giao thức đổi tên miền thành IP.</p>",
+    "<p>Câu hỏi thứ hai liên quan tới giao thức tự cấp IP.</p>",
+    "<p>Dùng hình ảnh đời thường: danh bạ, lễ tân phát số phòng.</p>"
+   ],
+   "answer": "<p>Mỗi máy tính trên Internet được nhận diện bằng một dãy số gọi là địa chỉ IP. Khi anh/chị gõ tên website, hệ thống <b>DNS</b> làm việc như một cuốn danh bạ: tra tên ra số IP rồi kết nối tới máy chủ, nên không cần nhớ số. Khi khách bắt Wi-Fi, bộ phát dùng <b>DHCP</b> tự cấp cho máy khách một IP còn trống, giống lễ tân phát số phòng, nên khách dùng được ngay mà không phải cài đặt gì.</p>"
+  },
+  {
+   "id": "L02-x3",
+   "title": "Monolithic hay Microservices cho ba tình huống",
+   "level": "tb",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.12",
+   "task": "<p>Chọn kiến trúc và nêu lý do: (a) Thư viện một trường học muốn phần mềm quản lý mượn trả sách, 3 Dev, cần dùng trong 3 tháng. (b) Chuỗi bán lẻ toàn quốc cần tách riêng bán online, kho, nhân sự, mỗi phần có team riêng và nâng cấp độc lập. (c) Startup đặt đồ ăn muốn hệ thống “chịu được tải lớn sau này” nhưng hiện chỉ có 2 Dev mới ra trường, chưa có hạ tầng triển khai tự động.</p>",
+   "hints": [
+    "<p>Đối chiếu với 3 tiêu chí trên slide: quy mô, nhu cầu mở rộng, năng lực đội ngũ và hạ tầng.</p>",
+    "<p>Tình huống (c) có mâu thuẫn giữa mong muốn và điều kiện thực tế.</p>"
+   ],
+   "answer": "<ul><li>(a) <b>Monolithic</b>: dự án nhỏ, cần phát triển nhanh, triển khai đơn giản.</li><li>(b) <b>Microservices</b>: hệ thống lớn, cần mở rộng và nâng cấp từng phần độc lập; có nhiều team.</li><li>(c) Nên bắt đầu <b>Monolithic</b> (tổ chức code tách tầng rõ để sau này tách dần). Microservices đòi hỏi đội ngũ có kinh nghiệm và hạ tầng hiện đại – hai điều startup chưa có. BA nên ghi rõ rủi ro này khi trao đổi với khách hàng.</li></ul>"
+  },
+  {
+   "id": "L02-x4",
+   "title": "Viết yêu cầu phi chức năng về bảo mật từ bảng zone",
+   "level": "tb",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.13-14",
+   "task": "<p>Hệ thống đặt đồ ăn có: website và app cho khách, API xử lý đơn, CSDL đơn hàng và khách hàng, trang quản trị cho nhân viên, công cụ sao lưu. Viết ít nhất 4 yêu cầu phi chức năng về bảo mật/triển khai dựa trên các zone.</p>",
+   "hints": [
+    "<p>Trước hết xếp từng thành phần vào zone.</p>",
+    "<p>Mỗi yêu cầu nên nói: thành phần nào, ở zone nào, ai được/không được truy cập.</p>"
+   ],
+   "answer": "<ol><li>Website đặt món đặt ở DMZ; không lưu dữ liệu khách hàng trên máy chủ web.</li><li>API xử lý đơn đặt ở Internal Zone, chỉ nhận yêu cầu đi qua Gateway và firewall từ DMZ.</li><li>CSDL đơn hàng và khách hàng đặt ở Database Zone, chỉ API nội bộ được kết nối; không mở truy cập trực tiếp từ Internet.</li><li>Trang quản trị cho nhân viên chỉ truy cập được từ mạng nội bộ hoặc qua kênh riêng có firewall.</li><li>Công cụ sao lưu và giám sát đặt ở Management Zone, chỉ quản trị viên hệ thống truy cập.</li></ol>"
+  },
+  {
+   "id": "L02-x5",
+   "title": "Chọn hệ quản trị CSDL cho các phần của hệ thống",
+   "level": "tb",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.9, tr.20",
+   "task": "<p>Một hệ thống giám sát thiết bị (giống mô hình chi tiết tr.9) cần: (a) lưu lịch sử tín hiệu thiết bị, rất nhiều bản ghi, cấu trúc hay thay đổi; (b) lưu dữ liệu tổng hợp để làm báo cáo, quan hệ nhiều bảng; (c) lưu tạm dữ liệu hay đọc và phiên đăng nhập; (d) app ngoại tuyến trên điện thoại của nhân viên kỹ thuật. Đề xuất hệ quản trị cho từng phần và giải thích.</p>",
+   "hints": [
+    "<p>Mô hình chi tiết tr.9 đã chọn sẵn cho (a), (b), (c).</p>",
+    "<p>(d) cần hệ “nhẹ, không cần server”.</p>"
+   ],
+   "answer": "<ul><li>(a) <b>MongoDB</b>: lưu dạng JSON linh hoạt, hợp log nhiều và cấu trúc thay đổi (slide dùng “CSDL lịch sử thiết bị (Mongo)”).</li><li>(b) Một CSDL quan hệ dùng SQL như <b>SQL Server</b> hoặc <b>PostgreSQL</b> (hỗ trợ tốt truy vấn phức tạp); slide dùng “CSDL tổng hợp (SQL)”.</li><li>(c) <b>Redis</b>: cực nhanh, dùng làm cache, lưu session.</li><li>(d) <b>SQLite</b>: nhẹ, không cần server, dùng cho mobile app.</li></ul>"
+  },
+  {
+   "id": "L02-x6",
+   "title": "Tình huống tổng hợp: chuẩn bị buổi làm việc kỹ thuật cho SolasMart",
+   "level": "kho",
+   "src": "2. Kien thuc co ban ve IT.pdf tr.4-20",
+   "task": "<p>Ví dụ: SolasMart muốn hệ thống mới gồm bán tại quầy (máy POS ở cửa hàng), bán online (website và app), quản lý kho, quản lý nhân sự, và kết nối với cổng thanh toán bên ngoài. Bạn là BA, chuẩn bị cho buổi họp với team kỹ thuật. Hãy: (1) phác mô hình tổng thể bằng bảng các phân hệ và hệ thống bên ngoài; (2) gợi ý kiến trúc Monolithic hay Microservices; (3) xếp các thành phần vào zone; (4) liệt kê ít nhất 5 câu hỏi cần hỏi team kỹ thuật/hạ tầng.</p>",
+   "hints": [
+    "<p>Bắt đầu từ mô hình tổng thể (tr.6): lõi hệ thống ở giữa, các đơn vị bên ngoài liên thông dữ liệu.</p>",
+    "<p>Hệ thống có nhiều phân hệ độc lập và kênh online cần chịu tải – đối chiếu tr.12.</p>",
+    "<p>Câu hỏi nên phủ: mạng/zone, CSDL, tích hợp API, bảo mật, sao lưu, công nghệ.</p>"
+   ],
+   "answer": "<p><b>(1) Mô hình tổng thể</b></p><table><thead><tr><th>Phần</th><th>Thành phần</th></tr></thead><tbody><tr><td>Bên ngoài</td><td>Cổng thanh toán (tích hợp qua API)</td></tr><tr><td>Phân hệ lõi</td><td>Bán tại quầy (POS), Bán online, Kho, Nhân sự</td></tr><tr><td>Người dùng</td><td>Khách online, thu ngân, nhân viên kho, nhân sự, quản lý</td></tr><tr><td>Dữ liệu</td><td>CSDL sản phẩm–tồn kho, đơn hàng, khách hàng, nhân viên</td></tr></tbody></table><p><b>(2) Kiến trúc:</b> nghiêng về Microservices vì hệ thống lớn, kênh online cần mở rộng riêng, các phân hệ nâng cấp độc lập – với điều kiện team có kinh nghiệm và hạ tầng hiện đại; nếu chưa có thì bắt đầu Monolithic tách tầng rõ.</p><p><b>(3) Zone:</b> website bán hàng → DMZ; API bán hàng, kho, nhân sự → Internal Zone; CSDL và file → Database Zone; Wi-Fi khách tại cửa hàng → Guest Zone; giám sát, sao lưu → Management Zone; khách online và cổng thanh toán → External/Internet Zone.</p><p><b>(4) Câu hỏi:</b></p><ol><li>Máy POS ở cửa hàng kết nối về server qua đường truyền nào, nằm zone nào, mất mạng thì bán tiếp được không?</li><li>Cổng thanh toán tích hợp qua API nào, dữ liệu thẻ có đi qua hệ thống mình không?</li><li>Dùng hệ quản trị CSDL nào, sao lưu bao lâu một lần, khôi phục mất bao lâu?</li><li>Website bán online cần chịu bao nhiêu người cùng lúc mùa khuyến mãi, có load balancer không?</li><li>Ai được truy cập dữ liệu nhân sự, phân quyền thế nào?</li><li>Team dùng công nghệ (ngôn ngữ, nền tảng) gì cho web, app và backend?</li></ol>"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L02-f1",
+   "front": "IT BA cần kiến thức IT để làm gì?",
+   "back": "<p>Hiểu ngôn ngữ team phát triển, hiểu hệ thống ở tầng kỹ thuật, dịch yêu cầu business thành yêu cầu kỹ thuật khả thi, giảm rủi ro, đưa giải pháp thực tế, tăng giá trị BA. Mẹo: BA là người phiên dịch nghiệp vụ ↔ kỹ thuật.</p>"
+  },
+  {
+   "id": "L02-f2",
+   "front": "Mô hình tổng thể",
+   "back": "<p>Bức tranh lớn: hệ thống gồm những phân hệ nào và liên thông dữ liệu với đơn vị bên ngoài nào. Ví dụ slide: HIS nối LIS, RIS/PACS, EMR, EHR và Bảo hiểm xã hội.</p>"
+  },
+  {
+   "id": "L02-f3",
+   "front": "Mô hình vật lý",
+   "back": "<p>Cho thấy thiết bị thật (server, firewall, load balancer) và zone mạng chúng nằm. Ví dụ: Web FE ở DMZ, Server API ở Internal Zone, DB ở Database Zone.</p>"
+  },
+  {
+   "id": "L02-f4",
+   "front": "Mô hình logic",
+   "back": "<p>Cho thấy các khối phần mềm (backend, queue, service, CSDL) và luồng dữ liệu, không quan tâm máy chủ cụ thể. Ví dụ: Service BE → Message Queue → service nghiệp vụ → Database summary.</p>"
+  },
+  {
+   "id": "L02-f5",
+   "front": "Mô hình chi tiết",
+   "back": "<p>Đi tới từng API, từng CSDL, từng nhóm người dùng và kênh truy cập. Ví dụ slide: API giao tiếp thiết bị, API Log History, Socket, Mongo, SQL, Redis. Là căn cứ viết đặc tả.</p>"
+  },
+  {
+   "id": "L02-f6",
+   "front": "HIS (Hospital Information System)",
+   "back": "<p>Hệ thống thông tin bệnh viện, lõi của mô hình tổng thể trên slide, gồm phân hệ tiếp đón, lâm sàng, cận lâm sàng, ngoại trú, nội trú, nhà thuốc.</p>"
+  },
+  {
+   "id": "L02-f7",
+   "front": "EMR (Electronic Medical Record)",
+   "back": "<p>Bệnh án điện tử tại một cơ sở khám chữa bệnh. Trên mô hình tổng thể, EMR nối với HIS và các bệnh viện. Mẹo: Medical = bệnh án.</p>"
+  },
+  {
+   "id": "L02-f8",
+   "front": "EHR (Electronic Health Record)",
+   "back": "<p>Hồ sơ sức khỏe điện tử của người dân, phục vụ sở y tế, trung tâm y tế, người dân. Mẹo: Health = sức khỏe cả đời.</p>"
+  },
+  {
+   "id": "L02-f9",
+   "front": "LIS",
+   "back": "<p>Hệ thống quản lý xét nghiệm. Trên mô hình tổng thể, LIS kết nối với HIS.</p>"
+  },
+  {
+   "id": "L02-f10",
+   "front": "RIS/PACS",
+   "back": "<p>Hệ thống quản lý và lưu trữ ảnh chẩn đoán như X-quang, CT. Trên mô hình tổng thể, RIS/PACS kết nối với HIS.</p>"
+  },
+  {
+   "id": "L02-f11",
+   "front": "Liên thông dữ liệu",
+   "back": "<p>Trao đổi dữ liệu giữa hệ thống với đơn vị bên ngoài. Ví dụ slide: hệ thống y tế liên thông với Bảo hiểm xã hội, Trung tâm y tế quốc gia, Phần mềm dược quốc gia. Thường làm qua API.</p>"
+  },
+  {
+   "id": "L02-f12",
+   "front": "Client",
+   "back": "<p>Máy khách: gửi yêu cầu và nhận về kết quả. Ví dụ: laptop, điện thoại, máy trạm mở app đặt đồ ăn. Mẹo: Client “hỏi”.</p>"
+  },
+  {
+   "id": "L02-f13",
+   "front": "Server",
+   "back": "<p>Máy chủ: nhận yêu cầu, xử lý và trả về kết quả. Ví dụ: máy chủ trả thực đơn cho app đặt đồ ăn. Mẹo: Server “trả lời”.</p>"
+  },
+  {
+   "id": "L02-f14",
+   "front": "Mô hình Client – Server",
+   "back": "<p>Gồm client gửi yêu cầu, server xử lý và trả kết quả, nối qua đường truyền là Internet hoặc LAN. Là nền của hầu hết web và app.</p>"
+  },
+  {
+   "id": "L02-f15",
+   "front": "LAN (Local Area Network)",
+   "back": "<p>Mạng nội bộ, nối các thiết bị trong một phạm vi nhỏ như văn phòng, cửa hàng. Là một loại đường truyền trong Client–Server, cũng là Internal Zone trên bảng zone.</p>"
+  },
+  {
+   "id": "L02-f16",
+   "front": "Mô hình N-Tier",
+   "back": "<p>Chia hệ thống thành các tầng riêng, mỗi tầng một trách nhiệm: presentation, business logic, data access, cùng tầng phụ (tích hợp, bảo mật, caching).</p>"
+  },
+  {
+   "id": "L02-f17",
+   "front": "Tầng presentation",
+   "back": "<p>Tầng giao diện người dùng, tương tác trực tiếp với người dùng. Ví dụ: màn hình giỏ hàng, nút Đặt món.</p>"
+  },
+  {
+   "id": "L02-f18",
+   "front": "Tầng business logic",
+   "back": "<p>Tầng xử lý nghiệp vụ, chứa quy tắc. Ví dụ: tính tổng tiền, kiểm tra còn bàn trống. Thay đổi quy tắc tính phí thường nằm ở tầng này.</p>"
+  },
+  {
+   "id": "L02-f19",
+   "front": "Tầng data access",
+   "back": "<p>Tầng thao tác với Database: đọc, ghi, sửa dữ liệu. Ví dụ: ghi đơn đặt bàn vào CSDL.</p>"
+  },
+  {
+   "id": "L02-f20",
+   "front": "Monolithic",
+   "back": "<p>Kiến trúc nguyên khối: giao diện, nghiệp vụ, truy cập dữ liệu trong một ứng dụng, một CSDL. Hợp dự án nhỏ–trung bình, cần ra nhanh, triển khai đơn giản. Mẹo: một căn nhà lớn.</p>"
+  },
+  {
+   "id": "L02-f21",
+   "front": "Microservices",
+   "back": "<p>Nhiều service nhỏ độc lập, thường mỗi service một CSDL. Hợp hệ thống lớn, cần mở rộng cao; đòi hỏi team có kinh nghiệm và hạ tầng hiện đại. Mẹo: dãy nhà nhỏ.</p>"
+  },
+  {
+   "id": "L02-f22",
+   "front": "Web-based",
+   "back": "<p>Hệ thống chạy trên web, người dùng mở bằng trình duyệt, không cần cài đặt. Một loại mô hình IT BA nên biết.</p>"
+  },
+  {
+   "id": "L02-f23",
+   "front": "Mobile app",
+   "back": "<p>Ứng dụng cài trên điện thoại, thường gọi tới server qua API. Ví dụ: app đặt đồ ăn. Một loại mô hình IT BA nên biết.</p>"
+  },
+  {
+   "id": "L02-f24",
+   "front": "Cloud-based",
+   "back": "<p>Hệ thống chạy trên hạ tầng đám mây thuê của nhà cung cấp, thay vì máy chủ đặt tại công ty. Một loại mô hình IT BA nên biết.</p>"
+  },
+  {
+   "id": "L02-f25",
+   "front": "Zone (vùng mạng)",
+   "back": "<p>Cách chia mạng nội bộ thành các vùng an ninh theo mức tin cậy và chức năng. Mục tiêu: giảm rủi ro khi một vùng bị tấn công, dễ quản lý bảo mật và tuân thủ chính sách.</p>"
+  },
+  {
+   "id": "L02-f26",
+   "front": "BA cần hiểu zone để làm gì?",
+   "back": "<p>Xác định yêu cầu phi chức năng về bảo mật và triển khai; trao đổi với khách hàng, đối tác, team hạ tầng; đánh giá rủi ro; viết tài liệu GPKT trong dự án lớn. BA không cần biết cấu hình mạng.</p>"
+  },
+  {
+   "id": "L02-f27",
+   "front": "External/Internet Zone",
+   "back": "<p>Vùng mạng ngoài, không tin cậy. Ví dụ: khách hàng truy cập từ Internet.</p>"
+  },
+  {
+   "id": "L02-f28",
+   "front": "DMZ (Demilitarized Zone)",
+   "back": "<p>Vùng trung gian giữa Internet và mạng nội bộ, tin cậy thấp. Ví dụ: ứng dụng website tĩnh, Web FE. Mẹo: “sảnh chờ” của tòa nhà.</p>"
+  },
+  {
+   "id": "L02-f29",
+   "front": "Internal Zone (LAN)",
+   "back": "<p>Mạng nội bộ, tin cậy cao. Ví dụ: service nghiệp vụ, API.</p>"
+  },
+  {
+   "id": "L02-f30",
+   "front": "Database Zone",
+   "back": "<p>Chứa dữ liệu cực kỳ quan trọng, rất tin cậy, nằm sâu nhất. Ví dụ: Database, File.</p>"
+  },
+  {
+   "id": "L02-f31",
+   "front": "Guest Zone",
+   "back": "<p>Dành cho khách, không truy cập được mạng công ty. Ví dụ: Wi-Fi Guest ở cửa hàng.</p>"
+  },
+  {
+   "id": "L02-f32",
+   "front": "Management Zone",
+   "back": "<p>Dành riêng cho quản trị hệ thống. Ví dụ: Monitoring (giám sát), Backup (sao lưu).</p>"
+  },
+  {
+   "id": "L02-f33",
+   "front": "Firewall (tường lửa)",
+   "back": "<p>Thiết bị/phần mềm lọc và chặn lưu lượng giữa các vùng mạng. Trên mô hình vật lý đặt giữa Internet và DMZ, giữa DMZ và Internal Zone.</p>"
+  },
+  {
+   "id": "L02-f34",
+   "front": "Load Balancer (cân bằng tải)",
+   "back": "<p>Chia đều yêu cầu cho nhiều máy chủ (Web FE 1…n) để không máy nào quá tải và hệ thống vẫn chạy khi một máy hỏng.</p>"
+  },
+  {
+   "id": "L02-f35",
+   "front": "Gateway (cổng giao tiếp)",
+   "back": "<p>Điểm vào chuyển yêu cầu từ bên ngoài tới các API/service bên trong. Trên mô hình vật lý nằm ở DMZ; trên mô hình logic ghi là GW.</p>"
+  },
+  {
+   "id": "L02-f36",
+   "front": "Message Queue (hàng đợi thông điệp)",
+   "back": "<p>Nơi xếp hàng các việc cần xử lý. Backend đặt việc vào, service lấy ra xử lý dần, giúp hệ thống không nghẽn khi nhiều yêu cầu dồn tới.</p>"
+  },
+  {
+   "id": "L02-f37",
+   "front": "Cache (bộ nhớ đệm)",
+   "back": "<p>Lưu tạm dữ liệu hay đọc để trả nhanh, giảm tải cho CSDL. Trên slide dùng Redis làm cache.</p>"
+  },
+  {
+   "id": "L02-f38",
+   "front": "Socket",
+   "back": "<p>Kênh kết nối luôn mở giữa server và app, cho phép server đẩy thông báo ngay (“bắn socket cảnh báo”) mà người dùng không cần tải lại.</p>"
+  },
+  {
+   "id": "L02-f39",
+   "front": "CMS (Content Management System)",
+   "back": "<p>Trang quản trị nội dung cho người quản lý. Trên mô hình chi tiết, CMS là kênh truy cập của Admin, nhân viên, nhận cảnh báo qua socket.</p>"
+  },
+  {
+   "id": "L02-f40",
+   "front": "Portal (cổng thông tin)",
+   "back": "<p>Kênh web cho người dùng như khách hàng, gọi API Web Back-end. Một kênh truy cập trên mô hình chi tiết.</p>"
+  },
+  {
+   "id": "L02-f41",
+   "front": "Địa chỉ IP",
+   "back": "<p>Internet Protocol Address: dãy số định danh thiết bị trên Internet và mạng nội bộ. Mọi thiết bị muốn giao tiếp đều phải có IP. Mẹo: IP như số nhà.</p>"
+  },
+  {
+   "id": "L02-f42",
+   "front": "ISP (Internet Service Provider)",
+   "back": "<p>Nhà cung cấp dịch vụ Internet, cấp IP public cho router. Ví dụ: VNPT, FPT Telecom, Viettel, CMC Telecom.</p>"
+  },
+  {
+   "id": "L02-f43",
+   "front": "IPv4",
+   "back": "<p>4 nhóm số thập phân cách bằng dấu chấm, 32 bit, ví dụ 192.168.1.1. Khoảng 4,3 tỷ địa chỉ nên phải dùng lại. Cấp bằng DHCP hoặc cấu hình tay.</p>"
+  },
+  {
+   "id": "L02-f44",
+   "front": "IPv6",
+   "back": "<p>8 nhóm số thập lục phân cách bằng dấu hai chấm, 128 bit, ví dụ 2001:0db8:85a3:0000:0000:8a2e:0370:7334. Rất nhiều địa chỉ, hỗ trợ tự cấu hình.</p>"
+  },
+  {
+   "id": "L02-f45",
+   "front": "IP Private",
+   "back": "<p>IP dùng trong mạng nội bộ, không đi thẳng ra Internet. Ba dải: 10.0.0.0–10.255.255.255; 172.16.0.0–172.31.255.255; 192.168.0.0–192.168.255.255. Xem bằng ipconfig/ifconfig.</p>"
+  },
+  {
+   "id": "L02-f46",
+   "front": "IP Public",
+   "back": "<p>IP định danh trên Internet, thường do ISP cấp cho router; nhiều thiết bị trong nhà dùng chung. Xem bằng trang whatismyipaddress.com.</p>"
+  },
+  {
+   "id": "L02-f47",
+   "front": "Router (bộ định tuyến)",
+   "back": "<p>Thiết bị nối mạng nội bộ ra Internet. Các máy bên trong có IP private; router giữ IP public và đi qua ISP ra Internet.</p>"
+  },
+  {
+   "id": "L02-f48",
+   "front": "ipconfig",
+   "back": "<p>Lệnh xem IP private của máy trong cmd của Windows.</p>"
+  },
+  {
+   "id": "L02-f49",
+   "front": "ifconfig",
+   "back": "<p>Lệnh xem IP private của máy trong terminal Linux/macOS.</p>"
+  },
+  {
+   "id": "L02-f50",
+   "front": "DNS (Domain Name System)",
+   "back": "<p>Hệ thống phân giải tên miền: đổi tên miền dễ nhớ thành địa chỉ IP. Mẹo: DNS là “danh bạ” tên → số.</p>"
+  },
+  {
+   "id": "L02-f51",
+   "front": "DHCP (Dynamic Host Configuration Protocol)",
+   "back": "<p>Giao thức tự động cấp IP cho thiết bị khi vào mạng, không cần cấu hình tay. Mẹo: “lễ tân phát số phòng”.</p>"
+  },
+  {
+   "id": "L02-f52",
+   "front": "JavaScript",
+   "back": "<p>Ngôn ngữ phát triển web cả front-end lẫn back-end (qua Node.js). Cùng HTML, CSS tạo nên frontend web.</p>"
+  },
+  {
+   "id": "L02-f53",
+   "front": "Python",
+   "back": "<p>Ngôn ngữ cho phân tích dữ liệu, AI, học máy, backend web, tự động hóa. Slide ghi là lựa chọn cho nền tảng máy học, AI.</p>"
+  },
+  {
+   "id": "L02-f54",
+   "front": "Java",
+   "back": "<p>Ngôn ngữ cho ứng dụng doanh nghiệp, Android, hệ thống lớn; cũng dùng cho backend web.</p>"
+  },
+  {
+   "id": "L02-f55",
+   "front": "C# (C-Sharp)",
+   "back": "<p>Ngôn ngữ của Microsoft cho ứng dụng Windows, game (Unity), web (ASP.NET), backend.</p>"
+  },
+  {
+   "id": "L02-f56",
+   "front": "C/C++",
+   "back": "<p>Ngôn ngữ cho phần mềm hệ thống, nhúng, game, ứng dụng cần hiệu năng cao.</p>"
+  },
+  {
+   "id": "L02-f57",
+   "front": "Frontend",
+   "back": "<p>Phần người dùng nhìn thấy và thao tác, chạy trên trình duyệt hoặc app. Công nghệ: JavaScript, HTML, CSS… Ví dụ: nút Đặt món, ảnh món ăn.</p>"
+  },
+  {
+   "id": "L02-f58",
+   "front": "Backend",
+   "back": "<p>Phần chạy trên server, xử lý nghiệp vụ và dữ liệu. Công nghệ: C#, Java, Node.js… Ví dụ: tính tiền, lưu đơn.</p>"
+  },
+  {
+   "id": "L02-f59",
+   "front": "Hệ quản trị CSDL (DBMS)",
+   "back": "<p>Phần mềm lưu, truy vấn và quản lý dữ liệu. Ví dụ: SQL Server, Oracle, MySQL, PostgreSQL, SQLite, MongoDB, Redis.</p>"
+  },
+  {
+   "id": "L02-f60",
+   "front": "SQL Server",
+   "back": "<p>Hệ quản trị CSDL do Microsoft phát triển, tích hợp tốt với hệ sinh thái .NET.</p>"
+  },
+  {
+   "id": "L02-f61",
+   "front": "Oracle",
+   "back": "<p>Hệ quản trị CSDL được doanh nghiệp lớn sử dụng, tính năng bảo mật và mở rộng cao.</p>"
+  },
+  {
+   "id": "L02-f62",
+   "front": "MySQL",
+   "back": "<p>Hệ quản trị CSDL miễn phí, phổ biến, dùng nhiều trong web.</p>"
+  },
+  {
+   "id": "L02-f63",
+   "front": "PostgreSQL",
+   "back": "<p>Hệ quản trị CSDL mạnh mẽ, hỗ trợ tốt cho các truy vấn phức tạp.</p>"
+  },
+  {
+   "id": "L02-f64",
+   "front": "SQLite",
+   "back": "<p>Hệ quản trị CSDL nhẹ, không cần server, dùng cho app nhỏ và mobile app.</p>"
+  },
+  {
+   "id": "L02-f65",
+   "front": "MongoDB",
+   "back": "<p>CSDL lưu dữ liệu dưới dạng JSON, rất phổ biến cho web và app. Trên slide dùng cho CSDL lịch sử thiết bị.</p>"
+  },
+  {
+   "id": "L02-f66",
+   "front": "Redis",
+   "back": "<p>CSDL cực nhanh, dùng làm cache, lưu session (phiên đăng nhập).</p>"
+  },
+  {
+   "id": "L02-f67",
+   "front": "SDLC (Software Development Life Cycle)",
+   "back": "<p>Quy trình (vòng đời) phát triển phần mềm, một mảng kiến thức IT BA nên biết. Học kỹ ở bài L03.</p>"
+  },
+  {
+   "id": "L02-f68",
+   "front": "Integration & API",
+   "back": "<p>Giao tiếp giữa các hệ thống. API là “cửa” để phần mềm này gọi chức năng, lấy dữ liệu của phần mềm khác. Học kỹ ở bài L23.</p>"
+  },
+  {
+   "id": "L02-f69",
+   "front": "Testing & Quality Assurance",
+   "back": "<p>Kiểm thử và đảm bảo chất lượng phần mềm, một mảng kiến thức IT BA nên biết để kiểm tra sản phẩm có đúng yêu cầu.</p>"
+  },
+  {
+   "id": "L02-f70",
+   "front": "GPKT",
+   "back": "<p>Tài liệu thường hiểu là giải pháp kỹ thuật, dùng trong dự án lớn. Hiểu zone mạng là kiến thức quan trọng để BA viết được tài liệu này.</p>"
+  },
+  {
+   "id": "L02-f71",
+   "front": "NoSQL",
+   "back": "<p>Nhóm CSDL không lưu dạng bảng quan hệ. Ví dụ trên slide: MongoDB (dạng JSON), Redis (cache, session).</p>"
+  },
+  {
+   "id": "L02-f72",
+   "front": "Session (phiên đăng nhập)",
+   "back": "<p>Thông tin tạm về người dùng đang đăng nhập, giữ trong một phiên làm việc. Slide nêu Redis dùng để lưu session.</p>"
+  },
+  {
+   "id": "L02-f73",
+   "front": "Node.js",
+   "back": "<p>Môi trường chạy JavaScript phía server; slide xếp vào công nghệ Backend. Không phải ngôn ngữ riêng.</p>"
+  },
+  {
+   "id": "L02-f74",
+   "front": "Entity Layer (Domain)",
+   "back": "<p>Lớp dưới cùng trong hình N-Tier trên slide: các thực thể dữ liệu (Data Entities). Ví dụ: Đơn hàng, Khách hàng, Bàn.</p>"
+  },
+  {
+   "id": "L02-f75",
+   "front": "React-native",
+   "back": "<p>Framework viết bằng JavaScript để làm app di động; slide xếp vào nhóm ngôn ngữ khác.</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L02-q1",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Theo bài học, nhận định nào đúng về kiến thức IT của một IT BA?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phải code thành thạo ít nhất một ngôn ngữ để tự sửa lỗi thay Dev"
+    },
+    {
+     "id": "b",
+     "t": "Không cần code giỏi như Dev nhưng cần đủ hiểu biết IT để làm việc với team"
+    },
+    {
+     "id": "c",
+     "t": "Chỉ cần nắm nghiệp vụ, mọi vấn đề kỹ thuật đã có Dev và kiến trúc sư lo hết"
+    },
+    {
+     "id": "d",
+     "t": "Cần biết cấu hình mạng và firewall để tự triển khai hệ thống cho khách"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide tr.4: “Một IT BA không cần code giỏi như Dev, nhưng cần đủ kiến thức IT” để hiểu team, hiểu hệ thống và dịch yêu cầu khả thi.</p>",
+   "why_wrong": {
+    "a": "Slide nói rõ BA không cần code giỏi như Dev, càng không làm thay Dev.",
+    "c": "Thiếu kiến thức IT thì BA khó dịch yêu cầu business thành yêu cầu kỹ thuật khả thi.",
+    "d": "Slide tr.13 nói BA không cần biết cấu hình mạng, chỉ cần hiểu các zone."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.4, tr.13"
+  },
+  {
+   "id": "L02-q2",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Theo slide, IT BA cần đủ kiến thức IT để làm những việc nào? (chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Dịch yêu cầu business thành yêu cầu kỹ thuật khả thi"
+    },
+    {
+     "id": "b",
+     "t": "Thay Dev viết phần code xử lý nghiệp vụ phức tạp"
+    },
+    {
+     "id": "c",
+     "t": "Hiểu ngôn ngữ của team phát triển, làm việc hiệu quả hơn"
+    },
+    {
+     "id": "d",
+     "t": "Phân tích yêu cầu ít rủi ro hơn về mặt kỹ thuật"
+    },
+    {
+     "id": "e",
+     "t": "Tự cấu hình máy chủ và đường truyền mạng cho dự án"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Ba ý a, c, d nằm trong danh sách 6 lý do ở tr.4 (cùng với hiểu hệ thống ở tầng kỹ thuật, đưa giải pháp thực tế, tăng giá trị BA).</p>",
+   "why_wrong": {
+    "b": "Viết code là việc của Dev; BA chỉ cần hiểu để trao đổi.",
+    "e": "Cấu hình máy chủ, mạng là việc của team hạ tầng, BA không cần làm."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.4"
+  },
+  {
+   "id": "L02-q3",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Mảng nào được slide liệt kê trong các kiến thức IT BA nên biết? (chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Testing & Quality Assurance"
+    },
+    {
+     "id": "b",
+     "t": "Thiết kế đồ họa và dựng video quảng cáo"
+    },
+    {
+     "id": "c",
+     "t": "Giao tiếp giữa các hệ thống (Integration & API)"
+    },
+    {
+     "id": "d",
+     "t": "Quy trình phát triển phần mềm (SDLC)"
+    },
+    {
+     "id": "e",
+     "t": "Kế toán thuế và lập báo cáo tài chính"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Tr.5 liệt kê: hệ thống và kiến trúc CNTT, công nghệ, CSDL, Integration &amp; API, bảo mật, SDLC, Testing &amp; QA.</p>",
+   "why_wrong": {
+    "b": "Thiết kế đồ họa không nằm trong danh sách kiến thức IT của slide.",
+    "e": "Kế toán thuế là kiến thức nghiệp vụ chuyên ngành, không phải kiến thức IT trên slide."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.5"
+  },
+  {
+   "id": "L02-q4",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo slide, Cloud-based là một trong các loại mô hình thuộc mảng kiến thức Hệ thống &amp; Kiến trúc CNTT.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Tr.5 ghi các loại mô hình: Client–Server, Web-based, Mobile app, Cloud-based.</p>",
+   "why_wrong": {
+    "s": "Cloud-based có trong danh sách các loại mô hình ở tr.5."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.5"
+  },
+  {
+   "id": "L02-q5",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>BA muốn biết hệ thống mình làm phải liên thông dữ liệu với những đơn vị bên ngoài nào. Nên xem loại mô hình nào trước?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mô hình tổng thể"
+    },
+    {
+     "id": "b",
+     "t": "Mô hình vật lý"
+    },
+    {
+     "id": "c",
+     "t": "Mô hình chi tiết"
+    },
+    {
+     "id": "d",
+     "t": "Mô hình N-Tier"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Mô hình tổng thể cho bức tranh lớn: các phân hệ và liên thông dữ liệu với bên ngoài (ví dụ slide: Bảo hiểm xã hội, Trung tâm y tế quốc gia).</p>",
+   "why_wrong": {
+    "b": "Mô hình vật lý tập trung vào thiết bị và zone mạng.",
+    "c": "Mô hình chi tiết đi sâu vào từng API, CSDL, quá chi tiết cho câu hỏi phạm vi.",
+    "d": "N-Tier mô tả cách chia tầng bên trong một hệ thống, không nói về đơn vị bên ngoài."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.6"
+  },
+  {
+   "id": "L02-q6",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trên mô hình vật lý ở slide, vì sao có nhiều Web FE (1…n) và nhiều Server API (1…n), phía trước có Load Balancer?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Để mỗi nhóm người dùng có riêng một máy chủ web không chia sẻ"
+    },
+    {
+     "id": "b",
+     "t": "Để chia tải cho nhiều máy và hệ thống vẫn chạy khi một máy hỏng"
+    },
+    {
+     "id": "c",
+     "t": "Để lưu nhiều bản sao CSDL ngay trên từng máy chủ web cho nhanh hơn"
+    },
+    {
+     "id": "d",
+     "t": "Để mỗi zone mạng có đúng một máy chủ web và một máy chủ API"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Load Balancer chia đều yêu cầu cho nhiều máy chủ. Nhiều máy giúp chịu tải lớn và còn máy khác chạy nếu một máy gặp sự cố.</p>",
+   "why_wrong": {
+    "a": "Load Balancer chia theo tải, không gán cố định máy cho nhóm người dùng.",
+    "c": "CSDL nằm ở Database Zone, không đặt trên máy chủ web.",
+    "d": "Các Web FE cùng nằm ở DMZ, các Server API cùng ở Internal Zone, không chia mỗi zone một máy."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.7"
+  },
+  {
+   "id": "L02-q7",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong mô hình vật lý trên slide, DB chính, DB Backup và Server File nằm ở zone nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "DMZ"
+    },
+    {
+     "id": "b",
+     "t": "Internal Zone"
+    },
+    {
+     "id": "c",
+     "t": "Database Zone"
+    },
+    {
+     "id": "d",
+     "t": "Management Zone"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Dữ liệu quan trọng nhất đặt ở Database Zone, sâu nhất trong mạng.</p>",
+   "why_wrong": {
+    "a": "DMZ chứa Web FE và Gateway, tin cậy thấp, không đặt dữ liệu.",
+    "b": "Internal Zone chứa Server API xử lý nghiệp vụ.",
+    "d": "Management Zone dành cho công cụ quản trị như monitoring, backup, không phải nơi đặt DB chính."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.7"
+  },
+  {
+   "id": "L02-q8",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong mô hình logic (tr.8), Message Queue đặt giữa khối backend và khối service có tác dụng chính là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mã hóa toàn bộ dữ liệu trước khi service ghi xuống CSDL nghiệp vụ"
+    },
+    {
+     "id": "b",
+     "t": "Xếp việc chờ để service xử lý dần, tránh nghẽn khi tải cao"
+    },
+    {
+     "id": "c",
+     "t": "Chặn truy cập trái phép từ Internet vào mạng nội bộ"
+    },
+    {
+     "id": "d",
+     "t": "Lưu tạm dữ liệu hay đọc để trả kết quả cho người dùng nhanh hơn"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Queue là hàng đợi: backend đặt việc vào, service lấy ra xử lý dần, nên hệ thống không nghẽn khi nhiều yêu cầu dồn tới.</p>",
+   "why_wrong": {
+    "a": "Mã hóa là việc của bảo mật, không phải vai trò của hàng đợi.",
+    "c": "Chặn truy cập trái phép là việc của Firewall.",
+    "d": "Lưu tạm dữ liệu hay đọc là việc của Cache (Redis)."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.8"
+  },
+  {
+   "id": "L02-q9",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong mô hình chi tiết (tr.9), thành phần nào giúp cảnh báo hiện ngay trên app mà người dùng không cần tải lại?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "API Log History"
+    },
+    {
+     "id": "b",
+     "t": "CSDL tổng hợp (SQL)"
+    },
+    {
+     "id": "c",
+     "t": "Socket"
+    },
+    {
+     "id": "d",
+     "t": "Service giám sát kết nối hệ thống"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Socket giữ kết nối luôn mở để server “bắn” cảnh báo tới Mobile App và CMS ngay lập tức.</p>",
+   "why_wrong": {
+    "a": "API Log History đọc/ghi lịch sử, dùng khi người dùng xem lại log.",
+    "b": "CSDL tổng hợp lưu dữ liệu, không tự đẩy thông báo tới app.",
+    "d": "Service giám sát kiểm tra dữ liệu và gọi gửi email, không đẩy cảnh báo lên app."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.9"
+  },
+  {
+   "id": "L02-q10",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Khách hàng cho biết lịch sử tín hiệu thiết bị có rất nhiều bản ghi và cấu trúc hay thay đổi. Dựa trên mô hình chi tiết ở slide, dữ liệu này được lưu ở đâu?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "CSDL lịch sử thiết bị dùng MongoDB"
+    },
+    {
+     "id": "b",
+     "t": "Cache Redis để đọc cho nhanh"
+    },
+    {
+     "id": "c",
+     "t": "CSDL Backup đi kèm với CSDL tổng hợp (SQL)"
+    },
+    {
+     "id": "d",
+     "t": "Bộ nhớ của ứng dụng Mobile App"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Slide tr.9 có “CSDL lịch sử thiết bị (Mongo)”. MongoDB lưu dạng JSON linh hoạt, hợp dữ liệu log nhiều, cấu trúc thay đổi.</p>",
+   "why_wrong": {
+    "b": "Redis dùng làm cache, lưu tạm, không phải nơi lưu lịch sử lâu dài.",
+    "c": "CSDL Backup là bản sao lưu của CSDL tổng hợp (SQL), không chứa log thiết bị.",
+    "d": "App chỉ là client hiển thị, dữ liệu lịch sử nằm ở server."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.9, tr.20"
+  },
+  {
+   "id": "L02-q11",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Trong mô hình chi tiết (tr.9), <b>API giao tiếp với thiết bị</b> trực tiếp gửi yêu cầu tới những thành phần nào để báo cảnh báo cho người dùng? (chọn 2)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "SMS + CALL"
+    },
+    {
+     "id": "b",
+     "t": "Socket"
+    },
+    {
+     "id": "c",
+     "t": "Load Balancer"
+    },
+    {
+     "id": "d",
+     "t": "CSDL Backup"
+    },
+    {
+     "id": "e",
+     "t": "Portal"
+    }
+   ],
+   "answer": [
+    "a",
+    "b"
+   ],
+   "explain": "<p>Trên sơ đồ: API giao tiếp với thiết bị “gọi yêu cầu Call + SMS, cập nhật kết quả” và “gửi yêu cầu bắn socket cảnh báo”.</p>",
+   "why_wrong": {
+    "c": "Mô hình chi tiết tr.9 không có Load Balancer; đây là thiết bị chia tải ở mô hình vật lý.",
+    "d": "CSDL Backup chỉ sao lưu CSDL tổng hợp, không gửi cảnh báo.",
+    "e": "Portal là kênh cho khách hàng truy cập qua API Web Back-end, không nhận cảnh báo trực tiếp từ API thiết bị."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.9"
+  },
+  {
+   "id": "L02-q12",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Khi đọc mô hình logic, BA thấy các service ghi tắt như LDN, HMN mà tài liệu không giải thích. BA nên làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tự đoán nghĩa theo chữ cái đầu rồi ghi vào tài liệu yêu cầu"
+    },
+    {
+     "id": "b",
+     "t": "Bỏ qua vì các service này là việc của Dev, BA không cần biết"
+    },
+    {
+     "id": "c",
+     "t": "Hỏi lại team kỹ thuật mỗi service phụ trách nghiệp vụ gì"
+    },
+    {
+     "id": "d",
+     "t": "Yêu cầu vẽ lại toàn bộ mô hình logic thành mô hình tổng thể"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>BA cần hiểu đúng hệ thống ở tầng kỹ thuật. Chỗ chưa rõ thì hỏi team để không ghi sai vào tài liệu.</p>",
+   "why_wrong": {
+    "a": "Đoán nghĩa dễ ghi sai yêu cầu, gây rủi ro cho dự án.",
+    "b": "Service nghiệp vụ liên quan trực tiếp tới yêu cầu, BA cần biết chúng làm gì.",
+    "d": "Mô hình tổng thể ở mức khái quát hơn, không trả lời được service làm gì."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.8"
+  },
+  {
+   "id": "L02-q13",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>FoodNow cần kết nối với ví điện tử của một đối tác để khách đặt cọc khi đặt bàn (ví dụ). Trong các mảng kiến thức IT BA nên biết, mảng nào liên quan trực tiếp nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Integration & API"
+    },
+    {
+     "id": "b",
+     "t": "Testing & Quality Assurance"
+    },
+    {
+     "id": "c",
+     "t": "Ngôn ngữ lập trình"
+    },
+    {
+     "id": "d",
+     "t": "Cơ sở dữ liệu (Database)"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Kết nối hai hệ thống khác nhau là bài toán giao tiếp giữa các hệ thống (Integration &amp; API).</p>",
+   "why_wrong": {
+    "b": "Testing kiểm tra phần mềm chạy đúng, không phải mảng chính của việc kết nối hệ thống.",
+    "c": "Ngôn ngữ lập trình là công cụ của Dev, không quyết định cách hai hệ thống trao đổi.",
+    "d": "CSDL lưu dữ liệu nội bộ, không phải cách gọi sang hệ thống đối tác."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.5"
+  },
+  {
+   "id": "L02-q14",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Mô hình vật lý tập trung vào luồng giữa các khối phần mềm như backend, queue, service, không quan tâm máy chủ và vùng mạng.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Đó là mô tả của mô hình logic. Mô hình vật lý thể hiện thiết bị thật (server, firewall, load balancer) và zone mạng.</p>",
+   "why_wrong": {
+    "d": "Câu này mô tả mô hình logic; mô hình vật lý quan tâm chính máy chủ và vùng mạng."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.7-8"
+  },
+  {
+   "id": "L02-q15",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong mô hình Client – Server, thành phần nào nhận yêu cầu, xử lý và trả về kết quả?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Client"
+    },
+    {
+     "id": "b",
+     "t": "Server"
+    },
+    {
+     "id": "c",
+     "t": "Đường truyền"
+    },
+    {
+     "id": "d",
+     "t": "Router"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Server nhận yêu cầu, xử lý và trả kết quả. Mẹo: Client “hỏi”, Server “trả lời”.</p>",
+   "why_wrong": {
+    "a": "Client là bên gửi yêu cầu và nhận kết quả.",
+    "c": "Đường truyền chỉ chở yêu cầu và kết quả, không xử lý.",
+    "d": "Router là thiết bị mạng, không phải thành phần xử lý yêu cầu trong mô hình."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.10"
+  },
+  {
+   "id": "L02-q16",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, đường truyền trong mô hình Client – Server có thể là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chỉ có thể là mạng Internet công cộng"
+    },
+    {
+     "id": "b",
+     "t": "Mạng Internet hoặc LAN"
+    },
+    {
+     "id": "c",
+     "t": "Chỉ là cáp nối trực tiếp hai máy"
+    },
+    {
+     "id": "d",
+     "t": "Chỉ là mạng nội bộ có firewall"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide tr.10: “Đường truyền: là mạng internet hoặc LAN…”.</p>",
+   "why_wrong": {
+    "a": "Slide nêu cả LAN, không chỉ Internet.",
+    "c": "Slide không giới hạn ở cáp nối trực tiếp.",
+    "d": "Slide nêu cả Internet, không chỉ mạng nội bộ."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.10"
+  },
+  {
+   "id": "L02-q17",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Thu ngân SolasMart dùng máy POS tại quầy để tra giá sản phẩm; giá được lấy từ máy chủ trung tâm qua mạng nội bộ cửa hàng. Máy POS đóng vai trò gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Server, vì nó xử lý việc bán hàng"
+    },
+    {
+     "id": "b",
+     "t": "Client, vì nó gửi yêu cầu và nhận kết quả"
+    },
+    {
+     "id": "c",
+     "t": "Đường truyền, vì nó nối thu ngân với máy chủ"
+    },
+    {
+     "id": "d",
+     "t": "Database, vì nó hiển thị giá sản phẩm"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Máy POS gửi yêu cầu tra giá và nhận kết quả từ máy chủ trung tâm, nên là client. Mạng nội bộ (LAN) là đường truyền.</p>",
+   "why_wrong": {
+    "a": "Máy chủ trung tâm mới là server xử lý yêu cầu tra giá.",
+    "c": "Đường truyền ở đây là mạng nội bộ cửa hàng, không phải máy POS.",
+    "d": "Hiển thị dữ liệu không biến máy POS thành CSDL; dữ liệu giá nằm ở máy chủ."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.10"
+  },
+  {
+   "id": "L02-q18",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong mô hình N-Tier, tầng nào thao tác trực tiếp với Database?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tầng presentation"
+    },
+    {
+     "id": "b",
+     "t": "Tầng business logic"
+    },
+    {
+     "id": "c",
+     "t": "Tầng data access"
+    },
+    {
+     "id": "d",
+     "t": "Tầng caching"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide tr.11: “Tầng data access: Thao tác với Database”.</p>",
+   "why_wrong": {
+    "a": "Presentation tương tác với người dùng.",
+    "b": "Business logic xử lý nghiệp vụ, gọi xuống data access để lấy dữ liệu.",
+    "d": "Caching là tầng phụ lưu tạm dữ liệu, không phải tầng thao tác chính với Database."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.11"
+  },
+  {
+   "id": "L02-q19",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Khách hàng FoodNow muốn đổi quy tắc: chỉ cho đặt bàn trước tối đa 7 ngày (ví dụ). Theo N-Tier, thay đổi này chủ yếu nằm ở tầng nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tầng presentation"
+    },
+    {
+     "id": "b",
+     "t": "Tầng business logic"
+    },
+    {
+     "id": "c",
+     "t": "Tầng data access"
+    },
+    {
+     "id": "d",
+     "t": "Entity layer (Domain)"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Đây là một quy tắc nghiệp vụ, nên nằm ở tầng business logic. Giao diện có thể chỉ cần hiện thông báo lỗi.</p>",
+   "why_wrong": {
+    "a": "Presentation chỉ hiển thị; quy tắc phải được kiểm ở tầng nghiệp vụ.",
+    "c": "Data access chỉ đọc/ghi dữ liệu, không chứa quy tắc nghiệp vụ.",
+    "d": "Entity layer mô tả thực thể dữ liệu, không chứa quy tắc giới hạn số ngày."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.11"
+  },
+  {
+   "id": "L02-q20",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Ngoài 3 tầng chính, slide nêu N-Tier có thể có những tầng phụ nào? (chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tầng tích hợp"
+    },
+    {
+     "id": "b",
+     "t": "Tầng caching"
+    },
+    {
+     "id": "c",
+     "t": "Tầng phần cứng"
+    },
+    {
+     "id": "d",
+     "t": "Tầng bảo mật"
+    },
+    {
+     "id": "e",
+     "t": "Tầng nhà cung cấp Internet"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Slide tr.11: “Các tầng phụ khác như: tầng tích hợp, tầng bảo mật, tầng caching…”.</p>",
+   "why_wrong": {
+    "c": "Phần cứng không phải tầng phần mềm trong N-Tier.",
+    "e": "Nhà cung cấp Internet (ISP) thuộc đường truyền mạng, không phải tầng của hệ thống."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.11"
+  },
+  {
+   "id": "L02-q21",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Trong N-Tier, mỗi tầng có trách nhiệm cụ thể; yêu cầu đi từ tầng giao diện xuống tầng dữ liệu và kết quả được trả ngược lên.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Hình tr.11 vẽ mũi tên đi xuống từ Presentation tới Entity Layer và mũi tên đi lên trả kết quả.</p>",
+   "why_wrong": {
+    "s": "Slide định nghĩa mỗi tầng có trách nhiệm riêng và hình vẽ đúng chiều đi xuống, trả lên."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.11"
+  },
+  {
+   "id": "L02-q22",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Điều nào giải thích vì sao Monolithic thường hợp với giai đoạn đầu của dự án nhỏ đến trung bình?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phát triển nhanh và đơn giản về mặt triển khai"
+    },
+    {
+     "id": "b",
+     "t": "Mở rộng từng phần độc lập khi lượng người dùng tăng"
+    },
+    {
+     "id": "c",
+     "t": "Mỗi chức năng là một service riêng có CSDL riêng"
+    },
+    {
+     "id": "d",
+     "t": "Phù hợp đội ngũ nhiều kinh nghiệm với hạ tầng hiện đại"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Slide tr.12: Monolithic phù hợp dự án nhỏ đến trung bình, phát triển nhanh giai đoạn đầu, đơn giản về mặt triển khai.</p>",
+   "why_wrong": {
+    "b": "Mở rộng từng phần độc lập là thế mạnh của Microservices.",
+    "c": "Mỗi service một CSDL là đặc điểm của Microservices; Monolithic dùng chung một khối và một CSDL.",
+    "d": "Đòi hỏi đội ngũ kinh nghiệm và hạ tầng hiện đại là điều kiện của Microservices."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.12"
+  },
+  {
+   "id": "L02-q23",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao Microservices <b>KHÔNG</b> phải lựa chọn mặc định cho mọi dự án?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì Microservices chỉ chạy được với hệ quản trị Oracle"
+    },
+    {
+     "id": "b",
+     "t": "Vì nó đòi hỏi đội ngũ có kinh nghiệm và hạ tầng hiện đại"
+    },
+    {
+     "id": "c",
+     "t": "Vì nó không cho phép mở rộng hệ thống khi số người dùng tăng lên"
+    },
+    {
+     "id": "d",
+     "t": "Vì nó gom mọi chức năng vào một khối nên rất khó sửa"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide tr.12: Microservices phù hợp hệ thống lớn, nhưng đòi hỏi đội ngũ có kinh nghiệm và hạ tầng hiện đại. Dự án nhỏ hoặc team mới dễ gặp rủi ro.</p>",
+   "why_wrong": {
+    "a": "Microservices không gắn với một hệ quản trị CSDL cụ thể.",
+    "c": "Ngược lại, Microservices hợp hệ thống yêu cầu mở rộng cao.",
+    "d": "Gom mọi chức năng vào một khối là đặc điểm của Monolithic."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.12"
+  },
+  {
+   "id": "L02-q24",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Một trường học cần phần mềm quản lý thư viện cho một cơ sở, team 3 Dev, cần dùng sau 2 tháng (ví dụ). Kiến trúc nào hợp lý hơn theo slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Microservices, vì dễ mở rộng về sau"
+    },
+    {
+     "id": "b",
+     "t": "Monolithic, vì dự án nhỏ và cần làm nhanh"
+    },
+    {
+     "id": "c",
+     "t": "Microservices, vì mỗi chức năng có CSDL riêng"
+    },
+    {
+     "id": "d",
+     "t": "Monolithic, vì nó chịu tải lớn hơn Microservices"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Dự án nhỏ, team ít người, cần ra nhanh: đúng trường hợp slide nói Monolithic phù hợp.</p>",
+   "why_wrong": {
+    "a": "Nhu cầu mở rộng ở đây thấp, còn Microservices đòi team kinh nghiệm và hạ tầng hiện đại.",
+    "c": "CSDL riêng cho từng chức năng không cần thiết với hệ thống nhỏ, chỉ làm phức tạp thêm.",
+    "d": "Chọn đúng kiến trúc nhưng lý do sai; slide không nói Monolithic chịu tải tốt hơn."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.12"
+  },
+  {
+   "id": "L02-q25",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Zone là cách phân chia mạng nội bộ thành các vùng dựa trên những tiêu chí nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mức độ tin cậy và chức năng"
+    },
+    {
+     "id": "b",
+     "t": "Số người dùng và tốc độ mạng"
+    },
+    {
+     "id": "c",
+     "t": "Vị trí địa lý và nhà mạng"
+    },
+    {
+     "id": "d",
+     "t": "Ngôn ngữ lập trình và loại CSDL"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Slide tr.13: Zone chia mạng nội bộ thành các vùng an ninh dựa trên mức độ tin cậy và chức năng.</p>",
+   "why_wrong": {
+    "b": "Số người dùng, tốc độ mạng không phải tiêu chí chia zone trên slide.",
+    "c": "Vị trí địa lý và ISP không quyết định zone.",
+    "d": "Ngôn ngữ lập trình và CSDL là công nghệ, không phải tiêu chí chia vùng mạng."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.13"
+  },
+  {
+   "id": "L02-q26",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trên mô hình vật lý, Web FE và Gateway nằm ở một zone. Zone đó có đặc điểm nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vùng trung gian giữa Internet và mạng nội bộ, tin cậy thấp"
+    },
+    {
+     "id": "b",
+     "t": "Mạng nội bộ chứa các service nghiệp vụ và API, mức tin cậy cao"
+    },
+    {
+     "id": "c",
+     "t": "Chứa dữ liệu cực kỳ quan trọng, rất tin cậy"
+    },
+    {
+     "id": "d",
+     "t": "Dành riêng cho việc quản trị và giám sát hệ thống"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Web FE và Gateway nằm ở DMZ – vùng trung gian giữa Internet và mạng nội bộ, tin cậy thấp.</p>",
+   "why_wrong": {
+    "b": "Đây là Internal Zone, nơi đặt Server API.",
+    "c": "Đây là Database Zone, nơi đặt DB và File.",
+    "d": "Đây là Management Zone, dùng cho monitoring và backup."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.7, tr.14"
+  },
+  {
+   "id": "L02-q27",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Sắp xếp nào đúng theo mức tin cậy tăng dần ở bảng zone trên slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "DMZ → External → Internal → Database"
+    },
+    {
+     "id": "b",
+     "t": "External → DMZ → Internal → Database"
+    },
+    {
+     "id": "c",
+     "t": "External → Internal → DMZ → Database"
+    },
+    {
+     "id": "d",
+     "t": "Database → Internal → DMZ → External"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>External không tin cậy → DMZ tin cậy thấp → Internal tin cậy cao → Database rất tin cậy.</p>",
+   "why_wrong": {
+    "a": "External là vùng không tin cậy, phải đứng thấp nhất, dưới DMZ.",
+    "c": "DMZ tin cậy thấp hơn Internal, không thể đứng sau Internal.",
+    "d": "Đây là thứ tự giảm dần, ngược với yêu cầu."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.14"
+  },
+  {
+   "id": "L02-q28",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>SolasMart muốn cho khách dùng Wi-Fi miễn phí tại cửa hàng nhưng không để khách chạm tới máy POS và hệ thống nội bộ. Thiết bị của khách nên thuộc zone nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Guest Zone"
+    },
+    {
+     "id": "b",
+     "t": "DMZ"
+    },
+    {
+     "id": "c",
+     "t": "Internal Zone"
+    },
+    {
+     "id": "d",
+     "t": "Management Zone"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Guest Zone dành cho khách, không truy cập được mạng công ty. Ví dụ trên slide: Wifi-Guest.</p>",
+   "why_wrong": {
+    "b": "DMZ dành cho máy chủ phục vụ bên ngoài như website, không phải thiết bị của khách.",
+    "c": "Cho khách vào Internal Zone sẽ để khách chạm tới máy POS và service nội bộ.",
+    "d": "Management Zone chỉ dành cho quản trị hệ thống."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.14"
+  },
+  {
+   "id": "L02-q29",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Công cụ giám sát máy chủ (monitoring) và sao lưu (backup) của hệ thống đặt đồ ăn nên đặt ở zone nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Database Zone"
+    },
+    {
+     "id": "b",
+     "t": "DMZ"
+    },
+    {
+     "id": "c",
+     "t": "Management Zone"
+    },
+    {
+     "id": "d",
+     "t": "External/Internet Zone"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Bảng zone tr.14 ghi Management Zone dành riêng cho quản trị hệ thống, ví dụ Monitoring, Backup.</p>",
+   "why_wrong": {
+    "a": "Database Zone chứa dữ liệu (Database, File), không phải công cụ quản trị.",
+    "b": "DMZ tin cậy thấp, không đặt công cụ quản trị ở đây.",
+    "d": "Vùng Internet không tin cậy, không đặt công cụ quản trị."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.14"
+  },
+  {
+   "id": "L02-q30",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Theo slide, BA cần hiểu các zone để làm những việc nào? (chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Xác định yêu cầu phi chức năng về bảo mật và triển khai"
+    },
+    {
+     "id": "b",
+     "t": "Tự cấu hình firewall cho từng zone"
+    },
+    {
+     "id": "c",
+     "t": "Đánh giá rủi ro của hệ thống"
+    },
+    {
+     "id": "d",
+     "t": "Viết được tài liệu GPKT trong dự án lớn"
+    },
+    {
+     "id": "e",
+     "t": "Chọn ngôn ngữ lập trình cho backend"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d"
+   ],
+   "explain": "<p>Tr.13: BA không cần biết cấu hình mạng nhưng cần hiểu zone để xác định NFR bảo mật, triển khai; trao đổi với khách hàng, đối tác, team hạ tầng; đánh giá rủi ro; viết tài liệu GPKT.</p>",
+   "why_wrong": {
+    "b": "Slide nói rõ BA không cần biết cấu hình mạng.",
+    "e": "Zone liên quan tới mạng và bảo mật, không quyết định ngôn ngữ lập trình."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.13"
+  },
+  {
+   "id": "L02-q31",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Khi viết yêu cầu phi chức năng cho CSDL khách hàng của FoodNow, câu nào phù hợp nhất với kiến thức về zone?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "CSDL đặt ở DMZ để website truy cập trực tiếp cho nhanh"
+    },
+    {
+     "id": "b",
+     "t": "CSDL đặt ở Database Zone, chỉ API nội bộ được kết nối"
+    },
+    {
+     "id": "c",
+     "t": "CSDL đặt ở Guest Zone để khách tự tra cứu đơn đặt bàn"
+    },
+    {
+     "id": "d",
+     "t": "CSDL đặt ở External Zone để đối tác dễ đồng bộ dữ liệu"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Dữ liệu quan trọng thuộc Database Zone, vùng rất tin cậy, nằm sâu nhất; chỉ thành phần nội bộ được kết nối.</p>",
+   "why_wrong": {
+    "a": "DMZ tin cậy thấp, đặt CSDL ở đây làm tăng rủi ro lộ dữ liệu.",
+    "c": "Guest Zone dành cho khách vãng lai và không truy cập được mạng công ty.",
+    "d": "External Zone là vùng không tin cậy, không đặt dữ liệu quan trọng."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.13-14"
+  },
+  {
+   "id": "L02-q32",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Mục tiêu chính của việc chia zone là giúp thiết bị ở các vùng khác nhau truy cập lẫn nhau dễ dàng hơn.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Mục tiêu là giảm thiểu rủi ro nếu một vùng bị tấn công, dễ quản lý bảo mật và tuân thủ chính sách – tức là hạn chế truy cập giữa các vùng.</p>",
+   "why_wrong": {
+    "d": "Chia zone nhằm cô lập và kiểm soát truy cập, không phải làm cho truy cập dễ hơn."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.13"
+  },
+  {
+   "id": "L02-q33",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo slide, thiết bị muốn giao tiếp với nhau trên mạng đều phải có địa chỉ IP.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Tr.15: “Tất cả thiết bị muốn giao tiếp với nhau đều phải có IP.”</p>",
+   "why_wrong": {
+    "s": "Slide khẳng định đúng như vậy: IP là thứ định danh thiết bị khi giao tiếp."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.15"
+  },
+  {
+   "id": "L02-q34",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Đơn vị nào sau đây được slide nêu là ISP (nhà cung cấp dịch vụ Internet)?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "VNPT"
+    },
+    {
+     "id": "b",
+     "t": "Microsoft"
+    },
+    {
+     "id": "c",
+     "t": "Oracle"
+    },
+    {
+     "id": "d",
+     "t": "Unity"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Slide tr.15 nêu ví dụ ISP: VNPT, FPT Telecom, Viettel, CMC Telecom.</p>",
+   "why_wrong": {
+    "b": "Microsoft được nhắc là hãng phát triển SQL Server, không phải ISP.",
+    "c": "Oracle là hệ quản trị CSDL trên slide.",
+    "d": "Unity là công cụ làm game."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.15"
+  },
+  {
+   "id": "L02-q35",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Địa chỉ 2001:0db8:85a3:0000:0000:8a2e:0370:7334 thuộc loại nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "IPv4 dạng mở rộng vì có nhiều nhóm số thập phân"
+    },
+    {
+     "id": "b",
+     "t": "IPv6, gồm 8 nhóm số cách bằng dấu hai chấm"
+    },
+    {
+     "id": "c",
+     "t": "IP private lớp B dùng trong mạng nội bộ công ty"
+    },
+    {
+     "id": "d",
+     "t": "Tên miền sau khi đã được DNS phân giải xong"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>IPv6 gồm 8 nhóm số (thập lục phân), cách nhau bằng dấu hai chấm; đây chính là ví dụ IPv6 trên slide.</p>",
+   "why_wrong": {
+    "a": "IPv4 chỉ có 4 nhóm số thập phân cách bằng dấu chấm.",
+    "c": "Dải private lớp B là 172.16.0.0–172.31.255.255, dạng IPv4.",
+    "d": "DNS đổi tên miền thành IP; chuỗi này là IP, không phải tên miền."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.16"
+  },
+  {
+   "id": "L02-q36",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Địa chỉ IPv4 nào dưới đây là IP private theo các dải trên slide? (chọn 3)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "10.20.30.40"
+    },
+    {
+     "id": "b",
+     "t": "172.16.5.9"
+    },
+    {
+     "id": "c",
+     "t": "172.35.1.1"
+    },
+    {
+     "id": "d",
+     "t": "192.168.10.2"
+    },
+    {
+     "id": "e",
+     "t": "8.8.8.8"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Ba dải private: 10.0.0.0–10.255.255.255; 172.16.0.0–172.31.255.255; 192.168.0.0–192.168.255.255.</p>",
+   "why_wrong": {
+    "c": "172.35 nằm ngoài dải 172.16–172.31 nên là IP public.",
+    "e": "8.8.8.8 không thuộc dải private nào, là IP public."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.16"
+  },
+  {
+   "id": "L02-q37",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ở nhà, ipconfig cho thấy laptop có IP 192.168.1.15, còn trang whatismyipaddress.com hiện một địa chỉ khác. Giải thích nào đúng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Máy bị lỗi cấu hình vì hai địa chỉ phải giống nhau"
+    },
+    {
+     "id": "b",
+     "t": "Đó là IP private; trang web thấy IP public của router"
+    },
+    {
+     "id": "c",
+     "t": "Trang web hiển thị IPv6 còn ipconfig chỉ hiển thị IPv4"
+    },
+    {
+     "id": "d",
+     "t": "DNS đã đổi IP của laptop sang một tên miền khác"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Các thiết bị trong nhà dùng IP private (192.168.x.x); ra Internet qua router có IP public do ISP cấp. Trang web chỉ thấy IP public đó.</p>",
+   "why_wrong": {
+    "a": "IP private và IP public khác nhau là bình thường, không phải lỗi.",
+    "c": "Sự khác nhau ở đây là private/public, không phải IPv4/IPv6.",
+    "d": "DNS đổi tên miền thành IP, không đổi IP của laptop."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.15-17"
+  },
+  {
+   "id": "L02-q38",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Một nhân viên cần xem IP private của máy tính Windows đang dùng để báo cho team hạ tầng. Cách nào đúng theo bài?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mở cmd và gõ lệnh ipconfig"
+    },
+    {
+     "id": "b",
+     "t": "Truy cập trang whatismyipaddress.com"
+    },
+    {
+     "id": "c",
+     "t": "Gọi tổng đài nhà cung cấp Internet"
+    },
+    {
+     "id": "d",
+     "t": "Xem trên mô hình vật lý của dự án"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>IP private xem bằng ipconfig (Windows) hoặc ifconfig (Linux/macOS).</p>",
+   "why_wrong": {
+    "b": "Trang này hiện IP public, không phải IP private của máy.",
+    "c": "ISP quản lý IP public; IP private do mạng nội bộ cấp.",
+    "d": "Mô hình vật lý vẽ thiết bị và zone, không ghi IP của từng máy nhân viên."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.17"
+  },
+  {
+   "id": "L02-q39",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Khi gõ tên website vào trình duyệt, giao thức nào đổi tên miền đó thành địa chỉ IP để tìm tới server?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "DHCP"
+    },
+    {
+     "id": "b",
+     "t": "DNS"
+    },
+    {
+     "id": "c",
+     "t": "ISP"
+    },
+    {
+     "id": "d",
+     "t": "LAN"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>DNS (Domain Name System) phân giải tên miền thành IP. Mẹo: DNS là “danh bạ” tên → số.</p>",
+   "why_wrong": {
+    "a": "DHCP tự cấp IP cho thiết bị vào mạng, không phân giải tên miền.",
+    "c": "ISP là nhà cung cấp Internet, không phải giao thức.",
+    "d": "LAN là mạng nội bộ, không phải giao thức đổi tên miền."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.17"
+  },
+  {
+   "id": "L02-q40",
+   "type": "tf",
+   "level": "apdung",
+   "q": "<p>Khách bắt Wi-Fi Guest của SolasMart và máy được tự động cấp IP mà không phải cấu hình gì. Đó là nhờ giao thức DHCP.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>DHCP (Dynamic Host Configuration Protocol) tự động cấp IP cho thiết bị khi vào mạng.</p>",
+   "why_wrong": {
+    "s": "Tự động cấp IP chính là chức năng của DHCP."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.17"
+  },
+  {
+   "id": "L02-q41",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Theo slide, phát biểu nào đúng về Frontend và Backend?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Frontend chạy trên server xử lý nghiệp vụ, Backend chạy trên trình duyệt của người dùng"
+    },
+    {
+     "id": "b",
+     "t": "Frontend dùng JavaScript, HTML, CSS; Backend dùng C#, Java, Node.js"
+    },
+    {
+     "id": "c",
+     "t": "Frontend chỉ dùng cho app di động, Backend chỉ dùng cho website"
+    },
+    {
+     "id": "d",
+     "t": "Frontend và Backend luôn phải viết bằng cùng một ngôn ngữ"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide tr.19: Frontend – JavaScript, HTML, CSS…; Backend – C#, Java, Node.js…</p>",
+   "why_wrong": {
+    "a": "Đảo ngược: frontend là phần người dùng thấy, backend chạy trên server.",
+    "c": "Cả web và app đều có frontend và backend.",
+    "d": "Slide nêu frontend và backend dùng công nghệ khác nhau."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.19"
+  },
+  {
+   "id": "L02-q42",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, ngôn ngữ nào được nêu cho nền tảng máy học, AI?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "JavaScript"
+    },
+    {
+     "id": "b",
+     "t": "C#"
+    },
+    {
+     "id": "c",
+     "t": "Python"
+    },
+    {
+     "id": "d",
+     "t": "Swift"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Tr.19: “Máy học, AI: Python”. Tr.18 cũng ghi Python dùng cho phân tích dữ liệu, AI, học máy.</p>",
+   "why_wrong": {
+    "a": "JavaScript được nêu cho phát triển web (front-end và back-end).",
+    "b": "C# được nêu cho ứng dụng Windows, game Unity, web ASP.NET.",
+    "d": "Swift được nêu cho nền tảng mobile."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.18-19"
+  },
+  {
+   "id": "L02-q43",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Công ty khách hàng đang dùng hệ sinh thái .NET của Microsoft và muốn CSDL tích hợp tốt với nó. Hệ quản trị nào phù hợp nhất theo slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "MySQL"
+    },
+    {
+     "id": "b",
+     "t": "SQL Server"
+    },
+    {
+     "id": "c",
+     "t": "MongoDB"
+    },
+    {
+     "id": "d",
+     "t": "SQLite"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>SQL Server do Microsoft phát triển, tích hợp tốt với hệ sinh thái .NET.</p>",
+   "why_wrong": {
+    "a": "MySQL nổi bật vì miễn phí, dùng nhiều trong web, không phải tích hợp .NET.",
+    "c": "MongoDB nổi bật vì lưu dạng JSON cho web và app.",
+    "d": "SQLite dành cho app nhỏ, mobile, không cần server."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.20"
+  },
+  {
+   "id": "L02-q44",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Điểm khác biệt chính của SQLite so với SQL Server hay Oracle theo slide là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Nhẹ, không cần server, dùng cho app nhỏ và mobile"
+    },
+    {
+     "id": "b",
+     "t": "Do Microsoft phát triển, tích hợp tốt với .NET"
+    },
+    {
+     "id": "c",
+     "t": "Lưu dữ liệu dưới dạng JSON cho web và app"
+    },
+    {
+     "id": "d",
+     "t": "Dùng làm cache và lưu session với tốc độ cực nhanh"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Slide tr.20: SQLite nhẹ, không cần server, dùng cho app nhỏ và mobile app.</p>",
+   "why_wrong": {
+    "b": "Đây là đặc điểm của SQL Server.",
+    "c": "Đây là đặc điểm của MongoDB.",
+    "d": "Đây là đặc điểm của Redis."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.20"
+  },
+  {
+   "id": "L02-q45",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>App đặt đồ ăn cần lưu phiên đăng nhập và giỏ hàng tạm, yêu cầu đọc rất nhanh. Theo slide, nên dùng hệ nào cho phần này?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Redis"
+    },
+    {
+     "id": "b",
+     "t": "Oracle"
+    },
+    {
+     "id": "c",
+     "t": "MySQL"
+    },
+    {
+     "id": "d",
+     "t": "PostgreSQL"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Redis cực nhanh, dùng làm cache, lưu session.</p>",
+   "why_wrong": {
+    "b": "Oracle mạnh về bảo mật và mở rộng cho doanh nghiệp lớn, không phải lựa chọn cho cache.",
+    "c": "MySQL là CSDL web phổ biến, không phải công cụ cache chuyên dụng.",
+    "d": "PostgreSQL mạnh về truy vấn phức tạp, không phải cache."
+   },
+   "src": "2. Kien thuc co ban ve IT.pdf tr.20"
+  }
+ ],
+ "summary": {
+  "points": [
+   "IT BA không cần code giỏi như Dev nhưng cần đủ kiến thức IT để hiểu team, dịch yêu cầu business thành yêu cầu kỹ thuật khả thi và giảm rủi ro.",
+   "Mảng kiến thức nên biết: hệ thống và kiến trúc (mô hình, mạng, thiết bị), công nghệ, CSDL, Integration & API, bảo mật, SDLC, Testing & QA.",
+   "Bốn mức mô hình: tổng thể (phân hệ, liên thông), vật lý (thiết bị, zone), logic (khối phần mềm), chi tiết (API, CSDL, người dùng).",
+   "Client gửi yêu cầu, Server xử lý và trả kết quả, qua Internet hoặc LAN. N-Tier chia hệ thống thành presentation, business logic, data access và các tầng phụ.",
+   "Monolithic hợp dự án nhỏ–trung bình, cần ra nhanh; Microservices hợp hệ thống lớn, cần mở rộng, đòi team giỏi và hạ tầng hiện đại.",
+   "Zone chia mạng theo mức tin cậy: External, DMZ, Internal, Database, Guest, Management. BA dùng zone để viết NFR bảo mật, triển khai và tài liệu GPKT.",
+   "IP định danh thiết bị; IPv4 4 nhóm số, IPv6 8 nhóm số; 10.x, 172.16–31.x, 192.168.x là IP private. ISP cấp Internet, DNS đổi tên miền thành IP, DHCP tự cấp IP.",
+   "Biết thế mạnh của ngôn ngữ lập trình (JavaScript, Python, Java, C#, C/C++) và hệ quản trị CSDL (SQL Server, Oracle, MySQL, PostgreSQL, SQLite, MongoDB, Redis)."
+  ],
+  "html": "<table><thead><tr><th>Phần</th><th>Ý chính</th><th>BA dùng để</th></tr></thead><tbody><tr><td>Kiến thức IT cần biết</td><td>Không cần code, cần hiểu hệ thống</td><td>Trao đổi với Dev, đánh giá khả thi</td></tr><tr><td>Các mô hình triển khai</td><td>Tổng thể → vật lý → logic → chi tiết; Client–Server; N-Tier; Monolithic/Microservices</td><td>Đọc tài liệu kiến trúc, hiểu phạm vi và tích hợp</td></tr><tr><td>Đường truyền mạng</td><td>Zone, IP, ISP, DNS, DHCP</td><td>Viết yêu cầu phi chức năng về bảo mật, triển khai; đánh giá rủi ro</td></tr><tr><td>Công nghệ khác</td><td>Ngôn ngữ lập trình, nền tảng, frontend/backend, hệ quản trị CSDL</td><td>Hiểu lựa chọn công nghệ, hỏi đúng câu hỏi</td></tr></tbody></table><p class=\"warn\">Lỗi hay gặp: nghĩ BA phải biết cấu hình mạng hay viết code; nhầm IP private với IP public; nhầm DMZ là vùng an toàn nhất; chọn Microservices cho mọi dự án dù team và hạ tầng chưa sẵn sàng.</p>"
+ },
+ "images": [
+  {
+   "id": "L02-img1",
+   "path": "data/pages/2. Kien thuc co ban ve IT/p-006.jpg",
+   "caption": "Mô hình tổng thể: ví dụ hệ thống y tế (HIS, LIS, RIS/PACS, EMR, EHR)",
+   "crop": [
+    0.04,
+    0.12,
+    0.97,
+    0.99
+   ]
+  },
+  {
+   "id": "L02-img2",
+   "path": "data/pages/2. Kien thuc co ban ve IT/p-007.jpg",
+   "caption": "Mô hình vật lý: thiết bị và các zone mạng",
+   "crop": [
+    0.15,
+    0.11,
+    0.96,
+    0.99
+   ]
+  },
+  {
+   "id": "L02-img3",
+   "path": "data/pages/2. Kien thuc co ban ve IT/p-008.jpg",
+   "caption": "Mô hình logic: backend, queue, service và CSDL",
+   "crop": [
+    0.18,
+    0.11,
+    0.88,
+    0.97
+   ]
+  },
+  {
+   "id": "L02-img4",
+   "path": "data/pages/2. Kien thuc co ban ve IT/p-009.jpg",
+   "caption": "Mô hình chi tiết: hệ thống giám sát thiết bị có cảnh báo",
+   "crop": [
+    0.13,
+    0.11,
+    0.94,
+    0.98
+   ]
+  },
+  {
+   "id": "L02-img5",
+   "path": "data/pages/2. Kien thuc co ban ve IT/p-010.jpg",
+   "caption": "Mô hình Client – Server",
+   "crop": [
+    0.47,
+    0.17,
+    0.98,
+    0.76
+   ]
+  },
+  {
+   "id": "L02-img6",
+   "path": "data/pages/2. Kien thuc co ban ve IT/p-011.jpg",
+   "caption": "Các tầng trong mô hình N-Tier",
+   "crop": [
+    0.66,
+    0.13,
+    0.96,
+    0.91
+   ]
+  },
+  {
+   "id": "L02-img7",
+   "path": "data/pages/2. Kien thuc co ban ve IT/p-012.jpg",
+   "caption": "Monolithic Architecture và Microservices Architecture",
+   "crop": [
+    0.26,
+    0.42,
+    0.83,
+    0.9
+   ]
+  },
+  {
+   "id": "L02-img8",
+   "path": "data/pages/2. Kien thuc co ban ve IT/p-016.jpg",
+   "caption": "So sánh IPv4 – IPv6 và mạng private với router",
+   "crop": [
+    0.5,
+    0.12,
+    0.97,
+    0.88
+   ]
+  }
+ ]
+}

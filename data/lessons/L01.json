@@ -1,0 +1,2011 @@
+{
+ "id": "L01",
+ "session": 1,
+ "module": "M1",
+ "title": "Giới thiệu về Business Analysis",
+ "goals": [
+  "Phân biệt được Business Analysis (hoạt động phân tích nghiệp vụ) và Business Analyst (người làm phân tích nghiệp vụ) theo định nghĩa của IIBA",
+  "Kể được các hoạt động BA thực hiện và các công việc thường làm của một IT BA",
+  "Giải thích được tầm quan trọng của BA trong doanh nghiệp qua vai trò cầu nối giữa bên nghiệp vụ và bên IT",
+  "Nêu được 6 khu vực kiến thức (knowledge area) và 6 năng lực cốt lõi của BA",
+  "Mô tả được con đường sự nghiệp của BA: từ lúc vào nghề, lên Senior và các hướng phát triển"
+ ],
+ "sources": [
+  {
+   "file": "Buổi 1_Giới thiệu về BA.pdf",
+   "pages": "1-25"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L01-t1",
+   "h": "Mục đích và nội dung buổi học",
+   "html": "<p>Buổi 1 trả lời bốn câu hỏi nền tảng trước khi đi vào kỹ thuật:</p><ol><li><b>Các khái niệm</b> Business Analysis và Business Analyst (BA) là gì.</li><li><b>Tầm quan trọng</b> của Business Analysis trong doanh nghiệp: BA làm những hoạt động nào và vì sao chúng quan trọng.</li><li><b>Năng lực cốt lõi</b> của một Business Analyst: cần biết gì, cần giỏi gì.</li><li><b>Con đường sự nghiệp</b> của Business Analyst: vào nghề từ đâu và phát triển tới đâu.</li></ol><p class='tip'>Mẹo học: mỗi phần của bài trả lời một câu hỏi \"Cái gì – Vì sao – Cần gì – Đi đâu\". Học xong, bạn nên tự trả lời được cả bốn câu bằng lời của mình.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.2-5"
+  },
+  {
+   "id": "L01-t2",
+   "h": "Business Analysis là gì – định nghĩa của IIBA",
+   "html": "<p><b>IIBA</b> (International Institute of Business Analysis – Viện Phân tích nghiệp vụ quốc tế) là tổ chức nghề nghiệp của ngành BA. IIBA định nghĩa:</p><blockquote>\"Business Analysis is the practice of enabling change in an enterprise by defining needs and recommending solutions that deliver value to stakeholders.\"</blockquote><p>Dịch: <b>Business Analysis (phân tích nghiệp vụ)</b> là hoạt động <b>tạo điều kiện cho sự thay đổi</b> trong một tổ chức, bằng cách <b>xác định nhu cầu</b> và <b>đề xuất giải pháp</b> mang lại <b>giá trị</b> cho các <b>Stakeholder (bên liên quan)</b>.</p><table><thead><tr><th>Cụm từ trong định nghĩa</th><th>Nghĩa</th><th>Ví dụ (app đặt đồ ăn)</th></tr></thead><tbody><tr><td>enabling change (tạo điều kiện cho thay đổi)</td><td>Mục đích cuối cùng là giúp tổ chức thay đổi: quy trình mới, sản phẩm mới, hệ thống mới</td><td>Nhà hàng chuyển từ nhận đơn qua điện thoại sang nhận đơn qua app</td></tr><tr><td>defining needs (xác định nhu cầu)</td><td>Làm rõ vấn đề hoặc cơ hội thật sự cần giải quyết</td><td>Khách phải chờ máy lâu, nhân viên ghi đơn hay sai</td></tr><tr><td>recommending solutions (đề xuất giải pháp)</td><td>Đưa ra cách giải quyết nhu cầu, không chỉ ghi chép yêu cầu</td><td>Đề xuất app có giỏ hàng, thanh toán online, theo dõi đơn</td></tr><tr><td>deliver value (mang lại giá trị)</td><td>Giải pháp phải đem lại lợi ích đo được</td><td>Giảm đơn ghi sai, tăng số đơn mỗi ngày</td></tr><tr><td>stakeholders (bên liên quan)</td><td>Những người hoặc nhóm bị ảnh hưởng hay có ảnh hưởng tới thay đổi</td><td>Khách hàng, chủ nhà hàng, shipper, đội phát triển</td></tr></tbody></table><p class='key'>Ghi nhớ: BA không chỉ \"ghi lại yêu cầu\". BA giúp tổ chức thay đổi theo hướng mang lại giá trị.</p><p class='note'>Các từ khóa Change, Need, Solution, Value, Stakeholder trong định nghĩa sẽ gặp lại ở bài BACCM (mô hình 6 khái niệm lõi của BABOK v3).</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.6"
+  },
+  {
+   "id": "L01-t3",
+   "h": "Business Analyst là ai",
+   "html": "<p>IIBA định nghĩa người làm BA:</p><blockquote>\"A business analyst (BA) is any person who performs business analysis tasks, no matter their job title or organizational role.\"</blockquote><p>Dịch: <b>Business Analyst (BA)</b> là <b>bất kỳ ai thực hiện các công việc phân tích nghiệp vụ</b>, bất kể chức danh hay vị trí của họ trong tổ chức.</p><ul><li><b>Business Analysis</b> là <i>hoạt động</i> (việc phân tích nghiệp vụ).</li><li><b>Business Analyst</b> là <i>người</i> làm hoạt động đó.</li></ul><p>Vì định nghĩa dựa vào <b>việc làm</b> chứ không dựa vào chức danh, nhiều người có tên gọi khác vẫn đang làm BA. Ví dụ: Systems Analyst (chuyên viên phân tích hệ thống), Product Owner, Requirements Engineer, Process Analyst (chuyên viên phân tích quy trình), Consultant (tư vấn), thậm chí Project Manager hay trưởng phòng nghiệp vụ khi họ khảo sát nhu cầu và đề xuất giải pháp.</p><p class='tip'>Mẹo nhớ: \"BA là việc, không phải danh thiếp\". Hỏi \"người này có đang xác định nhu cầu và đề xuất giải pháp không?\" thay vì hỏi \"chức danh của họ là gì?\".</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.7, 24"
+  },
+  {
+   "id": "L01-t4",
+   "h": "Các hoạt động BA thực hiện",
+   "html": "<p>Slide nêu 5 hoạt động lớn của BA:</p><ol><li><b>Hiểu các vấn đề và mục tiêu của doanh nghiệp.</b> Doanh nghiệp đang gặp khó ở đâu, muốn đạt điều gì.</li><li><b>Phân tích nhu cầu và giải pháp.</b> Nhu cầu thật là gì, có những giải pháp nào, giải pháp nào phù hợp.</li><li><b>Đưa ra các chiến lược.</b> Đề xuất hướng đi, thứ tự làm, phạm vi thay đổi.</li><li><b>Chèo lái, điều khiển các thay đổi.</b> Dẫn dắt thay đổi đi đúng hướng, không để lệch mục tiêu.</li><li><b>Tạo điều kiện cho sự hợp tác của các bên liên quan.</b> Kết nối các Stakeholder để họ cùng làm việc và cùng thống nhất.</li></ol><p>Hình bên cạnh trên slide là một <b>chu trình 4 bước</b>, chạy theo chiều kim đồng hồ:</p><table><thead><tr><th>Bước</th><th>Thành phần</th><th>Ý nghĩa</th></tr></thead><tbody><tr><td>①</td><td>Business Objective (mục tiêu kinh doanh) → Stakeholders</td><td>Từ mục tiêu, xác định ai liên quan và ai bị ảnh hưởng</td></tr><tr><td>②</td><td>Stakeholders (bên liên quan) → Solutions</td><td>Làm việc với các bên để tìm và chọn giải pháp</td></tr><tr><td>③</td><td>Solutions (giải pháp) → Transition</td><td>Đưa giải pháp vào thực tế</td></tr><tr><td>④</td><td>Transition (chuyển đổi) → Business Objective</td><td>Sau chuyển đổi, quay lại kiểm tra mục tiêu và bắt đầu vòng mới</td></tr></tbody></table>{{img:L01-img1}}<p class='note'>Chu trình 4 bước này là hình minh họa của slide, không phải một cấu trúc chính thức trong BABOK v3. Nó giúp nhớ rằng công việc BA lặp lại theo vòng: mục tiêu → con người → giải pháp → chuyển đổi.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.8"
+  },
+  {
+   "id": "L01-t5",
+   "h": "Các công việc thường làm của một IT BA",
+   "html": "<p><b>IT BA</b> là BA làm trong các dự án công nghệ thông tin (xây dựng hoặc thay đổi phần mềm, hệ thống). Slide liệt kê 10 công việc thường làm:</p><table><thead><tr><th>#</th><th>Công việc</th><th>Giải thích ngắn</th></tr></thead><tbody><tr><td>1</td><td>Thu thập, khảo sát yêu cầu nghiệp vụ</td><td>Phỏng vấn, khảo sát, quan sát để lấy yêu cầu</td></tr><tr><td>2</td><td>Quản lý quan hệ với các Stakeholders</td><td>Biết ai cần gì, giữ liên lạc, giữ sự tin tưởng</td></tr><tr><td>3</td><td>Quản lý yêu cầu nghiệp vụ</td><td>Theo dõi, sắp xếp, ưu tiên, truy vết yêu cầu</td></tr><tr><td>4</td><td>Phân tích yêu cầu nghiệp vụ</td><td>Làm rõ, chia nhỏ, kiểm tra yêu cầu có đủ và đúng</td></tr><tr><td>5</td><td>Thiết kế giao diện, hệ thống</td><td>Phác thảo màn hình, luồng xử lý ở mức nghiệp vụ</td></tr><tr><td>6</td><td>Viết tài liệu nghiệp vụ</td><td>Viết BRD, SRS, use case… để đội dự án dùng</td></tr><tr><td>7</td><td>Hỗ trợ đội dự án</td><td>Giải đáp thắc mắc cho dev, tester trong lúc làm</td></tr><tr><td>8</td><td>Hướng dẫn sử dụng, hỗ trợ người dùng</td><td>Đào tạo, viết hướng dẫn, hỗ trợ khi đưa vào dùng</td></tr><tr><td>9</td><td>Quản lý yêu cầu thay đổi</td><td>Tiếp nhận, đánh giá ảnh hưởng, cập nhật khi yêu cầu đổi</td></tr><tr><td>10</td><td>Quản lý tài liệu</td><td>Lưu trữ, đặt tên, quản lý phiên bản tài liệu</td></tr></tbody></table><p>Hình minh họa trên slide gom công việc BA thành 5 mảng: <b>Need Identification</b> (xác định nhu cầu), <b>Elicitation &amp; Collaboration</b> (khai thác và hợp tác), <b>Requirements Communication</b> (truyền đạt yêu cầu), <b>Requirements Modeling</b> (mô hình hóa yêu cầu), <b>Requirement Management</b> (quản lý yêu cầu).</p>{{img:L01-img2}}<p class='note'>Hình 5 mảng này chỉ là minh họa trên slide, <b>không phải</b> 6 knowledge area của BABOK (xem mục 6 khu vực kiến thức). Đừng nhầm hai hình với nhau.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.9-10"
+  },
+  {
+   "id": "L01-t6",
+   "h": "Tầm quan trọng của BA: cầu nối giữa IT và Stakeholder",
+   "html": "<p>Slide vẽ ba nhân vật: <b>I.T.</b> (đội kỹ thuật), <b>Business Analyst</b> ở giữa, và <b>Stakeholder</b> (bên nghiệp vụ, khách hàng). BA đứng giữa và làm ba việc:</p><table><thead><tr><th>Việc</th><th>Với ai</th><th>Ý nghĩa</th></tr></thead><tbody><tr><td><b>Lắng nghe</b></td><td>Lắng nghe các bên</td><td>Nghe đầy đủ vấn đề, mong muốn, ràng buộc</td></tr><tr><td><b>Thấu hiểu</b></td><td>Stakeholder</td><td>Hiểu đúng nhu cầu thật của nghiệp vụ, không chỉ lời nói bề mặt</td></tr><tr><td><b>Truyền đạt đúng ngôn ngữ</b></td><td>Cả hai phía</td><td>Nói với Stakeholder bằng ngôn ngữ nghiệp vụ (biểu đồ, số liệu); nói với IT bằng ngôn ngữ kỹ thuật (yêu cầu rõ ràng, mô hình, đặc tả)</td></tr></tbody></table><p>Ở khung trên, BA nói chuyện với Stakeholder bằng biểu đồ (ngôn ngữ kinh doanh). Ở khung dưới, BA nói với IT bằng đoạn mã, cấu trúc (ngôn ngữ kỹ thuật). Cùng một nội dung nhưng mỗi bên cần cách diễn đạt riêng.</p><p class='key'>BA là \"người phiên dịch\" giữa thế giới nghiệp vụ và thế giới kỹ thuật.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.13"
+  },
+  {
+   "id": "L01-t7",
+   "h": "Thống nhất cách hiểu: hình 6 và 9",
+   "html": "<p>Hai người đứng hai phía nhìn cùng một con số: một người thấy <b>6</b>, người kia thấy <b>9</b>. Người ở giữa nói: <i>\"Guys both of you are right but we have to agree on one\"</i> (cả hai bạn đều đúng, nhưng chúng ta phải thống nhất một cách hiểu).</p><ul><li>Mỗi Stakeholder nhìn vấn đề từ góc độ riêng, nên cách hiểu khác nhau là <b>bình thường</b>.</li><li>Không ai \"sai\" theo góc nhìn của mình, nhưng dự án <b>không thể làm theo hai cách hiểu</b> cùng lúc.</li><li>Việc của BA là đưa các bên tới <b>một cách hiểu chung</b>, ghi lại và được các bên xác nhận.</li></ul><p class='tip'>Ví dụ: trong app đặt đồ ăn, bộ phận kinh doanh hiểu \"đơn hoàn thành\" là lúc khách thanh toán, còn bộ phận giao hàng hiểu là lúc shipper giao xong. BA phải chốt một định nghĩa duy nhất trước khi đội IT làm báo cáo.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.14"
+  },
+  {
+   "id": "L01-t8",
+   "h": "Tranh \"How the customer explained it\" (cái xích đu trên cây)",
+   "html": "<p>Đây là bức tranh nổi tiếng trong ngành phần mềm. Khách hàng chỉ cần một cái xích đu, nhưng qua mỗi người trong dự án, nó bị hiểu và làm khác đi:</p><table><thead><tr><th>Khung</th><th>Hình vẽ</th><th>Bài học</th></tr></thead><tbody><tr><td>How the customer explained it (khách hàng giải thích)</td><td>Xích đu ba tầng ván</td><td>Khách mô tả không đúng điều mình cần</td></tr><tr><td>How the project leader understood it (trưởng dự án hiểu)</td><td>Ván treo tách cây, không đung đưa được</td><td>Người nhận yêu cầu hiểu sai</td></tr><tr><td>How the engineer designed it (kỹ sư thiết kế)</td><td>Thân cây bị cắt và chống lại để treo ván</td><td>Thiết kế phức tạp, không hợp lý</td></tr><tr><td>How the programmer wrote it (lập trình viên viết)</td><td>Dây quấn quanh thân cây, ván nằm đất</td><td>Làm ra thứ không dùng được</td></tr><tr><td>How the sales executive described it (nhân viên bán hàng mô tả)</td><td>Ghế bành sang trọng treo trên cây</td><td>Hứa quá mức so với thực tế</td></tr><tr><td>How the project was documented (dự án được ghi tài liệu)</td><td>Khung trống</td><td>Không có tài liệu</td></tr><tr><td>What operations installed (vận hành lắp đặt)</td><td>Chỉ có sợi dây</td><td>Triển khai thiếu</td></tr><tr><td>How the customer was billed (khách bị tính tiền)</td><td>Cả một tàu lượn siêu tốc</td><td>Chi phí đội lên rất xa nhu cầu</td></tr><tr><td>How the helpdesk supported it (hỗ trợ khách hàng)</td><td>Chỉ còn gốc cây</td><td>Hỗ trợ sau triển khai không có giá trị</td></tr><tr><td>What the customer really needed (khách thật sự cần)</td><td>Một chiếc lốp xe treo dây</td><td>Nhu cầu thật rất đơn giản</td></tr></tbody></table>{{img:L01-img3}}<p class='key'>Thông điệp: nếu không có người làm rõ nhu cầu thật và giữ cho mọi bên hiểu giống nhau, mỗi khâu lại làm lệch thêm một chút và sản phẩm cuối cùng không giải quyết được vấn đề. Đó là lý do cần BA.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.15"
+  },
+  {
+   "id": "L01-t9",
+   "h": "6 khu vực kiến thức BA (knowledge area)",
+   "html": "<p>Theo BABOK v3 (Business Analysis Body of Knowledge – bộ kiến thức BA của IIBA), công việc BA chia thành <b>6 knowledge area (khu vực kiến thức)</b>:</p><table><thead><tr><th>Knowledge area</th><th>Nghĩa</th><th>Trả lời câu hỏi</th></tr></thead><tbody><tr><td><b>Business Analysis Planning and Monitoring</b></td><td>Lập kế hoạch và giám sát công việc BA</td><td>BA sẽ làm gì, với ai, theo cách nào, đo hiệu quả ra sao?</td></tr><tr><td><b>Elicitation and Collaboration</b></td><td>Khai thác thông tin và hợp tác</td><td>Lấy thông tin từ Stakeholder như thế nào và xác nhận lại ra sao?</td></tr><tr><td><b>Requirements Life Cycle Management</b></td><td>Quản lý vòng đời yêu cầu</td><td>Theo dõi, truy vết, ưu tiên, phê duyệt và quản lý thay đổi yêu cầu thế nào?</td></tr><tr><td><b>Strategy Analysis</b></td><td>Phân tích chiến lược</td><td>Hiện trạng là gì, trạng thái mong muốn là gì, đi từ đây tới đó bằng cách nào?</td></tr><tr><td><b>Requirements Analysis and Design Definition</b></td><td>Phân tích yêu cầu và định nghĩa thiết kế</td><td>Mô hình hóa, đặc tả, kiểm tra yêu cầu và đề xuất phương án thiết kế ra sao?</td></tr><tr><td><b>Solution Evaluation</b></td><td>Đánh giá giải pháp</td><td>Giải pháp có mang lại giá trị như mong đợi không, cần cải thiện gì?</td></tr></tbody></table><p>Sơ đồ trên slide đặt <b>Planning and Monitoring</b> ở trên cùng, nối với mọi khu vực khác. <b>Strategy Analysis</b> và <b>Requirements Analysis and Design Definition</b> ở giữa. <b>Elicitation and Collaboration</b>, <b>Solution Evaluation</b>, <b>Requirements Life Cycle Management</b> ở hàng dưới. Mũi tên hai chiều cho thấy các khu vực <b>liên quan qua lại</b>, không phải các bước làm tuần tự.</p>{{img:L01-img4}}<p class='tip'>Mẹo nhớ 6 KA bằng chữ đầu: <b>P-E-R-S-R-S</b> – \"Plan, Elicit, Requirements life cycle, Strategy, RADD, Solution evaluation\".</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.17"
+  },
+  {
+   "id": "L01-t10",
+   "h": "Năng lực cốt lõi của BA",
+   "html": "<p>Ngoài kiến thức theo 6 khu vực, slide nêu <b>6 nhóm kỹ năng BA cần có</b>:</p><table><thead><tr><th>Năng lực</th><th>Nghĩa</th><th>Ví dụ biểu hiện</th></tr></thead><tbody><tr><td><b>Critical and Analytical Thinking</b></td><td>Tư duy phản biện và phân tích</td><td>Hỏi \"vì sao\" để tìm gốc vấn đề, chia vấn đề lớn thành phần nhỏ</td></tr><tr><td><b>Business Domain</b></td><td>Hiểu biết lĩnh vực nghiệp vụ</td><td>Hiểu cách vận hành của ngành bán lẻ, ngân hàng, nhà hàng…</td></tr><tr><td><b>Interaction Skills</b></td><td>Kỹ năng tương tác</td><td>Điều phối cuộc họp, đàm phán, giải quyết xung đột, làm việc nhóm</td></tr><tr><td><b>Communication Skills</b></td><td>Kỹ năng giao tiếp</td><td>Nói, viết, lắng nghe rõ ràng; trình bày cho đúng người nghe</td></tr><tr><td><b>Tools &amp; Technology</b></td><td>Công cụ và công nghệ</td><td>Dùng công cụ vẽ mô hình, quản lý yêu cầu, văn phòng; hiểu công nghệ cơ bản</td></tr><tr><td><b>Behavioural Characteristics</b></td><td>Đặc điểm hành vi</td><td>Trung thực, có trách nhiệm, đáng tin cậy, chủ động, thích nghi</td></tr></tbody></table>{{img:L01-img5}}<p class='note'>Trong BABOK v3, nhóm này gọi là <b>Underlying Competencies</b> (năng lực nền tảng). Tên chuẩn có hai chỗ khác slide: \"Critical and Analytical Thinking\" tương ứng <b>Analytical Thinking and Problem Solving</b>; \"Business Domain\" tương ứng <b>Business Knowledge</b>. Bài học dùng tên theo slide.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.18"
+  },
+  {
+   "id": "L01-t11",
+   "h": "Con đường vào nghề BA",
+   "html": "<p>Sơ đồ \"Driving your B.A. career\" của IIBA cho thấy có <b>hai lối vào</b> nghề BA:</p><ul><li><b>Từ văn phòng (Office)</b>: người đang làm các vị trí khác chuyển sang BA. Ví dụ trên sơ đồ: IT Programming (lập trình), IT Quality Assurance (đảm bảo chất lượng), IT Support (hỗ trợ kỹ thuật), Business Sales (bán hàng), Business Customer Service (chăm sóc khách hàng), Business Subject Matter Expert (chuyên gia nghiệp vụ về phần mềm, quy trình, chính sách), Business Finance (tài chính, ví dụ kế toán công nợ phải thu), Project Coordinator/Manager (điều phối, quản lý dự án), và ô \"Insert your role here\" (vị trí của bạn).</li><li><b>Từ trường học (School)</b>: bằng cấp Business (kinh doanh), Information Technology (công nghệ thông tin) hoặc chứng chỉ Business Analysis.</li></ul><p>Qua \"cửa\" vào nghề, người mới thường bắt đầu với một trong các chức danh: <b>Functional Analyst</b>, <b>Service Request Analyst</b>, <b>Agile Analyst</b>, <b>Systems Analyst</b>, <b>Business Systems Analyst</b>, <b>Business Requirements Analyst</b>. Tất cả quy về vai trò <b>Business Analyst</b>, rồi đi tiếp lên <b>Intermediate Business Analyst</b> (BA trung cấp).</p>{{img:L01-img6}}<p class='key'>Ý chính: BA không đòi hỏi một xuất phát điểm duy nhất. Dân IT, dân kinh doanh hay người mới tốt nghiệp đều vào được nghề.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.21"
+  },
+  {
+   "id": "L01-t12",
+   "h": "Từ BA lên Senior và C level",
+   "html": "<p>Sơ đồ \"Make your way to Senior level\" của IIBA mô tả các nấc tiếp theo:</p><table><thead><tr><th>Cấp</th><th>Chức danh trên sơ đồ</th><th>Chứng chỉ ghi kèm</th></tr></thead><tbody><tr><td>Intermediate (trung cấp)</td><td>Intermediate Process Analyst, Intermediate Requirements Analyst, Intermediate Business Systems Analyst, Intermediate Systems Analyst, Intermediate Functional Analyst; Int. Agile Analyst</td><td>CCBA</td></tr><tr><td>Senior (cao cấp)</td><td>Senior Process Analyst, Senior Business Requirements Analyst, Senior Business Systems Analyst, Senior Systems Analyst, Senior Functional Analyst; Sr. Agile Analyst</td><td>CBAP</td></tr><tr><td>Chuyên sâu, lãnh đạo</td><td>Decision Support Analyst → Senior Decision Support Analyst; Business Analyst Leadership; Business Architect; Enterprise Architect</td><td>CBAP</td></tr><tr><td>Giám đốc</td><td>Director/VP Analytics; Director/VP</td><td></td></tr><tr><td>Cao nhất</td><td>C Level (cấp điều hành)</td><td></td></tr></tbody></table><ul><li><b>CCBA</b> (Certification of Capability in Business Analysis): chứng chỉ IIBA cho BA có kinh nghiệm ở mức trung.</li><li><b>CBAP</b> (Certified Business Analysis Professional): chứng chỉ IIBA cho BA nhiều kinh nghiệm, mức cao cấp.</li></ul>{{img:L01-img7}}<p class='tip'>Mẹo nhớ: CC = \"Capability\" (có năng lực, mức giữa); CBAP có chữ \"Professional\" (chuyên nghiệp, mức cao).</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.22"
+  },
+  {
+   "id": "L01-t13",
+   "h": "Bốn hướng phát triển sự nghiệp từ BA",
+   "html": "<p>Sơ đồ tư duy \"BA Career\" chia sự nghiệp BA thành 4 nhánh:</p><table><thead><tr><th>Nhánh</th><th>Vai trò chính</th><th>Có thể tiến tới</th></tr></thead><tbody><tr><td>Business Analysis (tiếp tục làm BA)</td><td>Business Analyst</td><td>Senior BA, Domain BA (BA chuyên sâu một lĩnh vực), CIO/CTO</td></tr><tr><td>Product Management (quản lý sản phẩm)</td><td>Product Owner</td><td>Product Manager, Product Head, CIO/CTO/COO</td></tr><tr><td>Project Management (quản lý dự án)</td><td>Project Manager</td><td>Account Manager, Business Owner, Unit Head, CIO/CTO/COO</td></tr><tr><td>Consulting (tư vấn)</td><td>Consultant</td><td>Principal, Partner, Strategy Head, CEO/CIO/CTO/COO</td></tr></tbody></table>{{img:L01-img8}}<p>Các chữ viết tắt: <b>CEO</b> – giám đốc điều hành; <b>CIO</b> – giám đốc thông tin; <b>CTO</b> – giám đốc công nghệ; <b>COO</b> – giám đốc vận hành.</p><p class='note'>Slide ghi \"Principle\" ở nhánh Consulting; chức danh đúng trong ngành tư vấn là <b>Principal</b> (cấp trên Consultant, dưới Partner).</p><p class='key'>Kỹ năng BA (hiểu nghiệp vụ, giao tiếp, phân tích) là nền tảng chung cho cả 4 nhánh.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.23"
+  }
+ ],
+ "examples": [
+  {
+   "id": "L01-e1",
+   "title": "Đọc định nghĩa IIBA qua dự án SolasMart bán online",
+   "html": "<p><b>Ví dụ tự đặt</b> dựa trên case SolasMart (chuỗi bán lẻ có bán tại quầy, bán online, kho, nhân sự). Giả sử SolasMart muốn mở thêm kênh bán online.</p><table><thead><tr><th>Phần của định nghĩa</th><th>Trong dự án SolasMart</th></tr></thead><tbody><tr><td>Change (thay đổi)</td><td>Từ chỉ bán tại quầy sang bán cả tại quầy và online</td></tr><tr><td>Needs (nhu cầu)</td><td>Khách muốn mua mà không cần tới cửa hàng; SolasMart muốn tăng doanh thu</td></tr><tr><td>Solutions (giải pháp đề xuất)</td><td>Website/app bán hàng nối với kho để biết còn hàng hay không</td></tr><tr><td>Value (giá trị)</td><td>Thêm doanh thu từ kênh mới, khách tiện hơn</td></tr><tr><td>Stakeholders (bên liên quan)</td><td>Ban giám đốc, nhân viên bán hàng, nhân viên kho, khách hàng, đội IT</td></tr></tbody></table><p><b>Giải thích:</b> BA không chỉ nhận câu \"làm cho tôi cái website\". BA hỏi vì sao cần (nhu cầu), so sánh các cách làm (giải pháp), xem ai bị ảnh hưởng (Stakeholder) và giá trị đạt được. Đó chính là bốn động từ trong định nghĩa: tạo điều kiện thay đổi, xác định nhu cầu, đề xuất giải pháp, mang lại giá trị.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.6"
+  },
+  {
+   "id": "L01-e2",
+   "title": "Tranh cái xích đu xảy ra ở dự án FoodNow",
+   "html": "<p><b>Ví dụ tự đặt</b> với case FoodNow (đặt bàn nhà hàng). Chủ nhà hàng nói: \"Tôi muốn khách đặt bàn online\".</p><table><thead><tr><th>Ai</th><th>Hiểu hoặc làm thành</th><th>Tương ứng khung tranh</th></tr></thead><tbody><tr><td>Chủ nhà hàng</td><td>Nói chung chung, không nói rõ cần chọn giờ và số khách</td><td>How the customer explained it</td></tr><tr><td>Trưởng dự án</td><td>Hiểu là form gửi email cho nhà hàng</td><td>How the project leader understood it</td></tr><tr><td>Lập trình viên</td><td>Làm form nhưng không kiểm tra bàn còn trống</td><td>How the programmer wrote it</td></tr><tr><td>Nhân viên bán hàng</td><td>Quảng cáo \"đặt bàn tự động, xếp chỗ thông minh\"</td><td>How the sales executive described it</td></tr><tr><td>Thực tế cần</td><td>Khách chọn ngày, giờ, số người; hệ thống báo còn bàn hay không; nhà hàng xác nhận</td><td>What the customer really needed</td></tr></tbody></table><p><b>BA giúp gì:</b> hỏi lại để làm rõ (chọn giờ, số khách, xác nhận), ghi thành yêu cầu, cho chủ nhà hàng xác nhận, rồi truyền đạt đúng cho đội IT. Nhờ vậy mọi bên làm theo <b>một</b> cách hiểu.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.13-15"
+  },
+  {
+   "id": "L01-e3",
+   "title": "10 công việc của IT BA trong dự án quản lý thư viện",
+   "html": "<p><b>Ví dụ tự đặt:</b> một trường muốn làm phần mềm quản lý thư viện (mượn, trả sách, tra cứu).</p><table><thead><tr><th>Công việc</th><th>Việc cụ thể</th></tr></thead><tbody><tr><td>Thu thập, khảo sát yêu cầu</td><td>Phỏng vấn thủ thư, khảo sát bạn đọc về cách mượn sách hiện tại</td></tr><tr><td>Quản lý quan hệ Stakeholder</td><td>Lập danh sách: ban giám hiệu, thủ thư, bạn đọc, đội IT; biết ai quyết định</td></tr><tr><td>Quản lý yêu cầu</td><td>Đánh số, ưu tiên yêu cầu: mượn/trả trước, thống kê sau</td></tr><tr><td>Phân tích yêu cầu</td><td>Làm rõ quy tắc: mỗi bạn đọc mượn tối đa bao nhiêu cuốn, quá hạn xử lý ra sao</td></tr><tr><td>Thiết kế giao diện, hệ thống</td><td>Phác màn hình tra cứu sách và màn hình mượn sách</td></tr><tr><td>Viết tài liệu nghiệp vụ</td><td>Viết tài liệu yêu cầu, đặc tả chức năng mượn/trả</td></tr><tr><td>Hỗ trợ đội dự án</td><td>Trả lời dev về trường hợp sách bị mất</td></tr><tr><td>Hướng dẫn, hỗ trợ người dùng</td><td>Đào tạo thủ thư dùng phần mềm</td></tr><tr><td>Quản lý yêu cầu thay đổi</td><td>Ban giám hiệu muốn thêm gia hạn online: đánh giá ảnh hưởng, cập nhật tài liệu</td></tr><tr><td>Quản lý tài liệu</td><td>Lưu tài liệu theo phiên bản v1.0, v1.1 để không nhầm bản cũ</td></tr></tbody></table><p><b>Giải thích:</b> 10 công việc không làm cùng lúc mà trải theo vòng đời dự án: đầu dự án nặng về khảo sát, phân tích; giữa dự án nặng về hỗ trợ đội và quản lý thay đổi; cuối dự án nặng về hướng dẫn người dùng.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.9-10"
+  },
+  {
+   "id": "L01-e4",
+   "title": "Đặt việc của BA vào 6 knowledge area (app đặt đồ ăn)",
+   "html": "<p><b>Ví dụ tự đặt</b> với hệ thống đặt đồ ăn.</p><table><thead><tr><th>Việc BA làm</th><th>Knowledge area</th></tr></thead><tbody><tr><td>Lên kế hoạch: sẽ phỏng vấn ai, khi nào, tài liệu nào cần ai duyệt</td><td>Business Analysis Planning and Monitoring</td></tr><tr><td>Phỏng vấn chủ quán, tổ chức workshop với shipper</td><td>Elicitation and Collaboration</td></tr><tr><td>So sánh hiện trạng nhận đơn qua điện thoại với mô hình đặt qua app, đề xuất lộ trình</td><td>Strategy Analysis</td></tr><tr><td>Vẽ use case, viết đặc tả chức năng giỏ hàng</td><td>Requirements Analysis and Design Definition</td></tr><tr><td>Truy vết yêu cầu, xin duyệt, xử lý khi chủ quán đổi ý về phí giao hàng</td><td>Requirements Life Cycle Management</td></tr><tr><td>Sau 3 tháng chạy app, đo xem số đơn sai có giảm không</td><td>Solution Evaluation</td></tr></tbody></table><p><b>Giải thích:</b> mỗi KA là một nhóm việc, không phải một giai đoạn. Trong cùng một tuần, BA có thể vừa phỏng vấn (Elicitation) vừa xử lý thay đổi (Life Cycle).</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.17"
+  },
+  {
+   "id": "L01-e5",
+   "title": "Chu trình 4 bước trong dự án SolasMart",
+   "html": "<p><b>Ví dụ tự đặt:</b> SolasMart muốn giảm thời gian khách chờ thanh toán tại quầy.</p><ol><li><b>Business Objective:</b> giảm thời gian chờ thanh toán.</li><li><b>Stakeholders:</b> thu ngân, quản lý cửa hàng, khách hàng, đội IT, nhà cung cấp máy POS.</li><li><b>Solutions:</b> các phương án như thêm quầy, máy tự thanh toán, quét mã nhanh hơn; BA phân tích và đề xuất phương án phù hợp.</li><li><b>Transition:</b> đào tạo thu ngân, chạy thử ở một cửa hàng, chuyển dần sang toàn chuỗi.</li></ol><p>Sau khi chuyển đổi, BA quay lại bước 1: mục tiêu đã đạt chưa, có mục tiêu mới không (ví dụ giảm lỗi tính tiền). Vòng lặp tiếp tục.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.8"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L01-p1",
+   "title": "Kể tên các chức danh đang làm phân tích nghiệp vụ trong doanh nghiệp",
+   "task": "<p>Bài từ slide \"Ví dụ thực hành\": Liên hệ trong doanh nghiệp, kể tên các chức danh khác nhau đang làm công việc phân tích nghiệp vụ và giải thích.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Nhắc lại định nghĩa IIBA: BA là bất kỳ ai làm công việc phân tích nghiệp vụ, <b>không phụ thuộc chức danh</b>. Vậy tiêu chí là \"có làm việc BA không\", không phải \"tên chức danh có chữ BA không\".</p>",
+    "<p><b>Bước 2.</b> Lấy danh sách hoạt động BA làm thước đo: hiểu vấn đề, mục tiêu; phân tích nhu cầu và giải pháp; đưa ra chiến lược; chèo lái thay đổi; kết nối các bên.</p>",
+    "<p><b>Bước 3.</b> Liệt kê các chức danh trong một doanh nghiệp bạn biết (ví dụ chuỗi bán lẻ SolasMart): quản lý cửa hàng, trưởng phòng kinh doanh, Product Owner, Project Manager, Systems Analyst, nhân viên kiểm soát nội bộ…</p>",
+    "<p><b>Bước 4.</b> Với mỗi chức danh, tìm một việc cụ thể khớp với hoạt động BA ở bước 2. Không tìm được thì loại.</p>",
+    "<p><b>Bước 5.</b> Viết thành bảng: Chức danh – Việc BA họ làm – Hoạt động BA tương ứng.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Chức danh (ví dụ)</th><th>Việc BA họ làm</th><th>Hoạt động BA</th></tr></thead><tbody><tr><td>Product Owner</td><td>Thu thập mong muốn của khách, ưu tiên tính năng</td><td>Phân tích nhu cầu và giải pháp</td></tr><tr><td>Project Manager</td><td>Họp với khách để chốt phạm vi dự án</td><td>Kết nối các bên liên quan</td></tr><tr><td>Systems Analyst</td><td>Phân tích hệ thống hiện tại, đề xuất thay đổi</td><td>Phân tích nhu cầu và giải pháp</td></tr><tr><td>Trưởng phòng kinh doanh</td><td>Phân tích vì sao doanh số giảm, đề xuất kênh bán online</td><td>Hiểu vấn đề, đưa ra chiến lược</td></tr><tr><td>Quản lý cửa hàng</td><td>Đề xuất đổi quy trình thanh toán, hướng dẫn nhân viên làm theo</td><td>Chèo lái thay đổi</td></tr><tr><td>Tư vấn (Consultant)</td><td>Đánh giá quy trình khách hàng, đề xuất giải pháp</td><td>Đưa ra chiến lược</td></tr></tbody></table><p>Kết luận: theo IIBA, tất cả những người trên đều đang làm Business Analysis ở một phần công việc của mình, dù chức danh không phải \"Business Analyst\".</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.7-8, 11"
+  },
+  {
+   "id": "L01-p2",
+   "title": "Phân tích mô tả công việc BA trên trang tuyển dụng",
+   "task": "<p>Bài từ slide \"Ví dụ thực hành\": Liên hệ mô tả công việc BA trên các trang tuyển dụng. Dùng tin tuyển dụng <b>ví dụ</b> dưới đây (tự đặt, không phải tin thật):</p><blockquote><p><b>Tuyển IT Business Analyst</b></p><ul><li>Làm việc với khách hàng để thu thập và làm rõ yêu cầu.</li><li>Viết tài liệu BRD, SRS, vẽ use case, wireframe.</li><li>Phối hợp với dev và tester trong quá trình phát triển.</li><li>Tiếp nhận và đánh giá yêu cầu thay đổi.</li><li>Đào tạo người dùng khi bàn giao.</li><li>Yêu cầu: tư duy phân tích tốt, giao tiếp tốt, biết dùng công cụ vẽ mô hình, có hiểu biết lĩnh vực bán lẻ là lợi thế.</li></ul></blockquote>",
+   "steps": [
+    "<p><b>Bước 1.</b> Tách tin tuyển dụng thành hai phần: <b>việc phải làm</b> và <b>yêu cầu ứng viên</b>.</p>",
+    "<p><b>Bước 2.</b> Với từng việc phải làm, tìm công việc tương ứng trong danh sách 10 công việc của IT BA.</p>",
+    "<p><b>Bước 3.</b> Với từng yêu cầu ứng viên, tìm năng lực tương ứng trong 6 năng lực cốt lõi.</p>",
+    "<p><b>Bước 4.</b> Ghi lại những công việc trong danh sách 10 việc mà tin tuyển dụng <b>không</b> nhắc. Đó là phần bạn có thể hỏi thêm khi phỏng vấn.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Dòng trong tin</th><th>Ánh xạ</th></tr></thead><tbody><tr><td>Thu thập, làm rõ yêu cầu</td><td>Thu thập, khảo sát yêu cầu; Phân tích yêu cầu</td></tr><tr><td>Viết BRD, SRS, use case, wireframe</td><td>Viết tài liệu nghiệp vụ; Thiết kế giao diện, hệ thống</td></tr><tr><td>Phối hợp với dev, tester</td><td>Hỗ trợ đội dự án</td></tr><tr><td>Đánh giá yêu cầu thay đổi</td><td>Quản lý yêu cầu thay đổi</td></tr><tr><td>Đào tạo người dùng</td><td>Hướng dẫn sử dụng, hỗ trợ người dùng</td></tr><tr><td>Tư duy phân tích</td><td>Critical and Analytical Thinking</td></tr><tr><td>Giao tiếp tốt</td><td>Communication Skills</td></tr><tr><td>Công cụ vẽ mô hình</td><td>Tools &amp; Technology</td></tr><tr><td>Hiểu lĩnh vực bán lẻ</td><td>Business Domain</td></tr></tbody></table><p>Tin không nhắc rõ: quản lý quan hệ Stakeholder, quản lý yêu cầu (ưu tiên, truy vết), quản lý tài liệu; năng lực Interaction Skills và Behavioural Characteristics.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.9-11, 18"
+  },
+  {
+   "id": "L01-p3",
+   "title": "Chọn một nhóm kiến thức BA và giải thích cho người khác",
+   "task": "<p>Bài từ slide \"Ví dụ thực hành\": Chia nhóm, mỗi nhóm không dùng tài liệu, chọn một nhóm kiến thức BA cần có bất kỳ và giải thích để mọi người cùng hiểu. Ở đây làm mẫu với knowledge area <b>Elicitation and Collaboration</b>.</p>",
+   "steps": [
+    "<p><b>Bước 1. Gọi tên và dịch:</b> Elicitation and Collaboration = khai thác thông tin và hợp tác.</p>",
+    "<p><b>Bước 2. Nói nó trả lời câu hỏi gì:</b> làm sao lấy được thông tin đúng và đủ từ Stakeholder, và làm sao để họ cùng tham gia.</p>",
+    "<p><b>Bước 3. Cho một ví dụ đời thường</b> trên case quen thuộc (ví dụ app đặt đồ ăn).</p>",
+    "<p><b>Bước 4. Nối với phần khác:</b> nó liên quan tới knowledge area nào, năng lực nào.</p>",
+    "<p><b>Bước 5. Tóm lại một câu</b> để người nghe nhớ.</p>"
+   ],
+   "answer": "<p><b>Elicitation and Collaboration</b> là nhóm kiến thức về cách BA <b>lấy thông tin</b> từ các bên liên quan và <b>làm việc cùng họ</b>. Ví dụ: để làm app đặt đồ ăn, BA phỏng vấn chủ quán, quan sát nhân viên nhận đơn, họp nhóm với shipper, rồi gửi lại biên bản để mọi người xác nhận đã hiểu đúng. Nhóm này nối trực tiếp với Planning and Monitoring (lên kế hoạch phỏng vấn ai) và Requirements Analysis and Design Definition (thông tin thu được sẽ được phân tích). Năng lực cần nhất: Communication Skills và Interaction Skills.</p><p><b>Một câu:</b> \"Muốn phân tích đúng thì phải hỏi đúng người, đúng cách, và cùng họ xác nhận lại.\"</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.17-19"
+  },
+  {
+   "id": "L01-p4",
+   "title": "Vẽ lộ trình sự nghiệp BA của bản thân",
+   "task": "<p>Dựa vào ba sơ đồ con đường sự nghiệp, vẽ lộ trình 3 chặng cho bản thân: lối vào nghề, mốc trung hạn, hướng dài hạn. Làm mẫu cho một người <b>ví dụ</b>: đang làm tester (IT Quality Assurance), muốn sau này quản lý sản phẩm.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Xác định lối vào: bạn đi từ Office (đang đi làm) hay School (mới tốt nghiệp)? Vị trí hiện tại nằm ở ô nào trên sơ đồ \"Driving your B.A. career\"?</p>",
+    "<p><b>Bước 2.</b> Chọn chức danh vào nghề gần nhất với nền tảng của bạn (Functional Analyst, Systems Analyst, Agile Analyst…).</p>",
+    "<p><b>Bước 3.</b> Đặt mốc trung hạn theo sơ đồ \"Senior level\": Intermediate (CCBA) rồi Senior (CBAP).</p>",
+    "<p><b>Bước 4.</b> Chọn 1 trong 4 nhánh dài hạn: Business Analysis, Product Management, Project Management, Consulting.</p>",
+    "<p><b>Bước 5.</b> Ghi năng lực cần bổ sung cho từng chặng.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Chặng</th><th>Lựa chọn (ví dụ)</th><th>Năng lực cần bổ sung</th></tr></thead><tbody><tr><td>Lối vào</td><td>Office – IT Quality Assurance → Functional Analyst → Business Analyst</td><td>Communication Skills, viết tài liệu nghiệp vụ</td></tr><tr><td>Trung hạn</td><td>Intermediate Functional Analyst (CCBA) → Senior Functional Analyst (CBAP)</td><td>Critical and Analytical Thinking, Business Domain</td></tr><tr><td>Dài hạn</td><td>Nhánh Product Management: Product Owner → Product Manager → Product Head</td><td>Interaction Skills (đàm phán, ra quyết định), hiểu thị trường</td></tr></tbody></table><p>Lợi thế của người từ QA: quen đọc yêu cầu và tìm chỗ thiếu, nên dễ chuyển sang phân tích yêu cầu.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.21-23"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L01-x1",
+   "title": "Đâu là công việc thường làm của IT BA",
+   "level": "de",
+   "task": "<p>Trong danh sách sau, việc nào nằm trong 10 công việc thường làm của IT BA theo slide? Việc nào không?</p><ol><li>Viết tài liệu nghiệp vụ</li><li>Viết code chức năng thanh toán</li><li>Quản lý yêu cầu thay đổi</li><li>Hướng dẫn sử dụng, hỗ trợ người dùng</li><li>Cấu hình máy chủ cơ sở dữ liệu</li><li>Quản lý quan hệ với các Stakeholders</li><li>Thiết kế giao diện, hệ thống</li><li>Chạy kiểm thử hiệu năng tự động</li></ol>",
+   "hints": [
+    "<p>Nhớ lại hai slide \"Các công việc thường làm của một IT BA\": 6 việc ở slide đầu, 4 việc ở slide sau.</p>",
+    "<p>Những việc mang tính kỹ thuật thuần (code, cấu hình máy chủ, chạy test tự động) thường là việc của dev, DevOps, tester.</p>"
+   ],
+   "answer": "<p><b>Là việc IT BA:</b> 1, 3, 4, 6, 7.</p><p><b>Không phải:</b> 2 (việc của lập trình viên), 5 (việc của quản trị hệ thống/DevOps), 8 (việc của tester). BA có thể <b>hỗ trợ</b> những người này, nhưng không làm thay.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.9-10"
+  },
+  {
+   "id": "L01-x2",
+   "title": "Ghép năng lực cốt lõi với tình huống",
+   "level": "de",
+   "task": "<p>Ghép mỗi tình huống với một năng lực cốt lõi (Critical and Analytical Thinking, Business Domain, Interaction Skills, Communication Skills, Tools &amp; Technology, Behavioural Characteristics):</p><ol><li>BA dùng phần mềm vẽ sơ đồ để mô tả quy trình đặt bàn của FoodNow.</li><li>BA hiểu quy định nhập – xuất kho của ngành bán lẻ nên hỏi đúng chỗ.</li><li>BA điều phối cuộc họp khi thủ thư và ban giám hiệu tranh cãi về số sách được mượn.</li><li>BA hỏi \"vì sao\" nhiều lần để tìm nguyên nhân gốc khiến đơn hàng bị sai.</li><li>BA thừa nhận đã ghi sai yêu cầu và chủ động báo cho khách hàng.</li><li>BA viết email tóm tắt cuộc họp rõ ràng, đúng trọng tâm.</li></ol>",
+   "hints": [
+    "<p>Phân biệt Interaction (làm việc, điều phối giữa người với người) và Communication (truyền đạt bằng lời nói, chữ viết).</p>",
+    "<p>Behavioural Characteristics nói về phẩm chất: trung thực, trách nhiệm, đáng tin cậy.</p>"
+   ],
+   "answer": "<ol><li>Tools &amp; Technology</li><li>Business Domain</li><li>Interaction Skills</li><li>Critical and Analytical Thinking</li><li>Behavioural Characteristics</li><li>Communication Skills</li></ol>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.18"
+  },
+  {
+   "id": "L01-x3",
+   "title": "Xếp việc vào 6 knowledge area (FoodNow)",
+   "level": "tb",
+   "task": "<p>Dự án FoodNow (đặt bàn nhà hàng). Xếp mỗi việc vào một knowledge area của BABOK v3:</p><ol><li>Lập danh sách những ai cần phỏng vấn và lịch phỏng vấn.</li><li>Phỏng vấn quản lý nhà hàng về cách giữ bàn hiện tại.</li><li>Phân tích vì sao nhà hàng mất khách giờ cao điểm và đề xuất hướng thay đổi.</li><li>Vẽ sơ đồ quy trình đặt bàn mới và viết đặc tả màn hình chọn giờ.</li><li>Nhà hàng muốn thêm đặt cọc: đánh giá ảnh hưởng và cập nhật yêu cầu đã duyệt.</li><li>Sau 2 tháng, đo tỉ lệ khách đặt bàn mà không tới (no-show) để xem giải pháp có hiệu quả.</li></ol>",
+   "hints": [
+    "<p>Có đúng 6 việc và 6 knowledge area, mỗi KA dùng một lần.</p>",
+    "<p>\"Hiện trạng → mong muốn → hướng thay đổi\" là Strategy Analysis. \"Đo sau khi chạy\" là Solution Evaluation.</p>",
+    "<p>Thay đổi yêu cầu đã duyệt thuộc vòng đời yêu cầu.</p>"
+   ],
+   "answer": "<ol><li>Business Analysis Planning and Monitoring</li><li>Elicitation and Collaboration</li><li>Strategy Analysis</li><li>Requirements Analysis and Design Definition</li><li>Requirements Life Cycle Management</li><li>Solution Evaluation</li></ol>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.17"
+  },
+  {
+   "id": "L01-x4",
+   "title": "Ai đang làm BA theo định nghĩa IIBA",
+   "level": "tb",
+   "task": "<p>Trong chuỗi SolasMart có 5 người. Theo định nghĩa của IIBA, ai đang làm công việc Business Analysis? Giải thích.</p><ol><li>Chị A, trưởng phòng nhân sự: tìm hiểu vì sao nhân viên nghỉ việc nhiều, đề xuất đổi quy trình đánh giá.</li><li>Anh B, lập trình viên: viết code theo đặc tả có sẵn, không làm việc với người dùng.</li><li>Chị C, Product Owner: gặp khách hàng, chọn tính năng ưu tiên cho app bán online.</li><li>Anh D, nhân viên kho: nhập hàng theo phiếu, không tham gia cải tiến.</li><li>Anh E, quản lý cửa hàng: thấy khách chờ lâu, đề xuất thêm máy tự thanh toán và hướng dẫn nhân viên dùng.</li></ol>",
+   "hints": [
+    "<p>Tiêu chí: có <b>xác định nhu cầu</b> và <b>đề xuất giải pháp</b> để tạo thay đổi không? Chức danh không quan trọng.</p>",
+    "<p>Làm đúng việc được giao mà không phân tích, đề xuất thì chưa phải BA.</p>"
+   ],
+   "answer": "<p><b>Đang làm BA:</b> A, C, E. Cả ba đều xác định vấn đề hoặc nhu cầu (nghỉ việc nhiều, khách cần tính năng, khách chờ lâu) và đề xuất giải pháp tạo thay đổi.</p><p><b>Chưa làm BA:</b> B và D. Họ thực hiện việc theo yêu cầu có sẵn, không xác định nhu cầu hay đề xuất giải pháp. Đây là ý của IIBA: \"no matter their job title or organizational role\" – không dựa vào chức danh mà dựa vào việc làm.</p>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.6-7"
+  },
+  {
+   "id": "L01-x5",
+   "title": "Tránh \"tranh cái xích đu\" trong dự án thư viện",
+   "level": "kho",
+   "task": "<p>Dự án quản lý thư viện: Ban giám hiệu nói \"cần phần mềm để quản lý sách\". Trưởng dự án hiểu là danh mục sách. Lập trình viên làm trang liệt kê sách. Nhân viên kinh doanh hứa có cả đọc sách online. Khi bàn giao, thủ thư than không mượn/trả được. Tiền dự án đã vượt ngân sách.</p><p>a) Ghép từng hiện tượng với khung tương ứng trong tranh cái xích đu.<br>b) Chỉ ra BA nên làm gì ở mỗi chỗ để tránh lệch, dùng 3 việc \"lắng nghe – thấu hiểu – truyền đạt đúng ngôn ngữ\" và bài học \"6 hay 9\".</p>",
+   "hints": [
+    "<p>Có ít nhất các khung: customer explained, project leader understood, programmer wrote, sales described, customer billed, customer really needed.</p>",
+    "<p>Gốc vấn đề: không ai làm rõ \"quản lý sách\" nghĩa là gì với thủ thư – người dùng thật.</p>",
+    "<p>Bài học 6/9: các bên hiểu khác nhau thì phải chốt một cách hiểu và được xác nhận.</p>"
+   ],
+   "answer": "<p><b>a)</b></p><ul><li>\"Cần phần mềm quản lý sách\" nói chung chung → How the customer explained it.</li><li>Trưởng dự án hiểu là danh mục → How the project leader understood it.</li><li>Lập trình viên làm trang liệt kê → How the programmer wrote it.</li><li>Kinh doanh hứa đọc sách online → How the sales executive described it.</li><li>Vượt ngân sách → How the customer was billed.</li><li>Thủ thư cần mượn/trả → What the customer really needed.</li></ul><p><b>b)</b></p><ul><li><b>Lắng nghe:</b> không chỉ nghe ban giám hiệu mà phỏng vấn cả thủ thư, bạn đọc (Stakeholder bị ảnh hưởng trực tiếp).</li><li><b>Thấu hiểu:</b> hỏi \"quản lý sách\" gồm những việc gì hằng ngày → ra nhu cầu thật: mượn, trả, tra cứu, báo quá hạn.</li><li><b>Thống nhất (6/9):</b> mỗi bên hiểu khác (danh mục, đọc online, mượn/trả) → BA viết phạm vi rõ và cho ban giám hiệu, thủ thư xác nhận một bản duy nhất.</li><li><b>Truyền đạt đúng ngôn ngữ:</b> với đội IT, viết thành yêu cầu, quy tắc nghiệp vụ, màn hình mẫu; với kinh doanh, nói rõ cái gì có và không có để không hứa quá.</li><li><b>Quản lý thay đổi:</b> nếu muốn thêm đọc online thì đánh giá ảnh hưởng chi phí trước khi nhận, tránh vượt ngân sách.</li></ul>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.13-15"
+  },
+  {
+   "id": "L01-x6",
+   "title": "Lập khung vai trò BA cho dự án SolasMart bán online",
+   "level": "kho",
+   "task": "<p>SolasMart muốn mở kênh bán online. Bạn là BA mới vào dự án. Hãy lập một khung làm việc gồm:</p><ol><li>Áp chu trình 4 bước (Business Objective → Stakeholders → Solutions → Transition) vào dự án.</li><li>Chọn ít nhất 5 trong 10 công việc của IT BA và nói cụ thể sẽ làm gì.</li><li>Nêu 3 năng lực cốt lõi quan trọng nhất cho dự án này và lý do.</li></ol>",
+   "hints": [
+    "<p>Mục tiêu kinh doanh nên cụ thể: tăng doanh thu, mở rộng khách hàng.</p>",
+    "<p>Bán online đụng nhiều bộ phận: bán hàng, kho, giao hàng, kế toán, IT.</p>",
+    "<p>Năng lực chọn theo đặc điểm dự án: nhiều bên liên quan, cần hiểu ngành bán lẻ.</p>"
+   ],
+   "answer": "<p><b>1. Chu trình 4 bước</b></p><ul><li>Business Objective: có thêm doanh thu từ kênh online, phục vụ khách không tới cửa hàng.</li><li>Stakeholders: ban giám đốc, bộ phận bán hàng, kho, kế toán, khách hàng, đội IT, đơn vị giao hàng.</li><li>Solutions: so sánh tự làm website, dùng sàn thương mại điện tử, hay kết hợp; đề xuất phương án nối được với kho.</li><li>Transition: chạy thử với một nhóm sản phẩm, đào tạo nhân viên kho đóng gói đơn online, mở rộng dần; sau đó quay lại kiểm tra mục tiêu.</li></ul><p><b>2. Công việc IT BA (ví dụ)</b></p><ul><li>Thu thập yêu cầu: phỏng vấn bán hàng, kho về quy trình hiện tại.</li><li>Quản lý quan hệ Stakeholder: lập danh sách, biết ai duyệt, ai bị ảnh hưởng.</li><li>Phân tích yêu cầu: làm rõ quy tắc tồn kho khi bán cả tại quầy và online.</li><li>Thiết kế giao diện: phác màn hình giỏ hàng, đặt hàng.</li><li>Viết tài liệu nghiệp vụ: tài liệu yêu cầu cho đội IT.</li><li>Quản lý yêu cầu thay đổi: khi ban giám đốc muốn thêm khuyến mãi riêng cho online.</li></ul><p><b>3. Năng lực quan trọng</b></p><ul><li>Business Domain: hiểu bán lẻ, tồn kho, khuyến mãi.</li><li>Interaction Skills: nhiều bộ phận có lợi ích khác nhau (bán tại quầy và online có thể \"giành\" hàng), cần điều phối.</li><li>Critical and Analytical Thinking: phân tích phương án giải pháp và rủi ro.</li></ul>",
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.8-10, 18"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L01-f1",
+   "front": "Business Analysis (định nghĩa IIBA)",
+   "back": "<p>Hoạt động tạo điều kiện cho thay đổi trong tổ chức, bằng cách xác định nhu cầu và đề xuất giải pháp mang lại giá trị cho Stakeholder.</p><p class='tip'>Nhớ 4 động từ: thay đổi – nhu cầu – giải pháp – giá trị.</p>"
+  },
+  {
+   "id": "L01-f2",
+   "front": "Business Analyst (định nghĩa IIBA)",
+   "back": "<p>Bất kỳ ai làm công việc phân tích nghiệp vụ, bất kể chức danh hay vị trí trong tổ chức.</p><p class='tip'>BA là việc, không phải danh thiếp.</p>"
+  },
+  {
+   "id": "L01-f3",
+   "front": "IIBA",
+   "back": "<p>International Institute of Business Analysis – Viện Phân tích nghiệp vụ quốc tế. Tổ chức nghề nghiệp đưa ra định nghĩa BA, bộ kiến thức BABOK và các chứng chỉ CCBA, CBAP.</p>"
+  },
+  {
+   "id": "L01-f4",
+   "front": "Business Analysis khác Business Analyst thế nào?",
+   "back": "<p>Business Analysis là <b>hoạt động</b> phân tích nghiệp vụ. Business Analyst là <b>người</b> làm hoạt động đó.</p><p>Ví dụ: Product Owner làm Business Analysis khi chọn tính năng theo nhu cầu khách.</p>"
+  },
+  {
+   "id": "L01-f5",
+   "front": "Stakeholder",
+   "back": "<p>Bên liên quan: người hoặc nhóm bị ảnh hưởng hoặc có ảnh hưởng tới thay đổi.</p><p>Ví dụ app đặt đồ ăn: khách, chủ quán, shipper, đội IT.</p>"
+  },
+  {
+   "id": "L01-f6",
+   "front": "5 hoạt động BA thực hiện",
+   "back": "<ol><li>Hiểu vấn đề và mục tiêu doanh nghiệp</li><li>Phân tích nhu cầu và giải pháp</li><li>Đưa ra chiến lược</li><li>Chèo lái thay đổi</li><li>Tạo điều kiện cho các bên hợp tác</li></ol>"
+  },
+  {
+   "id": "L01-f7",
+   "front": "Chu trình 4 bước trên slide hoạt động BA",
+   "back": "<p>Business Objective → Stakeholders → Solutions → Transition → quay lại Business Objective.</p><p class='tip'>Mục tiêu – Con người – Giải pháp – Chuyển đổi, rồi lặp lại.</p>"
+  },
+  {
+   "id": "L01-f8",
+   "front": "Transition (trong chu trình hoạt động BA)",
+   "back": "<p>Bước chuyển đổi: đưa giải pháp vào thực tế (chạy thử, đào tạo, triển khai dần), sau đó quay lại kiểm tra mục tiêu.</p><p>Ví dụ: SolasMart thử máy tự thanh toán ở một cửa hàng trước.</p>"
+  },
+  {
+   "id": "L01-f9",
+   "front": "IT BA là gì?",
+   "back": "<p>BA làm trong dự án công nghệ thông tin: xây dựng hoặc thay đổi phần mềm, hệ thống. Ngoài phân tích nghiệp vụ còn thiết kế giao diện, viết tài liệu cho đội IT, hỗ trợ dev và tester.</p>"
+  },
+  {
+   "id": "L01-f10",
+   "front": "6 công việc IT BA ở slide đầu",
+   "back": "<p>Thu thập, khảo sát yêu cầu · Quản lý quan hệ Stakeholder · Quản lý yêu cầu · Phân tích yêu cầu · Thiết kế giao diện, hệ thống · Viết tài liệu nghiệp vụ.</p>"
+  },
+  {
+   "id": "L01-f11",
+   "front": "4 công việc IT BA ở slide sau",
+   "back": "<p>Hỗ trợ đội dự án · Hướng dẫn sử dụng, hỗ trợ người dùng · Quản lý yêu cầu thay đổi · Quản lý tài liệu.</p><p class='tip'>Slide sau là việc \"trong và sau khi làm\".</p>"
+  },
+  {
+   "id": "L01-f12",
+   "front": "Ba việc BA làm khi đứng giữa IT và Stakeholder",
+   "back": "<p><b>Lắng nghe</b> – <b>Thấu hiểu</b> – <b>Truyền đạt đúng ngôn ngữ</b>.</p><p>Nói biểu đồ, số liệu với bên nghiệp vụ; nói yêu cầu rõ ràng, mô hình với bên kỹ thuật.</p>"
+  },
+  {
+   "id": "L01-f13",
+   "front": "Bài học từ hình 6 và 9",
+   "back": "<p>Mỗi bên nhìn từ góc độ riêng nên hiểu khác nhau, ai cũng \"đúng\". Nhưng dự án phải thống nhất <b>một</b> cách hiểu. BA dẫn các bên tới cách hiểu chung và cho họ xác nhận.</p>"
+  },
+  {
+   "id": "L01-f14",
+   "front": "Tranh \"How the customer explained it\" nói gì?",
+   "back": "<p>Qua mỗi khâu (trưởng dự án, kỹ sư, lập trình viên, bán hàng…) yêu cầu bị hiểu lệch, nên sản phẩm khác xa nhu cầu thật – chỉ là một chiếc lốp xe treo dây. Cần BA làm rõ và giữ cách hiểu chung.</p>"
+  },
+  {
+   "id": "L01-f15",
+   "front": "What the customer really needed (trong tranh xích đu)",
+   "back": "<p>Một chiếc lốp xe treo trên dây – rất đơn giản so với những gì mọi khâu đã làm.</p><p class='tip'>Nhu cầu thật thường đơn giản hơn lời mô tả và lời hứa.</p>"
+  },
+  {
+   "id": "L01-f16",
+   "front": "BABOK",
+   "back": "<p>Business Analysis Body of Knowledge – bộ kiến thức BA của IIBA. Bản v3 chia công việc BA thành 6 knowledge area và nêu các năng lực nền tảng.</p>"
+  },
+  {
+   "id": "L01-f17",
+   "front": "6 knowledge area của BABOK v3",
+   "back": "<p>Planning and Monitoring · Elicitation and Collaboration · Requirements Life Cycle Management · Strategy Analysis · Requirements Analysis and Design Definition · Solution Evaluation.</p>"
+  },
+  {
+   "id": "L01-f18",
+   "front": "Business Analysis Planning and Monitoring",
+   "back": "<p>Lập kế hoạch và giám sát công việc BA: làm gì, với ai, cách nào, đo hiệu quả ra sao.</p><p>Ví dụ: lên lịch phỏng vấn chủ quán, shipper.</p>"
+  },
+  {
+   "id": "L01-f19",
+   "front": "Elicitation and Collaboration",
+   "back": "<p>Khai thác thông tin và hợp tác với Stakeholder: phỏng vấn, workshop, quan sát, rồi xác nhận lại kết quả.</p><p>Ví dụ: phỏng vấn thủ thư về cách cho mượn sách.</p>"
+  },
+  {
+   "id": "L01-f20",
+   "front": "Requirements Life Cycle Management",
+   "back": "<p>Quản lý vòng đời yêu cầu: truy vết, ưu tiên, phê duyệt, quản lý thay đổi yêu cầu từ lúc có tới lúc hết dùng.</p><p>Ví dụ: chủ quán đổi phí giao hàng sau khi đã duyệt.</p>"
+  },
+  {
+   "id": "L01-f21",
+   "front": "Strategy Analysis",
+   "back": "<p>Phân tích chiến lược: hiện trạng, trạng thái mong muốn, và hướng đi từ hiện trạng tới mong muốn.</p><p>Ví dụ: từ nhận đơn qua điện thoại sang đặt qua app.</p>"
+  },
+  {
+   "id": "L01-f22",
+   "front": "Requirements Analysis and Design Definition",
+   "back": "<p>Phân tích yêu cầu và định nghĩa thiết kế: mô hình hóa, đặc tả, kiểm tra yêu cầu, đề xuất phương án thiết kế.</p><p>Ví dụ: vẽ use case, viết đặc tả giỏ hàng.</p>"
+  },
+  {
+   "id": "L01-f23",
+   "front": "Solution Evaluation",
+   "back": "<p>Đánh giá giải pháp: giải pháp có mang lại giá trị như mong đợi không, cần cải thiện gì.</p><p>Ví dụ: sau 3 tháng dùng app, đo xem đơn sai có giảm.</p>"
+  },
+  {
+   "id": "L01-f24",
+   "front": "6 năng lực cốt lõi BA cần có (theo slide)",
+   "back": "<p>Critical and Analytical Thinking · Business Domain · Interaction Skills · Communication Skills · Tools &amp; Technology · Behavioural Characteristics.</p>"
+  },
+  {
+   "id": "L01-f25",
+   "front": "Interaction Skills khác Communication Skills thế nào?",
+   "back": "<p><b>Communication</b>: truyền đạt bằng lời nói, chữ viết, lắng nghe.</p><p><b>Interaction</b>: làm việc với người khác – điều phối họp, đàm phán, giải quyết xung đột, làm việc nhóm.</p>"
+  },
+  {
+   "id": "L01-f26",
+   "front": "Behavioural Characteristics",
+   "back": "<p>Đặc điểm hành vi: trung thực, có trách nhiệm, đáng tin cậy, chủ động, thích nghi.</p><p>Ví dụ: BA tự báo khi ghi sai yêu cầu.</p>"
+  },
+  {
+   "id": "L01-f27",
+   "front": "Business Domain (năng lực)",
+   "back": "<p>Hiểu biết lĩnh vực nghiệp vụ mà dự án phục vụ: bán lẻ, ngân hàng, nhà hàng…</p><p>BABOK v3 gọi là Business Knowledge.</p>"
+  },
+  {
+   "id": "L01-f28",
+   "front": "Hai lối vào nghề BA theo sơ đồ IIBA",
+   "back": "<p><b>Office</b>: chuyển từ vị trí khác (lập trình, QA, hỗ trợ, bán hàng, tài chính, quản lý dự án…).</p><p><b>School</b>: bằng Business, IT hoặc chứng chỉ Business Analysis.</p>"
+  },
+  {
+   "id": "L01-f29",
+   "front": "CCBA và CBAP",
+   "back": "<p>Hai chứng chỉ IIBA. <b>CCBA</b> (Certification of Capability in Business Analysis) gắn với mức Intermediate. <b>CBAP</b> (Certified Business Analysis Professional) gắn với mức Senior trở lên.</p>"
+  },
+  {
+   "id": "L01-f30",
+   "front": "4 nhánh phát triển từ BA (sơ đồ BA Career)",
+   "back": "<p>Business Analysis (Senior BA, Domain BA) · Product Management (Product Owner → Product Manager) · Project Management (Project Manager → Unit Head) · Consulting (Consultant → Partner).</p>"
+  },
+  {
+   "id": "L01-f31",
+   "front": "Domain BA",
+   "back": "<p>BA chuyên sâu một lĩnh vực nghiệp vụ (ví dụ ngân hàng, bán lẻ). Là một nấc tiến của nhánh Business Analysis, cạnh Senior BA.</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L01-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo định nghĩa của IIBA, Business Analysis là hoạt động tạo điều kiện cho điều gì trong một tổ chức?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Sự thay đổi (change)"
+    },
+    {
+     "id": "b",
+     "t": "Sự ổn định của quy trình đang có"
+    },
+    {
+     "id": "c",
+     "t": "Việc cắt giảm nhân sự"
+    },
+    {
+     "id": "d",
+     "t": "Việc lập trình phần mềm mới"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Định nghĩa IIBA bắt đầu bằng \"the practice of <b>enabling change</b> in an enterprise\" – tạo điều kiện cho thay đổi. Mẹo nhớ: BA tồn tại vì tổ chức muốn thay đổi.</p>",
+   "why_wrong": {
+    "b": "BA hướng tới thay đổi, không phải giữ nguyên hiện trạng.",
+    "c": "Cắt giảm nhân sự có thể là một giải pháp cụ thể, không phải mục đích trong định nghĩa.",
+    "d": "Phần mềm chỉ là một loại giải pháp; định nghĩa không nói BA lập trình."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.6"
+  },
+  {
+   "id": "L01-q2",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo IIBA, Business Analysis tạo điều kiện cho thay đổi thông qua hai việc chính nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Viết code và kiểm thử phần mềm"
+    },
+    {
+     "id": "b",
+     "t": "Quản lý ngân sách và theo dõi tiến độ dự án"
+    },
+    {
+     "id": "c",
+     "t": "Xác định nhu cầu và đề xuất giải pháp"
+    },
+    {
+     "id": "d",
+     "t": "Tuyển dụng, đào tạo và đánh giá nhân sự mới"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Định nghĩa: \"by <b>defining needs</b> and <b>recommending solutions</b>\" – xác định nhu cầu và đề xuất giải pháp.</p>",
+   "why_wrong": {
+    "a": "Viết code và kiểm thử là việc của lập trình viên và tester.",
+    "b": "Ngân sách, tiến độ là trọng tâm của quản lý dự án, không có trong định nghĩa BA.",
+    "d": "Tuyển dụng, đào tạo là việc của bộ phận nhân sự."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.6"
+  },
+  {
+   "id": "L01-q3",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Theo IIBA, chỉ người có chức danh \"Business Analyst\" mới được coi là BA.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>IIBA nói BA là \"any person who performs business analysis tasks, <b>no matter their job title</b> or organizational role\". Tiêu chí là việc làm, không phải chức danh.</p>",
+   "why_wrong": {
+    "d": "Định nghĩa ghi rõ \"bất kể chức danh hay vị trí\", nên chức danh không quyết định ai là BA."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.7"
+  },
+  {
+   "id": "L01-q4",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao một Product Owner có thể được coi là BA theo định nghĩa của IIBA?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì Product Owner nào cũng phải có chứng chỉ CBAP"
+    },
+    {
+     "id": "b",
+     "t": "Vì họ làm việc phân tích nghiệp vụ"
+    },
+    {
+     "id": "c",
+     "t": "Vì Product Owner luôn là cấp quản lý trực tiếp của BA"
+    },
+    {
+     "id": "d",
+     "t": "Vì IIBA đã đổi tên Business Analyst thành Product Owner"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Theo IIBA, ai thực hiện công việc phân tích nghiệp vụ (xác định nhu cầu, đề xuất giải pháp) thì là BA. Product Owner thường làm đúng những việc đó.</p>",
+   "why_wrong": {
+    "a": "Định nghĩa BA không đòi hỏi chứng chỉ nào.",
+    "c": "Quan hệ cấp trên – cấp dưới không liên quan tới việc ai là BA.",
+    "d": "IIBA không đổi tên chức danh; hai vai trò vẫn tồn tại song song."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.7"
+  },
+  {
+   "id": "L01-q5",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong định nghĩa của IIBA, giải pháp mà BA đề xuất phải đáp ứng điều kiện nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mang lại giá trị cho Stakeholder"
+    },
+    {
+     "id": "b",
+     "t": "Có chi phí thấp nhất trên thị trường hiện nay"
+    },
+    {
+     "id": "c",
+     "t": "Dùng công nghệ mới nhất hiện nay"
+    },
+    {
+     "id": "d",
+     "t": "Được đội IT đồng ý trước tiên"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Định nghĩa: \"solutions that <b>deliver value to stakeholders</b>\". Giá trị cho bên liên quan là thước đo của giải pháp.</p>",
+   "why_wrong": {
+    "b": "Rẻ nhất chưa chắc mang lại giá trị; định nghĩa không nói về giá thấp nhất.",
+    "c": "Công nghệ mới không phải điều kiện; giải pháp có thể không cần công nghệ.",
+    "d": "Đội IT chỉ là một trong các bên liên quan, không phải điều kiện của định nghĩa."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.6"
+  },
+  {
+   "id": "L01-q6",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Những hoạt động nào có trong danh sách \"Các hoạt động BA thực hiện\" trên slide? (chọn nhiều đáp án)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hiểu các vấn đề và mục tiêu của doanh nghiệp"
+    },
+    {
+     "id": "b",
+     "t": "Chèo lái, điều khiển các thay đổi"
+    },
+    {
+     "id": "c",
+     "t": "Phê duyệt ngân sách cho dự án"
+    },
+    {
+     "id": "d",
+     "t": "Tạo điều kiện cho sự hợp tác của các bên liên quan"
+    },
+    {
+     "id": "e",
+     "t": "Viết mã nguồn cho hệ thống"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Slide nêu 5 hoạt động: hiểu vấn đề và mục tiêu; phân tích nhu cầu và giải pháp; đưa ra chiến lược; chèo lái thay đổi; tạo điều kiện cho các bên hợp tác.</p>",
+   "why_wrong": {
+    "c": "Phê duyệt ngân sách là quyền của người tài trợ hoặc ban lãnh đạo, không phải hoạt động của BA.",
+    "e": "Viết mã nguồn là việc của lập trình viên."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.8"
+  },
+  {
+   "id": "L01-q7",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong chu trình 4 bước trên slide \"Các hoạt động BA thực hiện\", bước nào đứng ngay sau <b>Stakeholders</b>?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Transition"
+    },
+    {
+     "id": "b",
+     "t": "Business Objective"
+    },
+    {
+     "id": "c",
+     "t": "Requirements"
+    },
+    {
+     "id": "d",
+     "t": "Solutions"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Thứ tự chu trình: Business Objective → Stakeholders → Solutions → Transition → quay lại Business Objective. Mẹo: Mục tiêu – Con người – Giải pháp – Chuyển đổi.</p>",
+   "why_wrong": {
+    "a": "Transition đứng sau Solutions, không ngay sau Stakeholders.",
+    "b": "Business Objective là bước đầu, đứng trước Stakeholders.",
+    "c": "Requirements không phải một bước trong chu trình này."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.8"
+  },
+  {
+   "id": "L01-q8",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao chu trình trên slide quay từ <b>Transition</b> trở lại <b>Business Objective</b>?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Để kiểm tra lại mục tiêu và mở vòng mới"
+    },
+    {
+     "id": "b",
+     "t": "Vì dự án bị hủy và phải làm lại với mục tiêu khác"
+    },
+    {
+     "id": "c",
+     "t": "Vì Transition phải làm trước khi đặt mục tiêu"
+    },
+    {
+     "id": "d",
+     "t": "Vì Stakeholder không tham gia ở các vòng sau nữa"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Sau khi đưa giải pháp vào thực tế, BA xem mục tiêu đã đạt chưa và có mục tiêu mới không. Công việc BA lặp lại theo vòng, không dừng ở lúc bàn giao.</p>",
+   "why_wrong": {
+    "b": "Quay lại mục tiêu là để cải tiến tiếp, không có nghĩa dự án bị hủy.",
+    "c": "Transition đứng sau Solutions, không thể làm trước khi có mục tiêu.",
+    "d": "Stakeholders vẫn là một bước trong mọi vòng của chu trình."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.8"
+  },
+  {
+   "id": "L01-q9",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Theo slide, những việc nào là công việc thường làm của một IT BA? (chọn nhiều đáp án)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Quản trị máy chủ và mạng"
+    },
+    {
+     "id": "b",
+     "t": "Thiết kế giao diện, hệ thống"
+    },
+    {
+     "id": "c",
+     "t": "Quản lý tài liệu"
+    },
+    {
+     "id": "d",
+     "t": "Chạy kiểm thử hiệu năng tự động"
+    },
+    {
+     "id": "e",
+     "t": "Hỗ trợ đội dự án"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Thiết kế giao diện, hệ thống nằm ở slide đầu; Hỗ trợ đội dự án và Quản lý tài liệu nằm ở slide sau của mục \"Các công việc thường làm của một IT BA\".</p>",
+   "why_wrong": {
+    "a": "Quản trị máy chủ, mạng là việc của quản trị hệ thống.",
+    "d": "Kiểm thử hiệu năng tự động là việc của tester hoặc kỹ sư kiểm thử."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.9-10"
+  },
+  {
+   "id": "L01-q10",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Hình 5 mảng (Need Identification, Elicitation &amp; Collaboration, Requirements Communication, Requirements Modeling, Requirement Management) trên slide công việc IT BA chính là 6 knowledge area của BABOK v3.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Hình 5 mảng chỉ là minh họa công việc. 6 knowledge area của BABOK v3 là một bộ khác, có Planning and Monitoring, Strategy Analysis, Solution Evaluation…</p>",
+   "why_wrong": {
+    "d": "Hình chỉ có 5 mảng, tên khác và không có Strategy Analysis hay Solution Evaluation, nên không phải 6 knowledge area."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.9, 17"
+  },
+  {
+   "id": "L01-q11",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Dự án quản lý thư viện đang phát triển thì ban giám hiệu muốn thêm chức năng gia hạn sách online. Việc BA tiếp nhận, đánh giá ảnh hưởng và cập nhật yêu cầu thuộc công việc nào của IT BA?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hướng dẫn sử dụng, hỗ trợ người dùng"
+    },
+    {
+     "id": "b",
+     "t": "Quản lý yêu cầu thay đổi"
+    },
+    {
+     "id": "c",
+     "t": "Quản lý tài liệu"
+    },
+    {
+     "id": "d",
+     "t": "Thiết kế giao diện, hệ thống"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Yêu cầu mới phát sinh khi dự án đang chạy là một thay đổi. Tiếp nhận, đánh giá ảnh hưởng và cập nhật là công việc \"Quản lý yêu cầu thay đổi\".</p>",
+   "why_wrong": {
+    "a": "Hướng dẫn sử dụng dành cho người dùng sau khi có hệ thống, không phải xử lý yêu cầu mới.",
+    "c": "Quản lý tài liệu lo lưu trữ, phiên bản, không đánh giá ảnh hưởng của yêu cầu.",
+    "d": "Thiết kế màn hình gia hạn có thể làm sau, nhưng bước đầu là tiếp nhận và đánh giá thay đổi."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.10"
+  },
+  {
+   "id": "L01-q12",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Sau khi bàn giao app đặt đồ ăn, chủ quán chưa biết cách xem báo cáo doanh thu trong app. BA hướng dẫn chủ quán từng bước. Đây là công việc nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thu thập, khảo sát yêu cầu nghiệp vụ"
+    },
+    {
+     "id": "b",
+     "t": "Quản lý quan hệ với các Stakeholders của dự án"
+    },
+    {
+     "id": "c",
+     "t": "Hướng dẫn sử dụng, hỗ trợ người dùng"
+    },
+    {
+     "id": "d",
+     "t": "Phân tích yêu cầu nghiệp vụ"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Chủ quán là người dùng, cần biết cách dùng chức năng đã có. Đây đúng là \"Hướng dẫn sử dụng, hỗ trợ người dùng\".</p>",
+   "why_wrong": {
+    "a": "Không có yêu cầu mới nào cần thu thập; chức năng đã có sẵn.",
+    "b": "Quản lý quan hệ Stakeholder rộng hơn; việc cụ thể ở đây là hướng dẫn dùng app.",
+    "d": "Không có yêu cầu nào cần phân tích; chủ quán chỉ chưa biết cách dùng."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.10"
+  },
+  {
+   "id": "L01-q13",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Dự án FoodNow (đặt bàn nhà hàng): trong lúc code, lập trình viên hỏi BA \"khách hủy bàn sát giờ thì có giữ tiền cọc không?\". BA giải thích quy tắc đã thống nhất với nhà hàng. Đây là công việc nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hỗ trợ đội dự án"
+    },
+    {
+     "id": "b",
+     "t": "Quản lý tài liệu"
+    },
+    {
+     "id": "c",
+     "t": "Hướng dẫn sử dụng, hỗ trợ người dùng"
+    },
+    {
+     "id": "d",
+     "t": "Thu thập, khảo sát yêu cầu nghiệp vụ"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Người hỏi là thành viên đội dự án (lập trình viên), câu hỏi nảy sinh trong lúc phát triển. Giải đáp cho họ là \"Hỗ trợ đội dự án\".</p>",
+   "why_wrong": {
+    "b": "BA không lưu trữ hay quản lý phiên bản tài liệu ở đây.",
+    "c": "Lập trình viên không phải người dùng cuối của hệ thống.",
+    "d": "Quy tắc đã thống nhất từ trước, BA không cần khảo sát lại."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.10"
+  },
+  {
+   "id": "L01-q14",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Công việc \"Quản lý tài liệu\" của IT BA nhằm mục đích chính nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Viết thêm thật nhiều tài liệu mới mỗi tuần"
+    },
+    {
+     "id": "b",
+     "t": "Giữ tài liệu bí mật, không chia sẻ cho đội dự án"
+    },
+    {
+     "id": "c",
+     "t": "Chuyển hết tài liệu cho khách hàng tự lưu và tự quản lý"
+    },
+    {
+     "id": "d",
+     "t": "Giúp mọi người luôn dùng đúng phiên bản tài liệu"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Quản lý tài liệu là lưu trữ, đặt tên, quản lý phiên bản để đội dự án và khách không dùng nhầm bản cũ.</p>",
+   "why_wrong": {
+    "a": "Mục đích không phải số lượng tài liệu mà là tài liệu được quản lý đúng.",
+    "b": "Tài liệu BA viết ra để đội dự án dùng, không phải để giấu.",
+    "c": "BA vẫn chịu trách nhiệm quản lý tài liệu nghiệp vụ, không đẩy hết cho khách."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.10"
+  },
+  {
+   "id": "L01-q15",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong hình minh họa I.T. – Business Analyst – Stakeholder, vì sao BA được đặt ở giữa?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì BA quản lý cả đội IT lẫn Stakeholder"
+    },
+    {
+     "id": "b",
+     "t": "Vì BA là người duy nhất được nói chuyện với khách hàng"
+    },
+    {
+     "id": "c",
+     "t": "Vì BA là cầu nối giúp hai bên hiểu nhau"
+    },
+    {
+     "id": "d",
+     "t": "Vì BA ra quyết định thay cho cả hai bên"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>BA lắng nghe, thấu hiểu nhu cầu của Stakeholder và truyền đạt đúng ngôn ngữ cho đội IT, và ngược lại. BA là \"người phiên dịch\" giữa nghiệp vụ và kỹ thuật.</p>",
+   "why_wrong": {
+    "a": "BA không phải cấp quản lý của đội IT hay của Stakeholder.",
+    "b": "Các bên khác vẫn có thể gặp khách; BA không giữ độc quyền liên lạc.",
+    "d": "BA đề xuất và giúp thống nhất, còn quyết định thuộc về các bên có thẩm quyền."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.13"
+  },
+  {
+   "id": "L01-q16",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>\"Truyền đạt đúng ngôn ngữ\" trong slide tầm quan trọng của BA nghĩa là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Dùng tiếng Anh khi nói với mọi bên"
+    },
+    {
+     "id": "b",
+     "t": "Chọn cách diễn đạt hợp với từng bên nghe"
+    },
+    {
+     "id": "c",
+     "t": "Dùng nhiều thuật ngữ kỹ thuật để Stakeholder thấy BA chuyên nghiệp"
+    },
+    {
+     "id": "d",
+     "t": "Chỉ gửi tài liệu, không trao đổi bằng lời"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Trên slide, BA nói với Stakeholder bằng biểu đồ (ngôn ngữ kinh doanh) và nói với IT bằng cấu trúc, mã (ngôn ngữ kỹ thuật). Cùng nội dung, mỗi bên một cách diễn đạt.</p>",
+   "why_wrong": {
+    "a": "\"Ngôn ngữ\" ở đây là cách diễn đạt nghiệp vụ hay kỹ thuật, không phải tiếng Anh hay tiếng Việt.",
+    "c": "Thuật ngữ kỹ thuật làm bên nghiệp vụ khó hiểu, trái với mục đích truyền đạt.",
+    "d": "Truyền đạt gồm cả nói và viết; bỏ trao đổi trực tiếp dễ gây hiểu sai."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.13"
+  },
+  {
+   "id": "L01-q17",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA trình bày với ban giám đốc SolasMart về lợi ích của kênh bán online. Cách trình bày nào phù hợp nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Giải thích cấu trúc cơ sở dữ liệu và API sẽ dùng"
+    },
+    {
+     "id": "b",
+     "t": "Đọc nguyên văn bản đặc tả kỹ thuật chi tiết"
+    },
+    {
+     "id": "c",
+     "t": "Cho xem mã nguồn mẫu của trang đặt hàng"
+    },
+    {
+     "id": "d",
+     "t": "Biểu đồ doanh thu dự kiến và lợi ích kinh doanh"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Ban giám đốc là Stakeholder phía nghiệp vụ. Truyền đạt đúng ngôn ngữ nghĩa là dùng số liệu, biểu đồ, lợi ích kinh doanh – giống khung BA cầm biểu đồ trên slide.</p>",
+   "why_wrong": {
+    "a": "Cơ sở dữ liệu, API là ngôn ngữ kỹ thuật, hợp với đội IT hơn.",
+    "b": "Đặc tả kỹ thuật quá chi tiết, không trả lời câu hỏi \"được lợi gì\" của ban giám đốc.",
+    "c": "Mã nguồn là ngôn ngữ của lập trình viên, ban giám đốc không cần đọc."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.13"
+  },
+  {
+   "id": "L01-q18",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Thông điệp chính của hình hai người nhìn cùng một con số, một người thấy 6, người kia thấy 9, là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Luôn có một bên sai và BA phải chỉ ra bên sai đó"
+    },
+    {
+     "id": "b",
+     "t": "Cả hai có thể đúng, nhưng phải chốt một cách hiểu"
+    },
+    {
+     "id": "c",
+     "t": "BA nên đứng về phía người có chức vụ cao hơn"
+    },
+    {
+     "id": "d",
+     "t": "Khác biệt cách hiểu là chuyện nhỏ, không cần xử lý"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Câu trên slide: \"both of you are right but we have to agree on one\". Mỗi bên đúng theo góc nhìn riêng, nhưng dự án cần một cách hiểu chung.</p>",
+   "why_wrong": {
+    "a": "Slide nói cả hai đều đúng theo góc nhìn của mình, không có bên sai.",
+    "c": "Chức vụ không quyết định cách hiểu đúng; BA dẫn các bên tới thống nhất.",
+    "d": "Không thống nhất thì đội dự án sẽ làm theo hai hướng khác nhau, gây lỗi lớn."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.14"
+  },
+  {
+   "id": "L01-q19",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Dự án quản lý thư viện: thủ thư hiểu \"sách quá hạn\" là tính ngay từ ngày hết hạn, còn ban giám hiệu hiểu là sau vài ngày ân hạn. BA nên làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Cho IT làm theo cách hiểu của thủ thư vì thủ thư dùng nhiều nhất"
+    },
+    {
+     "id": "b",
+     "t": "Làm cả hai cách tính để người dùng tự chọn"
+    },
+    {
+     "id": "c",
+     "t": "Đưa hai bên tới một định nghĩa chung và cho họ xác nhận"
+    },
+    {
+     "id": "d",
+     "t": "Bỏ chức năng quá hạn cho tới khi hai bên tự thống nhất"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Đây là tình huống \"6 hay 9\": hai bên đều có lý, nhưng hệ thống chỉ chạy theo một quy tắc. BA tổ chức thống nhất, ghi lại định nghĩa và xin xác nhận.</p>",
+   "why_wrong": {
+    "a": "BA không tự chọn phe; quyết định cần được các bên thống nhất.",
+    "b": "Làm hai cách tính gây rối dữ liệu và chưa giải quyết bất đồng.",
+    "d": "BA phải chủ động tạo điều kiện cho các bên hợp tác, không chờ họ tự giải quyết."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.8, 14"
+  },
+  {
+   "id": "L01-q20",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong tranh cái xích đu, khung \"What the customer really needed\" vẽ gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Một xích đu ba tầng ván"
+    },
+    {
+     "id": "b",
+     "t": "Một tàu lượn siêu tốc thật lớn"
+    },
+    {
+     "id": "c",
+     "t": "Một ghế bành sang trọng màu xanh"
+    },
+    {
+     "id": "d",
+     "t": "Một chiếc lốp xe treo dây"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Thứ khách thật sự cần chỉ là chiếc lốp xe treo dây, đơn giản hơn nhiều so với mọi thứ các khâu đã làm ra.</p>",
+   "why_wrong": {
+    "a": "Xích đu ba tầng là cách khách hàng giải thích (How the customer explained it).",
+    "b": "Tàu lượn là thứ khách bị tính tiền (How the customer was billed).",
+    "c": "Ghế bành là cách nhân viên bán hàng mô tả (How the sales executive described it)."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.15"
+  },
+  {
+   "id": "L01-q21",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Khung \"How the customer was billed\" vẽ cả một tàu lượn siêu tốc. Khung này phản ánh vấn đề gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chi phí khách trả vượt xa nhu cầu thật"
+    },
+    {
+     "id": "b",
+     "t": "Khách hàng không mô tả rõ nhu cầu ngay từ đầu"
+    },
+    {
+     "id": "c",
+     "t": "Đội vận hành lắp đặt còn thiếu"
+    },
+    {
+     "id": "d",
+     "t": "Tài liệu dự án bị bỏ trống, không ai ghi lại"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Khách chỉ cần một chiếc lốp xe nhưng bị tính tiền như một tàu lượn: chi phí phình to khi nhu cầu không được làm rõ và kiểm soát.</p>",
+   "why_wrong": {
+    "b": "Đó là khung \"How the customer explained it\".",
+    "c": "Đó là khung \"What operations installed\" (chỉ có sợi dây).",
+    "d": "Đó là khung \"How the project was documented\" (khung trống)."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.15"
+  },
+  {
+   "id": "L01-q22",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Theo tranh cái xích đu, sản phẩm lệch nhu cầu chỉ vì lập trình viên viết sai.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Tranh cho thấy lệch ở mọi khâu: khách giải thích chưa đúng, trưởng dự án hiểu sai, kỹ sư thiết kế sai, bán hàng mô tả quá mức, tài liệu trống… Vì vậy cần BA giữ cách hiểu chung xuyên suốt.</p>",
+   "why_wrong": {
+    "d": "Lập trình viên chỉ là một trong mười khung; ngay cả khách hàng cũng mô tả khác với thứ mình cần."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.15"
+  },
+  {
+   "id": "L01-q23",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Đội kinh doanh của dự án FoodNow hứa với nhà hàng \"hệ thống tự xếp bàn thông minh\", trong khi phạm vi chỉ có đặt bàn cơ bản. Tình huống này giống khung nào trong tranh cái xích đu?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "How the customer explained it"
+    },
+    {
+     "id": "b",
+     "t": "How the sales executive described it"
+    },
+    {
+     "id": "c",
+     "t": "How the project was documented"
+    },
+    {
+     "id": "d",
+     "t": "How the helpdesk supported it"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Khung bán hàng vẽ một ghế bành sang trọng: mô tả hào nhoáng vượt xa thứ thực sự làm ra. Hứa \"xếp bàn thông minh\" là đúng kiểu này.</p>",
+   "why_wrong": {
+    "a": "Khung này nói về khách mô tả nhu cầu, không phải đội bán hàng hứa hẹn.",
+    "c": "Khung này nói về tài liệu dự án bị trống.",
+    "d": "Khung này nói về hỗ trợ sau triển khai (chỉ còn gốc cây)."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.15"
+  },
+  {
+   "id": "L01-q24",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, BABOK v3 chia công việc BA thành bao nhiêu khu vực kiến thức (knowledge area)?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "4"
+    },
+    {
+     "id": "b",
+     "t": "5"
+    },
+    {
+     "id": "c",
+     "t": "6"
+    },
+    {
+     "id": "d",
+     "t": "10"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide \"6 khu vực kiến thức BA\" vẽ 6 knowledge area nối với nhau.</p>",
+   "why_wrong": {
+    "a": "4 là số phần nội dung chính của buổi học, không phải số knowledge area.",
+    "b": "5 là số mảng trong hình minh họa công việc BA, không phải BABOK.",
+    "d": "10 là số công việc thường làm của IT BA."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.17"
+  },
+  {
+   "id": "L01-q25",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Những mục nào là knowledge area của BABOK v3? (chọn nhiều đáp án)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Strategy Analysis"
+    },
+    {
+     "id": "b",
+     "t": "Software Testing"
+    },
+    {
+     "id": "c",
+     "t": "Solution Evaluation"
+    },
+    {
+     "id": "d",
+     "t": "Project Budgeting"
+    },
+    {
+     "id": "e",
+     "t": "Elicitation and Collaboration"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>6 knowledge area: Planning and Monitoring, Elicitation and Collaboration, Requirements Life Cycle Management, Strategy Analysis, Requirements Analysis and Design Definition, Solution Evaluation.</p>",
+   "why_wrong": {
+    "b": "Kiểm thử phần mềm là lĩnh vực của tester, không phải knowledge area BA.",
+    "d": "Lập ngân sách dự án thuộc quản lý dự án, không có trong 6 knowledge area."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.17"
+  },
+  {
+   "id": "L01-q26",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Knowledge area nào trả lời câu hỏi \"hiện trạng là gì, trạng thái mong muốn là gì, đi từ đây tới đó bằng cách nào\"?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Strategy Analysis"
+    },
+    {
+     "id": "b",
+     "t": "Solution Evaluation"
+    },
+    {
+     "id": "c",
+     "t": "Requirements Life Cycle Management"
+    },
+    {
+     "id": "d",
+     "t": "Elicitation and Collaboration"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Strategy Analysis (phân tích chiến lược) nhìn bức tranh lớn: hiện trạng, tương lai mong muốn và hướng chuyển đổi.</p>",
+   "why_wrong": {
+    "b": "Solution Evaluation đánh giá giải pháp sau khi đã có, không vạch hướng đi.",
+    "c": "Requirements Life Cycle Management quản lý yêu cầu (truy vết, thay đổi), không phân tích chiến lược.",
+    "d": "Elicitation and Collaboration lo việc lấy thông tin từ Stakeholder."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.17"
+  },
+  {
+   "id": "L01-q27",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Trong sơ đồ 6 khu vực kiến thức BA, các mũi tên hai chiều cho thấy các khu vực liên quan qua lại với nhau, không phải các bước phải làm lần lượt.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Các knowledge area nối hai chiều và có thể diễn ra song song. BA có thể vừa khai thác thông tin vừa quản lý thay đổi trong cùng một tuần.</p>",
+   "why_wrong": {
+    "s": "Sơ đồ không có thứ tự bước 1, 2, 3; mũi tên hai chiều thể hiện quan hệ qua lại."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.17"
+  },
+  {
+   "id": "L01-q28",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Sau khi SolasMart lắp máy tự thanh toán, BA so sánh thời gian khách chờ trước và sau để xem giải pháp có đạt mục tiêu không. Việc này thuộc knowledge area nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Business Analysis Planning and Monitoring"
+    },
+    {
+     "id": "b",
+     "t": "Elicitation and Collaboration"
+    },
+    {
+     "id": "c",
+     "t": "Solution Evaluation"
+    },
+    {
+     "id": "d",
+     "t": "Requirements Analysis and Design Definition"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Đo xem giải pháp đã triển khai có mang lại giá trị như mong đợi là Solution Evaluation (đánh giá giải pháp).</p>",
+   "why_wrong": {
+    "a": "Planning and Monitoring lập kế hoạch cho chính công việc BA, không đo kết quả giải pháp.",
+    "b": "Elicitation and Collaboration lấy thông tin từ Stakeholder, không đánh giá giải pháp.",
+    "d": "Requirements Analysis and Design Definition đặc tả, mô hình hóa yêu cầu trước khi làm giải pháp."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.17"
+  },
+  {
+   "id": "L01-q29",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA dự án quản lý thư viện lập ma trận theo dõi để biết mỗi yêu cầu đã được duyệt chưa, đang ở trạng thái nào và liên quan tới chức năng nào. Việc này thuộc knowledge area nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Strategy Analysis"
+    },
+    {
+     "id": "b",
+     "t": "Requirements Analysis and Design Definition"
+    },
+    {
+     "id": "c",
+     "t": "Requirements Life Cycle Management"
+    },
+    {
+     "id": "d",
+     "t": "Solution Evaluation"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Theo dõi trạng thái, phê duyệt và truy vết yêu cầu trong suốt dự án là Requirements Life Cycle Management (quản lý vòng đời yêu cầu).</p>",
+   "why_wrong": {
+    "a": "Strategy Analysis xác định hướng thay đổi, không theo dõi từng yêu cầu.",
+    "b": "Requirements Analysis and Design Definition tạo và đặc tả yêu cầu, không quản lý trạng thái của chúng.",
+    "d": "Solution Evaluation đo hiệu quả giải pháp sau khi chạy."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.17"
+  },
+  {
+   "id": "L01-q30",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trước khi bắt đầu dự án SolasMart bán online, BA xác định sẽ phỏng vấn ai, vào lúc nào, tài liệu nào cần ai duyệt và cách báo cáo tiến độ công việc BA. Việc này thuộc knowledge area nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Elicitation and Collaboration"
+    },
+    {
+     "id": "b",
+     "t": "Business Analysis Planning and Monitoring"
+    },
+    {
+     "id": "c",
+     "t": "Requirements Analysis and Design Definition"
+    },
+    {
+     "id": "d",
+     "t": "Strategy Analysis"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Lên kế hoạch cho chính công việc BA (làm gì, với ai, ai duyệt, theo dõi thế nào) là Business Analysis Planning and Monitoring.</p>",
+   "why_wrong": {
+    "a": "Elicitation and Collaboration là lúc thực hiện phỏng vấn, còn ở đây BA mới lập kế hoạch.",
+    "c": "Chưa có yêu cầu nào để phân tích hay đặc tả.",
+    "d": "Strategy Analysis phân tích hướng thay đổi của doanh nghiệp, không lập kế hoạch công việc BA."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.17"
+  },
+  {
+   "id": "L01-q31",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong BABOK v3, nhóm năng lực như giao tiếp, tương tác, đặc điểm hành vi, công cụ và công nghệ được gọi chung là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Knowledge Areas"
+    },
+    {
+     "id": "b",
+     "t": "Business Analysis Core Concepts"
+    },
+    {
+     "id": "c",
+     "t": "Underlying Competencies"
+    },
+    {
+     "id": "d",
+     "t": "Requirements"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>BABOK v3 gọi nhóm này là Underlying Competencies (năng lực nền tảng). Slide gọi là \"Năng lực cốt lõi khác của BA\".</p>",
+   "why_wrong": {
+    "a": "Knowledge Areas là 6 khu vực kiến thức, tức nhóm việc BA làm, không phải năng lực cá nhân.",
+    "b": "Core Concepts (BACCM) là mô hình 6 khái niệm lõi như Change, Need, Solution, không phải nhóm năng lực của BA.",
+    "d": "Requirements là yêu cầu của giải pháp, không phải năng lực của BA."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.18"
+  },
+  {
+   "id": "L01-q32",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Những mục nào có trên slide \"Năng lực cốt lõi khác của BA\"? (chọn nhiều đáp án)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Project Budgeting"
+    },
+    {
+     "id": "b",
+     "t": "Interaction Skills"
+    },
+    {
+     "id": "c",
+     "t": "Programming Skills"
+    },
+    {
+     "id": "d",
+     "t": "Behavioural Characteristics"
+    },
+    {
+     "id": "e",
+     "t": "Tools & Technology"
+    }
+   ],
+   "answer": [
+    "b",
+    "d",
+    "e"
+   ],
+   "explain": "<p>Slide có 6 năng lực: Critical and Analytical Thinking, Business Domain, Interaction Skills, Communication Skills, Tools &amp; Technology, Behavioural Characteristics.</p>",
+   "why_wrong": {
+    "a": "Lập ngân sách dự án không nằm trong 6 năng lực trên slide.",
+    "c": "Kỹ năng lập trình không phải năng lực cốt lõi của BA trên slide."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.18"
+  },
+  {
+   "id": "L01-q33",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Câu nào phân biệt đúng Interaction Skills và Communication Skills?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Interaction: nói, viết, nghe; Communication: điều phối, đàm phán"
+    },
+    {
+     "id": "b",
+     "t": "Interaction: dùng công cụ phần mềm; Communication: hiểu lĩnh vực"
+    },
+    {
+     "id": "c",
+     "t": "Hai năng lực giống hệt nhau, chỉ khác tên gọi"
+    },
+    {
+     "id": "d",
+     "t": "Interaction: điều phối, đàm phán; Communication: nói, viết, nghe"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Communication là truyền đạt (nói, viết, lắng nghe). Interaction là làm việc với người khác (điều phối họp, đàm phán, giải quyết xung đột, làm việc nhóm).</p>",
+   "why_wrong": {
+    "a": "Đảo ngược nội dung của hai năng lực.",
+    "b": "Dùng công cụ là Tools & Technology, hiểu lĩnh vực là Business Domain.",
+    "c": "Slide tách thành hai năng lực riêng vì nội dung khác nhau."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.18"
+  },
+  {
+   "id": "L01-q34",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA dự án FoodNow nắm rõ cách nhà hàng vận hành giờ cao điểm, cách giữ bàn và quy định đặt cọc, nên đặt câu hỏi đúng trọng tâm ngay buổi đầu. Năng lực nào thể hiện rõ nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tools & Technology"
+    },
+    {
+     "id": "b",
+     "t": "Business Domain"
+    },
+    {
+     "id": "c",
+     "t": "Behavioural Characteristics"
+    },
+    {
+     "id": "d",
+     "t": "Interaction Skills"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Hiểu cách vận hành của ngành mà dự án phục vụ là Business Domain (hiểu biết lĩnh vực nghiệp vụ).</p>",
+   "why_wrong": {
+    "a": "Tools & Technology là dùng công cụ, công nghệ, không phải hiểu ngành nhà hàng.",
+    "c": "Behavioural Characteristics nói về phẩm chất như trung thực, trách nhiệm.",
+    "d": "Interaction Skills là điều phối, đàm phán với người khác, không phải kiến thức ngành."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.18"
+  },
+  {
+   "id": "L01-q35",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA dự án quản lý thư viện cam kết gửi biên bản họp trong vòng 24 giờ và lần nào cũng giữ đúng hẹn, nên các bên rất tin tưởng. Năng lực nào thể hiện rõ nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Communication Skills"
+    },
+    {
+     "id": "b",
+     "t": "Critical and Analytical Thinking"
+    },
+    {
+     "id": "c",
+     "t": "Behavioural Characteristics"
+    },
+    {
+     "id": "d",
+     "t": "Business Domain"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Giữ lời hứa, đáng tin cậy, có trách nhiệm là đặc điểm hành vi (Behavioural Characteristics). Trọng tâm ở đây là sự đáng tin, không phải cách viết biên bản.</p>",
+   "why_wrong": {
+    "a": "Communication Skills nói về viết rõ, nói rõ; tình huống nhấn vào việc giữ đúng cam kết.",
+    "b": "Không có phân tích hay tìm nguyên nhân gốc nào trong tình huống.",
+    "d": "Không liên quan tới hiểu biết về nghiệp vụ thư viện."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.18"
+  },
+  {
+   "id": "L01-q36",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Năng lực \"Critical and Analytical Thinking\" trên slide tương ứng với năng lực \"Analytical Thinking and Problem Solving\" trong BABOK v3.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide dùng tên gọi khác, nhưng nội dung tương ứng với Analytical Thinking and Problem Solving của BABOK v3. Tương tự, \"Business Domain\" tương ứng Business Knowledge.</p>",
+   "why_wrong": {
+    "s": "Hai tên cùng chỉ năng lực tư duy phân tích, đặt câu hỏi và giải quyết vấn đề; chỉ khác cách gọi."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.18"
+  },
+  {
+   "id": "L01-q37",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo sơ đồ \"Driving your B.A. career\" của IIBA, hai lối vào nghề BA là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Agile và Waterfall"
+    },
+    {
+     "id": "b",
+     "t": "Office và School"
+    },
+    {
+     "id": "c",
+     "t": "IT và Sales"
+    },
+    {
+     "id": "d",
+     "t": "Junior và Senior"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Sơ đồ có hai điểm xuất phát: Office (người đang đi làm ở vị trí khác) và School (người có bằng Business, IT hoặc chứng chỉ BA).</p>",
+   "why_wrong": {
+    "a": "Agile, Waterfall là mô hình phát triển phần mềm, không phải lối vào nghề.",
+    "c": "IT và Sales chỉ là một vài vị trí trong nhánh Office.",
+    "d": "Junior, Senior là cấp bậc sau khi đã vào nghề."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.21"
+  },
+  {
+   "id": "L01-q38",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Theo sơ đồ của IIBA, người đang làm bán hàng hoặc chăm sóc khách hàng vẫn có thể chuyển sang nghề BA dù không xuất thân IT.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Nhánh Office trên sơ đồ có cả Business Sales và Business Customer Service. BA có nhiều lối vào, không bắt buộc xuất thân IT.</p>",
+   "why_wrong": {
+    "s": "Sơ đồ đặt Business Sales, Customer Service ngay trong lối vào Office, nên họ vẫn chuyển sang BA được."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.21"
+  },
+  {
+   "id": "L01-q39",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trên sơ đồ \"Make your way to Senior level\", chứng chỉ nào được ghi kèm các vị trí Intermediate?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "CBAP"
+    },
+    {
+     "id": "b",
+     "t": "PMP"
+    },
+    {
+     "id": "c",
+     "t": "ECBA"
+    },
+    {
+     "id": "d",
+     "t": "CCBA"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Các ô Intermediate ghi CCBA; các ô Senior trở lên ghi CBAP. Mẹo: CC = Capability (mức giữa), CBAP có \"Professional\" (mức cao).</p>",
+   "why_wrong": {
+    "a": "CBAP ghi kèm các vị trí Senior trở lên.",
+    "b": "PMP là chứng chỉ quản lý dự án, không có trên sơ đồ.",
+    "c": "ECBA là chứng chỉ IIBA mức nhập môn, không được ghi ở các vị trí Intermediate trên sơ đồ."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.22"
+  },
+  {
+   "id": "L01-q40",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong sơ đồ tư duy \"BA Career\", Product Owner là vai trò chính của nhánh nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Project Management"
+    },
+    {
+     "id": "b",
+     "t": "Consulting"
+    },
+    {
+     "id": "c",
+     "t": "Product Management"
+    },
+    {
+     "id": "d",
+     "t": "Business Analysis"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Nhánh Product Management: Product Owner → Product Manager, Product Head, CIO/CTO/COO.</p>",
+   "why_wrong": {
+    "a": "Vai trò chính của Project Management là Project Manager.",
+    "b": "Vai trò chính của Consulting là Consultant.",
+    "d": "Vai trò chính của nhánh Business Analysis là Business Analyst."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.23"
+  },
+  {
+   "id": "L01-q41",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Một BA nhiều năm kinh nghiệm thích làm việc với nhiều doanh nghiệp khác nhau, đánh giá quy trình của họ và đề xuất chiến lược, mong muốn sau này trở thành Partner. Theo sơ đồ BA Career, nhánh nào phù hợp nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Consulting"
+    },
+    {
+     "id": "b",
+     "t": "Project Management"
+    },
+    {
+     "id": "c",
+     "t": "Product Management"
+    },
+    {
+     "id": "d",
+     "t": "Business Analysis – Domain BA"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Làm việc với nhiều khách hàng, đề xuất chiến lược và nhắm tới Partner là nhánh Consulting: Consultant → Principal, Partner, Strategy Head.</p>",
+   "why_wrong": {
+    "b": "Project Management hướng tới quản lý dự án, đích là Unit Head, Business Owner, không có Partner.",
+    "c": "Product Management gắn với một sản phẩm, không phải tư vấn cho nhiều doanh nghiệp.",
+    "d": "Domain BA đi sâu một lĩnh vực trong vai trò BA, không dẫn tới Partner."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.23"
+  },
+  {
+   "id": "L01-q42",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Theo sơ đồ BA Career, những chức danh nào nằm ở nhánh Project Management (sau Project Manager)? (chọn nhiều đáp án)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Account Manager"
+    },
+    {
+     "id": "b",
+     "t": "Product Head"
+    },
+    {
+     "id": "c",
+     "t": "Partner"
+    },
+    {
+     "id": "d",
+     "t": "Business Owner"
+    }
+   ],
+   "answer": [
+    "a",
+    "d"
+   ],
+   "explain": "<p>Sau Project Manager có: Account Manager, Business Owner, Unit Head, CIO/CTO/COO.</p>",
+   "why_wrong": {
+    "b": "Product Head thuộc nhánh Product Management.",
+    "c": "Partner thuộc nhánh Consulting."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.23"
+  },
+  {
+   "id": "L01-q43",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>BA mới vào dự án app đặt đồ ăn. Những việc nào giúp tránh tình trạng như tranh cái xích đu? (chọn nhiều đáp án)</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chỉ nghe người ký hợp đồng cho nhanh"
+    },
+    {
+     "id": "b",
+     "t": "Phỏng vấn cả người dùng thật như chủ quán, shipper"
+    },
+    {
+     "id": "c",
+     "t": "Ghi lại yêu cầu và cho các bên xác nhận"
+    },
+    {
+     "id": "d",
+     "t": "Để đội bán hàng tự mô tả tính năng cho khách"
+    },
+    {
+     "id": "e",
+     "t": "Chuyển yêu cầu cho IT bằng mô hình, đặc tả rõ ràng"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Ba việc này ứng với lắng nghe – thấu hiểu (nghe đúng người), thống nhất một cách hiểu (6 hay 9) và truyền đạt đúng ngôn ngữ cho đội IT.</p>",
+   "why_wrong": {
+    "a": "Người ký hợp đồng chưa chắc là người dùng thật; dễ lặp lại lỗi \"How the customer explained it\".",
+    "d": "Để bán hàng tự mô tả dễ dẫn tới hứa quá mức như khung \"How the sales executive described it\"."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.13-15"
+  },
+  {
+   "id": "L01-q44",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Tranh cái xích đu được dùng để minh họa rủi ro nào mà BA giúp doanh nghiệp tránh?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thiếu nhân lực lập trình cho dự án"
+    },
+    {
+     "id": "b",
+     "t": "Máy chủ bị quá tải khi có quá nhiều người dùng cùng lúc"
+    },
+    {
+     "id": "c",
+     "t": "Đối thủ sao chép ý tưởng sản phẩm"
+    },
+    {
+     "id": "d",
+     "t": "Sản phẩm làm ra không đúng nhu cầu thật"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Tranh nằm trong phần \"Tầm quan trọng của BA\": mỗi khâu hiểu lệch dần nên sản phẩm cuối không giống thứ khách cần. BA làm rõ và giữ nhu cầu thật xuyên suốt.</p>",
+   "why_wrong": {
+    "a": "Tranh không nói về thiếu người; đội vẫn làm ra sản phẩm, chỉ là làm sai.",
+    "b": "Quá tải máy chủ là vấn đề kỹ thuật, không phải thông điệp của tranh.",
+    "c": "Tranh không nhắc tới đối thủ cạnh tranh."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.15"
+  },
+  {
+   "id": "L01-q45",
+   "type": "tf",
+   "level": "apdung",
+   "q": "<p>Kế toán trưởng của SolasMart tìm hiểu vì sao báo cáo công nợ luôn bị chậm, rồi đề xuất quy trình đối chiếu mới cho phòng. Theo IIBA, ở việc này người đó đang làm Business Analysis.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Người này xác định nhu cầu (báo cáo chậm) và đề xuất giải pháp (quy trình mới) để tạo thay đổi. Theo IIBA, đó là Business Analysis dù chức danh là kế toán trưởng.</p>",
+   "why_wrong": {
+    "s": "IIBA không xét chức danh; xác định nhu cầu và đề xuất giải pháp là đang làm Business Analysis."
+   },
+   "src": "Buổi 1_Giới thiệu về BA.pdf tr.6-7"
+  }
+ ],
+ "summary": {
+  "points": [
+   "Business Analysis (theo IIBA) là hoạt động tạo điều kiện cho thay đổi trong tổ chức, bằng cách xác định nhu cầu và đề xuất giải pháp mang lại giá trị cho Stakeholder.",
+   "Business Analyst là bất kỳ ai làm công việc phân tích nghiệp vụ, không phụ thuộc chức danh.",
+   "BA hiểu vấn đề và mục tiêu, phân tích nhu cầu và giải pháp, đưa ra chiến lược, chèo lái thay đổi và kết nối các bên liên quan.",
+   "IT BA thường làm 10 việc: khảo sát, quản lý quan hệ Stakeholder, quản lý và phân tích yêu cầu, thiết kế giao diện/hệ thống, viết tài liệu, hỗ trợ đội dự án và người dùng, quản lý thay đổi và tài liệu.",
+   "BA quan trọng vì là cầu nối: lắng nghe, thấu hiểu và truyền đạt đúng ngôn ngữ, giúp các bên thống nhất một cách hiểu và tránh \"cái xích đu\" bị làm lệch.",
+   "BABOK v3 có 6 knowledge area; slide nêu 6 năng lực cốt lõi: tư duy phản biện và phân tích, hiểu lĩnh vực, tương tác, giao tiếp, công cụ và công nghệ, đặc điểm hành vi.",
+   "Vào nghề BA từ văn phòng hoặc trường học; phát triển qua Intermediate (CCBA), Senior (CBAP), lên Director/VP, C level; hoặc rẽ sang Product, Project, Consulting."
+  ],
+  "html": "<table><thead><tr><th>Câu hỏi</th><th>Trả lời ngắn</th></tr></thead><tbody><tr><td>Cái gì?</td><td>Business Analysis = hoạt động; Business Analyst = người làm, bất kể chức danh</td></tr><tr><td>Làm gì?</td><td>5 hoạt động lớn; 10 công việc thường làm của IT BA</td></tr><tr><td>Vì sao cần?</td><td>Cầu nối IT – Stakeholder; thống nhất cách hiểu (6 hay 9); tránh tranh cái xích đu</td></tr><tr><td>Cần gì?</td><td>6 knowledge area + 6 năng lực cốt lõi</td></tr><tr><td>Đi đâu?</td><td>BA → Intermediate (CCBA) → Senior (CBAP) → Director/VP → C level; hoặc Product, Project, Consulting</td></tr></tbody></table><p>Bài tiếp theo trong module M1 sẽ trang bị kiến thức IT cơ bản và quy trình phát triển phần mềm, là \"ngôn ngữ\" BA cần để nói chuyện với đội kỹ thuật.</p>"
+ },
+ "images": [
+  {
+   "id": "L01-img1",
+   "path": "data/pages/Buổi 1_Giới thiệu về BA/p-008.jpg",
+   "caption": "Chu trình Business Objective → Stakeholders → Solutions → Transition",
+   "crop": [
+    0.59,
+    0.2,
+    0.95,
+    0.74
+   ]
+  },
+  {
+   "id": "L01-img2",
+   "path": "data/pages/Buổi 1_Giới thiệu về BA/p-009.jpg",
+   "caption": "5 mảng công việc của Business Analyst (hình minh họa)",
+   "crop": [
+    0.57,
+    0.19,
+    0.96,
+    0.8
+   ]
+  },
+  {
+   "id": "L01-img3",
+   "path": "data/pages/Buổi 1_Giới thiệu về BA/p-015.jpg",
+   "caption": "Tranh cái xích đu: How the customer explained it … What the customer really needed",
+   "crop": [
+    0.08,
+    0.16,
+    0.95,
+    0.86
+   ]
+  },
+  {
+   "id": "L01-img4",
+   "path": "data/pages/Buổi 1_Giới thiệu về BA/p-017.jpg",
+   "caption": "6 knowledge area của BABOK v3",
+   "crop": [
+    0.15,
+    0.17,
+    0.83,
+    0.84
+   ]
+  },
+  {
+   "id": "L01-img5",
+   "path": "data/pages/Buổi 1_Giới thiệu về BA/p-018.jpg",
+   "caption": "6 năng lực cốt lõi BA cần có",
+   "crop": [
+    0.09,
+    0.17,
+    0.95,
+    0.82
+   ]
+  },
+  {
+   "id": "L01-img6",
+   "path": "data/pages/Buổi 1_Giới thiệu về BA/p-021.jpg",
+   "caption": "IIBA – Driving your B.A. career: lối vào nghề BA",
+   "crop": [
+    0.09,
+    0.12,
+    0.87,
+    0.85
+   ]
+  },
+  {
+   "id": "L01-img7",
+   "path": "data/pages/Buổi 1_Giới thiệu về BA/p-022.jpg",
+   "caption": "IIBA – Make your way to Senior level",
+   "crop": [
+    0.09,
+    0.14,
+    0.91,
+    0.86
+   ]
+  },
+  {
+   "id": "L01-img8",
+   "path": "data/pages/Buổi 1_Giới thiệu về BA/p-023.jpg",
+   "caption": "Sơ đồ tư duy BA Career: 4 hướng phát triển",
+   "crop": [
+    0.13,
+    0.15,
+    0.85,
+    0.85
+   ]
+  }
+ ]
+}

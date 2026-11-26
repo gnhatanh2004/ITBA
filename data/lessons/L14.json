@@ -1,0 +1,1063 @@
+{
+ "id": "L14",
+ "session": 14,
+ "module": "M4",
+ "title": "Activity Diagram (Biểu đồ hoạt động)",
+ "goals": [
+  "Giải thích được Activity Diagram dùng để làm gì và liên hệ với đặc tả Use Case",
+  "Nhận diện và dùng đúng các ký hiệu: Swimlane, Start, Activity, Transition, Branch, Guard, Merge, Fork, Join, End, Note",
+  "Phân biệt được Branch với Fork, Merge với Join",
+  "Đọc được một Activity Diagram có swimlane và tự vẽ được sơ đồ từ mô tả quy trình"
+ ],
+ "sources": [
+  {
+   "file": "14. Activity Diagram.pdf",
+   "pages": "1-5"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L14-t1",
+   "h": "Activity Diagram là gì",
+   "html": "<p><b>Activity Diagram (biểu đồ hoạt động)</b> là một mô hình logic dùng để mô hình hóa các hoạt động trong một quy trình nghiệp vụ.</p><p>Activity Diagram mô tả <b>luồng xử lý của một Use Case</b>: làm gì trước, làm gì sau, chỗ nào rẽ nhánh, chỗ nào chạy song song, ai làm.</p><ul><li>Đặc tả Use Case (bài L13b) mô tả luồng bằng chữ, đánh số từng bước.</li><li>Activity Diagram vẽ chính các luồng đó thành hình, nên dễ thấy các nhánh và vòng lặp.</li><li>Activity Diagram là một sơ đồ hành vi trong UML (bài L13a). Nó gần giống sơ đồ quy trình BPMN (bài L12) nhưng dùng bộ ký hiệu của UML.</li></ul>{{img:L14-img1}}<p class='tip'>Mẹo nhớ: Use Case Diagram trả lời \"làm được gì\", Activity Diagram trả lời \"làm theo thứ tự nào\".</p>",
+   "src": "14. Activity Diagram.pdf tr.1"
+  },
+  {
+   "id": "L14-t2",
+   "h": "10 thành phần trên sơ đồ mẫu",
+   "html": "<p>Sơ đồ rút tiền ATM trên slide đánh số 10 thành phần:</p><table><thead><tr><th>Số</th><th>Thành phần</th><th>Trên sơ đồ ATM</th></tr></thead><tbody><tr><td>1</td><td>Swimlane</td><td>Ba làn: Customer, ATM Machine, Bank</td></tr><tr><td>2</td><td>Start</td><td>Hình tròn đen ở đầu làn Customer</td></tr><tr><td>3</td><td>Activity</td><td>Ví dụ \"Enter PIN\"</td></tr><tr><td>4</td><td>Transition</td><td>Mũi tên từ \"Enter PIN\" sang \"Authorize\"</td></tr><tr><td>5</td><td>Branch</td><td>Hình thoi sau \"Authorize\"</td></tr><tr><td>6</td><td>Guard Expression</td><td>Nhãn [Valid PIN] / [Invalid PIN]</td></tr><tr><td>7</td><td>Fork</td><td>Thanh đen tách ra \"Take Money From Slot\" và \"Debit Account\"</td></tr><tr><td>8</td><td>Join</td><td>Thanh đen gom hai luồng trên lại</td></tr><tr><td>9</td><td>Merge</td><td>Hình thoi gom luồng trước \"Eject Card\"</td></tr><tr><td>10</td><td>End</td><td>Hình tròn đen có viền bao ở cuối làn Customer</td></tr></tbody></table><p>Phần \"Các thành phần\" của slide giải thích 9 ký hiệu: Swimlane, Start, Activity, Transition, Branch, Fork, Join, End, Note. <b>Guard Expression</b> và <b>Merge</b> chỉ xuất hiện trên sơ đồ mẫu, được giải thích ở mục Branch bên dưới.</p>",
+   "src": "14. Activity Diagram.pdf tr.1"
+  },
+  {
+   "id": "L14-t3",
+   "h": "Swimlane (làn bơi)",
+   "html": "<p><b>Swimlane</b> dùng để xác định <b>đối tượng nào tham gia hoạt động nào</b> trong một quy trình.</p><ul><li>Ký hiệu: sơ đồ chia thành các cột (hoặc hàng), mỗi cột mang tên một đối tượng, ví dụ Actor 1, Actor 2, Actor 3.</li><li>Mỗi Activity nằm trong làn của đối tượng thực hiện nó.</li><li>Mũi tên đi qua ranh giới làn cho thấy công việc được chuyển từ đối tượng này sang đối tượng khác.</li></ul>{{img:L14-img2}}<p>Đối tượng có thể là người (Khách hàng, Thu ngân), bộ phận, hoặc hệ thống (Hệ thống, Ngân hàng).</p>",
+   "src": "14. Activity Diagram.pdf tr.2"
+  },
+  {
+   "id": "L14-t4",
+   "h": "Start và End",
+   "html": "<table><thead><tr><th>Ký hiệu</th><th>Hình dạng</th><th>Ý nghĩa</th></tr></thead><tbody><tr><td><b>Start</b></td><td>Hình tròn</td><td>Điểm bắt đầu của luồng xử lý</td></tr><tr><td><b>End</b></td><td>Hình tròn đen có một vòng tròn bao ngoài (như hồng tâm)</td><td>Điểm kết thúc của luồng xử lý</td></tr></tbody></table><ul><li>Một sơ đồ thường có một Start.</li><li>Có thể có nhiều End, ví dụ một End cho luồng thành công và một End sau thông báo lỗi.</li></ul><p class='note'>Ở trang 2, slide vẽ ký hiệu Start là một hình tròn <b>rỗng</b>. Theo chuẩn UML, và cũng như trong sơ đồ ATM ở trang 1 của slide, Start là hình tròn <b>tô đặc màu đen</b>. Khi vẽ nên dùng hình tròn đen để không nhầm với các ký hiệu khác.</p>",
+   "src": "14. Activity Diagram.pdf tr.1-3"
+  },
+  {
+   "id": "L14-t5",
+   "h": "Activity (hoạt động)",
+   "html": "<p><b>Activity</b> mô tả hành vi của đối tượng trong quy trình.</p><ul><li>Ký hiệu: hình chữ nhật <b>bo tròn góc</b>, bên trong ghi tên Activity.</li><li>Tên cần ngắn gọn, đủ nghĩa. Nên bắt đầu bằng <b>động từ</b>.</li><li>Ví dụ trên slide: \"Xem thông tin người dùng\".</li></ul><table><thead><tr><th>Đặt tên chưa tốt</th><th>Đặt tên tốt</th></tr></thead><tbody><tr><td>Thông tin người dùng</td><td>Xem thông tin người dùng</td></tr><tr><td>Email kích hoạt</td><td>Gửi email kích hoạt</td></tr><tr><td>Bước 3</td><td>Nhấn nút Đăng ký</td></tr></tbody></table>",
+   "src": "14. Activity Diagram.pdf tr.2"
+  },
+  {
+   "id": "L14-t6",
+   "h": "Transition (chuyển tiếp)",
+   "html": "<p><b>Transition</b> mô tả sự chuyển đổi trạng thái giữa các hoạt động: xong hoạt động này thì sang hoạt động kia.</p><ul><li>Ký hiệu: <b>mũi tên</b>.</li><li>Chiều mũi tên là thứ tự thực hiện.</li><li>Trên sơ đồ ATM, mũi tên số 4 đi từ \"Enter PIN\" (làn Customer) sang \"Authorize\" (làn Bank).</li></ul>",
+   "src": "14. Activity Diagram.pdf tr.1-2"
+  },
+  {
+   "id": "L14-t7",
+   "h": "Branch, Guard Expression và Merge",
+   "html": "<p><b>Branch</b> thể hiện rẽ nhánh trong mệnh đề điều kiện.</p><ul><li>Ký hiệu: <b>hình thoi</b>, một luồng vào, nhiều luồng ra.</li><li>Mỗi luồng ra có một điều kiện, ví dụ Đúng / Sai.</li><li>Khi chạy, <b>chỉ một</b> nhánh thỏa điều kiện được đi tiếp.</li></ul>{{img:L14-img3}}<p><b>Guard Expression (biểu thức điều kiện)</b> là nhãn đặt trong ngoặc vuông trên mũi tên ra khỏi Branch. Ví dụ trên sơ đồ ATM: [Valid PIN] / [Invalid PIN], [Balance &gt;= Amount] / [Balance &lt; Amount].</p><ul><li>Các điều kiện nên loại trừ nhau và phủ hết mọi khả năng.</li></ul><p><b>Merge</b> cũng là <b>hình thoi</b>, nhưng ngược với Branch: nhiều luồng vào, một luồng ra. Nó gom các nhánh đã tách ra về một đường chung.</p><ul><li>Trên sơ đồ ATM, Merge số 9 gom luồng sau \"Show Balance\" và luồng [Invalid PIN] để cùng đi tới \"Eject Card\".</li><li>Merge không chờ: luồng nào tới thì đi tiếp luôn, vì trước đó chỉ một nhánh được chọn.</li></ul>",
+   "src": "14. Activity Diagram.pdf tr.1, tr.3"
+  },
+  {
+   "id": "L14-t8",
+   "h": "Fork và Join",
+   "html": "<p><b>Fork</b> thể hiện trường hợp thực hiện xong một hoạt động rồi rẽ ra thực hiện <b>nhiều hoạt động tiếp theo</b>.</p><ul><li>Ký hiệu: <b>thanh ngang đậm</b>, một luồng vào, nhiều luồng ra.</li></ul>{{img:L14-img4}}<p><b>Join</b> thể hiện trường hợp phải thực hiện <b>hai hay nhiều hành động trước</b> rồi mới thực hiện hành động tiếp theo.</p><ul><li>Ký hiệu: <b>thanh ngang đậm</b>, nhiều luồng vào, một luồng ra.</li><li>Join <b>chờ</b> tất cả luồng vào hoàn thành.</li></ul>{{img:L14-img5}}<p>Ví dụ ATM: sau khi số dư đủ, Fork số 7 tách hai việc là \"Take Money From Slot\" (Customer) và \"Debit Account\" (Bank). Join số 8 chờ cả hai xong rồi mới đi tiếp.</p><table><thead><tr><th></th><th>Branch</th><th>Fork</th></tr></thead><tbody><tr><td>Hình</td><td>Hình thoi</td><td>Thanh ngang đậm</td></tr><tr><td>Số nhánh được chạy</td><td><b>Một</b> nhánh, theo điều kiện</td><td><b>Tất cả</b> nhánh, song song</td></tr><tr><td>Có Guard không</td><td>Có</td><td>Không</td></tr><tr><td>Ký hiệu gom lại</td><td>Merge (hình thoi, không chờ)</td><td>Join (thanh đậm, chờ đủ)</td></tr></tbody></table><p class='note'>Slide viết Fork là \"rẽ nhánh thực hiện nhiều hoạt động tiếp theo\". Chữ \"rẽ nhánh\" ở đây nghĩa là <b>tách ra chạy song song</b>, mọi nhánh đều chạy. Đừng nhầm với Branch, nơi chỉ một nhánh được chọn.</p><p class='tip'>Mẹo nhớ: hình thoi là \"hoặc\", thanh đen là \"và\".</p>",
+   "src": "14. Activity Diagram.pdf tr.1, tr.3"
+  },
+  {
+   "id": "L14-t9",
+   "h": "Note / Comment (ghi chú)",
+   "html": "<p><b>Note/comment</b> dùng để ghi chú thêm trên sơ đồ.</p><ul><li>Ký hiệu: hình <b>tờ giấy gấp góc</b> (hình chữ nhật có một góc trên bị gấp).</li><li>Thường nối với phần tử cần giải thích bằng một đường nét đứt.</li><li>Dùng để ghi luật nghiệp vụ, giải thích điều kiện hoặc lưu ý, ví dụ \"Link kích hoạt hết hạn sau 24 giờ\".</li></ul>",
+   "src": "14. Activity Diagram.pdf tr.4"
+  },
+  {
+   "id": "L14-t10",
+   "h": "Cách vẽ Activity Diagram từ mô tả quy trình",
+   "html": "<p>Phần này bổ sung theo kiến thức UML chuẩn, giúp làm bài luyện tập của slide:</p><ol><li><b>Xác định swimlane:</b> liệt kê các đối tượng có làm việc trong quy trình (người dùng, hệ thống, bên thứ ba).</li><li><b>Đặt Start</b> ở làn của đối tượng khởi động quy trình.</li><li><b>Vẽ luồng chính:</b> mỗi bước là một Activity tên bắt đầu bằng động từ, đặt đúng làn, nối bằng Transition.</li><li><b>Thêm điều kiện:</b> chỗ nào có \"kiểm tra\", \"nếu\" thì đặt Branch, ghi Guard cho từng nhánh. Các luồng ngoại lệ (4a, 5a…) trở thành nhánh của Branch.</li><li><b>Thêm song song:</b> các việc làm cùng lúc thì dùng Fork, chờ xong cả thì dùng Join.</li><li><b>Gom nhánh và kết thúc:</b> dùng Merge cho các nhánh quay về đường chung; đặt End ở mọi điểm kết thúc.</li><li><b>Kiểm tra:</b> mọi Branch có Guard; mọi đường đều tới End; tên Activity đều là động từ.</li></ol>",
+   "src": "14. Activity Diagram.pdf tr.1-5 (bổ sung theo UML 2.5)"
+  }
+ ],
+ "examples": [
+  {
+   "id": "L14-e1",
+   "title": "Đọc sơ đồ rút tiền ATM từng bước",
+   "html": "<p>Đọc sơ đồ mẫu trên slide (xem hình ở phần Lý thuyết) theo chiều mũi tên:</p><table><thead><tr><th>Thứ tự</th><th>Làn</th><th>Phần tử</th><th>Giải thích</th></tr></thead><tbody><tr><td>1</td><td>Customer</td><td>Start → Insert Card → Enter PIN</td><td>Khách cắm thẻ, nhập PIN</td></tr><tr><td>2</td><td>Bank</td><td>Authorize</td><td>Mũi tên đi qua làn ATM sang Bank: ngân hàng xác thực PIN</td></tr><tr><td>3</td><td>Bank</td><td>Branch: [Valid PIN] / [Invalid PIN]</td><td>PIN đúng thì quay về làn Customer để \"Enter Amount\". PIN sai thì đi thẳng tới Merge số 9</td></tr><tr><td>4</td><td>Customer → Bank</td><td>Enter Amount → Check Account Balance</td><td>Khách nhập số tiền, ngân hàng kiểm tra số dư</td></tr><tr><td>5</td><td>Bank</td><td>Branch: [Balance &gt;= Amount] / [Balance &lt; Amount]</td><td>Đủ tiền thì tới Fork số 7. Không đủ thì đi tới Merge phía trên \"Show Balance\"</td></tr><tr><td>6</td><td>Customer và Bank</td><td>Fork 7 → Take Money From Slot ∥ Debit Account → Join 8</td><td>Khách lấy tiền và ngân hàng trừ tiền diễn ra song song; Join chờ cả hai xong</td></tr><tr><td>7</td><td>ATM Machine</td><td>Merge → Show Balance → Merge 9</td><td>Gom luồng rút thành công với luồng không đủ số dư, hiển thị số dư</td></tr><tr><td>8</td><td>ATM → Customer</td><td>Eject Card → Take Card → End</td><td>Máy trả thẻ, khách nhận thẻ, kết thúc</td></tr></tbody></table><p><b>Ba kịch bản đọc được từ sơ đồ:</b></p><ul><li>Rút thành công: Insert Card → Enter PIN → Authorize → Enter Amount → Check Account Balance → (Take Money ∥ Debit Account) → Show Balance → Eject Card → Take Card.</li><li>PIN sai: Insert Card → Enter PIN → Authorize → Eject Card → Take Card.</li><li>Không đủ số dư: … → Check Account Balance → Show Balance → Eject Card → Take Card.</li></ul><p class='tip'>Mọi kịch bản đều kết thúc bằng việc khách nhận lại thẻ, nhờ hai Merge gom các nhánh về một đường.</p>",
+   "src": "14. Activity Diagram.pdf tr.1"
+  },
+  {
+   "id": "L14-e2",
+   "title": "Từ đặc tả \"Thêm nhân viên\" sang Activity Diagram",
+   "html": "<p>Lấy đặc tả Use Case \"Thêm nhân viên\" ở bài L13b và vẽ thành Activity Diagram. Sơ đồ được mô tả bằng bảng:</p><ul><li><b>Swimlane:</b> Nhân viên HR | Hệ thống | Trưởng phòng HR.</li></ul><table><thead><tr><th>Làn</th><th>Phần tử</th><th>Tên</th><th>Đi tới [guard]</th></tr></thead><tbody><tr><td>Nhân viên HR</td><td>Start</td><td></td><td>A1</td></tr><tr><td>Nhân viên HR</td><td>Activity A1</td><td>Bấm nút \"Thêm mới\"</td><td>A2</td></tr><tr><td>Hệ thống</td><td>Activity A2</td><td>Hiển thị màn hình thêm mới nhân sự</td><td>A3</td></tr><tr><td>Nhân viên HR</td><td>Activity A3</td><td>Nhập thông tin và bấm \"Gửi xác nhận\"</td><td>A4</td></tr><tr><td>Hệ thống</td><td>Activity A4</td><td>Kiểm tra thông tin</td><td>B1</td></tr><tr><td>Hệ thống</td><td>Branch B1</td><td></td><td>[Không hợp lệ] → A5; [Hợp lệ] → A6</td></tr><tr><td>Hệ thống</td><td>Activity A5</td><td>Thông báo thông tin không hợp lệ</td><td>End</td></tr><tr><td>Hệ thống</td><td>Activity A6</td><td>Lưu dữ liệu và thông báo cho Trưởng phòng HR</td><td>A7</td></tr><tr><td>Trưởng phòng HR</td><td>Activity A7</td><td>Xem xét thông tin nhân sự mới</td><td>B2</td></tr><tr><td>Trưởng phòng HR</td><td>Branch B2</td><td></td><td>[Phê duyệt] → A8; [Từ chối] → A9</td></tr><tr><td>Hệ thống</td><td>Activity A8</td><td>Thông báo cho Nhân viên HR: đã được phê duyệt</td><td>M1</td></tr><tr><td>Hệ thống</td><td>Activity A9</td><td>Thông báo cho Nhân viên HR: đã bị từ chối</td><td>M1</td></tr><tr><td>Hệ thống</td><td>Merge M1</td><td></td><td>End</td></tr></tbody></table><p><b>Cách chuyển:</b></p><ul><li>Mỗi bước của Main Flow thành một Activity, đặt vào làn của chủ ngữ.</li><li>Exception 6a thành nhánh [Không hợp lệ] của Branch B1.</li><li>Exception 7a, 8a thành nhánh [Từ chối] của Branch B2.</li></ul><p class='note'>Sơ đồ bắt đầu từ Trigger. Bước đăng nhập đã là Pre-Condition nên không vẽ lại. Ở A5 có thể vẽ quay về A3 cho HR sửa lại; slide không nói rõ nên ở đây cho kết thúc.</p>",
+   "src": "14. Activity Diagram.pdf tr.1-3; 13. Đặc tả UseCase.pdf tr.2"
+  },
+  {
+   "id": "L14-e3",
+   "title": "Khi nào dùng Fork/Join: xác nhận đơn trong hệ thống đặt đồ ăn",
+   "html": "<p><i>Ví dụ.</i> Sau khi khách thanh toán đơn thành công, hệ thống làm cùng lúc hai việc: gửi đơn cho nhà hàng và gửi thông báo xác nhận cho khách. Khi cả hai xong, đơn chuyển sang \"Đang chuẩn bị\".</p><table><thead><tr><th>Làn</th><th>Phần tử</th><th>Tên</th><th>Đi tới</th></tr></thead><tbody><tr><td>Hệ thống</td><td>Activity</td><td>Ghi nhận thanh toán thành công</td><td>Fork</td></tr><tr><td>Hệ thống</td><td>Fork</td><td></td><td>\"Gửi đơn cho nhà hàng\" và \"Gửi thông báo cho khách\" (cả hai)</td></tr><tr><td>Hệ thống</td><td>Activity</td><td>Gửi đơn cho nhà hàng</td><td>Join</td></tr><tr><td>Hệ thống</td><td>Activity</td><td>Gửi thông báo xác nhận cho khách</td><td>Join</td></tr><tr><td>Hệ thống</td><td>Join</td><td></td><td>\"Cập nhật trạng thái Đang chuẩn bị\"</td></tr></tbody></table><p><b>So sánh với Branch:</b> nếu bước sau là \"khách chọn giao tận nơi <i>hoặc</i> tự đến lấy\" thì chỉ một trong hai xảy ra. Lúc đó dùng Branch (hình thoi) với guard [Giao tận nơi] / [Tự đến lấy], rồi gom lại bằng Merge.</p><p class='warn'>Lỗi hay gặp: gom hai nhánh của một Branch bằng Join. Join chờ đủ mọi luồng vào, nhưng Branch chỉ chạy một nhánh, nên luồng sẽ bị kẹt mãi ở Join.</p>",
+   "src": "14. Activity Diagram.pdf tr.3 (ví dụ tự đặt)"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L14-p1",
+   "title": "Luyện tập trên slide: Activity Diagram \"Đăng ký tài khoản người dùng trên Website\"",
+   "task": "<p>Vẽ Activity Diagram cho quy trình sau.</p><ol><li>Người dùng truy cập trang <b>Đăng ký tài khoản</b>.</li><li>Người dùng nhập: Họ tên, Email, Mật khẩu, Xác nhận mật khẩu.</li><li>Người dùng nhấn nút <b>Đăng ký</b>.</li><li>Hệ thống kiểm tra dữ liệu đầu vào.</li><li>Hệ thống kiểm tra email <b>chưa tồn tại</b>.</li><li>Hệ thống tạo tài khoản mới với trạng thái <b>Chưa kích hoạt</b>.</li><li>Hệ thống gửi email kích hoạt tài khoản.</li><li>Hệ thống hiển thị: \"Đăng ký thành công. Vui lòng kiểm tra email để kích hoạt tài khoản\". Sau đó: người dùng nhấn link kích hoạt trong email; hệ thống kích hoạt tài khoản; hệ thống hiển thị \"Tài khoản đã được kích hoạt thành công\".</li></ol><p><b>Ngoại lệ:</b></p><ul><li>4a. Bỏ trống Họ tên / Email / Mật khẩu: báo lỗi \"Các trường thông tin không được bỏ trống\".</li><li>4b. Email sai định dạng: báo lỗi \"Email không hợp lệ\".</li><li>4c. Mật khẩu và xác nhận mật khẩu không khớp: báo lỗi \"Mật khẩu và xác nhận mật khẩu không khớp\".</li><li>5a. Email đã được đăng ký: báo \"Email đã tồn tại. Vui lòng đăng nhập hoặc sử dụng email khác\".</li><li>7a. Gửi email kích hoạt thất bại: báo \"Không thể gửi email kích hoạt. Vui lòng thử lại sau\".</li><li>8a. Nhấn link kích hoạt sau 24 giờ: báo \"Link kích hoạt đã hết hạn\".</li></ul>",
+   "steps": [
+    "<p><b>Bước 1 – Swimlane.</b> Ai làm việc trong quy trình? Người dùng và Hệ thống. Vẽ 2 làn.</p>",
+    "<p><b>Bước 2 – Luồng chính.</b> Đặt Start ở làn Người dùng. Chuyển mỗi bước 1–8 thành một Activity bắt đầu bằng động từ, đặt đúng làn theo chủ ngữ. Ba việc sau bước 8 (nhấn link, kích hoạt, báo thành công) cũng là Activity.</p>",
+    "<p><b>Bước 3 – Branch cho ngoại lệ.</b> Sau mỗi bước có \"kiểm tra\" hoặc có thể thất bại (bước 4, 5, 7 và lúc nhấn link) đặt một Branch. Ghi Guard cho mọi nhánh, ví dụ [Hợp lệ] / [Bỏ trống trường bắt buộc] / [Email sai định dạng] / [Mật khẩu không khớp].</p>",
+    "<p><b>Bước 4 – Nhánh lỗi đi đâu.</b> Lỗi nhập liệu (4a, 4b, 4c, 5a) hiển thị thông báo rồi quay về bước nhập thông tin; dùng Merge đặt trước Activity \"Nhập thông tin\" để gom các mũi tên quay về. Lỗi 7a và 8a hiển thị thông báo rồi tới End.</p>",
+    "<p><b>Bước 5 – Kiểm tra.</b> Mọi Branch có Guard; mọi đường tới End; không có Fork/Join vì không có việc nào chạy song song. Có thể thêm Note \"Link kích hoạt có hiệu lực 24 giờ\" cạnh Branch kiểm tra link.</p>"
+   ],
+   "answer": "<p><b>Swimlane:</b> Người dùng | Hệ thống.</p><table><thead><tr><th>Làn</th><th>Phần tử</th><th>Tên</th><th>Đi tới [guard]</th></tr></thead><tbody><tr><td>Người dùng</td><td>Start</td><td></td><td>A1</td></tr><tr><td>Người dùng</td><td>Activity A1</td><td>Truy cập trang Đăng ký tài khoản</td><td>M1</td></tr><tr><td>Người dùng</td><td>Merge M1</td><td></td><td>A2</td></tr><tr><td>Người dùng</td><td>Activity A2</td><td>Nhập họ tên, email, mật khẩu, xác nhận mật khẩu</td><td>A3</td></tr><tr><td>Người dùng</td><td>Activity A3</td><td>Nhấn nút Đăng ký</td><td>A4</td></tr><tr><td>Hệ thống</td><td>Activity A4</td><td>Kiểm tra dữ liệu đầu vào</td><td>B1</td></tr><tr><td>Hệ thống</td><td>Branch B1</td><td></td><td>[Bỏ trống trường bắt buộc] → E1; [Email sai định dạng] → E2; [Mật khẩu không khớp] → E3; [Hợp lệ] → A5</td></tr><tr><td>Hệ thống</td><td>Activity E1 / E2 / E3</td><td>Hiển thị lỗi \"Các trường thông tin không được bỏ trống\" / \"Email không hợp lệ\" / \"Mật khẩu và xác nhận mật khẩu không khớp\"</td><td>M1</td></tr><tr><td>Hệ thống</td><td>Activity A5</td><td>Kiểm tra email đã tồn tại chưa</td><td>B2</td></tr><tr><td>Hệ thống</td><td>Branch B2</td><td></td><td>[Đã tồn tại] → E4; [Chưa tồn tại] → A6</td></tr><tr><td>Hệ thống</td><td>Activity E4</td><td>Hiển thị \"Email đã tồn tại. Vui lòng đăng nhập hoặc sử dụng email khác\"</td><td>M1</td></tr><tr><td>Hệ thống</td><td>Activity A6</td><td>Tạo tài khoản trạng thái Chưa kích hoạt</td><td>A7</td></tr><tr><td>Hệ thống</td><td>Activity A7</td><td>Gửi email kích hoạt</td><td>B3</td></tr><tr><td>Hệ thống</td><td>Branch B3</td><td></td><td>[Gửi thất bại] → E5; [Gửi thành công] → A8</td></tr><tr><td>Hệ thống</td><td>Activity E5</td><td>Hiển thị \"Không thể gửi email kích hoạt. Vui lòng thử lại sau\"</td><td>End</td></tr><tr><td>Hệ thống</td><td>Activity A8</td><td>Hiển thị \"Đăng ký thành công. Vui lòng kiểm tra email để kích hoạt tài khoản\"</td><td>A9</td></tr><tr><td>Người dùng</td><td>Activity A9</td><td>Nhấn link kích hoạt trong email</td><td>B4</td></tr><tr><td>Hệ thống</td><td>Branch B4</td><td></td><td>[Quá 24 giờ] → E6; [Trong 24 giờ] → A10</td></tr><tr><td>Hệ thống</td><td>Activity E6</td><td>Hiển thị \"Link kích hoạt đã hết hạn\"</td><td>End</td></tr><tr><td>Hệ thống</td><td>Activity A10</td><td>Kích hoạt tài khoản</td><td>A11</td></tr><tr><td>Hệ thống</td><td>Activity A11</td><td>Hiển thị \"Tài khoản đã được kích hoạt thành công\"</td><td>End</td></tr></tbody></table><p>Ghi chú:</p><ul><li>Branch B1 có thể tách thành 3 hình thoi nối tiếp (kiểm tra bỏ trống, định dạng email, khớp mật khẩu). Cả hai cách đều đúng.</li><li>Slide chỉ nói \"hiển thị thông báo lỗi\". Đáp án mẫu cho quay về bước nhập (M1) với lỗi nhập liệu, vì người dùng sửa được. Cho các nhánh này tới End cũng chấp nhận được nếu ghi rõ.</li><li>Ngoại lệ \"8a\" trên slide gắn với việc nhấn link kích hoạt (các dòng con sau bước 8), nên Branch B4 đặt ngay sau A9.</li></ul>",
+   "src": "14. Activity Diagram.pdf tr.4-5"
+  },
+  {
+   "id": "L14-p2",
+   "title": "Vẽ Activity Diagram \"Đặt bàn\" FoodNow từ đặc tả Use Case",
+   "task": "<p>Dùng bản đặc tả \"Đặt bàn\" FoodNow ở bài L13b (ví dụ L13b-e2). Vẽ Activity Diagram có 3 swimlane: Khách hàng | Hệ thống | Nhân viên nhà hàng. Sơ đồ phải có luồng chính, nhánh hết bàn (4a) và nhánh nhà hàng từ chối (6b).</p><p>Luồng chính tóm tắt: khách bấm \"Đặt bàn\" → hệ thống hiển thị form → khách nhập ngày, giờ, số người và gửi → hệ thống kiểm tra bàn trống → tạo phiếu \"Chờ xác nhận\" và gửi nhà hàng → nhân viên xác nhận → hệ thống đổi trạng thái \"Đã xác nhận\" và báo cho khách.</p>",
+   "steps": [
+    "<p><b>Bước 1.</b> Vẽ 3 làn. Đặt Start ở làn Khách hàng vì khách khởi động quy trình.</p>",
+    "<p><b>Bước 2.</b> Đặt các Activity của luồng chính vào đúng làn theo chủ ngữ: \"Bấm Đặt bàn\", \"Nhập thông tin và gửi yêu cầu\" ở làn Khách hàng; \"Hiển thị form đặt bàn\", \"Kiểm tra bàn trống\", \"Tạo phiếu Chờ xác nhận\" ở làn Hệ thống…</p>",
+    "<p><b>Bước 3.</b> Sau \"Kiểm tra bàn trống\" đặt Branch: [Còn bàn] đi tiếp, [Hết bàn] → \"Báo hết chỗ, gợi ý giờ khác\" → End.</p>",
+    "<p><b>Bước 4.</b> Ở làn Nhân viên nhà hàng: \"Xem phiếu đặt bàn\" → Branch [Xác nhận] / [Từ chối]. Hai nhánh này dẫn tới hai Activity thông báo khác nhau ở làn Hệ thống.</p>",
+    "<p><b>Bước 5.</b> Gom hai nhánh thông báo bằng Merge rồi tới End, hoặc cho mỗi nhánh một End. Kiểm tra mọi Branch có Guard.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Làn</th><th>Phần tử</th><th>Tên</th><th>Đi tới [guard]</th></tr></thead><tbody><tr><td>Khách hàng</td><td>Start</td><td></td><td>A1</td></tr><tr><td>Khách hàng</td><td>Activity A1</td><td>Bấm \"Đặt bàn\"</td><td>A2</td></tr><tr><td>Hệ thống</td><td>Activity A2</td><td>Hiển thị form đặt bàn</td><td>A3</td></tr><tr><td>Khách hàng</td><td>Activity A3</td><td>Nhập ngày, giờ, số người và gửi yêu cầu</td><td>A4</td></tr><tr><td>Hệ thống</td><td>Activity A4</td><td>Kiểm tra bàn trống</td><td>B1</td></tr><tr><td>Hệ thống</td><td>Branch B1</td><td></td><td>[Hết bàn] → A5; [Còn bàn] → A6</td></tr><tr><td>Hệ thống</td><td>Activity A5</td><td>Báo hết chỗ và gợi ý khung giờ khác</td><td>End</td></tr><tr><td>Hệ thống</td><td>Activity A6</td><td>Tạo phiếu \"Chờ xác nhận\" và gửi nhà hàng</td><td>A7</td></tr><tr><td>Nhân viên nhà hàng</td><td>Activity A7</td><td>Xem phiếu đặt bàn</td><td>B2</td></tr><tr><td>Nhân viên nhà hàng</td><td>Branch B2</td><td></td><td>[Xác nhận] → A8; [Từ chối] → A9</td></tr><tr><td>Hệ thống</td><td>Activity A8</td><td>Đổi trạng thái \"Đã xác nhận\", gửi mã đặt bàn cho khách</td><td>M1</td></tr><tr><td>Hệ thống</td><td>Activity A9</td><td>Báo khách: nhà hàng từ chối</td><td>M1</td></tr><tr><td>Hệ thống</td><td>Merge M1</td><td></td><td>End</td></tr></tbody></table><p>Nhánh lỗi thiếu thông tin (3a) có thể thêm bằng một Branch sau A3, quay về A3 qua một Merge.</p>",
+   "src": "14. Activity Diagram.pdf tr.1-4; 13. Đặc tả UseCase.pdf tr.1-3"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L14-x1",
+   "title": "Gọi tên ký hiệu và sửa tên Activity",
+   "level": "de",
+   "task": "<p><b>Phần 1.</b> Gọi tên ký hiệu:</p><ol><li>Hình tròn tô đen, chỉ có mũi tên đi ra.</li><li>Hình chữ nhật bo tròn góc có chữ bên trong.</li><li>Hình thoi, một mũi tên vào, hai mũi tên ra có nhãn [Đúng] / [Sai].</li><li>Thanh ngang đậm, hai mũi tên vào, một mũi tên ra.</li><li>Hình tròn đen có vòng tròn bao ngoài.</li><li>Hình tờ giấy gấp một góc.</li><li>Các cột dọc, mỗi cột có tên một đối tượng.</li></ol><p><b>Phần 2.</b> Sửa tên Activity cho đúng cách đặt tên: \"Thông tin đơn hàng\", \"Email xác nhận\", \"Bước 2\", \"Số dư tài khoản\".</p>",
+   "hints": [
+    "<p>Phần 1: chú ý số mũi tên vào và ra của thanh đậm: một vào nhiều ra hay nhiều vào một ra?</p>",
+    "<p>Phần 2: tên Activity nên bắt đầu bằng động từ và đủ nghĩa.</p>"
+   ],
+   "answer": "<p><b>Phần 1.</b> 1. Start. 2. Activity. 3. Branch (nhãn trong ngoặc vuông là Guard Expression). 4. Join. 5. End. 6. Note/comment. 7. Swimlane.</p><p><b>Phần 2 (một cách viết).</b> \"Xem thông tin đơn hàng\"; \"Gửi email xác nhận\"; \"Bước 2\" thay bằng việc thật, ví dụ \"Nhập số tiền\"; \"Kiểm tra số dư tài khoản\".</p>",
+   "src": "14. Activity Diagram.pdf tr.2-4"
+  },
+  {
+   "id": "L14-x2",
+   "title": "Branch hay Fork? Tìm lỗi trong sơ đồ",
+   "level": "tb",
+   "task": "<p><b>Phần 1.</b> Mỗi tình huống dùng Branch hay Fork?</p><ol><li>Nếu đơn trên 500.000đ thì miễn phí giao, ngược lại tính phí giao.</li><li>Sau khi duyệt hồ sơ nhân viên mới, phòng IT cấp tài khoản và phòng hành chính cấp thẻ cùng lúc.</li><li>Khách chọn thanh toán bằng tiền mặt hoặc thẻ.</li><li>Sau khi thư viện nhận sách trả, hệ thống cập nhật trạng thái sách và đồng thời gửi email cảm ơn bạn đọc.</li></ol><p><b>Phần 2.</b> Một bạn vẽ sơ đồ \"Đăng nhập\" như sau. Tìm các lỗi:</p><ul><li>Sau \"Kiểm tra mật khẩu\" là một <b>thanh ngang đậm</b> với hai mũi tên ra ghi [Đúng] và [Sai].</li><li>Nhánh [Đúng] tới \"Trang chủ\". Nhánh [Sai] tới \"Thông báo lỗi\".</li><li>Hai nhánh được gom bằng một <b>thanh ngang đậm</b> rồi tới End.</li><li>Sơ đồ không có Start; tất cả Activity nằm chung một làn dù có cả người dùng và hệ thống.</li></ul>",
+   "hints": [
+    "<p>Hỏi: chỉ một việc xảy ra (\"hoặc\") hay tất cả cùng xảy ra (\"và\")?</p>",
+    "<p>Phần 2: Join chờ đủ mọi luồng vào. Nếu trước đó chỉ một nhánh chạy thì chuyện gì xảy ra?</p>"
+   ],
+   "answer": "<p><b>Phần 1.</b> 1. Branch. 2. Fork (rồi Join nếu cần chờ cả hai xong). 3. Branch. 4. Fork.</p><p><b>Phần 2.</b></p><ol><li>Dùng thanh đậm (Fork) cho điều kiện là sai. Phải dùng <b>Branch</b> (hình thoi) với Guard [Đúng] / [Sai].</li><li>Gom hai nhánh của Branch bằng thanh đậm (Join) là sai: Join chờ cả hai luồng nhưng chỉ một luồng chạy, nên sơ đồ bị kẹt. Phải dùng <b>Merge</b> (hình thoi) hoặc cho mỗi nhánh một End.</li><li>Thiếu <b>Start</b>.</li><li>Thiếu <b>Swimlane</b>: nên tách làn Người dùng và Hệ thống để biết ai làm việc gì.</li><li>\"Trang chủ\" chưa phải tên Activity; nên đổi thành \"Hiển thị trang chủ\".</li></ol>",
+   "src": "14. Activity Diagram.pdf tr.1-3"
+  },
+  {
+   "id": "L14-x3",
+   "title": "Lần theo sơ đồ ATM",
+   "level": "tb",
+   "task": "<p>Dùng sơ đồ rút tiền ATM trên slide. Liệt kê theo thứ tự các Activity được thực hiện và làn của chúng trong hai kịch bản:</p><ol><li>Khách nhập PIN đúng nhưng số tiền muốn rút lớn hơn số dư.</li><li>Khách nhập PIN đúng và đủ số dư.</li></ol><p>Ở kịch bản 2, chỉ ra hai Activity chạy song song và giải thích vì sao \"Show Balance\" chỉ bắt đầu khi cả hai xong.</p>",
+   "hints": [
+    "<p>Nhìn Guard ở hai Branch: [Valid PIN]/[Invalid PIN] và [Balance &gt;= Amount]/[Balance &lt; Amount].</p>",
+    "<p>Nhánh [Balance &lt; Amount] đi vào hình thoi Merge ngay trên \"Show Balance\".</p>"
+   ],
+   "answer": "<p><b>Kịch bản 1:</b> Insert Card (Customer) → Enter PIN (Customer) → Authorize (Bank) → Enter Amount (Customer) → Check Account Balance (Bank) → Show Balance (ATM Machine) → Eject Card (ATM Machine) → Take Card (Customer) → End.</p><p><b>Kịch bản 2:</b> Insert Card → Enter PIN → Authorize → Enter Amount → Check Account Balance → Fork → <b>Take Money From Slot</b> (Customer) song song với <b>Debit Account</b> (Bank) → Join → Show Balance → Eject Card → Take Card → End.</p><p>\"Show Balance\" đứng sau <b>Join</b>. Join phải chờ cả việc khách lấy tiền và việc ngân hàng trừ tiền xong thì mới cho luồng đi tiếp, nên số dư hiển thị là số dư sau khi đã trừ.</p>",
+   "src": "14. Activity Diagram.pdf tr.1"
+  },
+  {
+   "id": "L14-x4",
+   "title": "SolasMart: Activity Diagram \"Bán hàng tại quầy\"",
+   "level": "kho",
+   "task": "<p>Dựa trên tài liệu \"Quy trình bán hàng tại quầy\" của SolasMart, vẽ Activity Diagram (mô tả bằng bảng Làn | Phần tử | Tên | Đi tới [guard]).</p><ul><li>Các bên: Khách hàng, Thu ngân, Máy POS, Nhân viên hỗ trợ.</li><li>Quy trình: khách đưa hàng lên quầy; thu ngân bấm \"Start Transaction\"; quét từng mã sản phẩm (hàng cân chưa có tem thì nhân viên hỗ trợ cân rồi quay lại); xác nhận giỏ hàng; chọn phương thức thanh toán: tiền mặt, thẻ hoặc chuyển khoản; thu tiền và xác nhận (thất bại thì đổi phương thức hoặc hủy); in hóa đơn và giao hàng; kết thúc phiên.</li></ul>",
+   "hints": [
+    "<p>Quét từng món là một vòng lặp: sau mỗi món hỏi [Còn hàng] / [Hết hàng] bằng Branch, quay lại bằng Merge.</p>",
+    "<p>Chọn phương thức thanh toán là Branch 3 nhánh có Guard. Ba nhánh gom lại bằng Merge, không dùng Join.</p>",
+    "<p>Thanh toán thất bại có hai lối ra: quay lại chọn phương thức, hoặc hủy giao dịch tới End.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Làn</th><th>Phần tử</th><th>Tên</th><th>Đi tới [guard]</th></tr></thead><tbody><tr><td>Khách hàng</td><td>Start</td><td></td><td>A1</td></tr><tr><td>Khách hàng</td><td>Activity A1</td><td>Đưa hàng lên quầy</td><td>A2</td></tr><tr><td>Thu ngân</td><td>Activity A2</td><td>Bấm \"Start Transaction\"</td><td>M1</td></tr><tr><td>Thu ngân</td><td>Merge M1</td><td></td><td>B1</td></tr><tr><td>Thu ngân</td><td>Branch B1</td><td></td><td>[Hàng cân chưa có tem] → A3; [Có mã] → A4</td></tr><tr><td>Nhân viên hỗ trợ</td><td>Activity A3</td><td>Cân hàng và in tem barcode</td><td>A4</td></tr><tr><td>Thu ngân</td><td>Activity A4</td><td>Quét mã sản phẩm</td><td>A5</td></tr><tr><td>Máy POS</td><td>Activity A5</td><td>Hiển thị tên hàng, giá, số lượng, khuyến mãi</td><td>B2</td></tr><tr><td>Thu ngân</td><td>Branch B2</td><td></td><td>[Còn hàng chưa quét] → M1; [Đã quét hết] → A6</td></tr><tr><td>Thu ngân</td><td>Activity A6</td><td>Đọc lại tổng tiền, tổng số lượng</td><td>A7</td></tr><tr><td>Khách hàng</td><td>Activity A7</td><td>Kiểm tra màn hình và chọn phương thức thanh toán</td><td>M2</td></tr><tr><td>Khách hàng</td><td>Merge M2</td><td></td><td>B3</td></tr><tr><td>Thu ngân</td><td>Branch B3</td><td></td><td>[Tiền mặt] → A8; [Thẻ] → A9; [Chuyển khoản] → A10</td></tr><tr><td>Thu ngân</td><td>Activity A8</td><td>Nhận tiền, đếm, trả tiền thừa</td><td>M3</td></tr><tr><td>Khách hàng</td><td>Activity A9</td><td>Chạm thẻ / nhập PIN</td><td>M3</td></tr><tr><td>Khách hàng</td><td>Activity A10</td><td>Quét QR chuyển khoản</td><td>M3</td></tr><tr><td>Máy POS</td><td>Merge M3</td><td></td><td>B4</td></tr><tr><td>Máy POS</td><td>Branch B4</td><td></td><td>[Thành công] → A11; [Thất bại, đổi phương thức] → M2; [Thất bại, khách hủy] → A13</td></tr><tr><td>Máy POS</td><td>Activity A11</td><td>In hóa đơn</td><td>A12</td></tr><tr><td>Thu ngân</td><td>Activity A12</td><td>Giao hóa đơn, túi hàng và kết thúc phiên</td><td>End</td></tr><tr><td>Thu ngân</td><td>Activity A13</td><td>Hủy giao dịch</td><td>End</td></tr></tbody></table><p>Giải thích:</p><ul><li>B1/B2 cùng M1 tạo vòng lặp quét hàng.</li><li>B3 là Branch vì khách chỉ chọn một phương thức. Trường hợp \"kết hợp nhiều phương thức\" có thể vẽ thêm vòng lặp quay về M2 cho tới khi trả đủ tiền.</li><li>Không có Fork/Join vì các bước diễn ra lần lượt.</li><li>Có thể thêm Note cạnh A4: \"Barcode không đọc được thì nhập mã tay\".</li></ul>",
+   "src": "14. Activity Diagram.pdf tr.1-4; Quy trinh ban hang tai quay.docx"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L14-f1",
+   "front": "Activity Diagram (Biểu đồ hoạt động)",
+   "back": "<p>Mô hình logic dùng để mô hình hóa các hoạt động trong một quy trình nghiệp vụ; mô tả luồng xử lý của một Use Case. Mẹo: trả lời \"làm theo thứ tự nào\".</p>"
+  },
+  {
+   "id": "L14-f2",
+   "front": "Swimlane",
+   "back": "<p>Các làn (cột) chia sơ đồ, dùng để xác định đối tượng nào tham gia hoạt động nào. Ví dụ: Customer, ATM Machine, Bank.</p>"
+  },
+  {
+   "id": "L14-f3",
+   "front": "Start",
+   "back": "<p>Điểm bắt đầu của luồng xử lý. Ký hiệu: hình tròn (chuẩn UML tô đen đặc).</p>"
+  },
+  {
+   "id": "L14-f4",
+   "front": "End",
+   "back": "<p>Điểm kết thúc của luồng xử lý. Ký hiệu: hình tròn đen có vòng tròn bao ngoài, như hồng tâm. Một sơ đồ có thể có nhiều End.</p>"
+  },
+  {
+   "id": "L14-f5",
+   "front": "Activity",
+   "back": "<p>Hành vi của đối tượng trong quy trình. Ký hiệu: hình chữ nhật bo góc. Tên ngắn gọn, đủ nghĩa, bắt đầu bằng động từ. Ví dụ: Xem thông tin người dùng.</p>"
+  },
+  {
+   "id": "L14-f6",
+   "front": "Transition",
+   "back": "<p>Mũi tên mô tả sự chuyển đổi giữa các hoạt động; chiều mũi tên là thứ tự thực hiện.</p>"
+  },
+  {
+   "id": "L14-f7",
+   "front": "Branch",
+   "back": "<p>Hình thoi thể hiện rẽ nhánh theo điều kiện: một luồng vào, nhiều luồng ra, chỉ một nhánh được đi. Ví dụ: [Valid PIN] / [Invalid PIN].</p>"
+  },
+  {
+   "id": "L14-f8",
+   "front": "Guard Expression",
+   "back": "<p>Điều kiện ghi trong ngoặc vuông trên mũi tên ra khỏi Branch. Ví dụ: [Balance >= Amount]. Các guard nên loại trừ nhau và phủ hết khả năng.</p>"
+  },
+  {
+   "id": "L14-f9",
+   "front": "Merge",
+   "back": "<p>Hình thoi gom nhiều nhánh của Branch về một đường. Không chờ: nhánh nào tới thì đi tiếp. Ví dụ: Merge số 9 trước Eject Card.</p>"
+  },
+  {
+   "id": "L14-f10",
+   "front": "Fork",
+   "back": "<p>Thanh ngang đậm, một luồng vào nhiều luồng ra: xong một hoạt động thì tách ra làm nhiều hoạt động song song. Ví dụ: Take Money ∥ Debit Account.</p>"
+  },
+  {
+   "id": "L14-f11",
+   "front": "Join",
+   "back": "<p>Thanh ngang đậm, nhiều luồng vào một luồng ra: phải xong hai hay nhiều hành động trước rồi mới làm hành động tiếp theo.</p>"
+  },
+  {
+   "id": "L14-f12",
+   "front": "Note / Comment",
+   "back": "<p>Hình tờ giấy gấp góc, dùng để ghi chú thêm, ví dụ một luật nghiệp vụ hay giải thích điều kiện.</p>"
+  },
+  {
+   "id": "L14-f13",
+   "front": "Branch khác Fork thế nào?",
+   "back": "<p>Branch (hình thoi): chọn <b>một</b> nhánh theo điều kiện. Fork (thanh đậm): chạy <b>tất cả</b> nhánh song song. Mẹo: hình thoi là \"hoặc\", thanh đen là \"và\".</p>"
+  },
+  {
+   "id": "L14-f14",
+   "front": "Merge khác Join thế nào?",
+   "back": "<p>Merge (hình thoi) gom nhánh sau Branch, không chờ. Join (thanh đậm) gom nhánh sau Fork, chờ đủ mọi luồng. Dùng Join sau Branch sẽ làm luồng bị kẹt.</p>"
+  },
+  {
+   "id": "L14-f15",
+   "front": "Ngoại lệ trong đặc tả Use Case vẽ thế nào trên Activity Diagram?",
+   "back": "<p>Thành một nhánh của Branch có Guard, ví dụ 4a \"Email sai định dạng\" → nhánh [Email sai định dạng] → Activity hiển thị lỗi.</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L14-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, Activity Diagram được dùng để làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mô tả cấu trúc dữ liệu, các thực thể và quan hệ giữa các bảng trong cơ sở dữ liệu"
+    },
+    {
+     "id": "b",
+     "t": "Liệt kê các Actor và toàn bộ chức năng mà hệ thống cung cấp cho từng Actor"
+    },
+    {
+     "id": "c",
+     "t": "Mô hình hóa các hoạt động trong quy trình nghiệp vụ, mô tả luồng xử lý của một Use Case"
+    },
+    {
+     "id": "d",
+     "t": "Mô tả các trạng thái mà một đối tượng trải qua trong suốt vòng đời, từ lúc được tạo tới lúc bị hủy"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide: Activity Diagram là mô hình logic để mô hình hóa các hoạt động trong một quy trình nghiệp vụ, và mô tả luồng xử lý của một Use Case.</p>",
+   "why_wrong": {
+    "a": "Đó là ERD (bài L20).",
+    "b": "Đó là Use Case Diagram (bài L13a).",
+    "d": "Đó là State Diagram (bài L13a)."
+   },
+   "src": "14. Activity Diagram.pdf tr.1"
+  },
+  {
+   "id": "L14-q2",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong Activity Diagram, ký hiệu của một Activity là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hình chữ nhật bo góc"
+    },
+    {
+     "id": "b",
+     "t": "Hình thoi có nhánh rẽ"
+    },
+    {
+     "id": "c",
+     "t": "Thanh ngang đậm"
+    },
+    {
+     "id": "d",
+     "t": "Hình tờ giấy gấp góc"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Activity được vẽ bằng hình chữ nhật bo góc, bên trong ghi tên hoạt động.</p>",
+   "why_wrong": {
+    "b": "Hình thoi là Branch hoặc Merge.",
+    "c": "Thanh ngang đậm là Fork hoặc Join.",
+    "d": "Tờ giấy gấp góc là Note/comment."
+   },
+   "src": "14. Activity Diagram.pdf tr.2"
+  },
+  {
+   "id": "L14-q3",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Ký hiệu End (điểm kết thúc luồng xử lý) có hình dạng nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hình tròn rỗng, không tô màu bên trong, chỉ có viền"
+    },
+    {
+     "id": "b",
+     "t": "Hình thoi có nhãn [Kết thúc]"
+    },
+    {
+     "id": "c",
+     "t": "Thanh ngang đậm có một mũi tên vào"
+    },
+    {
+     "id": "d",
+     "t": "Hình tròn đen có vòng tròn bao ngoài"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>End là hình tròn đen có một vòng tròn bao ngoài, giống hồng tâm. Trên sơ đồ ATM đó là phần tử số 10.</p>",
+   "why_wrong": {
+    "a": "Hình tròn (không có viền bao) là ký hiệu Start.",
+    "b": "Hình thoi là Branch/Merge, không dùng để kết thúc.",
+    "c": "Thanh ngang đậm là Fork/Join."
+   },
+   "src": "14. Activity Diagram.pdf tr.1, tr.3"
+  },
+  {
+   "id": "L14-q4",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, Swimlane dùng để làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thể hiện rẽ nhánh theo một điều kiện Đúng/Sai cho trước"
+    },
+    {
+     "id": "b",
+     "t": "Xác định đối tượng nào làm hoạt động nào"
+    },
+    {
+     "id": "c",
+     "t": "Ghi chú thêm cho một hoạt động"
+    },
+    {
+     "id": "d",
+     "t": "Đánh dấu điểm bắt đầu của luồng"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Swimlane chia sơ đồ thành các làn, mỗi làn là một đối tượng; Activity nằm trong làn nào thì đối tượng đó thực hiện.</p>",
+   "why_wrong": {
+    "a": "Rẽ nhánh theo điều kiện là Branch.",
+    "c": "Ghi chú là Note/comment.",
+    "d": "Điểm bắt đầu là Start."
+   },
+   "src": "14. Activity Diagram.pdf tr.2"
+  },
+  {
+   "id": "L14-q5",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Note/comment trong Activity Diagram có ký hiệu hình tờ giấy gấp góc và dùng để ghi chú thêm.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide trang 4: Note/comment dùng để ghi chú thêm, ký hiệu là hình tờ giấy gấp một góc.</p>",
+   "why_wrong": {
+    "s": "Slide mô tả đúng như vậy."
+   },
+   "src": "14. Activity Diagram.pdf tr.4"
+  },
+  {
+   "id": "L14-q6",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn các ký hiệu được vẽ bằng <b>thanh ngang đậm</b>.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Branch"
+    },
+    {
+     "id": "b",
+     "t": "Fork"
+    },
+    {
+     "id": "c",
+     "t": "Merge"
+    },
+    {
+     "id": "d",
+     "t": "Join"
+    },
+    {
+     "id": "e",
+     "t": "Transition"
+    }
+   ],
+   "answer": [
+    "b",
+    "d"
+   ],
+   "explain": "<p>Fork và Join cùng là thanh ngang đậm. Fork một vào nhiều ra; Join nhiều vào một ra.</p>",
+   "why_wrong": {
+    "a": "Branch là hình thoi.",
+    "c": "Merge cũng là hình thoi.",
+    "e": "Transition là mũi tên."
+   },
+   "src": "14. Activity Diagram.pdf tr.1, tr.3"
+  },
+  {
+   "id": "L14-q7",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, tên của một Activity nên được đặt thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bắt đầu bằng tên đối tượng thực hiện, ví dụ \"Khách hàng – thông tin\""
+    },
+    {
+     "id": "b",
+     "t": "Là một danh từ chỉ dữ liệu, ví dụ \"Thông tin người dùng\""
+    },
+    {
+     "id": "c",
+     "t": "Ngắn gọn, đủ nghĩa, nên bắt đầu bằng động từ"
+    },
+    {
+     "id": "d",
+     "t": "Đánh số thứ tự, ví dụ \"Bước 1\", \"Bước 2\""
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Slide: tên cần ngắn gọn, đủ nghĩa, nên bắt đầu bằng động từ, ví dụ \"Xem thông tin người dùng\".</p>",
+   "why_wrong": {
+    "a": "Đối tượng thực hiện đã được thể hiện bằng Swimlane, không ghi vào tên.",
+    "b": "Danh từ không cho biết hành động gì; cần thêm động từ như \"Xem\".",
+    "d": "Số thứ tự không nói lên việc làm; thứ tự đã do Transition thể hiện."
+   },
+   "src": "14. Activity Diagram.pdf tr.2"
+  },
+  {
+   "id": "L14-q8",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Điểm khác nhau cốt lõi giữa Branch và Fork là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Branch chọn một nhánh theo điều kiện; Fork cho tất cả nhánh chạy song song"
+    },
+    {
+     "id": "b",
+     "t": "Branch dùng cho hệ thống, Fork dùng cho con người"
+    },
+    {
+     "id": "c",
+     "t": "Branch chỉ có hai nhánh ra, còn Fork bắt buộc phải có từ ba nhánh ra trở lên"
+    },
+    {
+     "id": "d",
+     "t": "Branch nằm ở đầu sơ đồ, Fork nằm ở cuối sơ đồ"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Branch là rẽ nhánh trong mệnh đề điều kiện, chỉ một nhánh được đi. Fork tách ra nhiều hoạt động tiếp theo, tất cả cùng chạy. Mẹo: hình thoi là \"hoặc\", thanh đen là \"và\".</p>",
+   "why_wrong": {
+    "b": "Cả hai ký hiệu dùng được cho mọi đối tượng, không phân theo người hay hệ thống.",
+    "c": "Cả hai đều có thể có hai hoặc nhiều nhánh ra.",
+    "d": "Vị trí trên sơ đồ không phải điểm phân biệt; cả hai đặt ở bất cứ đâu cần."
+   },
+   "src": "14. Activity Diagram.pdf tr.3"
+  },
+  {
+   "id": "L14-q9",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Join hoạt động như thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Chỉ cần một luồng vào tới là đi tiếp ngay"
+    },
+    {
+     "id": "b",
+     "t": "Chọn ngẫu nhiên một luồng vào để đi tiếp"
+    },
+    {
+     "id": "c",
+     "t": "Tách một luồng vào thành nhiều luồng ra chạy song song cùng lúc"
+    },
+    {
+     "id": "d",
+     "t": "Chờ hai hay nhiều hành động trước xong hết mới đi tiếp"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Slide: Join thể hiện trường hợp phải thực hiện hai hay nhiều hành động trước rồi mới thực hiện hành động tiếp theo.</p>",
+   "why_wrong": {
+    "a": "Đi tiếp ngay khi một luồng tới là cách Merge hoạt động.",
+    "b": "Join không chọn luồng; nó chờ tất cả.",
+    "c": "Tách luồng là việc của Fork."
+   },
+   "src": "14. Activity Diagram.pdf tr.3"
+  },
+  {
+   "id": "L14-q10",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trên sơ đồ ATM, các nhãn \"[Valid PIN]\" và \"[Invalid PIN]\" là thành phần gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Activity"
+    },
+    {
+     "id": "b",
+     "t": "Guard Expression"
+    },
+    {
+     "id": "c",
+     "t": "Swimlane"
+    },
+    {
+     "id": "d",
+     "t": "Note/comment"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Nhãn trong ngoặc vuông trên mũi tên ra khỏi Branch là Guard Expression (thành phần số 6 trên sơ đồ mẫu). Nó cho biết điều kiện để đi nhánh đó.</p>",
+   "why_wrong": {
+    "a": "Activity là hình chữ nhật bo góc chứa hành động, không phải nhãn điều kiện.",
+    "c": "Swimlane là các làn Customer, ATM Machine, Bank.",
+    "d": "Note là hình tờ giấy gấp góc, không gắn trên mũi tên."
+   },
+   "src": "14. Activity Diagram.pdf tr.1"
+  },
+  {
+   "id": "L14-q11",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Merge và Join có cùng ký hiệu và cùng ý nghĩa, nên dùng thay cho nhau được.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Merge là hình thoi, gom các nhánh của Branch và không chờ. Join là thanh đậm, chờ tất cả luồng từ Fork. Dùng Join sau Branch sẽ làm luồng bị kẹt.</p>",
+   "why_wrong": {
+    "d": "Hai ký hiệu khác hình và khác cách chạy: một bên không chờ, một bên chờ đủ."
+   },
+   "src": "14. Activity Diagram.pdf tr.1, tr.3"
+  },
+  {
+   "id": "L14-q12",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao sơ đồ ATM đặt \"Take Money From Slot\" và \"Debit Account\" giữa một Fork và một Join?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì máy chỉ làm một trong hai việc, tùy theo số dư trong tài khoản của khách"
+    },
+    {
+     "id": "b",
+     "t": "Vì khách hàng phải chọn lấy tiền hoặc trừ tiền"
+    },
+    {
+     "id": "c",
+     "t": "Vì hai việc diễn ra song song và phải xong cả hai mới hiển thị số dư"
+    },
+    {
+     "id": "d",
+     "t": "Vì hai việc này thuộc cùng một Swimlane"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Fork tách hai việc chạy song song ở hai làn (Customer và Bank). Join chờ cả hai xong thì mới tới \"Show Balance\".</p>",
+   "why_wrong": {
+    "a": "Chọn một trong hai theo điều kiện là Branch, đã xử lý ở bước kiểm tra số dư trước đó.",
+    "b": "Khách không chọn; cả hai việc đều xảy ra.",
+    "d": "Hai việc nằm ở hai làn khác nhau: Customer và Bank."
+   },
+   "src": "14. Activity Diagram.pdf tr.1"
+  },
+  {
+   "id": "L14-q13",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Transition trong Activity Diagram thể hiện điều gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Sự chuyển từ hoạt động này sang hoạt động khác theo chiều mũi tên"
+    },
+    {
+     "id": "b",
+     "t": "Dữ liệu được lưu vào cơ sở dữ liệu"
+    },
+    {
+     "id": "c",
+     "t": "Điều kiện để đi vào một nhánh"
+    },
+    {
+     "id": "d",
+     "t": "Ranh giới phân chia giữa hai đối tượng cùng tham gia vào một quy trình"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Transition (mũi tên) mô tả sự chuyển đổi giữa các hoạt động; chiều mũi tên cho biết thứ tự thực hiện.</p>",
+   "why_wrong": {
+    "b": "Activity Diagram không có ký hiệu riêng cho việc lưu dữ liệu; Transition chỉ nối các bước.",
+    "c": "Điều kiện là Guard Expression ghi trên mũi tên, không phải bản thân mũi tên.",
+    "d": "Ranh giới giữa các đối tượng là Swimlane."
+   },
+   "src": "14. Activity Diagram.pdf tr.2"
+  },
+  {
+   "id": "L14-q14",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Chọn các tên Activity được đặt <b>đúng</b> cách theo slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Xem thông tin người dùng"
+    },
+    {
+     "id": "b",
+     "t": "Thông tin chi tiết của đơn hàng"
+    },
+    {
+     "id": "c",
+     "t": "Kiểm tra số dư tài khoản"
+    },
+    {
+     "id": "d",
+     "t": "Bước 3"
+    },
+    {
+     "id": "e",
+     "t": "Gửi email kích hoạt"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Tên Activity cần ngắn gọn, đủ nghĩa và bắt đầu bằng động từ: Xem, Kiểm tra, Gửi.</p>",
+   "why_wrong": {
+    "b": "Chỉ là danh từ, không cho biết làm gì với thông tin đơn hàng.",
+    "d": "Không mô tả hành động, người đọc không biết bước 3 làm gì."
+   },
+   "src": "14. Activity Diagram.pdf tr.2"
+  },
+  {
+   "id": "L14-q15",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Khi vẽ Activity Diagram từ một bản đặc tả Use Case, các luồng ngoại lệ như \"4b. Email sai định dạng\" thường được thể hiện thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bỏ qua, vì Activity Diagram chỉ vẽ luồng chính, không vẽ bất kỳ ngoại lệ nào"
+    },
+    {
+     "id": "b",
+     "t": "Một nhánh ra khỏi Branch, có Guard, dẫn tới hoạt động báo lỗi"
+    },
+    {
+     "id": "c",
+     "t": "Một Swimlane riêng tên là \"Ngoại lệ\""
+    },
+    {
+     "id": "d",
+     "t": "Một Fork tách song song với luồng chính"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Activity Diagram mô tả luồng xử lý của Use Case, gồm cả các nhánh. Mỗi ngoại lệ là một nhánh có Guard ra khỏi Branch ở bước tương ứng.</p>",
+   "why_wrong": {
+    "a": "Sơ đồ vẽ cả nhánh rẽ; bài luyện tập trên slide yêu cầu vẽ cả ngoại lệ.",
+    "c": "Swimlane là đối tượng thực hiện, không phải loại luồng.",
+    "d": "Ngoại lệ và luồng chính không chạy cùng lúc, nên không dùng Fork."
+   },
+   "src": "14. Activity Diagram.pdf tr.1, tr.4-5"
+  },
+  {
+   "id": "L14-q16",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Ở trang 2, slide vẽ Start bằng hình tròn rỗng. Theo chuẩn UML, và như chính sơ đồ ATM ở trang 1, Start nên vẽ thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Hình tròn đen có vòng tròn bao ngoài"
+    },
+    {
+     "id": "b",
+     "t": "Hình thoi nhỏ"
+    },
+    {
+     "id": "c",
+     "t": "Hình tròn tô đặc màu đen"
+    },
+    {
+     "id": "d",
+     "t": "Hình chữ nhật bo góc ghi chữ \"Bắt đầu\""
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Trong UML, Start (initial node) là hình tròn tô đen đặc, như phần tử số 2 trên sơ đồ ATM. Hình tròn đen có viền bao là End.</p>",
+   "why_wrong": {
+    "a": "Đó là ký hiệu End.",
+    "b": "Hình thoi là Branch/Merge.",
+    "d": "Hình chữ nhật bo góc là Activity."
+   },
+   "src": "14. Activity Diagram.pdf tr.1-2"
+  },
+  {
+   "id": "L14-q17",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trong quy trình \"Đăng ký tài khoản\", hệ thống kiểm tra email đã tồn tại hay chưa rồi đi theo hai hướng khác nhau. Chỗ này nên vẽ bằng ký hiệu nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Fork, vì sau bước kiểm tra email có hai hướng đi ra"
+    },
+    {
+     "id": "b",
+     "t": "Join"
+    },
+    {
+     "id": "c",
+     "t": "Note/comment"
+    },
+    {
+     "id": "d",
+     "t": "Branch với Guard [Đã tồn tại] / [Chưa tồn tại]"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Chỉ một trong hai hướng xảy ra tùy điều kiện, nên dùng Branch (hình thoi) và ghi Guard trên từng nhánh.</p>",
+   "why_wrong": {
+    "a": "Fork cho tất cả nhánh chạy cùng lúc, không chọn theo điều kiện.",
+    "b": "Join dùng để gom các luồng song song, không phải để rẽ.",
+    "c": "Note chỉ để ghi chú, không điều khiển luồng."
+   },
+   "src": "14. Activity Diagram.pdf tr.3-4"
+  },
+  {
+   "id": "L14-q18",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Hệ thống đặt đồ ăn: sau khi thanh toán thành công, hệ thống đồng thời gửi đơn cho nhà hàng và gửi thông báo cho khách. Cả hai xong thì đơn mới chuyển sang \"Đang chuẩn bị\". Cách vẽ nào đúng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Fork tách hai việc, rồi Join trước \"Cập nhật trạng thái Đang chuẩn bị\""
+    },
+    {
+     "id": "b",
+     "t": "Branch tách hai việc, rồi Merge"
+    },
+    {
+     "id": "c",
+     "t": "Branch tách hai việc, rồi Join"
+    },
+    {
+     "id": "d",
+     "t": "Vẽ hai việc nối tiếp nhau theo thứ tự, rồi thêm một Note ghi chú là chúng chạy song song"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Hai việc chạy cùng lúc nên dùng Fork. Phải chờ cả hai xong mới đi tiếp nên dùng Join.</p>",
+   "why_wrong": {
+    "b": "Branch chỉ cho một nhánh chạy, trong khi ở đây cả hai việc đều phải làm.",
+    "c": "Branch chỉ chạy một nhánh nên Join sẽ chờ mãi luồng còn lại.",
+    "d": "Nối tiếp nghĩa là làm lần lượt; Note không thay được ký hiệu song song."
+   },
+   "src": "14. Activity Diagram.pdf tr.3"
+  },
+  {
+   "id": "L14-q19",
+   "type": "tf",
+   "level": "apdung",
+   "q": "<p>Theo sơ đồ ATM trên slide, khi khách nhập sai PIN, luồng vẫn đi qua \"Eject Card\" và \"Take Card\" trước khi kết thúc.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Nhánh [Invalid PIN] đi tới Merge số 9, rồi tới \"Eject Card\" (ATM Machine), \"Take Card\" (Customer) và End.</p>",
+   "why_wrong": {
+    "s": "Nhánh [Invalid PIN] không kết thúc ngay mà được Merge gom về đường trả thẻ."
+   },
+   "src": "14. Activity Diagram.pdf tr.1"
+  },
+  {
+   "id": "L14-q20",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Sơ đồ ATM: khách nhập PIN đúng nhưng số tiền muốn rút lớn hơn số dư. Sau \"Check Account Balance\", Activity tiếp theo được thực hiện là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Debit Account"
+    },
+    {
+     "id": "b",
+     "t": "Show Balance"
+    },
+    {
+     "id": "c",
+     "t": "Take Money From Slot"
+    },
+    {
+     "id": "d",
+     "t": "Enter PIN"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Nhánh [Balance &lt; Amount] đi qua hình thoi Merge ngay phía trên \"Show Balance\", bỏ qua Fork/Join. Sau đó là Eject Card và Take Card.</p>",
+   "why_wrong": {
+    "a": "Debit Account chỉ chạy ở nhánh [Balance >= Amount].",
+    "c": "Take Money From Slot cũng chỉ chạy khi đủ số dư.",
+    "d": "Sơ đồ không có mũi tên quay lại Enter PIN."
+   },
+   "src": "14. Activity Diagram.pdf tr.1"
+  },
+  {
+   "id": "L14-q21",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Vẽ Activity Diagram \"Đăng ký tài khoản\" với hai Swimlane: Người dùng và Hệ thống. Chọn các Activity đặt trong làn <b>Hệ thống</b>.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Kiểm tra email chưa tồn tại"
+    },
+    {
+     "id": "b",
+     "t": "Nhấn nút Đăng ký"
+    },
+    {
+     "id": "c",
+     "t": "Gửi email kích hoạt tài khoản"
+    },
+    {
+     "id": "d",
+     "t": "Nhấn link kích hoạt trong email"
+    },
+    {
+     "id": "e",
+     "t": "Tạo tài khoản trạng thái Chưa kích hoạt"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Activity đặt vào làn của đối tượng thực hiện. Kiểm tra email, gửi email kích hoạt, tạo tài khoản đều do hệ thống làm.</p>",
+   "why_wrong": {
+    "b": "Người dùng nhấn nút Đăng ký, nên đặt ở làn Người dùng.",
+    "d": "Người dùng nhấn link trong email, nên đặt ở làn Người dùng."
+   },
+   "src": "14. Activity Diagram.pdf tr.2, tr.4"
+  },
+  {
+   "id": "L14-q22",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Bạn review một sơ đồ và thấy sau \"Kiểm tra mật khẩu\" là một thanh ngang đậm có hai mũi tên ra ghi [Đúng] và [Sai]. Nên góp ý sửa thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Giữ nguyên, chỉ cần thêm Note giải thích điều kiện"
+    },
+    {
+     "id": "b",
+     "t": "Đổi thanh đậm thành Join"
+    },
+    {
+     "id": "c",
+     "t": "Đổi thành Branch (hình thoi), vì chỉ một nhánh được đi theo điều kiện"
+    },
+    {
+     "id": "d",
+     "t": "Tách hai nhánh [Đúng] và [Sai] vào hai Swimlane khác nhau để dễ phân biệt"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Thanh đậm một vào nhiều ra là Fork, nghĩa là mọi nhánh chạy song song. Mật khẩu chỉ đúng hoặc sai, nên phải dùng Branch có Guard.</p>",
+   "why_wrong": {
+    "a": "Note không sửa được nghĩa sai của ký hiệu: Fork vẫn cho cả hai nhánh chạy.",
+    "b": "Join là nhiều vào một ra, không dùng để rẽ nhánh.",
+    "d": "Swimlane chỉ ai làm việc gì, không giải quyết việc chọn nhánh."
+   },
+   "src": "14. Activity Diagram.pdf tr.3"
+  }
+ ],
+ "summary": {
+  "points": [
+   "Activity Diagram mô hình hóa các hoạt động trong quy trình nghiệp vụ và mô tả luồng xử lý của một Use Case.",
+   "Swimlane cho biết đối tượng nào làm hoạt động nào.",
+   "Start là điểm bắt đầu (hình tròn đen); End là điểm kết thúc (hình tròn đen có viền bao).",
+   "Activity: hình chữ nhật bo góc, tên ngắn gọn, bắt đầu bằng động từ. Transition: mũi tên chỉ thứ tự.",
+   "Branch (hình thoi) rẽ một nhánh theo Guard Expression; Merge (hình thoi) gom các nhánh lại.",
+   "Fork (thanh đậm) tách nhiều hoạt động song song; Join (thanh đậm) chờ tất cả xong mới đi tiếp.",
+   "Note/comment (tờ giấy gấp góc) để ghi chú thêm.",
+   "Vẽ từ đặc tả: luồng chính thành chuỗi Activity, ngoại lệ thành nhánh của Branch."
+  ],
+  "html": "<table><thead><tr><th>Câu hỏi</th><th>Ký hiệu</th><th>Hình</th></tr></thead><tbody><tr><td>Ai làm?</td><td>Swimlane</td><td>Làn / cột có tên</td></tr><tr><td>Bắt đầu, kết thúc ở đâu?</td><td>Start, End</td><td>Hình tròn đen; hình tròn đen có viền</td></tr><tr><td>Làm gì, theo thứ tự nào?</td><td>Activity, Transition</td><td>Chữ nhật bo góc; mũi tên</td></tr><tr><td>Nếu… thì…? (hoặc)</td><td>Branch + Guard, Merge</td><td>Hình thoi</td></tr><tr><td>Làm cùng lúc? (và)</td><td>Fork, Join</td><td>Thanh ngang đậm</td></tr><tr><td>Cần giải thích thêm?</td><td>Note</td><td>Tờ giấy gấp góc</td></tr></tbody></table><p class='warn'>Lỗi hay gặp: dùng thanh đậm cho điều kiện; gom nhánh của Branch bằng Join; Branch thiếu Guard; tên Activity là danh từ; quên Start hoặc có đường không tới End; không chia Swimlane khi có nhiều đối tượng.</p>"
+ },
+ "images": [
+  {
+   "id": "L14-img1",
+   "path": "data/pages/14. Activity Diagram/p-001.jpg",
+   "caption": "Activity Diagram mẫu: rút tiền tại cây ATM, có chú thích 10 thành phần",
+   "crop": [
+    0.2,
+    0.15,
+    0.8,
+    0.775
+   ]
+  },
+  {
+   "id": "L14-img2",
+   "path": "data/pages/14. Activity Diagram/p-002.jpg",
+   "caption": "Ký hiệu Swimlane: mỗi làn là một đối tượng tham gia",
+   "crop": [
+    0.08,
+    0.168,
+    0.45,
+    0.37
+   ]
+  },
+  {
+   "id": "L14-img3",
+   "path": "data/pages/14. Activity Diagram/p-003.jpg",
+   "caption": "Ký hiệu Branch (hình thoi) với hai nhánh Đúng/Sai",
+   "crop": [
+    0.09,
+    0.165,
+    0.28,
+    0.27
+   ]
+  },
+  {
+   "id": "L14-img4",
+   "path": "data/pages/14. Activity Diagram/p-003.jpg",
+   "caption": "Ký hiệu Fork: một luồng vào, nhiều luồng ra",
+   "crop": [
+    0.09,
+    0.38,
+    0.22,
+    0.52
+   ]
+  },
+  {
+   "id": "L14-img5",
+   "path": "data/pages/14. Activity Diagram/p-003.jpg",
+   "caption": "Ký hiệu Join: nhiều luồng vào, một luồng ra",
+   "crop": [
+    0.09,
+    0.625,
+    0.23,
+    0.785
+   ]
+  }
+ ]
+}

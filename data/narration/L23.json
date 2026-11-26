@@ -1,0 +1,325 @@
+{
+ "lesson": "L23",
+ "chunks": [
+  {
+   "id": "L23-n1",
+   "ref": "L23-t1",
+   "say": "Chào bạn, mình bắt đầu buổi hai mươi ba: API, giao diện lập trình ứng dụng. Buổi này đi qua ba phần chính. Thứ nhất, khái niệm API: định nghĩa, mô hình, lợi ích và các loại API. Thứ hai, các thành phần trong một API: phương thức, URL, header, param và response. Thứ ba, hai kiểu dữ liệu hay gặp là JSON và XML. Cuối buổi có thêm một phần riêng cho BA: cách đặc tả API trong tài liệu FSD. Bạn không cần biết lập trình API, nhưng phải đọc được request, response và viết được đặc tả để dev và đối tác làm đúng.",
+   "show": {
+    "h": "Buổi 23: API – Giao diện lập trình ứng dụng",
+    "points": [
+     "Khái niệm: định nghĩa, mô hình, lợi ích, các loại API",
+     "Thành phần: Method · URL · Header · Param · Response",
+     "Kiểu dữ liệu: JSON và XML",
+     "Dành cho BA: đặc tả API theo mẫu FSD"
+    ]
+   }
+  },
+  {
+   "id": "L23-n2",
+   "ref": "L23-t2",
+   "say": "Trước hết, vì sao cần API? Ở mô hình cũ, mỗi ứng dụng như website, app mobile hay phần mềm desktop đều kết nối thẳng vào database. Mỗi nơi tự viết logic đọc ghi riêng, database phải mở cho nhiều chỗ nên khó bảo mật, và sửa một quy tắc thì phải sửa nhiều nơi. Mô hình mới tách làm hai bên. Bên dùng dịch vụ là Consumer, hay Client, gồm Android, iPhone, Web App, Desktop App. Bên cung cấp dịch vụ là Service Provider, tức Server chứa các REST API, và chỉ Server mới làm việc với Database. Client gửi HTTP Request, Server trả HTTP Response, dữ liệu trao đổi bằng JSON hoặc XML. Ý chính: nhiều loại client dùng chung một bộ API, còn database được giấu sau server.",
+   "show": {
+    "h": "Mô hình cũ và mô hình mới",
+    "points": [
+     "Cũ: mỗi app kết nối thẳng database → khó bảo mật, sửa nhiều chỗ",
+     "Mới: Client (Consumer) → REST API trên Server (Service Provider)",
+     "HTTP Request / HTTP Response, dữ liệu JSON hoặc XML",
+     "Nhiều client dùng chung API, database giấu sau server"
+    ],
+    "img": "L23-img2"
+   },
+   "ask": [
+    "L23-q3",
+    "L23-q46"
+   ]
+  },
+  {
+   "id": "L23-n3",
+   "ref": "L23-t3",
+   "say": "Vậy API là gì? API là viết tắt của Application Programming Interface, giao diện lập trình ứng dụng. Đó là cách để hai hay nhiều chương trình máy tính giao tiếp với nhau: một hệ thống mở ra giao diện, để chương trình khác gửi yêu cầu dịch vụ và trao đổi dữ liệu qua lại. Slide ví API như một nhà hàng. Client là khách ngồi bàn, gửi yêu cầu gọi món. API là người phục vụ, nhận yêu cầu, chuyển vào bếp rồi mang kết quả ra. API Server là nhà bếp, nơi xử lý thật sự. Mẹo nhớ: khách không vào bếp, client không đụng thẳng vào database, mọi thứ đi qua API.",
+   "show": {
+    "h": "API là gì",
+    "points": [
+     "Application Programming Interface – giao diện lập trình ứng dụng",
+     "Cách để các chương trình giao tiếp, trao đổi dữ liệu",
+     "Client = khách · API = người phục vụ · API Server = nhà bếp",
+     "Khách không vào bếp: client không chạm database"
+    ],
+    "img": "L23-img3"
+   },
+   "ask": [
+    "L23-q1",
+    "L23-q2"
+   ]
+  },
+  {
+   "id": "L23-n4",
+   "ref": "L23-t4",
+   "say": "API mang lại bảy lợi ích, mình gom thành ba nhóm. Nhóm thứ nhất về kết nối: hỗ trợ tích hợp hệ thống, để app, web và đối tác nói chuyện với nhau qua một chuẩn chung, và tiết kiệm nguồn lực vì dùng lại dịch vụ có sẵn như cổng thanh toán hay đơn vị vận chuyển. Nhóm thứ hai về an toàn: tăng bảo mật vì client không chạm vào database, kiểm soát quyền truy cập nhờ mỗi request mang thông tin xác thực, và dễ audit, log, tracking vì mọi request đi qua một cửa. Nhóm thứ ba về chất lượng: giảm rủi ro lỗi dữ liệu vì dữ liệu được kiểm tra tập trung ở server, và dễ bảo trì, mở rộng vì sửa logic một chỗ là mọi client dùng chung. Mẹo nhớ bảy chữ: tích hợp, bảo mật, ít lỗi, bảo trì, phân quyền, log, tiết kiệm.",
+   "show": {
+    "h": "7 lợi ích của API",
+    "points": [
+     "Kết nối: tích hợp hệ thống · tiết kiệm nguồn lực",
+     "An toàn: bảo mật · kiểm soát quyền truy cập · audit, log, tracking",
+     "Chất lượng: giảm lỗi dữ liệu · dễ bảo trì, mở rộng",
+     "Mẹo: Tích hợp – Bảo mật – Ít lỗi – Bảo trì – Phân quyền – Log – Tiết kiệm"
+    ]
+   },
+   "ask": [
+    "L23-q4"
+   ]
+  },
+  {
+   "id": "L23-n5",
+   "ref": "L23-t5",
+   "say": "API có nhiều loại. Theo báo cáo State of the API 2022 của Postman trên slide, REST dẫn đầu rất xa, gần chín mươi phần trăm người được hỏi dùng. Theo sau là Webhooks, SOAP, GraphQL và Websockets. Webhooks chạy ngược chiều: khi có sự kiện, hệ thống nguồn chủ động gọi sang bên nhận, ví dụ cổng thanh toán báo kết quả. SOAP cũ hơn, dùng XML, còn gặp ở ngân hàng và hệ thống cũ. Vậy REST và RESTful khác nhau thế nào? REST, viết tắt của Representational State Transfer, là một bộ quy tắc, một kiểu kiến trúc phần mềm. Còn RESTful là API tuân theo nguyên lý REST, gửi nhận qua HTTP và thường dùng dữ liệu JSON, nói vui thì REST là luật, RESTful là người chơi đúng luật.",
+   "show": {
+    "h": "Các loại API · REST và RESTful",
+    "points": [
+     "REST dẫn đầu (~90%), sau là Webhooks, SOAP, GraphQL, Websockets",
+     "Webhooks: bên nguồn chủ động gọi sang khi có sự kiện",
+     "REST = bộ quy tắc (Representational State Transfer)",
+     "RESTful = API theo REST, qua HTTP, thường dùng JSON"
+    ],
+    "img": "L23-img4"
+   },
+   "ask": [
+    "L23-q5",
+    "L23-q6",
+    "L23-q7"
+   ]
+  },
+  {
+   "id": "L23-n6",
+   "ref": "L23-t7",
+   "say": "Nhắc tới HTTP, đây là HyperText Transfer Protocol, giao thức truyền siêu văn bản, ngôn ngữ chung để client và server gửi request và response cho nhau. Hình trên slide đặt HTTP vào mô hình mạng: dữ liệu đi xuống bảy tầng OSI ở máy gửi, qua đường truyền vật lý, rồi đi ngược lên bảy tầng ở máy nhận. Khi đối chiếu với bộ giao thức TCP/IP bốn tầng, HTTP nằm ở tầng ứng dụng, Application Layer. HTTPS là HTTP cộng SSL. SSL mã hóa dữ liệu trên đường truyền, nên người ở giữa không đọc trộm hay sửa được. Slide ghi SSL, còn ngày nay HTTPS dùng TLS, là phiên bản kế tiếp của SSL. Với BA, hãy ghi vào yêu cầu phi chức năng rằng API bắt buộc dùng HTTPS, nhất là khi có mật khẩu, token hay dữ liệu cá nhân.",
+   "show": {
+    "h": "HTTP và HTTPS",
+    "points": [
+     "HTTP: HyperText Transfer Protocol – ngôn ngữ chung client ↔ server",
+     "HTTP nằm ở Application Layer (OSI 7 tầng · TCP/IP 4 tầng)",
+     "HTTPS = HTTP + SSL: mã hóa đường truyền",
+     "Slide ghi SSL; nay dùng TLS, bản kế tiếp của SSL",
+     "BA: ghi yêu cầu bắt buộc HTTPS khi có mật khẩu, token"
+    ],
+    "img": "L23-img5"
+   },
+   "ask": [
+    "L23-q8",
+    "L23-q9"
+   ]
+  },
+  {
+   "id": "L23-n7",
+   "ref": "L23-t8",
+   "say": "Giờ ta mổ xẻ một RESTful API, gồm năm thành phần. Một, phương thức, tức Method: muốn làm gì. Hai, URL: làm với tài nguyên nào. Ba, Header: thông tin đi kèm như kiểu dữ liệu hay token xác thực. Bốn, Param: dữ liệu gửi kèm, nằm trên URL hoặc trong body. Năm, Response: kết quả server trả về. Ví dụ trên Postman là một request GET lấy check-list của kế hoạch số một, với param planId bằng một, skipCount bằng không và maxResultCount bằng mười, nghĩa là bỏ qua không bản ghi và lấy tối đa mười bản ghi để phân trang. Cách đọc nhanh: method nói làm gì, URL nói với cái gì, param nói điều kiện nào.",
+   "show": {
+    "h": "5 thành phần của RESTful API",
+    "points": [
+     "1 Method · 2 URL · 3 Header · 4 Param · 5 Response",
+     "Param nằm trên URL (query param) hoặc trong body",
+     "Ví dụ Postman: GET check-list?planId=1&skipCount=0&maxResultCount=10",
+     "Method = làm gì · URL = với cái gì · Param = điều kiện nào"
+    ],
+    "img": "L23-img6"
+   }
+  },
+  {
+   "id": "L23-n8",
+   "ref": "L23-t9",
+   "say": "Bắt đầu với phương thức, slide liệt kê bảy cái: GET, POST, PUT, PATCH, DELETE, HEAD và OPTIONS. GET dùng để lấy dữ liệu, tham số truyền thẳng trên URL sau dấu chấm hỏi, các cặp nối bằng dấu và. GET nhanh, được trình duyệt cache, nhưng lộ thông tin trên URL và bị giới hạn độ dài 2048 ký tự. POST dùng để thêm mới, tham số đi trong body nên không hiện trên URL, không được cache và chậm hơn GET. Vì vậy ví dụ đăng nhập bằng GET, có username và pass nằm ngay trên URL, là ví dụ sai: mật khẩu lộ ra trong lịch sử trình duyệt và log, phải dùng POST. Lưu ý slide đơn giản hóa vài điểm. POST không lộ chỉ nghĩa là không hiện trên URL, nếu không dùng HTTPS thì body vẫn đọc được trên đường truyền. Con số 2048 là giới hạn thực tế của một số trình duyệt, chuẩn HTTP không quy định con số này.",
+   "show": {
+    "h": "GET và POST",
+    "points": [
+     "Method: GET · POST · PUT · PATCH · DELETE · HEAD · OPTIONS",
+     "GET: lấy dữ liệu, tham số trên URL, được cache, nhanh, giới hạn 2048 ký tự",
+     "POST: thêm mới, tham số trong body, không cache, chậm hơn GET",
+     "Đăng nhập bằng GET → lộ mật khẩu trên URL → sai, dùng POST",
+     "POST vẫn cần HTTPS để body không bị đọc trộm"
+    ]
+   },
+   "ask": [
+    "L23-q12",
+    "L23-q16",
+    "L23-q48"
+   ]
+  },
+  {
+   "id": "L23-n9",
+   "ref": "L23-e2",
+   "say": "Ba phương thức còn lại dùng để thay đổi dữ liệu. PUT cập nhật toàn bộ, tức gửi lại đầy đủ bản ghi. PATCH cập nhật một phần, chỉ gửi các trường cần đổi. DELETE xóa dữ liệu, ngoài ra HEAD giống GET nhưng chỉ lấy header, còn OPTIONS hỏi server cho phép những phương thức nào. Ví dụ đặt bàn FoodNow: chỉ đổi số người thì dùng PATCH, đổi toàn bộ thông tin thì dùng PUT. Còn hủy đặt bàn, thực tế thường là đổi trạng thái thành đã hủy để giữ lịch sử, đây là quyết định nghiệp vụ BA cần hỏi rõ. Mẹo nhớ: GET là xem, POST là thêm, PUT là thay cả, PATCH là vá một chỗ, DELETE là xóa.",
+   "show": {
+    "h": "PUT, PATCH, DELETE",
+    "points": [
+     "PUT: cập nhật toàn bộ bản ghi",
+     "PATCH: cập nhật một phần, chỉ gửi trường cần đổi",
+     "DELETE: xóa · HEAD: chỉ lấy header · OPTIONS: hỏi method được phép",
+     "Hủy đặt bàn: thường PATCH trạng thái để giữ lịch sử",
+     "Mẹo: GET xem · POST thêm · PUT thay cả · PATCH vá · DELETE xóa"
+    ]
+   },
+   "ask": [
+    "L23-q13",
+    "L23-q14"
+   ]
+  },
+  {
+   "id": "L23-n10",
+   "ref": "L23-t10",
+   "say": "Thành phần thứ hai là URL, Uniform Resource Locator, địa chỉ chỉ tới một tài nguyên trên mạng. Ví dụ trên slide được chia làm năm phần. Scheme là HTTPS, giao thức dùng để truy cập. Subdomain là ctf, tên miền con. Second-level domain là viblo, tên miền chính, thường là tên thương hiệu. Top-level domain là asia, phần đuôi, giống như com hay vn. Cuối cùng, Subdirectory là puzzles, đường dẫn tới tài nguyên trên server. Trong API còn hay có query string sau dấu chấm hỏi, như planId bằng một ở ví dụ Postman lúc nãy.",
+   "show": {
+    "h": "URL – Uniform Resource Locator",
+    "points": [
+     "Ví dụ: https://ctf.viblo.asia/puzzles",
+     "Scheme https · Subdomain ctf · Second-level domain viblo",
+     "Top-level domain asia · Subdirectory /puzzles",
+     "Query string sau dấu ?: planId=1&skipCount=0"
+    ],
+    "img": "L23-img7"
+   }
+  },
+  {
+   "id": "L23-n11",
+   "ref": "L23-t11",
+   "say": "Vậy URL thế nào là chuẩn RESTful? Bảng ví dụ trên slide dùng tài nguyên customers. Tạo khách hàng mới là POST customers, còn tìm kiếm khách hàng là GET customers. Lấy, cập nhật hay xóa một khách hàng cụ thể thì thêm id phía sau, với GET, PUT hoặc DELETE. Quy tắc rút ra: path là danh từ số nhiều chỉ tài nguyên, hành động do method thể hiện, không đặt động từ như create hay update vào path. Slide hỏi hai URL quản lý văn bản, CreateIncommingDocument và UpdateIncommingDocument, đúng hay sai. Câu trả lời: chúng vẫn gọi được, nhưng sai chuẩn vì có động từ trong path, cách chuẩn là POST incoming-documents để tạo và PUT incoming-documents kèm id để sửa. Thêm nữa, chữ Incomming viết sai chính tả, đúng là Incoming.",
+   "show": {
+    "h": "URL chuẩn RESTful",
+    "points": [
+     "POST /customers: tạo · GET /customers: tìm kiếm",
+     "GET · PUT · DELETE /customers/{id}: làm với một khách hàng",
+     "Path = danh từ số nhiều; hành động nằm ở method",
+     "Sai: …/CreateIncommingDocument → Đúng: POST /api/incoming-documents",
+     "Lỗi chính tả: Incomming → Incoming"
+    ],
+    "img": "L23-img8"
+   },
+   "ask": [
+    "L23-q19",
+    "L23-q21",
+    "L23-q22"
+   ]
+  },
+  {
+   "id": "L23-n12",
+   "ref": "L23-t12",
+   "say": "Thành phần thứ ba là Header. HTTP Header truyền thông tin bổ sung trong request hoặc response, viết theo dạng cặp tên và giá trị. Slide nêu năm header hay gặp. Authorization chứa thông tin xác thực, thường là chữ Bearer kèm một token, cho server biết ai đang gọi. User-Agent cho biết phần mềm nào gửi request, như trình duyệt, app hay Postman. Content-Length là độ dài phần body, tính bằng byte. Còn Accept và Content-Type hay bị nhầm: Accept là tôi muốn nhận kiểu gì, còn Content-Type là tôi đang gửi kiểu gì, ví dụ body là JSON thì Content-Type ghi kiểu JSON.",
+   "show": {
+    "h": "Header",
+    "points": [
+     "Thông tin bổ sung, dạng Tên: Giá trị",
+     "Authorization: Bearer token → ai đang gọi",
+     "User-Agent: phần mềm gửi request · Content-Length: độ dài body",
+     "Accept = muốn nhận kiểu gì · Content-Type = đang gửi kiểu gì"
+    ]
+   }
+  },
+  {
+   "id": "L23-n13",
+   "ref": "L23-t14",
+   "say": "Thành phần cuối là Response, gồm ba phần: response header, response body và response code. Trong header có Access-Control-Allow-Origin, cho biết website ở tên miền nào được phép gọi API này từ trình duyệt, dấu sao nghĩa là mọi nguồn. Body là nội dung trả về, thường là JSON. Code là mã trạng thái, cách nhớ nhanh nhất là nhìn chữ số đầu: nhóm hai là ổn, nhóm bốn là bạn sai, tức lỗi phía client, nhóm năm là tôi sai, tức lỗi phía server. Hay gặp nhất là 200 OK khi thành công, 201 Created khi vừa tạo được một resource, 400 Bad Request khi request không hợp lệ, 404 Not Found khi không tìm thấy, và 500 Server Error khi server lỗi. Cặp dễ nhầm là 401 và 403: 401 Unauthorized là chưa xác thực, chưa đăng nhập hoặc token sai, còn 403 Forbidden là server biết bạn là ai nhưng bạn không có quyền. Slide ghi DELETE thành công trả 200, theo chuẩn cũng hay trả 204 No Content, cả hai đều thuộc nhóm thành công.",
+   "show": {
+    "h": "Response và mã trạng thái",
+    "points": [
+     "Response = header + body + code",
+     "2xx ổn · 4xx client sai · 5xx server sai",
+     "200 OK · 201 Created · 400 Bad Request · 404 Not Found · 500 Server Error",
+     "401 chưa xác thực ≠ 403 không có quyền",
+     "Slide ghi 200 cho DELETE; chuẩn cũng hay dùng 204 No Content"
+    ]
+   },
+   "ask": [
+    "L23-q26",
+    "L23-q28",
+    "L23-q29"
+   ]
+  },
+  {
+   "id": "L23-n14",
+   "ref": "L23-e6",
+   "say": "Áp vào app đặt đồ ăn cho dễ nhớ. Xem danh sách món thành công là 200, tạo đơn mới thành công là 201. Gửi đơn mà thiếu địa chỉ giao hàng là 400. Gọi API khi chưa đăng nhập, không có token là 401, còn khách hàng đòi xem doanh thu của nhà hàng là 403. Xem đơn số 999 không tồn tại là 404. Gửi body dạng XML trong khi API chỉ nhận JSON là 415, Unsupported Media Type. Một app gọi một nghìn lần mỗi giây, vượt hạn mức, là 429 Too Many Requests, còn server mất kết nối database là 500.",
+   "show": {
+    "h": "Chọn mã cho app đặt đồ ăn",
+    "points": [
+     "Xem món 200 · Tạo đơn 201 · Thiếu địa chỉ 400",
+     "Chưa đăng nhập 401 · Khách xem doanh thu 403",
+     "Đơn 999 không có 404 · Gửi XML khi chỉ nhận JSON 415",
+     "Gọi quá hạn mức 429 · Mất kết nối database 500"
+    ]
+   },
+   "ask": [
+    "L23-q25",
+    "L23-q30",
+    "L23-q32"
+   ]
+  },
+  {
+   "id": "L23-n15",
+   "ref": "L23-t15",
+   "say": "Sang phần dữ liệu. JSON là viết tắt của JavaScript Object Notation, định dạng trao đổi dữ liệu phổ biến khi làm việc với API, dễ đọc với người và dễ xử lý với máy. JSON có hai cấu trúc: JSON Object nằm trong cặp ngoặc nhọn, gồm các cặp khóa và giá trị, còn JSON Array nằm trong ngoặc vuông, là một danh sách. JSON có sáu kiểu dữ liệu: String, Number, Boolean, Null, Object và Array. Trong ví dụ sách Chí Phèo trên slide, Title là String vì nằm trong nháy kép, PageNumber 150 là Number vì không có nháy, Author là Object lồng bên trong, Position là Array chứa hai kệ sách, còn Status true là Boolean. Bẫy hay gặp: số 150 đặt trong nháy kép thì thành String, chữ true trong nháy kép cũng là String, không phải Boolean. Ảnh mẫu trên slide còn thiếu một dấu phẩy sau PageNumber, phần lý thuyết đã sửa lại cho đúng cú pháp.",
+   "show": {
+    "h": "JSON – JavaScript Object Notation",
+    "points": [
+     "Object trong {} gồm cặp khóa: giá trị · Array trong []",
+     "6 kiểu: String · Number · Boolean · Null · Object · Array",
+     "\"Chí Phèo\" String · 150 Number · true Boolean · null Null",
+     "Bẫy: \"150\" và \"true\" có nháy kép là String"
+    ]
+   },
+   "ask": [
+    "L23-q37",
+    "L23-q38",
+    "L23-q39"
+   ]
+  },
+  {
+   "id": "L23-n16",
+   "ref": "L23-t16",
+   "say": "XML là viết tắt của eXtensible Markup Language, cũng dùng để trao đổi dữ liệu giữa các hệ thống. Thay vì cặp khóa và giá trị, XML dùng thẻ mở và thẻ đóng cùng tên bao quanh giá trị. Danh sách trong XML không có ngoặc vuông như JSON, mà lặp lại thẻ, ví dụ nhiều thẻ Item nằm trong thẻ Data. Vì mỗi tên trường phải viết hai lần, ở thẻ mở và thẻ đóng, nên XML dài hơn JSON, đây chính là điểm slide ghi riêng cho XML. JSON dùng nhiều ở RESTful API, còn XML gặp nhiều ở SOAP và hệ thống cũ. Lưu ý ảnh mẫu trang hai mươi ba đóng thẻ PageNumber bằng thẻ Title, đó là lỗi gõ trên slide, thẻ mở và thẻ đóng phải cùng tên.",
+   "show": {
+    "h": "XML – eXtensible Markup Language",
+    "points": [
+     "Thẻ mở và thẻ đóng cùng tên bao quanh giá trị",
+     "Danh sách = lặp thẻ (nhiều Item trong Data)",
+     "Dài hơn JSON vì lặp tên thẻ đóng",
+     "JSON: RESTful API · XML: SOAP, hệ thống cũ",
+     "Slide tr.23 đóng PageNumber bằng thẻ Title: lỗi gõ"
+    ]
+   }
+  },
+  {
+   "id": "L23-n17",
+   "ref": "L23-t17",
+   "say": "Phần cuối dành riêng cho BA: đặc tả API theo mẫu FSD, với case FoodNow đặt bàn nhà hàng. Trường hợp thứ nhất là API do mình định nghĩa, ví dụ FoodNow mở API để đối tác như Pasgo, TableNow gửi yêu cầu đặt bàn. BA viết đủ năm mục: mô tả chung, luồng nghiệp vụ, thông tin đầu vào, thông tin đầu ra và danh sách mã lỗi. Luồng kiểm tra lần lượt mã đối tác, mã nhà hàng đã liên kết với đối tác, thời gian tới phải sau hiện tại và trong giờ mở cửa, rồi bàn còn trống trong khung giờ đó, cuối cùng mới lưu đặt bàn. Quy tắc tự kiểm: mỗi bước kiểm tra trong luồng phải có ít nhất một dòng trong danh sách mã lỗi. Trường hợp thứ hai là API do bên khác định nghĩa, như Momo gửi kết quả thanh toán sang, thì đầu vào, đầu ra và mã lỗi dẫn theo tài liệu của đối tác, BA chỉ mô tả các bước kiểm tra phía mình như checksum, số tiền khớp, trạng thái bàn. Nói gọn, BA đặc tả cái gì và quy tắc gì, còn dev quyết định làm thế nào.",
+   "show": {
+    "h": "BA đặc tả API theo mẫu FSD",
+    "points": [
+     "API mình định nghĩa: mô tả chung · luồng · đầu vào · đầu ra · mã lỗi",
+     "Luồng đặt bàn: mã đối tác → nhà hàng → thời gian → bàn trống → lưu",
+     "Mỗi bước kiểm tra ↔ ít nhất một dòng mã lỗi",
+     "API đối tác định nghĩa (Momo): đầu vào, đầu ra, mã lỗi theo tài liệu đối tác",
+     "BA: cái gì, quy tắc gì · Dev: làm thế nào"
+    ]
+   },
+   "ask": [
+    "L23-q44",
+    "L23-q45",
+    "L23-q47"
+   ]
+  },
+  {
+   "id": "L23-n18",
+   "say": "Tóm lại buổi hai mươi ba. API là người phục vụ đứng giữa client và server, giúp nhiều ứng dụng dùng chung một bộ dịch vụ mà không chạm thẳng vào database. REST là bộ quy tắc, RESTful là API theo quy tắc đó, gồm năm thành phần: method, URL, header, param và response. Nhớ GET xem, POST thêm, PUT thay cả, PATCH vá một chỗ, DELETE xóa, và URL dùng danh từ số nhiều, không chứa động từ. Mã trạng thái nhìn chữ số đầu: hai là ổn, bốn là client sai, năm là server sai. JSON gọn với sáu kiểu dữ liệu, XML dài hơn vì lặp thẻ. Cuối cùng, BA đặc tả API bằng năm mục trong FSD, và mỗi bước kiểm tra phải có mã lỗi tương ứng. Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài.",
+   "show": {
+    "h": "Tổng kết buổi 23",
+    "points": [
+     "API = người phục vụ giữa client và server",
+     "RESTful API: Method · URL · Header · Param · Response",
+     "GET xem · POST thêm · PUT thay cả · PATCH vá · DELETE xóa",
+     "2xx ổn · 4xx client sai · 5xx server sai",
+     "JSON gọn, 6 kiểu · XML dài hơn · FSD: 5 mục đặc tả"
+    ]
+   }
+  }
+ ]
+}

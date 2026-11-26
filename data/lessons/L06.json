@@ -1,0 +1,2034 @@
+{
+ "id": "L06",
+ "session": 6,
+ "module": "M2",
+ "title": "Quản lý yêu cầu",
+ "goals": [
+  "Giải thích được quản lý yêu cầu là gì và vì sao cần làm",
+  "Nêu và áp dụng được 6 bước xử lý Change Request, điền được phiếu yêu cầu thay đổi",
+  "Đọc và điền được ma trận truy vết RTM theo template",
+  "Xếp độ ưu tiên yêu cầu bằng phương pháp MoSCoW",
+  "Viết email công việc chuyên nghiệp: tiêu đề, lời chào, nội dung, kết thư",
+  "Tổ chức thư mục, đặt tên file và đánh phiên bản tài liệu dự án",
+  "Log user story, task, epic, issue trên Azure DevOps theo hướng dẫn"
+ ],
+ "sources": [
+  {
+   "file": "6. Quan ly yeu cau.pdf",
+   "pages": "1-25"
+  },
+  {
+   "file": "6. MaTranTuyVet-RTM.xlsx",
+   "pages": "sheet RTM, RTM (2), Change Log"
+  },
+  {
+   "file": "6. Quan ly thay doi.docx",
+   "pages": "toàn bộ"
+  },
+  {
+   "file": "6. Quan ly tai lieu.docx",
+   "pages": "toàn bộ"
+  },
+  {
+   "file": "6. HƯỚNG DẪN QUY TRÌNH SỬ DỤNG LOG TASK.docx",
+   "pages": "toàn bộ"
+  }
+ ],
+ "theory": [
+  {
+   "id": "L06-t1",
+   "h": "Quản lý yêu cầu là gì, vì sao cần",
+   "html": "<p><b>Quản lý yêu cầu (Requirements Management)</b> là quá trình <b>tổ chức, theo dõi, kiểm soát, cập nhật và truyền thông</b> mọi yêu cầu trong suốt vòng đời dự án: từ lúc hình thành, phân tích, phê duyệt, triển khai cho tới khi nghiệm thu và bảo trì.</p><p>Nói ngắn gọn: yêu cầu không phải viết một lần rồi để đó. Nó sinh ra, được sửa, được ưu tiên, được làm, được kiểm thử. BA phải biết mỗi yêu cầu đang ở đâu.</p><h4>Tại sao phải quản lý yêu cầu</h4><ul><li><b>Tránh hiểu nhầm</b> giữa khách hàng, BA, Dev, Tester.</li><li><b>Kiểm soát thay đổi</b>: mọi thay đổi đều được ghi nhận và phê duyệt.</li><li><b>Truy vết dễ dàng</b>: biết yêu cầu đến từ đâu, đã thiết kế, code, test chưa.</li><li><b>Giảm rủi ro</b>: phát hiện sớm yêu cầu thiếu hoặc mâu thuẫn.</li><li><b>Đảm bảo sản phẩm đúng nhu cầu</b> của khách hàng.</li></ul><h4>Các hoạt động quản lý yêu cầu</h4><p>Sơ đồ trên slide nêu 9 hoạt động nối tiếp nhau thành vòng:</p><table><thead><tr><th>#</th><th>Hoạt động</th><th>Ý nghĩa ngắn</th></tr></thead><tbody><tr><td>1</td><td>Planning</td><td>Lập kế hoạch làm yêu cầu</td></tr><tr><td>2</td><td>Requirements Identification / Elicitation</td><td>Xác định, khai thác yêu cầu</td></tr><tr><td>3</td><td>Analysis</td><td>Phân tích yêu cầu</td></tr><tr><td>4</td><td>Documentation</td><td>Viết thành tài liệu</td></tr><tr><td>5</td><td>Prioritization</td><td>Xếp độ ưu tiên (ví dụ MoSCoW)</td></tr><tr><td>6</td><td>Validation</td><td>Xác nhận yêu cầu đúng nhu cầu</td></tr><tr><td>7</td><td>Traceability</td><td>Truy vết (RTM)</td></tr><tr><td>8</td><td>Change Management</td><td>Quản lý thay đổi (Change Request)</td></tr><tr><td>9</td><td>Monitoring and Control</td><td>Theo dõi và kiểm soát</td></tr></tbody></table>{{img:L06-img1}}",
+   "src": "6. Quan ly yeu cau.pdf tr.4"
+  },
+  {
+   "id": "L06-t2",
+   "h": "Change Request (yêu cầu thay đổi)",
+   "html": "<p><b>Change Request (CR)</b> là một <b>yêu cầu chính thức</b> được đề xuất khi có nhu cầu thay đổi một phần của sản phẩm hoặc dự án. Các thay đổi có thể là:</p><ul><li>Thay đổi nghiệp vụ</li><li>Thay đổi phạm vi</li><li>Thay đổi thiết kế</li><li>Thay đổi kiến trúc, kỹ thuật, công nghệ</li><li>Thay đổi timeline (mốc thời gian), effort (công sức)…</li></ul><p>CR có thể đến từ <b>Khách hàng, BA, Dev, PM…</b> nhưng <b>phải đi qua quy trình quản lý thay đổi</b> để đảm bảo thay đổi được kiểm soát.</p><p class='tip'>Mẹo nhớ: ai cũng được đề xuất, nhưng không ai được “làm luôn” khi chưa qua quy trình.</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.5"
+  },
+  {
+   "id": "L06-t3",
+   "h": "6 bước xử lý Change Request",
+   "html": "{{img:L06-img2}}<ol><li><b>Tiếp nhận CR</b>: ghi nhận yêu cầu, gán mã CR, người yêu cầu, ngày yêu cầu.</li><li><b>Phân tích CR</b>: hiểu thay đổi là gì, lý do, phạm vi (thêm, sửa, bỏ chức năng nào), ảnh hưởng đến phần khác.</li><li><b>Ước lượng effort</b>: thời gian, chi phí, tài nguyên cần thêm, tác động lên lịch trình.</li><li><b>Phê duyệt CR</b>: người có thẩm quyền quyết định đồng ý hay từ chối.</li><li><b>Triển khai</b>: cập nhật tài liệu, code, test theo CR đã duyệt.</li><li><b>Nghiệm thu và theo dõi</b>: kiểm tra kết quả, cập nhật RTM và nhật ký thay đổi.</li></ol><p class='tip'>Mẹo nhớ: “Nhận – Hiểu – Đo – Duyệt – Làm – Kiểm”. Phải ước lượng <b>trước</b> khi duyệt, vì người duyệt cần biết thay đổi tốn bao nhiêu.</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.6"
+  },
+  {
+   "id": "L06-t4",
+   "h": "Phiếu yêu cầu thay đổi (Change Request Form)",
+   "html": "<p>Slide “Template phân tích thay đổi” dẫn tới mẫu phiếu <b>Yêu cầu thay đổi (Change Request Form)</b>. Đầu phiếu có tên dự án, <b>Mã yêu cầu thay đổi (CRID)</b> dạng CR-YYYYMMDD-số thứ tự và ngày yêu cầu. Phiếu có 5 phần:</p><table><thead><tr><th>Phần</th><th>Nội dung cần điền</th></tr></thead><tbody><tr><td>1. Thông tin người yêu cầu</td><td>Họ tên, chức danh/phòng ban, email, số điện thoại</td></tr><tr><td>2. Thông tin yêu cầu thay đổi</td><td>Tên yêu cầu (ngắn, rõ); mô tả chi tiết (càng chi tiết càng tốt, kể cả yêu cầu chức năng hoặc phi chức năng mới); lý do/vấn đề cần giải quyết; lợi ích mong đợi</td></tr><tr><td>3. Phân tích</td><td>Người và ngày phân tích; <b>phạm vi thay đổi</b> (chức năng bổ sung, thay đổi, loại bỏ); <b>kế hoạch xử lý</b> (thời gian ước tính, ngày hoàn thành dự kiến mới, tác động lên lịch trình); <b>chi phí</b> (chi phí tăng thêm, tác động ngân sách); tài nguyên cần thiết (nhân sự, phần mềm, phần cứng); <b>rủi ro</b>; mức độ ưu tiên (MoSCoW hoặc Thấp/Trung bình/Cao/Rất cao); mức độ phức tạp kỹ thuật (Thấp/Trung bình/Cao/Rất cao)</td></tr><tr><td>4. Quyết định xử lý</td><td>Người quyết định, ngày quyết định; quyết định <b>Đồng ý triển khai / Từ chối</b>; lý do (bắt buộc ghi rõ khi từ chối)</td></tr><tr><td>5. Thông tin triển khai</td><td>Ngày bắt đầu, ngày hoàn thành, người phụ trách, ghi chú triển khai</td></tr></tbody></table><p>Ví dụ trong mẫu: CR “Bổ sung trường Ngày sinh vào hồ sơ khách hàng”, định dạng DD/MM/YYYY, chọn từ lịch. Lý do: không gửi được tin nhắn chúc mừng sinh nhật tự động. Lợi ích: tăng mức hài lòng, hỗ trợ marketing phân tích dữ liệu.</p><p class='tip'>Phiếu đi song song với 6 bước: Phần 1–2 là <b>Tiếp nhận</b>, Phần 3 là <b>Phân tích + Ước lượng</b>, Phần 4 là <b>Phê duyệt</b>, Phần 5 là <b>Triển khai</b>.</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.9; 6. Quan ly thay doi.docx"
+  },
+  {
+   "id": "L06-t5",
+   "h": "Ma trận truy vết (RTM)",
+   "html": "<p><b>Ma trận truy vết (Requirements Traceability Matrix – RTM)</b> là một bảng <b>liên kết các yêu cầu từ nguồn gốc của chúng</b> với các sản phẩm công việc tương ứng, chẳng hạn tài liệu thiết kế, coding, kiểm thử…</p><h4>Mục tiêu của RTM</h4><ul><li><b>Đảm bảo yêu cầu không bị bỏ sót</b>: dòng nào trống cột thiết kế/test là thấy ngay.</li><li><b>Kiểm soát phạm vi</b>: thứ gì không có trong RTM là ngoài phạm vi.</li><li><b>Dễ kiểm tra tiến độ và chất lượng</b>: xem cột kết quả kiểm thử, phiên bản triển khai.</li><li><b>Hỗ trợ quản lý thay đổi</b>: khi một yêu cầu đổi, biết ngay tài liệu, task, testcase nào bị ảnh hưởng.</li></ul><p>Theo kiến thức chuẩn (BABOK), truy vết có hai chiều: <b>xuôi</b> (từ yêu cầu tới thiết kế, code, test) và <b>ngược</b> (từ test hay code ngược về yêu cầu và nguồn gốc).</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.7"
+  },
+  {
+   "id": "L06-t6",
+   "h": "Đọc và điền RTM theo template",
+   "html": "{{img:L06-img3}}<p>Template dùng cho dự án <b>Quản lý thư viện thông minh</b>. Mỗi dòng là một yêu cầu, đi từ trái (nguồn gốc) sang phải (kết quả):</p><table><thead><tr><th>Cột</th><th>Ý nghĩa và cách điền</th><th>Ví dụ dòng 1</th></tr></thead><tbody><tr><td>STT</td><td>Số thứ tự</td><td>1</td></tr><tr><td>ID yêu cầu</td><td>Mã duy nhất, không trùng, không đổi</td><td>CR-20241009-001</td></tr><tr><td>Mô tả yêu cầu</td><td>Một câu ngắn, rõ, kiểm tra được</td><td>Người dùng có thể đăng nhập bằng email và mật khẩu.</td></tr><tr><td>Nguồn yêu cầu</td><td>Yêu cầu đến từ ai/đâu: Khách hàng, Marketing, Khảo sát người dùng, Ý tưởng nội bộ…</td><td>Khách hàng</td></tr><tr><td>Ngày yêu cầu</td><td>Ngày ghi nhận</td><td>20/11/2020</td></tr><tr><td>Độ ưu tiên</td><td>Theo MoSCoW</td><td>Must Have</td></tr><tr><td>Phân loại</td><td>Function (chức năng) hoặc Non-Function (phi chức năng)</td><td>Function</td></tr><tr><td>Tài liệu thiết kế liên quan</td><td>Mục tài liệu đặc tả/thiết kế (FSD…)</td><td>FSD-Login</td></tr><tr><td>ID TASK</td><td>Mã task trên công cụ quản lý (ví dụ Azure DevOps)</td><td>4448</td></tr><tr><td>Testcase liên quan</td><td>Dải testcase kiểm yêu cầu</td><td>TC001-005</td></tr><tr><td>Kết quả kiểm thử</td><td>Pass/Fail</td><td>Pass</td></tr><tr><td>Phiên bản triển khai</td><td>Bản phát hành chứa yêu cầu</td><td>v1.1</td></tr><tr><td>Ngày triển khai</td><td>Ngày đưa lên môi trường thật</td><td>25/11/2020</td></tr><tr><td>Ghi chú</td><td>Thông tin thêm</td><td>(trống)</td></tr></tbody></table><h4>Cách đọc nhanh</h4><ul><li>Dòng <b>Won’t Have</b> (cộng điểm sau mỗi đơn hàng) để trống các cột thiết kế, task, test: <b>hợp lý</b>, vì đã thống nhất không làm ở phiên bản này.</li><li>Dòng <b>Must Have</b> “Dữ liệu nhạy cảm của người dùng phải được mã hóa” (Non-Function) cũng trống thiết kế và testcase: đây là <b>lỗ hổng truy vết</b> cần BA xử lý, vì yêu cầu bắt buộc mà chưa có thiết kế, chưa có test.</li></ul><h4>Sheet Change Log</h4><p>File xlsx có thêm sheet <b>Change Log</b> với các cột: Ngày, ID yêu cầu, Thay đổi, Người thực hiện, Trạng thái mới. Ví dụ: thêm yêu cầu Wishlist vào backlog (trạng thái “Chưa phân tích”); loại bỏ yêu cầu do không phù hợp chiến lược hiện tại (trạng thái “Đã loại bỏ”).</p><p class='note'>Template trong tài liệu đặt tiêu đề “QUẢN LÝ CHANGE REQUEST” và dùng mã CR-… cho cột ID yêu cầu, tức là gộp RTM với sổ theo dõi CR. Trong khi đó sheet Change Log lại dùng mã REQ-…. Theo kiến thức chuẩn, RTM thường dùng mã yêu cầu (REQ/FR/NFR) còn CR có sổ riêng. Khi làm thật, chọn một cách đặt mã và dùng thống nhất. Template cũng có hai dòng cùng STT 5; đó là lỗi đánh số, không phải quy tắc.</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.8; 6. MaTranTuyVet-RTM.xlsx"
+  },
+  {
+   "id": "L06-t7",
+   "h": "Phương pháp MoSCoW – tổng quan",
+   "html": "<p><b>MoSCoW</b> là phương pháp xếp độ ưu tiên được áp dụng rộng rãi trong phát triển sản phẩm, đặc biệt trong quản trị dự án và phân tích nghiệp vụ. Có 4 lựa chọn:</p>{{img:L06-img4}}<table><thead><tr><th>Mức</th><th>Khẩu hiệu trên hình</th><th>Hiểu là</th></tr></thead><tbody><tr><td><b>M</b>ust have</td><td>Project cannot do without them</td><td>Dự án không thể thiếu</td></tr><tr><td><b>S</b>hould have</td><td>Must-haves over the long run</td><td>Về lâu dài cũng sẽ thành cần thiết</td></tr><tr><td><b>C</b>ould have</td><td>Low-cost tweaking</td><td>Tinh chỉnh nhỏ, chi phí thấp</td></tr><tr><td><b>W</b>on’t have (this time)</td><td>Get back to them at better days</td><td>Để dành, quay lại khi điều kiện tốt hơn</td></tr></tbody></table><p class='tip'>Hai chữ “o” chỉ để đọc cho dễ, không mang nghĩa.</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.10"
+  },
+  {
+   "id": "L06-t8",
+   "h": "Bốn mức MoSCoW: định nghĩa, ví dụ, cách xác định",
+   "html": "<table><thead><tr><th>Mức</th><th>Định nghĩa</th><th>Ví dụ trên slide</th><th>Cách xác định</th></tr></thead><tbody><tr><td><b>Must Have</b> (Bắt buộc phải có)</td><td>Không thể thiếu, bắt buộc thực hiện; thiếu thì hệ thống không hoạt động được</td><td>Hệ thống quản lý thư viện: quản lý sách, quản lý mượn trả</td><td>Yêu cầu chính liên quan đến hầu hết nghiệp vụ; liên quan pháp luật hoặc an toàn thông tin; không có giải pháp thay thế</td></tr><tr><td><b>Should Have</b> (Nên có)</td><td>Quan trọng, mang lại giá trị đáng kể nhưng không hoàn toàn bắt buộc cho phiên bản hiện tại</td><td>Hệ thống quản lý thư viện: chức năng báo cáo</td><td>Quan trọng nhưng chưa có thì hệ thống vẫn hoạt động (kém M); thiếu thì có giải pháp thủ công thay thế; mang lại lợi ích lớn cho người dùng</td></tr><tr><td><b>Could Have</b> (Có thể có)</td><td>Mong muốn, có thì tốt nhưng không quá quan trọng</td><td>Tiện ích lịch, thời tiết; màn danh sách cho chọn cột hiển thị</td><td>Có tác động nhưng không đáng kể đến mục tiêu kinh doanh; thường là cải tiến nhỏ về trải nghiệm người dùng hoặc tính năng phụ</td></tr><tr><td><b>Won’t Have</b> (Sẽ không có trong phiên bản này)</td><td>Được các bên liên quan <b>đồng ý</b> sẽ không triển khai trong phiên bản hiện tại</td><td>Gửi OTP khi chưa có brand_name (tên thương hiệu đăng ký gửi SMS)</td><td>Thống nhất với Stakeholder; nên đưa ra căn cứ để Stakeholder xác định không triển khai</td></tr></tbody></table><p class='tip'>Câu hỏi nhanh: “Thiếu nó thì hệ thống có chạy không?” Không chạy → M. Chạy được nhưng phải làm tay vất vả → S. Chạy bình thường, chỉ kém tiện → C. Đã thống nhất để sau → W.</p><p class='warn'>Won’t Have không phải là “bị xóa vĩnh viễn”. Nó là “không làm lần này”, có thể quay lại ở phiên bản sau.</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.11-14"
+  },
+  {
+   "id": "L06-t9",
+   "h": "Email: khi nào cần gửi",
+   "html": "<p>BA dùng email để để lại <b>bằng chứng bằng văn bản</b>. Cần gửi email khi:</p><ul><li>Xác nhận lại yêu cầu sau buổi họp;</li><li>Có danh sách câu hỏi cần làm rõ;</li><li>Gửi tài liệu mô tả yêu cầu, tài liệu giải pháp và đề nghị xác nhận;</li><li>Xác nhận khi có Change Request;</li><li>Thông báo rủi ro, vấn đề phát sinh hoặc quyết định liên quan đến dự án;</li><li>Bàn giao tài liệu;</li><li>Thông báo mời họp;</li><li>Báo cáo tiến độ.</li></ul><p class='tip'>Nói miệng thì dễ quên, dễ cãi. Cái gì đã chốt thì phải có email xác nhận.</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.15-16"
+  },
+  {
+   "id": "L06-t10",
+   "h": "Email: nguyên tắc viết và người nhận",
+   "html": "<ul><li><b>Rõ ràng, dễ đọc</b>: giúp người nhận hiểu nhanh, dễ phản hồi.</li><li><b>Ngắn gọn, đi thẳng vấn đề</b>: tránh rườm rà.</li><li><b>Lịch sự, chuyên nghiệp</b>: dùng từ ngữ theo văn phong lịch sự.</li><li><b>Người nhận (To) nên là một người</b>: người chịu trách nhiệm cao nhất về việc đó.</li><li>Những người khác để ở <b>cc</b>, sắp xếp theo nguyên tắc: <b>khách hàng trước, đơn vị triển khai sau; người chức vụ cao hơn đưa lên trước</b>.</li></ul><p class='tip'>Ví dụ: To = Giám đốc dự án phía khách hàng. Cc theo thứ tự: Trưởng phòng phía khách hàng → nhân viên phía khách hàng → PM phía mình → Dev lead phía mình.</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.17"
+  },
+  {
+   "id": "L06-t11",
+   "h": "Email: dùng từ ngữ chuyên nghiệp",
+   "html": "<p>Slide đưa câu “Anh chị chốt cho em vấn đề này.” để thảo luận 5 phút. Câu này có các điểm chưa chuyên nghiệp:</p><ul><li>“Chốt” là văn nói, nghe như ra lệnh.</li><li>Không nói rõ “vấn đề này” là vấn đề gì.</li><li>Không có hạn phản hồi, không nêu lý do cần xác nhận.</li></ul><p>Ví dụ cách viết lại: <i>“Nhờ anh/chị xem xét và xác nhận giúp em phương án xử lý giá tiền đầu sách (cố định hay thay đổi theo từng lần nhập) trước 17h00 thứ Sáu, để nhóm phát triển kịp hoàn thiện chức năng quản lý sách.”</i></p>",
+   "src": "6. Quan ly yeu cau.pdf tr.18"
+  },
+  {
+   "id": "L06-t12",
+   "h": "Email: tiêu đề",
+   "html": "<p>Tiêu đề cần <b>cụ thể</b>, tóm tắt được nội dung, có <b>mã hoặc từ khóa</b>.</p><table><thead><tr><th>Nên viết</th><th>Không nên viết</th></tr></thead><tbody><tr><td>[Xác nhận yêu cầu] Chức năng quản lý sách – Dự án quản lý thư viện thông minh</td><td>Chức năng quản lý sách</td></tr><tr><td>V/v thống nhất phương hướng xử lý Chức năng quản lý sách – Dự án quản lý thư viện thông minh</td><td>Hướng xử lý Chức năng quản lý sách</td></tr></tbody></table><p class='tip'>Công thức: <b>[Loại việc] + Nội dung cụ thể + Dự án</b>. “V/v” nghĩa là “về việc”.</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.19"
+  },
+  {
+   "id": "L06-t13",
+   "h": "Email: mở đầu",
+   "html": "<p>Mở đầu dùng <b>lời chào trang trọng nhất</b>. Sau đó, nếu có thể, dành một lời <b>cảm ơn</b> khách hàng: vì thời gian đã dành cho cuộc họp, vì những góp ý…</p><blockquote>Kính gửi anh: Nguyễn Tuấn Anh – Giám đốc công ty</blockquote><p>Lưu ý:</p><ul><li>Nội dung tiếng Việt thì lời chào cũng tiếng Việt.</li><li>Nội dung tiếng Anh thì lời chào cũng tiếng Anh.</li><li>Chỉ nên chào <b>1 người</b> ở vị trí cao nhất trong email gửi đi.</li></ul>",
+   "src": "6. Quan ly yeu cau.pdf tr.20"
+  },
+  {
+   "id": "L06-t14",
+   "h": "Email: nội dung chính",
+   "html": "<p>Nên dùng <b>bảng</b> hoặc <b>danh sách</b> để liệt kê thông tin, đánh số hoặc gạch đầu dòng. Ví dụ trên slide:</p><blockquote><p>Trong nội dung cuộc họp ngày 20/10/2020 giữa các đơn vị nghiệp vụ quản lý thư viện và nhóm phát triển phần mềm về việc hoàn thiện hệ thống Quản lý thư viện, em gửi lại các thông tin đã xác nhận như sau:</p><p>1. Thông tin đầu sách bổ sung thêm thuộc tính giá tiền;<br>2. Thông tin tác giả bổ sung thêm ngày sinh;</p><p>Ngoài ra nhờ anh/chị xác nhận giúp em một số nội dung sau:</p><p>1. Sau khi phê duyệt mượn sách thành công có cần gửi email đến bạn đọc không?<br>2. Giá tiền mỗi đầu sách sẽ cố định hay thay đổi theo từng lần nhập?<br>3. Ngày sinh của tác giả có bắt buộc không?</p></blockquote><p class='tip'>Bố cục hay dùng: <b>Bối cảnh</b> (họp ngày nào, với ai) → <b>Những gì đã chốt</b> (đánh số) → <b>Những gì cần xác nhận</b> (đánh số, mỗi ý một câu hỏi đóng).</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.21"
+  },
+  {
+   "id": "L06-t15",
+   "h": "Email: kết thúc",
+   "html": "<ul><li>Nên có <b>lời nhắc nhẹ nhàng, lịch sự về deadline</b>:<blockquote>Nhờ anh/chị phản hồi trước 12h00 ngày 09/07/2025 để nhóm phát triển kịp tiến độ.<br>Em rất mong nhận được phản hồi sớm từ anh.</blockquote></li><li>Kết thư thể hiện <b>thông tin cá nhân và vị trí trong dự án</b>:<blockquote>Trân trọng,<br>Đặng Văn Hùng – Chuyên viên phân tích nghiệp vụ</blockquote></li></ul>",
+   "src": "6. Quan ly yeu cau.pdf tr.22"
+  },
+  {
+   "id": "L06-t16",
+   "h": "Email: lưu ý khi gửi",
+   "html": "<ul><li>Nội dung quá dài thì đưa vào <b>file đính kèm</b>.</li><li>Gửi trong <b>giờ hành chính</b>; làm việc với nước ngoài thì không gửi vào ngày nghỉ.</li><li><b>Chuẩn bị nội dung xong mới điền người nhận</b>, để tránh lỡ tay gửi khi email chưa hoàn chỉnh.</li></ul>",
+   "src": "6. Quan ly yeu cau.pdf tr.23"
+  },
+  {
+   "id": "L06-t17",
+   "h": "Quản lý tài liệu dự án",
+   "html": "<h4>Mục tiêu</h4><ul><li>Tài liệu được lưu trữ có tổ chức.</li><li>Dễ truy cập, chỉnh sửa, theo dõi phiên bản.</li><li>Hỗ trợ cộng tác giữa các thành viên.</li><li>Bảo mật và giữ tính toàn vẹn của thông tin.</li></ul><h4>Cấu trúc thư mục</h4><p>Tạo một thư mục gốc cho dự án (ví dụ: 12. QLTV), chia thành các thư mục con:</p><table><thead><tr><th>Thư mục</th><th>Chứa gì</th></tr></thead><tbody><tr><td>01. PROJECT_INITIATION</td><td>Tài liệu khởi động: phạm vi, mục tiêu, các bên liên quan, thông tin chung, tài liệu khách gửi</td></tr><tr><td>02. REQUIREMENTS</td><td>Tài liệu yêu cầu: SRS, user story, wireframe, template</td></tr><tr><td>03. DESIGN</td><td>Sơ đồ kiến trúc hệ thống, mô hình dữ liệu, cấu trúc thư mục</td></tr><tr><td>04. DEVELOPMENT</td><td>Tài liệu về codebase, kế hoạch phát triển, hướng dẫn triển khai</td></tr><tr><td>05. TESTING</td><td>Kế hoạch kiểm thử, test case, báo cáo kết quả kiểm thử</td></tr><tr><td>06. DEPLOYMENT</td><td>Hướng dẫn cài đặt, thông tin môi trường, hướng dẫn sử dụng, nghiệm thu</td></tr><tr><td>07. CHANGE LOGS</td><td>Theo dõi các thay đổi quan trọng</td></tr><tr><td>08. REPORT</td><td>Báo cáo tiến độ, tài chính, tổng kết dự án</td></tr></tbody></table>{{img:L06-img5}}<p class='note'>Ảnh minh họa trong tài liệu đặt tên thư mục đầu là “01.PROJECT”, còn phần chữ ghi “01. PROJECT_INITIATION”. Hai tên cùng một ý.</p><h4>Quy tắc đặt tên file</h4><p>Cấu trúc: <b>[Tên đơn vị]_[Tên dự án]_Tên tài liệu_[Phiên bản]_[Ngày]</b>. Ví dụ: <code>HTX TGP_SRS_Quản lý nhập kho_v1.0_12022025.docx</code>, <code>HTX TGP_TestCases_v1.2_12022025</code>.</p><p class='note'>Ví dụ thứ hai trong tài liệu thiếu phần tên dự án. Khi làm thật nên ghi đủ các phần theo cấu trúc.</p><h4>Ghi chú phiên bản</h4><ul><li><b>v1.0</b>: phiên bản đầu tiên.</li><li><b>v1.x</b>: cập nhật nhỏ (ví dụ sửa lỗi chính tả).</li><li><b>v2.0</b>: cập nhật lớn (thay đổi nội dung quan trọng).</li></ul><h4>Công cụ quản lý phiên bản</h4><ul><li><b>Thủ công</b>: lưu bản cũ vào thư mục phụ như Old_Versions.</li><li><b>Tự động</b>: Microsoft SharePoint; Google Drive (lịch sử chỉnh sửa); Git (cho code và tài liệu dạng markdown).</li></ul><h4>Theo dõi và cập nhật</h4><ul><li>Phân công người chịu trách nhiệm cập nhật từng loại tài liệu.</li><li>Kiểm tra định kỳ hằng tháng để đảm bảo nhất quán.</li><li>Ghi chú thay đổi bằng track changes hoặc comment; cập nhật phiên bản mới và lưu bản cũ.</li></ul><h4>Bảo mật</h4><ul><li>Phân quyền theo vai trò: <b>Read-Only</b> (thành viên không cần sửa), <b>Editor</b> (người chịu trách nhiệm cập nhật), <b>Admin</b> (quản lý quyền và cấu trúc thư mục).</li><li>Mã hóa tài liệu quan trọng hoặc dùng công cụ lưu trữ an toàn (OneDrive, Google Drive) với bảo mật 2 lớp.</li></ul>",
+   "src": "6. Quan ly tai lieu.docx"
+  },
+  {
+   "id": "L06-t18",
+   "h": "Quy trình Log task trên Azure DevOps",
+   "html": "<p>Tài liệu hướng dẫn dùng <b>Azure DevOps</b> (<code>dev.azure.com</code>) để log công việc. Các loại work item:</p><table><thead><tr><th>Loại</th><th>Mục đích</th><th>Ai dùng</th></tr></thead><tbody><tr><td><b>User Story</b></td><td>Mô tả chi tiết chức năng phần mềm theo tài liệu khảo sát: xác định rõ mong muốn người dùng, làm cơ sở lập kế hoạch, theo dõi và kiểm tra từng yêu cầu, đảm bảo đúng nhu cầu khách hàng</td><td>PM; BA, PO</td></tr><tr><td><b>Task</b></td><td>Mô tả yêu cầu nghiệp vụ cho mỗi backlog trong từng sprint: chia việc rõ ràng, theo dõi tiến độ, quản lý nhiệm vụ, giảm bỏ sót việc quan trọng</td><td>PM; BA, PO; Dev; Tester</td></tr><tr><td><b>Bug</b></td><td>Ghi lỗi (tham khảo tài liệu note bug của nhóm kiểm thử)</td><td>Tester…</td></tr><tr><td><b>Epic</b></td><td>Nhóm các User Story liên quan; xác định mục tiêu lớn hoặc giai đoạn quan trọng; cho cái nhìn tổng quan tiến trình</td><td>–</td></tr><tr><td><b>Issue</b></td><td>Theo dõi vấn đề cản trở tiến độ, ghi nhận khó khăn, hỗ trợ xử lý</td><td>–</td></tr></tbody></table><h4>Các bước tạo User Story</h4><ol><li>Đăng nhập Azure DevOps bằng tài khoản Microsoft được cấp, chọn Sign In.</li><li>Vào dự án, chọn <b>Boards → Work Items</b>.</li><li>Chọn <b>New Work Item → User Story</b>, nhập thông tin.</li><li>Nhấn <b>Save</b>.</li></ol><p>Các trường của User Story:</p><ul><li><b>Title</b>: ngắn gọn, có tên module/phân hệ (ví dụ: Quản lý sản phẩm).</li><li><b>Description</b>: mô tả chi tiết yêu cầu người dùng.</li><li><b>Acceptance Criteria</b> (tiêu chí chấp nhận): điều kiện để coi là hoàn thành.</li><li><b>Assigned To</b>: người phụ trách.</li><li><b>Priority</b>: trọng số 1, 2, 3, 4.</li><li><b>Risk</b>: 1 – quan trọng (high), 2 – trung bình (medium), 3 – không quan trọng (low).</li><li><b>Iteration Path</b>: chọn Sprint/Iteration.</li><li><b>Attachments</b>: hình ảnh, tài liệu, link, log file.</li><li><b>Related Work</b>: gán link cha, con.</li><li><b>Discussion</b>: lưu ý, làm rõ, góp ý, link tới task/bug liên quan.</li></ul><h4>Các bước tạo Task</h4><p>Vào dự án → Boards → Work Items → New Work Item → <b>Task</b> → nhập thông tin → Save. Trường của Task: Title (tên module, chức năng; ví dụ: Xem chi tiết thông tin người dùng), Description, Assigned To, Iteration Path, Priority, mức độ nghiêm trọng, Attachments, Discussion.</p><table><thead><tr><th>Khái niệm</th><th>Phản ánh</th><th>Các mức</th></tr></thead><tbody><tr><td>Mức độ ưu tiên (Priority)</td><td>Sự <b>cấp bách</b> cần xử lý</td><td>1 Cao: tác động lớn, ảnh hưởng nghiêm trọng chức năng chính; 2 Trung bình: cần sửa sớm; 3 Thấp: tác động nhỏ, không ảnh hưởng chức năng hay tính toàn vẹn; 4 Rất thấp: có thể không cần xử lý</td></tr><tr><td>Mức độ nghiêm trọng (Severity)</td><td>Mức <b>ảnh hưởng</b> đến hệ thống hoặc người dùng</td><td>Giống các mức của ưu tiên</td></tr></tbody></table><h4>Lưu ý</h4><ul><li>Dùng <b>Tags</b> để phân loại task, bug, User Story, Epic, Issue theo danh mục.</li><li>Khi mô tả User Story hoặc Epic luôn có <b>tiêu chí chấp nhận rõ ràng</b>.</li></ul><p class='note'>Trong tài liệu, Priority của User Story có 4 mức (1–4) còn Risk chỉ có 3 mức (1–3), và mức 1 luôn là cao nhất. Đừng nhầm với MoSCoW: số càng nhỏ thì càng ưu tiên.</p>",
+   "src": "6. HƯỚNG DẪN QUY TRÌNH SỬ DỤNG LOG TASK.docx"
+  }
+ ],
+ "examples": [
+  {
+   "id": "L06-e1",
+   "title": "Đi qua 6 bước xử lý CR: thêm giá tiền cho đầu sách",
+   "html": "<p><b>Bối cảnh (lấy từ email mẫu trên slide):</b> sau buổi họp 20/10/2020, đơn vị nghiệp vụ thư viện muốn đầu sách có thêm thuộc tính <b>giá tiền</b>. Hệ thống Quản lý thư viện đã chốt thiết kế, nên đây là một Change Request.</p><table><thead><tr><th>Bước</th><th>BA làm gì (ví dụ)</th></tr></thead><tbody><tr><td>1. Tiếp nhận CR</td><td>Lập phiếu CR, gán mã theo dạng CR-YYYYMMDD-số, ghi người yêu cầu (đơn vị nghiệp vụ thư viện), ngày yêu cầu 20/10/2020.</td></tr><tr><td>2. Phân tích CR</td><td>Phạm vi: <i>chức năng thay đổi</i> là Quản lý sách (thêm trường giá tiền). Còn câu hỏi mở: giá cố định hay đổi theo từng lần nhập? Ghi vào email cần xác nhận.</td></tr><tr><td>3. Ước lượng effort</td><td>Cùng Dev ước lượng: sửa CSDL, màn hình, báo cáo; ước tính thời gian, có ảnh hưởng mốc bàn giao không.</td></tr><tr><td>4. Phê duyệt CR</td><td>Gửi phiếu cho người có thẩm quyền. Quyết định: Đồng ý triển khai.</td></tr><tr><td>5. Triển khai</td><td>Cập nhật SRS/FSD, Dev làm, Tester viết thêm testcase.</td></tr><tr><td>6. Nghiệm thu và theo dõi</td><td>Kiểm kết quả, cập nhật RTM (tài liệu thiết kế, testcase, kết quả, phiên bản), ghi Change Log.</td></tr></tbody></table><p class='tip'>Điểm mấu chốt: Dev không tự thêm cột “giá tiền” ngay sau buổi họp. Mọi thay đổi đi qua phiếu và phê duyệt.</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.5-6, tr.21; 6. Quan ly thay doi.docx"
+  },
+  {
+   "id": "L06-e2",
+   "title": "Đọc RTM thư viện: mỗi dòng nói gì",
+   "html": "<p>Đọc template RTM trên slide theo trạng thái từng yêu cầu:</p><table><thead><tr><th>ID</th><th>Ưu tiên</th><th>Đã truy vết tới</th><th>Kết luận</th></tr></thead><tbody><tr><td>CR-…-001 Đăng nhập</td><td>Must Have</td><td>FSD-Login, task 4448, TC001-005, Pass, v1.1</td><td>Đã xong, đủ chuỗi truy vết</td></tr><tr><td>CR-…-002 Tìm kiếm</td><td>Should Have</td><td>FSD-Search, 4447, TC006-010, Pass, v1.1</td><td>Đã xong</td></tr><tr><td>CR-…-003 Email xác nhận đơn</td><td>Must Have</td><td>FSD-Email, 4446, TC011-012, Pass, v1.0</td><td>Đã xong từ bản v1.0</td></tr><tr><td>CR-…-004 Yêu thích</td><td>Could Have</td><td>FSD-Wishlist, 4445, TC013-015, Pass, v1.0</td><td>Đã xong</td></tr><tr><td>CR-…-005 Cộng điểm</td><td>Won’t Have</td><td>Trống</td><td>Hợp lý: không làm phiên bản này</td></tr><tr><td>CR-…-006 Mã hóa dữ liệu nhạy cảm</td><td>Must Have, Non-Function</td><td>Trống</td><td><b>Lỗ hổng</b>: bắt buộc mà chưa có thiết kế, task, testcase</td></tr></tbody></table><p>Từ một bảng, BA trả lời được: yêu cầu nào đến từ đâu (Khách hàng, Marketing, Khảo sát người dùng, Ý tưởng nội bộ), làm ở bản nào, đã test đạt chưa, còn gì bị bỏ sót.</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.7-8; 6. MaTranTuyVet-RTM.xlsx"
+  },
+  {
+   "id": "L06-e3",
+   "title": "Xếp MoSCoW cho bán hàng tại quầy SolasMart (ví dụ)",
+   "html": "<p>Ví dụ tự đặt cho hệ thống bán hàng tại quầy của chuỗi SolasMart, áp đúng “cách xác định” trên slide:</p><table><thead><tr><th>Yêu cầu (ví dụ)</th><th>Mức</th><th>Căn cứ</th></tr></thead><tbody><tr><td>Quét mã sản phẩm, tính tiền, thanh toán tại quầy</td><td>Must</td><td>Liên quan hầu hết nghiệp vụ; thiếu thì không bán được</td></tr><tr><td>Xuất hóa đơn theo quy định thuế</td><td>Must</td><td>Liên quan pháp luật</td></tr><tr><td>Báo cáo cuối ca tự động</td><td>Should</td><td>Quan trọng, nhưng thiếu thì thu ngân vẫn lập báo cáo tay được</td></tr><tr><td>Cho thu ngân chọn cột hiển thị trên màn danh sách đơn</td><td>Could</td><td>Cải tiến nhỏ, tác động không đáng kể đến mục tiêu kinh doanh</td></tr><tr><td>Gửi OTP cho khách khi chưa đăng ký brand_name SMS</td><td>Won’t (this time)</td><td>Đã thống nhất với Stakeholder: chưa đủ điều kiện kỹ thuật</td></tr></tbody></table>",
+   "src": "6. Quan ly yeu cau.pdf tr.11-14"
+  },
+  {
+   "id": "L06-e4",
+   "title": "Một email xác nhận yêu cầu hoàn chỉnh",
+   "html": "<p>Ghép các phần trên slide thành một email (ví dụ):</p><blockquote><p><b>Tiêu đề:</b> [Xác nhận yêu cầu] Chức năng quản lý sách – Dự án quản lý thư viện thông minh</p><p><b>To:</b> người chịu trách nhiệm cao nhất phía thư viện. <b>Cc:</b> các thành viên phía thư viện (chức vụ cao trước), rồi PM và Dev lead phía triển khai.</p><p>Kính gửi anh: Nguyễn Tuấn Anh – Giám đốc công ty</p><p>Em cảm ơn anh/chị đã dành thời gian cho buổi họp ngày 20/10/2020. Em gửi lại các thông tin đã xác nhận như sau:</p><p>1. Thông tin đầu sách bổ sung thêm thuộc tính giá tiền;<br>2. Thông tin tác giả bổ sung thêm ngày sinh.</p><p>Ngoài ra nhờ anh/chị xác nhận giúp em:</p><p>1. Sau khi phê duyệt mượn sách thành công có cần gửi email đến bạn đọc không?<br>2. Giá tiền mỗi đầu sách sẽ cố định hay thay đổi theo từng lần nhập?<br>3. Ngày sinh của tác giả có bắt buộc không?</p><p>Nhờ anh/chị phản hồi trước 12h00 ngày 09/07/2025 để nhóm phát triển kịp tiến độ.</p><p>Trân trọng,<br>Đặng Văn Hùng – Chuyên viên phân tích nghiệp vụ</p></blockquote><p class='note'>Email ghép từ nhiều slide nên ngày họp và hạn phản hồi lấy nguyên từ hai ví dụ khác nhau; khi làm thật hạn phản hồi phải sau ngày gửi.</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.17-22"
+  },
+  {
+   "id": "L06-e5",
+   "title": "Đặt tên file và nâng phiên bản tài liệu (ví dụ)",
+   "html": "<p>Ví dụ: đơn vị ABC làm dự án FoodNow (đặt bàn nhà hàng). Theo cấu trúc <b>[Tên đơn vị]_[Tên dự án]_Tên tài liệu_[Phiên bản]_[Ngày]</b>:</p><table><thead><tr><th>Sự kiện</th><th>Tên file</th><th>Vì sao</th></tr></thead><tbody><tr><td>Bản SRS đầu tiên, 01/03/2025</td><td>ABC_FoodNow_SRS_v1.0_01032025.docx</td><td>v1.0: phiên bản đầu</td></tr><tr><td>Sửa lỗi chính tả, 05/03/2025</td><td>ABC_FoodNow_SRS_v1.1_05032025.docx</td><td>v1.x: thay đổi nhỏ</td></tr><tr><td>CR thêm chức năng đặt cọc được duyệt, 20/03/2025</td><td>ABC_FoodNow_SRS_v2.0_20032025.docx</td><td>v2.0: thay đổi nội dung quan trọng</td></tr></tbody></table><p>Bản v1.0, v1.1 chuyển vào thư mục Old_Versions (nếu quản lý thủ công). File SRS nằm trong <b>02. REQUIREMENTS</b>; phiếu CR và nhật ký thay đổi nằm trong <b>07. CHANGE LOGS</b>.</p>",
+   "src": "6. Quan ly tai lieu.docx mục 2-3"
+  },
+  {
+   "id": "L06-e6",
+   "title": "Log một User Story trên Azure DevOps cho FoodNow (ví dụ)",
+   "html": "<table><thead><tr><th>Trường</th><th>Giá trị ví dụ</th></tr></thead><tbody><tr><td>Title</td><td>Đặt bàn – Khách đặt bàn trực tuyến</td></tr><tr><td>Description</td><td>Là khách hàng, tôi muốn chọn nhà hàng, ngày giờ, số người để đặt bàn trước, nhằm không phải chờ khi đến.</td></tr><tr><td>Acceptance Criteria</td><td>1) Chỉ chọn được khung giờ còn bàn; 2) Đặt thành công thì hiện mã đặt bàn; 3) Số người từ 1 đến 20.</td></tr><tr><td>Assigned To</td><td>BA phụ trách module Đặt bàn</td></tr><tr><td>Priority</td><td>1</td></tr><tr><td>Risk</td><td>1 – quan trọng (high)</td></tr><tr><td>Iteration Path</td><td>Sprint 2</td></tr><tr><td>Attachments</td><td>Wireframe màn đặt bàn</td></tr><tr><td>Related Work</td><td>Cha: Epic “Đặt bàn”; con: các Task thiết kế màn hình, API, testcase</td></tr><tr><td>Discussion</td><td>Chờ khách xác nhận có cần đặt cọc không</td></tr></tbody></table><p>Gắn Tags: <code>dat-ban</code>, <code>sprint2</code>. Nhấn <b>Save</b>.</p>",
+   "src": "6. HƯỚNG DẪN QUY TRÌNH SỬ DỤNG LOG TASK.docx mục 1, 4, 6"
+  }
+ ],
+ "practice": [
+  {
+   "id": "L06-p1",
+   "title": "Điền phiếu Change Request cho FoodNow",
+   "task": "<p>Dự án FoodNow (đặt bàn nhà hàng) đang ở sprint 3. Chủ chuỗi nhà hàng muốn <b>bắt khách đặt cọc 20% khi đặt bàn cho nhóm từ 10 người</b>, vì nhiều nhóm đông đặt rồi không đến. Hãy điền phiếu CR theo mẫu 5 phần.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Đầu phiếu:</b> ghi tên dự án FoodNow, mã CR theo dạng CR-YYYYMMDD-số (ví dụ CR-20250310-001), ngày yêu cầu.</p>",
+    "<p><b>Bước 2 – Phần 1:</b> thông tin người yêu cầu: họ tên, chức danh (chủ chuỗi), email, số điện thoại.</p>",
+    "<p><b>Bước 3 – Phần 2:</b> đặt tên ngắn (“Bổ sung đặt cọc cho đặt bàn nhóm lớn”), mô tả chi tiết (ai, khi nào, bao nhiêu, xử lý khi hủy), lý do (khách đặt rồi không đến), lợi ích (giảm bàn trống).</p>",
+    "<p><b>Bước 4 – Phần 3:</b> liệt kê chức năng bổ sung/thay đổi/loại bỏ; ước lượng thời gian, chi phí, tài nguyên; nêu rủi ro; chọn mức MoSCoW và độ phức tạp.</p>",
+    "<p><b>Bước 5 – Phần 4 và 5:</b> để trống cho người quyết định; sau khi duyệt mới điền thông tin triển khai.</p>"
+   ],
+   "answer": "<table><tbody><tr><th>Mã CR</th><td>CR-20250310-001 (ví dụ)</td></tr><tr><th>Tên</th><td>Bổ sung đặt cọc cho đặt bàn nhóm từ 10 người</td></tr><tr><th>Mô tả</th><td>Khi khách đặt bàn từ 10 người trở lên, hệ thống yêu cầu thanh toán cọc 20% giá trị ước tính trước khi xác nhận. Hủy trước 24h hoàn cọc; sau đó không hoàn.</td></tr><tr><th>Lý do</th><td>Nhiều nhóm đông đặt bàn nhưng không đến, nhà hàng mất doanh thu.</td></tr><tr><th>Lợi ích</th><td>Giảm tỉ lệ bỏ bàn, giữ chỗ cho khách thật.</td></tr><tr><th>Phạm vi</th><td>Bổ sung: thanh toán cọc, hoàn cọc. Thay đổi: luồng đặt bàn, email xác nhận. Loại bỏ: không.</td></tr><tr><th>Kế hoạch / chi phí / tài nguyên</th><td>Ví dụ: 10 ngày công; lùi mốc sprint 3 một tuần; cần tích hợp cổng thanh toán.</td></tr><tr><th>Rủi ro</th><td>Lỗi thanh toán, xung đột với luồng hủy bàn hiện tại, khách phàn nàn.</td></tr><tr><th>Ưu tiên / độ phức tạp</th><td>Should Have / Cao</td></tr><tr><th>Phần 4, 5</th><td>Để người có thẩm quyền quyết định; ghi lý do nếu từ chối.</td></tr></tbody></table>",
+   "src": "6. Quan ly thay doi.docx; 6. Quan ly yeu cau.pdf tr.5-6"
+  },
+  {
+   "id": "L06-p2",
+   "title": "Thêm hai yêu cầu mới vào RTM thư viện",
+   "task": "<p>Thêm vào RTM thư viện hai yêu cầu: (a) Thủ thư có thể gia hạn mượn sách tối đa 2 lần, đến từ Khách hàng, Should Have; (b) Hệ thống gửi email nhắc trước hạn trả 3 ngày, từ Khảo sát người dùng, Could Have, chưa thiết kế.</p>",
+   "steps": [
+    "<p><b>Bước 1:</b> đặt STT nối tiếp và ID duy nhất theo quy tắc đang dùng trong bảng.</p>",
+    "<p><b>Bước 2:</b> viết mô tả một câu, kiểm tra được.</p>",
+    "<p><b>Bước 3:</b> điền Nguồn, Ngày yêu cầu, Độ ưu tiên (MoSCoW), Phân loại (Function/Non-Function).</p>",
+    "<p><b>Bước 4:</b> điền các cột truy vết đã có (tài liệu thiết kế, ID task, testcase). Cột nào chưa có thì để trống và ghi chú.</p>",
+    "<p><b>Bước 5:</b> ghi một dòng vào sheet Change Log: ngày, ID, thay đổi, người thực hiện, trạng thái mới.</p>"
+   ],
+   "answer": "<table><thead><tr><th>STT</th><th>ID</th><th>Mô tả</th><th>Nguồn</th><th>Ưu tiên</th><th>Phân loại</th><th>Thiết kế</th><th>Task</th><th>Testcase</th><th>Ghi chú</th></tr></thead><tbody><tr><td>7</td><td>CR-…-007</td><td>Thủ thư có thể gia hạn mượn sách tối đa 2 lần.</td><td>Khách hàng</td><td>Should Have</td><td>Function</td><td>FSD-Renew (ví dụ)</td><td>(mã task)</td><td>(dải TC)</td><td></td></tr><tr><td>8</td><td>CR-…-008</td><td>Hệ thống gửi email nhắc trước hạn trả 3 ngày.</td><td>Khảo sát người dùng</td><td>Could Have</td><td>Function</td><td></td><td></td><td></td><td>Chưa thiết kế</td></tr></tbody></table><p>Change Log (ví dụ): “Thêm yêu cầu nhắc hạn trả vào backlog – BA – Chưa phân tích”. Các cột kết quả kiểm thử, phiên bản, ngày triển khai để trống tới khi có.</p>",
+   "src": "6. MaTranTuyVet-RTM.xlsx; 6. Quan ly yeu cau.pdf tr.8"
+  },
+  {
+   "id": "L06-p3",
+   "title": "Viết email xác nhận sau buổi họp SolasMart",
+   "task": "<p>Bạn là BA dự án phần mềm cho chuỗi bán lẻ SolasMart. Sau buổi họp với Trưởng bộ phận bán hàng tại quầy, đã chốt: (1) in hóa đơn có mã vạch đơn hàng; (2) thu ngân phải đóng ca trước khi đăng xuất. Còn chưa rõ: có cho thanh toán kết hợp tiền mặt và thẻ không. Viết email theo đúng các phần trên slide.</p>",
+   "steps": [
+    "<p><b>Bước 1 – Tiêu đề:</b> [Loại việc] + nội dung + dự án.</p>",
+    "<p><b>Bước 2 – Người nhận:</b> To một người chịu trách nhiệm cao nhất; cc theo thứ tự khách hàng trước, chức vụ cao trước.</p>",
+    "<p><b>Bước 3 – Mở đầu:</b> lời chào trang trọng một người, cảm ơn vì buổi họp.</p>",
+    "<p><b>Bước 4 – Nội dung:</b> bối cảnh, danh sách đã chốt, danh sách cần xác nhận (đánh số).</p>",
+    "<p><b>Bước 5 – Kết thúc:</b> nhắc deadline lịch sự, ký tên kèm vị trí. Soạn xong mới điền người nhận.</p>"
+   ],
+   "answer": "<blockquote><p><b>Tiêu đề:</b> [Xác nhận yêu cầu] Chức năng bán hàng tại quầy – Dự án phần mềm SolasMart</p><p><b>To:</b> Trưởng bộ phận bán hàng tại quầy. <b>Cc:</b> nhân sự phía SolasMart dự họp; PM phía triển khai.</p><p>Kính gửi chị (Trưởng bộ phận bán hàng tại quầy),</p><p>Em cảm ơn chị đã dành thời gian cho buổi họp ngày (ngày họp). Em gửi lại các nội dung đã thống nhất:</p><p>1. Hóa đơn in ra có mã vạch đơn hàng;<br>2. Thu ngân phải đóng ca trước khi đăng xuất.</p><p>Nhờ chị xác nhận giúp em:</p><p>1. Khách có được thanh toán một đơn bằng cả tiền mặt và thẻ không?</p><p>Nhờ chị phản hồi trước 17h00 ngày (hạn) để nhóm phát triển kịp tiến độ.</p><p>Trân trọng,<br>(Họ tên) – Chuyên viên phân tích nghiệp vụ</p></blockquote>",
+   "src": "6. Quan ly yeu cau.pdf tr.15-23"
+  },
+  {
+   "id": "L06-p4",
+   "title": "Dựng cây thư mục tài liệu cho dự án FoodNow",
+   "task": "<p>Bạn nhận 6 file: biên bản kick-off, SRS v1.0, sơ đồ ERD, test plan, hướng dẫn cài đặt, phiếu CR đặt cọc. Hãy tạo thư mục gốc và xếp từng file đúng chỗ, phân quyền cho BA, Dev, khách hàng.</p>",
+   "steps": [
+    "<p><b>Bước 1:</b> tạo thư mục gốc, ví dụ “15. FoodNow”.</p>",
+    "<p><b>Bước 2:</b> tạo 8 thư mục con từ 01. PROJECT_INITIATION đến 08. REPORT.</p>",
+    "<p><b>Bước 3:</b> đặt từng file theo nội dung thư mục.</p>",
+    "<p><b>Bước 4:</b> phân quyền Read-Only / Editor / Admin theo vai trò.</p>"
+   ],
+   "answer": "<table><thead><tr><th>File</th><th>Thư mục</th></tr></thead><tbody><tr><td>Biên bản kick-off</td><td>01. PROJECT_INITIATION</td></tr><tr><td>SRS v1.0</td><td>02. REQUIREMENTS</td></tr><tr><td>Sơ đồ ERD</td><td>03. DESIGN (mô hình dữ liệu)</td></tr><tr><td>Test plan</td><td>05. TESTING</td></tr><tr><td>Hướng dẫn cài đặt</td><td>06. DEPLOYMENT</td></tr><tr><td>Phiếu CR đặt cọc</td><td>07. CHANGE LOGS</td></tr></tbody></table><p>Phân quyền (ví dụ): BA phụ trách tài liệu yêu cầu là Editor; Dev và khách hàng là Read-Only; PM là Admin quản lý quyền và cấu trúc thư mục.</p>",
+   "src": "6. Quan ly tai lieu.docx mục 2, 5"
+  }
+ ],
+ "exercises": [
+  {
+   "id": "L06-x1",
+   "title": "Viết lại câu “Anh chị chốt cho em vấn đề này”",
+   "level": "de",
+   "task": "<p>Slide đưa câu “Anh chị chốt cho em vấn đề này.” để thảo luận. Chỉ ra điểm chưa chuyên nghiệp và viết lại cho email gửi khách hàng thư viện về việc chưa rõ ngày sinh tác giả có bắt buộc không.</p>",
+   "hints": [
+    "<p>Từ “chốt” thuộc văn nói hay văn viết?</p>",
+    "<p>Người đọc có biết “vấn đề này” là gì không? Có hạn trả lời không?</p>"
+   ],
+   "answer": "<p><b>Điểm chưa tốt:</b> dùng văn nói (“chốt”), giọng ra lệnh; không nêu cụ thể vấn đề; không có hạn phản hồi và lý do.</p><p><b>Viết lại:</b> “Nhờ anh/chị xem xét và xác nhận giúp em: trường Ngày sinh của tác giả có bắt buộc nhập hay không. Nhờ anh/chị phản hồi trước 17h00 ngày (hạn) để nhóm phát triển kịp hoàn thiện màn hình quản lý tác giả.”</p>",
+   "src": "6. Quan ly yeu cau.pdf tr.18, tr.22"
+  },
+  {
+   "id": "L06-x2",
+   "title": "Sửa tiêu đề email",
+   "level": "de",
+   "task": "<p>Sửa ba tiêu đề sau cho đúng nguyên tắc: (a) “Gửi anh tài liệu”; (b) “Hỏi về đăng nhập”; (c) “Báo cáo”. Bối cảnh: dự án quản lý thư viện thông minh.</p>",
+   "hints": [
+    "<p>Tiêu đề cần cụ thể, có mã hoặc từ khóa và tên dự án.</p>",
+    "<p>Thử công thức [Loại việc] + nội dung + dự án.</p>"
+   ],
+   "answer": "<ul><li>(a) [Bàn giao tài liệu] SRS v1.0 chức năng quản lý mượn trả – Dự án quản lý thư viện thông minh</li><li>(b) [Câu hỏi làm rõ] Chức năng đăng nhập bằng email – Dự án quản lý thư viện thông minh</li><li>(c) [Báo cáo tiến độ] Tuần 12 – Dự án quản lý thư viện thông minh</li></ul>",
+   "src": "6. Quan ly yeu cau.pdf tr.15, tr.19"
+  },
+  {
+   "id": "L06-x3",
+   "title": "Xếp MoSCoW cho hệ thống thư viện",
+   "level": "tb",
+   "task": "<p>Xếp mức MoSCoW và nêu căn cứ: (1) Mượn và trả sách; (2) Lưu nhật ký truy cập theo quy định bảo mật; (3) Báo cáo sách mượn nhiều nhất theo tháng; (4) Đổi màu giao diện theo sở thích; (5) Gửi OTP qua SMS khi chưa đăng ký brand_name, các bên đã thống nhất để sau.</p>",
+   "hints": [
+    "<p>Hỏi: thiếu nó hệ thống còn chạy không? Có liên quan pháp luật hay an toàn thông tin không?</p>",
+    "<p>Nếu thiếu mà có cách làm tay thay thế thì thường là Should.</p>"
+   ],
+   "answer": "<table><thead><tr><th>Yêu cầu</th><th>Mức</th><th>Căn cứ</th></tr></thead><tbody><tr><td>1. Mượn trả</td><td>Must</td><td>Nghiệp vụ chính, slide nêu đúng ví dụ này</td></tr><tr><td>2. Nhật ký truy cập</td><td>Must</td><td>Liên quan quy định, an toàn thông tin</td></tr><tr><td>3. Báo cáo</td><td>Should</td><td>Slide: báo cáo là Should Have; thiếu thì tổng hợp tay được</td></tr><tr><td>4. Đổi màu giao diện</td><td>Could</td><td>Cải tiến nhỏ, không ảnh hưởng mục tiêu kinh doanh</td></tr><tr><td>5. OTP khi chưa có brand_name</td><td>Won’t (this time)</td><td>Đã thống nhất với Stakeholder không làm bản này</td></tr></tbody></table>",
+   "src": "6. Quan ly yeu cau.pdf tr.11-14"
+  },
+  {
+   "id": "L06-x4",
+   "title": "Soi lỗi trong RTM template",
+   "level": "tb",
+   "task": "<p>Xem RTM template trên slide (ảnh dưới). Tìm ít nhất 3 điểm BA cần xử lý hoặc lưu ý, và đề xuất cách sửa.</p>{{img:L06-img3}}",
+   "hints": [
+    "<p>So các dòng Must Have với nhau: dòng nào thiếu thiết kế và testcase?</p>",
+    "<p>Nhìn cột STT và cách đặt mã ID.</p>",
+    "<p>Dòng Won’t Have để trống có sao không?</p>"
+   ],
+   "answer": "<ol><li><b>CR-…-006 (mã hóa dữ liệu nhạy cảm)</b> là Must Have nhưng chưa có tài liệu thiết kế, task, testcase: lỗ hổng truy vết. Cần viết đặc tả bảo mật, tạo task, testcase NFR.</li><li><b>STT trùng</b>: hai dòng cùng số 5. Sửa dòng cuối thành 6.</li><li><b>Mã ID</b>: cột “ID yêu cầu” dùng mã CR-…, trong khi sheet Change Log dùng REQ-…. Cần thống nhất một quy tắc mã để truy vết được giữa hai sheet.</li><li>Dòng <b>CR-…-005 Won’t Have</b> để trống các cột truy vết là hợp lý; nên ghi chú lý do không làm.</li></ol>",
+   "src": "6. MaTranTuyVet-RTM.xlsx; 6. Quan ly yeu cau.pdf tr.8"
+  },
+  {
+   "id": "L06-x5",
+   "title": "Đặt tên file và phiên bản",
+   "level": "tb",
+   "task": "<p>Đơn vị XYZ làm dự án SolasMart. Hãy đặt tên file cho: (a) bản BRD đầu tiên ngày 02/04/2025; (b) bản BRD sửa chính tả ngày 04/04/2025; (c) bản BRD bổ sung toàn bộ phần bán hàng online ngày 20/04/2025. Bản cũ để đâu?</p>",
+   "hints": [
+    "<p>Cấu trúc: [Tên đơn vị]_[Tên dự án]_Tên tài liệu_[Phiên bản]_[Ngày].</p>",
+    "<p>Sửa nhỏ tăng số sau dấu chấm; thay đổi nội dung quan trọng tăng số đầu.</p>"
+   ],
+   "answer": "<ul><li>(a) XYZ_SolasMart_BRD_v1.0_02042025.docx</li><li>(b) XYZ_SolasMart_BRD_v1.1_04042025.docx</li><li>(c) XYZ_SolasMart_BRD_v2.0_20042025.docx</li></ul><p>Bản cũ: chuyển vào thư mục Old_Versions (thủ công) hoặc dựa vào lịch sử phiên bản của SharePoint/Google Drive. Ghi thay đổi bằng track changes hoặc comment.</p>",
+   "src": "6. Quan ly tai lieu.docx mục 3-4"
+  },
+  {
+   "id": "L06-x6",
+   "title": "Tình huống tổng hợp: CR bán online giữa dự án SolasMart",
+   "level": "kho",
+   "task": "<p>Dự án phần mềm SolasMart đang làm phân hệ bán tại quầy (sprint 4/6). Giám đốc kinh doanh gọi điện cho Dev lead yêu cầu “thêm luôn giao hàng trong 2 giờ cho đơn online”. Dev lead định làm luôn. Là BA, hãy nêu: (1) có phải CR không, loại thay đổi gì; (2) xử lý theo các bước nào; (3) cập nhật RTM, Change Log, tài liệu ra sao; (4) gửi email gì cho ai.</p>",
+   "hints": [
+    "<p>CR có thể đến từ bất kỳ ai, nhưng phải đi qua quy trình.</p>",
+    "<p>Đi lần lượt 6 bước và gắn với 5 phần của phiếu CR.</p>",
+    "<p>Email khi nào cần gửi: xác nhận khi có Change Request.</p>"
+   ],
+   "answer": "<ol><li><b>Là CR</b>: thay đổi phạm vi và nghiệp vụ, có thể cả timeline/effort. Dev lead không được làm luôn; phải qua quy trình quản lý thay đổi.</li><li><b>6 bước:</b> Tiếp nhận (lập phiếu, mã CR, người yêu cầu là Giám đốc kinh doanh) → Phân tích (phạm vi: bổ sung giao hàng 2h; ảnh hưởng kho, đơn online) → Ước lượng effort (ngày công, chi phí, lùi mốc, rủi ro) → Phê duyệt (người có thẩm quyền, ghi lý do nếu từ chối) → Triển khai → Nghiệm thu và theo dõi.</li><li><b>Cập nhật:</b> thêm dòng mới vào RTM (nguồn: Giám đốc kinh doanh; ưu tiên theo MoSCoW đã thống nhất, ví dụ Should Have; cột thiết kế/task/testcase điền khi có). Ghi Change Log (ngày, ID, thay đổi, người thực hiện, trạng thái). Nếu duyệt: BRD/SRS nâng lên phiên bản lớn (ví dụ v2.0), bản cũ lưu lại; phiếu CR lưu trong 07. CHANGE LOGS.</li><li><b>Email:</b> tiêu đề dạng “[Xác nhận Change Request] Giao hàng 2 giờ cho đơn online – Dự án SolasMart”; To: Giám đốc kinh doanh; cc: phía SolasMart trước, PM và Dev lead sau. Nội dung: tóm tắt yêu cầu, kết quả phân tích và ước lượng, đề nghị xác nhận, hạn phản hồi.</li></ol>",
+   "src": "6. Quan ly yeu cau.pdf tr.5-8, tr.15-17; 6. Quan ly thay doi.docx; 6. Quan ly tai lieu.docx"
+  },
+  {
+   "id": "L06-x7",
+   "title": "Lập Epic, User Story, Task cho FoodNow trên Azure DevOps",
+   "level": "kho",
+   "task": "<p>Module “Quản lý đặt bàn” của FoodNow gồm: khách đặt bàn, khách hủy bàn, nhân viên xác nhận bàn. Hãy đề xuất cấu trúc work item (Epic, User Story, Task), điền Title, Acceptance Criteria cho một User Story, và phân biệt Priority với mức độ nghiêm trọng cho một Task.</p>",
+   "hints": [
+    "<p>Epic nhóm các User Story liên quan.</p>",
+    "<p>Task là việc cụ thể trong sprint cho Dev, Tester, BA.</p>",
+    "<p>Priority = cấp bách; nghiêm trọng = mức ảnh hưởng.</p>"
+   ],
+   "answer": "<p><b>Epic:</b> Quản lý đặt bàn.</p><p><b>User Story:</b> “Đặt bàn – Khách đặt bàn trực tuyến”, “Đặt bàn – Khách hủy bàn”, “Đặt bàn – Nhân viên xác nhận bàn”.</p><p><b>Acceptance Criteria</b> cho “Khách hủy bàn” (ví dụ): 1) Chỉ hủy được bàn của chính mình; 2) Hủy thành công thì trạng thái đổi sang Đã hủy và khách nhận email; 3) Không hủy được bàn đã qua giờ đặt.</p><p><b>Task</b> con (Related Work = con của User Story): “Đặt bàn – Thiết kế màn hủy bàn” (BA), “Đặt bàn – API hủy bàn” (Dev), “Đặt bàn – Testcase hủy bàn” (Tester); mỗi task có Assigned To, Iteration Path.</p><p><b>Priority và nghiêm trọng</b> (ví dụ): Task “API hủy bàn” có Priority 1 (Cao) vì cần cho bản demo tuần này; mức độ nghiêm trọng 2 vì nếu chưa có, khách vẫn gọi điện hủy được. Gắn Tags <code>dat-ban</code>.</p>",
+   "src": "6. HƯỚNG DẪN QUY TRÌNH SỬ DỤNG LOG TASK.docx"
+  }
+ ],
+ "flashcards": [
+  {
+   "id": "L06-f1",
+   "front": "Requirements Management (Quản lý yêu cầu)",
+   "back": "<p>Tổ chức, theo dõi, kiểm soát, cập nhật và truyền thông yêu cầu suốt vòng đời dự án, từ hình thành đến nghiệm thu và bảo trì.</p><p class='tip'>Mẹo: yêu cầu có “vòng đời”, BA đi theo nó tới cuối.</p>"
+  },
+  {
+   "id": "L06-f2",
+   "front": "5 lý do cần quản lý yêu cầu",
+   "back": "<p>Tránh hiểu nhầm; kiểm soát thay đổi; truy vết dễ dàng; giảm rủi ro; đảm bảo sản phẩm đúng nhu cầu.</p>"
+  },
+  {
+   "id": "L06-f3",
+   "front": "9 hoạt động quản lý yêu cầu trên sơ đồ",
+   "back": "<p>Planning → Identification/Elicitation → Analysis → Documentation → Prioritization → Validation → Traceability → Change Management → Monitoring and Control.</p>"
+  },
+  {
+   "id": "L06-f4",
+   "front": "Change Request (CR)",
+   "back": "<p>Yêu cầu <b>chính thức</b> đề xuất thay đổi một phần sản phẩm/dự án: nghiệp vụ, phạm vi, thiết kế, kiến trúc/công nghệ, timeline/effort.</p><p>Ví dụ: thêm giá tiền cho đầu sách sau khi đã chốt thiết kế.</p>"
+  },
+  {
+   "id": "L06-f5",
+   "front": "Ai được đề xuất CR?",
+   "back": "<p>Khách hàng, BA, Dev, PM… ai cũng được, nhưng <b>mọi CR phải đi qua quy trình quản lý thay đổi</b> để được kiểm soát.</p>"
+  },
+  {
+   "id": "L06-f6",
+   "front": "6 bước xử lý Change Request",
+   "back": "<p>1 Tiếp nhận → 2 Phân tích → 3 Ước lượng effort → 4 Phê duyệt → 5 Triển khai → 6 Nghiệm thu và theo dõi.</p><p class='tip'>Mẹo: Nhận – Hiểu – Đo – Duyệt – Làm – Kiểm.</p>"
+  },
+  {
+   "id": "L06-f7",
+   "front": "Vì sao ước lượng effort trước khi phê duyệt CR?",
+   "back": "<p>Người duyệt cần biết thay đổi tốn bao nhiêu thời gian, chi phí, tài nguyên và ảnh hưởng mốc bàn giao thì mới quyết định đồng ý hay từ chối.</p>"
+  },
+  {
+   "id": "L06-f8",
+   "front": "5 phần của phiếu Change Request",
+   "back": "<p>1 Người yêu cầu; 2 Thông tin thay đổi (tên, mô tả, lý do, lợi ích); 3 Phân tích (phạm vi, kế hoạch, chi phí, tài nguyên, rủi ro, ưu tiên, độ phức tạp); 4 Quyết định; 5 Triển khai.</p>"
+  },
+  {
+   "id": "L06-f9",
+   "front": "CRID",
+   "back": "<p>Mã yêu cầu thay đổi, dạng CR-YYYYMMDD-số thứ tự, ví dụ CR-20241009-001. Giúp tra cứu và truy vết CR trong RTM, Change Log.</p>"
+  },
+  {
+   "id": "L06-f10",
+   "front": "Phạm vi thay đổi trong phiếu CR",
+   "back": "<p>Ba danh sách: <b>chức năng bổ sung</b>, <b>chức năng thay đổi</b>, <b>chức năng loại bỏ</b>.</p>"
+  },
+  {
+   "id": "L06-f11",
+   "front": "Phần 4 – Quyết định xử lý CR",
+   "back": "<p>Người quyết định, ngày quyết định, chọn Đồng ý triển khai hoặc Từ chối. Từ chối thì <b>phải ghi rõ lý do</b>.</p>"
+  },
+  {
+   "id": "L06-f12",
+   "front": "RTM – Requirements Traceability Matrix (Ma trận truy vết)",
+   "back": "<p>Bảng liên kết mỗi yêu cầu từ nguồn gốc tới sản phẩm công việc: tài liệu thiết kế, coding, kiểm thử…</p><p>Ví dụ: CR-…-001 → FSD-Login → task 4448 → TC001-005 → Pass → v1.1.</p>"
+  },
+  {
+   "id": "L06-f13",
+   "front": "4 mục tiêu của RTM",
+   "back": "<p>Đảm bảo yêu cầu không bị bỏ sót; kiểm soát phạm vi; dễ kiểm tra tiến độ và chất lượng; hỗ trợ quản lý thay đổi.</p>"
+  },
+  {
+   "id": "L06-f14",
+   "front": "Các cột chính của RTM template",
+   "back": "<p>STT, ID yêu cầu, Mô tả, Nguồn, Ngày yêu cầu, Độ ưu tiên, Phân loại, Tài liệu thiết kế liên quan, ID TASK, Testcase liên quan, Kết quả kiểm thử, Phiên bản triển khai, Ngày triển khai, Ghi chú.</p>"
+  },
+  {
+   "id": "L06-f15",
+   "front": "Cột Nguồn yêu cầu trong RTM",
+   "back": "<p>Cho biết yêu cầu đến từ đâu, ví dụ: Khách hàng, Marketing, Khảo sát người dùng, Ý tưởng nội bộ. Dùng để truy ngược khi cần hỏi lại.</p>"
+  },
+  {
+   "id": "L06-f16",
+   "front": "Sheet Change Log",
+   "back": "<p>Nhật ký thay đổi yêu cầu với cột: Ngày, ID yêu cầu, Thay đổi, Người thực hiện, Trạng thái mới (ví dụ Chưa phân tích, Đã loại bỏ).</p>"
+  },
+  {
+   "id": "L06-f17",
+   "front": "MoSCoW",
+   "back": "<p>Phương pháp xếp ưu tiên 4 mức: <b>M</b>ust have, <b>S</b>hould have, <b>C</b>ould have, <b>W</b>on’t have (this time). Hai chữ “o” chỉ để dễ đọc.</p>"
+  },
+  {
+   "id": "L06-f18",
+   "front": "Must Have",
+   "back": "<p>Bắt buộc; thiếu thì hệ thống không hoạt động. Dấu hiệu: liên quan hầu hết nghiệp vụ, pháp luật/an toàn thông tin, không có giải pháp thay thế.</p><p>Ví dụ: quản lý sách, mượn trả.</p>"
+  },
+  {
+   "id": "L06-f19",
+   "front": "Should Have",
+   "back": "<p>Quan trọng, giá trị đáng kể nhưng không bắt buộc cho bản hiện tại. Thiếu vẫn chạy, có thể làm tay thay thế.</p><p>Ví dụ: chức năng báo cáo của thư viện.</p>"
+  },
+  {
+   "id": "L06-f20",
+   "front": "Could Have",
+   "back": "<p>Mong muốn, có thì tốt; tác động không đáng kể tới mục tiêu kinh doanh; thường là cải tiến nhỏ hay tính năng phụ.</p><p>Ví dụ: tiện ích lịch, thời tiết, chọn cột hiển thị.</p>"
+  },
+  {
+   "id": "L06-f21",
+   "front": "Won’t Have (this time)",
+   "back": "<p>Các bên liên quan <b>đồng ý</b> không làm trong phiên bản này; có thể quay lại sau. Nên đưa căn cứ để Stakeholder quyết.</p><p>Ví dụ: gửi OTP khi chưa có brand_name.</p>"
+  },
+  {
+   "id": "L06-f22",
+   "front": "Khi nào BA cần gửi email?",
+   "back": "<p>Xác nhận yêu cầu sau họp; câu hỏi cần làm rõ; gửi tài liệu đề nghị xác nhận; xác nhận CR; báo rủi ro/vấn đề/quyết định; bàn giao tài liệu; mời họp; báo cáo tiến độ.</p>"
+  },
+  {
+   "id": "L06-f23",
+   "front": "Người nhận To và cc",
+   "back": "<p>To: <b>một người</b> chịu trách nhiệm cao nhất. Cc: khách hàng trước, đơn vị triển khai sau; chức vụ cao hơn đứng trước.</p>"
+  },
+  {
+   "id": "L06-f24",
+   "front": "Tiêu đề email tốt",
+   "back": "<p>Cụ thể, tóm tắt nội dung, có mã/từ khóa. Ví dụ: [Xác nhận yêu cầu] Chức năng quản lý sách – Dự án quản lý thư viện thông minh.</p><p class='tip'>Công thức: [Loại việc] + nội dung + dự án.</p>"
+  },
+  {
+   "id": "L06-f25",
+   "front": "Mở đầu và kết thúc email",
+   "back": "<p>Mở: lời chào trang trọng một người ở vị trí cao nhất, cùng ngôn ngữ với nội dung, kèm lời cảm ơn. Kết: nhắc deadline lịch sự, ký tên kèm vị trí trong dự án.</p>"
+  },
+  {
+   "id": "L06-f26",
+   "front": "3 lưu ý khi gửi email",
+   "back": "<p>Nội dung dài thì để file đính kèm; gửi trong giờ hành chính, không gửi ngày nghỉ khi làm với nước ngoài; soạn xong mới điền người nhận.</p>"
+  },
+  {
+   "id": "L06-f27",
+   "front": "8 thư mục tài liệu dự án",
+   "back": "<p>01 PROJECT_INITIATION, 02 REQUIREMENTS, 03 DESIGN, 04 DEVELOPMENT, 05 TESTING, 06 DEPLOYMENT, 07 CHANGE LOGS, 08 REPORT.</p>"
+  },
+  {
+   "id": "L06-f28",
+   "front": "Quy tắc đặt tên file tài liệu",
+   "back": "<p>[Tên đơn vị]_[Tên dự án]_Tên tài liệu_[Phiên bản]_[Ngày].</p><p>Ví dụ: HTX TGP_SRS_Quản lý nhập kho_v1.0_12022025.docx</p>"
+  },
+  {
+   "id": "L06-f29",
+   "front": "v1.0, v1.x, v2.0",
+   "back": "<p>v1.0: bản đầu tiên. v1.x: cập nhật nhỏ (sửa chính tả). v2.0: cập nhật lớn (thay đổi nội dung quan trọng).</p>"
+  },
+  {
+   "id": "L06-f30",
+   "front": "Read-Only, Editor, Admin",
+   "back": "<p>Read-Only: người không cần sửa. Editor: người chịu trách nhiệm cập nhật. Admin: quản lý quyền và cấu trúc thư mục.</p>"
+  },
+  {
+   "id": "L06-f31",
+   "front": "User Story và Task trên Azure DevOps",
+   "back": "<p>User Story: mô tả chức năng theo nhu cầu người dùng, có Acceptance Criteria (BA, PO tạo). Task: việc cụ thể cho từng backlog trong sprint, giao cho BA, Dev, Tester.</p>"
+  },
+  {
+   "id": "L06-f32",
+   "front": "Epic và Issue",
+   "back": "<p>Epic: nhóm các User Story liên quan, thể hiện mục tiêu lớn. Issue: vấn đề cản trở tiến độ, cần theo dõi và giải quyết.</p>"
+  },
+  {
+   "id": "L06-f33",
+   "front": "Priority và mức độ nghiêm trọng của Task",
+   "back": "<p>Priority: mức <b>cấp bách</b> cần xử lý (1 Cao … 4 Rất thấp). Nghiêm trọng: mức <b>ảnh hưởng</b> tới hệ thống hay người dùng, cùng thang mức.</p>"
+  },
+  {
+   "id": "L06-f34",
+   "front": "Acceptance Criteria (Tiêu chí chấp nhận)",
+   "back": "<p>Các điều kiện để xác định yêu cầu đã hoàn thành. Bắt buộc phải rõ ràng khi mô tả User Story hoặc Epic.</p><p>Ví dụ: “Đặt thành công thì hiện mã đặt bàn”.</p>"
+  }
+ ],
+ "quiz": [
+  {
+   "id": "L06-q1",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, quản lý yêu cầu diễn ra trong khoảng thời gian nào của dự án?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Từ lúc khai thác yêu cầu cho tới khi tài liệu đặc tả được khách hàng ký duyệt"
+    },
+    {
+     "id": "b",
+     "t": "Từ lúc phê duyệt đến lúc triển khai"
+    },
+    {
+     "id": "c",
+     "t": "Suốt vòng đời dự án, từ lúc hình thành tới nghiệm thu và bảo trì"
+    },
+    {
+     "id": "d",
+     "t": "Chỉ khi khách hàng gửi Change Request"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Định nghĩa trên slide: quản lý yêu cầu kéo dài <b>suốt vòng đời dự án</b>, từ hình thành, phân tích, phê duyệt, triển khai tới nghiệm thu và bảo trì.</p>",
+   "why_wrong": {
+    "a": "Dừng ở lúc ký duyệt tài liệu là thiếu triển khai, nghiệm thu và bảo trì.",
+    "b": "Thiếu giai đoạn hình thành, phân tích và nghiệm thu, bảo trì.",
+    "d": "Quản lý thay đổi chỉ là một phần; yêu cầu vẫn được quản lý khi không có CR."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.4"
+  },
+  {
+   "id": "L06-q2",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn các lý do cần quản lý yêu cầu được nêu trên slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tránh hiểu nhầm"
+    },
+    {
+     "id": "b",
+     "t": "Giảm số lượng Stakeholder"
+    },
+    {
+     "id": "c",
+     "t": "Truy vết dễ dàng"
+    },
+    {
+     "id": "d",
+     "t": "Không cần viết tài liệu thiết kế"
+    },
+    {
+     "id": "e",
+     "t": "Giảm rủi ro"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Slide nêu 5 lý do: tránh hiểu nhầm, kiểm soát thay đổi, truy vết dễ dàng, giảm rủi ro, đảm bảo sản phẩm đúng nhu cầu.</p>",
+   "why_wrong": {
+    "b": "Quản lý yêu cầu không nhằm cắt bớt bên liên quan.",
+    "d": "Ngược lại, RTM còn liên kết yêu cầu với tài liệu thiết kế."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.4"
+  },
+  {
+   "id": "L06-q3",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trên sơ đồ các hoạt động quản lý yêu cầu, việc lập ma trận RTM thuộc hoạt động nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Prioritization"
+    },
+    {
+     "id": "b",
+     "t": "Traceability"
+    },
+    {
+     "id": "c",
+     "t": "Validation"
+    },
+    {
+     "id": "d",
+     "t": "Documentation"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>RTM là công cụ <b>truy vết</b>, nên thuộc hoạt động Traceability.</p>",
+   "why_wrong": {
+    "a": "Prioritization là xếp ưu tiên, ví dụ MoSCoW.",
+    "c": "Validation là xác nhận yêu cầu đúng nhu cầu.",
+    "d": "Documentation là viết yêu cầu thành tài liệu, không phải liên kết chúng."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.4, tr.7"
+  },
+  {
+   "id": "L06-q4",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Theo slide, một Change Request có thể là những loại thay đổi nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Thay đổi phạm vi"
+    },
+    {
+     "id": "b",
+     "t": "Thay đổi kiến trúc, kỹ thuật, công nghệ"
+    },
+    {
+     "id": "c",
+     "t": "Thay đổi người ký hợp đồng lao động của Dev"
+    },
+    {
+     "id": "d",
+     "t": "Thay đổi timeline, effort"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explain": "<p>Slide liệt kê: nghiệp vụ, phạm vi, thiết kế, kiến trúc/kỹ thuật/công nghệ, timeline/effort.</p>",
+   "why_wrong": {
+    "c": "Đây là việc nhân sự nội bộ, không phải thay đổi sản phẩm hay dự án."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.5"
+  },
+  {
+   "id": "L06-q5",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Nếu CR do chính Dev đề xuất và thay đổi nhỏ, Dev có thể làm luôn mà không cần qua quy trình quản lý thay đổi.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>CR có thể đến từ Khách hàng, BA, Dev, PM… nhưng <b>đều phải đi qua quy trình quản lý thay đổi</b> để được kiểm soát.</p>",
+   "why_wrong": {
+    "d": "Slide không có ngoại lệ cho thay đổi nhỏ hay cho người đề xuất là Dev."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.5"
+  },
+  {
+   "id": "L06-q6",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong 6 bước xử lý Change Request, bước thứ 3 là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Nghiệm thu và theo dõi"
+    },
+    {
+     "id": "b",
+     "t": "Phân tích CR"
+    },
+    {
+     "id": "c",
+     "t": "Triển khai"
+    },
+    {
+     "id": "d",
+     "t": "Ước lượng effort"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Thứ tự: Tiếp nhận → Phân tích → <b>Ước lượng effort</b> → Phê duyệt → Triển khai → Nghiệm thu và theo dõi.</p>",
+   "why_wrong": {
+    "a": "Nghiệm thu và theo dõi là bước 6, bước cuối.",
+    "b": "Phân tích là bước 2.",
+    "c": "Triển khai là bước 5."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.6"
+  },
+  {
+   "id": "L06-q7",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao bước ước lượng effort đứng <b>trước</b> bước phê duyệt CR?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Để Dev bắt đầu code sớm hơn"
+    },
+    {
+     "id": "b",
+     "t": "Để người duyệt biết thay đổi tốn bao nhiêu thời gian, chi phí rồi mới quyết định"
+    },
+    {
+     "id": "c",
+     "t": "Để khỏi phải ghi lý do khi từ chối"
+    },
+    {
+     "id": "d",
+     "t": "Vì theo quy trình, chỉ CR đã được duyệt mới cần ước lượng thời gian và chi phí để lập kế hoạch"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Phần Phân tích của phiếu CR ghi thời gian, chi phí, tài nguyên, rủi ro. Người quyết định dựa vào đó để đồng ý hay từ chối.</p>",
+   "why_wrong": {
+    "a": "Chưa duyệt thì chưa được triển khai.",
+    "c": "Từ chối vẫn phải ghi lý do.",
+    "d": "Nếu ước lượng sau khi duyệt thì quyết định thiếu căn cứ."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.6; 6. Quan ly thay doi.docx phần 3-4"
+  },
+  {
+   "id": "L06-q8",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Dự án thư viện: BA đã hiểu rõ yêu cầu thêm “giá tiền” cho đầu sách và xác định chức năng Quản lý sách bị thay đổi. Giờ BA ngồi với Dev tính số ngày công và xem có lùi mốc bàn giao không. CR đang ở bước nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ước lượng effort"
+    },
+    {
+     "id": "b",
+     "t": "Tiếp nhận CR"
+    },
+    {
+     "id": "c",
+     "t": "Phân tích CR"
+    },
+    {
+     "id": "d",
+     "t": "Nghiệm thu và theo dõi"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Tính ngày công, tác động lịch trình là <b>ước lượng effort</b> (bước 3), sau khi đã phân tích phạm vi.</p>",
+   "why_wrong": {
+    "b": "Tiếp nhận là ghi nhận yêu cầu, đã qua.",
+    "c": "Phân tích phạm vi đã xong; việc đang làm là đo công sức.",
+    "d": "Chưa triển khai thì chưa nghiệm thu."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.6"
+  },
+  {
+   "id": "L06-q9",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong phiếu Change Request, các mục “Chức năng bổ sung / thay đổi / loại bỏ” nằm ở phần nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phần 2 – Thông tin yêu cầu thay đổi"
+    },
+    {
+     "id": "b",
+     "t": "Phần 3 – Phân tích"
+    },
+    {
+     "id": "c",
+     "t": "Phần 4 – Quyết định xử lý"
+    },
+    {
+     "id": "d",
+     "t": "Phần 5 – Thông tin triển khai"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Phần 3 – Phân tích có mục <b>Phạm vi thay đổi</b> gồm chức năng bổ sung, thay đổi, loại bỏ.</p>",
+   "why_wrong": {
+    "a": "Phần 2 gồm tên, mô tả, lý do, lợi ích mong đợi.",
+    "c": "Phần 4 là người quyết định, quyết định và lý do.",
+    "d": "Phần 5 là ngày bắt đầu, hoàn thành, người phụ trách."
+   },
+   "src": "6. Quan ly thay doi.docx"
+  },
+  {
+   "id": "L06-q10",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Theo mẫu phiếu CR, khi người quyết định chọn “Từ chối”, cần ghi rõ lý do.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Phần 4 của phiếu ghi: “Ghi rõ lý do trong trường hợp từ chối”. Lý do giúp người yêu cầu hiểu và lưu vết quyết định.</p>",
+   "why_wrong": {
+    "s": "Mẫu phiếu yêu cầu rõ phải ghi lý do khi từ chối."
+   },
+   "src": "6. Quan ly thay doi.docx phần 4"
+  },
+  {
+   "id": "L06-q11",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Dự án SolasMart: Giám đốc kinh doanh gọi điện cho Dev lead đề nghị “thêm luôn giao hàng 2 giờ cho đơn online”. Dev lead báo lại BA. Việc BA nên làm <b>đầu tiên</b> là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bảo Dev lead làm ngay vì yêu cầu đến từ cấp giám đốc, rồi bổ sung phiếu CR sau khi làm xong"
+    },
+    {
+     "id": "b",
+     "t": "Từ chối vì dự án đang giữa sprint"
+    },
+    {
+     "id": "c",
+     "t": "Cập nhật ngay BRD lên v2.0"
+    },
+    {
+     "id": "d",
+     "t": "Tiếp nhận thành một CR chính thức: lập phiếu, gán mã, ghi người và ngày yêu cầu"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Bước 1 là <b>Tiếp nhận CR</b>. Mọi đề xuất, dù từ ai, đều phải vào quy trình quản lý thay đổi trước khi phân tích, ước lượng, phê duyệt.</p>",
+   "why_wrong": {
+    "a": "Làm trước, ghi phiếu sau là bỏ qua phân tích, ước lượng, phê duyệt; chức vụ cao không thay được quy trình.",
+    "b": "BA không tự từ chối; quyết định thuộc người có thẩm quyền sau khi phân tích.",
+    "c": "Tài liệu chỉ cập nhật khi CR đã được duyệt."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.5-6"
+  },
+  {
+   "id": "L06-q12",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>RTM (Requirements Traceability Matrix) là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bảng liên kết yêu cầu từ nguồn gốc với sản phẩm công việc như thiết kế, code, kiểm thử"
+    },
+    {
+     "id": "b",
+     "t": "Bảng xếp hạng ưu tiên yêu cầu theo 4 mức"
+    },
+    {
+     "id": "c",
+     "t": "Danh sách các bên liên quan kèm vai trò, mức ảnh hưởng, mức quan tâm của từng người trong dự án"
+    },
+    {
+     "id": "d",
+     "t": "Mẫu phiếu đề xuất thay đổi"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>RTM là <b>ma trận truy vết</b>: nối mỗi yêu cầu từ nguồn gốc tới tài liệu thiết kế, coding, kiểm thử…</p>",
+   "why_wrong": {
+    "b": "Đó là MoSCoW; độ ưu tiên chỉ là một cột trong RTM.",
+    "c": "Đó là Stakeholder Register.",
+    "d": "Đó là Change Request Form."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.7"
+  },
+  {
+   "id": "L06-q13",
+   "type": "multi",
+   "level": "hieu",
+   "q": "<p>Chọn các mục tiêu của RTM theo slide.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Đảm bảo yêu cầu không bị bỏ sót"
+    },
+    {
+     "id": "b",
+     "t": "Thay thế tài liệu đặc tả yêu cầu"
+    },
+    {
+     "id": "c",
+     "t": "Hỗ trợ quản lý thay đổi"
+    },
+    {
+     "id": "d",
+     "t": "Ước lượng chi phí cho từng CR"
+    },
+    {
+     "id": "e",
+     "t": "Kiểm soát phạm vi"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>4 mục tiêu: không bỏ sót yêu cầu, kiểm soát phạm vi, dễ kiểm tra tiến độ và chất lượng, hỗ trợ quản lý thay đổi.</p>",
+   "why_wrong": {
+    "b": "RTM chỉ trỏ tới tài liệu thiết kế, không thay thế đặc tả.",
+    "d": "Ước lượng chi phí nằm trong phần Phân tích của phiếu CR."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.7"
+  },
+  {
+   "id": "L06-q14",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Trong RTM thư viện, yêu cầu “Dữ liệu nhạy cảm của người dùng phải được mã hóa” là Must Have, Non-Function, nhưng các cột tài liệu thiết kế, ID task, testcase đều trống. BA nên kết luận gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Bình thường, vì yêu cầu phi chức năng chỉ cần kiểm tra khi nghiệm thu nên không cần truy vết trong RTM"
+    },
+    {
+     "id": "b",
+     "t": "Có lỗ hổng truy vết: cần bổ sung thiết kế, task và testcase cho yêu cầu này"
+    },
+    {
+     "id": "c",
+     "t": "Nên đổi yêu cầu sang Won’t Have cho khớp với cột trống"
+    },
+    {
+     "id": "d",
+     "t": "Xóa dòng này vì chưa có ai làm"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>RTM giúp đảm bảo <b>không bỏ sót</b> yêu cầu. Must Have mà trống thiết kế, test là dấu hiệu bị bỏ sót, cần xử lý ngay.</p>",
+   "why_wrong": {
+    "a": "NFR vẫn phải được thiết kế và kiểm thử.",
+    "c": "Ưu tiên do Stakeholder thống nhất, không đổi để hợp với bảng.",
+    "d": "Xóa dòng làm mất yêu cầu bắt buộc."
+   },
+   "src": "6. MaTranTuyVet-RTM.xlsx; 6. Quan ly yeu cau.pdf tr.7-8"
+  },
+  {
+   "id": "L06-q15",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trong RTM thư viện, dòng “Người dùng được cộng điểm sau mỗi đơn hàng thành công” là Won’t Have và để trống các cột thiết kế, task, testcase. Nhận xét nào đúng?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Lỗi nghiêm trọng, phải bổ sung testcase ngay"
+    },
+    {
+     "id": "b",
+     "t": "Phải xóa dòng này khỏi RTM vì không làm thì không cần ghi lại"
+    },
+    {
+     "id": "c",
+     "t": "Hợp lý, vì các bên đã đồng ý không làm ở phiên bản này"
+    },
+    {
+     "id": "d",
+     "t": "Cần chuyển ngay sang Must Have"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Won’t Have là yêu cầu được thống nhất <b>không triển khai ở phiên bản hiện tại</b>, nên chưa có thiết kế, task, test là đúng. Giữ dòng lại để sau này xem xét.</p>",
+   "why_wrong": {
+    "a": "Không làm thì chưa cần testcase.",
+    "b": "Giữ lại để biết yêu cầu đã được cân nhắc và có thể quay lại sau.",
+    "d": "Không có căn cứ đổi ưu tiên."
+   },
+   "src": "6. MaTranTuyVet-RTM.xlsx; 6. Quan ly yeu cau.pdf tr.14"
+  },
+  {
+   "id": "L06-q16",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Giá trị “Khảo sát người dùng” trong RTM template được điền ở cột nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Phân loại"
+    },
+    {
+     "id": "b",
+     "t": "Ghi chú"
+    },
+    {
+     "id": "c",
+     "t": "Tài liệu thiết kế liên quan"
+    },
+    {
+     "id": "d",
+     "t": "Nguồn yêu cầu"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Cột <b>Nguồn yêu cầu</b> cho biết yêu cầu đến từ đâu: Khách hàng, Marketing, Khảo sát người dùng, Ý tưởng nội bộ.</p>",
+   "why_wrong": {
+    "a": "Phân loại chỉ ghi Function hoặc Non-Function.",
+    "b": "Ghi chú dành cho thông tin thêm, không phải nguồn gốc.",
+    "c": "Cột này ghi mục tài liệu như FSD-Login."
+   },
+   "src": "6. MaTranTuyVet-RTM.xlsx"
+  },
+  {
+   "id": "L06-q17",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Khách hàng thư viện hỏi: “Chức năng tìm kiếm đã có trong bản nào và đã kiểm thử đạt chưa?”. BA cần xem những cột nào trong RTM?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Kết quả kiểm thử"
+    },
+    {
+     "id": "b",
+     "t": "Nguồn yêu cầu"
+    },
+    {
+     "id": "c",
+     "t": "Phiên bản triển khai"
+    },
+    {
+     "id": "d",
+     "t": "Ngày yêu cầu"
+    }
+   ],
+   "answer": [
+    "a",
+    "c"
+   ],
+   "explain": "<p>Đã đạt chưa thì xem <b>Kết quả kiểm thử</b> (Pass); bản nào thì xem <b>Phiên bản triển khai</b> (v1.1).</p>",
+   "why_wrong": {
+    "b": "Nguồn cho biết ai đề xuất, không nói đã làm xong chưa.",
+    "d": "Ngày yêu cầu là lúc ghi nhận, không phải lúc phát hành."
+   },
+   "src": "6. MaTranTuyVet-RTM.xlsx; 6. Quan ly yeu cau.pdf tr.7"
+  },
+  {
+   "id": "L06-q18",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>RTM “hỗ trợ quản lý thay đổi” theo cách nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tự động phê duyệt các CR có độ ưu tiên Must Have, còn các mức khác thì chuyển sang bản sau"
+    },
+    {
+     "id": "b",
+     "t": "Khi một yêu cầu đổi, cho biết ngay tài liệu, task, testcase nào bị ảnh hưởng"
+    },
+    {
+     "id": "c",
+     "t": "Ngăn khách hàng gửi thêm yêu cầu mới"
+    },
+    {
+     "id": "d",
+     "t": "Thay cho phiếu Change Request"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Vì mỗi yêu cầu đã nối với thiết kế, task, testcase, nên khi nó đổi, BA thấy ngay phạm vi ảnh hưởng để ước lượng.</p>",
+   "why_wrong": {
+    "a": "Phê duyệt là việc của người có thẩm quyền, không do bảng.",
+    "c": "RTM không chặn yêu cầu mới; nó giúp kiểm soát chúng.",
+    "d": "Phiếu CR vẫn cần để phân tích và ra quyết định."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.7"
+  },
+  {
+   "id": "L06-q19",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Cột nào <b>KHÔNG</b> có trong sheet Change Log của file RTM mẫu?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Người thực hiện"
+    },
+    {
+     "id": "b",
+     "t": "Trạng thái mới"
+    },
+    {
+     "id": "c",
+     "t": "Chi phí ước tính"
+    },
+    {
+     "id": "d",
+     "t": "ID yêu cầu"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Change Log gồm: Ngày, ID yêu cầu, Thay đổi, Người thực hiện, Trạng thái mới. Chi phí ước tính nằm trong phiếu CR.</p>",
+   "why_wrong": {
+    "a": "Có cột Người thực hiện (ví dụ BA2, BA3).",
+    "b": "Có cột Trạng thái mới (ví dụ Đã loại bỏ).",
+    "d": "Có cột ID yêu cầu (ví dụ REQ-004)."
+   },
+   "src": "6. MaTranTuyVet-RTM.xlsx sheet Change Log"
+  },
+  {
+   "id": "L06-q20",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trong MoSCoW, chữ <b>W</b> là viết tắt của mức nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Won’t have (this time)"
+    },
+    {
+     "id": "b",
+     "t": "Would have"
+    },
+    {
+     "id": "c",
+     "t": "Wish to have"
+    },
+    {
+     "id": "d",
+     "t": "Wait"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>4 mức: Must have, Should have, Could have, <b>Won’t have (this time)</b>.</p>",
+   "why_wrong": {
+    "b": "Không có mức Would have trong slide.",
+    "c": "Mong muốn có thì tốt là Could have, không phải W.",
+    "d": "Wait không phải một mức của MoSCoW."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.10"
+  },
+  {
+   "id": "L06-q21",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Trên hình MoSCoW, khẩu hiệu “Low-cost tweaking” (tinh chỉnh chi phí thấp) gắn với mức nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Must have"
+    },
+    {
+     "id": "b",
+     "t": "Should have"
+    },
+    {
+     "id": "c",
+     "t": "Won’t have"
+    },
+    {
+     "id": "d",
+     "t": "Could have"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Could have: cải tiến nhỏ, có thì tốt. Các khẩu hiệu khác: Must – Project cannot do without them; Should – Must-haves over the long run; Won’t – Get back to them at better days.</p>",
+   "why_wrong": {
+    "a": "Must have là thứ dự án không thể thiếu.",
+    "b": "Should have là thứ về lâu dài sẽ thành cần thiết.",
+    "c": "Won’t have là để dành tới lúc thuận lợi hơn."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.10"
+  },
+  {
+   "id": "L06-q22",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Dấu hiệu nào <b>KHÔNG</b> thuộc cách xác định Must Have trên slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Yêu cầu liên quan đến pháp luật hoặc an toàn thông tin"
+    },
+    {
+     "id": "b",
+     "t": "Mang lại lợi ích lớn cho người dùng nhưng có cách làm tay thay thế"
+    },
+    {
+     "id": "c",
+     "t": "Yêu cầu không có giải pháp thay thế"
+    },
+    {
+     "id": "d",
+     "t": "Yêu cầu chính, liên quan đến hầu hết các nghiệp vụ cốt lõi của hệ thống"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Có cách làm tay thay thế và mang lại lợi ích lớn là dấu hiệu của <b>Should Have</b>.</p>",
+   "why_wrong": {
+    "a": "Đây là dấu hiệu Must Have trên slide.",
+    "c": "Đây là dấu hiệu Must Have trên slide.",
+    "d": "Đây là dấu hiệu Must Have trên slide."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.11-12"
+  },
+  {
+   "id": "L06-q23",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>SolasMart muốn có báo cáo tồn kho theo tuần. Hiện thủ kho vẫn tổng hợp được bằng Excel, chỉ tốn thời gian. Hệ thống vẫn bán hàng, nhập kho bình thường khi chưa có báo cáo. Nên xếp mức nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Must Have"
+    },
+    {
+     "id": "b",
+     "t": "Should Have"
+    },
+    {
+     "id": "c",
+     "t": "Could Have"
+    },
+    {
+     "id": "d",
+     "t": "Won’t Have"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Quan trọng, thiếu vẫn chạy, có <b>giải pháp thủ công thay thế</b>: đúng dấu hiệu Should Have (giống ví dụ báo cáo thư viện trên slide).</p>",
+   "why_wrong": {
+    "a": "Thiếu báo cáo hệ thống vẫn hoạt động nên không phải Must.",
+    "c": "Báo cáo tồn kho có giá trị đáng kể, không chỉ là tiện ích nhỏ.",
+    "d": "Chưa có thỏa thuận với Stakeholder là không làm."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.12"
+  },
+  {
+   "id": "L06-q24",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Hệ thống đặt đồ ăn phải lưu thông tin thẻ thanh toán theo chuẩn bảo mật bắt buộc. Không có cách nào khác để được phép nhận thanh toán thẻ. Mức MoSCoW hợp lý là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Could Have vì người dùng ít để ý"
+    },
+    {
+     "id": "b",
+     "t": "Should Have vì có thể bổ sung ở bản sau"
+    },
+    {
+     "id": "c",
+     "t": "Must Have"
+    },
+    {
+     "id": "d",
+     "t": "Won’t Have vì tốn chi phí"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Liên quan <b>pháp luật/an toàn thông tin</b> và không có giải pháp thay thế: hai dấu hiệu của Must Have.</p>",
+   "why_wrong": {
+    "a": "Mức ưu tiên không dựa vào việc người dùng có để ý hay không.",
+    "b": "Thiếu nó thì không được nhận thanh toán, không thể dời.",
+    "d": "Chi phí cao không biến yêu cầu bắt buộc thành Won’t Have."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.11"
+  },
+  {
+   "id": "L06-q25",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Ví dụ: FoodNow muốn màn danh sách đặt bàn cho nhân viên tự chọn cột hiển thị. Việc này không ảnh hưởng đáng kể tới mục tiêu kinh doanh. Xếp mức nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Could Have"
+    },
+    {
+     "id": "b",
+     "t": "Must Have"
+    },
+    {
+     "id": "c",
+     "t": "Should Have"
+    },
+    {
+     "id": "d",
+     "t": "Won’t Have, vì không ảnh hưởng mục tiêu kinh doanh"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Cải tiến nhỏ về trải nghiệm, tác động không đáng kể: <b>Could Have</b>. Slide cũng lấy “chọn cột hiển thị ở màn danh sách” làm ví dụ Could Have.</p>",
+   "why_wrong": {
+    "b": "Thiếu nó hệ thống vẫn chạy bình thường.",
+    "c": "Không mang lại giá trị đáng kể như Should Have.",
+    "d": "Won’t Have cần sự thống nhất không làm, chứ không chỉ vì ít tác động."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.13"
+  },
+  {
+   "id": "L06-q26",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Yêu cầu xếp Won’t Have nghĩa là đã bị loại bỏ vĩnh viễn khỏi sản phẩm.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Won’t Have là “<b>sẽ không có trong phiên bản này</b>” (this time). Hình minh họa ghi: Get back to them at better days.</p>",
+   "why_wrong": {
+    "d": "Slide nhấn mạnh “trong phiên bản hiện tại”, có thể quay lại sau."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.10, tr.14"
+  },
+  {
+   "id": "L06-q27",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Theo slide, để xác định một yêu cầu là Won’t Have, BA cần làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Tự quyết vì BA hiểu rõ yêu cầu nhất"
+    },
+    {
+     "id": "b",
+     "t": "Để Dev quyết vì Dev biết độ khó"
+    },
+    {
+     "id": "c",
+     "t": "Cứ để trong backlog; yêu cầu nào hết sprint mà chưa làm thì tự động coi là Won’t Have của phiên bản này"
+    },
+    {
+     "id": "d",
+     "t": "Thống nhất với Stakeholder, kèm căn cứ để họ quyết định không triển khai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Won’t Have là yêu cầu được <b>các bên liên quan đồng ý</b> không làm. BA nên đưa căn cứ (ví dụ chưa có brand_name để gửi OTP).</p>",
+   "why_wrong": {
+    "a": "BA không tự quyết bỏ yêu cầu.",
+    "b": "Độ khó là một căn cứ, nhưng quyết định cần Stakeholder thống nhất.",
+    "c": "Won’t Have phải được Stakeholder đồng ý, không tự sinh ra vì chưa kịp làm."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.14"
+  },
+  {
+   "id": "L06-q28",
+   "type": "multi",
+   "level": "apdung",
+   "q": "<p>Hệ thống đặt đồ ăn (ví dụ). Chọn những yêu cầu nên xếp <b>Must Have</b>.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Khách chọn món, đặt đơn và thanh toán"
+    },
+    {
+     "id": "b",
+     "t": "Mã hóa mật khẩu tài khoản người dùng"
+    },
+    {
+     "id": "c",
+     "t": "Đổi giao diện sáng tối theo sở thích"
+    },
+    {
+     "id": "d",
+     "t": "Gợi ý món theo thời tiết hôm nay"
+    },
+    {
+     "id": "e",
+     "t": "Báo cáo doanh thu theo tuần, hiện kế toán làm tay được"
+    }
+   ],
+   "answer": [
+    "a",
+    "b"
+   ],
+   "explain": "<p>Đặt món, thanh toán là nghiệp vụ chính; mã hóa mật khẩu thuộc an toàn thông tin. Cả hai thiếu thì hệ thống không dùng được.</p>",
+   "why_wrong": {
+    "c": "Tiện ích nhỏ, là Could Have.",
+    "d": "Tính năng phụ kiểu tiện ích thời tiết, là Could Have.",
+    "e": "Có cách làm tay thay thế, là Should Have."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.11-13"
+  },
+  {
+   "id": "L06-q29",
+   "type": "multi",
+   "level": "nho",
+   "q": "<p>Chọn các trường hợp slide nêu là cần gửi email.</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Xác nhận lại yêu cầu sau buổi họp"
+    },
+    {
+     "id": "b",
+     "t": "Thay cho buổi phỏng vấn khai thác yêu cầu"
+    },
+    {
+     "id": "c",
+     "t": "Xác nhận khi có Change Request"
+    },
+    {
+     "id": "d",
+     "t": "Hỏi thăm sức khỏe đồng nghiệp hằng ngày"
+    },
+    {
+     "id": "e",
+     "t": "Bàn giao tài liệu"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explain": "<p>Slide liệt kê 8 trường hợp, trong đó có xác nhận yêu cầu sau họp, xác nhận CR, bàn giao tài liệu. Còn lại: câu hỏi cần làm rõ, gửi tài liệu đề nghị xác nhận, báo rủi ro/quyết định, mời họp, báo cáo tiến độ.</p>",
+   "why_wrong": {
+    "b": "Email không thay được kỹ thuật khai thác như phỏng vấn.",
+    "d": "Không phải email công việc của dự án."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.15"
+  },
+  {
+   "id": "L06-q30",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Theo nguyên tắc trên slide, ô người nhận chính (To) của email nên có ai?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Mọi thành viên của hai bên dự án, để không ai bị bỏ sót thông tin quan trọng"
+    },
+    {
+     "id": "b",
+     "t": "Một người, là người chịu trách nhiệm cao nhất về việc đó"
+    },
+    {
+     "id": "c",
+     "t": "Người trẻ nhất để dễ phản hồi"
+    },
+    {
+     "id": "d",
+     "t": "Chỉ PM phía triển khai"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Người nhận nên là <b>một người</b> chịu trách nhiệm cao nhất; người khác để ở cc. Như vậy rõ ai phải trả lời.</p>",
+   "why_wrong": {
+    "a": "Nhiều người ở To thì không rõ ai chịu trách nhiệm trả lời.",
+    "c": "Tiêu chí là trách nhiệm, không phải tuổi.",
+    "d": "PM phía mình thường ở cc; người quyết định thường là phía khách hàng."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.17"
+  },
+  {
+   "id": "L06-q31",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Email xác nhận yêu cầu gửi Giám đốc thư viện (To). Cần cc: Dev lead phía triển khai, Trưởng phòng nghiệp vụ thư viện, PM phía triển khai, nhân viên thủ thư. Thứ tự cc nào đúng nguyên tắc?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "PM → Dev lead → Trưởng phòng nghiệp vụ → Thủ thư"
+    },
+    {
+     "id": "b",
+     "t": "Thủ thư → Trưởng phòng nghiệp vụ → Dev lead → PM"
+    },
+    {
+     "id": "c",
+     "t": "Trưởng phòng nghiệp vụ → Thủ thư → PM → Dev lead"
+    },
+    {
+     "id": "d",
+     "t": "Dev lead → Thủ thư → PM → Trưởng phòng nghiệp vụ"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Nguyên tắc: <b>khách hàng trước, đơn vị triển khai sau</b>; trong mỗi bên, <b>chức vụ cao hơn đứng trước</b>.</p>",
+   "why_wrong": {
+    "a": "Đưa phía triển khai lên trước khách hàng.",
+    "b": "Đúng là khách hàng trước, nhưng trong mỗi bên lại xếp chức vụ thấp lên trước.",
+    "d": "Trộn lẫn hai bên và không theo chức vụ."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.17"
+  },
+  {
+   "id": "L06-q32",
+   "type": "tf",
+   "level": "hieu",
+   "q": "<p>Email có nội dung bằng tiếng Anh vẫn nên mở đầu bằng lời chào tiếng Việt cho thân thiện.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "s"
+   ],
+   "explain": "<p>Slide: nội dung tiếng Việt thì chào tiếng Việt, nội dung tiếng Anh thì chào tiếng Anh. Lời chào và nội dung cùng một ngôn ngữ.</p>",
+   "why_wrong": {
+    "d": "Trộn ngôn ngữ trái với lưu ý trên slide về lời chào."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.20"
+  },
+  {
+   "id": "L06-q33",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA dự án SolasMart cần gửi danh sách câu hỏi làm rõ về chức năng đổi trả hàng tại quầy. Tiêu đề nào tốt nhất?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Câu hỏi"
+    },
+    {
+     "id": "b",
+     "t": "Đổi trả hàng"
+    },
+    {
+     "id": "c",
+     "t": "Gửi anh chị mấy câu hỏi em còn chưa rõ lắm về phần đổi trả hàng tại quầy"
+    },
+    {
+     "id": "d",
+     "t": "[Câu hỏi làm rõ] Chức năng đổi trả tại quầy – Dự án SolasMart"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Tiêu đề tốt: cụ thể, có <b>từ khóa loại việc</b>, nội dung và tên dự án, giống mẫu “[Xác nhận yêu cầu] … – Dự án …”.</p>",
+   "why_wrong": {
+    "a": "Quá chung, không biết hỏi về gì, dự án nào.",
+    "b": "Thiếu loại việc và tên dự án, giống mẫu “không nên viết”.",
+    "c": "Dài, văn nói, vẫn thiếu tên dự án và từ khóa."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.19"
+  },
+  {
+   "id": "L06-q34",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Câu “Anh chị chốt cho em vấn đề này.” trong email gửi khách hàng chưa chuyên nghiệp chủ yếu vì sao?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Vì câu quá ngắn, email phải dài mới lịch sự"
+    },
+    {
+     "id": "b",
+     "t": "Vì không được gọi khách hàng là anh chị"
+    },
+    {
+     "id": "c",
+     "t": "Vì dùng văn nói mang giọng ra lệnh và không nói rõ vấn đề cần xác nhận"
+    },
+    {
+     "id": "d",
+     "t": "Vì BA không được trực tiếp đề nghị khách hàng xác nhận, việc này phải để PM gửi thay"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Email cần <b>lịch sự, rõ ràng</b>. “Chốt” là văn nói, “vấn đề này” không cụ thể. Nên viết: “Nhờ anh/chị xác nhận giúp em … trước …”.</p>",
+   "why_wrong": {
+    "a": "Slide yêu cầu ngắn gọn, đi thẳng vấn đề.",
+    "b": "Xưng hô anh/chị vẫn dùng trong các ví dụ trên slide.",
+    "d": "Xin xác nhận là mục đích chính của nhiều email BA."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.17-18"
+  },
+  {
+   "id": "L06-q35",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo slide, phần nội dung chính của email nên trình bày như thế nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Một đoạn văn liền mạch, không xuống dòng"
+    },
+    {
+     "id": "b",
+     "t": "Dạng bảng hoặc danh sách, đánh số hoặc gạch đầu dòng"
+    },
+    {
+     "id": "c",
+     "t": "Chỉ gửi file đính kèm, không viết gì"
+    },
+    {
+     "id": "d",
+     "t": "Chụp màn hình biên bản họp rồi dán nguyên ảnh vào thân email cho đủ thông tin"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Slide: dùng <b>bảng hoặc danh sách (list)</b>, numbering dạng số hoặc gạch đầu dòng để liệt kê thông tin.</p>",
+   "why_wrong": {
+    "a": "Đoạn văn liền khó đọc, khó trả lời từng ý.",
+    "c": "File đính kèm chỉ dùng khi nội dung quá dài, vẫn cần thân email.",
+    "d": "Ảnh chụp khó đọc, khó trích dẫn từng ý."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.21"
+  },
+  {
+   "id": "L06-q36",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Vì sao nên soạn xong nội dung email rồi mới điền thông tin người nhận?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Để tránh lỡ tay gửi khi email chưa hoàn chỉnh"
+    },
+    {
+     "id": "b",
+     "t": "Vì phần mềm email bắt buộc như vậy"
+    },
+    {
+     "id": "c",
+     "t": "Để người nhận không thấy bản nháp"
+    },
+    {
+     "id": "d",
+     "t": "Để email được hẹn giờ gửi đi ngoài giờ hành chính"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Chưa có người nhận thì không thể bấm gửi nhầm. Đây là lưu ý trên slide để tránh gửi email dở dang.</p>",
+   "why_wrong": {
+    "b": "Không có phần mềm nào bắt buộc thứ tự này.",
+    "c": "Người nhận vốn không thấy bản nháp; rủi ro là gửi nhầm.",
+    "d": "Slide khuyên gửi trong giờ hành chính."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.23"
+  },
+  {
+   "id": "L06-q37",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>BA cần gửi khách hàng Nhật kết quả phân tích dài khoảng 6 trang vào chiều thứ Sáu, 18h30. Cách làm nào đúng lưu ý trên slide?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Dán toàn bộ 6 trang vào thân email và gửi ngay"
+    },
+    {
+     "id": "b",
+     "t": "Gửi vào sáng Chủ nhật để khách đọc đầu tuần"
+    },
+    {
+     "id": "c",
+     "t": "Tóm tắt ý chính trong email, đính kèm file đầy đủ, gửi trong giờ hành chính ngày làm việc"
+    },
+    {
+     "id": "d",
+     "t": "Chia thành 6 email, mỗi email một trang, gửi liên tiếp ngay trong tối thứ Sáu để khách đọc dần trong tuần sau"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Nội dung dài thì đưa vào <b>file đính kèm</b>; gửi trong <b>giờ hành chính</b>, làm việc với nước ngoài thì tránh ngày nghỉ.</p>",
+   "why_wrong": {
+    "a": "Nội dung dài quá nên để file đính kèm; 18h30 cũng ngoài giờ hành chính.",
+    "b": "Chủ nhật là ngày nghỉ, slide khuyên không gửi.",
+    "d": "Nhiều email rời rạc trái nguyên tắc ngắn gọn, rõ ràng; tối thứ Sáu cũng ngoài giờ hành chính."
+   },
+   "src": "6. Quan ly yeu cau.pdf tr.23"
+  },
+  {
+   "id": "L06-q38",
+   "type": "single",
+   "level": "nho",
+   "q": "<p>Theo hướng dẫn quản lý tài liệu, SRS, user story và wireframe được lưu trong thư mục nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "01. PROJECT_INITIATION"
+    },
+    {
+     "id": "b",
+     "t": "03. DESIGN"
+    },
+    {
+     "id": "c",
+     "t": "07. CHANGE LOGS"
+    },
+    {
+     "id": "d",
+     "t": "02. REQUIREMENTS"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>02. REQUIREMENTS chứa tài liệu yêu cầu: SRS, user story, wireframe, template.</p>",
+   "why_wrong": {
+    "a": "Thư mục này chứa tài liệu khởi động: phạm vi, mục tiêu, bên liên quan.",
+    "b": "Thư mục này chứa kiến trúc hệ thống, mô hình dữ liệu.",
+    "c": "Thư mục này theo dõi các thay đổi quan trọng."
+   },
+   "src": "6. Quan ly tai lieu.docx mục 2"
+  },
+  {
+   "id": "L06-q39",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Tài liệu đang ở v1.0. BA chỉ sửa vài lỗi chính tả. Phiên bản mới nên là gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "v2.0"
+    },
+    {
+     "id": "b",
+     "t": "v1.1"
+    },
+    {
+     "id": "c",
+     "t": "Giữ nguyên v1.0"
+    },
+    {
+     "id": "d",
+     "t": "v0.9"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p><b>v1.x</b> dành cho cập nhật nhỏ như sửa chính tả; v2.0 dành cho thay đổi nội dung quan trọng.</p>",
+   "why_wrong": {
+    "a": "v2.0 chỉ dùng khi thay đổi nội dung quan trọng.",
+    "c": "Mọi thay đổi đều phải nâng phiên bản và lưu bản cũ.",
+    "d": "Phiên bản không đi lùi."
+   },
+   "src": "6. Quan ly tai lieu.docx mục 3.2"
+  },
+  {
+   "id": "L06-q40",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Đơn vị ABC, dự án FoodNow, tài liệu FSD, bản đầu tiên ngày 15/05/2025. Tên file nào đúng quy tắc?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "FSD_moi_nhat_final.docx"
+    },
+    {
+     "id": "b",
+     "t": "FoodNow_FSD_ban_dau_tien_15052025.docx"
+    },
+    {
+     "id": "c",
+     "t": "ABC_FoodNow_FSD_v1.0_15052025.docx"
+    },
+    {
+     "id": "d",
+     "t": "ABC_FSD_FoodNow_15052025_v1.0.docx"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Cấu trúc: <b>[Tên đơn vị]_[Tên dự án]_Tên tài liệu_[Phiên bản]_[Ngày]</b>.</p>",
+   "why_wrong": {
+    "a": "Không có đơn vị, dự án, phiên bản, ngày; “final” không cho biết bản nào.",
+    "b": "Thiếu tên đơn vị và phiên bản.",
+    "d": "Đủ thành phần nhưng sai thứ tự."
+   },
+   "src": "6. Quan ly tai lieu.docx mục 3.1"
+  },
+  {
+   "id": "L06-q41",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Theo hướng dẫn Log task, mức độ ưu tiên (Priority) khác mức độ nghiêm trọng ở điểm nào?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ưu tiên phản ánh sự cấp bách cần xử lý; nghiêm trọng phản ánh mức ảnh hưởng tới hệ thống hoặc người dùng"
+    },
+    {
+     "id": "b",
+     "t": "Ưu tiên do Tester đặt, nghiêm trọng do khách hàng đặt"
+    },
+    {
+     "id": "c",
+     "t": "Ưu tiên dùng thang MoSCoW, nghiêm trọng dùng thang 1–4"
+    },
+    {
+     "id": "d",
+     "t": "Hai khái niệm giống hệt nhau vì dùng chung thang mức 1, 2, 3, 4; tài liệu chỉ đặt hai tên gọi cho cùng một trường"
+    }
+   ],
+   "answer": [
+    "a"
+   ],
+   "explain": "<p>Priority = <b>cấp bách</b>; nghiêm trọng = <b>ảnh hưởng</b>. Hai trường dùng cùng thang mức nhưng trả lời hai câu hỏi khác nhau.</p>",
+   "why_wrong": {
+    "b": "Tài liệu không phân người đặt như vậy.",
+    "c": "Priority của task dùng mức 1–4, không phải MoSCoW.",
+    "d": "Tài liệu định nghĩa hai khái niệm khác nhau, chỉ có thang mức giống nhau."
+   },
+   "src": "6. HƯỚNG DẪN QUY TRÌNH SỬ DỤNG LOG TASK.docx mục 2.3"
+  },
+  {
+   "id": "L06-q42",
+   "type": "tf",
+   "level": "nho",
+   "q": "<p>Trên Azure DevOps, Epic được dùng để nhóm các User Story liên quan, giúp nhìn tổng quan tiến trình dự án.</p>",
+   "options": [
+    {
+     "id": "d",
+     "t": "Đúng"
+    },
+    {
+     "id": "s",
+     "t": "Sai"
+    }
+   ],
+   "answer": [
+    "d"
+   ],
+   "explain": "<p>Mục đích Epic: nhóm User Story liên quan, xác định mục tiêu lớn hoặc giai đoạn quan trọng, cho cái nhìn tổng quan.</p>",
+   "why_wrong": {
+    "s": "Tài liệu ghi rõ Epic là nhóm các User Story."
+   },
+   "src": "6. HƯỚNG DẪN QUY TRÌNH SỬ DỤNG LOG TASK.docx mục 4"
+  },
+  {
+   "id": "L06-q43",
+   "type": "single",
+   "level": "apdung",
+   "q": "<p>Thư mục tài liệu dự án SolasMart: các Dev chỉ cần đọc SRS để code, không sửa. Nên cấp quyền gì cho Dev trên thư mục 02. REQUIREMENTS?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Admin"
+    },
+    {
+     "id": "b",
+     "t": "Editor"
+    },
+    {
+     "id": "c",
+     "t": "Read-Only"
+    },
+    {
+     "id": "d",
+     "t": "Không cấp quyền, BA gửi file qua chat"
+    }
+   ],
+   "answer": [
+    "c"
+   ],
+   "explain": "<p>Read-Only dành cho thành viên <b>không cần chỉnh sửa</b>. Editor cho người chịu trách nhiệm cập nhật, Admin cho người quản lý quyền và cấu trúc.</p>",
+   "why_wrong": {
+    "a": "Admin quản lý quyền và cấu trúc thư mục, quá rộng cho Dev.",
+    "b": "Editor dành cho người có trách nhiệm cập nhật tài liệu.",
+    "d": "Gửi qua chat làm mất kiểm soát phiên bản."
+   },
+   "src": "6. Quan ly tai lieu.docx mục 5"
+  },
+  {
+   "id": "L06-q44",
+   "type": "single",
+   "level": "hieu",
+   "q": "<p>Trường Acceptance Criteria của một User Story dùng để làm gì?</p>",
+   "options": [
+    {
+     "id": "a",
+     "t": "Ghi tên người phụ trách thực hiện và người kiểm tra kết quả của User Story"
+    },
+    {
+     "id": "b",
+     "t": "Xác định các tiêu chí để biết yêu cầu đã hoàn thành"
+    },
+    {
+     "id": "c",
+     "t": "Chọn sprint thực hiện"
+    },
+    {
+     "id": "d",
+     "t": "Gán link tới work item cha, con"
+    }
+   ],
+   "answer": [
+    "b"
+   ],
+   "explain": "<p>Acceptance Criteria là <b>tiêu chí chấp nhận</b>. Tài liệu lưu ý: mô tả User Story hoặc Epic luôn phải có tiêu chí chấp nhận rõ ràng.</p>",
+   "why_wrong": {
+    "a": "Đó là trường Assigned To.",
+    "c": "Đó là trường Iteration Path.",
+    "d": "Đó là trường Related Work."
+   },
+   "src": "6. HƯỚNG DẪN QUY TRÌNH SỬ DỤNG LOG TASK.docx mục 1.3, 6"
+  }
+ ],
+ "summary": {
+  "points": [
+   "Quản lý yêu cầu là tổ chức, theo dõi, kiểm soát, cập nhật, truyền thông yêu cầu suốt vòng đời dự án",
+   "Change Request đến từ ai cũng phải qua 6 bước: tiếp nhận, phân tích, ước lượng effort, phê duyệt, triển khai, nghiệm thu và theo dõi",
+   "RTM nối yêu cầu từ nguồn gốc tới thiết kế, task, testcase, phiên bản; giúp không bỏ sót và kiểm soát phạm vi",
+   "MoSCoW: Must (thiếu là không chạy), Should (quan trọng, có cách làm tay), Could (có thì tốt), Won’t (thống nhất không làm lần này)",
+   "Email chuyên nghiệp: tiêu đề cụ thể có từ khóa, To một người, cc khách hàng trước và chức vụ cao trước, nội dung dạng danh sách, nhắc deadline lịch sự",
+   "Tài liệu dự án: 8 thư mục chuẩn, tên file [Đơn vị]_[Dự án]_Tài liệu_[Phiên bản]_[Ngày], v1.x sửa nhỏ, v2.0 thay đổi lớn",
+   "Log trên Azure DevOps: Epic nhóm User Story, User Story có Acceptance Criteria, Task chia việc theo sprint"
+  ],
+  "html": "<table><thead><tr><th>Công cụ</th><th>Trả lời câu hỏi</th><th>Đầu ra</th></tr></thead><tbody><tr><td>Quy trình CR</td><td>Thay đổi này có được làm không?</td><td>Phiếu Change Request, Change Log</td></tr><tr><td>RTM</td><td>Yêu cầu từ đâu, đã thiết kế, code, test, phát hành chưa?</td><td>Ma trận truy vết</td></tr><tr><td>MoSCoW</td><td>Làm cái nào trước?</td><td>Cột Độ ưu tiên</td></tr><tr><td>Email</td><td>Đã chốt gì, cần xác nhận gì?</td><td>Bằng chứng bằng văn bản</td></tr><tr><td>Quản lý tài liệu</td><td>Bản nào mới nhất, để ở đâu, ai được sửa?</td><td>Cây thư mục, tên file, phiên bản</td></tr><tr><td>Log task</td><td>Ai làm gì, sprint nào, xong chưa?</td><td>Epic, User Story, Task trên Azure DevOps</td></tr></tbody></table><p class='warn'>Lỗi hay gặp: làm thay đổi theo lời nói mà không có CR; RTM có dòng Must Have trống testcase; đặt tên file kiểu “final_moi_nhat”; To cả chục người.</p>"
+ },
+ "images": [
+  {
+   "id": "L06-img1",
+   "path": "data/pages/6. Quan ly yeu cau/p-004.jpg",
+   "caption": "Các hoạt động quản lý yêu cầu (Requirements Management Activities)",
+   "crop": [
+    0.33,
+    0.45,
+    0.97,
+    0.73
+   ]
+  },
+  {
+   "id": "L06-img2",
+   "path": "data/pages/6. Quan ly yeu cau/p-006.jpg",
+   "caption": "6 bước xử lý Change Request",
+   "crop": [
+    0.03,
+    0.28,
+    0.97,
+    0.71
+   ]
+  },
+  {
+   "id": "L06-img3",
+   "path": "data/pages/6. Quan ly yeu cau/p-008.jpg",
+   "caption": "RTM Template – dự án Quản lý thư viện thông minh",
+   "crop": [
+    0.0,
+    0.27,
+    1.0,
+    0.73
+   ]
+  },
+  {
+   "id": "L06-img4",
+   "path": "data/pages/6. Quan ly yeu cau/p-010.jpg",
+   "caption": "Bốn mức của phương pháp MoSCoW",
+   "crop": [
+    0.43,
+    0.14,
+    0.97,
+    0.91
+   ]
+  },
+  {
+   "id": "L06-img5",
+   "path": "data/img/L06-img5.png",
+   "caption": "Ví dụ cấu trúc thư mục tài liệu dự án trên Google Drive"
+  }
+ ]
+}

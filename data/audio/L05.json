@@ -1,0 +1,744 @@
+{
+ "lesson": "L05",
+ "voice": "vi-VN-NamMinhNeural",
+ "hash": "1937f9a3557c44eb",
+ "duration": 794.688,
+ "chunks": [
+  {
+   "id": "L05-n1",
+   "start": 0.0,
+   "end": 33.528,
+   "sents": [
+    [
+     0.1,
+     6.075,
+     "Chào bạn, mình bắt đầu buổi năm: kỹ thuật khai thác yêu cầu, hay còn gọi là Elicitation."
+    ],
+    [
+     6.025,
+     8.162,
+     "Buổi này có bốn phần."
+    ],
+    [
+     8.162,
+     11.375,
+     "Phần một là các hoạt động trong Elicitation."
+    ],
+    [
+     11.375,
+     17.837,
+     "Phần hai, ba và bốn lần lượt là ba kỹ thuật: Interview, Workshop và Observation."
+    ],
+    [
+     17.837,
+     25.312,
+     "Cuối buổi, mình giới thiệu ba biểu mẫu đi kèm: Elicitation activity plan, phiếu khảo sát và Observation note."
+    ],
+    [
+     25.312,
+     33.525,
+     "Mục tiêu là sau buổi này, bạn biết chọn kỹ thuật nào cho tình huống nào, và biết chuẩn bị, tiến hành, xử lý kết quả của một buổi khai thác."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n2",
+   "start": 34.128,
+   "end": 95.88,
+   "sents": [
+    [
+     34.228,
+     37.24,
+     "Trước hết, Elicitation là gì?"
+    ],
+    [
+     37.191,
+     47.728,
+     "Đó là quá trình thu thập, khám phá, khơi gợi và làm rõ yêu cầu, mong đợi, nhu cầu của các stakeholder, để xây dựng hoặc cải tiến hệ thống, sản phẩm, quy trình."
+    ],
+    [
+     47.728,
+     55.541,
+     "Elicitation không chỉ là hỏi rồi ghi chép, mà gồm cả giao tiếp, lắng nghe, phân tích, xác minh và tinh chỉnh thông tin."
+    ],
+    [
+     55.541,
+     58.953,
+     "Slide đặt nó cạnh Gathering, tức thu thập."
+    ],
+    [
+     58.953,
+     67.653,
+     "Gathering là thụ động: nhặt thông tin đã có trong tài liệu, như hướng dẫn sử dụng hay SRS cũ, để nắm hiện trạng của hệ thống đang chạy."
+    ],
+    [
+     67.653,
+     80.59,
+     "Elicitation là chủ động: qua Interview, Workshop, Observation, BA đào ra thông tin mới về nỗi đau, mục tiêu, kỳ vọng và giới hạn, nên rất cần cho dự án mới, yêu cầu còn mơ hồ."
+    ],
+    [
+     80.59,
+     86.891,
+     "Mẹo nhớ: Gathering là nhặt cái có sẵn, Elicitation là đào ra cái chưa ai nói."
+    ],
+    [
+     86.891,
+     95.865,
+     "Lưu ý, theo BABOK thì Elicitation rộng hơn và bao gồm cả phân tích tài liệu, slide tách riêng Gathering để nhấn mạnh tính chủ động của BA."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n3",
+   "start": 96.48,
+   "end": 141.72,
+   "sents": [
+    [
+     96.58,
+     99.468,
+     "Vì sao Elicitation quan trọng?"
+    ],
+    [
+     99.418,
+     104.455,
+     "Theo slide, hơn một nửa số dự án thất bại là do hiểu sai hoặc thiếu yêu cầu."
+    ],
+    [
+     104.455,
+     111.568,
+     "Khai thác tốt giúp các stakeholder đồng thuận, tránh rework tức làm lại, và tạo ra sản phẩm đúng nhu cầu kinh doanh."
+    ],
+    [
+     111.568,
+     116.155,
+     "Câu cần nhớ: yêu cầu bị hiểu sai thì giải pháp chắc chắn làm sai."
+    ],
+    [
+     116.155,
+     119.73,
+     "Yêu cầu đúng là yêu cầu được mọi bên hiểu giống nhau."
+    ],
+    [
+     119.73,
+     128.355,
+     "Ví dụ khách hàng cần báo cáo doanh thu, kế toán hiểu theo tháng, quản lý cửa hàng hiểu theo ca, thì yêu cầu đó chưa đúng dù câu chữ không sai."
+    ],
+    [
+     128.355,
+     141.705,
+     "Elicitation cũng không chỉ diễn ra một lần: đầu dự án để hiểu bối cảnh, khi phân tích để làm rõ và xử lý mâu thuẫn, khi phát triển và kiểm thử để xác minh, tinh chỉnh chi tiết, và khi đã vận hành để lấy phản hồi cải tiến."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n4",
+   "start": 142.32,
+   "end": 209.064,
+   "sents": [
+    [
+     142.42,
+     147.207,
+     "Phần một là năm hoạt động của Elicitation, slide vẽ thành một luồng."
+    ],
+    [
+     147.157,
+     159.345,
+     "Một, Prepare for Elicitation: xác định stakeholder và loại thông tin cần lấy, chọn kỹ thuật như interview, workshop, observation, rồi chuẩn bị câu hỏi, tài liệu, không gian."
+    ],
+    [
+     159.345,
+     168.532,
+     "Hai, Conduct Elicitation: đặt câu hỏi đúng, đủ, rõ, lắng nghe chủ động, ghi chép, quản lý thời gian và sự tham gia."
+    ],
+    [
+     168.532,
+     176.92,
+     "Ba, Confirm Elicitation Results: xác nhận ngay trong buổi, tổ chức phiên review với chính nguồn và nguồn khác, gửi biên bản sau buổi."
+    ],
+    [
+     176.92,
+     186.183,
+     "Bốn, Communicate Business Analysis Information: truyền yêu cầu tới đúng người như sponsor, dev, tester, đúng lúc và rõ ràng."
+    ],
+    [
+     186.183,
+     196.457,
+     "Năm, Manage Stakeholder Collaboration: giữ giao tiếp đa chiều, giải quyết xung đột, giữ nhiệt huyết của stakeholder suốt quá trình, chứ không chỉ gửi tài liệu một chiều."
+    ],
+    [
+     196.457,
+     202.107,
+     "Mẹo nhớ: chuẩn bị, làm, xác nhận, truyền đạt, giữ quan hệ."
+    ],
+    [
+     202.107,
+     209.058,
+     "Trong BABOK, đây là năm task của knowledge area Elicitation and Collaboration, không bắt buộc làm tuần tự."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n5",
+   "start": 209.664,
+   "end": 243.816,
+   "sents": [
+    [
+     209.764,
+     212.264,
+     "Có những kỹ thuật khai thác nào?"
+    ],
+    [
+     212.214,
+     214.351,
+     "Slide chia năm nhóm."
+    ],
+    [
+     214.351,
+     217.176,
+     "Tương tác cá nhân có Interview."
+    ],
+    [
+     217.176,
+     220.664,
+     "Cộng tác nhóm có Workshop và Brainstorming."
+    ],
+    [
+     220.664,
+     227.351,
+     "Dựa trên tài liệu có Document Analysis và Interface Analysis, tức phân tích kết nối giữa các hệ thống."
+    ],
+    [
+     227.351,
+     230.751,
+     "Khảo sát số đông có Survey và Questionnaire."
+    ],
+    [
+     230.751,
+     235.414,
+     "Trực quan hóa yêu cầu có Prototype, Storyboard và Wireframe."
+    ],
+    [
+     235.414,
+     243.801,
+     "Buổi này đi sâu ba kỹ thuật Interview, Workshop và Observation, trong đó Observation không có trong bảng nhưng được dạy riêng ở cuối bài."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n6",
+   "start": 244.416,
+   "end": 281.448,
+   "sents": [
+    [
+     244.516,
+     249.766,
+     "Phần hai là Interview, tức BA trao đổi trực tiếp với một hoặc vài stakeholder."
+    ],
+    [
+     249.716,
+     261.916,
+     "Nên dùng khi stakeholder có chuyên môn sâu hoặc vai trò quan trọng, khi cần hiểu chi tiết một quy trình, khi chủ đề nhạy cảm, riêng tư, khi yêu cầu chưa rõ cần xác thực, hoặc khi dự án dài cần xây quan hệ."
+    ],
+    [
+     261.916,
+     264.503,
+     "Không nên dùng trong bốn trường hợp."
+    ],
+    [
+     264.503,
+     268.978,
+     "Stakeholder quá đông, ví dụ năm mươi người, thì dùng Survey."
+    ],
+    [
+     268.978,
+     272.079,
+     "Cần các bên thống nhất thì tổ chức Workshop."
+    ],
+    [
+     272.079,
+     277.978,
+     "Stakeholder không có thời gian thì thay bằng một cuộc gọi ngắn, hoặc làm Document Analysis trước."
+    ],
+    [
+     277.978,
+     281.441,
+     "Còn yêu cầu quá đơn giản thì không cần phỏng vấn."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n7",
+   "start": 282.048,
+   "end": 330.576,
+   "sents": [
+    [
+     282.148,
+     285.986,
+     "Trước buổi Interview, BA chuẩn bị sáu việc."
+    ],
+    [
+     285.935,
+     293.885,
+     "Xác định mục tiêu là muốn biết gì, làm rõ gì, xác nhận gì, tìm hiểu background của người được hỏi, rồi soạn bộ câu hỏi."
+    ],
+    [
+     293.885,
+     302.398,
+     "Gom tài liệu hiện có như sơ đồ, mockup, chuẩn bị công cụ ghi chú, ghi âm nếu được phép, và gửi agenda, timeline trước."
+    ],
+    [
+     302.398,
+     304.673,
+     "Bộ câu hỏi có ba loại."
+    ],
+    [
+     304.673,
+     310.51,
+     "Câu hỏi mở để người nói mô tả rộng, ví dụ: anh chị mô tả giúp em quy trình hiện tại?"
+    ],
+    [
+     310.51,
+     315.223,
+     "Câu hỏi sâu để đào vào lý do, ví dụ: tại sao lại làm bước này?"
+    ],
+    [
+     315.223,
+     322.56,
+     "Câu hỏi đóng để chốt một thông tin, trả lời có hoặc không, ví dụ: có đúng là hệ thống phải tự tính thuế mười phần trăm không?"
+    ],
+    [
+     322.56,
+     330.573,
+     "Slide ghi nhóm thứ ba là câu hỏi xác minh nhưng ví dụ lại ghi câu hỏi đóng, thực ra đây là một loại: câu hỏi đóng dùng để xác minh."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n8",
+   "start": 331.176,
+   "end": 376.896,
+   "sents": [
+    [
+     331.276,
+     340.776,
+     "Khi phỏng vấn, hãy bắt đầu bằng câu hỏi mở rồi thu hẹp dần, lắng nghe nhiều hơn nói, ghi chú đầy đủ, tóm tắt sau mỗi phần và để ý ngôn ngữ cơ thể."
+    ],
+    [
+     340.726,
+     353.089,
+     "Ví dụ phỏng vấn quản lý nhà hàng FoodNow về đặt bàn online: hỏi mở về quy trình nhận đặt bàn, hỏi tại sao phải gọi nhắc khách, hỏi tiếp tại sao khách hay bỏ bàn, rồi mới dùng câu đóng để chốt quy định giữ bàn mười lăm phút."
+    ],
+    [
+     353.089,
+     356.051,
+     "Đào sâu như vậy mới ra đúng pain point."
+    ],
+    [
+     356.051,
+     365.063,
+     "Những điều không nên làm: hỏi câu cho thấy mình chưa chuẩn bị, ngắt lời, phản ứng tức thời, quyết định giải pháp tại chỗ, và nhất là hỏi câu dẫn dắt."
+    ],
+    [
+     365.063,
+     371.313,
+     "Câu dẫn dắt là câu cài sẵn câu trả lời, như: anh chị muốn làm chức năng gửi tin nhắn nhắc lịch không?"
+    ],
+    [
+     371.313,
+     376.876,
+     "Câu đó khiến stakeholder dễ gật đầu theo, nên hãy thay bằng một câu mở về nhu cầu thật."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n9",
+   "start": 377.496,
+   "end": 416.64,
+   "sents": [
+    [
+     377.596,
+     386.284,
+     "Sau buổi Interview, BA tổng hợp và làm sạch dữ liệu theo bốn nhóm: quy trình, pain point, business rule và yêu cầu tính năng."
+    ],
+    [
+     386.233,
+     393.083,
+     "Sau đó gửi lại biên bản để xác nhận, cập nhật vào tài liệu theo quy định công ty, và chuẩn bị buổi tiếp theo nếu cần."
+    ],
+    [
+     393.083,
+     394.971,
+     "Có ba mẹo hay."
+    ],
+    [
+     394.971,
+     398.396,
+     "Luôn hỏi tại sao đến khi ra nguyên nhân gốc rễ."
+    ],
+    [
+     398.396,
+     403.633,
+     "Chuyển định tính thành định lượng: khách nói hệ thống chậm thì hỏi cụ thể chậm là bao lâu."
+    ],
+    [
+     403.633,
+     408.758,
+     "Và kết thúc bằng câu: có điều gì em chưa hỏi mà anh chị nghĩ là quan trọng không?"
+    ],
+    [
+     408.758,
+     416.621,
+     "Còn lỗi phổ biến gồm quá phụ thuộc form mẫu, chỉ ghi nhận bề mặt, quên xác minh lại, và không follow-up sau buổi phỏng vấn."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n10",
+   "start": 417.24,
+   "end": 455.856,
+   "sents": [
+    [
+     417.34,
+     419.465,
+     "Phần ba là Workshop."
+    ],
+    [
+     419.415,
+     427.252,
+     "Đây là buổi làm việc tập trung từ hai đến mười lăm stakeholder để làm rõ yêu cầu, thống nhất quy trình, thảo luận giải pháp hoặc ra quyết định."
+    ],
+    [
+     427.252,
+     432.99,
+     "Điểm mạnh là trao đổi đa chiều, nhanh, trực tiếp, và có kết quả ngay trong buổi."
+    ],
+    [
+     432.99,
+     439.952,
+     "Nên dùng khi cần đồng thuận nhanh giữa nhiều bên, cần làm rõ ưu tiên, hoặc ở giai đoạn đầu cần xác định phạm vi."
+    ],
+    [
+     439.952,
+     449.49,
+     "Không nên dùng khi chủ đề cần hiểu sâu hay nhạy cảm cá nhân, khi lãnh đạo cấp cao thiếu thời gian, khi yêu cầu quá đơn giản, hoặc khi không có người điều phối đủ kinh nghiệm."
+    ],
+    [
+     449.49,
+     455.84,
+     "Cách chọn nhanh: chủ đề sâu hoặc nhạy cảm thì chọn Interview, cần nhiều bên thống nhất thì chọn Workshop."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n11",
+   "start": 456.456,
+   "end": 496.752,
+   "sents": [
+    [
+     456.556,
+     462.293,
+     "Chuẩn bị Workshop giống Interview, nhưng mục tiêu có thêm câu hỏi: cần thống nhất gì."
+    ],
+    [
+     462.244,
+     466.431,
+     "Agenda và timeline gửi cho người tham gia trước hai đến ba ngày."
+    ],
+    [
+     466.431,
+     472.381,
+     "Và phải phân vai rõ: ai điều phối, ai ghi chép, ai quan sát, ai xác nhận."
+    ],
+    [
+     472.381,
+     475.944,
+     "Trong buổi, BA dùng các kỹ thuật hỗ trợ."
+    ],
+    [
+     475.944,
+     483.519,
+     "Brainstorming khi cần nhiều ý tưởng nhanh, còn Dot Voting, tức bỏ phiếu bằng chấm, khi cần đồng thuận về yêu cầu quan trọng."
+    ],
+    [
+     483.519,
+     491.494,
+     "MoSCoW để xếp ưu tiên theo Must, Should, Could, Won't, còn User Journey Mapping để hình dung trải nghiệm người dùng."
+    ],
+    [
+     491.494,
+     496.731,
+     "Cuối cùng, Prototype giúp stakeholder nhìn thấy ý tưởng và chốt nghiệp vụ sớm."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n12",
+   "start": 497.352,
+   "end": 540.144,
+   "sents": [
+    [
+     497.452,
+     500.652,
+     "Trong Workshop, BA đóng bốn vai."
+    ],
+    [
+     500.602,
+     507.239,
+     "Người điều phối giữ buổi họp đúng nội dung, đúng giờ, còn người làm rõ đặt câu hỏi để mọi người cùng hiểu vấn đề."
+    ],
+    [
+     507.239,
+     514.852,
+     "Người ghi nhận ghi đúng, đủ và xác nhận lại sau mỗi nhóm thông tin, còn người kết nối dẫn các nhóm đang xung đột về một hướng chung."
+    ],
+    [
+     514.852,
+     520.352,
+     "Nên nhắc lại mục tiêu, xác nhận sau mỗi phần trao đổi, và quản lý thời gian."
+    ],
+    [
+     520.352,
+     526.202,
+     "Đừng để nhóm quá đông, đừng thiếu người có quyền phê duyệt, đừng chỉ tranh cãi mà không kết luận."
+    ],
+    [
+     526.202,
+     532.577,
+     "Nếu không tổng kết và xác nhận sau mỗi phần, các bên dễ hiểu sai và tưởng phương án của mình đã được chốt."
+    ],
+    [
+     532.577,
+     540.127,
+     "Mẹo thực tế: mở đầu bằng một ice-breaker nhẹ, và giao việc ghi chú cho một người hỗ trợ để BA tập trung dẫn dắt."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n13",
+   "start": 540.744,
+   "end": 575.784,
+   "sents": [
+    [
+     540.844,
+     544.294,
+     "Phần bốn là Observation, tức quan sát."
+    ],
+    [
+     544.244,
+     547.907,
+     "BA trực tiếp xem người dùng làm việc trong môi trường thật."
+    ],
+    [
+     547.907,
+     555.032,
+     "Mục tiêu là hiểu quy trình As-Is đang thực sự diễn ra, phát hiện yêu cầu ẩn, tìm pain point và điểm nghẽn."
+    ],
+    [
+     555.032,
+     559.594,
+     "Quan trọng nhất là so sánh điều người dùng nói họ làm với cách họ thực sự làm."
+    ],
+    [
+     559.594,
+     571.144,
+     "Nên dùng khi stakeholder không mô tả được công việc của mình, khi công việc mang tính thao tác, phức tạp, đòi hỏi chính xác, tuân thủ, tốc độ, hoặc khi người dùng làm khác với quy trình trên giấy."
+    ],
+    [
+     571.144,
+     575.769,
+     "Các dự án bán hàng, kho vận, sản xuất rất hợp với kỹ thuật này."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n14",
+   "start": 576.384,
+   "end": 621.456,
+   "sents": [
+    [
+     576.484,
+     578.697,
+     "Có ba cách quan sát."
+    ],
+    [
+     578.647,
+     587.447,
+     "Quan sát thụ động là đứng ngoài, không can thiệp, quan sát chủ động là vừa xem vừa hỏi thêm, còn BA tự làm là tự thao tác như người dùng cuối."
+    ],
+    [
+     587.447,
+     594.022,
+     "Trước buổi, BA xác định mục tiêu, thông báo trước để tránh bị hiểu sai, và chuẩn bị biểu mẫu ghi chép."
+    ],
+    [
+     594.022,
+     600.384,
+     "Trong buổi, BA ghi lại công cụ, các bước, hành động lặp lại, lỗi và cách xử lý."
+    ],
+    [
+     600.384,
+     605.371,
+     "Sau buổi, BA tóm tắt quy trình, xác nhận lại và chỉ ra pain point."
+    ],
+    [
+     605.371,
+     613.297,
+     "Hạn chế lớn nhất là người dùng có thể đổi hành vi khi bị nhìn, thường gọi là hiệu ứng Hawthorne, nên hãy quan sát nhiều lần, nhiều người."
+    ],
+    [
+     613.297,
+     621.447,
+     "Sai lầm hay gặp là chỉ nhìn mà không hỏi lại, quan sát người không đại diện cho nghiệp vụ, can thiệp quá nhiều, và không xác nhận sau buổi."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n15",
+   "start": 622.056,
+   "end": 658.488,
+   "sents": [
+    [
+     622.156,
+     625.231,
+     "Giờ mình gom lại để bạn biết chọn kỹ thuật."
+    ],
+    [
+     625.181,
+     633.381,
+     "Interview mạnh ở đào sâu và chủ đề riêng tư, Workshop mạnh ở đồng thuận nhanh giữa nhiều bên, còn Observation mạnh ở thấy quy trình thật."
+    ],
+    [
+     633.381,
+     640.456,
+     "Survey hợp khi rất đông người, ví dụ hai trăm nhân viên ở nhiều chi nhánh, rẻ và dễ thống kê nhưng khó đào sâu."
+    ],
+    [
+     640.456,
+     646.619,
+     "Document Analysis hợp khi đã có tài liệu và stakeholder bận, nhưng tài liệu có thể cũ."
+    ],
+    [
+     646.619,
+     653.681,
+     "Prototype giúp phát hiện hiểu lầm sớm, còn Interface Analysis giúp không sót yêu cầu tích hợp với hệ thống khác."
+    ],
+    [
+     653.681,
+     658.481,
+     "Phần mô tả các kỹ thuật phụ này lấy theo BABOK, vì slide chỉ nêu tên."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n16",
+   "start": 659.088,
+   "end": 698.136,
+   "sents": [
+    [
+     659.188,
+     670.463,
+     "Elicitation có năm thách thức thường gặp: stakeholder không biết mình muốn gì, xung đột yêu cầu giữa các phòng ban, thiếu thời gian, ngôn ngữ không đồng nhất, và stakeholder bận, không tham gia."
+    ],
+    [
+     670.413,
+     677.338,
+     "Ngôn ngữ không đồng nhất nghĩa là các bên dùng thuật ngữ khác nhau cho cùng một khái niệm, nên tưởng đang nói về hai thứ khác nhau."
+    ],
+    [
+     677.338,
+     687.601,
+     "Để vượt qua, BA làm cầu nối: chuẩn bị kỹ, giao tiếp linh hoạt bằng kỹ năng facilitation, quản lý thông tin, xử lý mâu thuẫn, và lặp lại để xác nhận."
+    ],
+    [
+     687.601,
+     698.138,
+     "Sau mỗi hoạt động, BA cần có output: biên bản làm việc, danh sách yêu cầu, sơ đồ quy trình, prototype hoặc mockup, và phản hồi xác nhận của stakeholder."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n17",
+   "start": 698.736,
+   "end": 749.4,
+   "sents": [
+    [
+     698.836,
+     701.323,
+     "Cuối cùng là ba biểu mẫu."
+    ],
+    [
+     701.274,
+     714.986,
+     "Elicitation activity plan được lập ở bước Prepare, gồm chín mục: thông tin chung, mục tiêu, phạm vi, stakeholder, kỹ thuật, lịch trình, tài nguyên, rủi ro kèm biện pháp, và kết quả mong đợi."
+    ],
+    [
+     714.986,
+     720.261,
+     "Hãy viết mục tiêu trước, và mỗi dòng lịch trình nên khớp với một kỹ thuật và một nhóm người."
+    ],
+    [
+     720.261,
+     734.486,
+     "Phiếu khảo sát thực chất là bộ câu hỏi phỏng vấn chín phần, đi từ câu mở đầu, bối cảnh, quy trình As-Is, yêu cầu must-have và nice-to-have, pain point, tới tiêu chí thành công và câu kết thúc, đúng nguyên tắc hỏi rộng rồi thu hẹp."
+    ],
+    [
+     734.486,
+     743.911,
+     "Observation note ghi thông tin chung, mục tiêu và câu hỏi cần giải đáp trước buổi, chi tiết từng bước trong buổi, rồi vấn đề, đề xuất và kế hoạch sau buổi."
+    ],
+    [
+     743.911,
+     749.386,
+     "Template này đánh số nhảy từ mục bốn sang mục sáu, bài học giữ nguyên như vậy."
+    ]
+   ]
+  },
+  {
+   "id": "L05-n18",
+   "start": 750.0,
+   "end": 794.688,
+   "sents": [
+    [
+     750.1,
+     752.075,
+     "Tóm lại buổi năm."
+    ],
+    [
+     752.025,
+     760.438,
+     "Elicitation là chủ động khai thác yêu cầu, khác với Gathering chỉ nhặt thông tin có sẵn, và yêu cầu đúng là yêu cầu mọi bên hiểu giống nhau."
+    ],
+    [
+     760.438,
+     767.462,
+     "Elicitation gồm năm hoạt động: chuẩn bị, tiến hành, xác nhận, truyền đạt và quản lý sự hợp tác."
+    ],
+    [
+     767.462,
+     772.325,
+     "Interview để đào sâu với từng người, nhớ hỏi mở trước và tránh câu dẫn dắt."
+    ],
+    [
+     772.325,
+     779.112,
+     "Workshop để nhiều bên đồng thuận, với BA trong vai điều phối, làm rõ, ghi nhận, kết nối."
+    ],
+    [
+     779.112,
+     782.85,
+     "Observation để thấy cách người dùng thực sự làm việc."
+    ],
+    [
+     782.85,
+     790.237,
+     "Ba biểu mẫu activity plan, phiếu khảo sát và Observation note giúp bạn làm đúng trước, trong và sau mỗi buổi."
+    ],
+    [
+     790.237,
+     794.688,
+     "Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài."
+    ]
+   ]
+  }
+ ]
+}

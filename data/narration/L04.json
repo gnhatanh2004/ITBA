@@ -1,0 +1,314 @@
+{
+ "lesson": "L04",
+ "chunks": [
+  {
+   "id": "L04-n1",
+   "ref": "L04-t1",
+   "say": "Chào bạn, mình bắt đầu buổi bốn: tiếp cận dự án và Stakeholder. Buổi này có ba phần lớn. Phần một, khi được giao một dự án mới, BA làm những việc gì và theo thứ tự nào. Phần hai, quản lý Stakeholder: tìm ra ai liên quan, phân loại họ, chọn cách làm việc với từng người và ghi lại vào Stakeholder Register. Phần ba, phạm vi dự án, tức Scope, và cách tránh Scope creep. Cả buổi mình dùng chung một tình huống. Bạn là BA chính của công ty, cấp trên giao việc: Công ty A muốn làm phần mềm quản lý nhân sự HRM, em hãy làm BA cho dự án này.",
+   "show": {
+    "h": "Buổi 4: Tiếp cận dự án và Stakeholder",
+    "points": [
+     "Các bước BA tiếp cận một dự án",
+     "Quản lý Stakeholder: tìm, phân loại, làm việc, ghi Register",
+     "Scope và Scope creep",
+     "Tình huống xuyên suốt: dự án HRM của Công ty A"
+    ]
+   }
+  },
+  {
+   "id": "L04-n2",
+   "ref": "L04-t2",
+   "say": "Trước khi đi vào các bước, mình ôn lại sáu lĩnh vực kiến thức của BABOK, vì các bước tiếp cận dự án đều dựa trên chúng. Nằm trên cùng là Business Analysis Planning and Monitoring, lập kế hoạch và giám sát, chi phối mọi lĩnh vực khác. Tiếp theo là Elicitation and Collaboration, khai thác yêu cầu và cộng tác. Requirements Life Cycle Management, quản lý vòng đời yêu cầu. Strategy Analysis, phân tích chiến lược. Requirements Analysis and Design Definition, gọi tắt là RADD. Và cuối cùng là Solution Evaluation, đánh giá giải pháp. Các mũi tên hai chiều trong sơ đồ nhắc bạn rằng sáu lĩnh vực đan xen và lặp lại suốt dự án, không chạy theo một đường thẳng.",
+   "show": {
+    "h": "Ôn tập 6 Knowledge Area của BABOK",
+    "points": [
+     "Planning and Monitoring: nằm trên cùng, chi phối các lĩnh vực khác",
+     "Elicitation and Collaboration · Requirements Life Cycle Management",
+     "Strategy Analysis · RADD · Solution Evaluation",
+     "Đan xen, lặp lại, không theo đường thẳng"
+    ],
+    "img": "L04-img1"
+   }
+  },
+  {
+   "id": "L04-n3",
+   "ref": "L04-t3",
+   "say": "Vậy trong từng lĩnh vực, BA làm gì? Mình gom thành ba nhóm cho dễ nhớ. Nhóm lo việc của BA: Planning and Monitoring là lập kế hoạch BA, xác định Stakeholder, chọn kỹ thuật khảo sát và theo dõi điều chỉnh. Elicitation and Collaboration là chuẩn bị khảo sát, phỏng vấn, workshop, rồi xác nhận lại thông tin đã thu. Nhóm lo yêu cầu: Strategy Analysis trả lời vì sao làm và làm gì, gồm phân tích hiện trạng AS-IS, xác định Need, đề xuất giải pháp To-Be. RADD trả lời hệ thống cụ thể ra sao, gồm phân loại BR, FR, NFR, mô hình hóa quy trình, Use Case, User Story và mô hình dữ liệu. Requirements Life Cycle Management trông coi yêu cầu sau khi đã có: phiên bản, truy vết, độ ưu tiên, phê duyệt và Change Request. Nhóm cuối là Solution Evaluation: sau khi triển khai, kiểm tra giá trị mang lại, phân tích lỗi và đề xuất cải tiến.",
+   "show": {
+    "h": "BA làm gì trong từng Knowledge Area",
+    "points": [
+     "Planning: kế hoạch BA, xác định Stakeholder, chọn kỹ thuật khảo sát",
+     "Elicitation: khảo sát, xác nhận lại thông tin, cộng tác",
+     "Strategy: AS-IS → Need → To-Be · RADD: BR/FR/NFR, Use Case, dữ liệu",
+     "Life Cycle: phiên bản, truy vết, ưu tiên, Change Request",
+     "Solution Evaluation: giá trị sau triển khai, cải tiến"
+    ]
+   },
+   "ask": [
+    "L04-q2",
+    "L04-q3",
+    "L04-q4"
+   ]
+  },
+  {
+   "id": "L04-n4",
+   "ref": "L04-t4",
+   "say": "Giờ tới hành trình mười ba bước của BA trong một dự án. Chặng chuẩn bị có bốn bước: tiếp nhận và tìm hiểu yêu cầu, xác định Stakeholder, xác định phạm vi ban đầu, lập kế hoạch phân tích. Chặng khảo sát và phân tích có bốn bước: thu thập thông tin, xác định yêu cầu, mô hình hóa, rồi xác định phạm vi. Chặng tài liệu và phát triển: viết tài liệu như BRD, SRS, và làm việc với team phát triển. Chặng cuối là kiểm thử và bàn giao: hỗ trợ kiểm thử, UAT với khách hàng, và nghiệm thu kết thúc dự án. Để ý bước ba và bước tám đều nói về phạm vi. Bước ba là phạm vi sơ bộ để lập kế hoạch, còn bước tám là chốt phạm vi sau khi đã làm rõ yêu cầu. Thứ tự này là khung tham khảo, trong dự án Agile các bước từ năm tới chín lặp lại nhiều vòng.",
+   "show": {
+    "h": "13 bước tiếp cận dự án",
+    "points": [
+     "Chuẩn bị: tiếp nhận → Stakeholder → phạm vi ban đầu → kế hoạch",
+     "Khảo sát, phân tích: thu thập → yêu cầu → mô hình hóa → chốt phạm vi",
+     "Tài liệu, phát triển: BRD/SRS → làm việc với dev",
+     "Kiểm thử, bàn giao: hỗ trợ test → UAT → nghiệm thu",
+     "Bước 3 phạm vi sơ bộ · Bước 8 phạm vi đã làm rõ"
+    ]
+   },
+   "ask": [
+    "L04-q10",
+    "L04-q11",
+    "L04-q21"
+   ]
+  },
+  {
+   "id": "L04-n5",
+   "ref": "L04-e1",
+   "say": "Vì sao phải ôn sáu lĩnh vực trước khi học các bước? Vì mỗi bước chủ yếu rơi vào một lĩnh vực. Tiếp nhận yêu cầu và phạm vi ban đầu là Strategy Analysis, còn xác định Stakeholder và lập kế hoạch là Planning and Monitoring. Thu thập thông tin và làm việc với dev là Elicitation and Collaboration, còn xác định yêu cầu, mô hình hóa và viết tài liệu là RADD. Chốt phạm vi và hỗ trợ kiểm thử là Requirements Life Cycle Management, vì có ưu tiên, phê duyệt và truy vết. UAT và nghiệm thu là Solution Evaluation. Đây là bảng ghép ví dụ, không có trên slide, và một bước thường chạm nhiều lĩnh vực cùng lúc.",
+   "show": {
+    "h": "Gắn 13 bước với 6 Knowledge Area",
+    "points": [
+     "Tiếp nhận, phạm vi ban đầu → Strategy Analysis",
+     "Stakeholder, kế hoạch → Planning and Monitoring",
+     "Thu thập, làm việc với dev → Elicitation and Collaboration",
+     "Yêu cầu, mô hình, tài liệu → RADD · Chốt phạm vi, test → Life Cycle",
+     "UAT, nghiệm thu → Solution Evaluation"
+    ]
+   }
+  },
+  {
+   "id": "L04-n6",
+   "ref": "L04-t5",
+   "say": "Sang phần hai: Stakeholder. Theo BABOK, Stakeholder là một cá nhân, nhóm hoặc tổ chức có liên quan hoặc bị ảnh hưởng bởi dự án hay sản phẩm. Slide nêu các nhóm thường gặp: nhà đầu tư, xã hội, nhân viên, cơ quan quản lý, nhà cung cấp, khách hàng và chủ nợ. Điểm cần nhớ là Stakeholder không chỉ là người dùng hệ thống, như cơ quan thuế không bao giờ mở phần mềm nhưng vẫn là Stakeholder nếu bị dự án ảnh hưởng. Vì sao phải quản lý họ? Vì họ là nguồn cung cấp yêu cầu chính, bỏ sót một người là bỏ sót yêu cầu. Ngoài ra, mỗi người một mục tiêu nên cần tạo đồng thuận, cần biết rõ ai xác nhận, ai phê duyệt, và cần quản lý kỳ vọng, tránh yêu cầu trên trời. Bỏ sót Stakeholder thường lộ ra rất muộn, lúc UAT, khi sửa đã tốn kém hơn nhiều.",
+   "show": {
+    "h": "Stakeholder là gì, vì sao phải quản lý",
+    "points": [
+     "BABOK: cá nhân, nhóm, tổ chức liên quan hoặc bị ảnh hưởng",
+     "Không chỉ người dùng: Regulators, Suppliers, Investors…",
+     "Nguồn yêu cầu chính → tránh bỏ sót",
+     "Đồng thuận, rõ ai xác nhận, ai phê duyệt",
+     "Quản lý kỳ vọng, giảm rủi ro thay đổi"
+    ],
+    "img": "L04-img2"
+   },
+   "ask": [
+    "L04-q1",
+    "L04-q15"
+   ]
+  },
+  {
+   "id": "L04-n7",
+   "ref": "L04-t7",
+   "say": "Cách phân loại đầu tiên là Primary, Secondary và Key. Primary Stakeholders là người hưởng lợi hoặc bị ảnh hưởng trực tiếp, thường là người dùng hệ thống, ví dụ nhân viên HR trong hệ thống HRM. Secondary Stakeholders bị ảnh hưởng gián tiếp, hoặc có liên quan nhưng không dùng sản phẩm chính, ví dụ phòng IT hỗ trợ vận hành. Key Stakeholders là nhóm có quyền lực lớn hoặc ra quyết định cuối cùng, ví dụ Sponsor, Director, hay PO. Mẹo phân nhóm: dùng trực tiếp thì là Primary, chỉ hỗ trợ, phối hợp thì là Secondary, có quyền quyết, duyệt, chi tiền thì là Key.",
+   "show": {
+    "h": "Primary · Secondary · Key",
+    "points": [
+     "Primary: dùng trực tiếp, chịu ảnh hưởng trực tiếp (nhân viên HR)",
+     "Secondary: hỗ trợ, phối hợp, ảnh hưởng gián tiếp (phòng IT)",
+     "Key: quyết định, phê duyệt, tài trợ (Sponsor, Director, PO)",
+     "Dùng trực tiếp? · Chỉ hỗ trợ? · Quyết, duyệt, chi tiền?"
+    ]
+   },
+   "ask": [
+    "L04-q14",
+    "L04-q12",
+    "L04-q36"
+   ]
+  },
+  {
+   "id": "L04-n8",
+   "ref": "L04-t8",
+   "say": "Ngoài ra còn nhiều cách phân loại khác. Theo vai trò, slide chia ba nhóm: Business Stakeholders phía nghiệp vụ, External Stakeholders bên ngoài tổ chức, và Solution Stakeholders phía tạo và vận hành giải pháp như dev, tester. Đây là cách chia của slide, còn BABOK phiên bản ba liệt kê vai trò cụ thể như Sponsor, End User, Regulator. Theo vòng đời sản phẩm có người ra quyết định, người sử dụng, và người tạo ra sản phẩm. Theo mức độ tham gia có RACI: R là Responsible, người trực tiếp làm, A là Accountable, người chịu trách nhiệm cuối cùng, C là Consulted, người được hỏi ý kiến, và I là Informed, người được thông báo. RACI gắn theo từng việc, và mỗi việc chỉ nên có một người A. Ví dụ việc phê duyệt danh sách chức năng của HRM: BA soạn nên là R, Trưởng phòng nhân sự quyết nên là A. Các cách phân loại này độc lập với nhau.",
+   "show": {
+    "h": "Các cách phân loại khác và RACI",
+    "points": [
+     "Theo vai trò: Business · External · Solution",
+     "Theo vòng đời: Decision Maker · End User · người tạo sản phẩm",
+     "RACI: Responsible · Accountable · Consulted · Informed",
+     "Gắn theo từng việc, mỗi việc chỉ một A",
+     "Các cách phân loại độc lập nhau"
+    ]
+   },
+   "ask": [
+    "L04-q6",
+    "L04-q30",
+    "L04-q37"
+   ]
+  },
+  {
+   "id": "L04-n9",
+   "ref": "L04-t9",
+   "say": "Quản lý Stakeholder gồm ba bước: xác định và phân tích, lập kế hoạch tương tác, rồi quản lý và duy trì. Ở bước một, bạn đặt bốn câu hỏi để không bỏ sót ai: ai quyết định dự án, ai sử dụng hệ thống, ai vận hành hệ thống, và ai bị ảnh hưởng trực tiếp hay gián tiếp. Sau đó dùng Stakeholder Analysis Matrix, trục dọc là quyền lực hay ảnh hưởng, trục ngang là mức độ quan tâm. Slide lấy ví dụ một dự án đường sắt với bốn ô. Key players là ảnh hưởng cao và quan tâm cao, như bộ hạ tầng và hành khách đi tàu. Meet their needs là ảnh hưởng cao nhưng quan tâm thấp, như dân sống gần đường ray, vì họ có thể phản đối việc xây dựng. Show consideration là ảnh hưởng thấp nhưng quan tâm cao, còn Least important là cả hai đều thấp. Vị trí trên ma trận tùy từng dự án.",
+   "show": {
+    "h": "Bước 1: Xác định và phân tích Stakeholder",
+    "points": [
+     "3 bước: Xác định, phân tích → Plan Engagement → Manage and Monitor",
+     "4 câu hỏi: ai quyết định, ai dùng, ai vận hành, ai bị ảnh hưởng",
+     "Ma trận: Power/Influence (dọc) × Interest (ngang)",
+     "Key players · Meet their needs · Show consideration · Least important"
+    ],
+    "img": "L04-img3"
+   },
+   "ask": [
+    "L04-q5",
+    "L04-q27",
+    "L04-q25"
+   ]
+  },
+  {
+   "id": "L04-n10",
+   "ref": "L04-t10",
+   "say": "Mỗi ô của ma trận có một chiến lược riêng. High Power và High Interest là người ra quyết định, như Trưởng phòng nhân sự. Với họ, mời tham gia Elicitation thường xuyên, báo cáo tiến độ liên tục, và xin duyệt trước khi đổi yêu cầu. High Power nhưng Low Interest, như ban giám đốc, thì báo cáo định kỳ, ngắn gọn, chỉ liên hệ khi có vấn đề nghiêm trọng, và đừng làm phiền họ bằng chi tiết nhỏ. Low Power nhưng High Interest, như nhân viên nghiệp vụ dùng hệ thống hằng ngày, thì lắng nghe ý kiến chi tiết và giữ họ trong vòng thông tin để họ dễ chấp nhận hệ thống. Low Power và Low Interest thì cập nhật khi cần, không cần tham gia sâu, nhưng đừng bỏ quên hoàn toàn, vì đó có thể là ngòi nổ tiềm ẩn. Nhiều tài liệu gọi bốn ô là Manage closely, Keep satisfied, Keep informed và Monitor.",
+   "show": {
+    "h": "Chiến lược theo ma trận Power – Interest",
+    "points": [
+     "High – High: Manage closely, tham gia thường xuyên, duyệt trước khi đổi",
+     "High Power – Low Interest: Keep satisfied, báo cáo định kỳ, ngắn gọn",
+     "Low Power – High Interest: Keep informed, lắng nghe chi tiết",
+     "Low – Low: Monitor, cập nhật khi cần, không bỏ quên"
+    ]
+   },
+   "ask": [
+    "L04-q16",
+    "L04-q17",
+    "L04-q18"
+   ]
+  },
+  {
+   "id": "L04-n11",
+   "ref": "L04-p2",
+   "say": "Thử áp dụng vào dự án HRM. Đoạn mô tả nói: Trưởng phòng nhân sự làm việc với các phòng ban để nắm nhu cầu, quyết định chức năng của hệ thống, rồi đề xuất Ban Lãnh đạo duyệt đầu tư. Bộ phận IT đảm bảo hệ thống vận hành ổn định. Đầu tiên gạch chân các danh từ chỉ người. Ban Lãnh đạo duyệt đầu tư nhưng ít quan tâm chi tiết, nên ở ô quyền cao, quan tâm thấp, báo cáo định kỳ và ngắn gọn. Trưởng phòng nhân sự quyết định chức năng và theo sát dự án, nên ở ô cao và cao, quản lý chặt. Nhân viên phòng nhân sự dùng hệ thống hằng ngày nhưng không quyết, nên lắng nghe chi tiết và giữ trong vòng thông tin. Bộ phận IT ở mức trung bình, mời vào các buổi bàn về hạ tầng và tích hợp.",
+   "show": {
+    "h": "Áp dụng: phân tích Stakeholder dự án HRM",
+    "points": [
+     "Ban Lãnh đạo: Key · Cao/Thấp → báo cáo định kỳ, ngắn gọn",
+     "Trưởng phòng nhân sự: Cao/Cao → quản lý chặt",
+     "Nhân viên HR: Primary · Thấp/Cao → lắng nghe, giữ thông tin",
+     "Bộ phận IT: Secondary · Trung bình → bàn hạ tầng, tích hợp"
+    ]
+   },
+   "ask": [
+    "L04-q34",
+    "L04-q32",
+    "L04-q43"
+   ]
+  },
+  {
+   "id": "L04-n12",
+   "ref": "L04-t11",
+   "say": "Bước hai là lập kế hoạch tương tác, Plan Engagement. Bạn trả lời hai câu: dùng kỹ thuật Elicitation nào với từng Stakeholder, như phỏng vấn, workshop, khảo sát hay quan sát, và lúc nào cần làm việc với ai. Bước ba là quản lý và duy trì, Manage and Monitor. Gồm giao tiếp thường xuyên và minh bạch, ghi nhận phản hồi và phản hồi lại, xử lý xung đột, và theo dõi thay đổi như Stakeholder mới xuất hiện hay vai trò thay đổi. Bước ba kéo dài suốt dự án. Khi có Stakeholder mới, BA quay lại bước một và bước hai cho người đó, rồi cập nhật Stakeholder Register.",
+   "show": {
+    "h": "Bước 2: Plan Engagement · Bước 3: Manage and Monitor",
+    "points": [
+     "Bước 2: kỹ thuật Elicitation nào, lúc nào, với ai",
+     "Bước 3: giao tiếp minh bạch, phản hồi, xử lý xung đột",
+     "Theo dõi Stakeholder mới, vai trò thay đổi",
+     "Có người mới → quay lại Bước 1, 2 → cập nhật Register"
+    ]
+   },
+   "ask": [
+    "L04-q28",
+    "L04-q24",
+    "L04-q38"
+   ]
+  },
+  {
+   "id": "L04-n13",
+   "ref": "L04-t13",
+   "say": "Kết quả của quản lý Stakeholder được ghi vào Stakeholder Register, tài liệu liệt kê tất cả các bên liên quan cùng vai trò, mức ảnh hưởng, mức quan tâm, nhu cầu và chiến lược giao tiếp. Register là tài liệu sống: tạo ở bước một, dùng ở bước hai, cập nhật ở bước ba. Template của khóa có mười cột, mình gom thành ba nhóm. Nhóm danh tính gồm số thứ tự, tên người cụ thể và vai trò với dự án. Nhóm phân tích gồm phân loại Primary, Secondary hay Key, nhu cầu viết từ góc nhìn của họ, mức độ ảnh hưởng và mức độ quan tâm. Nhóm hành động gồm chiến lược quản lý, tần suất trao đổi, và người quản lý Stakeholder, tức thành viên nhóm dự án phụ trách liên lạc. Cột sau dựa vào cột trước: hai cột ảnh hưởng và quan tâm quyết định chiến lược và tần suất. Lỗi hay gặp là ghi Cao hay Thấp vào cột phân loại, hoặc ghi tần suất thường xuyên, không đo được.",
+   "show": {
+    "h": "Stakeholder Register: 10 cột",
+    "points": [
+     "Tài liệu sống: tạo Bước 1 · dùng Bước 2 · cập nhật Bước 3",
+     "Danh tính: STT · Tên · Vai trò",
+     "Phân tích: Phân loại · Nhu cầu · Ảnh hưởng · Quan tâm",
+     "Hành động: Chiến lược · Tần suất · Người quản lý (nhóm dự án)",
+     "Ảnh hưởng + Quan tâm → Chiến lược + Tần suất"
+    ],
+    "img": "L04-img4"
+   },
+   "ask": [
+    "L04-q22",
+    "L04-q23",
+    "L04-q40"
+   ]
+  },
+  {
+   "id": "L04-n14",
+   "ref": "L04-e2",
+   "say": "Đọc thử bản mẫu HRM để thấy logic giữa các cột. Sponsor là Key, ảnh hưởng cao, quan tâm thấp, nên báo cáo ngắn gọn hàng tháng, và PM phụ trách vì Sponsor quan tâm tiến độ, ngân sách hơn chức năng. HR Manager ảnh hưởng cao, quan tâm cao, nên tham gia Elicitation thường xuyên, trao đổi hàng tuần, và BA phụ trách vì đây là nguồn yêu cầu chính. IT Manager lo tích hợp và hạ tầng, nên Tech Lead phụ trách, cách tuần một lần. Nhà cung cấp giải pháp chấm công chỉ cần khi kết nối API, nên liên hệ khi cần thiết. Để ý HR Manager là Primary nhưng quyền lực lại cao. Hai cách phân loại độc lập nên không mâu thuẫn.",
+   "show": {
+    "h": "Đọc Stakeholder Register mẫu dự án HRM",
+    "points": [
+     "Sponsor: Key · Cao/Thấp → hàng tháng · PM phụ trách",
+     "HR Manager: Primary · Cao/Cao → hàng tuần · BA phụ trách",
+     "IT Manager: Secondary → cách tuần · Tech Lead",
+     "Nhà cung cấp chấm công → khi cần thiết · BA/Tech Lead",
+     "Primary vẫn có thể quyền lực cao"
+    ]
+   }
+  },
+  {
+   "id": "L04-n15",
+   "ref": "L04-t14",
+   "say": "Sang phần ba: phạm vi dự án. Scope là phạm vi công việc cần thực hiện để bàn giao đúng sản phẩm hay dịch vụ theo yêu cầu. Scope phải được thống nhất với khách hàng trước khi bắt đầu dự án. Một phạm vi tốt nói rõ cả những gì làm, gọi là in-scope, và những gì không làm, gọi là out-of-scope. Ví dụ dự án HRM làm hồ sơ, chấm công, tuyển dụng, nhưng không làm tính lương.",
+   "show": {
+    "h": "Phạm vi dự án (Scope)",
+    "points": [
+     "Phạm vi công việc để bàn giao đúng sản phẩm theo yêu cầu",
+     "Thống nhất với khách hàng trước khi bắt đầu",
+     "Nói rõ in-scope và out-of-scope",
+     "HRM: hồ sơ, chấm công, tuyển dụng · không làm tính lương"
+    ]
+   },
+   "ask": [
+    "L04-q7",
+    "L04-q9"
+   ]
+  },
+  {
+   "id": "L04-n16",
+   "ref": "L04-t15",
+   "say": "Scope creep là khi phạm vi không được kiểm soát chặt, yêu cầu mới hoặc thay đổi cứ lọt vào so với kế hoạch ban đầu, nói gọn là mất kiểm soát về phạm vi. Hình bập bênh cho thấy đặc tả, công sức và nguồn lực nặng dần, đẩy chi phí và thời gian tăng lên, dự án mất kiểm soát. Slide nêu tám nguyên nhân, mình gom lại ba nhóm. Nhóm yêu cầu không rõ: hiểu sai, mơ hồ, không thống nhất Scope từ đầu. Nhóm thiếu kiểm soát: không có quy trình Change Request, BA hoặc PM quá chiều khách hàng. Nhóm bên ngoài tác động: khách đổi yêu cầu liên tục, bối cảnh thay đổi, dự án kéo dài quá lâu. Nhưng thay đổi không phải lúc nào cũng là Scope creep, nếu nó đi qua Change Request, được đánh giá chi phí, thời gian và được duyệt thì phạm vi vẫn trong kiểm soát. Vì vậy, khi khách xin thêm, hãy nói ghi nhận và đánh giá, thay vì làm luôn.",
+   "show": {
+    "h": "Scope creep và nguyên nhân",
+    "points": [
+     "Scope creep = mất kiểm soát về phạm vi → Cost, Time tăng",
+     "Yêu cầu không rõ: hiểu sai, mơ hồ, không chốt Scope từ đầu",
+     "Thiếu kiểm soát: không có Change Request, BA/PM quá chiều",
+     "Bên ngoài: khách đổi liên tục, bối cảnh đổi, dự án quá dài",
+     "Thay đổi qua Change Request được duyệt ≠ Scope creep"
+    ],
+    "img": "L04-img5"
+   },
+   "ask": [
+    "L04-q19",
+    "L04-q20",
+    "L04-q35"
+   ]
+  },
+  {
+   "id": "L04-n17",
+   "say": "Tóm lại buổi bốn. BA tiếp cận dự án qua mười ba bước, từ tiếp nhận yêu cầu tới nghiệm thu, và mỗi bước dựa trên sáu lĩnh vực kiến thức của BABOK. Stakeholder là bất kỳ cá nhân, nhóm hay tổ chức nào liên quan hoặc bị ảnh hưởng bởi dự án. Bạn phân loại họ theo Primary, Secondary, Key, theo ma trận Power – Interest và theo RACI, rồi quản lý qua ba bước: xác định và phân tích, lập kế hoạch tương tác, quản lý và duy trì. Mọi thông tin được ghi vào Stakeholder Register, trong đó ảnh hưởng và quan tâm quyết định chiến lược và tần suất. Cuối cùng, Scope phải thống nhất từ đầu, và mọi thay đổi đi qua Change Request để tránh Scope creep. Ba phần nối với nhau: Stakeholder là nguồn yêu cầu, yêu cầu tạo nên phạm vi, và muốn đổi phạm vi phải qua người có quyền phê duyệt. Bạn có thể ôn lại bằng flashcard, hoặc làm phần trắc nghiệm của bài.",
+   "show": {
+    "h": "Tổng kết buổi 4",
+    "points": [
+     "13 bước tiếp cận dựa trên 6 Knowledge Area",
+     "Phân loại: Primary/Secondary/Key · Power – Interest · RACI",
+     "3 bước quản lý Stakeholder → Stakeholder Register",
+     "Scope chốt từ đầu, thay đổi qua Change Request",
+     "Stakeholder → yêu cầu → phạm vi → phê duyệt"
+    ]
+   }
+  }
+ ]
+}
