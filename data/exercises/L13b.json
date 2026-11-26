@@ -96,7 +96,7 @@
         {"kind": "sort", "q": "4) Theo quy ước của bài: cách làm khác hợp lệ ghi vào Alternative, tình huống lỗi ghi vào Exception (kể cả khi xử lý xong vẫn bán được hàng). Mỗi nhánh thuộc loại nào?",
          "bins": ["Alternative Flow", "Exception Flow"],
          "items": [
-           {"t": "2a. Hàng cân chưa có tem: nhân viên hỗ trợ cân, in tem, quay về bước 2", "a": [0]},
+           {"t": "2a. Hàng cân chưa có tem: nhân viên hỗ trợ cân, in tem, quay về bước 2", "a": [0, 1], "why": "Đáp án mẫu xếp vào Alternative (điều kiện thay đổi, xử lý xong vẫn đi tiếp bình thường); coi là thiếu sót cần xử lý thì xếp Exception cũng chấp nhận."},
            {"t": "4a. Khách bỏ bớt hoặc đổi sản phẩm: thu ngân cập nhật giỏ, quay về bước 4", "a": [0]},
            {"t": "5a. Khách trả bằng thẻ: khách chạm thẻ/nhập PIN, máy in slip, sang bước 7", "a": [0]},
            {"t": "5b. Khách chuyển khoản: thu ngân nhập số tiền, khách quét QR, chờ ngân hàng xác nhận, sang bước 7", "a": [0]},
@@ -179,7 +179,7 @@
            "Người dùng nhập sai OTP"
          ],
          "answer": [2], "multi": false,
-         "why": "Trigger là hành động bắt đầu Use Case, cũng là bước đầu tiên của Main Flow: bấm \"Chuyển tiền\". Đã đăng nhập là Pre-Condition; trừ tiền và báo thành công là bước cuối; nhập sai OTP là một Exception."},
+         "why": "Trigger là hành động bắt đầu Use Case, cũng là bước đầu tiên của Main Flow: bấm \"Chuyển tiền\". Đã đăng nhập là Pre-Condition; trừ tiền và báo thành công là bước cuối; nhập sai OTP xảy ra giữa luồng, không phải lúc bắt đầu."},
         {"kind": "choice", "q": "2) Những ý nào là Pre-Condition của \"Chuyển tiền trên App\"? (chọn tất cả ý đúng)",
          "options": [
            "Người dùng đã đăng nhập app",
@@ -228,22 +228,22 @@
            "Trigger: Khách hàng bấm \"Đặt hàng\". Pre-Condition: Đơn hàng được gửi tới nhà hàng"
          ],
          "answer": [0], "multi": false,
-         "why": "Trigger là hành động kích hoạt (bấm \"Đặt hàng\"). Pre-Condition là trạng thái phải đúng từ trước (đã đăng nhập, giỏ có món). Phương án 2 đổi chỗ hai trường; tạo đơn là bước cuối của luồng; đơn được gửi tới nhà hàng là trạng thái sau khi xong."},
+         "why": "Trigger là hành động kích hoạt (bấm \"Đặt hàng\"). Pre-Condition là trạng thái phải đúng từ trước (đã đăng nhập, giỏ có món). Phương án B đổi chỗ hai trường; tạo đơn là bước cuối của luồng; đơn được gửi tới nhà hàng là trạng thái sau khi xong."},
         {"kind": "choice", "q": "2) Post-Condition nào viết đúng cho \"Đặt món\"?",
          "options": [
            "Khách hàng bấm \"Xác nhận\" để hoàn tất đặt món",
            "Giỏ hàng có ít nhất 1 món",
-           "Tạo đơn trong ≤ 3 giây",
+           "Hệ thống chuyển sang ví điện tử để thanh toán",
            "Đơn hàng được lưu với trạng thái \"Chờ nhà hàng nhận\" và được gửi tới nhà hàng; khách nhận được mã đơn"
          ],
          "answer": [3], "multi": false,
-         "why": "Post-Condition là trạng thái của hệ thống sau khi hoàn tất Use Case. \"Bấm Xác nhận\" là hành động; \"giỏ có ít nhất 1 món\" là Pre-Condition; \"tạo đơn ≤ 3 giây\" là yêu cầu phi chức năng."},
+         "why": "Post-Condition là trạng thái của hệ thống sau khi hoàn tất Use Case. \"Bấm Xác nhận\" là hành động; \"giỏ có ít nhất 1 món\" là Pre-Condition; \"chuyển sang ví điện tử\" là một bước giữa Main Flow, chưa phải trạng thái cuối."},
         {"kind": "order", "q": "3) Sắp xếp Main Flow của \"Đặt món\" (thanh toán ví điện tử) theo đúng trình tự xảy ra.",
          "items": [
            "Khách hàng bấm \"Đặt hàng\"",
            "Hệ thống hiển thị màn hình xác nhận: món, địa chỉ giao, phí giao, tổng tiền",
            "Khách hàng chọn thanh toán ví điện tử và bấm \"Xác nhận\"",
-           "Hệ thống kiểm tra món còn bán và địa chỉ trong vùng giao",
+           "Sau khi khách xác nhận, hệ thống kiểm tra món còn bán và địa chỉ trong vùng giao",
            "Hệ thống chuyển sang ví điện tử để thanh toán",
            "Ví điện tử báo thanh toán thành công",
            "Hệ thống tạo đơn, gửi tới nhà hàng và hiển thị mã đơn"

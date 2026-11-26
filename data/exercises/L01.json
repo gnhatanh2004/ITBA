@@ -4,294 +4,804 @@
     "L01-x1": {
       "lead": "Kéo từng việc vào đúng nhóm.",
       "parts": [
-        {"kind": "sort", "q": "Việc nào nằm trong 10 công việc thường làm của IT BA theo slide?",
-         "bins": ["Việc của IT BA", "Không phải việc của IT BA"],
-         "items": [
-           {"t": "Viết tài liệu nghiệp vụ", "a": [0]},
-           {"t": "Viết code chức năng thanh toán", "a": [1], "why": "Việc của lập trình viên."},
-           {"t": "Quản lý yêu cầu thay đổi", "a": [0]},
-           {"t": "Hướng dẫn sử dụng, hỗ trợ người dùng", "a": [0]},
-           {"t": "Cấu hình máy chủ cơ sở dữ liệu", "a": [1], "why": "Việc của quản trị hệ thống / DevOps."},
-           {"t": "Quản lý quan hệ với các Stakeholders", "a": [0]},
-           {"t": "Thiết kế giao diện, hệ thống", "a": [0]},
-           {"t": "Chạy kiểm thử hiệu năng tự động", "a": [1], "why": "Việc của tester. BA có thể hỗ trợ nhưng không làm thay."}
-         ]}
+        {
+          "kind": "sort",
+          "q": "Việc nào nằm trong 10 công việc thường làm của IT BA theo slide?",
+          "bins": [
+            "Việc của IT BA",
+            "Không phải việc của IT BA"
+          ],
+          "items": [
+            {
+              "t": "Viết tài liệu nghiệp vụ",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Viết code chức năng thanh toán",
+              "a": [
+                1
+              ],
+              "why": "Việc của lập trình viên."
+            },
+            {
+              "t": "Quản lý yêu cầu thay đổi",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Hướng dẫn sử dụng, hỗ trợ người dùng",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Cấu hình máy chủ cơ sở dữ liệu",
+              "a": [
+                1
+              ],
+              "why": "Việc của quản trị hệ thống / DevOps."
+            },
+            {
+              "t": "Quản lý quan hệ với các Stakeholders",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Thiết kế giao diện, hệ thống",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Chạy kiểm thử hiệu năng tự động",
+              "a": [
+                1
+              ],
+              "why": "Việc của tester. BA có thể hỗ trợ nhưng không làm thay."
+            }
+          ]
+        }
       ]
     },
     "L01-x2": {
       "lead": "Ghép mỗi tình huống với một năng lực cốt lõi.",
       "parts": [
-        {"kind": "sort", "q": "Tình huống nào thể hiện năng lực nào?",
-         "bins": ["Critical and Analytical Thinking", "Business Domain", "Interaction Skills", "Communication Skills", "Tools & Technology", "Behavioural Characteristics"],
-         "items": [
-           {"t": "BA dùng phần mềm vẽ sơ đồ để mô tả quy trình đặt bàn của FoodNow.", "a": [4]},
-           {"t": "BA hiểu quy định nhập – xuất kho của ngành bán lẻ nên hỏi đúng chỗ.", "a": [1]},
-           {"t": "BA điều phối cuộc họp khi thủ thư và ban giám hiệu tranh cãi về số sách được mượn.", "a": [2], "why": "Interaction là làm việc, điều phối giữa người với người."},
-           {"t": "BA hỏi \"vì sao\" nhiều lần để tìm nguyên nhân gốc khiến đơn hàng bị sai.", "a": [0]},
-           {"t": "BA thừa nhận đã ghi sai yêu cầu và chủ động báo cho khách hàng.", "a": [5], "why": "Behavioural Characteristics là phẩm chất: trung thực, trách nhiệm, đáng tin cậy."},
-           {"t": "BA viết email tóm tắt cuộc họp rõ ràng, đúng trọng tâm.", "a": [3], "why": "Communication là truyền đạt bằng lời nói, chữ viết."}
-         ]}
+        {
+          "kind": "sort",
+          "q": "Tình huống nào thể hiện năng lực nào?",
+          "bins": [
+            "Critical and Analytical Thinking",
+            "Business Domain",
+            "Interaction Skills",
+            "Communication Skills",
+            "Tools & Technology",
+            "Behavioural Characteristics"
+          ],
+          "items": [
+            {
+              "t": "BA dùng phần mềm vẽ sơ đồ để mô tả quy trình đặt bàn của FoodNow.",
+              "a": [
+                4
+              ]
+            },
+            {
+              "t": "BA hiểu quy định nhập – xuất kho của ngành bán lẻ nên hỏi đúng chỗ.",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "BA điều phối cuộc họp khi thủ thư và ban giám hiệu tranh cãi về số sách được mượn.",
+              "a": [
+                2
+              ],
+              "why": "Interaction là làm việc, điều phối giữa người với người."
+            },
+            {
+              "t": "BA hỏi \"vì sao\" nhiều lần để tìm nguyên nhân gốc khiến đơn hàng bị sai.",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "BA thừa nhận đã ghi sai yêu cầu và chủ động báo cho khách hàng.",
+              "a": [
+                5
+              ],
+              "why": "Behavioural Characteristics là phẩm chất: trung thực, trách nhiệm, đáng tin cậy."
+            },
+            {
+              "t": "BA viết email tóm tắt cuộc họp rõ ràng, đúng trọng tâm.",
+              "a": [
+                3
+              ],
+              "why": "Communication là truyền đạt bằng lời nói, chữ viết."
+            }
+          ]
+        }
       ]
     },
     "L01-x3": {
       "lead": "Kéo mỗi việc của dự án FoodNow vào đúng knowledge area của BABOK v3.",
       "parts": [
-        {"kind": "sort", "q": "Việc này thuộc knowledge area nào?",
-         "bins": ["Business Analysis Planning and Monitoring", "Elicitation and Collaboration", "Requirements Life Cycle Management", "Strategy Analysis", "Requirements Analysis and Design Definition", "Solution Evaluation"],
-         "items": [
-           {"t": "Lập danh sách những ai cần phỏng vấn và lịch phỏng vấn.", "a": [0]},
-           {"t": "Phỏng vấn quản lý nhà hàng về cách giữ bàn hiện tại.", "a": [1]},
-           {"t": "Phân tích vì sao nhà hàng mất khách giờ cao điểm và đề xuất hướng thay đổi.", "a": [3]},
-           {"t": "Vẽ sơ đồ quy trình đặt bàn mới và viết đặc tả màn hình chọn giờ.", "a": [4]},
-           {"t": "Nhà hàng muốn thêm đặt cọc: đánh giá ảnh hưởng và cập nhật yêu cầu đã duyệt.", "a": [2]},
-           {"t": "Sau 2 tháng, đo tỉ lệ khách đặt bàn mà không tới (no-show) để xem giải pháp có hiệu quả.", "a": [5]}
-         ]}
+        {
+          "kind": "sort",
+          "q": "Việc này thuộc knowledge area nào?",
+          "bins": [
+            "Business Analysis Planning and Monitoring",
+            "Elicitation and Collaboration",
+            "Requirements Life Cycle Management",
+            "Strategy Analysis",
+            "Requirements Analysis and Design Definition",
+            "Solution Evaluation"
+          ],
+          "items": [
+            {
+              "t": "Lập danh sách những ai cần phỏng vấn và lịch phỏng vấn.",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Phỏng vấn quản lý nhà hàng về cách giữ bàn hiện tại.",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Phân tích vì sao nhà hàng mất khách giờ cao điểm và đề xuất hướng thay đổi.",
+              "a": [
+                3
+              ]
+            },
+            {
+              "t": "Vẽ sơ đồ quy trình đặt bàn mới và viết đặc tả màn hình chọn giờ.",
+              "a": [
+                4
+              ]
+            },
+            {
+              "t": "Nhà hàng muốn thêm đặt cọc: đánh giá ảnh hưởng và cập nhật yêu cầu đã duyệt.",
+              "a": [
+                2
+              ]
+            },
+            {
+              "t": "Sau 2 tháng, đo tỉ lệ khách đặt bàn mà không tới (no-show) để xem giải pháp có hiệu quả.",
+              "a": [
+                5
+              ]
+            }
+          ]
+        }
       ]
     },
     "L01-x4": {
       "lead": "Xếp 5 người vào hai nhóm, rồi chọn lý do.",
       "parts": [
-        {"kind": "sort", "q": "Theo định nghĩa của IIBA, ai đang làm công việc Business Analysis?",
-         "bins": ["Đang làm BA", "Chưa làm BA"],
-         "items": [
-           {"t": "Chị A, trưởng phòng nhân sự: tìm hiểu vì sao nhân viên nghỉ việc nhiều, đề xuất đổi quy trình đánh giá.", "a": [0]},
-           {"t": "Anh B, lập trình viên: viết code theo đặc tả có sẵn, không làm việc với người dùng.", "a": [1]},
-           {"t": "Chị C, Product Owner: gặp khách hàng, chọn tính năng ưu tiên cho app bán online.", "a": [0]},
-           {"t": "Anh D, nhân viên kho: nhập hàng theo phiếu, không tham gia cải tiến.", "a": [1]},
-           {"t": "Anh E, quản lý cửa hàng: thấy khách chờ lâu, đề xuất thêm máy tự thanh toán và hướng dẫn nhân viên dùng.", "a": [0]}
-         ]},
-        {"kind": "choice", "q": "Điều gì quyết định một người có đang làm Business Analysis theo IIBA?",
-         "options": ["Chức danh có chữ \"Business Analyst\"", "Có làm việc trong phòng IT", "Xác định nhu cầu và đề xuất giải pháp để tạo thay đổi", "Có viết tài liệu cho dự án"],
-         "answer": [2], "multi": false,
-         "why": "IIBA nói \"no matter their job title or organizational role\": không dựa vào chức danh mà dựa vào việc làm. A, C, E xác định vấn đề và đề xuất giải pháp; B, D chỉ làm theo yêu cầu có sẵn."}
+        {
+          "kind": "sort",
+          "q": "Theo định nghĩa của IIBA, ai đang làm công việc Business Analysis?",
+          "bins": [
+            "Đang làm BA",
+            "Chưa làm BA"
+          ],
+          "items": [
+            {
+              "t": "Chị A, trưởng phòng nhân sự: tìm hiểu vì sao nhân viên nghỉ việc nhiều, đề xuất đổi quy trình đánh giá.",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Anh B, lập trình viên: viết code theo đặc tả có sẵn, không làm việc với người dùng.",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Chị C, Product Owner: gặp khách hàng, chọn tính năng ưu tiên cho app bán online.",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Anh D, nhân viên kho: nhập hàng theo phiếu, không tham gia cải tiến.",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Anh E, quản lý cửa hàng: thấy khách chờ lâu, đề xuất thêm máy tự thanh toán và hướng dẫn nhân viên dùng.",
+              "a": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "q": "Điều gì quyết định một người có đang làm Business Analysis theo IIBA?",
+          "options": [
+            "Chức danh có chữ \"Business Analyst\"",
+            "Có làm việc trong phòng IT",
+            "Xác định nhu cầu và đề xuất giải pháp để tạo thay đổi",
+            "Có viết tài liệu cho dự án"
+          ],
+          "answer": [
+            2
+          ],
+          "multi": false,
+          "why": "IIBA nói \"no matter their job title or organizational role\": không dựa vào chức danh mà dựa vào việc làm. A, C, E xác định vấn đề và đề xuất giải pháp; B, D chỉ làm theo yêu cầu có sẵn."
+        }
       ]
     },
     "L01-x5": {
       "lead": "Ghép hiện tượng với khung tranh, rồi chọn những việc BA nên làm.",
       "parts": [
-        {"kind": "sort", "q": "a) Mỗi hiện tượng ứng với khung nào trong tranh cái xích đu?",
-         "bins": ["How the customer explained it", "How the project leader understood it", "How the programmer wrote it", "How the sales executive described it", "How the customer was billed", "What the customer really needed"],
-         "items": [
-           {"t": "Ban giám hiệu nói chung chung \"cần phần mềm quản lý sách\"", "a": [0]},
-           {"t": "Trưởng dự án hiểu là danh mục sách", "a": [1]},
-           {"t": "Lập trình viên làm trang liệt kê sách", "a": [2]},
-           {"t": "Kinh doanh hứa có cả đọc sách online", "a": [3]},
-           {"t": "Tiền dự án vượt ngân sách", "a": [4]},
-           {"t": "Thủ thư cần mượn/trả sách", "a": [5]}
-         ]},
-        {"kind": "choice", "q": "b) BA nên làm những việc nào để tránh lệch như trên? (chọn tất cả ý đúng)",
-         "options": [
-           "Phỏng vấn cả thủ thư và bạn đọc, không chỉ ban giám hiệu",
-           "Làm theo đúng lời ban giám hiệu vì họ là người trả tiền",
-           "Hỏi \"quản lý sách\" gồm những việc gì hằng ngày để ra nhu cầu thật",
-           "Để lập trình viên tự hiểu yêu cầu cho nhanh",
-           "Viết phạm vi rõ và cho ban giám hiệu, thủ thư xác nhận một bản duy nhất",
-           "Đánh giá ảnh hưởng chi phí trước khi nhận thêm tính năng đọc online",
-           "Để kinh doanh hứa thêm tính năng với khách rồi tính sau"
-         ],
-         "answer": [0, 2, 4, 5], "multi": true,
-         "why": "Lắng nghe mọi stakeholder bị ảnh hưởng, thấu hiểu nhu cầu thật (mượn, trả, tra cứu, báo quá hạn), thống nhất một cách hiểu (bài học 6 hay 9) và quản lý thay đổi để không vượt ngân sách."}
+        {
+          "kind": "sort",
+          "q": "a) Mỗi hiện tượng ứng với khung nào trong tranh cái xích đu?",
+          "bins": [
+            "How the customer explained it",
+            "How the project leader understood it",
+            "How the programmer wrote it",
+            "How the sales executive described it",
+            "How the customer was billed",
+            "What the customer really needed"
+          ],
+          "items": [
+            {
+              "t": "Ban giám hiệu nói chung chung \"cần phần mềm quản lý sách\"",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Trưởng dự án hiểu là danh mục sách",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Lập trình viên làm trang liệt kê sách",
+              "a": [
+                2
+              ]
+            },
+            {
+              "t": "Kinh doanh hứa có cả đọc sách online",
+              "a": [
+                3
+              ]
+            },
+            {
+              "t": "Tiền dự án vượt ngân sách",
+              "a": [
+                4
+              ]
+            },
+            {
+              "t": "Thủ thư cần mượn/trả sách",
+              "a": [
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "q": "b) BA nên làm những việc nào để tránh lệch như trên? (chọn tất cả ý đúng)",
+          "options": [
+            "Phỏng vấn cả thủ thư và bạn đọc, không chỉ ban giám hiệu",
+            "Làm theo đúng lời ban giám hiệu vì họ là người trả tiền",
+            "Hỏi \"quản lý sách\" gồm những việc gì hằng ngày để ra nhu cầu thật",
+            "Để lập trình viên tự hiểu yêu cầu cho nhanh",
+            "Viết phạm vi rõ và cho ban giám hiệu, thủ thư xác nhận một bản duy nhất",
+            "Đánh giá ảnh hưởng chi phí trước khi nhận thêm tính năng đọc online",
+            "Để kinh doanh hứa thêm tính năng với khách rồi tính sau",
+            "Với đội IT, viết thành yêu cầu, quy tắc nghiệp vụ, màn hình mẫu; với kinh doanh, nói rõ cái gì có và không có"
+          ],
+          "answer": [
+            0,
+            2,
+            4,
+            5,
+            7
+          ],
+          "multi": true,
+          "why": "Lắng nghe mọi stakeholder bị ảnh hưởng, thấu hiểu nhu cầu thật (mượn, trả, tra cứu, báo quá hạn), thống nhất một cách hiểu (bài học 6 hay 9), truyền đạt đúng ngôn ngữ của từng bên để kinh doanh không hứa quá, và quản lý thay đổi để không vượt ngân sách."
+        }
       ]
     },
     "L01-x6": {
-      "lead": "Dựng khung làm việc cho dự án bán online của SolasMart bằng cách sắp xếp, kéo thả và chọn.",
+      "lead": "Ghép việc của dự án SolasMart với 4 bước của chu trình, chọn việc của IT BA, rồi ghép lý do với năng lực cốt lõi.",
       "parts": [
-        {"kind": "order", "q": "1) Sắp xếp 4 bước của chu trình BA theo đúng thứ tự.",
-         "items": ["Business Objective", "Stakeholders", "Solutions", "Transition"]},
-        {"kind": "sort", "q": "2) Mỗi việc của dự án SolasMart thuộc bước nào?",
-         "bins": ["Business Objective", "Stakeholders", "Solutions", "Transition"],
-         "items": [
-           {"t": "Có thêm doanh thu từ kênh online, phục vụ khách không tới cửa hàng", "a": [0]},
-           {"t": "Liệt kê ban giám đốc, bán hàng, kho, kế toán, khách hàng, đội IT, đơn vị giao hàng", "a": [1]},
-           {"t": "So sánh tự làm website, dùng sàn thương mại điện tử hay kết hợp", "a": [2]},
-           {"t": "Chạy thử với một nhóm sản phẩm, đào tạo nhân viên kho, mở rộng dần", "a": [3]}
-         ]},
-        {"kind": "choice", "q": "3) Việc nào là việc của IT BA trong dự án này? (chọn tất cả ý đúng)",
-         "options": [
-           "Phỏng vấn bán hàng, kho về quy trình hiện tại",
-           "Viết code trang thanh toán",
-           "Phác màn hình giỏ hàng, đặt hàng",
-           "Cấu hình máy chủ web",
-           "Quản lý yêu cầu thay đổi khi ban giám đốc muốn thêm khuyến mãi riêng cho online",
-           "Viết tài liệu yêu cầu cho đội IT"
-         ],
-         "answer": [0, 2, 4, 5], "multi": true,
-         "why": "Thu thập yêu cầu, thiết kế giao diện, quản lý yêu cầu thay đổi, viết tài liệu nghiệp vụ đều thuộc 10 việc của IT BA. Viết code và cấu hình máy chủ là việc của dev và DevOps."},
-        {"kind": "choice", "q": "4) Bán tại quầy và bán online có thể \"giành\" hàng trong kho. Năng lực nào giúp BA điều phối các bộ phận có lợi ích khác nhau?",
-         "options": ["Tools & Technology", "Interaction Skills", "Communication Skills", "Business Domain"],
-         "answer": [1], "multi": false,
-         "why": "Interaction Skills là làm việc và điều phối giữa người với người. Communication là truyền đạt bằng lời nói, chữ viết; Business Domain là hiểu ngành bán lẻ."}
+        {
+          "kind": "sort",
+          "q": "1) Mỗi việc của dự án SolasMart thuộc bước nào trong chu trình 4 bước?",
+          "bins": [
+            "Business Objective",
+            "Stakeholders",
+            "Solutions",
+            "Transition"
+          ],
+          "items": [
+            {
+              "t": "Có thêm doanh thu từ kênh online, phục vụ khách không tới cửa hàng",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Liệt kê ban giám đốc, bán hàng, kho, kế toán, khách hàng, đội IT, đơn vị giao hàng",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "So sánh tự làm website, dùng sàn thương mại điện tử hay kết hợp",
+              "a": [
+                2
+              ]
+            },
+            {
+              "t": "Chạy thử với một nhóm sản phẩm, đào tạo nhân viên kho, mở rộng dần",
+              "a": [
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "q": "2) Sau bước Transition (đã chạy kênh online), chu trình 4 bước đi tiếp thế nào?",
+          "options": [
+            "Dừng lại: giải pháp đã chạy thì BA không cần làm gì thêm",
+            "Quay lại Business Objective: kiểm tra mục tiêu doanh thu online đã đạt chưa và bắt đầu vòng mới",
+            "Quay lại Solutions để đổi sang giải pháp khác ngay",
+            "Bỏ qua mục tiêu, lập lại danh sách Stakeholders từ đầu"
+          ],
+          "answer": [
+            1
+          ],
+          "multi": false,
+          "why": "Chu trình chạy vòng: Transition → Business Objective. Sau chuyển đổi, BA quay lại kiểm tra mục tiêu rồi bắt đầu vòng mới, không dừng hẳn và không nhảy thẳng về Solutions hay Stakeholders."
+        },
+        {
+          "kind": "choice",
+          "q": "3) Việc nào là việc của IT BA trong dự án này? (chọn tất cả ý đúng)",
+          "options": [
+            "Phỏng vấn bán hàng, kho về quy trình hiện tại",
+            "Viết code trang thanh toán",
+            "Phác màn hình giỏ hàng, đặt hàng",
+            "Cấu hình máy chủ web",
+            "Quản lý yêu cầu thay đổi khi ban giám đốc muốn thêm khuyến mãi riêng cho online",
+            "Viết tài liệu yêu cầu cho đội IT"
+          ],
+          "answer": [
+            0,
+            2,
+            4,
+            5
+          ],
+          "multi": true,
+          "why": "Thu thập yêu cầu, thiết kế giao diện, quản lý yêu cầu thay đổi, viết tài liệu nghiệp vụ đều thuộc 10 việc của IT BA. Viết code và cấu hình máy chủ là việc của dev và DevOps."
+        },
+        {
+          "kind": "sort",
+          "q": "4) Ba lý do dưới đây ứng với ba năng lực cốt lõi quan trọng nhất cho dự án. Kéo mỗi lý do vào đúng năng lực.",
+          "bins": [
+            "Critical and Analytical Thinking",
+            "Business Domain",
+            "Interaction Skills",
+            "Communication Skills",
+            "Tools & Technology",
+            "Behavioural Characteristics"
+          ],
+          "items": [
+            {
+              "t": "Cần hiểu bán lẻ, tồn kho, khuyến mãi",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Bán tại quầy và bán online có thể \"giành\" hàng, cần điều phối các bộ phận có lợi ích khác nhau",
+              "a": [
+                2
+              ],
+              "why": "Interaction Skills là điều phối, đàm phán, giải quyết xung đột giữa người với người."
+            },
+            {
+              "t": "Cần phân tích các phương án giải pháp và rủi ro",
+              "a": [
+                0
+              ]
+            }
+          ]
+        }
       ]
     },
     "L01-p1": {
-      "lead": "Chọn tiêu chí nhận ra người làm BA, ghép việc của từng chức danh với hoạt động BA, rồi chọn kết luận.",
+      "lead": "Chọn tiêu chí nhận ra người làm BA, rồi ghép việc của từng chức danh với hoạt động BA.",
       "parts": [
-        {"kind": "choice", "q": "1) Để kể một chức danh vào danh sách \"đang làm phân tích nghiệp vụ\", cần dựa vào tiêu chí nào?",
-         "options": [
-           "Tên chức danh có chữ \"Business Analyst\" hoặc \"Analyst\"",
-           "Người đó làm việc trong phòng IT",
-           "Người đó có chứng chỉ CCBA hoặc CBAP",
-           "Người đó có làm việc khớp với hoạt động BA (hiểu vấn đề, phân tích nhu cầu và giải pháp, đưa ra chiến lược, chèo lái thay đổi, kết nối các bên), bất kể chức danh"
-         ],
-         "answer": [3], "multi": false,
-         "why": "Theo IIBA, BA là bất kỳ ai làm công việc phân tích nghiệp vụ, không phụ thuộc chức danh hay vị trí. Tiêu chí là \"có làm việc BA không\", không phải tên chức danh, phòng ban hay chứng chỉ."},
-        {"kind": "sort", "q": "2) Việc mà mỗi chức danh làm khớp với hoạt động BA nào? Kéo từng chức danh vào đúng hoạt động.",
-         "bins": ["Phân tích nhu cầu và giải pháp", "Đưa ra chiến lược", "Chèo lái thay đổi", "Kết nối các bên liên quan"],
-         "items": [
-           {"t": "Product Owner: thu thập mong muốn của khách, ưu tiên tính năng", "a": [0]},
-           {"t": "Project Manager: họp với khách để chốt phạm vi dự án", "a": [3]},
-           {"t": "Systems Analyst: phân tích hệ thống hiện tại, đề xuất thay đổi", "a": [0]},
-           {"t": "Quản lý cửa hàng: đề xuất đổi quy trình thanh toán, hướng dẫn nhân viên làm theo", "a": [2]},
-           {"t": "Tư vấn (Consultant): đánh giá quy trình khách hàng, đề xuất giải pháp", "a": [1]}
-         ]},
-        {"kind": "choice", "q": "3) Kết luận nào đúng về các chức danh Product Owner, Project Manager, Systems Analyst, trưởng phòng kinh doanh, quản lý cửa hàng, tư vấn?",
-         "options": [
-           "Tất cả đang làm Business Analysis ở một phần công việc của mình, dù chức danh không phải \"Business Analyst\"",
-           "Họ không làm BA vì chức danh không phải \"Business Analyst\"",
-           "Chỉ Systems Analyst làm BA vì chức danh có chữ \"Analyst\"",
-           "Chỉ người thuộc phòng IT mới đang làm BA"
-         ],
-         "answer": [0], "multi": false,
-         "why": "Mỗi chức danh đều có một việc cụ thể khớp với hoạt động BA, ví dụ trưởng phòng kinh doanh phân tích vì sao doanh số giảm và đề xuất kênh bán online (hiểu vấn đề, đưa ra chiến lược). Theo IIBA, họ đều đang làm Business Analysis."}
+        {
+          "kind": "choice",
+          "q": "1) Để kể một chức danh vào danh sách \"đang làm phân tích nghiệp vụ\", cần dựa vào tiêu chí nào?",
+          "options": [
+            "Tên chức danh có chữ \"Business Analyst\" hoặc \"Analyst\"",
+            "Người đó làm việc trong phòng IT",
+            "Người đó có chứng chỉ CCBA hoặc CBAP",
+            "Người đó có làm việc khớp với hoạt động BA, bất kể chức danh"
+          ],
+          "answer": [
+            3
+          ],
+          "multi": false,
+          "why": "Theo IIBA, BA là bất kỳ ai làm công việc phân tích nghiệp vụ, không phụ thuộc chức danh hay vị trí. Tiêu chí là \"có làm việc BA không\", không phải tên chức danh, phòng ban hay chứng chỉ. Vì vậy Product Owner, Project Manager, Systems Analyst, trưởng phòng kinh doanh, quản lý cửa hàng, tư vấn… đều đang làm Business Analysis ở một phần công việc của mình."
+        },
+        {
+          "kind": "sort",
+          "q": "2) Việc mà mỗi chức danh làm khớp với hoạt động BA nào? Kéo từng chức danh vào đúng hoạt động.",
+          "bins": [
+            "Phân tích nhu cầu và giải pháp",
+            "Đưa ra chiến lược",
+            "Chèo lái thay đổi",
+            "Kết nối các bên liên quan"
+          ],
+          "items": [
+            {
+              "t": "Product Owner: thu thập mong muốn của khách, ưu tiên tính năng",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Project Manager: tổ chức họp để khách và đội dự án cùng thống nhất",
+              "a": [
+                3
+              ],
+              "why": "Kết nối các Stakeholder để họ cùng làm việc và cùng thống nhất."
+            },
+            {
+              "t": "Systems Analyst: phân tích hệ thống hiện tại, tìm chỗ chưa đáp ứng, đề xuất giải pháp",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Quản lý cửa hàng: dẫn dắt nhân viên chuyển sang quy trình thanh toán mới",
+              "a": [
+                2
+              ]
+            },
+            {
+              "t": "Tư vấn (Consultant): đánh giá quy trình của khách, đề xuất hướng đi và thứ tự cải tiến",
+              "a": [
+                1
+              ],
+              "why": "Đưa ra chiến lược là đề xuất hướng đi, thứ tự làm, phạm vi thay đổi."
+            }
+          ]
+        }
       ]
     },
     "L01-p2": {
       "lead": "Ghép các dòng của tin tuyển dụng với công việc và năng lực của IT BA, rồi chọn phần tin không nhắc.",
       "parts": [
-        {"kind": "sort", "q": "1) Mỗi việc trong tin tuyển dụng ứng với công việc nào trong 10 công việc của IT BA?",
-         "bins": ["Quản lý quan hệ với các Stakeholders", "Hỗ trợ đội dự án", "Quản lý yêu cầu thay đổi", "Hướng dẫn sử dụng, hỗ trợ người dùng", "Quản lý tài liệu"],
-         "items": [
-           {"t": "Phối hợp với dev và tester trong quá trình phát triển", "a": [1]},
-           {"t": "Tiếp nhận và đánh giá yêu cầu thay đổi", "a": [2]},
-           {"t": "Đào tạo người dùng khi bàn giao", "a": [3]}
-         ]},
-        {"kind": "choice", "q": "2) Dòng \"Viết tài liệu BRD, SRS, vẽ use case, wireframe\" ứng với những công việc nào của IT BA? (chọn tất cả ý đúng)",
-         "options": [
-           "Quản lý tài liệu",
-           "Viết tài liệu nghiệp vụ",
-           "Hỗ trợ đội dự án",
-           "Thiết kế giao diện, hệ thống"
-         ],
-         "answer": [1, 3], "multi": true,
-         "why": "Viết BRD, SRS, use case là viết tài liệu nghiệp vụ; vẽ wireframe là thiết kế giao diện ở mức nghiệp vụ. Quản lý tài liệu là lưu trữ, đặt tên, quản lý phiên bản; hỗ trợ đội dự án là giải đáp cho dev, tester trong lúc làm."},
-        {"kind": "sort", "q": "3) Mỗi yêu cầu ứng viên trong tin ứng với năng lực cốt lõi nào?",
-         "bins": ["Critical and Analytical Thinking", "Business Domain", "Interaction Skills", "Communication Skills", "Tools & Technology", "Behavioural Characteristics"],
-         "items": [
-           {"t": "Tư duy phân tích tốt", "a": [0]},
-           {"t": "Giao tiếp tốt", "a": [3]},
-           {"t": "Biết dùng công cụ vẽ mô hình", "a": [4]},
-           {"t": "Có hiểu biết lĩnh vực bán lẻ", "a": [1]}
-         ]},
-        {"kind": "choice", "q": "4) Trong 10 công việc của IT BA, những việc nào tin tuyển dụng KHÔNG nhắc rõ? (chọn tất cả ý đúng)",
-         "options": [
-           "Quản lý quan hệ với các Stakeholders",
-           "Viết tài liệu nghiệp vụ",
-           "Hỗ trợ đội dự án",
-           "Quản lý tài liệu",
-           "Quản lý yêu cầu thay đổi",
-           "Quản lý yêu cầu nghiệp vụ (ưu tiên, truy vết)",
-           "Hướng dẫn sử dụng, hỗ trợ người dùng"
-         ],
-         "answer": [0, 3, 5], "multi": true,
-         "why": "Tin có nhắc viết BRD/SRS, phối hợp với dev và tester, đánh giá yêu cầu thay đổi, đào tạo người dùng. Tin không nhắc rõ quản lý quan hệ Stakeholder, quản lý yêu cầu (ưu tiên, truy vết) và quản lý tài liệu: đó là phần có thể hỏi thêm khi phỏng vấn."},
-        {"kind": "choice", "q": "5) Năng lực cốt lõi nào tin tuyển dụng KHÔNG nhắc? (chọn tất cả ý đúng)",
-         "options": ["Communication Skills", "Interaction Skills", "Tools & Technology", "Business Domain", "Behavioural Characteristics", "Critical and Analytical Thinking"],
-         "answer": [1, 4], "multi": true,
-         "why": "Tin có tư duy phân tích, giao tiếp, công cụ vẽ mô hình và hiểu lĩnh vực bán lẻ. Hai năng lực không được nhắc là Interaction Skills và Behavioural Characteristics."}
+        {
+          "kind": "sort",
+          "q": "1) Mỗi việc trong tin tuyển dụng ứng với công việc nào trong 10 công việc của IT BA?",
+          "bins": [
+            "Thu thập, khảo sát yêu cầu nghiệp vụ",
+            "Hỗ trợ đội dự án",
+            "Quản lý yêu cầu thay đổi",
+            "Hướng dẫn sử dụng, hỗ trợ người dùng"
+          ],
+          "items": [
+            {
+              "t": "Làm việc với khách hàng để thu thập và làm rõ yêu cầu",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Phối hợp với dev và tester trong quá trình phát triển",
+              "a": [
+                1
+              ]
+            },
+            {
+              "t": "Tiếp nhận và đánh giá yêu cầu thay đổi",
+              "a": [
+                2
+              ]
+            },
+            {
+              "t": "Đào tạo người dùng khi bàn giao",
+              "a": [
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "q": "2) Dòng \"Viết tài liệu BRD, SRS, vẽ use case, wireframe\" ứng với những công việc nào của IT BA? (chọn tất cả ý đúng)",
+          "options": [
+            "Quản lý tài liệu",
+            "Viết tài liệu nghiệp vụ",
+            "Hỗ trợ đội dự án",
+            "Thiết kế giao diện, hệ thống"
+          ],
+          "answer": [
+            1,
+            3
+          ],
+          "multi": true,
+          "why": "Viết BRD, SRS, use case là viết tài liệu nghiệp vụ; vẽ wireframe là thiết kế giao diện ở mức nghiệp vụ. Quản lý tài liệu là lưu trữ, đặt tên, quản lý phiên bản; hỗ trợ đội dự án là giải đáp cho dev, tester trong lúc làm."
+        },
+        {
+          "kind": "sort",
+          "q": "3) Mỗi yêu cầu ứng viên trong tin ứng với năng lực cốt lõi nào?",
+          "bins": [
+            "Critical and Analytical Thinking",
+            "Business Domain",
+            "Interaction Skills",
+            "Communication Skills",
+            "Tools & Technology",
+            "Behavioural Characteristics"
+          ],
+          "items": [
+            {
+              "t": "Tư duy phân tích tốt",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Giao tiếp tốt",
+              "a": [
+                3
+              ]
+            },
+            {
+              "t": "Biết dùng công cụ vẽ mô hình",
+              "a": [
+                4
+              ]
+            },
+            {
+              "t": "Có hiểu biết lĩnh vực bán lẻ",
+              "a": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "q": "4) Trong 10 công việc của IT BA, những việc nào tin tuyển dụng KHÔNG nhắc rõ? (chọn tất cả ý đúng)",
+          "options": [
+            "Quản lý quan hệ với các Stakeholders",
+            "Viết tài liệu nghiệp vụ",
+            "Hỗ trợ đội dự án",
+            "Quản lý tài liệu",
+            "Quản lý yêu cầu thay đổi",
+            "Quản lý yêu cầu nghiệp vụ (ưu tiên, truy vết)",
+            "Hướng dẫn sử dụng, hỗ trợ người dùng"
+          ],
+          "answer": [
+            0,
+            3,
+            5
+          ],
+          "multi": true,
+          "why": "Tin có nhắc thu thập yêu cầu, viết BRD/SRS, phối hợp với dev và tester, đánh giá yêu cầu thay đổi, đào tạo người dùng. Tin không nhắc rõ quản lý quan hệ Stakeholder, quản lý yêu cầu (ưu tiên, truy vết) và quản lý tài liệu: đó là phần có thể hỏi thêm khi phỏng vấn."
+        },
+        {
+          "kind": "choice",
+          "q": "5) Năng lực cốt lõi nào tin tuyển dụng KHÔNG nhắc? (chọn tất cả ý đúng)",
+          "options": [
+            "Communication Skills",
+            "Interaction Skills",
+            "Tools & Technology",
+            "Business Domain",
+            "Behavioural Characteristics",
+            "Critical and Analytical Thinking"
+          ],
+          "answer": [
+            1,
+            4
+          ],
+          "multi": true,
+          "why": "Tin có tư duy phân tích, giao tiếp, công cụ vẽ mô hình và hiểu lĩnh vực bán lẻ. Hai năng lực không được nhắc là Interaction Skills và Behavioural Characteristics."
+        }
       ]
     },
     "L01-p3": {
       "lead": "Trả lời từng ý khi giải thích knowledge area Elicitation and Collaboration: nghĩa, ví dụ, liên hệ, năng lực, câu tóm tắt.",
       "parts": [
-        {"kind": "choice", "q": "1) Elicitation and Collaboration nghĩa là gì và trả lời câu hỏi nào?",
-         "options": [
-           "Lập kế hoạch và giám sát: BA sẽ làm gì, với ai, theo cách nào",
-           "Đánh giá giải pháp: giải pháp có mang lại giá trị như mong đợi không",
-           "Khai thác thông tin và hợp tác: làm sao lấy được thông tin đúng và đủ từ Stakeholder, và làm sao để họ cùng tham gia",
-           "Quản lý vòng đời yêu cầu: theo dõi, truy vết, phê duyệt yêu cầu thế nào"
-         ],
-         "answer": [2], "multi": false,
-         "why": "Elicitation and Collaboration = khai thác thông tin và hợp tác. Các phương án còn lại là Planning and Monitoring, Solution Evaluation và Requirements Life Cycle Management."},
-        {"kind": "choice", "q": "2) Khi làm app đặt đồ ăn, việc nào là ví dụ của Elicitation and Collaboration? (chọn tất cả ý đúng)",
-         "options": [
-           "Phỏng vấn chủ quán",
-           "Quan sát nhân viên nhận đơn",
-           "Sau 2 tháng, đo số đơn ghi sai để xem app có hiệu quả không",
-           "Họp nhóm với shipper",
-           "Viết đặc tả màn hình giỏ hàng",
-           "Gửi lại biên bản để mọi người xác nhận đã hiểu đúng"
-         ],
-         "answer": [0, 1, 3, 5], "multi": true,
-         "why": "Phỏng vấn, quan sát, họp nhóm và gửi biên bản để xác nhận là lấy thông tin và làm việc cùng các bên. Đo hiệu quả sau triển khai là Solution Evaluation; viết đặc tả màn hình là Requirements Analysis and Design Definition."},
-        {"kind": "sort", "q": "3) Elicitation and Collaboration nối trực tiếp với knowledge area khác qua hai việc dưới đây. Kéo mỗi việc vào đúng knowledge area.",
-         "bins": ["Business Analysis Planning and Monitoring", "Requirements Analysis and Design Definition", "Solution Evaluation", "Requirements Life Cycle Management"],
-         "items": [
-           {"t": "Lên kế hoạch phỏng vấn ai", "a": [0]},
-           {"t": "Phân tích thông tin đã thu được", "a": [1]}
-         ]},
-        {"kind": "choice", "q": "4) Năng lực cốt lõi nào cần nhất cho Elicitation and Collaboration? (chọn tất cả ý đúng)",
-         "options": ["Interaction Skills", "Tools & Technology", "Communication Skills", "Solution Evaluation"],
-         "answer": [0, 2], "multi": true,
-         "why": "Đáp án mẫu nêu Communication Skills (nói, viết, lắng nghe) và Interaction Skills (điều phối họp, làm việc nhóm). Tools & Technology là dùng công cụ, không phải trọng tâm khi hỏi và làm việc cùng Stakeholder; Solution Evaluation là knowledge area, không phải năng lực."},
-        {"kind": "choice", "q": "5) Câu tóm tắt một câu nào đúng tinh thần Elicitation and Collaboration?",
-         "options": [
-           "Muốn phân tích đúng thì chỉ cần ghi đúng lời khách hàng nói.",
-           "Muốn phân tích đúng thì phải hỏi đúng người, đúng cách, và cùng họ xác nhận lại.",
-           "Thu thập thông tin là việc của đội IT, BA chỉ duyệt lại.",
-           "Hỏi càng nhiều người càng tốt, không cần xác nhận lại."
-         ],
-         "answer": [1], "multi": false,
-         "why": "Elicitation là hỏi đúng người, đúng cách; Collaboration là cùng các bên xác nhận lại. BA không chỉ ghi lại lời khách và không bỏ qua bước xác nhận."}
+        {
+          "kind": "choice",
+          "q": "1) Elicitation and Collaboration nghĩa là gì và trả lời câu hỏi nào?",
+          "options": [
+            "Lập kế hoạch và giám sát: BA sẽ làm gì, với ai, theo cách nào",
+            "Đánh giá giải pháp: giải pháp có mang lại giá trị như mong đợi không",
+            "Khai thác thông tin và hợp tác: làm sao lấy được thông tin đúng và đủ từ Stakeholder, và làm sao để họ cùng tham gia",
+            "Quản lý vòng đời yêu cầu: theo dõi, truy vết, phê duyệt yêu cầu thế nào"
+          ],
+          "answer": [
+            2
+          ],
+          "multi": false,
+          "why": "Elicitation and Collaboration = khai thác thông tin và hợp tác. Các phương án còn lại là Planning and Monitoring, Solution Evaluation và Requirements Life Cycle Management."
+        },
+        {
+          "kind": "choice",
+          "q": "2) Khi làm app đặt đồ ăn, việc nào là ví dụ của Elicitation and Collaboration? (chọn tất cả ý đúng)",
+          "options": [
+            "Phỏng vấn chủ quán",
+            "Quan sát nhân viên nhận đơn",
+            "Sau 2 tháng, đo số đơn ghi sai để xem app có hiệu quả không",
+            "Họp nhóm với shipper",
+            "Viết đặc tả màn hình giỏ hàng",
+            "Gửi lại biên bản để mọi người xác nhận đã hiểu đúng"
+          ],
+          "answer": [
+            0,
+            1,
+            3,
+            5
+          ],
+          "multi": true,
+          "why": "Phỏng vấn, quan sát, họp nhóm và gửi biên bản để xác nhận là lấy thông tin và làm việc cùng các bên. Đo hiệu quả sau triển khai là Solution Evaluation; viết đặc tả màn hình là Requirements Analysis and Design Definition."
+        },
+        {
+          "kind": "sort",
+          "q": "3) Elicitation and Collaboration nối trực tiếp với knowledge area khác qua hai việc dưới đây. Kéo mỗi việc vào đúng knowledge area.",
+          "bins": [
+            "Business Analysis Planning and Monitoring",
+            "Requirements Analysis and Design Definition",
+            "Solution Evaluation",
+            "Requirements Life Cycle Management"
+          ],
+          "items": [
+            {
+              "t": "Lên kế hoạch phỏng vấn ai",
+              "a": [
+                0
+              ]
+            },
+            {
+              "t": "Phân tích thông tin đã thu được",
+              "a": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "choice",
+          "q": "4) Năng lực cốt lõi nào cần nhất cho Elicitation and Collaboration? (chọn tất cả ý đúng)",
+          "options": [
+            "Interaction Skills",
+            "Tools & Technology",
+            "Communication Skills",
+            "Solution Evaluation"
+          ],
+          "answer": [
+            0,
+            2
+          ],
+          "multi": true,
+          "why": "Đáp án mẫu nêu Communication Skills (nói, viết, lắng nghe) và Interaction Skills (điều phối họp, làm việc nhóm). Tools & Technology là dùng công cụ, không phải trọng tâm khi hỏi và làm việc cùng Stakeholder; Solution Evaluation là knowledge area, không phải năng lực."
+        },
+        {
+          "kind": "choice",
+          "q": "5) Câu tóm tắt một câu nào đúng tinh thần Elicitation and Collaboration?",
+          "options": [
+            "Muốn phân tích đúng thì chỉ cần ghi đúng lời khách hàng nói.",
+            "Muốn phân tích đúng thì phải hỏi đúng người, đúng cách, và cùng họ xác nhận lại.",
+            "Thu thập thông tin là việc của đội IT, BA chỉ duyệt lại.",
+            "Hỏi càng nhiều người càng tốt, không cần xác nhận lại."
+          ],
+          "answer": [
+            1
+          ],
+          "multi": false,
+          "why": "Elicitation là hỏi đúng người, đúng cách; Collaboration là cùng các bên xác nhận lại. BA không chỉ ghi lại lời khách và không bỏ qua bước xác nhận."
+        }
       ]
     },
     "L01-p4": {
+      "img": [
+        "L01-img6",
+        "L01-img7",
+        "L01-img8"
+      ],
       "lead": "Chọn từng chặng trong lộ trình mẫu của người đang làm tester, muốn sau này quản lý sản phẩm.",
       "parts": [
-        {"kind": "choice", "q": "1) Người đang làm tester vào nghề BA theo lối nào trên sơ đồ \"Driving your B.A. career\"?",
-         "options": [
-           "School – từ bằng Information Technology",
-           "Office – từ vị trí IT Quality Assurance đang làm",
-           "School – từ chứng chỉ Business Analysis",
-           "Office – từ vị trí Business Sales"
-         ],
-         "answer": [1], "multi": false,
-         "why": "Người này đang đi làm tester, tức IT Quality Assurance trên sơ đồ, nên vào từ lối Office. School dành cho người mới tốt nghiệp; Business Sales là vị trí bán hàng."},
-        {"kind": "choice", "q": "2) Trong lộ trình mẫu, chức danh vào nghề đầu tiên của người này là gì?",
-         "options": [
-           "Product Owner",
-           "Senior Functional Analyst (CBAP)",
-           "Functional Analyst",
-           "Director/VP Analytics"
-         ],
-         "answer": [2], "multi": false,
-         "why": "Lộ trình mẫu: IT Quality Assurance → Functional Analyst → Business Analyst. Senior Functional Analyst là mốc trung hạn, Product Owner là hướng dài hạn, Director/VP là cấp giám đốc."},
-        {"kind": "choice", "q": "3) Mốc trung hạn theo sơ đồ \"Make your way to Senior level\" là gì?",
-         "options": [
-           "Senior Functional Analyst (CBAP) rồi Intermediate Functional Analyst (CCBA)",
-           "Intermediate Functional Analyst (CBAP) rồi Senior Functional Analyst (CCBA)",
-           "Product Owner rồi Product Manager",
-           "Intermediate Functional Analyst (CCBA) rồi Senior Functional Analyst (CBAP)"
-         ],
-         "answer": [3], "multi": false,
-         "why": "Intermediate đi trước Senior. CCBA là chứng chỉ mức trung, ghi kèm cấp Intermediate; CBAP là chứng chỉ mức cao cấp, ghi kèm cấp Senior."},
-        {"kind": "choice", "q": "4) Người muốn sau này quản lý sản phẩm chọn nhánh dài hạn nào?",
-         "options": [
-           "Product Management: Product Owner → Product Manager → Product Head",
-           "Project Management: Project Manager, có thể tiến tới Account Manager, Unit Head",
-           "Consulting: Consultant → Principal → Partner",
-           "Business Analysis: Business Analyst, có thể tiến tới Senior BA, Domain BA"
-         ],
-         "answer": [0], "multi": false,
-         "why": "Quản lý sản phẩm là nhánh Product Management trên sơ đồ \"BA Career\": Product Owner → Product Manager → Product Head. Project Management là quản lý dự án, Consulting là tư vấn."},
-        {"kind": "choice", "q": "5) Lợi thế của người từ QA khi chuyển sang BA là gì?",
-         "options": [
-           "Đã có sẵn chứng chỉ CBAP",
-           "Được vào thẳng cấp Senior mà không qua Intermediate",
-           "Quen đọc yêu cầu và tìm chỗ thiếu, nên dễ chuyển sang phân tích yêu cầu",
-           "Không cần bổ sung thêm năng lực nào"
-         ],
-         "answer": [2], "multi": false,
-         "why": "Đáp án mẫu: người từ QA quen đọc yêu cầu và tìm chỗ thiếu. CBAP là chứng chỉ mức cao cấp, lộ trình vẫn đi qua Intermediate, và mỗi chặng đều có năng lực cần bổ sung."}
+        {
+          "kind": "choice",
+          "q": "1) Người đang làm tester vào nghề BA theo lối nào trên sơ đồ \"Driving your B.A. career\"?",
+          "options": [
+            "School – từ bằng Information Technology",
+            "Office – từ vị trí IT Quality Assurance đang làm",
+            "School – từ chứng chỉ Business Analysis",
+            "Office – từ vị trí Business Sales"
+          ],
+          "answer": [
+            1
+          ],
+          "multi": false,
+          "why": "Người này đang đi làm tester, tức IT Quality Assurance trên sơ đồ, nên vào từ lối Office. School dành cho người mới tốt nghiệp; Business Sales là vị trí bán hàng."
+        },
+        {
+          "kind": "choice",
+          "q": "2) Qua \"cửa\" vào nghề trên sơ đồ \"Driving your B.A. career\", người này có thể bắt đầu với chức danh nào?",
+          "options": [
+            "Product Owner",
+            "Senior Functional Analyst (CBAP)",
+            "Functional Analyst",
+            "Director/VP Analytics"
+          ],
+          "answer": [
+            2
+          ],
+          "multi": false,
+          "why": "Functional Analyst là một trong các chức danh vào nghề trên sơ đồ (cùng Systems Analyst, Agile Analyst…). Lộ trình mẫu: IT Quality Assurance → Functional Analyst → Business Analyst. Senior Functional Analyst là mốc trung hạn, Product Owner là hướng dài hạn, Director/VP là cấp giám đốc."
+        },
+        {
+          "kind": "choice",
+          "q": "3) Mốc trung hạn theo sơ đồ \"Make your way to Senior level\" là gì?",
+          "options": [
+            "Senior Functional Analyst (CBAP) rồi Intermediate Functional Analyst (CCBA)",
+            "Intermediate Functional Analyst (CBAP) rồi Senior Functional Analyst (CCBA)",
+            "Product Owner rồi Product Manager",
+            "Intermediate Functional Analyst (CCBA) rồi Senior Functional Analyst (CBAP)"
+          ],
+          "answer": [
+            3
+          ],
+          "multi": false,
+          "why": "Intermediate đi trước Senior. CCBA là chứng chỉ mức trung, ghi kèm cấp Intermediate; CBAP là chứng chỉ mức cao cấp, ghi kèm cấp Senior."
+        },
+        {
+          "kind": "choice",
+          "q": "4) Người muốn sau này quản lý sản phẩm chọn nhánh dài hạn nào?",
+          "options": [
+            "Product Management: Product Owner → Product Manager → Product Head",
+            "Project Management: Project Manager, có thể tiến tới Account Manager, Unit Head",
+            "Consulting: Consultant → Principal → Partner",
+            "Business Analysis: Business Analyst, có thể tiến tới Senior BA, Domain BA"
+          ],
+          "answer": [
+            0
+          ],
+          "multi": false,
+          "why": "Quản lý sản phẩm là nhánh Product Management trên sơ đồ \"BA Career\": Product Owner → Product Manager → Product Head. Project Management là quản lý dự án, Consulting là tư vấn."
+        },
+        {
+          "kind": "choice",
+          "q": "5) Lợi thế của người từ QA khi chuyển sang BA là gì?",
+          "options": [
+            "Đã có sẵn chứng chỉ CBAP",
+            "Được vào thẳng cấp Senior mà không qua Intermediate",
+            "Quen đọc yêu cầu và tìm chỗ thiếu, nên dễ chuyển sang phân tích yêu cầu",
+            "Không cần bổ sung thêm năng lực nào"
+          ],
+          "answer": [
+            2
+          ],
+          "multi": false,
+          "why": "Đáp án mẫu: người từ QA quen đọc yêu cầu và tìm chỗ thiếu. CBAP là chứng chỉ mức cao cấp, lộ trình vẫn đi qua Intermediate, và mỗi chặng đều có năng lực cần bổ sung."
+        }
       ]
     }
   }

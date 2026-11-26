@@ -25,7 +25,7 @@
          "options": ["Tài liệu nghiệp vụ", "Tài liệu pháp lý", "Báo cáo vận hành", "Tài liệu hệ thống"],
          "answer": [1, 3], "multi": true,
          "why": "10 tài liệu nghiệp vụ (6 quy định/quy trình + 4 phiếu) và 3 báo cáo vận hành. Không có BRD, SRS, DB nào, cũng không có văn bản luật."},
-        {"kind": "choice", "q": "3) Hai loại còn trống cho BA biết gì? (chọn tất cả ý đúng)",
+        {"kind": "choice", "q": "3) Các loại còn trống ở câu 2 cho BA biết gì? (chọn tất cả ý đúng)",
          "options": [
            "Tài liệu nghiệp vụ đã đủ nên BA không cần phỏng vấn ai nữa",
            "SolasMart chưa có phần mềm quản lý, khớp câu \"Vì chưa có hệ thống\" trong quy trình bán online",
@@ -39,7 +39,7 @@
     "L09-x2": {
       "lead": "Lập bảng actor bằng kéo thả: xếp actor theo quy trình, rồi ghép việc chính với actor.",
       "parts": [
-        {"kind": "sort", "q": "1) Mỗi actor xuất hiện ở quy trình nào?",
+        {"kind": "sort", "q": "1) Tóm tắt ba quy trình của SolasMart:\n• Tại quầy: Khách hàng đưa hàng lên quầy, chọn phương thức thanh toán. Thu ngân quét mã, thu tiền, in hóa đơn. Nhân viên hỗ trợ quầy đổi sản phẩm thiếu tem, cân hàng; không còn sản phẩm thay thì trao đổi với bộ phận kho. Trưởng ca xác nhận giá khi POS hiện sai giá. Ngân hàng xác nhận giao dịch chuyển khoản.\n• Online: Khách hàng gửi yêu cầu, nhận hàng. CSKH nhận đơn, kiểm tồn, báo giá, nhập Excel, chuyển đơn cho kho. Nhân viên kho soạn hàng. Nhân viên giao hàng giao, thu COD. Cuối ngày Kế toán đối soát COD; Trưởng ca / Quản lý kiểm tra đơn hoàn, hủy, giao lỗi.\n• Nhập kho: Nhà cung cấp chở hàng tới, đưa hóa đơn và phiếu giao hàng. Nhân viên kho kiểm chứng từ, kiểm hàng, lập phiếu nhập. Kế toán xử lý chứng từ không khớp, chênh lệch số lượng. Quản lý kho ký phiếu nhập.\nMỗi actor xuất hiện ở quy trình nào?",
          "bins": ["Chỉ Tại quầy", "Chỉ Online", "Chỉ Nhập kho", "Tại quầy + Online", "Online + Nhập kho", "Cả ba quy trình"],
          "items": [
            {"t": "Khách hàng", "a": [3]},
@@ -54,7 +54,7 @@
            {"t": "Nhà cung cấp (NCC)", "a": [2]},
            {"t": "Ngân hàng", "a": [0], "why": "Được nhắc trong bước thu tiền chuyển khoản dù không có trong mục \"Các bên tham gia\"."}
          ]},
-        {"kind": "sort", "q": "2) Quy trình bán tại quầy: việc này do ai làm?",
+        {"kind": "sort", "q": "2) Theo tóm tắt ở câu 1, trong quy trình bán tại quầy việc này do ai làm?",
          "bins": ["Khách hàng", "Thu ngân", "Nhân viên hỗ trợ quầy", "Trưởng ca / Quản lý quầy", "Ngân hàng"],
          "items": [
            {"t": "Mua hàng, chọn phương thức thanh toán", "a": [0]},
@@ -63,7 +63,7 @@
            {"t": "Xác nhận giá khi POS hiện sai giá", "a": [3]},
            {"t": "Xác nhận giao dịch chuyển khoản", "a": [4]}
          ]},
-        {"kind": "sort", "q": "3) Quy trình online và nhập kho: việc này do ai làm?",
+        {"kind": "sort", "q": "3) Theo tóm tắt ở câu 1, trong quy trình online và nhập kho việc này do ai làm?",
          "bins": ["Khách hàng", "Nhân viên CSKH", "Nhân viên kho", "Nhân viên giao hàng", "Kế toán", "Quản lý kho", "Nhà cung cấp (NCC)", "Trưởng ca / Quản lý quầy"],
          "items": [
            {"t": "Gửi yêu cầu đặt hàng, nhận hàng", "a": [0]},
@@ -80,7 +80,7 @@
       ]
     },
     "L09-x3": {
-      "lead": "Chọn quy tắc kiểm được, ghép con số với quy tắc, rồi chỉ ra chỗ trùng và chỗ mâu thuẫn.",
+      "lead": "Chọn quy tắc kiểm được, đọc đoạn trích để ghép con số, chỉ ra chỗ trùng và chỗ mâu thuẫn, rồi xếp các mức xử lý vi phạm.",
       "parts": [
         {"kind": "choice", "q": "1) Câu nào là quy tắc nghiệp vụ kiểm được (có con số, điều kiện hoặc \"phải/không được\")? (chọn tất cả ý đúng)",
          "options": [
@@ -88,13 +88,13 @@
            "Nhân viên cần có thái độ làm việc tốt.",
            "Chỉ xuất hàng khi có Phiếu xuất kho hợp lệ và được phê duyệt.",
            "Kho nên được giữ gọn gàng, ngăn nắp.",
-           "Hàng nhập trước xuất trước.",
+           "Hàng nhập trước phải được xuất trước.",
            "Tiền thừa/thiếu cuối ca phải lập biên bản xác nhận.",
            "Thu ngân làm việc cẩn thận, nhanh nhẹn."
          ],
          "answer": [0, 2, 4, 5], "multi": true,
          "why": "Quy tắc kiểm được thì đọc xong có thể kiểm đúng/sai. \"Thái độ tốt\", \"gọn gàng\", \"cẩn thận\" không có con số hay điều kiện nên không kiểm được."},
-        {"kind": "sort", "q": "2) Ghép mỗi quy tắc với con số đúng trong các quy định.",
+        {"kind": "sort", "q": "2) Đoạn trích ba quy định của SolasMart:\n• Quy định vận hành: Nhân viên phải có mặt trước giờ làm 15 phút. Không để kệ trống quá 20% diện tích. Vi phạm: nhắc nhở lần 1 → lập biên bản lần 2 → kỷ luật tùy mức độ.\n• Quy định nhân sự: Có mặt trước ca 15 phút để nhận bàn giao. Nghỉ phép báo trước ít nhất 3 ngày; nghỉ cá nhân báo trước 1 ngày; ốm đột xuất báo quản lý trước 2 tiếng. Nghỉ việc: thử việc báo trước 3 ngày, chính thức báo trước 30 ngày. Vi phạm xử lý theo 4 mức.\n• Quy định kho: Có mặt trước giờ làm 15 phút. Kiểm kê xong, báo cáo chênh lệch trong vòng 24h. Chứng từ lưu theo tháng, tối thiểu 12 tháng. Sắp xếp hàng sai: lần 1 nhắc nhở, lần 2 cảnh cáo, lần 3 chấm dứt hợp đồng.\nGhép mỗi quy tắc với con số đúng.",
          "bins": ["15 phút", "20%", "1 ngày", "3 ngày", "30 ngày", "2 tiếng", "24 giờ", "12 tháng"],
          "items": [
            {"t": "Có mặt trước giờ làm …", "a": [0]},
@@ -107,7 +107,7 @@
            {"t": "Kiểm kê xong, báo chênh lệch trong …", "a": [6]},
            {"t": "Chứng từ kho lưu theo tháng, tối thiểu …", "a": [7]}
          ]},
-        {"kind": "choice", "q": "3) Chỗ nào là trùng lặp nhất quán giữa ba quy định?",
+        {"kind": "choice", "q": "3) Theo đoạn trích ở câu 2, chỗ nào là trùng lặp nhất quán giữa ba quy định?",
          "options": [
            "Mức xử lý vi phạm giống nhau ở cả ba quy định",
            "Nghỉ việc báo trước 30 ngày cho cả thử việc và chính thức",
@@ -115,7 +115,7 @@
          ],
          "answer": [2], "multi": false,
          "why": "Giờ có mặt trước ca lặp lại ở cả ba quy định với cùng con số 15 phút. Mức xử lý vi phạm thì khác nhau; thử việc chỉ báo trước 3 ngày."},
-        {"kind": "choice", "q": "4) Chỗ nào là mâu thuẫn giữa các quy định?",
+        {"kind": "choice", "q": "4) Theo đoạn trích ở câu 2, chỗ nào là mâu thuẫn giữa các quy định?",
          "options": [
            "Mức xử lý vi phạm: Quy định vận hành 3 mức, Quy định nhân sự 4 mức, Quy định kho cho lỗi sắp xếp hàng lần 3 đã chấm dứt hợp đồng",
            "Giờ có mặt trước ca mỗi quy định ghi một con số khác nhau",
@@ -139,15 +139,15 @@
     "L09-x4": {
       "lead": "Xếp 4 tài liệu theo kết quả kiểm số, chỉ ra chỗ lệch, rồi chọn câu hỏi gửi stakeholder.",
       "parts": [
-        {"kind": "sort", "q": "1) Kiểm cộng trừ xong, mỗi tài liệu thuộc nhóm nào?",
+        {"kind": "sort", "q": "1) Số liệu trong bốn tài liệu:\n• Báo cáo cuối ca tại quầy: tiền mặt 85 đơn / 42.500.000; thẻ 35 / 21.800.000; QR 12 / 9.200.000; tổng 132 đơn / 73.500.000. Tiền mặt thu 42.500.000 + ứng đầu ca 2.000.000, tiền cuối ca 44.500.000, chênh lệch 0.\n• Báo cáo cuối ca online: hoàn tất 48 / 32.400.000; đang giao 10 / 6.800.000; hủy 5 / 3.200.000; chờ xác nhận 3 / 1.500.000; tổng 66 đơn / 43.900.000. Phí ship khách trả 3.800.000, chi shipper 3.200.000, chênh lệch +600.000.\n• Phiếu kiểm kê kho: thịt gà tồn hệ thống 1.000 túi, thực tế 900, chênh lệch giảm 100, lý do \"Nguyên vẹn\".\n• Phiếu hủy hàng: dòng 1 thịt gà 1.000 túi, ghi 9.000.000; dòng 2 cá trắm 1.500 túi, ghi 75.000.000; tổng ghi 165.000.000. Giá nhập trên phiếu nhập kho: thịt gà 90.000, cá trắm 50.000.\nKiểm cộng trừ xong, mỗi tài liệu thuộc nhóm nào?",
          "bins": ["Khớp", "Số khớp nhưng lý do sai", "Số bị lệch"],
          "items": [
            {"t": "Báo cáo cuối ca tại quầy", "a": [0], "why": "85 + 35 + 12 = 132 đơn; 42.500.000 + 21.800.000 + 9.200.000 = 73.500.000; tiền mặt 42.500.000 + ứng đầu ca 2.000.000 = 44.500.000, chênh lệch 0."},
            {"t": "Báo cáo cuối ca online", "a": [0], "why": "48 + 10 + 5 + 3 = 66 đơn; tổng 43.900.000; phí ship 3.800.000 − 3.200.000 = +600.000."},
            {"t": "Phiếu kiểm kê kho", "a": [1], "why": "1.000 − 900 = 100 (giảm 100) nhưng cột lý do ghi \"Nguyên vẹn\"."},
-           {"t": "Phiếu hủy hàng", "a": [2], "why": "Dòng 1 và dòng tổng ghi sai giá trị."}
+           {"t": "Phiếu hủy hàng", "a": [2], "why": "Dòng 1 phải là 1.000 × 90.000 = 90.000.000 nhưng ghi 9.000.000, nên tổng 165.000.000 không khớp hai dòng đang ghi (84.000.000)."}
          ]},
-        {"kind": "choice", "q": "2) Phiếu hủy hàng lệch ở đâu? (chọn tất cả ý đúng)",
+        {"kind": "choice", "q": "2) Dùng số liệu ở câu 1: Phiếu hủy hàng lệch ở đâu? (chọn tất cả ý đúng)",
          "options": [
            "Dòng 2 ghi sai giá trị hủy",
            "Dòng 1: 1.000 × 90.000 = 90.000.000 nhưng phiếu ghi 9.000.000",
@@ -156,7 +156,7 @@
          ],
          "answer": [1, 2], "multi": true,
          "why": "Lấy số lượng × giá nhập trên phiếu nhập kho: dòng 1 phải là 90.000.000. Nếu sửa dòng 1 thì tổng mới ra 165.000.000, tức dòng 2 không sai."},
-        {"kind": "choice", "q": "3) Phiếu kiểm kê kho có vấn đề gì?",
+        {"kind": "choice", "q": "3) Dùng số liệu ở câu 1: Phiếu kiểm kê kho có vấn đề gì?",
          "options": [
            "Phép trừ 1.000 − 900 tính sai",
            "Chênh lệch giảm 100 nhưng cột lý do ghi \"Nguyên vẹn\"",
@@ -175,7 +175,7 @@
          ],
          "answer": [0, 2, 4], "multi": true,
          "why": "Mỗi chỗ lệch cần một câu hỏi làm rõ. Báo cáo tại quầy và phí ship online đã khớp nên không phải chỗ lệch. BA không tự sửa tài liệu mà hỏi bên liên quan."},
-        {"kind": "choice", "q": "5) Hai báo cáo cuối ca đều khớp số. Điều gì vẫn cần để ý?",
+        {"kind": "choice", "q": "5) Phần thông tin chung của hai báo cáo cuối ca:\n• Tại quầy: 02/02/2025, Ca 2 (14h–22h), Thu ngân: Nguyễn Thu Hà, Nguyễn Thị Ngân.\n• Online: 02/02/2025, Ca 2 (14h–22h), Nhân viên chăm sóc khách hàng: Nguyễn Thu Hà, Nguyễn Thị Ngân.\nSố liệu hai báo cáo đều khớp. Điều gì vẫn cần để ý?",
          "options": [
            "Không còn gì, số đã khớp thì báo cáo đúng",
            "Số đơn hai báo cáo phải bằng nhau nhưng lại khác nhau",
@@ -188,7 +188,7 @@
     "L09-x5": {
       "lead": "Dựng hồ sơ phát hiện bằng cách chọn và kéo thả thay vì viết.",
       "parts": [
-        {"kind": "choice", "q": "1) Ý nào đưa vào tóm tắt As-is cho Ban Giám đốc? (chọn tất cả ý đúng)",
+        {"kind": "choice", "q": "1) Ý nào đưa vào tóm tắt hiện trạng As-is (≤ 5 ý) cho Ban Giám đốc? (chọn tất cả ý đúng)",
          "options": [
            "Bán tại quầy dùng máy POS, thanh toán tiền mặt, thẻ, chuyển khoản/QR.",
            "Nên mua ngay một phần mềm ERP để thay Excel.",
@@ -214,7 +214,7 @@
            {"t": "Không cho xuất kho khi phiếu xuất chưa được phê duyệt", "a": [1]},
            {"t": "Ghi nhận và báo cáo chênh lệch kiểm kê trong 24h", "a": [1]}
          ]},
-        {"kind": "sort", "q": "3) Trích nguồn: mỗi phát hiện lấy từ tài liệu nào?",
+        {"kind": "sort", "q": "3) Nội dung chính của từng tài liệu:\n• Quy trình bán hàng trực tuyến: nhận đơn, kiểm tồn, báo giá, nhập Excel, chuyển kho, giao hàng.\n• Phiếu hủy hàng, Excel kho: số liệu hủy, nhập, xuất của kho.\n• Quy định quản lý kho: nhập, xuất, kiểm kê, hủy hàng, lưu chứng từ.\n• Quy định vận hành: giờ làm, tác phong, tiền két và tài khoản thu ngân, bảo mật, sự cố.\n• Quy định quản lý nhân sự: tuyển dụng, chấm công, nghỉ phép, nghỉ việc, kỷ luật.\nTrích nguồn: mỗi phát hiện lấy từ tài liệu nào?",
          "bins": ["Quy trình bán hàng trực tuyến", "Phiếu hủy hàng, Excel kho", "Quy định quản lý kho", "Quy định vận hành", "Quy định quản lý nhân sự"],
          "items": [
            {"t": "Kiểm tồn kho thủ công, kho trả lời chậm", "a": [0], "why": "Bước 2."},
@@ -231,27 +231,27 @@
          "bins": ["Trưởng ca / Quản lý quầy", "Quản lý kho", "Kế toán", "Nhân sự", "CSKH"],
          "items": [
            {"t": "Bước 8 \"Kết thúc phiên giao dịch\" gồm việc gì?", "a": [0]},
-           {"t": "Tồn kho được trừ khi nào khi bán tại quầy?", "a": [0]},
+           {"t": "Tồn kho được trừ khi nào khi bán tại quầy?", "a": [0, 1], "why": "Lỗ hổng của quy trình bán tại quầy, hỏi Trưởng ca; Quản lý kho cũng trả lời được."},
            {"t": "Ai duyệt hủy hóa đơn?", "a": [0]},
            {"t": "Mẫu phiếu năm 2020 còn dùng không?", "a": [1]},
            {"t": "\"Gần hết hạn\" là bao nhiêu ngày?", "a": [1]},
            {"t": "Thủ kho và Quản lý kho là một hay hai người?", "a": [1]},
-           {"t": "Hủy hàng ghi bằng phiếu hủy hay phiếu xuất?", "a": [1]},
+           {"t": "Hủy hàng ghi bằng phiếu hủy hay phiếu xuất?", "a": [1, 2], "why": "Cách ghi chứng từ kho: Quản lý kho hoặc Kế toán đều trả lời được."},
            {"t": "Giá trị hủy tính theo giá nào?", "a": [2]},
-           {"t": "Quy tắc đánh mã chứng từ nào là chuẩn?", "a": [2]},
+           {"t": "Quy tắc đánh mã chứng từ nào là chuẩn?", "a": [2, 1], "why": "Mã chứng từ kho dùng chung cho kho và kế toán, hỏi bên nào cũng được."},
            {"t": "Có cần ô số PO trên phiếu nhập không?", "a": [2]},
            {"t": "Áp dụng mức xử lý vi phạm 3 mức hay 4 mức?", "a": [3]},
-           {"t": "Hai nhân viên ca 2 có kiêm cả thu ngân không?", "a": [4]}
+           {"t": "Hai báo cáo cuối ca ca 2 ghi cùng hai người, bản là thu ngân, bản là CSKH: họ kiêm cả hai việc hay điền nhầm?", "a": [4, 0], "why": "Hỏi chính nhân viên CSKH hoặc Trưởng ca đều được."}
          ]}
       ]
     },
     "L09-p1": {
       "lead": "Trả lời 5 ý của đề: actor, các bước, quy tắc và dữ liệu, vấn đề, câu hỏi cần làm rõ.",
       "parts": [
-        {"kind": "choice", "q": "1) Actor: bên nào tham gia quy trình bán tại quầy nhưng KHÔNG có trong mục \"Các bên tham gia\"? (chọn tất cả ý đúng)",
-         "options": ["Bộ phận kho", "Thu ngân", "Ngân hàng", "Trưởng ca / Quản lý quầy", "Hệ thống POS", "Nhân viên hỗ trợ quầy"],
+        {"kind": "choice", "q": "1) Mục \"Các bên tham gia\" của tài liệu ghi: Khách hàng, Thu ngân, Nhân viên hỗ trợ quầy, Trưởng ca/Quản lý quầy. Trong các bước có những câu: \"Hàng thiếu tem giá: Thu ngân gọi nhân viên hỗ trợ đi đổi sản phẩm tương ứng, nếu không còn sản phẩm khác thì trao đổi với bộ phận kho để kiểm tra giá\"; \"POS hiển thị: tên hàng, giá, số lượng, khuyến mãi\"; \"Nếu thanh toán chuyển khoản: thu ngân nhập số tiền, khách quét QR, chờ xác nhận từ ngân hàng\".\nActor: bên nào tham gia quy trình nhưng KHÔNG có trong mục \"Các bên tham gia\"? (chọn tất cả ý đúng)",
+         "options": ["Bộ phận kho", "Thu ngân", "Ngân hàng", "Trưởng ca / Quản lý quầy", "Hệ thống POS", "Nhân viên hỗ trợ quầy", "Nhân viên giao hàng"],
          "answer": [0, 2, 4], "multi": true,
-         "why": "Mục \"Các bên tham gia\" chỉ ghi Khách hàng, Thu ngân, Nhân viên hỗ trợ quầy, Trưởng ca/Quản lý quầy. Đọc trong các bước mới thấy bộ phận kho (Bước 1: kiểm tra giá), ngân hàng (Bước 6.3: xác nhận chuyển khoản) và hệ thống POS."},
+         "why": "Mục \"Các bên tham gia\" chỉ ghi Khách hàng, Thu ngân, Nhân viên hỗ trợ quầy, Trưởng ca/Quản lý quầy. Đọc trong các bước mới thấy bộ phận kho (Bước 1: kiểm tra giá), ngân hàng (Bước 6.3: xác nhận chuyển khoản) và hệ thống POS. Nhân viên giao hàng chỉ có ở quy trình bán online."},
         {"kind": "order", "q": "2) Các bước chính: xếp 8 bước của quy trình bán hàng tại quầy theo đúng trình tự trong tài liệu.",
          "items": ["Đưa hàng lên quầy", "Bắt đầu phiên (Start Transaction)", "Quét mã", "Xác nhận giỏ hàng", "Chọn phương thức thanh toán", "Thu tiền và xác nhận", "In hóa đơn, giao hàng", "Kết thúc phiên"],
          "why": "Đây là 8 bước của quy trình nghiệp vụ trong tài liệu. Phần \"Trường hợp ngoại lệ\" của từng bước được tách ra cột riêng, không tính là bước."},
@@ -269,11 +269,11 @@
            {"t": "Thanh toán được kết hợp tiền mặt, thẻ, chuyển khoản", "a": [0]},
            {"t": "Phương thức thanh toán đã chọn", "a": [1]}
          ]},
-        {"kind": "choice", "q": "4) Vấn đề: so các bước với 4 mục đích của quy trình, mục đích nào không có bước nào đáp ứng?",
+        {"kind": "choice", "q": "4) Vấn đề: tài liệu nêu 4 mục đích (các phương án dưới đây). So 8 bước ở câu 2 với 4 mục đích này, mục đích nào không có bước nào đáp ứng?",
          "options": ["Tính tiền chính xác, nhanh", "Giảm thời gian chờ", "Kiểm soát tồn kho", "Thu chi minh bạch"],
          "answer": [2], "multi": false,
          "why": "Không bước nào nói tới việc trừ tồn kho, nên mục đích \"kiểm soát tồn kho\" chưa được đáp ứng. Đây là vấn đề cần hỏi lại Trưởng ca."},
-        {"kind": "choice", "q": "5) Câu hỏi nào cần ghi vào danh sách làm rõ với Trưởng ca? (chọn tất cả ý đúng)",
+        {"kind": "choice", "q": "5) Một số câu trong tài liệu: Bước 3 \"Barcode không đọc được: Nhập mã tay\", \"Barcode sai giá: Gọi trưởng ca để xác nhận giá\"; Bước 5 \"Tiền mặt; Thẻ Visa/Master; Chuyển khoản; Kết hợp\", \"Khách không đủ tiền mặt: Hủy giao dịch hoặc đổi phương thức thanh toán\"; Bước 8 \"Kết thúc phiên giao dịch\" chỉ có tên, không có mô tả.\nCâu hỏi nào cần ghi vào danh sách làm rõ với Trưởng ca? (chọn tất cả ý đúng)",
          "options": [
            "Khách thanh toán được bằng những phương thức nào?",
            "Bước 8 \"Kết thúc phiên\" làm gì?",
@@ -320,7 +320,7 @@
            {"t": "Khách không nghe máy: sau 15 phút hàng quay về kho", "a": [5], "why": "Bước 8."},
            {"t": "Kế toán đối soát COD cuối ngày", "a": [6], "why": "Bước 10."}
          ]},
-        {"kind": "choice", "q": "3) Báo cáo cuối ca online (66 đơn: 48 hoàn tất, 10 đang giao, 5 hủy, 3 chờ xác nhận; kèm sự cố) cho thấy hiện trạng đang theo dõi gì?",
+        {"kind": "choice", "q": "3) Báo cáo cuối ca online gồm: số đơn theo trạng thái (66 đơn: 48 hoàn tất, 10 đang giao, 5 hủy, 3 chờ xác nhận); phí ship (khách trả 3.800.000, chi shipper 3.200.000); sự cố (khách đổi ý 2, hàng hết 1, không liên lạc được 1, sai địa chỉ 1). Báo cáo này cho thấy hiện trạng đang theo dõi gì?",
          "options": ["Chấm công và ca làm của nhân viên CSKH", "Tồn kho từng kệ tại quầy", "Trạng thái đơn và phí ship"],
          "answer": [2], "multi": false,
          "why": "Báo cáo đếm đơn theo trạng thái và ghi phí ship, nên hệ thống tương lai cần quản lý vòng đời trạng thái đơn và tự sinh báo cáo này."},
@@ -345,7 +345,7 @@
     "L09-p3": {
       "lead": "Ghép bằng chứng với biểu mẫu, xếp mỗi quy tắc vào Khớp hay Lệch, rồi chọn chỗ thiếu, chỗ lệch và câu hỏi cần làm rõ.",
       "parts": [
-        {"kind": "sort", "q": "1) Trường hoặc chữ ký này nằm trên biểu mẫu nào (biểu mẫu chứng minh quy tắc tương ứng)?",
+        {"kind": "sort", "q": "1) Mỗi trường hoặc chữ ký dưới đây nằm trên phiếu kho nào? Trong ngoặc ở mỗi nhóm là quy tắc mà phiếu đó phải chứng minh.",
          "bins": ["Phiếu nhập kho (nhập phải có chứng từ NCC)", "Phiếu xuất kho (chỉ xuất khi có phiếu hợp lệ, có phê duyệt)", "Phiếu kiểm kê kho (có thủ kho + kế toán; báo chênh lệch)", "Phiếu hủy hàng (hủy phải có đề nghị, biên bản, ảnh)"],
          "items": [
            {"t": "Ô \"Số chứng từ NCC\"", "a": [0]},
@@ -357,7 +357,7 @@
            {"t": "Ô Lý do, Giá trị hủy", "a": [3]},
            {"t": "Chữ ký Người đề nghị", "a": [3]}
          ]},
-        {"kind": "sort", "q": "2) Đối chiếu xong, mỗi quy tắc cho kết quả Khớp hay Lệch?",
+        {"kind": "sort", "q": "2) Đọc kỹ các phiếu và file Excel kho, BA ghi được:\n• Phiếu nhập kho: có đủ ô chứng từ NCC và chữ ký; không có ô số PO, dù quy trình nhập kho có bước đối chiếu PO.\n• Phiếu xuất kho: có đủ ô yêu cầu và chữ ký phê duyệt; ghi chú \"Nhận đủ\" nhưng không có chữ ký người nhận.\n• Phiếu kiểm kê: chữ ký Quản lý kho và Kế toán; dòng thịt gà chênh lệch giảm 100, lý do ghi \"Nguyên vẹn\".\n• Phiếu hủy hàng: có lý do, giá trị hủy, chữ ký Người đề nghị, Thủ kho, Kế toán; tổng giá trị hủy cộng sai; không có ô ảnh hay biên bản. Excel lại ghi hủy bằng phiếu xuất PXK-0003 \"Xuất hủy\".\n• Mã chứng từ: phiếu giấy NK20201020-1, XK20201020-1; Excel PNK-0001, PXK-0001.\n• Excel ghi chú ngày nhập theo dd/mm/yyyy nhưng ô ngày ghi 2025-02-01.\nVới mỗi quy tắc, kết quả đối chiếu là Khớp hay Lệch?",
          "bins": ["Khớp", "Lệch"],
          "items": [
            {"t": "Nhập hàng phải có phiếu nhập/chứng từ NCC", "a": [0], "why": "Khớp, nhưng phiếu thiếu ô số PO dù quy trình có đối chiếu PO."},
@@ -367,7 +367,7 @@
            {"t": "Mã chứng từ thống nhất", "a": [1], "why": "Docx: NK20201020-1, XK20201020-1; Excel: PNK-0001, PXK-0001."},
            {"t": "Ngày nhập ghi dd/mm/yyyy (ghi chú trong Excel)", "a": [1], "why": "Excel ghi 2025-02-01, phiếu ghi 20-10-2020."}
          ]},
-        {"kind": "choice", "q": "3) Hai quy tắc nhập và xuất đều Khớp. Biểu mẫu vẫn còn thiếu gì? (chọn tất cả ý đúng)",
+        {"kind": "choice", "q": "3) Theo ghi nhận ở câu 2, phiếu nhập kho và phiếu xuất kho còn thiếu gì? (chọn tất cả ý đúng)",
          "options": [
            "Phiếu nhập kho không có ô \"Số chứng từ NCC\"",
            "Phiếu nhập kho thiếu ô số PO dù quy trình nhập kho có đối chiếu PO",
@@ -376,7 +376,7 @@
          ],
          "answer": [1, 3], "multi": true,
          "why": "Phiếu nhập có ô Số chứng từ NCC và phiếu xuất có chữ ký Quản lý siêu thị. Cái thiếu là ô số PO trên phiếu nhập và chữ ký người nhận trên phiếu xuất."},
-        {"kind": "choice", "q": "4) Quy tắc hủy hàng bị Lệch ở những điểm nào? (chọn tất cả ý đúng)",
+        {"kind": "choice", "q": "4) Theo ghi nhận ở câu 2, quy tắc hủy hàng bị lệch ở những điểm nào? (chọn tất cả ý đúng)",
          "options": [
            "Hủy được ghi nhận hai cách: phiếu hủy hàng và phiếu xuất PXK-0003 \"Xuất hủy\" trong Excel",
            "Phiếu hủy hàng không ghi lý do hủy",

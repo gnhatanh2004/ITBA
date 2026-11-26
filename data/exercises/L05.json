@@ -70,12 +70,12 @@
            {"t": "4. Cần hiểu quy trình xử lý khiếu nại liên quan đến dữ liệu cá nhân khách hàng.", "a": [3], "why": "Chủ đề nhạy cảm, riêng tư."},
            {"t": "5. Chủ cửa hàng bận, nhưng có sẵn bộ quy định bán hàng bằng văn bản.", "a": [4], "why": "Đọc tài liệu trước, sau đó call ngắn để xác nhận, vì stakeholder không có thời gian."}
          ]},
-        {"kind": "choice", "q": "Vì sao tình huống 4 không chọn Workshop hay Observation?",
+        {"kind": "choice", "q": "Đặc điểm nào của tình huống 4 quyết định kỹ thuật chính nên chọn?",
          "options": [
-           "Vì quy trình khiếu nại quá đơn giản",
-           "Vì có quá nhiều người liên quan",
-           "Vì không có tài liệu nào về quy trình",
-           "Vì chủ đề nhạy cảm, riêng tư (dữ liệu cá nhân khách hàng), cả hai kỹ thuật đều không phù hợp"
+           "Quy trình khiếu nại quá đơn giản, hỏi nhanh là xong",
+           "Có quá nhiều người liên quan cần lấy ý kiến",
+           "Không có tài liệu nào về quy trình",
+           "Chủ đề nhạy cảm, riêng tư (dữ liệu cá nhân khách hàng), nên không hợp để bàn trong nhóm hay đứng quan sát"
          ],
          "answer": [3], "multi": false,
          "why": "Workshop không nên dùng với chủ đề nhạy cảm cá nhân; Observation không phù hợp khi công việc mang tính nhạy cảm. Interview nói riêng nên phù hợp hơn."}
@@ -123,7 +123,7 @@
       ]
     },
     "L05-x5": {
-      "lead": "Chọn câu hỏi định lượng đúng, rồi sắp chuỗi hỏi \"tại sao\" cho từng câu nói của stakeholder.",
+      "lead": "Với từng câu nói của stakeholder, chọn câu hỏi định lượng rồi chọn cách hỏi \"tại sao\" tiếp cho đúng mạch.",
       "parts": [
         {"kind": "choice", "q": "1) Stakeholder nói: \"Ứng dụng đặt món chậm quá.\" Câu hỏi nào chuyển sang định lượng?",
          "options": [
@@ -134,10 +134,16 @@
          ],
          "answer": [2], "multi": false,
          "why": "Định lượng là hỏi bao lâu, bao nhiêu, khi nào. \"Chậm nhiều không\" vẫn không đo được; câu nâng cấp máy chủ là gợi ý sẵn giải pháp."},
-        {"kind": "order", "q": "2) Sắp chuỗi hỏi \"tại sao\" cho câu \"Ứng dụng đặt món chậm quá\" theo đúng mạch hỏi – đáp.",
-         "items": ["Tại sao anh thấy chậm?", "Vì phải chờ xác nhận lâu.", "Tại sao phải chờ?", "Vì nhà hàng xác nhận đơn bằng tay."],
-         "why": "Mỗi câu \"tại sao\" hỏi tiếp vào câu trả lời ngay trước, không đổi chủ đề. Đây là ví dụ; thực tế phải dựa trên câu trả lời thật của stakeholder."},
-        {"kind": "choice", "q": "3) Chuỗi hỏi: \"Tại sao anh thấy chậm?\" → \"Vì phải chờ xác nhận lâu.\" → \"Tại sao phải chờ?\" → \"Vì nhà hàng xác nhận đơn bằng tay.\"\nGốc rễ của \"chậm\" là gì?",
+        {"kind": "choice", "q": "2) BA hỏi: \"Tại sao anh thấy chậm?\". Stakeholder đáp: \"Vì phải chờ xác nhận lâu.\" Câu \"tại sao\" tiếp theo nên là gì?",
+         "options": [
+           "Anh có muốn thêm nút xác nhận tự động không?",
+           "Tại sao phải chờ?",
+           "Tại sao anh không dùng ứng dụng khác?",
+           "Ứng dụng có hay bị lỗi đăng nhập không?"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Câu \"tại sao\" phải hỏi tiếp vào câu trả lời ngay trước (chờ xác nhận), không đổi chủ đề. Nút xác nhận tự động là gợi ý sẵn giải pháp; hai câu còn lại chuyển sang chuyện khác."},
+        {"kind": "choice", "q": "3) Hỏi tiếp lý do phải chờ, stakeholder đáp: \"Vì nhà hàng xác nhận đơn bằng tay.\" Vậy gốc rễ của \"chậm\" là gì?",
          "options": [
            "Quy trình nhà hàng xác nhận đơn bằng tay",
            "Tốc độ của ứng dụng",
@@ -154,9 +160,15 @@
          ],
          "answer": [3], "multi": false,
          "why": "Có số lượng, tỉ lệ trên tổng đơn và loại phàn nàn nên đo được. Các câu còn lại không đo được, gợi ý giải pháp hoặc dẫn dắt."},
-        {"kind": "order", "q": "5) Sắp chuỗi hỏi \"tại sao\" cho câu \"Khách hay phàn nàn về giao hàng\" theo đúng mạch hỏi – đáp.",
-         "items": ["Tại sao giao trễ?", "Vì tài xế phải chờ món.", "Tại sao phải chờ?", "Vì bếp không biết thời điểm tài xế tới."],
-         "why": "Mỗi câu \"tại sao\" hỏi tiếp vào câu trả lời trước. Đây là ví dụ; thực tế phải dựa trên câu trả lời thật của stakeholder."}
+        {"kind": "choice", "q": "5) Giả sử phàn nàn chủ yếu là giao trễ. Chuỗi hỏi \"tại sao\" nào đi đúng mạch?",
+         "options": [
+           "\"Tại sao giao trễ?\" → \"Vì tài xế phải chờ món.\" → \"Có nên thuê thêm tài xế không?\" → \"Chắc nên.\"",
+           "\"Tại sao giao trễ?\" → \"Vì tài xế phải chờ món.\" → \"Tại sao khách hay đặt vào giờ trưa?\" → \"Vì giờ trưa đông khách.\"",
+           "\"Tại sao giao trễ?\" → \"Vì tài xế phải chờ món.\" → \"Tại sao phải chờ?\" → \"Vì bếp không biết thời điểm tài xế tới.\"",
+           "\"Tại sao giao trễ?\" → \"Vì tài xế phải chờ món.\" → BA ghi \"tài xế chậm\" rồi chuyển sang chủ đề khác."
+         ],
+         "answer": [2], "multi": false,
+         "why": "Mỗi câu \"tại sao\" hỏi tiếp vào câu trả lời ngay trước cho tới gốc rễ (bếp không biết thời điểm tài xế tới). Các chuỗi còn lại chen giải pháp, đổi chủ đề hoặc dừng ở bề mặt. Đây là ví dụ; thực tế phải dựa trên câu trả lời thật của stakeholder."}
       ]
     },
     "L05-x6": {
@@ -249,7 +261,7 @@
          ],
          "answer": [0, 2, 4], "multi": true,
          "why": "Mục tiêu viết bắt đầu bằng động từ hiểu, xác định, thu thập, như đáp án mẫu. \"Thiết kế bảng dữ liệu, chọn công nghệ\" là giải pháp kỹ thuật, không phải mục tiêu khai thác. \"Bàn về chức năng đặt bàn\" là mục tiêu mơ hồ, không biết muốn đạt gì."},
-        {"kind": "sort", "q": "2) Mục 3 – Phạm vi: chức năng nào nằm trong phạm vi đợt đặt bàn online này, chức năng nào nằm ngoài?",
+        {"kind": "sort", "q": "2) Mục 3 – Phạm vi: đợt này chỉ khai thác chức năng đặt bàn online (giữ chỗ), chưa làm phần món ăn, tiền và khách thân thiết. Mỗi chức năng sau nằm trong hay ngoài phạm vi?",
          "bins": ["Trong phạm vi", "Ngoài phạm vi"],
          "items": [
            {"t": "Đặt bàn", "a": [0]},
@@ -280,7 +292,7 @@
       ]
     },
     "L05-p2": {
-      "lead": "Chọn mục tiêu buổi phỏng vấn, kéo câu hỏi vào đúng loại, chọn việc chuẩn bị và việc nên làm trong buổi, rồi gom kết quả.",
+      "lead": "Chọn mục tiêu buổi phỏng vấn và việc chuẩn bị, kéo câu hỏi vào đúng loại, chọn việc nên làm trong buổi, rồi gom kết quả.",
       "parts": [
         {"kind": "choice", "q": "1) Bộ mục tiêu nào phù hợp cho buổi phỏng vấn thủ thư (muốn biết gì, làm rõ gì, xác nhận gì)?",
          "options": [
@@ -291,7 +303,17 @@
          ],
          "answer": [2], "multi": false,
          "why": "Mục tiêu trả lời 3 câu: muốn biết gì, làm rõ gì, xác nhận gì. Thuyết phục dùng phần mềm và chốt cơ sở dữ liệu, giao diện là quyết định giải pháp, không phải khai thác nhu cầu; \"nói chuyện chung\" là mục tiêu mơ hồ."},
-        {"kind": "sort", "q": "2) Mỗi câu trong kịch bản phỏng vấn thủ thư thuộc loại câu hỏi nào?",
+        {"kind": "choice", "q": "2) Trước buổi phỏng vấn, BA cần chuẩn bị những gì? (chọn tất cả ý đúng)",
+         "options": [
+           "Chọn sẵn một phần mềm thư viện để đề nghị thủ thư dùng ngay trong buổi",
+           "Tìm hiểu background của thủ thư",
+           "Xin mẫu sổ mượn trả hiện tại",
+           "Chuẩn bị sổ ghi, xin phép ghi âm",
+           "Gửi agenda trước cho thủ thư"
+         ],
+         "answer": [1, 2, 3, 4], "multi": true,
+         "why": "Chuẩn bị gồm: background, mẫu sổ mượn trả, sổ ghi và xin phép ghi âm, gửi agenda trước. Chọn sẵn phần mềm là quyết định giải pháp tại chỗ, điều không nên làm khi interview."},
+        {"kind": "sort", "q": "3) Mỗi câu trong kịch bản phỏng vấn thủ thư thuộc loại câu hỏi nào?",
          "bins": ["Câu mở", "Câu sâu", "Câu đóng (xác minh)", "Câu kết"],
          "items": [
            {"t": "Chị mô tả giúp em một lượt cho mượn sách từ đầu đến cuối?", "a": [0]},
@@ -303,16 +325,6 @@
            {"t": "Có điều gì em chưa hỏi mà chị nghĩ là quan trọng không?", "a": [3]},
            {"t": "Em nên hỏi thêm ai?", "a": [3]}
          ]},
-        {"kind": "choice", "q": "3) Trước buổi phỏng vấn, BA cần chuẩn bị những gì? (chọn tất cả ý đúng)",
-         "options": [
-           "Chọn sẵn một phần mềm thư viện để đề nghị thủ thư dùng ngay trong buổi",
-           "Tìm hiểu background của thủ thư",
-           "Xin mẫu sổ mượn trả hiện tại",
-           "Chuẩn bị sổ ghi, xin phép ghi âm",
-           "Gửi agenda trước cho thủ thư"
-         ],
-         "answer": [1, 2, 3, 4], "multi": true,
-         "why": "Chuẩn bị gồm: background, mẫu sổ mượn trả, sổ ghi và xin phép ghi âm, gửi agenda trước. Chọn sẵn phần mềm là quyết định giải pháp tại chỗ, điều không nên làm khi interview."},
         {"kind": "choice", "q": "4) Trong 45 phút phỏng vấn, BA nên làm những việc nào? (chọn tất cả ý đúng)",
          "options": [
            "Hỏi câu mở trước rồi thu hẹp dần",
@@ -327,11 +339,11 @@
          "bins": ["Quy trình", "Pain point", "Business rule", "Yêu cầu tính năng"],
          "items": [
            {"t": "Các bước mượn, trả, nhắc trả sách", "a": [0]},
-           {"t": "Tra sổ lâu", "a": [1]},
-           {"t": "Số sách mượn tối đa", "a": [2]},
+           {"t": "Tra sổ tìm sách mất nhiều thời gian", "a": [1]},
+           {"t": "Mỗi người chỉ được mượn tối đa một số cuốn", "a": [2]},
            {"t": "Quá hạn thì khóa thẻ", "a": [2]},
-           {"t": "Tra cứu tình trạng sách", "a": [3]},
-           {"t": "Danh sách sách quá hạn", "a": [3]}
+           {"t": "Cần chức năng tra cứu tình trạng sách", "a": [3]},
+           {"t": "Cần chức năng xem danh sách sách quá hạn", "a": [3]}
          ]}
       ]
     },
@@ -363,11 +375,10 @@
            "Kho tổng nhận xe hàng lúc 8h",
            "Đối chiếu thủ công, xử lý thiếu hàng tốn thời gian",
            "Dùng phiếu giao điện tử để đối chiếu tự động",
-           "Số liệu nằm ở Excel và ảnh chat, dễ thất lạc",
-           "Thủ kho nói nhập phần mềm nhưng thực tế dùng Excel – cần hỏi lý do"
+           "Số liệu nằm ở Excel và ảnh chat, dễ thất lạc"
          ],
-         "answer": [1, 3, 4], "multi": true,
-         "why": "Ba vấn đề của đáp án mẫu: đối chiếu thủ công tốn thời gian; số liệu ở Excel và ảnh chat dễ thất lạc; nói một đằng làm một nẻo. \"8h tại kho tổng\" là thông tin chung (mục 1); phiếu giao điện tử là đề xuất (mục 7), không phải vấn đề."},
+         "answer": [1, 3], "multi": true,
+         "why": "Theo đáp án mẫu: đối chiếu thủ công tốn thời gian; số liệu ở Excel và ảnh chat dễ thất lạc (vấn đề thứ ba, nói một đằng làm một nẻo, xét ở câu sau). \"8h tại kho tổng\" là thông tin chung (mục 1); phiếu giao điện tử là đề xuất (mục 7), không phải vấn đề."},
         {"kind": "choice", "q": "4) Thủ kho nói thường nhập ngay vào phần mềm, nhưng hôm nay vẫn dùng Excel. BA nên ghi điều này thế nào?",
          "options": [
            "Ghi thành vấn đề: nói một đằng, làm một nẻo – cần hỏi lại lý do; đưa việc hỏi lại vào kế hoạch tiếp theo",
@@ -380,17 +391,17 @@
       ]
     },
     "L05-p4": {
-      "lead": "Chọn mục tiêu cần thống nhất và người tham gia, kéo mỗi người vào vai, chọn kỹ thuật cho phần chọn phương án, rồi chọn cách tránh lỗi.",
+      "lead": "Chọn mục tiêu và người tham gia, kéo mỗi người vào vai, chọn kỹ thuật cho phần chọn phương án, rồi chọn cách tránh lỗi.",
       "parts": [
-        {"kind": "choice", "q": "1) Workshop 60 phút giữa bán online và kho cần \"thống nhất\" được điều gì?",
+        {"kind": "choice", "q": "1) Mục tiêu workshop viết theo 3 câu: muốn biết gì, làm rõ gì, thống nhất gì. Bộ mục tiêu nào đạt?",
          "options": [
-           "Thời điểm trừ tồn hiện tại của mỗi bên",
-           "Bảng dữ liệu và API dùng để trừ tồn",
-           "Hậu quả của từng cách trừ tồn (bán quá số tồn, giữ hàng ảo)",
-           "Một quy tắc trừ tồn chung cho cả hai phòng"
+           "Thuyết phục phòng kho chấp nhận trừ tồn ngay khi khách đặt, như bán online muốn",
+           "Chốt bảng dữ liệu và API dùng để trừ tồn",
+           "Biết thời điểm trừ tồn hiện tại của mỗi bên; làm rõ hậu quả của từng cách (bán quá số tồn, giữ hàng ảo); thống nhất một quy tắc trừ tồn chung",
+           "Bàn về chuyện trừ tồn giữa hai phòng"
          ],
-         "answer": [3], "multi": false,
-         "why": "Theo đáp án mẫu: muốn biết thời điểm trừ tồn hiện tại của mỗi bên, làm rõ hậu quả của từng cách, thống nhất một quy tắc trừ tồn. Bảng dữ liệu, API là giải pháp kỹ thuật, workshop không nên sa vào."},
+         "answer": [2], "multi": false,
+         "why": "Theo đáp án mẫu: muốn biết thời điểm trừ tồn hiện tại của mỗi bên, làm rõ hậu quả của từng cách, thống nhất một quy tắc trừ tồn. Thuyết phục theo ý một bên thì không còn là đồng thuận; bảng dữ liệu, API là giải pháp kỹ thuật, workshop không nên sa vào; \"bàn về chuyện trừ tồn\" là mục tiêu mơ hồ."},
         {"kind": "choice", "q": "2) Danh sách người tham gia nào phù hợp cho workshop này?",
          "options": [
            "Trưởng phòng bán online, trưởng kho và BA; BA vừa điều phối vừa tự ghi chép",

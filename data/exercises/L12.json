@@ -65,13 +65,13 @@
       ]
     },
     "L12-x4": {
-      "lead": "Xem sơ đồ Sales – Finance – Warehouse (slide tr.17) rồi chọn đáp án cho từng câu.",
+      "lead": "Đọc phần mô tả sơ đồ xử lý đơn hàng (slide tr.17) trong từng câu rồi chọn đáp án.",
       "parts": [
-        {"kind": "choice", "q": "1) Bộ phận nào gửi hóa đơn?",
+        {"kind": "choice", "q": "1) Sơ đồ có 3 lane.\nSales: Start Event, Receive Order, End Event \"Order failed\".\nFinance: Check Credit, gateway \"Credit OK?\", Send Invoice, End Event \"Order complete\".\nWarehouse: Fulfill Order, gateway \"Out of stock?\".\nBộ phận nào gửi hóa đơn?",
          "options": ["Sales", "Finance", "Warehouse"],
          "answer": [1], "multi": false,
          "why": "Task Send Invoice nằm ở lane Finance."},
-        {"kind": "choice", "q": "2) Task nào do hệ thống tự làm, dựa vào đâu để biết?",
+        {"kind": "choice", "q": "2) Trong sơ đồ, mỗi task có một biểu tượng nhỏ ở góc trên trái hoặc dấu ở cạnh dưới (ghi trong các phương án). Task nào do hệ thống tự làm, dựa vào đâu để biết?",
          "options": [
            "Receive Order – biểu tượng hình người",
            "Fulfill Order – có dấu [+]",
@@ -80,7 +80,7 @@
          ],
          "answer": [2], "multi": false,
          "why": "Bánh răng là Service Task: hệ thống/dịch vụ tự động làm. Hình người là User Task (người làm với phần mềm), [+] là Sub-Process."},
-        {"kind": "choice", "q": "3) Có mấy đường dẫn tới End Event \"Order failed\"?",
+        {"kind": "choice", "q": "3) Luồng trong sơ đồ: Receive Order → Check Credit → \"Credit OK?\": no → End Event \"Order failed\"; yes → Fulfill Order → \"Out of stock?\": yes → \"Order failed\"; no → Send Invoice → End Event \"Order complete\".\nCó mấy đường dẫn tới End Event \"Order failed\"?",
          "options": [
            "Một: \"Credit OK?\" = no",
            "Một: \"Out of stock?\" = yes",
@@ -89,7 +89,7 @@
          ],
          "answer": [3], "multi": false,
          "why": "Hai đường: tín dụng không đạt, hoặc hết hàng. \"Out of stock?\" = no dẫn tới Send Invoice rồi \"Order complete\"."},
-        {"kind": "choice", "q": "4) Vì sao \"Fulfill Order\" có dấu [+]?",
+        {"kind": "choice", "q": "4) Trong sơ đồ, task \"Fulfill Order\" có dấu [+] nhỏ ở giữa cạnh dưới. Vì sao?",
          "options": [
            "Là Sub-Process: quy trình con, có thể mở ra xem chi tiết các bước",
            "Task được lặp lại tới khi thỏa điều kiện",
@@ -98,7 +98,7 @@
          ],
          "answer": [0], "multi": false,
          "why": "[+] là Sub-Process Marker. Lặp lại là Loop Marker (mũi tên vòng), chạy song song nhiều phiên bản là Parallel MI Marker (|||), hệ thống tự làm là Service Task (bánh răng)."},
-        {"kind": "choice", "q": "5) Các mũi tên nối giữa các lane là loại flow nào?",
+        {"kind": "choice", "q": "5) Sơ đồ chỉ vẽ 3 lane Sales, Finance, Warehouse của cùng một công ty (không vẽ khung pool). Các mũi tên nối giữa các lane là loại flow nào?",
          "options": ["Message Flow", "Data Association", "Sequence Flow", "Association"],
          "answer": [2], "multi": false,
          "why": "Các lane cùng nằm trong một pool nên dùng Sequence Flow; Message Flow chỉ dùng giữa các pool."}
@@ -159,17 +159,17 @@
         {"kind": "sort", "q": "2) Mỗi task là loại nào?",
          "bins": ["Service Task", "Send Task", "Manual Task", "User Task"],
          "items": [
-           {"t": "Kiểm tra tồn kho", "a": [0]},
-           {"t": "Báo hết hàng", "a": [1]},
-           {"t": "Tạo đơn hàng", "a": [0]},
-           {"t": "Hủy đơn", "a": [0]},
-           {"t": "Báo hủy đơn", "a": [1]},
-           {"t": "Đóng gói hàng", "a": [2]},
-           {"t": "Xuất hóa đơn điện tử", "a": [3]},
-           {"t": "Bàn giao cho đơn vị vận chuyển", "a": [1], "why": "Gửi tin nhắn (Message Flow) sang pool Đơn vị vận chuyển."},
-           {"t": "Cập nhật trạng thái đơn", "a": [0]}
+           {"t": "Hệ thống kiểm tra tồn kho", "a": [0]},
+           {"t": "Báo hết hàng cho khách", "a": [1]},
+           {"t": "Hệ thống tạo đơn hàng", "a": [0]},
+           {"t": "Hệ thống hủy đơn", "a": [0]},
+           {"t": "Báo hủy đơn cho khách", "a": [1]},
+           {"t": "Kho đóng gói hàng", "a": [2]},
+           {"t": "Kế toán xuất hóa đơn điện tử", "a": [3]},
+           {"t": "Bàn giao cho đơn vị vận chuyển (báo đối tác đến lấy hàng)", "a": [1], "why": "Bước này gửi tin (Message Flow) sang pool Đơn vị vận chuyển nên là Send Task."},
+           {"t": "Hệ thống cập nhật trạng thái đơn", "a": [0]}
          ]},
-        {"kind": "choice", "q": "3) Sau khi tạo đơn, chờ khách chuyển khoản hoặc hết 24 giờ, cái nào đến trước. Vẽ thế nào?",
+        {"kind": "choice", "q": "3) Sau khi tạo đơn, hệ thống chờ khách chuyển khoản; nếu quá 24 giờ chưa nhận được tiền thì hủy đơn. Vẽ chỗ chờ này thế nào?",
          "options": [
            "Parallel Gateway tách ra Message Event \"Nhận chuyển khoản\" và Timer Event \"24 giờ\"",
            "Event-based Gateway, theo sau là Message Intermediate Event \"Nhận chuyển khoản\" và Timer Intermediate Event \"24 giờ\"",
@@ -215,7 +215,7 @@
       ]
     },
     "L12-x7": {
-      "lead": "Chuyển flowchart tuyển dụng sang BPMN: chọn pool/lane, ký hiệu, gateway, rồi kéo các nhánh về đúng đích.",
+      "lead": "Chuyển flowchart tuyển dụng sang BPMN: chọn pool/lane, kéo từng bước vào lane, đổi ký hiệu chờ, chọn gateway, nối các nhánh rồi đếm End Event.",
       "parts": [
         {"kind": "choice", "q": "1) HR và Hiring Manager cùng một công ty. Vẽ pool, lane thế nào?",
          "options": [
@@ -225,18 +225,17 @@
          ],
          "answer": [1], "multi": false,
          "why": "Các vai trò trong cùng một công ty là lane trong một pool, nối bằng Sequence Flow. Không chia lane thì không thể hiện được ai làm bước nào."},
-        {"kind": "sort", "q": "2) Mỗi bước nằm ở lane nào?",
+        {"kind": "sort", "q": "2) Flowchart gốc (slide tr.15): Open Role → Post Job Description (Đăng tin tuyển dụng) → Wait 5 days → Review Applicants (Xem hồ sơ) → \"Enough received?\" (Đủ hồ sơ?).\nNo → Repost Job Description (Đăng lại tin) → lại Wait 5 days. Yes → Schedule Phone Interviews (Xếp lịch phỏng vấn điện thoại) → \"Strong candidate?\" (Ứng viên mạnh?).\nNo → Repost. Yes → Schedule In-Person Interview (Xếp lịch phỏng vấn trực tiếp) → \"Extend an offer?\" (Đưa offer?).\nYes → Ask HR to hire (Yêu cầu tuyển), kết thúc. Not Sold on Candidate → quay lại In-Person Interview. No → Revisit Notes from Phone Interviews (Xem lại ghi chú phỏng vấn điện thoại) → \"Strong Second Candidate?\" (Có ứng viên dự phòng mạnh?): Yes → In-Person Interview; No → Repost.\nTheo giả định của đề (Hiring Manager quyết định ứng viên; HR đăng tin, xếp lịch), mỗi bước nằm ở lane nào?",
          "bins": ["HR", "Hiring Manager"],
          "items": [
            {"t": "Start Event \"Có vị trí cần tuyển\" (Open Role)", "a": [1]},
            {"t": "Đăng tin tuyển dụng", "a": [0]},
-           {"t": "Xem hồ sơ", "a": [1]},
+           {"t": "Xem hồ sơ", "a": [1], "why": "HR chỉ đăng tin, xếp lịch; xem hồ sơ để quyết định ứng viên là việc của Hiring Manager."},
            {"t": "Đăng lại tin", "a": [0]},
            {"t": "Xếp lịch phỏng vấn điện thoại", "a": [0]},
            {"t": "Gateway \"Ứng viên mạnh?\"", "a": [1]},
            {"t": "Xếp lịch phỏng vấn trực tiếp", "a": [0]},
-           {"t": "Gateway \"Đưa offer?\"", "a": [1]},
-           {"t": "Yêu cầu tuyển", "a": [0]}
+           {"t": "Gateway \"Đưa offer?\"", "a": [1]}
          ]},
         {"kind": "choice", "q": "3) Bước \"Wait 5 days\" (hình chữ D) đổi thành ký hiệu BPMN nào?",
          "options": [
@@ -251,7 +250,7 @@
          "options": ["Parallel Gateway", "Exclusive Gateway", "Event-based Gateway"],
          "answer": [1], "multi": false,
          "why": "Mỗi câu hỏi chỉ đi theo đúng một nhánh trả lời nên là Exclusive Gateway. Parallel kích hoạt mọi nhánh; Event-based chọn theo sự kiện đến trước."},
-        {"kind": "sort", "q": "5) Mỗi nhánh đi tới đâu?",
+        {"kind": "sort", "q": "5) Theo flowchart ở câu 2, khi vẽ BPMN, kéo mỗi nhánh vào bước mà nó đi tới.",
          "bins": ["Timer Event \"5 ngày\"", "Đăng lại tin", "Xếp lịch phỏng vấn điện thoại", "Xếp lịch phỏng vấn trực tiếp", "Xem lại ghi chú phỏng vấn điện thoại", "Yêu cầu tuyển, rồi End Event \"Đã tuyển\""],
          "items": [
            {"t": "Đăng lại tin (xong)", "a": [0], "why": "Đăng lại tin rồi quay về chờ 5 ngày."},
@@ -265,7 +264,7 @@
            {"t": "\"Có ứng viên dự phòng mạnh?\" = Có", "a": [3]},
            {"t": "\"Có ứng viên dự phòng mạnh?\" = Không", "a": [1]}
          ]},
-        {"kind": "choice", "q": "6) Quy trình BPMN này có bao nhiêu End Event?",
+        {"kind": "choice", "q": "6) Dựa vào các nhánh của flowchart ở câu 2, quy trình BPMN này có bao nhiêu End Event?",
          "options": [
            "Một: \"Đã tuyển\", vì các nhánh khác đều quay vòng",
            "Hai: \"Đã tuyển\" và \"Không tuyển được\"",
@@ -277,7 +276,7 @@
       ]
     },
     "L12-p1": {
-      "lead": "Trả lời từng câu để xác định 6 thành phần của quy trình đặt bàn FoodNow.",
+      "lead": "Trả lời từng câu để xác định các thành phần của quy trình đặt bàn FoodNow: sự kiện, điểm quyết định, tác nhân, đối tượng và kết quả.",
       "parts": [
         {"kind": "choice", "q": "1) Sự kiện nào kích hoạt (bắt đầu) quy trình đặt bàn?",
          "options": [
@@ -328,9 +327,18 @@
       ]
     },
     "L12-p2": {
-      "lead": "Trả lời từng câu để mô tả flowchart mượn sách: ký hiệu của từng phần tử, các hình thoi và các nhánh.",
+      "lead": "Trả lời từng câu để mô tả flowchart mượn sách: các hình thoi, ký hiệu của từng phần tử, các nhánh và điều kiện vẽ đúng.",
       "parts": [
-        {"kind": "sort", "q": "1) Kéo mỗi phần tử của flowchart mượn sách vào ký hiệu dùng để vẽ nó.",
+        {"kind": "choice", "q": "1) Flowchart cần mấy hình thoi, mỗi hình chứa câu hỏi gì?",
+         "options": [
+           "Một: \"Thẻ còn hạn?\"",
+           "Hai: \"Kiểm tra thẻ\" và \"Kiểm tra số sách đang mượn\"",
+           "Hai: \"Thẻ còn hạn?\" và \"Đã mượn đủ 5 cuốn?\"",
+           "Ba: \"Thẻ còn hạn?\", \"Đã mượn đủ 5 cuốn?\" và \"Giao sách?\""
+         ],
+         "answer": [2], "multi": false,
+         "why": "Mỗi chữ \"nếu\" trong mô tả là một hình thoi chứa câu hỏi có/không: thẻ còn hạn không, đã mượn đủ 5 cuốn chưa. \"Kiểm tra thẻ\" là việc làm nên vẽ hình chữ nhật; giao sách không phải chỗ rẽ nhánh."},
+        {"kind": "sort", "q": "2) Kéo mỗi phần tử của flowchart mượn sách vào ký hiệu dùng để vẽ nó.",
          "bins": ["Hình bo tròn (bắt đầu/kết thúc)", "Hình chữ nhật (một bước)", "Hình thoi (quyết định)", "Tài liệu (cạnh dưới lượn sóng)"],
          "items": [
            {"t": "Bắt đầu: bạn đọc đưa thẻ và sách", "a": [0]},
@@ -342,15 +350,6 @@
            {"t": "Phiếu mượn", "a": [3], "why": "Phiếu mượn là giấy tờ nên dùng ký hiệu Tài liệu."},
            {"t": "Kết thúc: bạn đọc nhận sách", "a": [0]}
          ]},
-        {"kind": "choice", "q": "2) Flowchart cần mấy hình thoi, mỗi hình chứa câu hỏi gì?",
-         "options": [
-           "Một: \"Thẻ còn hạn?\"",
-           "Hai: \"Kiểm tra thẻ\" và \"Kiểm tra số sách đang mượn\"",
-           "Hai: \"Thẻ còn hạn?\" và \"Đã mượn đủ 5 cuốn?\"",
-           "Ba: \"Thẻ còn hạn?\", \"Đã mượn đủ 5 cuốn?\" và \"Giao sách?\""
-         ],
-         "answer": [2], "multi": false,
-         "why": "Mỗi chữ \"nếu\" trong mô tả là một hình thoi chứa câu hỏi có/không: thẻ còn hạn không, đã mượn đủ 5 cuốn chưa. \"Kiểm tra thẻ\" là việc làm nên vẽ hình chữ nhật; giao sách không phải chỗ rẽ nhánh."},
         {"kind": "choice", "q": "3) Từ hình thoi \"Thẻ còn hạn?\", nhánh Không đi tới đâu?",
          "options": [
            "Từ chối cho mượn, rồi Kết thúc",
@@ -433,7 +432,7 @@
     "L12-p4": {
       "lead": "Chọn ký hiệu BPMN cho từng tình huống bán hàng của SolasMart.",
       "parts": [
-        {"kind": "sort", "q": "1) Kéo tình huống (a), (b), (f) vào loại event phù hợp.",
+        {"kind": "sort", "q": "1) Kéo tình huống (a), (b), (f) vào loại event phù hợp (có nhóm không dùng tới).",
          "bins": ["Message Start Event", "Timer Start Event", "Timer Intermediate Event", "None End Event", "Terminate End Event"],
          "items": [
            {"t": "(a) Quy trình bắt đầu khi khách gửi đơn", "a": [0], "why": "Vòng tròn mảnh có phong bì rỗng: bắt đầu khi nhận tin nhắn."},

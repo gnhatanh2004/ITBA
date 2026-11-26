@@ -2,6 +2,7 @@
 
   python -B script/exercises.py --check L01   kiểm 1 file (agent tự chạy tới khi in OK)
   python -B script/exercises.py --check       kiểm mọi file đang có
+  python -B script/exercises.py --show L01    in từng bài như người học thấy (đề, câu dẫn, câu hỏi, đáp án) để soát logic
 
 File gắn thêm cách làm cho bài tập đã có (không sửa data/lessons). Schema: docs/prompt.md §8.
   {"lesson": "L01", "items": {"L01-x1": {...}, "L01-p1": {"lead": "...", "parts": [part, ...]}}}  (x = bài tập, p = thực hành)
@@ -107,12 +108,15 @@ def check(lid):
     if d.get("lesson") != lid or not isinstance(d.get("items"), dict):
         return [f"{w0}: cần {{\"lesson\": \"{lid}\", \"items\": {{...}}}}"]
     ids, e = set(exercise_ids(lid)), []
+    imgs = set() if lid == "CS" else {i["id"] for i in _load(LESSONS_DIR / f"{lid}.json").get("images", [])}
     for xid, x in d["items"].items():
         w = f"{w0}:{xid}"
         if xid not in ids:
             e.append(f"{w}: không có bài tập / bài thực hành id này trong bài {lid}"); continue
         if not isinstance(x, dict):
             e.append(f"{w}: phải là object"); continue
+        if "img" in x and (not isinstance(x["img"], list) or not all(i in imgs for i in x["img"])):
+            e.append(f"{w}.img phải là mảng id ảnh có trong bài ({lid})")
         if "lead" in x and not _s(x["lead"], 400):
             e.append(f"{w}.lead rỗng hoặc dài quá 400 ký tự")
         parts = x.get("parts")
@@ -121,6 +125,60 @@ def check(lid):
         for i, pt in enumerate(parts):
             e += check_part(f"{w}.parts[{i}]", pt)
     return e
+
+
+def _norm(t):
+    import unicodedata
+    t = unicodedata.normalize("NFD", t.lower()).replace("đ", "d")
+    t = "".join(c for c in t if unicodedata.category(c) != "Mn")
+    return re.sub(r"[^a-z0-9]+", " ", t).strip()
+
+
+def _task_text(task_html, parts):
+    """Đề dạng chữ; danh sách bị giao diện ẩn (mọi mục trùng 1 phần sort/order) ghi là [ẨN]."""
+    import html as H
+    sets = [[_norm(i["t"]) for i in p["items"]] if p["kind"] == "sort" else [_norm(i) for i in p["items"]] if p["kind"] == "order" else [] for p in parts]
+    def lst(m):
+        lis = [H.unescape(re.sub(r"<[^>]+>", " ", x)).strip() for x in re.findall(r"<li>(.*?)</li>", m.group(0), re.S)]
+        if len(lis) >= 2 and any(all(_norm(t) in s for t in lis) for s in sets):
+            return "\n[ẨN trên giao diện: danh sách %d mục đã nằm trong phần kéo thả]\n" % len(lis)
+        return "\n" + "\n".join("  - " + re.sub(r"\s+", " ", t) for t in lis) + "\n"
+    t = re.sub(r"<(ol|ul)>.*?</\1>", lst, task_html, flags=re.S)
+    t = re.sub(r"<br\s*/?>|</p>|</tr>|</h\d>|</blockquote>", "\n", t)
+    t = re.sub(r"</t[dh]>", " | ", t)
+    t = re.sub(r"\{\{img:([\w-]+)\}\}", r"[hình \1]", t)
+    return re.sub(r"\n\s*\n+", "\n", H.unescape(re.sub(r"<[^>]+>", "", t))).strip()
+
+
+def show(lid):
+    if lid == "CS":
+        src = {x["id"]: x for x in _load(COURSE)["case_study"]["exercises"]}
+    else:
+        d = _load(LESSONS_DIR / f"{lid}.json")
+        src = {x["id"]: x for k in ("exercises", "practice") for x in d.get(k, [])}
+    items = _load(EX_DIR / f"{lid}.json")["items"]
+    for xid, x in items.items():
+        o = src.get(xid, {})
+        print(f"\n===== {xid} · {o.get('title', '')}")
+        print("ĐỀ:", _task_text(o.get("task", ""), x["parts"]))
+        if x.get("img"):
+            print("HÌNH:", ", ".join(x["img"]))
+        if x.get("lead"):
+            print("CÂU DẪN:", x["lead"])
+        for i, p in enumerate(x["parts"]):
+            print(f"-- phần {i + 1} [{p['kind']}] {p['q']}")
+            if p["kind"] == "sort":
+                print("   nhóm:", " / ".join(f"[{j}] {b}" for j, b in enumerate(p["bins"])))
+                for it in p["items"]:
+                    print(f"   * {it['t']}  → {', '.join(p['bins'][j] for j in it['a'])}")
+            elif p["kind"] == "order":
+                for j, t in enumerate(p["items"]):
+                    print(f"   {j + 1}. {t}")
+            else:
+                for j, t in enumerate(p["options"]):
+                    print(f"   {'✓' if j in p['answer'] else ' '} {chr(65 + j)}. {t}")
+            if p.get("why"):
+                print("   giải thích:", p["why"])
 
 
 def attach(lid, exercises):
@@ -132,13 +190,18 @@ def attach(lid, exercises):
     n = 0
     for x in exercises:
         if x["id"] in items:
-            x["auto"] = items[x["id"]]; n += 1
+            a = dict(items[x["id"]])
+            if a.get("img"):  # build.py đổi {{img:id}} thành <figure> có chú thích
+                a["imgHtml"] = "".join("{{img:%s}}" % i for i in a["img"])
+            x["auto"] = a; n += 1
     return n
 
 
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
     a = sys.argv[1:]
+    if a[:1] == ["--show"] and len(a) == 2:
+        sys.exit(show(a[1]))
     if a[:1] != ["--check"]:
         sys.exit(__doc__)
     lids = a[1:] or sorted(p.stem for p in EX_DIR.glob("*.json"))

@@ -36,37 +36,30 @@
       ]
     },
     "L07-x3": {
-      "lead": "Xếp mỗi câu vào Need hoặc Solution, rồi tìm need đứng sau các solution.",
+      "lead": "Xếp mỗi câu vào Need hoặc Solution, ghép mỗi câu với vấn đề của nó, rồi chọn loại solution.",
       "parts": [
         {"kind": "sort", "q": "1) Câu này là Need hay Solution?",
          "bins": ["Need", "Solution"],
          "items": [
            {"t": "“Cần thêm chức năng gửi SMS nhắc lịch đặt bàn.”", "a": [1], "why": "Nói cách làm, không nói vấn đề."},
            {"t": "“Khách hay quên giờ đã đặt bàn và không đến.”", "a": [0]},
-           {"t": "“Thuê thêm 2 thu ngân giờ cao điểm.”", "a": [1], "why": "Solution dạng thay đổi tổ chức / nhân sự."},
+           {"t": "“Thuê thêm 2 thu ngân giờ cao điểm.”", "a": [1], "why": "Nói cách làm (thêm người), không nói vấn đề."},
            {"t": "“Quản lý không nắm được doanh thu từng cửa hàng theo ngày.”", "a": [0]},
            {"t": "“Làm dashboard doanh thu.”", "a": [1]},
            {"t": "“Nhiều đơn hàng online bị hủy vì hết hàng.”", "a": [0]}
          ]},
-        {"kind": "sort", "q": "2) Ghép mỗi solution với need có thể đứng sau nó.",
+        {"kind": "sort", "q": "2) Ghép mỗi câu với vấn đề (need) mà nó nói tới hoặc nhằm giải quyết.",
          "bins": ["Khách quên giờ đặt bàn, nhà hàng bị bàn trống", "Khách chờ thanh toán lâu giờ cao điểm", "Quản lý không nắm được doanh thu theo ngày"],
          "items": [
-           {"t": "Cần thêm chức năng gửi SMS nhắc lịch đặt bàn", "a": [0]},
-           {"t": "Thuê thêm 2 thu ngân giờ cao điểm", "a": [1]},
-           {"t": "Làm dashboard doanh thu", "a": [2]}
+           {"t": "Cần thêm chức năng gửi SMS nhắc lịch đặt bàn", "a": [0], "why": "Solution; need đứng sau nó là khách quên giờ đặt bàn."},
+           {"t": "Khách hay quên giờ đã đặt bàn và không đến", "a": [0], "why": "Câu này đã là need."},
+           {"t": "Thuê thêm 2 thu ngân giờ cao điểm", "a": [1], "why": "Solution; need đứng sau nó là khách chờ thanh toán lâu."},
+           {"t": "Quản lý không nắm được doanh thu từng cửa hàng theo ngày", "a": [2], "why": "Câu này đã là need."},
+           {"t": "Làm dashboard doanh thu", "a": [2], "why": "Solution; need đứng sau nó là quản lý không nắm được doanh thu theo ngày."}
          ]},
-        {"kind": "choice", "q": "3) Cách viết nào là Need (không lẫn solution) đứng sau câu “Cần thêm chức năng gửi SMS nhắc lịch đặt bàn”?",
-         "options": [
-           "Cần gửi SMS tự động cho khách trước giờ hẹn",
-           "Cần ứng dụng đặt bàn có chức năng nhắc lịch",
-           "Khách quên giờ đặt bàn, nhà hàng bị bàn trống",
-           "Cần mua phần mềm đặt bàn mới"
-         ],
-         "answer": [2], "multi": false,
-         "why": "Need trả lời “vấn đề gì”. Ba phương án còn lại đều nói cách làm (SMS, ứng dụng, phần mềm), tức là solution."},
-        {"kind": "choice", "q": "4) “Thuê thêm 2 thu ngân giờ cao điểm” là solution loại nào?",
-         "options": ["Thay đổi trong tổ chức (cơ cấu, vai trò, nhân sự)", "Công nghệ (phần mềm, ứng dụng)", "Quy trình (quy trình mới, tái thiết kế quy trình cũ)"],
-         "answer": [0], "multi": false,
+        {"kind": "choice", "q": "3) Theo các loại solution trong bài, câu “Thuê thêm 2 thu ngân giờ cao điểm” thuộc loại nào?",
+         "options": ["Công nghệ (phần mềm, ứng dụng)", "Thay đổi trong tổ chức (cơ cấu, vai trò, nhân sự)", "Quy trình (quy trình mới, tái thiết kế quy trình cũ)"],
+         "answer": [1], "multi": false,
          "why": "Thêm người, thêm vai trò là thay đổi tổ chức / nhân sự. Solution không phải lúc nào cũng là phần mềm."}
       ]
     },
@@ -149,10 +142,10 @@
     "L07-x6": {
       "lead": "Ghép điều đã xảy ra với từng khái niệm, rồi chọn cách BA lẽ ra phải làm.",
       "parts": [
-        {"kind": "sort", "q": "1) Nhận diện sai need ảnh hưởng tới khái niệm nào?",
+        {"kind": "sort", "q": "1) Need bị hiểu sai dẫn tới các điều dưới đây ở FoodNow. Mỗi điều là hậu quả ở khái niệm nào?",
          "bins": ["Change", "Solution", "Stakeholder", "Value", "Context"],
          "items": [
-           {"t": "Đổi giao diện app thay vì đổi quy trình xác nhận đặt bàn", "a": [0], "why": "Change là việc chuyển đổi được chọn làm; ở đây chọn sai việc cần đổi."},
+           {"t": "Chuyển sang làm lại giao diện app thay vì đổi quy trình xác nhận đặt bàn", "a": [0], "why": "Change là việc chuyển đổi được chọn làm; ở đây chọn sai việc cần đổi."},
            {"t": "Giao diện mới được đưa vào nhưng không giải quyết việc khách không đến", "a": [1], "why": "Solution là cái được đưa vào để đáp ứng need; giao diện mới là cái sai."},
            {"t": "Nhà hàng vẫn bị bàn trống; khách quen phải học giao diện mới", "a": [2], "why": "Nói về những người bị tác động."},
            {"t": "Tỉ lệ khách không đến không giảm, tốn chi phí làm lại", "a": [3], "why": "Nói về lợi ích không đạt và chi phí."},
@@ -246,23 +239,22 @@
          "why": "BA không bị cuốn vào solution quá sớm mà hỏi mục đích phía sau. Ba câu còn lại đều đi sâu vào chi tiết của chính solution được đề xuất."},
         {"kind": "choice", "q": "3) Quản lý kho trả lời: xuất ra để lọc hàng sắp hết gửi bộ phận mua hàng, nếu không thì hết hàng mà không ai biết. Need thật sự là gì?",
          "options": [
-           "Bộ phận mua hàng cần biết sớm mặt hàng sắp hết để nhập kịp, tránh hết hàng khi khách cần",
            "Cần thêm nút xuất danh sách tồn kho ra Excel",
-           "Cần hệ thống tự cảnh báo khi tồn kho dưới mức tối thiểu",
-           "Cần báo cáo “hàng sắp hết” xem trên hệ thống mỗi sáng"
+           "Khách đến cửa hàng lúc nào cũng có hàng để mua",
+           "Bộ phận mua hàng cần biết sớm mặt hàng sắp hết để nhập kịp, tránh hết hàng khi khách cần"
          ],
-         "answer": [0], "multi": false,
-         "why": "Need viết bằng ngôn ngữ vấn đề, không chứa tên tính năng. Nút Excel, cảnh báo tự động, báo cáo mỗi sáng đều là solution cho cùng need này."},
+         "answer": [2], "multi": false,
+         "why": "Need viết bằng ngôn ngữ vấn đề, không chứa tên tính năng. Nút xuất Excel là solution được đề xuất; “khách lúc nào cũng có hàng để mua” là value khi need được đáp ứng."},
         {"kind": "choice", "q": "4) Những ý nào là solution cho need này? (chọn tất cả ý đúng)",
          "options": [
            "Nút xuất Excel như quản lý kho đề xuất",
            "Bộ phận mua hàng cần biết sớm mặt hàng sắp hết",
            "Hệ thống tự cảnh báo khi tồn kho dưới mức tối thiểu, gửi thẳng cho bộ phận mua hàng",
-           "Khách đến không gặp cảnh hết hàng",
+           "Giảm số lần khách đến mà hết hàng",
            "Báo cáo “hàng sắp hết” xem trực tiếp trên hệ thống mỗi sáng"
          ],
          "answer": [0, 2, 4], "multi": true,
-         "why": "Một need có thể có nhiều solution. “Biết sớm mặt hàng sắp hết” là chính need; “khách không gặp cảnh hết hàng” là value."},
+         "why": "Một need có thể có nhiều solution. “Biết sớm mặt hàng sắp hết” là chính need; “giảm số lần khách đến mà hết hàng” là value."},
         {"kind": "choice", "q": "5) Nên chọn solution nào, vì sao?",
          "options": [
            "Nút xuất Excel, vì đúng như quản lý kho đề xuất",
@@ -282,22 +274,21 @@
          "why": "Stakeholder là nguồn gốc của need. Người đang mất thời gian tìm sách là độc giả."},
         {"kind": "choice", "q": "2) Dòng Solution của bảng nên ghi gì?",
          "options": [
-           "Mua thêm sách cho thư viện",
-           "Giảm thời gian tìm sách",
-           "Sách xếp chưa theo mã kệ",
+           "Kéo dài giờ mở cửa thư viện",
+           "Độc giả mất nhiều thời gian tìm sách",
+           "Độc giả, thủ thư",
            "Phần mềm thư viện có chức năng tìm sách theo tên, tác giả, vị trí kệ"
          ],
          "answer": [3], "multi": false,
-         "why": "Solution là cách đáp ứng need. Mua thêm sách không giải quyết việc tìm lâu; hai phương án còn lại là value và context."},
+         "why": "Solution là cách đáp ứng need. Kéo dài giờ mở cửa không làm việc tìm sách nhanh hơn; “độc giả mất nhiều thời gian tìm sách” là chính need; “độc giả, thủ thư” là stakeholder."},
         {"kind": "choice", "q": "3) Dòng Change (chuyển từ gì sang gì) nên ghi gì?",
          "options": [
            "Chuyển từ tự tra cứu trên máy sang hỏi thủ thư",
            "Chuyển từ tra sổ / hỏi thủ thư sang tự tra cứu trên máy",
-           "Thư viện có sẵn vài máy tính",
-           "Độc giả hài lòng hơn"
+           "Chuyển từ mở cửa giờ hành chính sang mở cửa cả buổi tối"
          ],
          "answer": [1], "multi": false,
-         "why": "Change là việc chuyển đổi để đưa solution vào thực tế: từ cách làm cũ (tra sổ, hỏi thủ thư) sang cách mới (tự tra cứu). Phương án đầu bị ngược chiều; hai phương án cuối là context và value."},
+         "why": "Change là việc chuyển đổi để đưa solution vào thực tế: từ cách làm cũ (tra sổ, hỏi thủ thư) sang cách mới (tự tra cứu). Phương án đầu bị ngược chiều; phương án cuối không làm việc tìm sách nhanh hơn."},
         {"kind": "sort", "q": "4) Mỗi ý sau điền vào dòng Value hay dòng Context của bảng?",
          "bins": ["Value", "Context"],
          "items": [
@@ -318,27 +309,27 @@
       ]
     },
     "L07-p4": {
-      "lead": "Kéo từng người vào nhóm stakeholder, rồi trả lời về need chính của mỗi nhóm.",
+      "lead": "Kéo từng người vào nhóm stakeholder, chọn nguyên tắc xếp nhóm, rồi ghép need chính với mỗi nhóm.",
       "parts": [
         {"kind": "sort", "q": "1) Kéo mỗi người của dự án FoodNow vào đúng nhóm stakeholder.",
          "bins": ["Business", "User", "Implementation"],
          "items": [
            {"t": "Chủ chuỗi nhà hàng", "a": [0]},
-           {"t": "Quản lý chi nhánh", "a": [0], "why": "Cũng có thể dùng hệ thống, nhưng vai trò chính là ra quyết định nên xếp Business."},
+           {"t": "Quản lý chi nhánh", "a": [0]},
            {"t": "Khách đặt bàn", "a": [1]},
            {"t": "Nhân viên lễ tân", "a": [1]},
            {"t": "Lập trình viên", "a": [2]},
            {"t": "Tester (QA)", "a": [2]},
            {"t": "Nhân viên IT support", "a": [2], "why": "Hỗ trợ vận hành hệ thống."}
          ]},
-        {"kind": "choice", "q": "2) Quản lý chi nhánh vừa ra quyết định vừa có thể dùng hệ thống. Vì sao vẫn xếp vào Business?",
+        {"kind": "choice", "q": "2) Một người vừa ra quyết định kinh doanh vừa thỉnh thoảng dùng hệ thống. Xếp người đó vào nhóm stakeholder theo nguyên tắc nào?",
          "options": [
-           "Vì mọi người có chữ “quản lý” trong chức danh đều là Implementation",
-           "Vì quản lý chi nhánh không bao giờ dùng hệ thống",
-           "Vì vai trò chính là ra quyết định kinh doanh"
+           "Cứ có dùng hệ thống là xếp vào User",
+           "Xếp theo vai trò chính của người đó",
+           "Xếp theo chức danh: ai có chữ “quản lý” là Implementation"
          ],
-         "answer": [2], "multi": false,
-         "why": "Xếp theo vai trò chính. Business là người ra quyết định kinh doanh; việc thỉnh thoảng dùng hệ thống không đổi nhóm."},
+         "answer": [1], "multi": false,
+         "why": "Xếp theo vai trò chính. Quản lý chi nhánh có thể dùng hệ thống, nhưng vai trò chính là ra quyết định kinh doanh nên vào Business."},
         {"kind": "sort", "q": "3) Kéo mỗi need chính vào nhóm stakeholder có need đó.",
          "bins": ["Business", "User", "Implementation"],
          "items": [

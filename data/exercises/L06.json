@@ -174,7 +174,7 @@
       ]
     },
     "L06-x6": {
-      "lead": "Xử lý CR của SolasMart: chọn cách nhìn nhận, sắp xếp các bước, kéo việc cập nhật vào đúng chỗ và chọn email.",
+      "lead": "Xử lý CR của SolasMart: chọn cách nhìn nhận, sắp xếp các bước, ghép phần phiếu CR với bước, kéo việc cập nhật vào đúng chỗ, rồi chọn tiêu đề, người nhận và nội dung email.",
       "parts": [
         {"kind": "choice", "q": "(1) Yêu cầu “thêm luôn giao hàng trong 2 giờ cho đơn online” là gì, Dev lead nên làm gì?",
          "options": [
@@ -236,7 +236,7 @@
       ]
     },
     "L06-x7": {
-      "lead": "Kéo work item vào đúng loại và người làm, chọn tiêu chí chấp nhận, rồi phân biệt Priority với mức độ nghiêm trọng.",
+      "lead": "Kéo work item vào đúng loại và người làm, chọn tiêu chí chấp nhận và trường liên kết Task với User Story, rồi phân biệt Priority với mức độ nghiêm trọng.",
       "parts": [
         {"kind": "sort", "q": "1) Mỗi work item của module “Quản lý đặt bàn” thuộc loại nào?",
          "bins": ["Epic", "User Story", "Task"],
@@ -283,7 +283,7 @@
            {"t": "Task “API hủy bàn” cần cho bản demo tuần này", "a": [0]},
            {"t": "Nếu chưa có API hủy bàn, khách vẫn gọi điện hủy được", "a": [1]}
          ]},
-        {"kind": "choice", "q": "6) Task “API hủy bàn” cần cho bản demo tuần này, nhưng nếu chưa có thì khách vẫn gọi điện hủy được. Ghi thế nào?",
+        {"kind": "choice", "q": "6) Task “API hủy bàn” cần cho bản demo tuần này, nhưng nếu chưa có thì khách vẫn gọi điện hủy được. Ghi Priority và mức độ nghiêm trọng thế nào? (cả hai thang 1–4, mức 1 là cao nhất)",
          "options": [
            "Priority 2, mức độ nghiêm trọng 1",
            "Priority 1 (Cao), mức độ nghiêm trọng 2",
@@ -296,7 +296,7 @@
     "L06-p1": {
       "lead": "Trả lời từng câu hỏi về cách điền phiếu CR đặt cọc của FoodNow.",
       "parts": [
-        {"kind": "choice", "q": "1) Mã CR ở đầu phiếu ghi theo dạng nào?",
+        {"kind": "choice", "q": "1) Phiếu lập ngày 10/03/2025, là CR đầu tiên trong ngày. Mã CR ở đầu phiếu ghi thế nào?",
          "options": [
            "CR-001",
            "CR-10032025-001",
@@ -345,11 +345,11 @@
     "L06-p2": {
       "lead": "Trả lời từng câu hỏi về cách điền hai dòng mới vào RTM và Change Log.",
       "parts": [
-        {"kind": "choice", "q": "1) Hai dòng mới (a) gia hạn mượn sách và (b) email nhắc hạn trả đặt STT và ID thế nào?",
+        {"kind": "choice", "q": "1) RTM thư viện đang có 6 yêu cầu, ID từ CR-…-001 đến CR-…-006 (dòng CR-…-005 là Won’t Have). Hai dòng mới (a) gia hạn mượn sách và (b) email nhắc hạn trả đặt STT và ID thế nào?",
          "options": [
            "STT 7 và 8; ID nối tiếp theo quy tắc đang dùng trong bảng: CR-…-007, CR-…-008",
-           "Dùng lại ID của dòng Won’t Have vì yêu cầu đó không làm",
-           "Để trống ID tới khi có thiết kế"
+           "STT 7 và 8; dòng (b) dùng lại ID CR-…-005 vì yêu cầu Won’t Have đó không làm",
+           "STT 7 và 8; để trống ID tới khi có thiết kế"
          ],
          "answer": [0], "multi": false,
          "why": "STT nối tiếp; ID phải duy nhất, không trùng, không đổi, và theo quy tắc đặt mã đang dùng trong bảng."},
@@ -378,7 +378,7 @@
          ],
          "answer": [1], "multi": false,
          "why": "Cột truy vết nào chưa có thì để trống và ghi chú. Điền tạm là sai thông tin truy vết; yêu cầu đã có thì vẫn phải thêm vào RTM."},
-        {"kind": "choice", "q": "5) Dòng Change Log nào đúng khi thêm yêu cầu (b)?",
+        {"kind": "choice", "q": "5) Dòng Change Log nào đúng khi thêm yêu cầu (b)? (dạng: Thay đổi – Người thực hiện – Trạng thái mới)",
          "options": [
            "Thêm yêu cầu nhắc hạn trả vào backlog – BA – Chưa phân tích",
            "Không cần ghi Change Log vì chỉ thêm, không sửa yêu cầu cũ",
@@ -389,7 +389,7 @@
       ]
     },
     "L06-p3": {
-      "lead": "Chọn cách viết đúng cho từng phần của email xác nhận, rồi kéo từng ý vào đúng danh sách.",
+      "lead": "Chọn cách viết đúng cho từng phần của email xác nhận; ở phần nội dung, kéo từng ý vào đúng danh sách.",
       "parts": [
         {"kind": "choice", "q": "1) Tiêu đề email nào đạt?",
          "options": [
@@ -454,12 +454,12 @@
            {"t": "Hướng dẫn cài đặt", "a": [5]},
            {"t": "Phiếu CR đặt cọc", "a": [6]}
          ]},
-        {"kind": "sort", "q": "3) Mỗi người được cấp quyền nào?",
+        {"kind": "sort", "q": "3) Phân quyền thư mục tài liệu theo vai trò: mỗi người được cấp quyền nào?",
          "bins": ["Read-Only", "Editor", "Admin"],
          "items": [
            {"t": "BA phụ trách cập nhật tài liệu yêu cầu", "a": [1]},
-           {"t": "Dev", "a": [0]},
-           {"t": "Khách hàng", "a": [0]},
+           {"t": "Dev, chỉ cần đọc tài liệu để làm, không sửa", "a": [0]},
+           {"t": "Khách hàng, chỉ xem tài liệu, không sửa", "a": [0]},
            {"t": "PM quản lý quyền và cấu trúc thư mục", "a": [2]}
          ]}
       ]

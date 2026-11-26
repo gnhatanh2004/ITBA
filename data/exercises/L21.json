@@ -40,7 +40,7 @@
       ]
     },
     "L21-x3": {
-      "lead": "Xét từng cột phụ thuộc vào phần nào của khóa, rồi chọn cách tách đúng.",
+      "lead": "Đánh giá 2NF, kéo từng cột vào phần khóa mà nó phụ thuộc, rồi chọn cách tách và cách xử lý don_gia_ban.",
       "parts": [
         {"kind": "choice", "q": "1) ChiTietHD(ma_hd, ma_sp, ten_sp, don_vi_tinh, so_luong, don_gia_ban, ngay_lap_hd), khóa chính (ma_hd, ma_sp). Bảng đạt 2NF chưa?",
          "options": [
@@ -60,7 +60,7 @@
            {"t": "so_luong", "a": [2]},
            {"t": "don_gia_ban (giá tại thời điểm bán)", "a": [2], "why": "Giá tại thời điểm bán phụ thuộc cả hóa đơn lẫn sản phẩm."}
          ]},
-        {"kind": "choice", "q": "3) Cách tách nào đạt 2NF đúng theo bài?",
+        {"kind": "choice", "q": "3) Tách lại thế nào để đạt 2NF mà không mất thông tin?",
          "options": [
            "SanPham(ma_sp, ten_sp)\nChiTietHD(ma_hd, ma_sp, don_vi_tinh, so_luong, don_gia_ban, ngay_lap_hd)",
            "SanPham(ma_sp, ten_sp, don_vi_tinh)\nChiTietHD(ma_hd, ma_sp, so_luong, don_gia_ban, ngay_lap_hd)",
@@ -68,16 +68,16 @@
            "SanPham(ma_sp, ten_sp, don_vi_tinh, don_gia_ban)\nHoaDon(ma_hd, ngay_lap_hd)\nChiTietHD(ma_hd, ma_sp, so_luong)"
          ],
          "answer": [2], "multi": false,
-         "why": "Cột chỉ phụ thuộc ma_sp về SanPham, cột chỉ phụ thuộc ma_hd về HoaDon, ChiTietHD giữ so_luong và don_gia_ban. Hai cách đầu còn để don_vi_tinh hoặc ngay_lap_hd trong ChiTietHD. Cách cuối chuyển don_gia_ban sang SanPham nên mất giá đã bán của hóa đơn cũ."},
-        {"kind": "choice", "q": "4) SanPham đã có giá niêm yết, vì sao vẫn giữ don_gia_ban trong ChiTietHD?",
+         "why": "Cột chỉ phụ thuộc ma_sp về SanPham, cột chỉ phụ thuộc ma_hd về HoaDon, ChiTietHD giữ so_luong và don_gia_ban. A và B còn để don_vi_tinh hoặc ngay_lap_hd trong ChiTietHD. D chuyển don_gia_ban sang SanPham nên mất giá đã bán của hóa đơn cũ."},
+        {"kind": "choice", "q": "4) SanPham đã có giá niêm yết. Có nên bỏ don_gia_ban khỏi ChiTietHD không?",
          "options": [
-           "Vì don_gia_ban chỉ phụ thuộc ma_sp",
-           "Vì 2NF yêu cầu mọi cột giá phải nằm ở bảng chi tiết",
-           "Vì bảng mapping không được có khóa chính",
-           "Vì đây là lưu giá trị tại thời điểm xảy ra, một ngoại lệ dư thừa được chấp nhận"
+           "Bỏ, vì don_gia_ban chỉ phụ thuộc ma_sp",
+           "Giữ, vì 2NF yêu cầu mọi cột giá phải nằm ở bảng chi tiết",
+           "Bỏ, vì mọi dư thừa đều phải loại bỏ",
+           "Giữ, vì đây là lưu giá trị tại thời điểm xảy ra, một ngoại lệ dư thừa được chấp nhận"
          ],
          "answer": [3], "multi": false,
-         "why": "Nguyên tắc #1 cho phép dư thừa khi lưu giá trị tại thời điểm xảy ra: sau này đổi giá niêm yết thì hóa đơn cũ vẫn giữ đúng giá đã bán."}
+         "why": "Nguyên tắc #1 cho phép dư thừa khi lưu giá trị tại thời điểm xảy ra: sau này đổi giá niêm yết thì hóa đơn cũ vẫn giữ đúng giá đã bán. Giá lúc bán phụ thuộc cả hóa đơn lẫn sản phẩm, không chỉ ma_sp. 2NF không có quy định nào về vị trí cột giá."}
       ]
     },
     "L21-x4": {
@@ -98,7 +98,7 @@
            "UPDATE customers WHERE customer_id = 15 SET phone = '0909000111';"
          ],
          "answer": [1], "multi": false,
-         "why": "Cú pháp là UPDATE … SET … WHERE điều kiện. Cách đầu không có WHERE nên vẫn sửa mọi dòng, còn đổi luôn customer_id. Cách cuối đặt WHERE trước SET là sai cú pháp."},
+         "why": "Cú pháp là UPDATE … SET … WHERE điều kiện. A không có WHERE nên vẫn sửa mọi dòng, còn đổi luôn customer_id. C đặt WHERE trước SET là sai cú pháp."},
         {"kind": "choice", "q": "3) Câu nào lấy đúng khách chưa có email?",
          "options": [
            "SELECT * FROM customers WHERE email = 'NULL';",
@@ -110,10 +110,10 @@
          "why": "So sánh với NULL phải dùng IS NULL. 'NULL' là chuỗi chữ, '' là chuỗi rỗng, NULL khác chuỗi rỗng. IS NOT NULL lấy ngược lại: khách đã có email."},
         {"kind": "choice", "q": "4) Câu nào lấy đúng khách có hơn 5 đơn?",
          "options": [
-           "SELECT customer_id, COUNT(*) FROM orders\nGROUP BY customer_id\nWHERE COUNT(*) > 5;",
-           "SELECT customer_id, COUNT(*) FROM orders\nWHERE customer_id > 5\nGROUP BY customer_id;",
+           "SELECT customer_id, COUNT(*) AS so_don\nFROM orders\nGROUP BY customer_id\nWHERE COUNT(*) > 5;",
+           "SELECT customer_id, COUNT(*) AS so_don\nFROM orders\nWHERE customer_id > 5\nGROUP BY customer_id;",
            "SELECT customer_id, COUNT(*) AS so_don\nFROM orders\nGROUP BY customer_id\nHAVING COUNT(*) > 5;",
-           "SELECT customer_id, COUNT(*) FROM orders\nHAVING COUNT(*) > 5\nGROUP BY customer_id;"
+           "SELECT customer_id, COUNT(*) AS so_don\nFROM orders\nHAVING COUNT(*) > 5\nGROUP BY customer_id;"
          ],
          "answer": [2], "multi": false,
          "why": "Điều kiện trên hàm tổng hợp đặt ở HAVING, sau GROUP BY. WHERE lọc dòng trước khi nhóm nên không chứa COUNT(*). customer_id > 5 lọc theo mã khách, không phải số đơn. HAVING đặt trước GROUP BY là sai thứ tự."},
@@ -187,7 +187,7 @@
            {"t": "2NF", "a": [0], "why": "Khóa chính chỉ một cột thì không có phụ thuộc bộ phận."},
            {"t": "3NF", "a": [1], "why": "Có phụ thuộc bắc cầu qua ma_cua_hang."}
          ]},
-        {"kind": "choice", "q": "2) Vì sao bảng không đạt 3NF?",
+        {"kind": "choice", "q": "2) Bảng NhanVien có vấn đề gì về phụ thuộc giữa các cột?",
          "options": [
            "Có cột chỉ phụ thuộc một phần của khóa chính",
            "ma_nv → ma_cua_hang → ten_cua_hang, dia_chi_cua_hang, ma_quan_ly_cua_hang: phụ thuộc bắc cầu",
@@ -222,8 +222,8 @@
            {"t": "ten_cua_hang", "a": [1]},
            {"t": "dia_chi", "a": [1]},
            {"t": "ho_ten", "a": [1]},
-           {"t": "ma_nv", "a": [2]},
-           {"t": "ma_quan_ly", "a": [2], "why": "Khóa ngoại trỏ tới ma_nv nên cùng kiểu INT."},
+           {"t": "ma_nv (mã số tự tăng)", "a": [2]},
+           {"t": "ma_quan_ly (khóa ngoại tới ma_nv)", "a": [2], "why": "Khóa ngoại trỏ tới ma_nv nên cùng kiểu INT."},
            {"t": "luong", "a": [3], "why": "Tiền dùng DECIMAL."}
          ]},
         {"kind": "choice", "q": "6) Cột luong cần xử lý thế nào?",
@@ -238,7 +238,7 @@
       ]
     },
     "L21-x7": {
-      "lead": "Sắp 8 bước thiết kế, kéo cột vào bảng và kiểu dữ liệu, rồi chọn các quyết định đúng.",
+      "lead": "Sắp 8 bước thiết kế; kéo cột vào bảng, vào kiểu dữ liệu, vào nhóm dư thừa hay index; rồi chọn các quyết định đúng.",
       "parts": [
         {"kind": "order", "q": "1) Sắp xếp 8 bước của quy trình thiết kế database.",
          "items": ["Xác định mục đích", "Thu thập thông tin", "Chia thông tin thành các bảng", "Chuyển thông tin thành cột", "Chỉ định khóa chính", "Thiết lập quan hệ giữa các bảng", "Tinh chỉnh thiết kế", "Áp dụng các quy tắc chuẩn hóa"],
@@ -269,7 +269,7 @@
            {"t": "gia_niem_yet", "a": [2]},
            {"t": "phan_tram khuyến mãi (có thể lẻ, ví dụ 12.50)", "a": [2]},
            {"t": "ma_vach (13 ký tự)", "a": [3]},
-           {"t": "so_the_4_cuoi", "a": [3]},
+           {"t": "so_the_4_cuoi (luôn đúng 4 chữ số)", "a": [3]},
            {"t": "so_dien_thoai (độ dài không cố định)", "a": [4]},
            {"t": "ten_sp", "a": [5]},
            {"t": "ho_ten thành viên", "a": [5]},
@@ -302,7 +302,7 @@
            "Khóa chính ma_hd được để NULL khi hóa đơn chưa thanh toán",
            "ChiTietHD.ma_km để NULL khi không có khuyến mãi",
            "HoaDon lưu thêm tên nhân viên và tên thành viên",
-           "HoaDon không chứa tên nhân viên, lấy qua ma_ca → CaLamViec → NhanVien"
+           "HoaDon không chứa tên nhân viên, lấy qua ma_ca (khóa ngoại tới CaLamViec) → CaLamViec → NhanVien"
          ],
          "answer": [0, 2, 4], "multi": true,
          "why": "ma_tv và ma_km là khóa ngoại tùy chọn nên được NULL; khóa chính không bao giờ NULL. Để đạt 3NF, tên sản phẩm chỉ ở SanPham, tên thành viên chỉ ở ThanhVien, tên nhân viên lấy qua ca làm việc."}
@@ -327,23 +327,8 @@
           "why": "Một ô chứa hai địa chỉ là ô không nguyên tử, trái 1NF. Cách sửa là tách ra bảng addresses, mỗi địa chỉ một dòng gắn với customer_id."
         },
         {
-          "kind": "choice",
-          "q": "2) Phần đơn hàng còn lại, mỗi dòng là một sản phẩm trong một đơn. Khóa chính của phần này là gì?",
-          "options": [
-            "order_id",
-            "product_id",
-            "(customer_id, order_id)",
-            "(order_id, product_id)"
-          ],
-          "answer": [
-            3
-          ],
-          "multi": false,
-          "why": "Một đơn có nhiều sản phẩm, một sản phẩm nằm trong nhiều đơn, nên phải dùng cả hai cột (order_id, product_id) mới xác định được một dòng."
-        },
-        {
           "kind": "sort",
-          "q": "3) Với khóa (order_id, product_id), mỗi cột phụ thuộc vào phần nào của khóa?",
+          "q": "2) Phần đơn hàng còn lại: mỗi dòng là một sản phẩm trong một đơn, nên khóa là (order_id, product_id). Mỗi cột phụ thuộc vào phần nào của khóa?",
           "bins": [
             "Chỉ order_id",
             "Chỉ product_id",
@@ -386,7 +371,7 @@
         },
         {
           "kind": "choice",
-          "q": "4) Bộ bảng nào đạt 3NF theo đáp án?",
+          "q": "3) Bộ bảng nào đạt 3NF?",
           "options": [
             "customers(customer_id, customer_name, phone)\naddresses(address_id, customer_id, address)\norders(order_id, customer_id, order_date, product_id, description, quantity, unit_price)",
             "customers(customer_id, customer_name, phone)\naddresses(address_id, customer_id, address)\nproducts(product_id, description)\norders(order_id, customer_id, order_date)\norder_items(order_id, product_id, quantity, unit_price)",
@@ -397,11 +382,11 @@
             1
           ],
           "multi": false,
-          "why": "Cột chỉ phụ thuộc order_id về orders, cột chỉ phụ thuộc product_id về products, order_items chỉ giữ quantity và unit_price. Phương án 1 là mức slide minh họa 1NF, còn phụ thuộc bộ phận. Phương án 3 lặp customer_name và description. Phương án 4 để address không nguyên tử và description trong order_items."
+          "why": "Cột chỉ phụ thuộc order_id về orders, cột chỉ phụ thuộc product_id về products, order_items chỉ giữ quantity và unit_price. A là mức slide minh họa 1NF, còn phụ thuộc bộ phận. C lặp customer_name và description. D để address không nguyên tử và description trong order_items."
         },
         {
           "kind": "choice",
-          "q": "5) Ở bước kiểm 3NF, cột total_amount = quantity × unit_price xử lý thế nào?",
+          "q": "4) Ở bước kiểm 3NF, cột total_amount = quantity × unit_price xử lý thế nào?",
           "options": [
             "Bắt buộc giữ vì total_amount là một phần của khóa chính",
             "Chuyển total_amount sang bảng products",
@@ -421,7 +406,7 @@
       "parts": [
         {
           "kind": "sort",
-          "q": "1) Kéo mỗi trường số / đúng-sai vào kiểu SQL Server phù hợp.",
+          "q": "1) Kéo mỗi trường số / đúng-sai vào kiểu SQL Server vừa đủ, phù hợp nhất.",
           "bins": [
             "INT",
             "TINYINT",
@@ -545,22 +530,7 @@
         },
         {
           "kind": "choice",
-          "q": "3) Nếu sale_date kiểu DATETIME/DATETIME2, điều kiện nào lấy đủ giao dịch tháng 3/2024?",
-          "options": [
-            "WHERE s.sale_date BETWEEN '2024-03-01' AND '2024-03-31'",
-            "WHERE s.sale_date > '2024-03-01' AND s.sale_date < '2024-03-31'",
-            "WHERE s.sale_date = '2024-03'",
-            "WHERE s.sale_date >= '2024-03-01' AND s.sale_date < '2024-04-01'"
-          ],
-          "answer": [
-            3
-          ],
-          "multi": false,
-          "why": "Với kiểu có giờ, '2024-03-31' hiểu là 0h ngày 31/3, nên BETWEEN mất giao dịch trong ngày 31/3. Viết >= ngày đầu tháng và < ngày đầu tháng sau là đủ. BETWEEN chỉ đúng khi sale_date kiểu DATE."
-        },
-        {
-          "kind": "choice",
-          "q": "4) sale_date kiểu DATE. Câu SQL nào đúng toàn bộ yêu cầu?",
+          "q": "3) sale_date kiểu DATE. Câu SQL nào đúng toàn bộ yêu cầu?",
           "options": [
             "SELECT st.store_name, SUM(s.amount) AS doanh_thu,\n       COUNT(*) AS so_hoa_don, MAX(s.amount) AS hd_lon_nhat\nFROM sales s\nINNER JOIN stores st ON st.store_id = s.store_id\nWHERE s.sale_date BETWEEN '2024-03-01' AND '2024-03-31'\nGROUP BY st.store_id, st.store_name\nHAVING SUM(s.amount) > 100000000\nORDER BY doanh_thu DESC;",
             "SELECT s.store_name, SUM(s.amount) AS doanh_thu,\n       COUNT(*) AS so_hoa_don, MAX(s.amount) AS hd_lon_nhat\nFROM sales s\nWHERE s.sale_date BETWEEN '2024-03-01' AND '2024-03-31'\nGROUP BY s.store_id, s.store_name\nHAVING SUM(s.amount) > 100000000\nORDER BY doanh_thu DESC;",
@@ -572,6 +542,21 @@
           ],
           "multi": false,
           "why": "Cần tên cửa hàng nên phải JOIN stores (bảng sales không có store_name). Lọc tổng dùng HAVING, không đặt SUM trong WHERE. Doanh thu giảm dần là DESC, ASC là tăng dần."
+        },
+        {
+          "kind": "choice",
+          "q": "4) Nếu sale_date đổi sang kiểu DATETIME/DATETIME2 (có giờ), điều kiện nào lấy đủ giao dịch tháng 3/2024?",
+          "options": [
+            "WHERE s.sale_date BETWEEN '2024-03-01' AND '2024-03-31'",
+            "WHERE s.sale_date > '2024-03-01' AND s.sale_date < '2024-03-31'",
+            "WHERE s.sale_date = '2024-03'",
+            "WHERE s.sale_date >= '2024-03-01' AND s.sale_date < '2024-04-01'"
+          ],
+          "answer": [
+            3
+          ],
+          "multi": false,
+          "why": "Với kiểu có giờ, '2024-03-31' hiểu là 0h ngày 31/3, nên BETWEEN (A) mất giao dịch trong ngày 31/3. B còn mất cả ngày 31/3 và giao dịch lúc 0h ngày 1/3. C so sánh bằng với một tháng, không lọc được cả khoảng. Viết >= ngày đầu tháng và < ngày đầu tháng sau là đủ. BETWEEN chỉ đúng khi sale_date kiểu DATE."
         }
       ]
     },

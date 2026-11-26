@@ -20,10 +20,9 @@
       "lead": "Ghép mỗi requirement với Gap mà nó lấp, rồi chọn cách viết requirement đạt.",
       "parts": [
         {"kind": "sort", "q": "Requirement này lấp Gap nào của Doanh nghiệp A?",
-         "bins": ["Chưa có kiểm tra khi nhập", "Chưa có công cụ tổng hợp tự động", "Chưa liên kết đơn hàng với kho", "Chưa ghi nhận thanh toán gắn với đơn"],
+         "bins": ["Chưa có kiểm tra khi nhập", "Chưa có công cụ tổng hợp tự động", "Chưa ghi nhận thanh toán gắn với đơn"],
          "items": [
-           {"t": "Hệ thống phải tự trừ tồn kho khi đơn hàng được xác nhận.", "a": [2]},
-           {"t": "Hệ thống phải ghi nhận trạng thái thanh toán của từng đơn hàng.", "a": [3]},
+           {"t": "Hệ thống phải ghi nhận trạng thái thanh toán của từng đơn hàng.", "a": [2]},
            {"t": "Hệ thống phải kiểm tra các trường bắt buộc và định dạng số lượng, giá khi nhập đơn hàng.", "a": [0]},
            {"t": "Người quản lý có thể xem báo cáo tổng đơn hàng và doanh thu theo ngày, tháng.", "a": [1]}
          ]},
@@ -35,7 +34,7 @@
            "Hệ thống phải tốt hơn Excel."
          ],
          "answer": [2], "multi": false,
-         "why": "Requirement nói hệ thống phải làm gì để hết chỗ thiếu. Câu 1 và 2 chỉ mô tả hiện trạng (As-Is), câu 4 chung chung, không nói hệ thống làm gì."}
+         "why": "Requirement nói hệ thống phải làm gì để hết chỗ thiếu. A và B chỉ mô tả hiện trạng (As-Is), D chung chung, không nói hệ thống làm gì."}
       ]
     },
     "L11c-x3": {
@@ -63,7 +62,6 @@
            {"t": "[Mượn – trả] Xây chức năng Tạo phiếu mượn, Ghi nhận trả sách", "a": [3]},
            {"t": "[Báo cáo] Đếm tay cuối tháng", "a": [0]},
            {"t": "[Báo cáo] Báo cáo lượt mượn tự động", "a": [1]},
-           {"t": "[Báo cáo] Chưa có dữ liệu mượn tập trung và chức năng báo cáo", "a": [2]},
            {"t": "[Báo cáo] Xây báo cáo lượt mượn theo tháng từ dữ liệu phiếu mượn", "a": [3]}
          ]},
         {"kind": "choice", "q": "3) Cột Gap của dòng Báo cáo ghi thế nào cho đúng?",
@@ -155,12 +153,12 @@
            "Đơn đến qua tin nhắn mạng xã hội",
            "Khách đặt món trên ứng dụng",
            "Nhân viên chép đơn ra giấy",
-           "Chưa có màn hình quản lý đơn",
+           "Xây chức năng Xác nhận đơn hàng",
            "Khách hỏi tình trạng đơn phải nhắn lại"
          ],
          "answer": [0, 2, 4], "multi": true,
-         "why": "As-Is là việc đang làm, lấy từ đề. \"Khách đặt món trên ứng dụng\" là To-Be, \"Chưa có màn hình quản lý đơn\" là Gap."},
-        {"kind": "choice", "q": "3) Bước 3 – To-Be: dòng Xử lý đơn, cột To-Be ghi gì?",
+         "why": "As-Is là việc đang làm, lấy từ đề. \"Khách đặt món trên ứng dụng\" là To-Be, \"Xây chức năng Xác nhận đơn hàng\" là Action Plan."},
+        {"kind": "choice", "q": "3) Bước 3 – To-Be: lĩnh vực Xử lý đơn (hiện nhân viên đọc đơn đã chép ra giấy). Cột To-Be ghi gì?",
          "options": [
            "Đơn hiện trên hệ thống cho nhân viên xác nhận",
            "Nhân viên đọc giấy",

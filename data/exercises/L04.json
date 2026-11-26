@@ -427,15 +427,28 @@
       ]
     },
     "L04-x6": {
-      "lead": "Kéo mỗi việc BA làm vào đúng sự việc, rồi chọn cách xử lý.",
+      "lead": "Phân loại đơn vị vận chuyển mới, kéo việc BA làm vào đúng sự việc, rồi chọn cách xử lý đề nghị chấm công.",
       "parts": [
         {
+          "kind": "choice",
+          "q": "1) Đơn vị vận chuyển bên ngoài là stakeholder mới. BA phân loại họ vào nhóm nào?",
+          "options": [
+            "Primary",
+            "Secondary",
+            "Key"
+          ],
+          "answer": [
+            1
+          ],
+          "multi": false,
+          "why": "Đáp án mẫu xếp đơn vị vận chuyển vào Secondary: phối hợp qua kết nối gửi đơn, không phải người duyệt hay chi tiền. BA quay lại Bước 1 để phân tích, rồi Bước 2 để lên lịch làm việc."
+        },
+        {
           "kind": "sort",
-          "q": "1) Việc BA làm thuộc sự việc nào? (có việc đúng với hơn một sự việc, xếp vào một trong số đó là được)",
+          "q": "2) Mỗi việc BA làm thuộc sự việc nào: thuê đơn vị vận chuyển bên ngoài hay quản lý kho mới?",
           "bins": [
             "(1) Thuê đơn vị vận chuyển bên ngoài",
-            "(2) Quản lý kho mới",
-            "(3) Đề nghị chấm công vân tay"
+            "(2) Quản lý kho mới"
           ],
           "items": [
             {
@@ -476,40 +489,13 @@
               "why": "Tránh người mới phủ nhận yêu cầu cũ."
             },
             {
-              "t": "Giải thích phạm vi đã thống nhất; ghi nhận nhu cầu mới vào danh sách chờ",
-              "a": [
-                2
-              ]
-            },
-            {
-              "t": "Giữ nguyên dòng của người đề nghị trong Register",
-              "a": [
-                2
-              ]
-            },
-            {
               "t": "Đi qua Change Request để Ban Giám đốc duyệt hoặc quyết định",
               "a": [
-                0,
-                2
+                0
               ],
-              "why": "Kết nối đơn vị vận chuyển và chấm công đều là thay đổi phạm vi."
+              "why": "Kết nối với đơn vị vận chuyển là thay đổi phạm vi, phải được duyệt."
             }
           ]
-        },
-        {
-          "kind": "choice",
-          "q": "2) Đơn vị vận chuyển bên ngoài là stakeholder mới. BA phân loại họ vào nhóm nào?",
-          "options": [
-            "Primary",
-            "Secondary",
-            "Key"
-          ],
-          "answer": [
-            1
-          ],
-          "multi": false,
-          "why": "Đáp án mẫu xếp đơn vị vận chuyển vào Secondary: phối hợp qua kết nối gửi đơn, không phải người duyệt hay chi tiền. BA quay lại Bước 1 để phân tích, rồi Bước 2 để lên lịch làm việc."
         },
         {
           "kind": "choice",
@@ -524,7 +510,7 @@
             3
           ],
           "multi": false,
-          "why": "Chấm công là quy trình nhân sự, ngoài phạm vi \"quản lý bán hàng và kho\". Đồng ý ngay là \"BA/PM quá chiều\", gây scope creep. Trưởng ca vẫn giữ nguyên dòng trong Register."
+          "why": "Chấm công là quy trình nhân sự, ngoài phạm vi \"quản lý bán hàng và kho\". Đồng ý ngay là \"BA/PM quá chiều\", gây scope creep. BA giải thích phạm vi, ghi nhu cầu vào danh sách chờ; trưởng ca vẫn giữ nguyên dòng trong Register."
         }
       ]
     },
@@ -549,9 +535,10 @@
             {
               "t": "Trưởng thư viện",
               "a": [
-                0
+                0,
+                2
               ],
-              "why": "Chủ nghiệp vụ, dùng và chịu ảnh hưởng trực tiếp, giống HR Manager → Primary trong template HRM."
+              "why": "Đáp án mẫu xếp Primary: chủ nghiệp vụ, dùng và chịu ảnh hưởng trực tiếp, giống HR Manager trong template HRM. Ảnh hưởng Cao nên xếp Key cũng chấp nhận."
             },
             {
               "t": "Thủ thư",
@@ -596,28 +583,28 @@
           ],
           "items": [
             {
-              "t": "Hiệu trưởng: ảnh hưởng Cao, quan tâm Thấp",
+              "t": "Hiệu trưởng: duyệt ngân sách, không theo dõi chi tiết hằng ngày",
               "a": [
                 1
               ],
               "why": "Báo cáo định kỳ, ngắn gọn, hàng tháng."
             },
             {
-              "t": "Trưởng thư viện: ảnh hưởng Cao, quan tâm Cao",
+              "t": "Trưởng thư viện: chủ nghiệp vụ, duyệt yêu cầu, theo sát dự án",
               "a": [
                 0
               ],
               "why": "Tham gia elicitation thường xuyên, duyệt trước khi đổi yêu cầu."
             },
             {
-              "t": "Thủ thư: ảnh hưởng Thấp, quan tâm Cao",
+              "t": "Thủ thư: dùng hệ thống hằng ngày, không có quyền quyết định",
               "a": [
                 2
               ],
               "why": "Quan sát, lắng nghe, giữ thông tin."
             },
             {
-              "t": "Nhà cung cấp máy quét: ảnh hưởng Thấp, quan tâm Thấp",
+              "t": "Nhà cung cấp máy quét: chỉ cung cấp thiết bị, ít liên quan quyết định",
               "a": [
                 3
               ],
@@ -674,7 +661,7 @@
       ]
     },
     "L04-p1": {
-      "lead": "Sắp 13 bước tiếp cận dự án theo đúng trình tự, ghép việc cụ thể của dự án HRM vào bước, rồi phân biệt hai bước phạm vi.",
+      "lead": "Sắp các bước tiếp cận dự án (lấy từ 13 bước) theo đúng trình tự, ghép việc cụ thể của dự án HRM vào bước, rồi phân biệt hai bước phạm vi.",
       "parts": [
         {
           "kind": "order",
@@ -1046,13 +1033,12 @@
       ]
     },
     "L04-p4": {
-      "lead": "Ghép kỹ thuật elicitation cho từng nhóm SolasMart, rồi chọn lý do và thời điểm làm việc.",
+      "lead": "Ghép kỹ thuật elicitation cho các nhóm SolasMart, rồi chọn lý do và thời điểm làm việc với Ban Giám đốc và thu ngân.",
       "parts": [
         {
           "kind": "sort",
           "q": "1) Mỗi kỹ thuật trong kế hoạch tương tác dành cho stakeholder nào?",
           "bins": [
-            "Ban Giám đốc",
             "Quản lý siêu thị / Trưởng ca",
             "Thu ngân",
             "Nhân viên CSKH",
@@ -1061,39 +1047,33 @@
           ],
           "items": [
             {
-              "t": "Phỏng vấn ngắn",
+              "t": "Phỏng vấn sâu, workshop",
               "a": [
                 0
               ]
             },
             {
-              "t": "Phỏng vấn sâu, workshop",
+              "t": "Quan sát tại quầy, phỏng vấn nhóm",
               "a": [
                 1
               ]
             },
             {
-              "t": "Quan sát tại quầy, phỏng vấn nhóm",
+              "t": "Quan sát, phân tích file Excel đơn hàng",
               "a": [
                 2
               ]
             },
             {
-              "t": "Quan sát, phân tích file Excel đơn hàng",
+              "t": "Workshop, phân tích phiếu nhập, xuất, kiểm kê",
               "a": [
                 3
               ]
             },
             {
-              "t": "Workshop, phân tích phiếu nhập, xuất, kiểm kê",
-              "a": [
-                4
-              ]
-            },
-            {
               "t": "Không khảo sát sâu; hỏi qua quản lý kho",
               "a": [
-                5
+                4
               ]
             }
           ]

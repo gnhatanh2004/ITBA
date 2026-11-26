@@ -4,7 +4,7 @@
     "CS-x1": {
       "lead": "Phân loại từng stakeholder, ghép nhu cầu với người, rồi chọn chiến lược theo ma trận Power – Interest.",
       "parts": [
-        {"kind": "sort", "q": "1) Mỗi stakeholder thuộc loại nào? (Ai duyệt, chi tiền → Key; ai dùng trực tiếp → Primary; ai hỗ trợ → Secondary.)",
+        {"kind": "sort", "q": "1) Mỗi stakeholder thuộc loại nào? (Có quyền quyết, phê duyệt, chi tiền → Key; dùng hệ thống trực tiếp → Primary; chỉ hỗ trợ, phối hợp, liên quan nhưng không dùng trực tiếp → Secondary.)",
          "bins": ["Key", "Primary", "Secondary"],
          "items": [
            {"t": "Ban Giám đốc: phê duyệt, tài trợ dự án", "a": [0]},
@@ -12,11 +12,11 @@
            {"t": "Nhóm thu ngân: dùng POS", "a": [1]},
            {"t": "CSKH bán online: nhận, tạo đơn", "a": [1]},
            {"t": "Quản lý kho: quản lý nhập, xuất, kiểm kê", "a": [1]},
-           {"t": "Kế toán: đối soát, ký chứng từ", "a": [2]},
+           {"t": "Kế toán: xử lý chứng từ lệch, đối soát COD", "a": [2], "why": "Phối hợp xử lý số liệu, không dùng hệ thống bán hàng và kho hằng ngày."},
            {"t": "Nhà cung cấp: giao hàng, xuất hóa đơn", "a": [2]},
            {"t": "Đội phát triển: xây hệ thống", "a": [2]}
          ]},
-        {"kind": "sort", "q": "2) Nhu cầu này là của ai?",
+        {"kind": "sort", "q": "2) Kéo mỗi nhu cầu về stakeholder có nhu cầu đó.",
          "bins": ["Ban Giám đốc", "Nhóm thu ngân", "CSKH bán online", "Quản lý kho", "Kế toán", "Nhà cung cấp", "Đội phát triển"],
          "items": [
            {"t": "Số liệu doanh thu, tồn kho chính xác", "a": [0]},
@@ -27,7 +27,7 @@
            {"t": "Nhận hàng nhanh, chứng từ rõ", "a": [5]},
            {"t": "Yêu cầu rõ, ổn định", "a": [6]}
          ]},
-        {"kind": "sort", "q": "3) Với mỗi ô trên ma trận Power – Interest, BA dùng chiến lược nào?",
+        {"kind": "sort", "q": "3) Kéo mỗi chiến lược quản lý vào ô phù hợp của ma trận Power – Interest.",
          "bins": ["Ảnh hưởng Cao – Quan tâm Cao (Quản lý siêu thị, Quản lý kho)", "Ảnh hưởng Cao – Quan tâm Thấp (Ban Giám đốc)", "Ảnh hưởng Thấp – Quan tâm Cao (Thu ngân, CSKH)", "Ảnh hưởng Thấp – Quan tâm Thấp (Nhà cung cấp)"],
          "items": [
            {"t": "Tham gia thường xuyên vào elicitation, duyệt trước khi đổi yêu cầu", "a": [0], "why": "Manage closely (quản lý chặt)."},
@@ -38,36 +38,36 @@
       ]
     },
     "CS-x2": {
-      "lead": "Ghép kỹ thuật với người và lý do, ghép rủi ro với cách giảm, rồi khoanh phạm vi kế hoạch khai thác cho kênh bán online.",
+      "lead": "Khoanh phạm vi kế hoạch, ghép kỹ thuật với người và lý do, ghép rủi ro với cách giảm, rồi chọn kết quả mong đợi.",
       "parts": [
-        {"kind": "sort", "q": "1) Mỗi đối tượng hoặc lý do ứng với kỹ thuật khai thác nào?",
-         "bins": ["Document Analysis", "Observation (chủ động)", "Interview", "Workshop"],
-         "items": [
-           {"t": "BA tự làm, trước các buổi gặp stakeholder", "a": [0]},
-           {"t": "Đã có quy trình bán online, báo cáo cuối ca online, file Excel", "a": [0]},
-           {"t": "CSKH và kho trong giờ cao điểm", "a": [1]},
-           {"t": "Thấy thật cách hỏi tồn kho qua Zalo và thời gian chờ", "a": [1]},
-           {"t": "Kế toán, quản lý siêu thị", "a": [2]},
-           {"t": "Chủ đề đối soát COD cần đi sâu, người được hỏi bận", "a": [2]},
-           {"t": "CSKH + kho + trưởng ca cùng ngồi", "a": [3]},
-           {"t": "Chốt khi nào trừ tồn kho, xử lý hàng hoàn thế nào", "a": [3]}
-         ]},
-        {"kind": "sort", "q": "2) Mỗi cách giảm rủi ro dùng cho rủi ro nào?",
-         "bins": ["CSKH bận giờ cao điểm", "Người bị quan sát đổi hành vi", "Hai bộ phận bất đồng"],
-         "items": [
-           {"t": "Quan sát ngoài giờ đỉnh, hẹn trước", "a": [0]},
-           {"t": "Quan sát nhiều ca", "a": [1]},
-           {"t": "BA điều phối workshop, dùng Dot Voting", "a": [2]}
-         ]},
-        {"kind": "sort", "q": "3) Kế hoạch dành cho phân hệ bán online. Việc nào nằm trong phạm vi?",
+        {"kind": "sort", "q": "1) Kế hoạch khai thác yêu cầu dành cho phân hệ bán online. Việc nào nằm trong phạm vi, việc nào ngoài?",
          "bins": ["Trong phạm vi", "Ngoài phạm vi"],
          "items": [
            {"t": "Khách gửi yêu cầu đặt hàng qua các kênh online", "a": [0]},
            {"t": "CSKH kiểm tồn, tạo đơn", "a": [0]},
            {"t": "Shipper giao hàng, thu COD", "a": [0]},
-           {"t": "Đối soát COD cuối ngày", "a": [0]},
-           {"t": "Bán hàng tại quầy", "a": [1], "why": "Đáp án mẫu ghi rõ: không gồm bán tại quầy."},
-           {"t": "Quản lý nhân sự", "a": [1], "why": "Đáp án mẫu ghi rõ: không gồm nhân sự."}
+           {"t": "Đối soát COD cuối ngày", "a": [0], "why": "Quy trình bán online kết thúc ở bước cuối ngày: kế toán đối soát tiền COD shipper nộp về."},
+           {"t": "Bán hàng tại quầy", "a": [1], "why": "Bán tại quầy là kênh khác, không thuộc phân hệ bán online."},
+           {"t": "Quản lý nhân sự", "a": [1], "why": "Nhân sự không nằm trong luồng bán online."}
+         ]},
+        {"kind": "sort", "q": "2) Mỗi đối tượng hoặc lý do dưới đây ứng với kỹ thuật khai thác nào?",
+         "bins": ["Document Analysis", "Observation (chủ động)", "Interview", "Workshop"],
+         "items": [
+           {"t": "BA tự làm, trước các buổi gặp stakeholder", "a": [0]},
+           {"t": "Đã có quy trình bán online, báo cáo cuối ca online, file Excel", "a": [0]},
+           {"t": "CSKH và kho đang làm việc trong giờ cao điểm", "a": [1]},
+           {"t": "Thấy tận mắt cách hỏi tồn kho qua Zalo và thời gian chờ", "a": [1]},
+           {"t": "Kế toán, quản lý siêu thị: gặp riêng từng người", "a": [2]},
+           {"t": "Chủ đề đối soát COD cần hỏi sâu, người được hỏi bận", "a": [2]},
+           {"t": "CSKH, kho và trưởng ca ngồi chung một buổi", "a": [3]},
+           {"t": "Các bộ phận cùng chốt khi nào trừ tồn kho, xử lý hàng hoàn thế nào", "a": [3]}
+         ]},
+        {"kind": "sort", "q": "3) Mỗi cách giảm rủi ro dùng cho rủi ro nào của kế hoạch?",
+         "bins": ["CSKH bận giờ cao điểm", "Người bị quan sát đổi hành vi", "Hai bộ phận bất đồng"],
+         "items": [
+           {"t": "Quan sát ngoài giờ đỉnh, hẹn trước", "a": [0]},
+           {"t": "Quan sát nhiều ca", "a": [1]},
+           {"t": "BA điều phối workshop, dùng Dot Voting", "a": [2]}
          ]},
         {"kind": "choice", "q": "4) Những gì là kết quả mong đợi của kế hoạch khai thác? (chọn tất cả ý đúng)",
          "options": [
@@ -83,9 +83,18 @@
       ]
     },
     "CS-x3": {
-      "lead": "Kéo từng yêu cầu vào FR/NFR và Must/Should, rồi chọn cách viết đạt.",
+      "lead": "Chọn FR lấp lỗ hổng, kéo từng yêu cầu vào FR/NFR, chọn cách viết NFR đạt, rồi xếp mức MoSCoW.",
       "parts": [
-        {"kind": "sort", "q": "1) Yêu cầu nào là FR (hệ thống làm gì), yêu cầu nào là NFR (làm tốt ra sao)?",
+        {"kind": "choice", "q": "1) Lỗ hổng \"không bước nào trừ tồn kho khi bán tại quầy\" gợi ra FR nào?",
+         "options": [
+           "Thu ngân ghi số lượng đã bán vào Excel cuối ca để kho trừ tay.",
+           "Hệ thống tự trừ tồn kho khi hóa đơn tại quầy được thanh toán xong.",
+           "Hệ thống phải phản hồi nhanh khi bán tại quầy.",
+           "Kho kiểm kê toàn bộ mỗi tuần để biết tồn thực tế."
+         ],
+         "answer": [1], "multi": false,
+         "why": "FR này lấp đúng lỗ hổng: hệ thống tự trừ tồn ngay khi hóa đơn thanh toán xong. Ghi Excel hay kiểm kê hằng tuần vẫn là làm tay; \"phản hồi nhanh\" là NFR mơ hồ, không phải FR."},
+        {"kind": "sort", "q": "2) Yêu cầu nào là FR (hệ thống làm gì), yêu cầu nào là NFR (làm tốt ra sao)?",
          "bins": ["FR", "NFR"],
          "items": [
            {"t": "Hệ thống tự trừ tồn kho khi hóa đơn tại quầy được thanh toán xong.", "a": [0]},
@@ -94,21 +103,10 @@
            {"t": "Nhân viên kho lập Phiếu nhập kho trên hệ thống, có số PO của nhà cung cấp.", "a": [0]},
            {"t": "Hệ thống cảnh báo sản phẩm còn ít hơn N ngày tới hạn dùng (N do quản lý kho cấu hình).", "a": [0]},
            {"t": "Shipper xác nhận đã thu COD cho từng đơn trên app.", "a": [0]},
-           {"t": "POS hiển thị tên và giá trong ≤ 1 giây sau mỗi lần quét mã.", "a": [1], "why": "Hiệu năng, có con số đo được."},
            {"t": "Số tồn trên màn hình CSKH cập nhật chậm nhất 5 giây sau khi có giao dịch.", "a": [1], "why": "Độ trễ dữ liệu, đo được."},
            {"t": "Mỗi thu ngân đăng nhập bằng tài khoản riêng; phiên tự khóa sau 5 phút không thao tác.", "a": [1], "why": "Bảo mật, đo được bằng thời gian tự khóa."}
          ]},
-        {"kind": "sort", "q": "2) Xếp mức MoSCoW cho từng FR. Must: thiếu thì hệ thống không đạt mục tiêu. Should: quan trọng nhưng vẫn còn cách làm tạm.",
-         "bins": ["Must", "Should"],
-         "items": [
-           {"t": "Tự trừ tồn kho khi hóa đơn tại quầy thanh toán xong", "a": [0], "why": "Thiếu thì tồn kho sai, cả hai kênh bán sai."},
-           {"t": "CSKH xem số tồn ngay trên màn hình tạo đơn online", "a": [0], "why": "Pain point lớn nhất của kênh online."},
-           {"t": "Tạo đơn online với kênh đặt hàng chọn từ danh sách 7 kênh", "a": [0], "why": "Gom đơn rời rạc về một nơi."},
-           {"t": "Lập Phiếu nhập kho trên hệ thống, có số PO", "a": [0], "why": "Lấp lỗ hổng phiếu nhập không có số PO."},
-           {"t": "Cảnh báo sản phẩm còn ít hơn N ngày tới hạn dùng", "a": [1], "why": "Có thể kiểm tay mỗi ca như hiện nay."},
-           {"t": "Shipper xác nhận đã thu COD cho từng đơn trên app", "a": [1], "why": "Đối soát hiện làm tay được."}
-         ]},
-        {"kind": "choice", "q": "3) Cách viết NFR nào đạt (đo được, không lẫn giải pháp)?",
+        {"kind": "choice", "q": "3) Cách viết NFR nào cho máy POS tại quầy là đạt (đo được, không lẫn giải pháp)?",
          "options": [
            "POS phải chạy nhanh, không để khách chờ lâu.",
            "Dùng bộ nhớ đệm Redis để POS tra giá nhanh hơn.",
@@ -117,57 +115,22 @@
          ],
          "answer": [3], "multi": false,
          "why": "NFR phải có con số kiểm được. \"Chạy nhanh\" và \"thân thiện\" mơ hồ, không đo được; \"dùng Redis\" là giải pháp kỹ thuật chứ không phải yêu cầu."},
-        {"kind": "choice", "q": "4) Lỗ hổng \"không bước nào trừ tồn kho khi bán tại quầy\" gợi ra FR nào?",
-         "options": [
-           "Thu ngân ghi số lượng đã bán vào Excel cuối ca để kho trừ tay.",
-           "Hệ thống tự trừ tồn kho khi hóa đơn tại quầy được thanh toán xong.",
-           "Hệ thống phải phản hồi nhanh khi bán tại quầy.",
-           "Kho kiểm kê toàn bộ mỗi tuần để biết tồn thực tế."
-         ],
-         "answer": [1], "multi": false,
-         "why": "FR-01 (Must) lấp đúng lỗ hổng: hệ thống tự trừ tồn ngay khi hóa đơn thanh toán xong. Ghi Excel hay kiểm kê hằng tuần vẫn là làm tay; \"phản hồi nhanh\" là NFR mơ hồ, không phải FR."}
+        {"kind": "sort", "q": "4) Xếp mức MoSCoW cho từng FR. Mục tiêu dự án: tồn kho đúng và dùng chung cho cả quầy lẫn online, gom đơn online về một nơi, quản lý nhập, xuất, kiểm kê kho. Must: thiếu thì không đạt mục tiêu đó. Should: quan trọng nhưng hiện vẫn làm tay tạm được.",
+         "bins": ["Must", "Should"],
+         "items": [
+           {"t": "Tự trừ tồn kho khi hóa đơn tại quầy thanh toán xong", "a": [0], "why": "Thiếu thì tồn kho sai, cả hai kênh bán sai."},
+           {"t": "CSKH xem số tồn ngay trên màn hình tạo đơn online", "a": [0], "why": "Pain point lớn nhất của kênh online."},
+           {"t": "Tạo đơn online với kênh đặt hàng chọn từ danh sách 7 kênh", "a": [0], "why": "Gom đơn rời rạc về một nơi."},
+           {"t": "Lập Phiếu nhập kho trên hệ thống, có số PO", "a": [0], "why": "Quản lý nhập kho là mục tiêu dự án; còn lấp lỗ hổng phiếu nhập không có số PO."},
+           {"t": "Cảnh báo sản phẩm còn ít hơn N ngày tới hạn dùng", "a": [1], "why": "Có thể kiểm tay mỗi ca như hiện nay."},
+           {"t": "Shipper xác nhận đã thu COD cho từng đơn trên app", "a": [1], "why": "Đối soát hiện làm tay được."}
+         ]}
       ]
     },
     "CS-x4": {
-      "lead": "Dựng sơ đồ BPMN To-Be bằng cách kéo từng phần tử vào đúng loại và lane, chọn ký hiệu, rồi sắp luồng chính.",
+      "lead": "Chọn cách vẽ khách hàng, kéo từng task vào lane và loại task, chọn ký hiệu cho các điểm, chọn đường nối giữa hai pool, rồi sắp luồng chính.",
       "parts": [
-        {"kind": "sort", "q": "1) Mỗi task là loại task nào?",
-         "bins": ["User Task", "Service Task", "Manual Task", "Send Task"],
-         "items": [
-           {"t": "Tạo đơn trên hệ thống", "a": [0]},
-           {"t": "Kiểm tra tồn kho", "a": [1], "why": "Hệ thống tự chạy, không có người thao tác."},
-           {"t": "Đề xuất hàng thay thế", "a": [0]},
-           {"t": "Gửi báo giá cho khách", "a": [3], "why": "Task gửi message ra pool Khách hàng."},
-           {"t": "Chuyển đơn cho kho", "a": [1]},
-           {"t": "Lấy hàng, kiểm hạn dùng, đóng gói", "a": [2], "why": "Làm bằng tay, không dùng hệ thống."},
-           {"t": "Cập nhật trạng thái Đã đóng gói", "a": [0]},
-           {"t": "Giao hàng, thu COD", "a": [0]},
-           {"t": "Trừ tồn, cập nhật doanh thu", "a": [1]}
-         ]},
-        {"kind": "sort", "q": "2) Mỗi task nằm ở lane nào của pool SolasMart?",
-         "bins": ["CSKH", "Hệ thống", "Kho", "Shipper"],
-         "items": [
-           {"t": "Tạo đơn trên hệ thống", "a": [0]},
-           {"t": "Kiểm tra tồn kho", "a": [1], "why": "Hệ thống kiểm tồn tự động, không phải kho trả lời như As-Is."},
-           {"t": "Đề xuất hàng thay thế", "a": [0]},
-           {"t": "Gửi báo giá cho khách", "a": [0]},
-           {"t": "Chuyển đơn cho kho", "a": [1]},
-           {"t": "Lấy hàng, kiểm hạn dùng, đóng gói", "a": [2]},
-           {"t": "Cập nhật trạng thái Đã đóng gói", "a": [2]},
-           {"t": "Giao hàng, thu COD", "a": [3]},
-           {"t": "Trừ tồn, cập nhật doanh thu", "a": [1]}
-         ]},
-        {"kind": "sort", "q": "3) Mỗi điểm trên sơ đồ dùng ký hiệu nào?",
-         "bins": ["Message Start Event", "Exclusive Gateway", "Boundary Timer Event", "End Event"],
-         "items": [
-           {"t": "Nhận yêu cầu đặt hàng từ khách", "a": [0]},
-           {"t": "Đủ hàng?", "a": [1]},
-           {"t": "Khách xác nhận?", "a": [1]},
-           {"t": "Gọi khách không nghe máy, sau 15 phút thì hàng về kho", "a": [2], "why": "Timer gắn trên viền task \"Gọi khách\", hết 15 phút thì rẽ nhánh \"Hàng về kho\"."},
-           {"t": "Đơn hủy (khách không đồng ý hàng thay thế)", "a": [3]},
-           {"t": "Đơn hoàn tất (shipper đã xác nhận COD)", "a": [3]}
-         ]},
-        {"kind": "choice", "q": "4) Khách hàng được vẽ thế nào trên sơ đồ?",
+        {"kind": "choice", "q": "1) Khách hàng được vẽ thế nào trên sơ đồ BPMN To-Be?",
          "options": [
            "Pool riêng dạng Black Box",
            "Một lane trong pool SolasMart",
@@ -176,6 +139,42 @@
          ],
          "answer": [0], "multi": false,
          "why": "Khách hàng là bên ngoài nên có pool riêng; SolasMart không biết bên trong khách làm gì nên pool để dạng Black Box."},
+        {"kind": "sort", "q": "2) Pool SolasMart có 4 lane. Mỗi task nằm ở lane nào?",
+         "bins": ["CSKH", "Hệ thống", "Kho", "Shipper"],
+         "items": [
+           {"t": "Tạo đơn trên hệ thống", "a": [0]},
+           {"t": "Kiểm tra tồn kho", "a": [1], "why": "Hệ thống kiểm tồn tự động, không phải kho trả lời như As-Is."},
+           {"t": "Đề xuất hàng thay thế", "a": [0]},
+           {"t": "Gửi báo giá cho khách", "a": [0]},
+           {"t": "Chuyển đơn cho kho", "a": [1], "why": "Hệ thống tự chuyển đơn, thay cho việc gửi qua Zalo nhóm."},
+           {"t": "Lấy hàng, kiểm hạn dùng, đóng gói", "a": [2]},
+           {"t": "Cập nhật trạng thái Đã đóng gói", "a": [2]},
+           {"t": "Giao hàng, thu COD", "a": [3]},
+           {"t": "Trừ tồn, cập nhật doanh thu", "a": [1]}
+         ]},
+        {"kind": "sort", "q": "3) Mỗi task là loại task nào?",
+         "bins": ["User Task", "Service Task", "Manual Task", "Send Task"],
+         "items": [
+           {"t": "Tạo đơn trên hệ thống", "a": [0]},
+           {"t": "Kiểm tra tồn kho (hệ thống tự kiểm)", "a": [1], "why": "Hệ thống tự chạy, không có người thao tác."},
+           {"t": "Đề xuất hàng thay thế (CSKH tìm hàng tương tự trên hệ thống)", "a": [0], "why": "CSKH thao tác trên hệ thống để chọn hàng nên là User Task; lời đề xuất tới khách đi bằng Message Flow."},
+           {"t": "Gửi báo giá cho khách", "a": [3], "why": "Task chỉ để gửi message ra pool Khách hàng."},
+           {"t": "Chuyển đơn cho kho (hệ thống tự chuyển)", "a": [1]},
+           {"t": "Lấy hàng, kiểm hạn dùng, đóng gói", "a": [2], "why": "Làm bằng tay, không dùng hệ thống."},
+           {"t": "Cập nhật trạng thái Đã đóng gói", "a": [0]},
+           {"t": "Giao hàng, thu COD (shipper xác nhận trên app)", "a": [0], "why": "Shipper làm việc có hệ thống hỗ trợ (xác nhận trên app) nên là User Task."},
+           {"t": "Trừ tồn, cập nhật doanh thu (hệ thống tự làm)", "a": [1]}
+         ]},
+        {"kind": "sort", "q": "4) Mỗi điểm trên sơ đồ dùng ký hiệu BPMN nào?",
+         "bins": ["Message Start Event", "Exclusive Gateway", "Boundary Timer Event", "End Event"],
+         "items": [
+           {"t": "Nhận yêu cầu đặt hàng từ khách", "a": [0]},
+           {"t": "Đủ hàng?", "a": [1]},
+           {"t": "Khách xác nhận?", "a": [1]},
+           {"t": "Gọi khách không nghe máy, sau 15 phút thì hàng về kho", "a": [2], "why": "Timer 15 phút gắn trên viền task của shipper lúc gọi khách; hết giờ thì rẽ nhánh \"Hàng về kho\"."},
+           {"t": "Đơn hủy (khách không đồng ý hàng thay thế)", "a": [3]},
+           {"t": "Đơn hoàn tất (shipper đã xác nhận COD)", "a": [3]}
+         ]},
         {"kind": "choice", "q": "5) Yêu cầu của khách, báo giá, đề xuất hàng thay thế đi giữa pool Khách hàng và pool SolasMart bằng đường nối nào?",
          "options": ["Sequence Flow", "Association", "Message Flow"],
          "answer": [2], "multi": false,
@@ -187,11 +186,11 @@
     "CS-x5": {
       "lead": "Xếp actor, chọn quan hệ include/extend, kéo từng nội dung vào đúng trường đặc tả, rồi sắp Main Flow.",
       "parts": [
-        {"kind": "sort", "q": "1) Ai là actor của phân hệ bán tại quầy, loại nào?",
+        {"kind": "sort", "q": "1) Ai là actor của phân hệ bán tại quầy, loại nào? (Primary: chủ động dùng hệ thống để đạt mục tiêu của mình; Secondary: hỗ trợ, cung cấp dịch vụ cho hệ thống.)",
          "bins": ["Primary Actor", "Secondary Actor", "Không phải actor"],
          "items": [
            {"t": "Thu ngân", "a": [0]},
-           {"t": "Trưởng ca (xác nhận giá)", "a": [0]},
+           {"t": "Trưởng ca (xác nhận giá)", "a": [0], "why": "Tự thao tác use case Xác nhận giá để đạt mục tiêu của mình."},
            {"t": "Ngân hàng (xác nhận chuyển khoản)", "a": [1], "why": "Hệ thống gọi tới để hỗ trợ, không tự khởi động use case."},
            {"t": "Chị Lan, thu ngân ca sáng", "a": [2], "why": "Actor là vai trò, không phải tên người. Vai trò ở đây là Thu ngân."}
          ]},
@@ -207,7 +206,7 @@
            {"t": "Thu ngân bấm \"Thanh toán\" sau khi khách xác nhận giỏ hàng", "a": [0]},
            {"t": "Thu ngân đã đăng nhập; giỏ hàng có ít nhất 1 sản phẩm", "a": [1]},
            {"t": "Hóa đơn ở trạng thái Đã thanh toán; tồn kho đã trừ", "a": [2]},
-           {"t": "Khách trả bằng QR: hệ thống hiện mã, Ngân hàng xác nhận, tiếp bước 6", "a": [3], "why": "Rẽ nhánh nhưng vẫn đạt mục tiêu thanh toán."},
+           {"t": "Khách trả bằng QR: hệ thống hiện mã, Ngân hàng xác nhận, quay lại bước lưu hóa đơn, trừ tồn, in hóa đơn", "a": [3], "why": "Rẽ nhánh nhưng vẫn đạt mục tiêu thanh toán."},
            {"t": "Máy thẻ treo, khách không đổi được phương thức: hủy giao dịch", "a": [4], "why": "Không đạt mục tiêu, giao dịch bị hủy."},
            {"t": "Khách không đủ tiền và không bỏ bớt hàng: hủy giao dịch", "a": [4]},
            {"t": "Không dùng tài khoản thu ngân của người khác", "a": [5]},
@@ -218,9 +217,9 @@
       ]
     },
     "CS-x6": {
-      "lead": "Xếp thực thể, chọn khóa, rồi kéo từng câu đọc quan hệ vào đúng cardinality.",
+      "lead": "Xếp thực thể, chọn khóa, kéo từng câu đọc quan hệ vào đúng cardinality, rồi chọn chỗ đặt thuộc tính.",
       "parts": [
-        {"kind": "sort", "q": "1) Thực thể nào là thực thể kết hợp (tách quan hệ n-n)?",
+        {"kind": "sort", "q": "1) Phiếu nhập kho ghi nhà cung cấp và nhiều dòng hàng; hóa đơn bán lẻ ghi thu ngân lập, khách thành viên (nếu có) và nhiều dòng hàng; một hàng có thể nằm trên nhiều phiếu, nhiều hóa đơn. Thực thể nào là thực thể kết hợp (tách quan hệ n-n)?",
          "bins": ["Thực thể thường", "Thực thể kết hợp"],
          "items": [
            {"t": "NhaCungCap", "a": [0]},
@@ -230,7 +229,7 @@
            {"t": "NhanVien", "a": [0]},
            {"t": "HoaDon", "a": [0]},
            {"t": "DongHoaDon", "a": [1], "why": "Tách quan hệ n-n Hóa đơn – Hàng hóa."},
-           {"t": "KhachHang", "a": [0]}
+           {"t": "KhachHang (khách thành viên)", "a": [0]}
          ]},
         {"kind": "choice", "q": "2) Khóa chính của DongHoaDon là gì?",
          "options": ["SoHD", "MaSP", "MaNV", "(SoHD, MaSP)"],
@@ -240,15 +239,7 @@
          "options": ["MaNV (thu ngân lập)", "MaSP", "MaKH (khách thành viên)", "SoPhieu", "MaNCC"],
          "answer": [0, 2], "multi": true,
          "why": "HoaDon giữ MaNV và MaKH. MaSP nằm ở DongHoaDon; SoPhieu và MaNCC thuộc phần nhập kho."},
-        {"kind": "choice", "q": "4) Vì sao MaKH trong HoaDon có thể NULL?",
-         "options": [
-           "Vì MaKH là khóa chính của HoaDon",
-           "Vì khách vãng lai không được lưu thành KhachHang",
-           "Vì một hóa đơn có thể thuộc nhiều khách hàng"
-         ],
-         "answer": [1], "multi": false,
-         "why": "Một HoaDon thuộc không hoặc một KhachHang: chỉ khách thành viên mới có MaKH, khách vãng lai không lưu."},
-        {"kind": "sort", "q": "5) Điền cardinality vào chỗ \"…\".",
+        {"kind": "sort", "q": "4) Điền cardinality vào chỗ \"…\".",
          "bins": ["đúng một", "không hoặc một", "một hoặc nhiều", "không hoặc nhiều"],
          "items": [
            {"t": "Một PhieuNhap có … DongPhieuNhap", "a": [2]},
@@ -257,9 +248,9 @@
            {"t": "Mỗi DongPhieuNhap ứng với … HangHoa", "a": [0]},
            {"t": "Một NhanVien lập … HoaDon", "a": [3]},
            {"t": "Mỗi HoaDon do … thu ngân lập", "a": [0]},
-           {"t": "Một HoaDon thuộc … KhachHang", "a": [1], "why": "Khách vãng lai không lưu."}
+           {"t": "Một HoaDon thuộc … KhachHang", "a": [1], "why": "Chỉ khách thành viên mới được lưu; khách vãng lai không có MaKH nên MaKH trong HoaDon có thể NULL."}
          ]},
-        {"kind": "choice", "q": "6) SoLuong, DonGia lúc giao dịch đặt ở đâu, và ThanhTien là gì?",
+        {"kind": "choice", "q": "5) SoLuong, DonGia lúc giao dịch đặt ở đâu, và ThanhTien là gì?",
          "options": [
            "SoLuong, DonGia ở DongHoaDon và DongPhieuNhap; ThanhTien là thuộc tính dẫn xuất",
            "SoLuong, DonGia ở HangHoa; ThanhTien lưu thành cột riêng ở HangHoa",
@@ -272,19 +263,19 @@
     "CS-x7": {
       "lead": "Khoanh phạm vi, sắp các bước quy trình hiện tại, ghép vấn đề với giải pháp, rồi chọn nội dung hợp với BRD.",
       "parts": [
-        {"kind": "sort", "q": "1) Mục 4.2 Phạm vi dự án: việc nào trong, việc nào ngoài phạm vi?",
+        {"kind": "sort", "q": "1) Mục 4.2 Phạm vi dự án. Dự án xây hệ thống quản lý bán hàng và kho: bán tại quầy có trừ tồn kho, gom đơn online về một nơi, quản lý nhập, xuất, kiểm kê kho; báo cáo bán hàng lấy luôn từ hệ thống. Việc nào trong, việc nào ngoài phạm vi?",
          "bins": ["Trong phạm vi", "Ngoài phạm vi"],
          "items": [
            {"t": "Bán hàng tại quầy: POS, thanh toán, hóa đơn, trừ tồn kho", "a": [0]},
            {"t": "Tiếp nhận và xử lý đơn online từ 7 kênh", "a": [0]},
            {"t": "Nhập, xuất, kiểm kê, hủy hàng tại kho tổng", "a": [0]},
-           {"t": "Báo cáo cuối ca", "a": [0]},
+           {"t": "Báo cáo cuối ca", "a": [0], "why": "Báo cáo cuối ca tại quầy và online là báo cáo bán hàng, lập từ dữ liệu trên hệ thống."},
            {"t": "Chấm công và tính lương", "a": [1], "why": "Đã có máy vân tay."},
-           {"t": "Website thương mại điện tử cho khách tự đặt", "a": [1]},
-           {"t": "Kế toán tổng hợp", "a": [1]}
+           {"t": "Website thương mại điện tử cho khách tự đặt", "a": [1], "why": "Dự án gom đơn từ 7 kênh sẵn có, không làm kênh mới cho khách tự đặt."},
+           {"t": "Kế toán tổng hợp", "a": [1], "why": "Dự án chỉ lo bán hàng và kho, không làm sổ sách kế toán."}
          ]},
         {"kind": "order", "q": "2) Mục 6.1: sắp xếp các bước bán hàng tại quầy hiện tại theo đúng thứ tự.",
-         "items": ["Khách đưa hàng lên quầy", "Thu ngân bắt đầu phiên", "Quét mã", "Xác nhận giỏ", "Chọn phương thức thanh toán", "Thu tiền", "In hóa đơn, giao hàng", "Kết thúc phiên"]},
+         "items": ["Khách đưa hàng lên quầy", "Thu ngân bắt đầu phiên: chào khách, kiểm số lượng hàng khách đưa", "Quét mã", "Xác nhận giỏ: đọc tổng tiền, tổng số lượng", "Chọn phương thức thanh toán", "Thu tiền", "In hóa đơn, giao hàng", "Kết thúc phiên"]},
         {"kind": "sort", "q": "3) Mỗi giải pháp đề xuất xử lý vấn đề nào?",
          "bins": ["Bán xong không trừ tồn kho, tồn kho tại quầy và online lệch nhau", "Bước 8 \"Kết thúc phiên\" chưa được mô tả", "Sai giá phải gọi trưởng ca, khách chờ lâu", "Báo cáo cuối ca tổng hợp tay"],
          "items": [

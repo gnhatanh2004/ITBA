@@ -18,11 +18,11 @@
         {"kind": "sort", "q": "2) Mỗi loại thuộc tính vẽ bằng ký hiệu nào?",
          "bins": ["Elip gạch chân", "Elip đơn", "Elip đôi", "Elip có thành phần con", "Elip nét đứt"],
          "items": [
-           {"t": "Thuộc tính khóa (Mã sản phẩm)", "a": [0]},
-           {"t": "Thuộc tính đơn trị (Tên sản phẩm, Giá nhập, Giá bán)", "a": [1]},
-           {"t": "Thuộc tính đa trị (Màu sắc)", "a": [2]},
-           {"t": "Thuộc tính phức hợp (Kích thước)", "a": [3]},
-           {"t": "Thuộc tính dẫn xuất (Lãi gộp)", "a": [4]}
+           {"t": "Thuộc tính khóa", "a": [0]},
+           {"t": "Thuộc tính đơn trị", "a": [1]},
+           {"t": "Thuộc tính đa trị", "a": [2]},
+           {"t": "Thuộc tính phức hợp", "a": [3]},
+           {"t": "Thuộc tính dẫn xuất", "a": [4]}
          ]}
       ]
     },
@@ -38,7 +38,7 @@
            {"t": "Câu 4: Một hóa đơn do đúng một thu ngân lập, bắt buộc.", "a": [1]}
          ]},
         {"kind": "sort", "q": "2) Ký hiệu của mỗi câu đặt ở đầu thực thể nào? Kéo từng đầu vào đúng nhóm.",
-         "bins": ["Đặt ký hiệu ở đầu này", "Không đặt ở đầu này"],
+         "bins": ["Ký hiệu của câu nằm ở đầu này", "Không phải đầu đặt ký hiệu của câu"],
          "items": [
            {"t": "Câu 1: đầu Món (hoặc Dòng đơn hàng)", "a": [0], "why": "Câu 1 đếm “món”, nên ký hiệu nằm sát Món."},
            {"t": "Câu 1: đầu Đơn hàng", "a": [1]},
@@ -52,7 +52,7 @@
       ]
     },
     "L20-x3": {
-      "lead": "Chọn kiểu quan hệ và cách tách, chọn thuộc tính của thực thể kết hợp, rồi kéo ký hiệu cardinality.",
+      "lead": "Chọn kiểu quan hệ và cách tách, chọn thuộc tính của thực thể kết hợp, kéo ký hiệu cardinality, rồi chọn lý do lưu giá lúc đặt.",
       "parts": [
         {"kind": "choice", "q": "1) Đơn hàng – Món ăn là kiểu quan hệ nào?",
          "options": ["1-1", "1-n: một đơn có nhiều món, mỗi món chỉ thuộc một đơn", "n-n: một đơn có nhiều món, một món có trong nhiều đơn", "Không có quan hệ"],
@@ -81,39 +81,29 @@
       ]
     },
     "L20-x4": {
-      "lead": "Kéo từng điểm trong ERD vào nhóm lỗi hay không lỗi, rồi ghép mỗi lỗi với cách sửa.",
+      "lead": "Kéo từng điểm trong ERD vào nhóm “Không phải lỗi” hoặc vào đúng cách sửa của lỗi đó.",
       "parts": [
-        {"kind": "sort", "q": "1) Điểm nào trong ERD thư viện là lỗi?",
-         "bins": ["Lỗi", "Không phải lỗi"],
+        {"kind": "sort", "q": "1) Mỗi điểm trong ERD thư viện là lỗi cần sửa theo cách nào, hay không phải lỗi?",
+         "bins": ["Không phải lỗi", "Bỏ: là tên màn hình, không phải thực thể lưu thông tin", "Thuộc tính đa trị: vẽ elip đôi, không ghép nhiều số vào một ô", "Thuộc tính dẫn xuất: vẽ elip nét đứt", "Là n-n: tách bằng thực thể kết hợp MuonSach (MaSV, MaSach, NgayMuon, NgayTra), hình thoi trong hình chữ nhật", "Đặt khóa ngoại ở phía “n”, trong MuonSach"],
          "items": [
-           {"t": "SinhVien là thực thể", "a": [1]},
-           {"t": "Sach là thực thể", "a": [1]},
-           {"t": "“Thủ thư nhập liệu” (tên màn hình) là thực thể", "a": [0]},
-           {"t": "SoDienThoai = “0901…, 0912…” ghi 2 số trong một ô, vẽ elip đơn", "a": [0]},
-           {"t": "SoNamXuatBan = năm hiện tại − năm xuất bản, vẽ elip thường", "a": [0]},
-           {"t": "Quan hệ SinhVien – Sach vẽ 1-n", "a": [0]},
-           {"t": "“Mượn sách” vẽ bằng hình chữ nhật thường", "a": [0], "why": "Mượn sách là thực thể kết hợp, vẽ hình thoi trong hình chữ nhật."},
-           {"t": "Khóa ngoại MaSach đặt trong SinhVien", "a": [0]}
-         ]},
-        {"kind": "sort", "q": "2) Ghép mỗi lỗi với cách sửa đúng.",
-         "bins": ["Bỏ: là tên màn hình, không phải thực thể lưu thông tin", "Thuộc tính đa trị: vẽ elip đôi, không ghép nhiều số vào một ô", "Thuộc tính dẫn xuất: vẽ elip nét đứt", "Là n-n: tách bằng thực thể kết hợp MuonSach (MaSV, MaSach, NgayMuon, NgayTra), hình thoi trong hình chữ nhật", "Đặt khóa ngoại ở phía “n”, trong MuonSach"],
-         "items": [
-           {"t": "“Thủ thư nhập liệu” là thực thể", "a": [0]},
-           {"t": "SoDienThoai ghi 2 số trong một ô, vẽ elip đơn", "a": [1]},
-           {"t": "SoNamXuatBan tính được nhưng vẽ elip thường", "a": [2]},
-           {"t": "Quan hệ SinhVien – Sach vẽ 1-n", "a": [3], "why": "Một sinh viên mượn nhiều sách, một sách được nhiều sinh viên mượn."},
-           {"t": "“Mượn sách” vẽ bằng hình chữ nhật thường", "a": [3]},
-           {"t": "MaSach đặt trong SinhVien", "a": [4]}
+           {"t": "SinhVien là thực thể", "a": [0]},
+           {"t": "Sach là thực thể", "a": [0]},
+           {"t": "“Thủ thư nhập liệu” (tên màn hình) là thực thể", "a": [1]},
+           {"t": "SoDienThoai = “0901…, 0912…” ghi 2 số trong một ô, vẽ elip đơn", "a": [2]},
+           {"t": "SoNamXuatBan = năm hiện tại − năm xuất bản, vẽ elip thường", "a": [3]},
+           {"t": "Quan hệ SinhVien – Sach vẽ 1-n", "a": [4], "why": "Một sinh viên mượn nhiều sách, một sách được nhiều sinh viên mượn."},
+           {"t": "“Mượn sách” vẽ bằng hình chữ nhật thường", "a": [4], "why": "Mượn sách là thực thể kết hợp, vẽ hình thoi trong hình chữ nhật."},
+           {"t": "Khóa ngoại MaSach đặt trong SinhVien", "a": [5]}
          ]}
       ]
     },
     "L20-x5": {
-      "lead": "Dựng ERD kho SolasMart bằng cách chọn quan hệ n-n, kéo thuộc tính vào thực thể và kéo ký hiệu cardinality.",
+      "lead": "Chọn quan hệ n-n, kéo thuộc tính vào thực thể, chọn khóa ngoại, kéo ký hiệu cardinality, rồi chọn lý do đặt tồn kho.",
       "parts": [
         {"kind": "choice", "q": "1) Hai quan hệ n-n nào phải tách bằng thực thể kết hợp? (chọn tất cả ý đúng)",
-         "options": ["NhaCungCap – PhieuNhapKho", "PhieuNhapKho – HangHoa (tách qua DongPhieuNhap)", "Kho – NhanVienKho", "HangHoa – Kho (tách qua TonKho)", "NhanVienKho – PhieuNhapKho"],
+         "options": ["NhaCungCap – PhieuNhapKho", "PhieuNhapKho – HangHoa", "Kho – NhanVienKho", "HangHoa – Kho", "NhanVienKho – PhieuNhapKho"],
          "answer": [1, 3], "multi": true,
-         "why": "Một phiếu gồm nhiều mặt hàng, một hàng có trong nhiều phiếu; một hàng nằm ở nhiều kho, một kho chứa nhiều hàng. Các quan hệ còn lại là 1-n: mỗi phiếu thuộc một NCC, một nhân viên; mỗi nhân viên làm tại đúng một kho."},
+         "why": "Một phiếu gồm nhiều mặt hàng, một hàng có trong nhiều phiếu (tách qua DongPhieuNhap); một hàng nằm ở nhiều kho, một kho chứa nhiều hàng (tách qua TonKho). Các quan hệ còn lại là 1-n: mỗi phiếu thuộc một NCC, một nhân viên; mỗi nhân viên làm tại đúng một kho."},
         {"kind": "sort", "q": "2) Mỗi thuộc tính nằm trong thực thể nào?",
          "bins": ["NhaCungCap", "Kho", "NhanVienKho", "HangHoa", "PhieuNhapKho", "DongPhieuNhap", "TonKho"],
          "items": [
@@ -129,7 +119,6 @@
            {"t": "SoLuong nhập của một mặt hàng trong phiếu", "a": [5]},
            {"t": "DonGiaNhap", "a": [5]},
            {"t": "ThanhTien (dẫn xuất)", "a": [5]},
-           {"t": "SoLuongTon", "a": [6], "why": "Tồn kho là thuộc tính của cặp (hàng, kho)."},
            {"t": "Nguong (ngưỡng tối thiểu)", "a": [6, 3], "why": "Đặt ở TonKho nếu mỗi kho có ngưỡng riêng; nếu chỉ có một ngưỡng chung thì để ở HangHoa như Ví dụ 2."}
          ]},
         {"kind": "choice", "q": "3) PhieuNhapKho có những khóa ngoại nào? (chọn tất cả ý đúng)",
@@ -141,7 +130,7 @@
          "items": [
            {"t": "Một nhà cung cấp có bao nhiêu phiếu nhập kho?", "a": [3]},
            {"t": "Một phiếu nhập kho thuộc bao nhiêu nhà cung cấp?", "a": [0]},
-           {"t": "Một kho có bao nhiêu nhân viên kho?", "a": [2]},
+           {"t": "Một kho có bao nhiêu nhân viên kho?", "a": [2, 3], "why": "Đáp án mẫu chọn “một hoặc nhiều” (kho nào cũng có người làm); đề không cấm kho chưa có nhân viên nên “không hoặc nhiều” cũng được chấp nhận."},
            {"t": "Một nhân viên kho làm việc tại bao nhiêu kho?", "a": [0]},
            {"t": "Một phiếu nhập kho có bao nhiêu dòng phiếu nhập?", "a": [2]},
            {"t": "Một hàng hóa xuất hiện trong bao nhiêu dòng phiếu nhập?", "a": [3]}
@@ -153,7 +142,7 @@
       ]
     },
     "L20-x6": {
-      "lead": "Chọn cấu trúc cha – con và cách tách n-n, kéo thuộc tính đặc biệt và ký hiệu cardinality.",
+      "lead": "Chọn cấu trúc cha – con, kéo thuộc tính đặc biệt vào đúng loại, chọn cách tách n-n, rồi kéo ký hiệu cardinality.",
       "parts": [
         {"kind": "choice", "q": "1) TaiKhoan, KhachHang, Shipper vẽ thế nào?",
          "options": ["KhachHang là cha; TaiKhoan và Shipper là con", "TaiKhoan là cha; KhachHang và Shipper là con; vòng tròn ghi o vì một tài khoản có thể vừa là khách vừa là shipper", "TaiKhoan là cha; KhachHang và Shipper là con; vòng tròn ghi d vì một tài khoản không vừa là khách vừa là shipper", "Ba thực thể độc lập, nối với nhau bằng quan hệ n-n"],
@@ -165,7 +154,7 @@
            {"t": "MaTK của TaiKhoan", "a": [0]},
            {"t": "DiaChiGiaoHang: một khách hàng có nhiều địa chỉ", "a": [1]},
            {"t": "DiaChiGiaoHang: mỗi địa chỉ gồm đường, quận, thành phố", "a": [2]},
-           {"t": "TongTien của DonHang", "a": [3]}
+           {"t": "TongTien của DonHang (số tiền khách phải trả cho cả đơn)", "a": [3], "why": "Tính được từ SoLuong và DonGiaLucDat của các món trong đơn."}
          ]},
         {"kind": "choice", "q": "3) Quan hệ DonHang – MonAn xử lý thế nào?",
          "options": ["Thêm MaMon (FK) vào DonHang", "Tách qua thực thể kết hợp ChiTietDonHang(MaDon, MaMon, SoLuong, DonGiaLucDat)", "Để MonAn là thực thể con của DonHang", "Thêm MaDon (FK) vào MonAn"],
@@ -191,12 +180,11 @@
          "answer": [1, 3, 4], "multi": true,
          "why": "Đầu sách, cuốn, độc giả là 3 thực thể. Mã sách, số điện thoại, trạng thái chỉ là giá trị mô tả nên là thuộc tính."},
         {"kind": "sort", "q": "2) Trong ERD thư viện, mỗi thực thể thuộc loại nào?",
-         "bins": ["Thực thể mạnh (khung đơn)", "Thực thể yếu (khung đôi)", "Thực thể kết hợp (hình thoi trong hình chữ nhật)"],
+         "bins": ["Thực thể mạnh (khung đơn)", "Thực thể yếu (khung đôi)"],
          "items": [
            {"t": "DauSach", "a": [0]},
            {"t": "Cuon", "a": [1], "why": "Không tồn tại nếu không có DauSach và chỉ phân biệt được bằng MaSach + Serial."},
-           {"t": "DocGia", "a": [0]},
-           {"t": "MuonSach (mỗi lần mượn: NgayMuon, NgayTra)", "a": [2], "why": "Sinh ra khi tách quan hệ n-n giữa DocGia và Cuon."}
+           {"t": "DocGia", "a": [0]}
          ]},
         {"kind": "choice", "q": "3) Một độc giả có nhiều số điện thoại. SoDienThoai vẽ thế nào trong ERD?",
          "options": ["Elip đôi: thuộc tính đa trị", "Elip nét đứt: thuộc tính dẫn xuất", "Elip đơn: thuộc tính đơn trị", "Elip gạch chân: thuộc tính khóa"],
@@ -224,7 +212,7 @@
          "answer": [1], "multi": false,
          "why": "Số lượt đặt đếm được từ DonDatBan nên là thuộc tính dẫn xuất của KhachHang, vẽ elip nét đứt, không cần lưu."},
         {"kind": "choice", "q": "3) Một đơn đặt bàn gồm nhiều bàn ghép lại, một bàn nằm trong nhiều đơn ở các thời điểm khác nhau. Quan hệ DonDatBan – Ban xử lý thế nào?",
-         "options": ["1-n: thêm MaDon (FK) vào Ban", "1-n: thêm MaBan (FK) vào DonDatBan", "n-n: tách qua thực thể kết hợp DonDatBan_Ban(MaDon, MaBan)", "1-1: gộp Ban vào DonDatBan"],
+         "options": ["1-n: thêm MaDon (FK) vào Ban", "1-n: thêm MaBan (FK) vào DonDatBan", "n-n: tách qua thực thể kết hợp DonDatBan_Ban", "1-1: gộp Ban vào DonDatBan"],
          "answer": [2], "multi": false,
          "why": "Nhiều ở cả hai chiều nên là n-n, phải tách: DonDatBan 1 — n DonDatBan_Ban n — 1 Ban."},
         {"kind": "sort", "q": "4) Mỗi khóa ngoại đặt trong thực thể nào?",
@@ -236,13 +224,13 @@
            {"t": "MaBan (FK)", "a": [4], "why": "Thực thể kết hợp chứa khóa của hai bên."}
          ]},
         {"kind": "choice", "q": "5) Quan hệ KhachHang – DonDatBan vẽ ký hiệu ở hai đầu thế nào?",
-         "options": ["Hai gạch ở KhachHang; gạch + chân chim ở DonDatBan", "Vòng tròn + chân chim ở KhachHang; hai gạch ở DonDatBan", "Chân chim ở cả hai đầu", "Hai gạch ở KhachHang; vòng tròn + chân chim ở DonDatBan"],
+         "options": ["Gạch + chân chim ở KhachHang; hai gạch ở DonDatBan", "Vòng tròn + chân chim ở KhachHang; hai gạch ở DonDatBan", "Chân chim ở cả hai đầu", "Hai gạch ở KhachHang; vòng tròn + chân chim ở DonDatBan"],
          "answer": [3], "multi": false,
          "why": "Mỗi đơn do đúng một khách tạo nên đầu KhachHang là hai gạch. Một khách có không hoặc nhiều đơn nên đầu DonDatBan là vòng tròn + chân chim."}
       ]
     },
     "L20-p3": {
-      "lead": "Chọn cách tách n-n và thuộc tính dẫn xuất, kéo từng phía quan hệ vào bắt buộc hay tùy chọn cho ERD bán hàng SolasMart.",
+      "lead": "Chọn cách tách n-n và thuộc tính dẫn xuất, kéo từng phía quan hệ vào bắt buộc hay tùy chọn, rồi chọn cách thể hiện khách vãng lai và khóa ngoại của hóa đơn.",
       "parts": [
         {"kind": "choice", "q": "1) Một hóa đơn có nhiều hàng hóa, một hàng hóa có trong nhiều hóa đơn. Xử lý thế nào?",
          "options": ["Tạo thực thể kết hợp DongHoaDon(SoHD, MaHang, SoLuong, DonGia, ThanhTien)", "Thêm MaHang (FK) vào HoaDonBanLe", "Thêm SoHD (FK) vào HangHoa", "Gộp HangHoa vào HoaDonBanLe"],
@@ -256,7 +244,6 @@
          "bins": ["Bắt buộc (có ít nhất một)", "Tùy chọn (có thể không có)"],
          "items": [
            {"t": "Mỗi hóa đơn có nhân viên lập", "a": [0], "why": "Hóa đơn phải có đúng một nhân viên lập."},
-           {"t": "Mỗi hóa đơn có khách hàng thành viên", "a": [1], "why": "Khách vãng lai không có bản ghi."},
            {"t": "Mỗi hóa đơn có dòng hóa đơn", "a": [0], "why": "Hóa đơn phải có ít nhất một dòng."},
            {"t": "Mỗi dòng hóa đơn có hàng hóa", "a": [0], "why": "Mỗi dòng là đúng một hàng hóa."},
            {"t": "Mỗi nhân viên có hóa đơn đã lập", "a": [1], "why": "Một nhân viên lập không hoặc nhiều hóa đơn."},

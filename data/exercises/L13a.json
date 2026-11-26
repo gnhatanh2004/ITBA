@@ -30,7 +30,7 @@
            {"t": "Hệ thống email", "a": [1], "why": "Cung cấp dịch vụ gửi email nhắc hạn cho hệ thống."},
            {"t": "Ông Minh", "a": [2], "why": "Là một người cụ thể; phải ghi vai trò \"Giám đốc thư viện\"."}
          ]},
-        {"kind": "choice", "q": "Vì sao không ghi \"ông Minh\" làm actor?",
+        {"kind": "choice", "q": "Vì sao tên ở nhóm \"Không ghi làm tên actor\" không được dùng làm actor?",
          "options": [
            "Vì ông Minh không dùng hệ thống thường xuyên",
            "Vì actor là vai trò (role), không phải một người cụ thể",
@@ -65,7 +65,7 @@
            "Nhân viên → Quản trị viên (generalization)"
          ],
          "answer": [1, 2, 5, 6], "multi": true,
-         "why": "Include: gốc → con. Extend: con (phần tùy chọn) → gốc. Generalization: con → cha, đầu mũi tên tam giác rỗng."}
+         "why": "Include: use case gốc → use case bắt buộc. Extend: use case tùy chọn → use case gốc. Generalization: con → cha, đầu mũi tên tam giác rỗng."}
       ]
     },
     "L13a-x4": {
@@ -175,7 +175,6 @@
            {"t": "Khách hàng: Gửi yêu cầu đặt bàn → Chờ xác nhận", "a": [0]},
            {"t": "Nhân viên: Xác nhận → Đã xác nhận", "a": [1]},
            {"t": "Nhân viên: Từ chối (hết bàn) → Bị từ chối", "a": [1]},
-           {"t": "Khách hàng: Hủy → Đã hủy", "a": [1, 2], "why": "Hủy đi ra được từ cả Chờ xác nhận và Đã xác nhận."},
            {"t": "Nhân viên: Check-in → Đã đến", "a": [2]},
            {"t": "Hệ thống: Quá giờ hẹn 30 phút → Không đến", "a": [2]}
          ]},
@@ -190,9 +189,9 @@
       ]
     },
     "L13a-p1": {
-      "lead": "Xếp luồng chính, chọn nhãn mũi tên, kéo nhánh rẽ về trạng thái nó đi ra, rồi chọn trạng thái cuối.",
+      "lead": "Xếp luồng chính, chọn nhãn mũi tên, kéo nhánh 2a, 5a về trạng thái nó đi ra, chọn chỗ rẽ của nhánh 3a, rồi chọn trạng thái cuối.",
       "parts": [
-        {"kind": "order", "q": "1) Xếp các trạng thái của luồng chính theo đúng vòng đời Đơn hàng (từ sau Start tới trước End).",
+        {"kind": "order", "q": "1) Slide mô tả luồng chính: (1) khách hàng bấm tạo đơn nhưng chưa đặt hàng, (2) khách hàng bấm đặt hàng, (3) chủ cửa hàng bấm xác nhận, (4) chủ cửa hàng bấm giao hàng, (5) khách hàng nhận hàng. Xếp các trạng thái Đơn hàng mà mỗi bước tạo ra theo đúng thứ tự (từ sau Start tới trước End).",
          "items": ["Lưu tạm", "Chờ xác nhận", "Đang chuẩn bị hàng", "Đang giao hàng", "Hoàn thành"],
          "why": "Khách tạo đơn (Lưu tạm) → đặt hàng (Chờ xác nhận) → chủ cửa hàng xác nhận (Đang chuẩn bị hàng) → giao hàng (Đang giao hàng) → khách nhận hàng (Hoàn thành)."},
         {"kind": "choice", "q": "2) Mũi tên từ \"Chờ xác nhận\" sang \"Đang chuẩn bị hàng\" ghi nhãn \"Ai: Làm gì\" là gì?",
@@ -207,19 +206,18 @@
         {"kind": "sort", "q": "3) Mũi tên nhánh rẽ này đi ra từ trạng thái nào?",
          "bins": ["Chờ xác nhận", "Đang chuẩn bị hàng", "Đang giao hàng"],
          "items": [
-           {"t": "2a. Khách hàng: Hủy đơn → Hủy đơn", "a": [0], "why": "Khách chỉ hủy được khi chủ cửa hàng chưa xác nhận."},
-           {"t": "3a. Chủ cửa hàng: Từ chối đơn → Bị từ chối", "a": [0], "why": "Chủ cửa hàng chọn từ chối thay vì xác nhận."},
-           {"t": "5a. Khách hàng: Không nhận hàng → Bị trả lại", "a": [2], "why": "Khách không nhận khi hàng đang được giao."}
+           {"t": "2a. Khách hàng bấm hủy đơn khi chủ cửa hàng chưa xác nhận → Hủy đơn", "a": [0], "why": "Khách chỉ hủy được khi chủ cửa hàng chưa xác nhận."},
+           {"t": "5a. Khách hàng không nhận hàng → Bị trả lại", "a": [2], "why": "Khách không nhận khi hàng đang được giao."}
          ]},
-        {"kind": "choice", "q": "4) Vì sao mũi tên 3a (chủ cửa hàng từ chối) đi ra từ \"Chờ xác nhận\" chứ không từ \"Đang chuẩn bị hàng\"?",
+        {"kind": "choice", "q": "4) Nhánh 3a \"Chủ cửa hàng: Từ chối đơn → Bị từ chối\" đi ra từ trạng thái nào, và vì sao?",
          "options": [
-           "Vì mọi nhánh rẽ đều phải đi ra từ trạng thái đầu tiên của sơ đồ",
-           "Vì Bị từ chối là trạng thái cuối nên phải nối với trạng thái đứng trước Đang chuẩn bị hàng",
-           "Vì từ chối chỉ có nghĩa khi đơn chưa được xác nhận",
-           "Vì ở Đang chuẩn bị hàng chủ cửa hàng không có thao tác nào"
+           "Từ Lưu tạm, vì mọi nhánh rẽ đều phải đi ra từ trạng thái đầu tiên của sơ đồ",
+           "Từ Đang chuẩn bị hàng, vì Bị từ chối phải nằm sau bước chủ cửa hàng xác nhận",
+           "Từ Chờ xác nhận, vì từ chối chỉ có nghĩa khi đơn chưa được xác nhận",
+           "Từ Đang giao hàng, vì chủ cửa hàng chỉ từ chối được khi đã giao hàng đi"
          ],
          "answer": [2], "multi": false,
-         "why": "Chủ cửa hàng chọn từ chối thay vì xác nhận, nên nhánh 3a rẽ ra từ Chờ xác nhận. Ở Đang chuẩn bị hàng chủ cửa hàng vẫn có thao tác Giao hàng."},
+         "why": "Chủ cửa hàng chọn từ chối thay vì xác nhận, nên nhánh 3a rẽ ra từ Chờ xác nhận. Khi đơn đã sang Đang chuẩn bị hàng thì đơn đã được xác nhận, không còn chỗ để từ chối."},
         {"kind": "choice", "q": "5) Những trạng thái nào nối tới End? (chọn tất cả ý đúng)",
          "options": ["Lưu tạm", "Hủy đơn", "Chờ xác nhận", "Hoàn thành", "Đang chuẩn bị hàng", "Bị từ chối", "Đang giao hàng", "Bị trả lại"],
          "answer": [1, 3, 5, 7], "multi": true,
@@ -229,11 +227,11 @@
     "L13a-p2": {
       "lead": "Chọn secondary actor, kéo use case về actor và cặp use case về loại quan hệ, rồi chọn cách vẽ đúng.",
       "parts": [
-        {"kind": "choice", "q": "1) Trong ứng dụng đặt món, những actor nào là secondary actor? (chọn tất cả ý đúng)",
+        {"kind": "choice", "q": "1) Bảng quy trình đặt món: 1. Khách hàng đăng nhập bằng tài khoản hệ thống, Google hoặc Facebook. 2. Xem thực đơn. 3. Thêm món vào giỏ; xem lại giỏ, cập nhật số lượng hoặc xóa món. 4. Khách bấm \"Đặt món\". 5. Thanh toán bằng thẻ ngân hàng, ví điện tử hoặc COD; thành công hoặc thất bại/khách hủy. 6. Hệ thống Firebase gửi thông báo đơn mới cho Đầu bếp. 7. Đầu bếp xem đơn đã thanh toán, bấm \"Chuẩn bị món ăn\". 8. Đầu bếp bấm \"Giao hàng\", hệ thống báo cho Nhân viên giao hàng. 9. Nhân viên giao hàng tiếp nhận. 10. Nhân viên giao hàng bấm \"Đã giao hàng\" hoặc khách bấm \"Đã nhận hàng\". 11. Khách đánh giá món ăn và dịch vụ.\nNhững actor nào là secondary actor? (chọn tất cả ý đúng)",
          "options": ["Khách hàng", "Google", "Đầu bếp", "Hệ thống Firebase", "Nhân viên giao hàng", "Facebook", "Hệ thống thanh toán (giả định)"],
          "answer": [1, 3, 5, 6], "multi": true,
          "why": "Google, Facebook cung cấp dịch vụ đăng nhập; Firebase gửi thông báo; hệ thống thanh toán xử lý thẻ, ví điện tử. Khách hàng, Đầu bếp, Nhân viên giao hàng chủ động dùng app nên là primary actor."},
-        {"kind": "sort", "q": "2) Use case này nối với primary actor nào?",
+        {"kind": "sort", "q": "2) Theo bảng quy trình ở câu 1, use case này nối với primary actor nào?",
          "bins": ["Khách hàng", "Đầu bếp", "Nhân viên giao hàng"],
          "items": [
            {"t": "Xem thực đơn", "a": [0]},
@@ -242,7 +240,7 @@
            {"t": "Thanh toán", "a": [0]},
            {"t": "Xác nhận đã nhận hàng", "a": [0]},
            {"t": "Đánh giá dịch vụ", "a": [0]},
-           {"t": "Xem đơn hàng", "a": [1]},
+           {"t": "Xem đơn đã thanh toán", "a": [1]},
            {"t": "Chuẩn bị món ăn", "a": [1]},
            {"t": "Chuyển giao hàng (bấm \"Giao hàng\")", "a": [1]},
            {"t": "Tiếp nhận đơn giao", "a": [2]},
@@ -281,19 +279,19 @@
     "L13a-p3": {
       "lead": "Xếp luồng chính, kéo mỗi chuyển đổi về người thực hiện, rồi chọn nhánh hủy, trạng thái cuối và cách xử lý Đánh giá.",
       "parts": [
-        {"kind": "order", "q": "1) Xếp các trạng thái của luồng chính theo đúng vòng đời Đơn hàng (từ sau Start tới trước End).",
+        {"kind": "order", "q": "1) Tài liệu quy trình đặt đồ ăn: khách bấm \"Đặt món\"; khách thanh toán (thành công, hoặc thất bại/khách hủy); Đầu bếp xem đơn đã thanh toán, bấm \"Chuẩn bị món ăn\"; Đầu bếp bấm \"Giao hàng\", hệ thống báo Nhân viên giao hàng; Nhân viên giao hàng tiếp nhận; Nhân viên giao hàng bấm \"Đã giao hàng\" hoặc khách bấm \"Đã nhận hàng\"; khách đánh giá dịch vụ.\nXếp các trạng thái của luồng chính theo đúng vòng đời Đơn hàng (từ sau Start tới trước End).",
          "items": ["Đã tạo", "Thanh toán thành công", "Đang chế biến", "Sẵn sàng giao hàng", "Đang giao hàng", "Đã giao hàng"],
          "why": "Đặt món (Đã tạo) → thanh toán (Thanh toán thành công) → đầu bếp chuẩn bị (Đang chế biến) → đầu bếp bấm Giao hàng (Sẵn sàng giao hàng) → nhân viên tiếp nhận (Đang giao hàng) → giao xong (Đã giao hàng)."},
-        {"kind": "sort", "q": "2) Ai thực hiện chuyển đổi này?",
+        {"kind": "sort", "q": "2) Theo tài liệu ở câu 1, ai thực hiện chuyển đổi này?",
          "bins": ["Khách hàng", "Đầu bếp", "Nhân viên giao hàng"],
          "items": [
-           {"t": "Đặt món (Start → Đã tạo)", "a": [0]},
-           {"t": "Thanh toán thành công (Đã tạo → Thanh toán thành công)", "a": [0]},
-           {"t": "Thanh toán thất bại / Hủy (Đã tạo → Đã hủy)", "a": [0]},
-           {"t": "Chuẩn bị món ăn (Thanh toán thành công → Đang chế biến)", "a": [1]},
-           {"t": "Giao hàng (Đang chế biến → Sẵn sàng giao hàng)", "a": [1]},
-           {"t": "Tiếp nhận (Sẵn sàng giao hàng → Đang giao hàng)", "a": [2]},
-           {"t": "Đã giao hàng / Đã nhận hàng (Đang giao hàng → Đã giao hàng)", "a": [0, 2], "why": "Nhân viên giao hàng xác nhận đã giao hoặc khách hàng xác nhận đã nhận."}
+           {"t": "Đặt món", "a": [0]},
+           {"t": "Thanh toán thành công", "a": [0]},
+           {"t": "Thanh toán thất bại / Hủy", "a": [0]},
+           {"t": "Bấm \"Chuẩn bị món ăn\"", "a": [1]},
+           {"t": "Bấm \"Giao hàng\" (báo cho bên giao hàng)", "a": [1]},
+           {"t": "Tiếp nhận đơn giao", "a": [2]},
+           {"t": "Bấm \"Đã giao hàng\" / \"Đã nhận hàng\"", "a": [0, 2], "why": "Nhân viên giao hàng xác nhận đã giao hoặc khách hàng xác nhận đã nhận."}
          ]},
         {"kind": "choice", "q": "3) Mũi tên tới \"Đã hủy\" đi ra từ trạng thái nào?",
          "options": ["Thanh toán thành công", "Đang chế biến", "Đã tạo", "Đang giao hàng"],

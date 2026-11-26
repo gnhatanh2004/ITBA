@@ -2,9 +2,9 @@
   "lesson": "L14",
   "items": {
     "L14-x1": {
-      "lead": "Kéo mỗi ký hiệu vào đúng tên, rồi xếp tên Activity vào nhóm đạt / chưa đạt.",
+      "lead": "Kéo mỗi ký hiệu vào đúng tên, rồi xếp tên Activity vào nhóm đặt tên đúng / chưa đúng.",
       "parts": [
-        {"kind": "sort", "q": "Phần 1. Mỗi ký hiệu là thành phần nào của Activity Diagram?",
+        {"kind": "sort", "q": "Phần 1. Mỗi ký hiệu là thành phần nào của Activity Diagram? (có một tên không dùng tới)",
          "bins": ["Start", "Activity", "Branch", "Fork", "Join", "End", "Note/comment", "Swimlane"],
          "items": [
            {"t": "Hình tròn tô đen, chỉ có mũi tên đi ra.", "a": [0]},
@@ -79,7 +79,7 @@
     "L14-x3": {
       "lead": "Kéo các Activity vào đúng làn, sắp xếp hai kịch bản rút tiền ATM, rồi chọn phần song song.",
       "parts": [
-        {"kind": "sort", "q": "Mỗi Activity của sơ đồ ATM nằm ở làn nào?",
+        {"kind": "sort", "q": "Sơ đồ rút tiền ATM trên slide có ba làn: Customer, ATM Machine, Bank. Kéo mỗi Activity vào làn của đối tượng thực hiện nó.",
          "bins": ["Customer", "ATM Machine", "Bank"],
          "items": [
            {"t": "Insert Card", "a": [0]},
@@ -93,13 +93,13 @@
            {"t": "Eject Card", "a": [1]},
            {"t": "Take Card", "a": [0]}
          ]},
-        {"kind": "order", "q": "Kịch bản 1: PIN đúng nhưng số tiền muốn rút lớn hơn số dư. Sắp xếp các Activity theo thứ tự.",
+        {"kind": "order", "q": "Sơ đồ ATM trên slide (tóm tắt):\n- Start → Insert Card → Enter PIN → Authorize → Branch: [Invalid PIN] → Merge 2; [Valid PIN] → Enter Amount → Check Account Balance → Branch: [Balance < Amount] → Merge 1; [Balance >= Amount] → Fork → Take Money From Slot | Debit Account → Join → Merge 1.\n- Merge 1 → Show Balance → Merge 2 → Eject Card → Take Card → End.\nKịch bản 1: PIN đúng nhưng số tiền muốn rút lớn hơn số dư. Sắp xếp các Activity theo thứ tự.",
          "items": ["Insert Card", "Enter PIN", "Authorize", "Enter Amount", "Check Account Balance", "Show Balance", "Eject Card", "Take Card"],
-         "why": "Nhánh [Balance < Amount] đi vào Merge ngay trên \"Show Balance\", bỏ qua Fork/Join."},
-        {"kind": "order", "q": "Kịch bản 2: PIN đúng và đủ số dư. Sắp xếp theo thứ tự.",
-         "items": ["Insert Card", "Enter PIN", "Authorize", "Enter Amount", "Check Account Balance", "Fork tách Take Money From Slot và Debit Account chạy song song", "Join gom hai luồng song song", "Show Balance", "Eject Card", "Take Card"],
+         "why": "Nhánh [Balance < Amount] đi vào Merge 1 ngay trên \"Show Balance\", bỏ qua Fork/Join."},
+        {"kind": "order", "q": "Kịch bản 2 (theo sơ đồ ATM tóm tắt ở phần 2): PIN đúng và đủ số dư. Sắp xếp theo thứ tự.",
+         "items": ["Insert Card", "Enter PIN", "Authorize", "Enter Amount", "Check Account Balance", "Fork tách thành hai luồng", "Join gom hai luồng lại", "Show Balance", "Eject Card", "Take Card"],
          "why": "Sau Check Account Balance, nhánh [Balance >= Amount] đi vào Fork. Join chờ cả hai việc xong rồi mới tới Show Balance."},
-        {"kind": "choice", "q": "Ở kịch bản 2, hai Activity nào chạy song song? (chọn 2)",
+        {"kind": "choice", "q": "Ở kịch bản 2 (sơ đồ ATM tóm tắt ở phần 2), hai Activity nào chạy song song? (chọn 2)",
          "options": ["Check Account Balance", "Take Money From Slot", "Show Balance", "Debit Account", "Eject Card"],
          "answer": [1, 3], "multi": true,
          "why": "Fork tách hai việc: khách lấy tiền (Take Money From Slot, làn Customer) và ngân hàng trừ tiền (Debit Account, làn Bank)."},
@@ -131,8 +131,7 @@
            {"t": "Chạm thẻ / nhập PIN", "a": [0]},
            {"t": "Quét QR chuyển khoản", "a": [0]},
            {"t": "In hóa đơn", "a": [2]},
-           {"t": "Giao hóa đơn, túi hàng và kết thúc phiên", "a": [1]},
-           {"t": "Hủy giao dịch", "a": [1]}
+           {"t": "Giao hóa đơn, túi hàng và kết thúc phiên", "a": [1]}
          ]},
         {"kind": "order", "q": "2) Sắp xếp luồng chính khi mọi món đã có mã và khách trả tiền mặt thành công.",
          "items": ["Đưa hàng lên quầy", "Bấm \"Start Transaction\"", "Quét mã sản phẩm", "Hiển thị tên hàng, giá, số lượng, khuyến mãi", "Đọc lại tổng tiền, tổng số lượng", "Kiểm tra màn hình và chọn phương thức thanh toán", "Nhận tiền, đếm, trả tiền thừa", "In hóa đơn", "Giao hóa đơn, túi hàng và kết thúc phiên"]},
@@ -144,7 +143,7 @@
            "Sau mỗi món đặt Join để quay lại bước quét"
          ],
          "answer": [1], "multi": false,
-         "why": "Vòng lặp dùng Branch hỏi còn hàng hay hết, quay lại bằng Merge (B2 về M1). Các món được quét lần lượt, không song song."},
+         "why": "Vòng lặp dùng Branch hỏi còn hàng hay hết, nhánh còn hàng quay về Merge đặt trước bước quét. Các món được quét lần lượt, không song song."},
         {"kind": "choice", "q": "4) Chọn phương thức thanh toán (tiền mặt, thẻ, chuyển khoản) vẽ thế nào?",
          "options": [
            "Fork 3 nhánh, gom lại bằng Join",
@@ -162,7 +161,7 @@
            "Hủy giao dịch rồi tới End"
          ],
          "answer": [1, 3], "multi": true,
-         "why": "Branch B4 có hai lối ra khi thất bại: [Thất bại, đổi phương thức] về M2 để chọn lại, [Thất bại, khách hủy] tới \"Hủy giao dịch\" rồi End. Chỉ nhánh [Thành công] mới tới \"In hóa đơn\"."},
+         "why": "Branch sau bước thanh toán có hai lối ra khi thất bại: [Thất bại, đổi phương thức] quay về Merge trước bước chọn phương thức để chọn lại, [Thất bại, khách hủy] tới \"Hủy giao dịch\" rồi End. Chỉ nhánh [Thành công] mới tới \"In hóa đơn\"."},
         {"kind": "choice", "q": "6) Sơ đồ này có cần Fork / Join không?",
          "options": [
            "Có, vì quy trình có nhiều làn",
@@ -196,15 +195,15 @@
            {"t": "7a. Gửi email kích hoạt thất bại", "a": [2]},
            {"t": "8a. Nhấn link kích hoạt sau 24 giờ", "a": [3], "why": "Ngoại lệ 8a gắn với việc nhấn link kích hoạt, nên Branch đặt ngay sau bước nhấn link."}
          ]},
-        {"kind": "choice", "q": "3) Theo đáp án mẫu, sau khi báo lỗi nhập liệu (4a, 4b, 4c, 5a) luồng đi đâu, và dùng ký hiệu gì để gom các mũi tên quay về?",
+        {"kind": "choice", "q": "3) Lỗi nhập liệu (4a, 4b, 4c, 5a) hiển thị thông báo rồi quay về \"Nhập thông tin\" để người dùng sửa. Các mũi tên quay về này được gom bằng ký hiệu nào?",
          "options": [
-           "Quay về Start, không cần ký hiệu gom",
-           "Quay về \"Nhập thông tin\" qua một Join (thanh ngang đậm) đặt trước bước đó",
-           "Đi tiếp sang \"Tạo tài khoản trạng thái Chưa kích hoạt\"",
-           "Quay về \"Nhập thông tin\" qua một Merge (hình thoi) đặt ngay trước bước đó"
+           "Join (thanh ngang đậm) đặt ngay trước \"Nhập thông tin\"",
+           "Merge (hình thoi) đặt ngay trước \"Nhập thông tin\"",
+           "Fork (thanh ngang đậm) đặt ngay trước \"Nhập thông tin\"",
+           "Branch (hình thoi) có Guard đặt ngay trước \"Nhập thông tin\""
          ],
-         "answer": [3], "multi": false,
-         "why": "Người dùng sửa được lỗi nhập liệu nên quay về bước nhập. Mỗi lần chỉ một mũi tên lỗi tới, nên gom bằng Merge (không chờ). Join chờ đủ mọi luồng vào nên sơ đồ sẽ kẹt."},
+         "answer": [1], "multi": false,
+         "why": "Mỗi lần chỉ một mũi tên lỗi tới, nên gom bằng Merge (nhiều vào một ra, không chờ). Join chờ đủ mọi luồng vào nên sơ đồ sẽ kẹt; Fork và Branch là một vào nhiều ra, dùng để tách chứ không để gom."},
         {"kind": "choice", "q": "4) Sau khi hiển thị lỗi 7a (gửi email kích hoạt thất bại) hoặc 8a (link kích hoạt hết hạn), luồng đi đâu?",
          "options": [
            "Tới End",
@@ -213,7 +212,7 @@
            "Đi tiếp tới \"Hiển thị Đăng ký thành công\""
          ],
          "answer": [0], "multi": false,
-         "why": "Theo đáp án mẫu, hai lỗi này hiển thị thông báo rồi tới End. Nhánh lỗi không được đi tiếp vào luồng thành công, và sơ đồ không có Join."},
+         "why": "Hai lỗi này hiển thị thông báo rồi tới End. Nhánh lỗi không được đi tiếp vào luồng thành công, và sơ đồ không có Join."},
         {"kind": "choice", "q": "5) Sơ đồ \"Đăng ký tài khoản\" có cần Fork / Join không?",
          "options": [
            "Có, vì quy trình có hai làn Người dùng và Hệ thống",
@@ -261,7 +260,7 @@
          ],
          "answer": [3], "multi": false,
          "why": "Nhân viên nhà hàng xem phiếu rồi quyết định xác nhận hay từ chối, nên Branch nằm ở làn của nhân viên, ngay sau \"Xem phiếu đặt bàn\". Đổi trạng thái là kết quả của nhánh [Xác nhận], không đứng trước Branch."},
-        {"kind": "choice", "q": "5) Hai nhánh thông báo sau [Xác nhận] / [Từ chối] kết thúc thế nào cho đúng? (chọn tất cả ý đúng)",
+        {"kind": "choice", "q": "5) Nhánh [Xác nhận] tới \"Đổi trạng thái Đã xác nhận, gửi mã đặt bàn cho khách\"; nhánh [Từ chối] tới \"Báo khách: nhà hàng từ chối\". Hai nhánh này kết thúc thế nào cho đúng? (chọn tất cả ý đúng)",
          "options": [
            "Gom bằng Merge rồi tới End",
            "Gom bằng Join (thanh ngang đậm) rồi tới End",

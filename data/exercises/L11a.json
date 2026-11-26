@@ -48,27 +48,19 @@
       ]
     },
     "L11a-x4": {
-      "lead": "Kéo từng vế của 4 câu vào FR hoặc NFR, rồi gắn nhóm cho phần NFR.",
+      "lead": "Kéo từng vế của 4 câu vào FR, hoặc vào đúng nhóm NFR.",
       "parts": [
-        {"kind": "sort", "q": "Mỗi vế dưới đây là phần FR hay phần NFR?",
-         "bins": ["FR", "NFR"],
+        {"kind": "sort", "q": "Mỗi vế dưới đây là FR, hay là NFR thuộc nhóm nào?",
+         "bins": ["FR", "NFR – Hiệu suất", "NFR – Bảo mật", "NFR – UX", "NFR – Tiêu chuẩn kỹ thuật"],
          "items": [
            {"t": "Câu 1: Khách hàng xem vị trí shipper trên bản đồ", "a": [0]},
            {"t": "Câu 1: Vị trí cập nhật tối thiểu mỗi 10 giây", "a": [1]},
            {"t": "Câu 2: Hệ thống thông báo đơn mới cho nhà hàng bằng âm thanh", "a": [0]},
            {"t": "Câu 2: Thông báo đến trong ≤ 5 giây sau khi khách đặt", "a": [1]},
            {"t": "Câu 3: Khách hàng thanh toán bằng thẻ", "a": [0]},
-           {"t": "Câu 3: Số thẻ được mã hóa", "a": [1]},
+           {"t": "Câu 3: Số thẻ được mã hóa", "a": [2]},
            {"t": "Câu 4: Khách hàng lọc món theo giá", "a": [0]},
-           {"t": "Câu 4: Trang lọc hiển thị và thao tác được trên màn hình điện thoại nhỏ", "a": [1]}
-         ]},
-        {"kind": "sort", "q": "Phần NFR của mỗi câu thuộc nhóm nào?",
-         "bins": ["Hiệu suất", "Bảo mật", "UX", "Tiêu chuẩn kỹ thuật"],
-         "items": [
-           {"t": "Vị trí shipper cập nhật tối thiểu mỗi 10 giây", "a": [0]},
-           {"t": "Thông báo đơn mới đến trong ≤ 5 giây", "a": [0]},
-           {"t": "Số thẻ được mã hóa", "a": [1]},
-           {"t": "Trang lọc hiển thị và thao tác được trên màn hình điện thoại nhỏ", "a": [2, 3], "why": "Đáp án mẫu ghi UX / tiêu chuẩn kỹ thuật, nên chấp nhận cả hai."}
+           {"t": "Câu 4: Trang lọc hiển thị và thao tác được trên màn hình điện thoại nhỏ", "a": [3, 4], "why": "Đáp án mẫu ghi UX / tiêu chuẩn kỹ thuật, nên chấp nhận cả hai."}
          ]}
       ]
     },
@@ -125,16 +117,15 @@
       "lead": "Kéo mỗi yêu cầu thô vào vai trò cần nó, rồi chọn cách xử lý hai điểm khó.",
       "parts": [
         {"kind": "sort", "q": "Ai là người cần tính năng này?",
-         "bins": ["Thủ thư", "Độc giả", "Ban giám đốc", "Quản trị hệ thống"],
+         "bins": ["Thủ thư", "Độc giả", "Ban giám đốc"],
          "items": [
            {"t": "1. “Tôi muốn thêm sách mới và sửa thông tin sách.” (thủ thư nói)", "a": [0]},
            {"t": "2. “Độc giả cần tìm sách và xem sách còn hay hết.”", "a": [1]},
            {"t": "3. “Thủ thư cho mượn và nhận trả sách.”", "a": [0]},
            {"t": "4. “Ban giám đốc muốn xem báo cáo lượt mượn mỗi tháng.”", "a": [2]},
-           {"t": "5. “Độc giả muốn gia hạn sách online.”", "a": [1]},
-           {"t": "6. “Cần người tạo tài khoản cho thủ thư mới và khóa tài khoản người nghỉ việc.”", "a": [3], "why": "Câu 6 không nói rõ ai, nên đặt vai trò Quản trị hệ thống."}
+           {"t": "5. “Độc giả muốn gia hạn sách online.”", "a": [1]}
          ]},
-        {"kind": "choice", "q": "Theo gợi ý câu hỏi của slide, Ban giám đốc là loại vai trò nào?",
+        {"kind": "choice", "q": "Khi lập User List, Ban giám đốc (câu 4) thuộc loại vai trò nào?",
          "options": ["Người tạo / cập nhật thông tin", "Người chỉ đọc / giám sát", "Người quản trị tài khoản"],
          "answer": [1], "multi": false,
          "why": "Ban giám đốc chỉ xem báo cáo lượt mượn, không tạo hay sửa dữ liệu: đó là vai trò “chỉ đọc / giám sát”."},
@@ -200,7 +191,7 @@
       ]
     },
     "L11a-x9": {
-      "lead": "Làm bản phân tích tổng quan kênh online SolasMart bằng cách kéo thả, sắp xếp và chọn.",
+      "lead": "Làm bản phân tích tổng quan kênh online SolasMart bằng cách kéo thả và chọn.",
       "parts": [
         {"kind": "sort", "q": "1) User List: mỗi yêu cầu thô thuộc vai trò nào, hay là NFR?",
          "bins": ["Khách hàng", "Nhân viên kho", "Nhân viên CSKH", "Quản lý", "NFR, không đưa vào Function List"],
@@ -237,11 +228,8 @@
            {"t": "Nhân viên kho – Đặt hàng", "a": [1]},
            {"t": "Nhân viên kho – Cập nhật trạng thái đơn", "a": [0]},
            {"t": "Khách hàng – Cập nhật trạng thái đơn", "a": [1]},
-           {"t": "Khách hàng – Theo dõi đơn", "a": [2]},
-           {"t": "Nhân viên CSKH – Theo dõi đơn", "a": [2]},
-           {"t": "Quản lý – Theo dõi đơn", "a": [2]},
+           {"t": "Khách hàng – Theo dõi đơn", "a": [2], "why": "Khách chỉ xem đơn đang ở đâu, không thay đổi được đơn."},
            {"t": "Nhân viên CSKH – Hủy đơn", "a": [0]},
-           {"t": "Quản lý – Hủy đơn", "a": [0], "why": "Đáp án mẫu cho cả Nhân viên CSKH và Quản lý quyền hủy đơn."},
            {"t": "Nhân viên kho – Hủy đơn", "a": [1]},
            {"t": "Quản lý – Cập nhật giá, khuyến mãi", "a": [0]},
            {"t": "Nhân viên CSKH – Cập nhật giá, khuyến mãi", "a": [1]},
@@ -252,9 +240,10 @@
          "options": ["Quản lý sản phẩm", "Soạn hàng", "Quản lý thanh toán", "Thêm vào giỏ", "Báo cáo doanh thu", "Cập nhật giá", "Quản lý đơn hàng"],
          "answer": [0, 2, 4, 6], "multi": true,
          "why": "BFD chỉ vẽ các khối Level 1. “Soạn hàng”, “Thêm vào giỏ”, “Cập nhật giá” là Level 2, nằm trong Function List. Cổng thanh toán là tác nhân bên ngoài, nối với khối Quản lý thanh toán."},
-        {"kind": "order", "q": "5) Sắp xếp các khối theo chiều mũi tên trên BFD.",
-         "items": ["Quản lý giỏ hàng và đặt hàng", "Quản lý thanh toán", "Quản lý đơn hàng", "Báo cáo doanh thu"],
-         "why": "Quản lý sản phẩm và Quản lý khuyến mãi cùng cấp dữ liệu cho giỏ hàng; sau đó giỏ hàng → thanh toán (trao đổi với cổng thanh toán) → đơn hàng → báo cáo doanh thu."},
+        {"kind": "choice", "q": "5) Trên BFD, hai khối Quản lý sản phẩm và Quản lý khuyến mãi nối mũi tên vào khối nào?",
+         "options": ["Báo cáo doanh thu", "Quản lý thanh toán", "Quản lý giỏ hàng và đặt hàng", "Quản lý đơn hàng"],
+         "answer": [2], "multi": false,
+         "why": "Sản phẩm (giá) và khuyến mãi cung cấp dữ liệu cho giỏ hàng khi khách đặt hàng, nên mũi tên đi từ hai khối này vào Quản lý giỏ hàng và đặt hàng. Sau đó giỏ hàng → thanh toán (trao đổi với cổng thanh toán) → đơn hàng → báo cáo doanh thu."},
         {"kind": "choice", "q": "6) Những câu NFR nào viết đạt? (chọn tất cả ý đúng)",
          "options": [
            "Website phải chịu được đợt khuyến mãi lớn.",
@@ -269,38 +258,30 @@
       ]
     },
     "L11a-p1": {
-      "lead": "Kéo 8 câu vào FR / NFR / lẫn cả hai, gắn nhóm cho NFR, rồi chọn cách tách câu 6.",
+      "lead": "Kéo 8 câu vào FR, đúng nhóm NFR hoặc “lẫn cả hai”, rồi trả lời hai câu hỏi về câu 3 và câu 6.",
       "parts": [
-        {"kind": "sort", "q": "Câu yêu cầu này là FR, NFR hay lẫn cả hai?",
-         "bins": ["FR", "NFR", "Lẫn cả FR và NFR"],
+        {"kind": "sort", "q": "Câu yêu cầu này là FR, NFR thuộc nhóm nào, hay lẫn cả FR và NFR?",
+         "bins": ["FR", "NFR – Hiệu suất", "NFR – Độ ổn định / khả dụng", "NFR – Bảo mật", "Lẫn cả FR và NFR"],
          "items": [
            {"t": "1. Thủ thư thêm sách mới vào danh mục.", "a": [0], "why": "Hành động của thủ thư."},
            {"t": "2. Độc giả tìm sách theo tên tác giả.", "a": [0], "why": "Hành động của độc giả."},
            {"t": "3. Hệ thống tự gửi email nhắc khi sách sắp đến hạn trả.", "a": [0], "why": "Hành vi cụ thể của hệ thống."},
            {"t": "4. Kết quả tìm kiếm hiển thị trong ≤ 2 giây với kho 100.000 đầu sách.", "a": [1]},
-           {"t": "5. Trong giờ mở cửa, hệ thống ngừng ngoài kế hoạch không quá 1 giờ mỗi tháng.", "a": [1]},
-           {"t": "6. Độc giả gia hạn mượn sách online, thao tác gia hạn không quá 3 lần bấm.", "a": [2], "why": "Có động từ “gia hạn” (FR) kèm tiêu chí “không quá 3 lần bấm” (NFR)."},
-           {"t": "7. Mật khẩu của độc giả được lưu dạng mã hóa.", "a": [1]},
+           {"t": "5. Trong giờ mở cửa, hệ thống ngừng ngoài kế hoạch không quá 1 giờ mỗi tháng.", "a": [2]},
+           {"t": "6. Độc giả gia hạn mượn sách online, thao tác gia hạn không quá 3 lần bấm.", "a": [4], "why": "Có động từ “gia hạn” (FR) kèm tiêu chí dễ dùng “không quá 3 lần bấm” (NFR – UX)."},
+           {"t": "7. Mật khẩu của độc giả được lưu dạng mã hóa.", "a": [3]},
            {"t": "8. Thủ thư lập báo cáo số lượt mượn theo tháng.", "a": [0], "why": "Hành động của thủ thư."}
          ]},
-        {"kind": "sort", "q": "Câu NFR (hoặc phần NFR) này thuộc nhóm nào?",
-         "bins": ["Hiệu suất", "Độ ổn định / khả dụng", "Bảo mật", "UX"],
-         "items": [
-           {"t": "Câu 4: kết quả tìm kiếm hiển thị trong ≤ 2 giây với kho 100.000 đầu sách", "a": [0]},
-           {"t": "Câu 5: ngừng ngoài kế hoạch không quá 1 giờ mỗi tháng trong giờ mở cửa", "a": [1]},
-           {"t": "Câu 7: mật khẩu của độc giả được lưu dạng mã hóa", "a": [2]},
-           {"t": "Câu 6 (phần NFR): thao tác gia hạn không quá 3 lần bấm", "a": [3], "why": "Tiêu chí dễ dùng."}
-         ]},
-        {"kind": "choice", "q": "Câu 3 “Hệ thống tự gửi email nhắc khi sách sắp đến hạn trả” vì sao là FR?",
+        {"kind": "choice", "q": "Câu 3 “Hệ thống tự gửi email nhắc khi sách sắp đến hạn trả”: nhận định nào đúng?",
          "options": [
-           "Vì câu bắt đầu bằng “Hệ thống”",
-           "Vì câu có con số đo được",
-           "Vì câu mô tả một hành vi cụ thể của hệ thống: gửi email nhắc",
-           "Vì câu nói về mức an toàn của dữ liệu độc giả"
+           "Là NFR, vì câu bắt đầu bằng “Hệ thống”",
+           "Là NFR, vì câu có con số đo được",
+           "Là FR, vì câu mô tả một hành vi cụ thể của hệ thống: gửi email nhắc",
+           "Là NFR, vì câu nói về mức an toàn của dữ liệu độc giả"
          ],
          "answer": [2], "multi": false,
          "why": "Câu có động từ hành động “gửi” và mô tả việc hệ thống làm, nên là FR. Bắt đầu bằng “Hệ thống” không quyết định loại; câu 3 cũng không có con số hay nói về an toàn dữ liệu."},
-        {"kind": "choice", "q": "Tách câu 6 thành 1 FR và 1 NFR thế nào cho đúng?",
+        {"kind": "choice", "q": "Câu 6 “Độc giả gia hạn mượn sách online, thao tác gia hạn không quá 3 lần bấm” xử lý thế nào cho đúng?",
          "options": [
            "Không tách: câu 6 là FR vì có động từ “gia hạn”",
            "FR: Độc giả gia hạn mượn sách online. NFR (UX): Thao tác gia hạn không quá 3 lần bấm.",
@@ -336,7 +317,7 @@
            {"t": "Cân hàng, in tem barcode", "a": [2]},
            {"t": "Xác nhận giá", "a": [2]},
            {"t": "Thanh toán chuyển khoản QR", "a": [3]},
-           {"t": "Hủy giao dịch", "a": [3]},
+           {"t": "Hủy giao dịch", "a": [3, 0], "why": "Đáp án mẫu đặt dưới Quản lý thanh toán; đáp án cũng ghi cách chia nhóm có thể khác, nên đặt dưới Quản lý phiên giao dịch cũng được chấp nhận."},
            {"t": "In lại hóa đơn", "a": [4]}
          ]},
         {"kind": "choice", "q": "BFD: những mục nào được vẽ thành khối trên sơ đồ? (chọn tất cả ý đúng)",
@@ -354,20 +335,20 @@
       ]
     },
     "L11a-p3": {
-      "lead": "Chọn chức năng cho từng tầng của cây Khách hàng, rồi chọn cách xử lý câu có tiêu chí chất lượng.",
+      "lead": "Chọn chức năng cho từng tầng của cây Khách hàng, rồi chọn chỗ đặt câu “Xác nhận đơn trong ≤ 3 giây”.",
       "parts": [
         {"kind": "choice", "q": "Level 1 của vai trò Khách hàng gồm những chức năng nào? (chọn tất cả ý đúng)",
-         "options": ["Tìm món", "Quản lý tài khoản", "Gửi xác nhận cho khách", "Đặt món", "Thanh toán", "Theo dõi đơn hàng"],
+         "options": ["Thêm vào giỏ", "Quản lý tài khoản", "Gửi xác nhận cho khách", "Đặt món", "Chọn địa chỉ giao", "Theo dõi đơn hàng"],
          "answer": [1, 3, 5], "multi": true,
-         "why": "Đáp án mẫu chọn 3 nhóm việc của khách hàng làm Level 1: Quản lý tài khoản, Đặt món, Theo dõi đơn hàng. “Tìm món”, “Thanh toán” là Level 2 dưới Đặt món; “Gửi xác nhận cho khách” là Level 3 dưới Xác nhận đơn."},
+         "why": "Đáp án mẫu chọn 3 nhóm việc của khách hàng làm Level 1: Quản lý tài khoản, Đặt món, Theo dõi đơn hàng. “Thêm vào giỏ”, “Chọn địa chỉ giao” là bước nhỏ khi đặt món (Level 2); “Gửi xác nhận cho khách” là việc hệ thống làm khi xác nhận đơn (Level 3)."},
         {"kind": "choice", "q": "Level 2 dưới “Đặt món” gồm những chức năng nào? (chọn tất cả ý đúng)",
          "options": ["Quản lý tài khoản", "Tìm món", "Chỉnh sửa giỏ", "Ghi log hệ thống", "Chọn địa chỉ giao", "Theo dõi đơn hàng", "Xác nhận đơn", "Thêm vào giỏ"],
          "answer": [1, 2, 4, 6, 7], "multi": true,
          "why": "Level 2 của Đặt món: Tìm món, Thêm vào giỏ, Chỉnh sửa giỏ, Chọn địa chỉ giao, Thanh toán, Xác nhận đơn. “Quản lý tài khoản”, “Theo dõi đơn hàng” là Level 1 khác; “Ghi log hệ thống” là Level 3 dưới Xác nhận đơn."},
         {"kind": "choice", "q": "Phân rã “Xác nhận đơn” ra Level 3 gồm những chức năng nào? (chọn tất cả ý đúng)",
-         "options": ["Tìm món", "Gửi thông báo cho nhà hàng", "Xác nhận đơn trong ≤ 3 giây", "Gửi xác nhận cho khách", "Ghi log hệ thống", "Theo dõi đơn hàng", "Cập nhật trạng thái đơn"],
+         "options": ["Tìm món", "Gửi thông báo cho nhà hàng", "Chọn địa chỉ giao", "Gửi xác nhận cho khách", "Ghi log hệ thống", "Theo dõi đơn hàng", "Cập nhật trạng thái đơn"],
          "answer": [1, 3, 4, 6], "multi": true,
-         "why": "Khi xác nhận đơn, hệ thống gửi thông báo cho nhà hàng, gửi xác nhận cho khách, ghi log và cập nhật trạng thái đơn. “Xác nhận đơn trong ≤ 3 giây” là NFR; “Tìm món” là Level 2, “Theo dõi đơn hàng” là Level 1."},
+         "why": "Khi xác nhận đơn, hệ thống gửi thông báo cho nhà hàng, gửi xác nhận cho khách, ghi log và cập nhật trạng thái đơn. “Tìm món”, “Chọn địa chỉ giao” là Level 2 làm trước khi xác nhận; “Theo dõi đơn hàng” là Level 1."},
         {"kind": "choice", "q": "Câu “Xác nhận đơn trong ≤ 3 giây” đặt ở đâu?",
          "options": [
            "Đưa vào cây làm Level 3 dưới Xác nhận đơn",

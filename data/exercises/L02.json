@@ -41,27 +41,26 @@
       ]
     },
     "L02-x3": {
-      "lead": "Kéo mỗi tình huống vào kiến trúc nên chọn, rồi chọn lý do và việc BA cần làm.",
+      "lead": "Kéo tình huống (a), (b) vào kiến trúc nên chọn, rồi chọn kiến trúc kèm lý do cho tình huống (c) và việc BA cần làm.",
       "parts": [
         {"kind": "sort", "q": "Tình huống này nên chọn kiến trúc nào?",
          "bins": ["Monolithic", "Microservices"],
          "items": [
            {"t": "(a) Thư viện trường học: phần mềm mượn trả sách, 3 Dev, cần dùng trong 3 tháng", "a": [0], "why": "Dự án nhỏ, cần phát triển nhanh, triển khai đơn giản."},
-           {"t": "(b) Chuỗi bán lẻ toàn quốc: tách riêng bán online, kho, nhân sự; mỗi phần có team riêng, nâng cấp độc lập", "a": [1], "why": "Hệ thống lớn, cần mở rộng và nâng cấp từng phần độc lập; có nhiều team."},
-           {"t": "(c) Startup đặt đồ ăn muốn \"chịu được tải lớn sau này\", hiện chỉ có 2 Dev mới ra trường, chưa có hạ tầng triển khai tự động", "a": [0], "why": "Nên bắt đầu Monolithic, tổ chức code tách tầng rõ để sau này tách dần."}
+           {"t": "(b) Chuỗi bán lẻ toàn quốc: tách riêng bán online, kho, nhân sự; mỗi phần có team riêng, nâng cấp độc lập", "a": [1], "why": "Hệ thống lớn, cần mở rộng và nâng cấp từng phần độc lập; có nhiều team."}
          ]},
-        {"kind": "choice", "q": "Vì sao tình huống (c) chưa nên chọn Microservices?",
+        {"kind": "choice", "q": "(c) Startup đặt đồ ăn muốn hệ thống \"chịu được tải lớn sau này\", hiện chỉ có 2 Dev mới ra trường, chưa có hạ tầng triển khai tự động. Lúc này nên chọn kiến trúc nào, vì sao?",
          "options": [
-           "Vì Monolithic chịu tải lớn tốt hơn Microservices",
-           "Vì Microservices đòi hỏi đội ngũ có kinh nghiệm và hạ tầng hiện đại, hai điều startup chưa có",
-           "Vì startup đặt đồ ăn sẽ không bao giờ cần mở rộng",
-           "Vì Microservices chỉ dùng được cho chuỗi bán lẻ"
+           "Microservices ngay, vì khách hàng muốn hệ thống chịu được tải lớn sau này",
+           "Monolithic, vì Monolithic chịu tải lớn tốt hơn Microservices",
+           "Monolithic, vì Microservices đòi hỏi đội ngũ có kinh nghiệm và hạ tầng hiện đại, hai điều startup chưa có",
+           "Microservices, vì Microservices cần ít người và ít hạ tầng hơn Monolithic"
          ],
-         "answer": [1], "multi": false,
-         "why": "Theo slide, Microservices hợp hệ thống lớn, yêu cầu mở rộng cao nhưng đòi hỏi đội ngũ có kinh nghiệm và hạ tầng hiện đại. Startup có mong muốn chịu tải lớn nhưng điều kiện thực tế chưa đáp ứng."},
+         "answer": [2], "multi": false,
+         "why": "Theo slide, Microservices hợp hệ thống lớn, yêu cầu mở rộng cao nhưng đòi hỏi đội ngũ có kinh nghiệm và hạ tầng hiện đại. Startup có mong muốn chịu tải lớn nhưng điều kiện thực tế chưa đáp ứng, nên bắt đầu Monolithic. Monolithic không chịu tải tốt hơn; lý do chọn là đơn giản, hợp đội ngũ hiện có."},
         {"kind": "choice", "q": "Với tình huống (c), BA nên làm những việc nào? (chọn tất cả ý đúng)",
          "options": [
-           "Chọn Microservices ngay vì khách hàng muốn chịu được tải lớn",
+           "Cam kết với khách hàng hệ thống chắc chắn chịu được mọi mức tải ngay từ đầu",
            "Đề xuất tổ chức code tách tầng rõ để sau này tách dần",
            "Không nhắc gì tới chuyện chịu tải khi trao đổi với khách hàng",
            "Ghi rõ rủi ro về đội ngũ và hạ tầng khi trao đổi với khách hàng"
@@ -71,18 +70,9 @@
       ]
     },
     "L02-x4": {
-      "lead": "Kéo từng thành phần vào đúng zone, rồi chọn các yêu cầu phi chức năng viết đúng.",
+      "lead": "Chọn các yêu cầu phi chức năng về bảo mật/triển khai viết đúng theo zone.",
       "parts": [
-        {"kind": "sort", "q": "Thành phần của hệ thống đặt đồ ăn nằm ở zone nào?",
-         "bins": ["External/Internet Zone", "DMZ", "Internal Zone", "Database Zone", "Guest Zone", "Management Zone"],
-         "items": [
-           {"t": "Khách hàng truy cập từ Internet", "a": [0]},
-           {"t": "Website đặt món", "a": [1]},
-           {"t": "API xử lý đơn", "a": [2]},
-           {"t": "CSDL đơn hàng và khách hàng", "a": [3]},
-           {"t": "Công cụ sao lưu và giám sát", "a": [5]}
-         ]},
-        {"kind": "choice", "q": "Yêu cầu phi chức năng nào về bảo mật/triển khai viết đúng theo zone? (chọn tất cả ý đúng)",
+        {"kind": "choice", "q": "Hệ thống đặt đồ ăn gồm website đặt món, API xử lý đơn, CSDL đơn hàng và khách hàng, trang quản trị cho nhân viên, công cụ sao lưu và giám sát. Yêu cầu phi chức năng nào về bảo mật/triển khai viết đúng theo zone? (chọn tất cả ý đúng)",
          "options": [
            "Website đặt món đặt ở DMZ; không lưu dữ liệu khách hàng trên máy chủ web.",
            "CSDL khách hàng đặt ở DMZ để website truy vấn nhanh hơn.",
@@ -101,12 +91,12 @@
       "lead": "Kéo mỗi phần của hệ thống vào hệ quản trị CSDL phù hợp, rồi ghép lý do.",
       "parts": [
         {"kind": "sort", "q": "Phần này nên dùng hệ quản trị CSDL nào?",
-         "bins": ["MongoDB", "SQL Server", "PostgreSQL", "Redis", "SQLite"],
+         "bins": ["MongoDB", "CSDL quan hệ (SQL Server/PostgreSQL)", "Redis", "SQLite"],
          "items": [
            {"t": "(a) Lịch sử tín hiệu thiết bị: rất nhiều bản ghi, cấu trúc hay thay đổi", "a": [0], "why": "Slide dùng \"CSDL lịch sử thiết bị (Mongo)\"."},
-           {"t": "(b) Dữ liệu tổng hợp để làm báo cáo, quan hệ nhiều bảng", "a": [1, 2], "why": "Một CSDL quan hệ dùng SQL như SQL Server hoặc PostgreSQL; slide dùng \"CSDL tổng hợp (SQL)\"."},
-           {"t": "(c) Lưu tạm dữ liệu hay đọc và phiên đăng nhập", "a": [3]},
-           {"t": "(d) App ngoại tuyến trên điện thoại của nhân viên kỹ thuật", "a": [4]}
+           {"t": "(b) Dữ liệu tổng hợp để làm báo cáo, quan hệ nhiều bảng", "a": [1], "why": "Một CSDL quan hệ dùng SQL như SQL Server hoặc PostgreSQL; slide dùng \"CSDL tổng hợp (SQL)\"."},
+           {"t": "(c) Lưu tạm dữ liệu hay đọc và phiên đăng nhập", "a": [2]},
+           {"t": "(d) App ngoại tuyến trên điện thoại của nhân viên kỹ thuật", "a": [3]}
          ]},
         {"kind": "sort", "q": "Lý do nào ứng với lựa chọn nào?",
          "bins": ["MongoDB", "CSDL quan hệ (SQL Server/PostgreSQL)", "Redis", "SQLite"],
@@ -185,11 +175,11 @@
       ]
     },
     "L02-p2": {
-      "lead": "Kéo các thành phần của SolasMart vào đúng zone, rồi chọn zone cho hai thành phần còn lại và lý do đặt website ở DMZ.",
+      "lead": "Kéo các thành phần của SolasMart vào đúng zone, rồi chọn zone cho hai thành phần còn lại và lý do quyết định zone của website.",
       "parts": [
         {"kind": "sort", "q": "1) Mỗi thành phần của SolasMart nằm ở zone nào?", "bins": ["External/Internet Zone", "DMZ", "Internal Zone", "Database Zone", "Guest Zone", "Management Zone"], "items": [{"t": "(1) Website bán hàng online", "a": [1]}, {"t": "(2) Service xử lý đơn hàng", "a": [2]}, {"t": "(3) CSDL khách hàng", "a": [3]}, {"t": "(4) Wi-Fi cho khách tại cửa hàng", "a": [4], "why": "Guest Zone dành cho khách, không truy cập được mạng công ty."}, {"t": "(5) Công cụ giám sát máy chủ", "a": [5]}]},
         {"kind": "choice", "q": "2) (6) Thư mục lưu file hóa đơn và (7) công cụ sao lưu dữ liệu lần lượt nằm ở zone nào?", "options": ["Internal Zone; Database Zone", "Management Zone; Database Zone", "Database Zone; Management Zone", "DMZ; Internal Zone"], "answer": [2], "multi": false, "why": "Slide ghi ví dụ của Database Zone là \"Database, File\" nên thư mục file hóa đơn thuộc Database Zone. Ví dụ của Management Zone là \"Monitoring, Backup\" nên công cụ sao lưu thuộc Management Zone."},
-        {"kind": "choice", "q": "3) Vì sao website bán hàng online đặt ở DMZ chứ không đặt ở Internal Zone?", "options": ["Vì DMZ là vùng tin cậy cao nhất trong mạng, nơi đặt các dữ liệu quan trọng nhất của công ty", "Vì khách từ Internet phải vào được website, nên đặt ở vùng trung gian giữa Internet và mạng nội bộ", "Vì DMZ là vùng dành riêng cho quản trị viên giám sát và sao lưu toàn bộ hệ thống", "Vì website phải chứa luôn CSDL khách hàng bên trong để trả lời khách nhanh hơn"], "answer": [1], "multi": false, "why": "Người ngoài Internet cần chạm trực tiếp vào website, nhưng chỉ là trang web, nên đặt ở DMZ: vùng trung gian, tin cậy thấp. Dữ liệu quan trọng nằm ở Database Zone, quản trị và giám sát ở Management Zone; website không chứa CSDL."}
+        {"kind": "choice", "q": "3) Điều gì quyết định zone đặt website bán hàng online?", "options": ["Website chứa dữ liệu quan trọng nhất của công ty, nên đặt ở vùng tin cậy cao nhất", "Khách từ Internet phải vào được website, nên đặt ở vùng trung gian giữa Internet và mạng nội bộ", "Website chỉ dành cho quản trị viên giám sát và sao lưu toàn bộ hệ thống", "Website phải chứa luôn CSDL khách hàng bên trong để trả lời khách nhanh hơn"], "answer": [1], "multi": false, "why": "Người ngoài Internet cần chạm trực tiếp vào website, nhưng chỉ là trang web, nên đặt ở DMZ: vùng trung gian, tin cậy thấp. Dữ liệu quan trọng nằm ở Database Zone, quản trị và giám sát ở Management Zone; website không chứa CSDL."}
       ]
     },
     "L02-p3": {
@@ -204,7 +194,7 @@
       "lead": "Xếp các khối theo đường đi của yêu cầu trên mô hình logic, rồi chọn vai trò của Message Queue và Cache.",
       "parts": [
         {"kind": "order", "q": "1) Sắp xếp các khối mà một yêu cầu đi qua trên mô hình logic, từ Website nghiệp vụ tới Database summary.", "items": ["Website nghiệp vụ (WAN zone)", "Firewall ngoài", "Load balancer", "Web FE / Gateway", "Firewall trước Internal zone", "Service BE (backend)", "Message Queue", "Các service nghiệp vụ", "Database summary"], "why": "Theo mô hình logic: Website nghiệp vụ → Firewall → Load balancer chia tải → Web FE / Gateway → Firewall → Service BE xử lý → đặt việc vào Message Queue → các service nghiệp vụ lấy việc ra, đọc dữ liệu nghiệp vụ → ghi kết quả vào Database summary."},
-        {"kind": "choice", "q": "2) Trong luồng trên, Message Queue có vai trò gì?", "options": ["Chia đều yêu cầu cho nhiều máy chủ web để không máy nào bị quá tải", "Lưu tạm dữ liệu hay đọc để trả nhanh, giảm tải cho CSDL", "Lọc, chặn lưu lượng giữa các vùng mạng để chống truy cập trái phép", "Xếp hàng việc từ backend để service xử lý dần, không nghẽn khi yêu cầu dồn tới"], "answer": [3], "multi": false, "why": "Message Queue là hàng đợi: backend đặt việc vào rồi không phải chờ, các service lấy ra xử lý dần nên không nghẽn khi nhiều yêu cầu cùng lúc. Chia tải là Load balancer, lưu tạm dữ liệu hay đọc là Cache, lọc lưu lượng là Firewall."},
+        {"kind": "choice", "q": "2) Trong mô hình logic, Message Queue có vai trò gì?", "options": ["Chia đều yêu cầu cho nhiều máy chủ web để không máy nào bị quá tải", "Lưu tạm dữ liệu hay đọc để trả nhanh, giảm tải cho CSDL", "Lọc, chặn lưu lượng giữa các vùng mạng để chống truy cập trái phép", "Xếp hàng việc từ backend để service xử lý dần, không nghẽn khi yêu cầu dồn tới"], "answer": [3], "multi": false, "why": "Message Queue là hàng đợi: backend đặt việc vào rồi không phải chờ, các service lấy ra xử lý dần nên không nghẽn khi nhiều yêu cầu cùng lúc. Chia tải là Load balancer, lưu tạm dữ liệu hay đọc là Cache, lọc lưu lượng là Firewall."},
         {"kind": "choice", "q": "3) Cache (Redis) trong khối Database system có vai trò gì?", "options": ["Xếp hàng việc từ backend để các service lấy ra xử lý dần", "Lưu tạm dữ liệu hay đọc để trả nhanh, giảm tải cho CSDL", "Chia đều yêu cầu cho nhiều máy chủ web để không máy nào quá tải", "Lưu bản sao lưu dài hạn của CSDL để khôi phục khi máy chính hỏng"], "answer": [1], "multi": false, "why": "Cache (Redis) là bộ nhớ đệm, lưu tạm dữ liệu hay đọc để trả nhanh và giảm tải cho CSDL. Xếp hàng việc là Message Queue, chia tải là Load balancer, sao lưu là DB Backup."}
       ]
     }

@@ -340,3 +340,22 @@ Bản đầu bị user chê vì hai lỗi. Bản làm lại phải tránh cả h
 - `q` phải tự đủ nghĩa: người học đọc `q` là biết phải chọn hay kéo cái gì vào đâu.
 - Mỗi bài thực hành 2–5 phần. Ưu tiên `choice`.
 - Các bước làm mẫu vẫn hiện trong "Xem đáp án" sau khi làm; không cần đưa vào câu hỏi.
+
+### 8.2. Soát logic toàn bộ bài tương tác (T12)
+
+User phát hiện có câu hỏi nhắc tới "tin tuyển dụng" mà người học không thấy tin nào. Mỗi agent soát **mọi** mục (`-x`, `-p`) của 1 file `data/exercises/<ID>.json` và sửa luôn.
+
+**Cách xem:** `python -B script/exercises.py --show <ID>` in từng bài đúng như người học thấy: đề (danh sách bị giao diện ẩn ghi `[ẨN …]`), câu dẫn, từng phần kèm đáp án.
+
+**Soát từng bài theo danh sách sau, sai thì sửa:**
+1. **Thấy được thứ được nhắc tới.** Câu hỏi nhắc "tin tuyển dụng", "đoạn hội thoại", "bảng", "sơ đồ", "danh sách trên"… thì nội dung đó phải hiện trong ĐỀ (không bị `[ẨN]`) hoặc nằm ngay trong `q`. Không thấy thì đưa đủ thông tin cần vào `q`, hoặc sửa câu hỏi.
+2. **`q` tự đủ nghĩa.** Đọc `q` là biết phải chọn gì, hay kéo cái gì vào nhóm nào. Không viết "như trên" khi người học không thấy "trên" là gì.
+3. **Kiến thức cần để trả lời phải có trong bài học.** Câu dựa vào một danh sách phải nhớ (ví dụ "10 công việc của IT BA") mà phương án không đủ gợi ý thì nêu ngắn danh sách trong `q`, hoặc đổi cách hỏi.
+4. **Đáp án đúng theo `answer` / `steps`.** Câu 1 đáp án không được có 2 phương án cùng đúng. Phương án nhiễu phải sai rõ. Không lộ đáp án trong `q` hay `lead`.
+5. **`sort`:** nhóm hợp lý và khác nhau rõ, mục ngắn, mỗi mục thuộc đúng một nhóm hiển nhiên (hoặc ghi đủ các nhóm chấp nhận). Không có nhóm thừa gây khó hiểu.
+6. **`order`:** chỉ dùng cho trình tự thật của kiến thức, không phải bước làm bài.
+7. **Không lặp câu hỏi giữa các phần.** Thứ tự các phần đi từ dễ tới khó, theo mạch của đề. `lead` khớp với các phần.
+
+Được sửa `q`, `options`, `answer`, `items`, `bins`, `lead`, `why`, được xóa phần vô lý hay thêm phần cần thiết. **Không sửa** `data/lessons` và `course.json`. Sửa xong chạy `--check` tới khi OK và `--show` để đọc lại.
+
+**Báo cáo** (≤ 120 từ): số bài đã soát, liệt kê ngắn từng chỗ đã sửa (mã bài: lỗi → cách sửa).

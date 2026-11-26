@@ -58,7 +58,7 @@
          "items": [
            {"t": "Thủ thư thêm sách mới thành công.", "a": [1], "why": "Vừa tạo resource mới."},
            {"t": "Bạn đọc xem thông tin sách mã S9999, sách này không có.", "a": [5], "why": "Không tìm thấy resource."},
-           {"t": "Bạn đọc gọi API xóa sách (chỉ thủ thư được xóa).", "a": [4], "why": "Đã đăng nhập nhưng vai trò bạn đọc không có quyền xóa."},
+           {"t": "Bạn đọc đã đăng nhập gọi API xóa sách (chỉ thủ thư được xóa).", "a": [4], "why": "Đã đăng nhập nhưng vai trò bạn đọc không có quyền xóa."},
            {"t": "App gọi API mượn sách nhưng token đã hết hạn.", "a": [3], "why": "Token hết hạn nên không xác thực được."},
            {"t": "Gửi yêu cầu mượn sách mà thiếu mã bạn đọc.", "a": [2], "why": "Request thiếu dữ liệu bắt buộc."},
            {"t": "Một công cụ tự động gọi tra cứu liên tục, vượt hạn mức cho phép.", "a": [6], "why": "Vượt giới hạn số lần gọi."},
@@ -90,7 +90,7 @@
       ]
     },
     "L23-x5": {
-      "lead": "Chọn các lỗi cú pháp, chọn bản sửa đúng, rồi chọn nhận xét về PageNumber.",
+      "lead": "Chọn các lỗi cú pháp, chọn nhận xét về PageNumber, rồi chọn bản sửa đúng.",
       "parts": [
         {"kind": "choice", "q": "1) Những điểm nào là lỗi cú pháp JSON? (chọn tất cả ý đúng)\n{\n  'Code': \"S0003\",\n  \"Title\": \"Tắt đèn\"\n  \"PageNumber\": \"200 trang\",\n  \"Position\": [\"Kệ 2\", \"Kệ 4\",],\n  \"Status\": True\n}",
          "options": [
@@ -103,16 +103,7 @@
          ],
          "answer": [0, 2, 4, 5], "multi": true,
          "why": "4 lỗi: khóa phải dùng nháy kép \"Code\"; thiếu dấu phẩy giữa hai cặp; dấu phẩy thừa cuối mảng; boolean phải viết thường true. Chuỗi có dấu tiếng Việt và mảng chứa chuỗi đều hợp lệ."},
-        {"kind": "choice", "q": "2) Bản sửa nào đúng cú pháp JSON?",
-         "options": [
-           "{\n  \"Code\": \"S0003\",\n  \"Title\": \"Tắt đèn\",\n  \"PageNumber\": 200,\n  \"Position\": [\"Kệ 2\", \"Kệ 4\",],\n  \"Status\": true\n}",
-           "{\n  \"Code\": \"S0003\",\n  \"Title\": \"Tắt đèn\",\n  \"PageNumber\": 200,\n  \"Position\": [\"Kệ 2\", \"Kệ 4\"],\n  \"Status\": True\n}",
-           "{\n  \"Code\": \"S0003\",\n  \"Title\": \"Tắt đèn\",\n  \"PageNumber\": 200,\n  \"Position\": [\"Kệ 2\", \"Kệ 4\"],\n  \"Status\": true\n}",
-           "{\n  'Code': 'S0003',\n  'Title': 'Tắt đèn',\n  'PageNumber': 200,\n  'Position': ['Kệ 2', 'Kệ 4'],\n  'Status': true\n}"
-         ],
-         "answer": [2], "multi": false,
-         "why": "Bản đúng dùng nháy kép, đủ dấu phẩy, không có dấu phẩy thừa, boolean viết thường. Các bản còn lại vẫn còn dấu phẩy thừa, True viết hoa hoặc nháy đơn."},
-        {"kind": "choice", "q": "3) \"PageNumber\": \"200 trang\" thì sao?",
+        {"kind": "choice", "q": "2) \"PageNumber\": \"200 trang\" thì sao?",
          "options": [
            "Hợp lệ nhưng là String; nếu cần tính toán thì nên là Number 200",
            "Là lỗi cú pháp, JSON sẽ không đọc được",
@@ -120,7 +111,16 @@
            "Là Array vì có hai từ"
          ],
          "answer": [0], "multi": false,
-         "why": "Chuỗi trong nháy kép là String hợp lệ, không phải lỗi cú pháp. Nếu cần tính toán số trang thì nên là Number 200."}
+         "why": "Chuỗi trong nháy kép là String hợp lệ, không phải lỗi cú pháp. Nếu cần tính toán số trang thì nên là Number 200."},
+        {"kind": "choice", "q": "3) Bản sửa nào đúng cú pháp JSON? (các bản đều đã đổi PageNumber sang Number 200)",
+         "options": [
+           "{\n  \"Code\": \"S0003\",\n  \"Title\": \"Tắt đèn\",\n  \"PageNumber\": 200,\n  \"Position\": [\"Kệ 2\", \"Kệ 4\",],\n  \"Status\": true\n}",
+           "{\n  \"Code\": \"S0003\",\n  \"Title\": \"Tắt đèn\",\n  \"PageNumber\": 200,\n  \"Position\": [\"Kệ 2\", \"Kệ 4\"],\n  \"Status\": True\n}",
+           "{\n  \"Code\": \"S0003\",\n  \"Title\": \"Tắt đèn\",\n  \"PageNumber\": 200,\n  \"Position\": [\"Kệ 2\", \"Kệ 4\"],\n  \"Status\": true\n}",
+           "{\n  'Code': 'S0003',\n  'Title': 'Tắt đèn',\n  'PageNumber': 200,\n  'Position': ['Kệ 2', 'Kệ 4'],\n  'Status': true\n}"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Bản đúng dùng nháy kép, đủ dấu phẩy, không có dấu phẩy thừa, boolean viết thường. Các bản còn lại vẫn còn dấu phẩy thừa, True viết hoa hoặc nháy đơn."}
       ]
     },
     "L23-x6": {
@@ -173,7 +173,7 @@
       ]
     },
     "L23-x7": {
-      "lead": "Chọn cách viết đầu vào/đầu ra, sắp xếp các bước kiểm tra, ghép mã lỗi và chọn rủi ro.",
+      "lead": "Chọn cách viết đầu vào/đầu ra, sắp xếp các bước kiểm tra, chọn mã lỗi lấy theo ai và rủi ro.",
       "parts": [
         {"kind": "choice", "q": "1) Với API do Momo định nghĩa, mục đầu vào/đầu ra trong FSD viết thế nào?",
          "options": [
@@ -201,16 +201,7 @@
          ],
          "answer": [2], "multi": false,
          "why": "API do bên khác định nghĩa thì dùng mã lỗi do đối tác quy định, ví dụ 00 = không lỗi, 13, 21, 42."},
-        {"kind": "sort", "q": "4) Theo ví dụ trong FSD, trường hợp này trả mã lỗi nào?",
-         "bins": ["00", "13", "21", "42"],
-         "items": [
-           {"t": "Checksum sai", "a": [1]},
-           {"t": "Nhà hàng/chi nhánh không hợp lệ", "a": [1]},
-           {"t": "Mã giao dịch không tồn tại", "a": [3]},
-           {"t": "Số tiền không hợp lệ", "a": [2]},
-           {"t": "Không có lỗi", "a": [0]}
-         ]},
-        {"kind": "choice", "q": "5) Nếu đặc tả bỏ sót bước kiểm tra số tiền, rủi ro nghiệp vụ là gì?",
+        {"kind": "choice", "q": "4) Nếu đặc tả bỏ sót bước kiểm tra số tiền, rủi ro nghiệp vụ là gì?",
          "options": [
            "Hệ thống có thể ghi nhận \"đã thanh toán\" dù khách trả thiếu, gây thất thu và sai đối soát",
            "Không có rủi ro vì checksum đã đảm bảo mọi thứ đúng",
@@ -224,7 +215,7 @@
     "L23-p1": {
       "lead": "Trả lời hai URL đúng hay sai, chỉ ra lỗi, rồi chọn cách viết chuẩn.",
       "parts": [
-        {"kind": "choice", "q": "1) Hai URL sau đúng hay sai theo chuẩn RESTful?\nTạo mới: https://qlvbapi.vn/api/IncomingDocument/CreateIncommingDocument\nSửa: https://qlvbapi.vn/api/IncomingDocument/UpdateIncommingDocument", "options": ["Đúng chuẩn, vì gọi vẫn chạy được", "Sai chuẩn RESTful, dù vẫn chạy được nếu server cài như vậy", "Sai chuẩn, vì dùng scheme https", "Đúng chuẩn, vì path có tiền tố /api"], "answer": [1], "multi": false, "why": "Chạy được hay không phụ thuộc server cài thế nào; nhưng cách đặt URL sai chuẩn RESTful. Scheme https và tiền tố /api không phải lỗi."},
+        {"kind": "choice", "q": "1) Hai URL sau đúng hay sai theo chuẩn RESTful?\nTạo mới: https://qlvbapi.vn/api/IncomingDocument/CreateIncommingDocument\nSửa: https://qlvbapi.vn/api/IncomingDocument/UpdateIncommingDocument", "options": ["Đúng chuẩn, vì gọi vẫn chạy được", "Sai chuẩn RESTful, dù vẫn chạy được nếu server cài như vậy", "Sai chuẩn, và chắc chắn gọi không chạy được", "Đúng chuẩn, vì path có tên tài nguyên IncomingDocument"], "answer": [1], "multi": false, "why": "Chạy được hay không phụ thuộc server cài thế nào; nhưng cách đặt URL sai chuẩn RESTful. Có tên tài nguyên trong path chưa đủ để đúng chuẩn."},
         {"kind": "choice", "q": "2) Hai URL đó sai ở những điểm nào? (chọn tất cả ý đúng)", "options": ["Động từ Create/Update nằm trong path", "Dùng scheme https", "Sửa văn bản nhưng không chỉ ra văn bản nào ({id})", "Path có tiền tố /api", "\"Incomming\" sai chính tả, phải là \"Incoming\""], "answer": [0, 2, 4], "multi": true, "why": "3 lỗi: hành động phải do method thể hiện, không nằm trong path; sửa một văn bản phải có {id}; \"Incomming\" sai chính tả. https và /api vẫn giữ trong cách viết chuẩn."},
         {"kind": "choice", "q": "3) Sửa URL \"Tạo mới văn bản\" thế nào cho chuẩn?", "options": ["GET https://qlvbapi.vn/api/incoming-documents/create", "PUT https://qlvbapi.vn/api/incoming-documents", "POST https://qlvbapi.vn/api/IncomingDocument/CreateIncomingDocument", "POST https://qlvbapi.vn/api/incoming-documents"], "answer": [3], "multi": false, "why": "Tạo mới dùng POST; path là danh từ số nhiều, không có động từ, không có {id} vì văn bản chưa tồn tại."},
         {"kind": "choice", "q": "4) Sửa URL \"Sửa văn bản\" thế nào cho chuẩn?", "options": ["PUT https://qlvbapi.vn/api/incoming-documents", "PUT https://qlvbapi.vn/api/incoming-documents/{id}", "POST https://qlvbapi.vn/api/incoming-documents/{id}/update", "DELETE https://qlvbapi.vn/api/incoming-documents/{id}"], "answer": [1], "multi": false, "why": "Sửa toàn bộ dùng PUT (sửa một phần dùng PATCH), thêm {id} để chỉ ra văn bản nào. Không đưa động từ update vào path; DELETE là xóa."}
@@ -242,10 +233,10 @@
     "L23-p3": {
       "lead": "Kéo nội dung vào đúng mục FSD, chọn bước kiểm tra đầu tiên và dòng mã sách, rồi ghép trường hợp lỗi.",
       "parts": [
-        {"kind": "sort", "q": "1) Trong đặc tả API tra cứu sách, nội dung này ghi vào mục nào của mẫu FSD?", "bins": ["Mô tả chung", "Luồng nghiệp vụ", "Đầu vào", "Đầu ra", "Danh sách mã lỗi"], "items": [{"t": "Mục đích: cho phép app của trường lấy thông tin một cuốn sách theo mã sách", "a": [0]}, {"t": "Đối tượng sử dụng: app đã được thư viện cấp mã ứng dụng", "a": [0]}, {"t": "Post-condition: trả về thông tin sách hoặc mã lỗi", "a": [0]}, {"t": "Kiểm tra sách tồn tại và chưa bị thanh lý", "a": [1]}, {"t": "Mã ứng dụng – Require: Yes – Do thư viện cấp", "a": [2]}, {"t": "Author – Object gồm mã và tên tác giả", "a": [3]}, {"t": "Position – Danh sách kệ đang để sách", "a": [3]}, {"t": "Không có sách hoặc sách đã thanh lý → \"Không tìm thấy sách\"", "a": [4]}]},
+        {"kind": "sort", "q": "1) Trong đặc tả API tra cứu sách, nội dung này ghi vào mục nào của mẫu FSD?", "bins": ["Mô tả chung", "Luồng nghiệp vụ", "Đầu vào", "Đầu ra", "Danh sách mã lỗi"], "items": [{"t": "Mục đích: cho phép app của trường lấy thông tin một cuốn sách theo mã sách", "a": [0]}, {"t": "Đối tượng sử dụng: app đã được thư viện cấp mã ứng dụng", "a": [0]}, {"t": "Post-condition: trả về thông tin sách hoặc mã lỗi", "a": [0]}, {"t": "Kiểm tra sách tồn tại và chưa bị thanh lý", "a": [1]}, {"t": "Mã ứng dụng – Require: Yes – Do thư viện cấp", "a": [2]}, {"t": "Author – Object gồm mã và tên tác giả", "a": [3]}, {"t": "Position – Danh sách kệ đang để sách", "a": [3]}, {"t": "Trường hợp: trả được thông tin sách → \"Thành công\"", "a": [4]}]},
         {"kind": "choice", "q": "2) Trong luồng nghiệp vụ của API tra cứu sách, bước kiểm tra nào làm đầu tiên?", "options": ["Sách tồn tại và chưa bị thanh lý", "Mã sách đúng định dạng", "Mã ứng dụng tồn tại và đang hoạt động", "Trả về thông tin sách"], "answer": [2], "multi": false, "why": "Kiểm tra bên gọi có hợp lệ trước (mã ứng dụng), rồi tới dữ liệu vào (định dạng mã sách), rồi sách có tồn tại không, cuối cùng mới trả kết quả."},
         {"kind": "choice", "q": "3) Ở bảng đầu vào, dòng \"Mã sách\" ghi thế nào?", "options": ["Require: Yes – Length: 5 – Chữ S và 4 chữ số, ví dụ S0001", "Require: No – Length: 5 – Chữ S và 4 chữ số, ví dụ S0001", "Require: Yes – Do thư viện cấp", "Require: Yes – Object gồm mã và tên tác giả"], "answer": [0], "multi": false, "why": "API tra cứu theo mã sách nên mã sách bắt buộc (Yes), dài 5 ký tự: chữ S và 4 chữ số. \"Do thư viện cấp\" là ràng buộc của mã ứng dụng; Object tác giả là trường đầu ra Author."},
-        {"kind": "sort", "q": "4) Trong danh sách mã lỗi, trường hợp này có mô tả lỗi nào?", "bins": ["Mã ứng dụng không hợp lệ", "Mã sách không đúng định dạng", "Không tìm thấy sách", "Thành công"], "items": [{"t": "Mã ứng dụng không tồn tại", "a": [0]}, {"t": "Mã ứng dụng ngừng hoạt động", "a": [0]}, {"t": "Mã sách sai định dạng", "a": [1]}, {"t": "Không có sách", "a": [2]}, {"t": "Sách đã thanh lý", "a": [2]}, {"t": "Trả được thông tin sách", "a": [3]}]}
+        {"kind": "sort", "q": "4) Trong danh sách mã lỗi, trường hợp lỗi này có mô tả lỗi nào?", "bins": ["Mã ứng dụng không hợp lệ", "Mã sách không đúng định dạng", "Không tìm thấy sách"], "items": [{"t": "Mã ứng dụng không tồn tại", "a": [0]}, {"t": "Mã ứng dụng ngừng hoạt động", "a": [0]}, {"t": "Mã sách sai định dạng", "a": [1]}, {"t": "Không có sách", "a": [2]}, {"t": "Sách đã thanh lý", "a": [2]}]}
       ]
     },
     "L23-p4": {
