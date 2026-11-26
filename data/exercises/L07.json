@@ -174,6 +174,173 @@
            {"t": "Đặt cọc khi đặt bàn", "a": [1]}
          ]}
       ]
+    },
+    "L07-p1": {
+      "lead": "Chọn cách viết need, kéo nội dung tình huống vào 6 khái niệm BACCM, rồi phân nhóm stakeholder và value.",
+      "parts": [
+        {"kind": "choice", "q": "1) Cách viết Need nào đạt (nói vấn đề, chưa nói tới cách làm)?",
+         "options": [
+           "Cần thêm trạng thái “Đã nấu xong” trên hệ thống đặt món",
+           "Shipper không biết thời điểm món sẵn sàng nên đơn giao chậm",
+           "Cần làm kệ để món có ghi số đơn cho shipper tự lấy",
+           "Cần ứng dụng gửi thông báo cho shipper"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Need viết dưới dạng vấn đề hoặc cơ hội. Ba phương án còn lại đều nói cách làm (trạng thái, kệ, ứng dụng), tức là solution."},
+        {"kind": "sort", "q": "2) Mỗi nội dung của tình huống thuộc khái niệm nào?",
+         "bins": ["Need", "Stakeholder", "Context", "Solution", "Change", "Value"],
+         "items": [
+           {"t": "Shipper không biết khi nào món xong, đơn giao chậm, khách phàn nàn", "a": [0]},
+           {"t": "Chủ quán; khách hàng, nhân viên bếp, shipper; đội dev, QA", "a": [1]},
+           {"t": "Bếp báo món xong bằng cách gọi to; shipper đứng chờ ngoài cửa; quán đã có hệ thống đặt món online", "a": [2], "why": "Điều kiện xung quanh hiện tại: quy trình bếp, con người, công nghệ đang dùng."},
+           {"t": "Thêm trạng thái “Đã nấu xong” trên hệ thống, tự báo cho shipper", "a": [3]},
+           {"t": "Quy trình mới: bếp đặt món xong lên kệ có số đơn, shipper tự lấy", "a": [3], "why": "Solution không phải lúc nào cũng là phần mềm; đây là solution dạng quy trình."},
+           {"t": "Hệ thống thêm trạng thái đơn và thông báo; bếp thêm thao tác bấm “xong”; shipper phải theo dõi thông báo", "a": [4], "why": "Change là các thay đổi về hệ thống, quy trình, vai trò khi thực hiện solution đã chọn."},
+           {"t": "Giảm thời gian chờ lấy món, giảm phàn nàn; khách hài lòng, shipper đỡ mệt", "a": [5]}
+         ]},
+        {"kind": "sort", "q": "3) Xếp stakeholder của tình huống vào đúng nhóm.",
+         "bins": ["Business", "User", "Implementation"],
+         "items": [
+           {"t": "Chủ quán", "a": [0]},
+           {"t": "Khách hàng", "a": [1]},
+           {"t": "Nhân viên bếp", "a": [1]},
+           {"t": "Shipper", "a": [1]},
+           {"t": "Đội dev", "a": [2]},
+           {"t": "QA", "a": [2]}
+         ]},
+        {"kind": "choice", "q": "4) Trong 2 solution của đáp án mẫu, solution nào không phải phần mềm?",
+         "options": [
+           "Bếp đặt món xong lên kệ có số đơn, shipper tự lấy",
+           "Thêm trạng thái “Đã nấu xong” trên hệ thống, tự báo cho shipper"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Đề yêu cầu ít nhất 2 solution, trong đó có 1 cái không phải phần mềm. Kệ có số đơn là thay đổi quy trình; trạng thái “Đã nấu xong” là thay đổi trên hệ thống."},
+        {"kind": "sort", "q": "5) Value này hữu hình hay vô hình?",
+         "bins": ["Hữu hình", "Vô hình"],
+         "items": [
+           {"t": "Giảm thời gian chờ lấy món", "a": [0]},
+           {"t": "Giảm phàn nàn", "a": [0]},
+           {"t": "Khách hài lòng", "a": [1]},
+           {"t": "Shipper đỡ mệt", "a": [1]}
+         ]}
+      ]
+    },
+    "L07-p2": {
+      "lead": "Sắp xếp các bước truy ngược need, chọn need thật sự, rồi chọn solution.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước làm theo đúng thứ tự.",
+         "items": [
+           "Nhận diện “nút xuất Excel” là solution (một tính năng cụ thể), chưa phải need",
+           "Hỏi “Xuất Excel xong anh dùng để làm gì?”",
+           "Hỏi tiếp “Nếu không làm vậy thì sao?”",
+           "Viết need bằng ngôn ngữ vấn đề, không chứa tên tính năng",
+           "Liệt kê nhiều solution cho cùng need, so sánh theo Context và Value, chọn cái hiệu quả nhất"
+         ]},
+        {"kind": "choice", "q": "2) Câu “Tôi cần thêm nút xuất danh sách tồn kho ra Excel” là gì?",
+         "options": ["Need", "Solution", "Value", "Context"],
+         "answer": [1], "multi": false,
+         "why": "Câu này nêu một tính năng cụ thể, tức là cách làm. Đó là solution stakeholder đề xuất, chưa phải need."},
+        {"kind": "choice", "q": "3) Need thật sự đứng sau đề xuất này là gì?",
+         "options": [
+           "Cần thêm nút xuất danh sách tồn kho ra Excel",
+           "Cần hệ thống tự cảnh báo khi tồn kho dưới mức tối thiểu",
+           "Cần báo cáo “hàng sắp hết” xem trên hệ thống mỗi sáng",
+           "Bộ phận mua hàng cần biết sớm mặt hàng sắp hết để nhập kịp, tránh hết hàng khi khách cần"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Need viết bằng ngôn ngữ vấn đề, không chứa tên tính năng. Nút Excel, cảnh báo tự động, báo cáo mỗi sáng đều là các solution cho cùng need này."},
+        {"kind": "choice", "q": "4) Nên chọn solution nào?",
+         "options": [
+           "Nút xuất Excel, vì đúng như quản lý kho đề xuất",
+           "Không làm gì, vì quản lý kho đã tự lọc được bằng Excel",
+           "Cảnh báo tự động khi tồn kho dưới mức tối thiểu, gửi thẳng cho bộ phận mua hàng, vì đáp ứng need trực tiếp, bỏ bước lọc tay, giảm rủi ro quên"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Nút Excel vẫn phải lọc tay. Cảnh báo tự động đáp ứng need trực tiếp, bỏ bước lọc tay, giảm rủi ro quên."},
+        {"kind": "choice", "q": "5) Khi nào có thể làm báo cáo “hàng sắp hết” trước thay cho cảnh báo tự động?",
+         "options": [
+           "Khi quản lý kho nhắc lại yêu cầu xuất Excel",
+           "Khi Context là ngân sách rất hạn chế",
+           "Khi bộ phận mua hàng không cần biết hàng sắp hết",
+           "Khi muốn giao diện trang tồn kho đẹp hơn"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Chọn solution dựa trên Context và Value. Đáp án mẫu: nếu Context là ngân sách rất hạn chế, có thể làm báo cáo trước."}
+      ]
+    },
+    "L07-p3": {
+      "lead": "Ghép từng yếu tố với câu hỏi và nội dung trong bảng, rồi chọn hậu quả khi need bị nhận diện sai.",
+      "parts": [
+        {"kind": "sort", "q": "1) Khi lập bảng, mỗi câu hỏi dùng để điền dòng nào?",
+         "bins": ["Change", "Solution", "Stakeholder", "Value", "Context"],
+         "items": [
+           {"t": "Cần chuyển từ gì sang gì?", "a": [0]},
+           {"t": "Cách nào đáp ứng need?", "a": [1]},
+           {"t": "Ai là nguồn gốc của need này?", "a": [2]},
+           {"t": "Need được đáp ứng thì tạo ra lợi ích gì?", "a": [3]},
+           {"t": "Điều gì ảnh hưởng tới việc xác định và ưu tiên need này?", "a": [4]}
+         ]},
+        {"kind": "sort", "q": "2) Need: “Độc giả thư viện mất nhiều thời gian tìm sách”. Mỗi mối liên hệ thuộc dòng nào?",
+         "bins": ["Change", "Solution", "Stakeholder", "Value", "Context"],
+         "items": [
+           {"t": "Chuyển từ tra sổ / hỏi thủ thư sang tự tra cứu trên máy", "a": [0]},
+           {"t": "Phần mềm thư viện có chức năng tìm sách theo tên, tác giả, vị trí kệ", "a": [1]},
+           {"t": "Độc giả, thủ thư", "a": [2], "why": "Độc giả là nguồn gốc need."},
+           {"t": "Giảm thời gian tìm sách; độc giả hài lòng hơn", "a": [3]},
+           {"t": "Sách xếp chưa theo mã kệ; thư viện có sẵn vài máy tính", "a": [4]}
+         ]},
+        {"kind": "choice", "q": "3) Theo slide, một need bị nhận diện sai dẫn tới những gì? (chọn tất cả ý đúng)",
+         "options": [
+           "Chọn sai Change",
+           "Chọn sai Solution",
+           "Dự án chắc chắn xong sớm hơn",
+           "Ảnh hưởng đến Stakeholder",
+           "Không tạo được Value",
+           "Tạo thêm Value cho stakeholder",
+           "Không phù hợp với Context"
+         ],
+         "answer": [0, 1, 3, 4, 6], "multi": true,
+         "why": "Một need chưa được nhận diện đúng sẽ dẫn đến chọn sai Change, sai Solution, ảnh hưởng đến Stakeholder, không tạo được Value và không phù hợp với Context."},
+        {"kind": "choice", "q": "4) Nếu hiểu need là “thiếu sách” thì hậu quả là gì?",
+         "options": [
+           "Độc giả tìm sách nhanh hơn vì thư viện có nhiều sách hơn",
+           "Không ảnh hưởng gì, vì mua thêm sách luôn có lợi",
+           "Chọn mua thêm sách (sai solution), độc giả vẫn mất thời gian tìm (không có value), tiền mua sách bị lãng phí",
+           "Chỉ dòng Context thay đổi, các yếu tố khác giữ nguyên"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Need sai kéo theo solution sai: mua thêm sách không giải quyết việc tìm sách lâu, nên không có value và lãng phí tiền."}
+      ]
+    },
+    "L07-p4": {
+      "lead": "Ghép câu hỏi phân loại với nhóm, kéo từng người vào nhóm, rồi ghép need chính của mỗi nhóm.",
+      "parts": [
+        {"kind": "sort", "q": "1) Trả lời “có” với câu hỏi nào thì xếp vào nhóm nào?",
+         "bins": ["Business", "User", "Implementation"],
+         "items": [
+           {"t": "Người này ra quyết định kinh doanh?", "a": [0]},
+           {"t": "Người này dùng hệ thống hằng ngày?", "a": [1]},
+           {"t": "Người này xây, kiểm thử, hỗ trợ vận hành hệ thống?", "a": [2]}
+         ]},
+        {"kind": "sort", "q": "2) Xếp stakeholder của dự án FoodNow vào đúng nhóm.",
+         "bins": ["Business", "User", "Implementation"],
+         "items": [
+           {"t": "Chủ chuỗi nhà hàng", "a": [0]},
+           {"t": "Quản lý chi nhánh", "a": [0], "why": "Quản lý chi nhánh cũng có thể dùng hệ thống, nhưng vai trò chính là ra quyết định nên xếp Business."},
+           {"t": "Khách đặt bàn", "a": [1]},
+           {"t": "Nhân viên lễ tân", "a": [1]},
+           {"t": "Lập trình viên", "a": [2]},
+           {"t": "Tester (QA)", "a": [2]},
+           {"t": "Nhân viên IT support", "a": [2]}
+         ]},
+        {"kind": "sort", "q": "3) Need chính này là của nhóm nào?",
+         "bins": ["Business", "User", "Implementation"],
+         "items": [
+           {"t": "Tăng lượt khách, giảm bàn trống", "a": [0]},
+           {"t": "Đặt bàn nhanh, không bị trùng; xem lịch bàn dễ", "a": [1]},
+           {"t": "Yêu cầu rõ ràng để xây, kiểm thử và vận hành", "a": [2]}
+         ]}
+      ]
     }
   }
 }

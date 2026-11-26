@@ -4,7 +4,7 @@
   python -B script/exercises.py --check       kiểm mọi file đang có
 
 File gắn thêm cách làm cho bài tập đã có (không sửa data/lessons). Schema: docs/prompt.md §8.
-  {"lesson": "L01", "items": {"L01-x1": {"lead": "...", "parts": [part, ...]}}}
+  {"lesson": "L01", "items": {"L01-x1": {...}, "L01-p1": {"lead": "...", "parts": [part, ...]}}}  (x = bài tập, p = thực hành)
   part kéo thả vào nhóm / ghép cặp: {"kind": "sort", "q": "...", "bins": [nhãn...], "items": [{"t": "...", "a": [chỉ số bin đúng...], "why": "..."}]}
   part sắp xếp thứ tự:              {"kind": "order", "q": "...", "items": [mục theo ĐÚNG thứ tự...], "why": "..."}
   part trắc nghiệm:                 {"kind": "choice", "q": "...", "options": [...], "answer": [chỉ số đúng...], "multi": false, "why": "..."}
@@ -22,12 +22,15 @@ def _load(p):
     return json.loads(Path(p).read_text(encoding="utf-8"))
 
 
-def exercise_ids(lid):
-    """id bài tập gốc của bài (CS = case study trong course.json)."""
+def exercise_ids(lid, kinds=("exercises", "practice")):
+    """id bài tập + bài thực hành gốc của bài (CS = case study trong course.json, chỉ có bài tập)."""
     if lid == "CS":
-        return [x["id"] for x in _load(COURSE)["case_study"]["exercises"]]
+        return [x["id"] for x in _load(COURSE)["case_study"]["exercises"]] if "exercises" in kinds else []
     p = LESSONS_DIR / f"{lid}.json"
-    return [x["id"] for x in _load(p).get("exercises", [])] if p.exists() else []
+    if not p.exists():
+        return []
+    d = _load(p)
+    return [x["id"] for k in kinds for x in d.get(k, [])]
 
 
 def _s(v, n=600):
@@ -105,7 +108,7 @@ def check(lid):
     for xid, x in d["items"].items():
         w = f"{w0}:{xid}"
         if xid not in ids:
-            e.append(f"{w}: không có bài tập id này trong bài {lid}"); continue
+            e.append(f"{w}: không có bài tập / bài thực hành id này trong bài {lid}"); continue
         if not isinstance(x, dict):
             e.append(f"{w}: phải là object"); continue
         if "lead" in x and not _s(x["lead"], 400):
@@ -145,5 +148,7 @@ if __name__ == "__main__":
             print(f"{lid}: {len(errs)} lỗi"); [print("  -", x) for x in errs[:80]]
         else:
             d = _load(EX_DIR / f"{lid}.json")["items"]
-            print(f"{lid}: OK ({len(d)}/{len(exercise_ids(lid))} bài tập có cách làm tương tác)")
+            ex_ids, pr_ids = exercise_ids(lid, ("exercises",)), exercise_ids(lid, ("practice",))
+            n_ex, n_pr = sum(i in d for i in ex_ids), sum(i in d for i in pr_ids)
+            print(f"{lid}: OK (bài tập {n_ex}/{len(ex_ids)}" + (f", thực hành {n_pr}/{len(pr_ids)}" if pr_ids else "") + " có cách làm tương tác)")
     sys.exit(bad)

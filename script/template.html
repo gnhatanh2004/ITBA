@@ -1107,7 +1107,7 @@ function exList(el, items, practice) {
     return `<article class="card ex${done ? " done" : ""}" data-id="${esc(x.id)}">
     <h2>${esc(x.title)} ${x.level ? `<span class="tag${x.level === "kho" ? " lv-apdung" : ""}">${esc(XLEVEL[x.level] || x.level)}</span>` : ""}<span class="done-badge">${ic("check")}Đã làm</span></h2>
     <div class="prose">${x.task || ""}</div>
-    ${practice ? `<h3>Các bước làm mẫu</h3><ol class="steps prose">${(x.steps || []).map(s => `<li>${s}</li>`).join("")}</ol>
+    ${practice && !x.auto ? `<h3>Các bước làm mẫu</h3><ol class="steps prose">${(x.steps || []).map(s => `<li>${s}</li>`).join("")}</ol>
     <div class="row">
       <button class="btn" data-act="ans" aria-expanded="false">${ic("eye")}<span>Xem đáp án mẫu</span></button>
       <button class="btn" data-act="done" aria-pressed="${done}">${ic("check")}<span>${done ? "Đã làm" : "Đánh dấu đã làm"}</span></button>
@@ -1123,6 +1123,7 @@ function exList(el, items, practice) {
     </div>
     <p class="exres" aria-live="polite">${done ? "Bạn đã làm đúng hết bài này. Làm lại để ôn cũng được." : ""}</p>
     <div class="answer" hidden><p class="lbl">Đáp án</p>${keyHtml(x)}
+      ${(x.steps || []).length ? `<details class="more"><summary>Các bước làm mẫu</summary><ol class="steps prose">${x.steps.map(s => `<li>${s}</li>`).join("")}</ol></details>` : ""}
       ${x.answer ? `<details class="more"><summary>Lời giải chi tiết (số thứ tự theo đề)</summary><div class="prose">${x.answer}</div></details>` : ""}</div>`
     : `${hints.map((h, j) => `<div class="hint prose" tabindex="-1" hidden><p class="lbl">Gợi ý ${j + 1}/${hints.length}</p>${h}</div>`).join("")}
     <label class="work"><span class="lbl">Bài làm của bạn <span class="saved" aria-live="polite"></span></span>

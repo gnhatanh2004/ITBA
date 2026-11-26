@@ -188,6 +188,148 @@
          "answer": [0, 2, 4, 5], "multi": true,
          "why": "Có 4 trạng thái cuối: Bị từ chối, Đã hủy, Đã đến, Không đến. Chờ xác nhận và Đã xác nhận vẫn còn chuyển tiếp ra ngoài."}
       ]
+    },
+    "L13a-p1": {
+      "lead": "Sắp xếp các bước vẽ, kéo mỗi chuyển đổi về trạng thái nó đi ra, rồi chọn trạng thái cuối.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước vẽ State Diagram cho Đơn hàng.",
+         "items": [
+           "Chọn đối tượng: Đơn hàng",
+           "Liệt kê các trạng thái theo đề",
+           "Viết chuyển đổi luồng chính theo dạng \"Ai: Làm gì\"",
+           "Viết các nhánh rẽ 2a, 3a, 5a",
+           "Xác định trạng thái cuối và nối tới End",
+           "Vẽ: luồng chính xếp ngang, nhánh đặt bên dưới; kiểm mỗi mũi tên có nhãn, mỗi trạng thái có đường vào"
+         ]},
+        {"kind": "sort", "q": "2) Chuyển đổi này đi ra từ trạng thái nào?",
+         "bins": ["Start", "Lưu tạm", "Chờ xác nhận", "Đang chuẩn bị hàng", "Đang giao hàng"],
+         "items": [
+           {"t": "Khách hàng: Tạo đơn hàng → Lưu tạm", "a": [0]},
+           {"t": "Khách hàng: Đặt hàng → Chờ xác nhận", "a": [1]},
+           {"t": "Chủ cửa hàng: Xác nhận đơn → Đang chuẩn bị hàng", "a": [2]},
+           {"t": "Khách hàng: Hủy đơn (2a) → Hủy đơn", "a": [2], "why": "2a xảy ra khi đơn đang Chờ xác nhận."},
+           {"t": "Chủ cửa hàng: Từ chối đơn (3a) → Bị từ chối", "a": [2], "why": "Chủ cửa hàng chọn từ chối thay vì xác nhận."},
+           {"t": "Chủ cửa hàng: Giao hàng → Đang giao hàng", "a": [3]},
+           {"t": "Khách hàng: Nhận hàng → Hoàn thành", "a": [4]},
+           {"t": "Khách hàng: Không nhận hàng (5a) → Bị trả lại", "a": [4]}
+         ]},
+        {"kind": "choice", "q": "3) Vì sao mũi tên 3a (chủ cửa hàng từ chối) đi ra từ \"Chờ xác nhận\" chứ không từ \"Đang chuẩn bị hàng\"?",
+         "options": [
+           "Vì mọi nhánh rẽ đều phải đi ra từ trạng thái đầu tiên của sơ đồ",
+           "Vì Bị từ chối là trạng thái cuối nên phải nối với trạng thái đứng trước Đang chuẩn bị hàng",
+           "Vì từ chối chỉ có nghĩa khi đơn chưa được xác nhận",
+           "Vì ở Đang chuẩn bị hàng chủ cửa hàng không có thao tác nào"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Chủ cửa hàng chọn từ chối thay vì xác nhận, nên nhánh 3a rẽ ra từ Chờ xác nhận. Ở Đang chuẩn bị hàng chủ cửa hàng vẫn có thao tác Giao hàng."},
+        {"kind": "choice", "q": "4) Những trạng thái nào nối tới End? (chọn tất cả ý đúng)",
+         "options": ["Lưu tạm", "Hủy đơn", "Chờ xác nhận", "Hoàn thành", "Đang chuẩn bị hàng", "Bị từ chối", "Đang giao hàng", "Bị trả lại"],
+         "answer": [1, 3, 5, 7], "multi": true,
+         "why": "Hoàn thành, Hủy đơn, Bị từ chối, Bị trả lại không đi tiếp nên đều nối tới End. Các trạng thái còn lại vẫn có chuyển đổi đi ra."}
+      ]
+    },
+    "L13a-p2": {
+      "lead": "Sắp xếp các bước vẽ, kéo actor và use case vào đúng chỗ, rồi chọn quan hệ.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước vẽ Use Case Diagram cho ứng dụng đặt món.",
+         "items": [
+           "Vẽ khung system boundary \"Ứng dụng đặt món\"",
+           "Tìm actor (ai, hệ thống nào bên ngoài tương tác)",
+           "Tìm use case từ các động từ người dùng làm trên app",
+           "Nối association giữa actor và use case actor đó làm",
+           "Thêm quan hệ include, extend, generalization"
+         ]},
+        {"kind": "sort", "q": "2) Mỗi actor là Primary hay Secondary?",
+         "bins": ["Primary actor", "Secondary actor"],
+         "items": [
+           {"t": "Khách hàng", "a": [0]},
+           {"t": "Đầu bếp", "a": [0]},
+           {"t": "Nhân viên giao hàng", "a": [0]},
+           {"t": "Google", "a": [1], "why": "Cung cấp dịch vụ đăng nhập."},
+           {"t": "Facebook", "a": [1], "why": "Cung cấp dịch vụ đăng nhập."},
+           {"t": "Hệ thống Firebase", "a": [1], "why": "Cung cấp dịch vụ gửi thông báo."},
+           {"t": "Hệ thống thanh toán (giả định)", "a": [1], "why": "Cần cho thanh toán qua thẻ, ví điện tử."}
+         ]},
+        {"kind": "sort", "q": "3) Use case này nối với primary actor nào?",
+         "bins": ["Khách hàng", "Đầu bếp", "Nhân viên giao hàng"],
+         "items": [
+           {"t": "Xem thực đơn", "a": [0]},
+           {"t": "Thêm món vào giỏ", "a": [0]},
+           {"t": "Xem giỏ hàng", "a": [0]},
+           {"t": "Đặt món", "a": [0]},
+           {"t": "Thanh toán", "a": [0]},
+           {"t": "Xem thông tin đơn hàng", "a": [0]},
+           {"t": "Xác nhận đã nhận hàng", "a": [0]},
+           {"t": "Đánh giá dịch vụ", "a": [0]},
+           {"t": "Xem đơn hàng", "a": [1]},
+           {"t": "Chuẩn bị món ăn", "a": [1]},
+           {"t": "Chuyển giao hàng (bấm \"Giao hàng\")", "a": [1]},
+           {"t": "Tiếp nhận đơn giao", "a": [2]},
+           {"t": "Xác nhận đã giao hàng", "a": [2]}
+         ]},
+        {"kind": "sort", "q": "4) Quan hệ giữa hai use case là gì?",
+         "bins": ["include", "extend", "generalization"],
+         "items": [
+           {"t": "Đặt món – Thanh toán", "a": [0], "why": "Bắt buộc để đơn được xử lý: Đặt món «include» Thanh toán."},
+           {"t": "Cập nhật số lượng – Xem giỏ hàng", "a": [1], "why": "Tùy chọn: Cập nhật số lượng «extend» Xem giỏ hàng."},
+           {"t": "Xóa món – Xem giỏ hàng", "a": [1]},
+           {"t": "Đăng nhập bằng tài khoản hệ thống – Đăng nhập", "a": [2]},
+           {"t": "Đăng nhập bằng Google – Đăng nhập", "a": [2]},
+           {"t": "Đăng nhập bằng Facebook – Đăng nhập", "a": [2]},
+           {"t": "Thanh toán bằng ví điện tử – Thanh toán", "a": [2], "why": "Là một dạng của Thanh toán (có thể vẽ hoặc bỏ cho gọn)."}
+         ]},
+        {"kind": "choice", "q": "5) Cách nào gọn mà vẫn đúng để thể hiện người dùng phải đăng nhập trước khi dùng các chức năng?",
+         "options": [
+           "Vẽ «extend» từ Đăng nhập tới mọi use case",
+           "Ghi \"đã đăng nhập\" làm điều kiện tiên quyết trong đặc tả use case",
+           "Vẽ Đăng nhập thành một actor đứng ngoài khung",
+           "Bỏ hẳn, không ghi ở đâu cả"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Không cần vẽ include Đăng nhập vào mọi use case. Cách gọn hơn là ghi \"đã đăng nhập\" làm điều kiện tiên quyết trong đặc tả use case. Đăng nhập không phải tùy chọn nên không dùng extend, và nó là use case chứ không phải actor."}
+      ]
+    },
+    "L13a-p3": {
+      "lead": "Sắp xếp các bước và luồng trạng thái, kéo mỗi chuyển đổi về người thực hiện, rồi chọn nhánh và trạng thái cuối.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước vẽ State Diagram cho Đơn hàng.",
+         "items": [
+           "Chọn đối tượng: Đơn hàng",
+           "Tìm mọi chữ \"trạng thái …\" trong tài liệu",
+           "Với mỗi trạng thái, hỏi \"ai bấm gì thì đơn sang trạng thái này\"",
+           "Xác định nhánh ở bước thanh toán (thành công hoặc thất bại/hủy)",
+           "Vẽ và nối các trạng thái cuối tới End"
+         ]},
+        {"kind": "order", "q": "2) Sắp xếp các trạng thái của luồng chính theo đúng thứ tự.",
+         "items": ["Đã tạo", "Thanh toán thành công", "Đang chế biến", "Sẵn sàng giao hàng", "Đang giao hàng", "Đã giao hàng"]},
+        {"kind": "sort", "q": "3) Ai thực hiện chuyển đổi này?",
+         "bins": ["Khách hàng", "Đầu bếp", "Nhân viên giao hàng"],
+         "items": [
+           {"t": "Đặt món (Start → Đã tạo)", "a": [0]},
+           {"t": "Thanh toán thành công (Đã tạo → Thanh toán thành công)", "a": [0]},
+           {"t": "Thanh toán thất bại / Hủy (Đã tạo → Đã hủy)", "a": [0]},
+           {"t": "Chuẩn bị món ăn (Thanh toán thành công → Đang chế biến)", "a": [1]},
+           {"t": "Giao hàng (Đang chế biến → Sẵn sàng giao hàng)", "a": [1]},
+           {"t": "Tiếp nhận (Sẵn sàng giao hàng → Đang giao hàng)", "a": [2]},
+           {"t": "Đã giao hàng / Đã nhận hàng (Đang giao hàng → Đã giao hàng)", "a": [0, 2], "why": "Nhân viên giao hàng xác nhận đã giao hoặc khách hàng xác nhận đã nhận."}
+         ]},
+        {"kind": "choice", "q": "4) Mũi tên tới \"Đã hủy\" đi ra từ trạng thái nào?",
+         "options": ["Thanh toán thành công", "Đang chế biến", "Đã tạo", "Đang giao hàng"],
+         "answer": [2], "multi": false,
+         "why": "Ở bước thanh toán có hai kết quả: thành công hoặc thất bại/khách hủy. Đây là hai mũi tên đi ra từ Đã tạo."},
+        {"kind": "choice", "q": "5) Những trạng thái nào nối tới End? (chọn tất cả ý đúng)",
+         "options": ["Đã giao hàng", "Đã tạo", "Đang giao hàng", "Đã hủy", "Sẵn sàng giao hàng"],
+         "answer": [0, 3], "multi": true,
+         "why": "Đã giao hàng và Đã hủy không đi tiếp nên nối tới End."},
+        {"kind": "choice", "q": "6) Có vẽ \"Đánh giá dịch vụ\" thành một trạng thái mới của Đơn hàng không?",
+         "options": [
+           "Có, thêm trạng thái \"Đã đánh giá\" sau Đã giao hàng",
+           "Không, vì đánh giá dịch vụ không đổi trạng thái đơn",
+           "Có, đặt giữa Đang giao hàng và Đã giao hàng"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Đánh giá dịch vụ không đổi trạng thái đơn nên không vẽ thành trạng thái mới."}
+      ]
     }
   }
 }

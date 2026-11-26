@@ -292,6 +292,201 @@
          "answer": [1], "multi": false,
          "why": "Cần cho demo tuần này nên rất cấp bách: Priority 1. Chưa có thì vẫn có cách hủy bằng điện thoại nên ảnh hưởng chưa ở mức cao nhất: nghiêm trọng 2."}
       ]
+    },
+    "L06-p1": {
+      "lead": "Sắp xếp các bước điền phiếu, kéo từng thông tin vào đúng phần, rồi chọn cách điền.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước điền phiếu CR theo đúng thứ tự.",
+         "items": [
+           "Đầu phiếu: tên dự án, mã CR dạng CR-YYYYMMDD-số, ngày yêu cầu",
+           "Phần 1: thông tin người yêu cầu",
+           "Phần 2: tên, mô tả chi tiết, lý do, lợi ích",
+           "Phần 3: phạm vi, ước lượng thời gian/chi phí/tài nguyên, rủi ro, MoSCoW, độ phức tạp",
+           "Phần 4 và 5: để trống cho người quyết định, duyệt xong mới điền triển khai"
+         ]},
+        {"kind": "sort", "q": "2) Mỗi thông tin của CR đặt cọc nằm ở phần nào của phiếu?",
+         "bins": ["Đầu phiếu", "Phần 1. Người yêu cầu", "Phần 2. Thông tin yêu cầu thay đổi", "Phần 3. Phân tích", "Phần 4. Quyết định xử lý"],
+         "items": [
+           {"t": "Mã CR: CR-20250310-001", "a": [0]},
+           {"t": "Họ tên, chức danh (chủ chuỗi), email, số điện thoại", "a": [1]},
+           {"t": "Tên: Bổ sung đặt cọc cho đặt bàn nhóm từ 10 người", "a": [2]},
+           {"t": "Lý do: nhiều nhóm đông đặt bàn nhưng không đến, nhà hàng mất doanh thu", "a": [2]},
+           {"t": "Lợi ích: giảm tỉ lệ bỏ bàn, giữ chỗ cho khách thật", "a": [2]},
+           {"t": "Phạm vi: bổ sung thanh toán cọc, hoàn cọc; thay đổi luồng đặt bàn, email xác nhận", "a": [3]},
+           {"t": "Ước lượng 10 ngày công, lùi mốc sprint 3 một tuần, cần tích hợp cổng thanh toán", "a": [3]},
+           {"t": "Rủi ro: lỗi thanh toán, xung đột với luồng hủy bàn hiện tại, khách phàn nàn", "a": [3]},
+           {"t": "Ưu tiên Should Have, độ phức tạp Cao", "a": [3]},
+           {"t": "Đồng ý triển khai / Từ chối, ghi lý do nếu từ chối", "a": [4]}
+         ]},
+        {"kind": "sort", "q": "3) Trong phạm vi thay đổi, mỗi mục là chức năng bổ sung hay thay đổi?",
+         "bins": ["Chức năng bổ sung", "Chức năng thay đổi"],
+         "items": [
+           {"t": "Thanh toán cọc", "a": [0]},
+           {"t": "Hoàn cọc", "a": [0]},
+           {"t": "Luồng đặt bàn", "a": [1]},
+           {"t": "Email xác nhận", "a": [1]}
+         ]},
+        {"kind": "choice", "q": "4) Mô tả chi tiết nào đạt?",
+         "options": [
+           "Thêm đặt cọc cho khách đặt bàn.",
+           "Khách đặt bàn đông người phải đặt cọc một khoản hợp lý.",
+           "Khi khách đặt bàn từ 10 người trở lên, hệ thống yêu cầu thanh toán cọc 20% giá trị ước tính trước khi xác nhận. Hủy trước 24h hoàn cọc; sau đó không hoàn."
+         ],
+         "answer": [2], "multi": false,
+         "why": "Mô tả cần nói rõ ai, khi nào, bao nhiêu và xử lý khi hủy. Hai cách còn lại mơ hồ: không nói nhóm bao nhiêu người, cọc bao nhiêu, hủy thì sao."},
+        {"kind": "choice", "q": "5) Khi lập phiếu, BA điền Phần 4 và Phần 5 thế nào?",
+         "options": [
+           "Để trống cho người có thẩm quyền quyết định; sau khi duyệt mới điền thông tin triển khai",
+           "Ghi \"Đồng ý triển khai\" luôn vì chính chủ chuỗi là người yêu cầu",
+           "Điền ngày bắt đầu triển khai để Dev làm ngay trong sprint 3"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Phần 4 là quyết định của người có thẩm quyền (ghi lý do nếu từ chối). Phần 5 chỉ điền sau khi CR đã được duyệt."}
+      ]
+    },
+    "L06-p2": {
+      "lead": "Sắp xếp các bước, kéo giá trị vào đúng dòng, rồi chọn cách điền RTM và Change Log.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước thêm một yêu cầu vào RTM.",
+         "items": [
+           "Đặt STT nối tiếp và ID duy nhất theo quy tắc đang dùng",
+           "Viết mô tả một câu, kiểm tra được",
+           "Điền Nguồn, Ngày yêu cầu, Độ ưu tiên, Phân loại",
+           "Điền các cột truy vết đã có; cột chưa có để trống và ghi chú",
+           "Ghi một dòng vào sheet Change Log"
+         ]},
+        {"kind": "sort", "q": "2) Mỗi giá trị thuộc dòng của yêu cầu nào?",
+         "bins": ["(a) Gia hạn mượn sách", "(b) Email nhắc hạn trả", "Cả hai"],
+         "items": [
+           {"t": "STT 7, ID CR-…-007", "a": [0]},
+           {"t": "STT 8, ID CR-…-008", "a": [1]},
+           {"t": "Nguồn: Khách hàng", "a": [0]},
+           {"t": "Nguồn: Khảo sát người dùng", "a": [1]},
+           {"t": "Độ ưu tiên: Should Have", "a": [0]},
+           {"t": "Độ ưu tiên: Could Have", "a": [1]},
+           {"t": "Phân loại: Function", "a": [2]},
+           {"t": "Cột thiết kế, task, testcase để trống; Ghi chú: Chưa thiết kế", "a": [1]}
+         ]},
+        {"kind": "choice", "q": "3) Đặt ID cho hai dòng mới thế nào?",
+         "options": [
+           "Dùng lại ID của dòng Won't Have vì yêu cầu đó không làm",
+           "Nối tiếp theo quy tắc đang dùng trong bảng: CR-…-007, CR-…-008",
+           "Để trống ID tới khi có thiết kế"
+         ],
+         "answer": [1], "multi": false,
+         "why": "ID phải duy nhất, không trùng, không đổi, và theo quy tắc đặt mã đang dùng trong bảng."},
+        {"kind": "choice", "q": "4) Mô tả nào đạt cho yêu cầu (b)?",
+         "options": [
+           "Nhắc bạn đọc trả sách đúng hạn.",
+           "Hệ thống gửi email nhắc sớm cho bạn đọc.",
+           "Hệ thống gửi email nhắc trước hạn trả 3 ngày."
+         ],
+         "answer": [2], "multi": false,
+         "why": "Mô tả phải là một câu ngắn, rõ, kiểm tra được. \"Nhắc sớm\" hay \"đúng hạn\" không đo được; \"trước hạn trả 3 ngày\" thì kiểm được."},
+        {"kind": "choice", "q": "5) Lúc mới thêm, các cột Kết quả kiểm thử, Phiên bản triển khai, Ngày triển khai điền gì?",
+         "options": [
+           "Để trống tới khi có",
+           "Ghi Fail vì chưa kiểm thử",
+           "Ghi phiên bản hiện tại v1.1 cho đủ cột"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Các cột kết quả chỉ điền khi đã có kết quả thật. Ghi trước là sai thông tin truy vết."},
+        {"kind": "choice", "q": "6) Dòng Change Log nào đúng cho yêu cầu (b)?",
+         "options": [
+           "Không cần ghi Change Log vì chỉ thêm, không sửa yêu cầu cũ",
+           "Thêm yêu cầu nhắc hạn trả vào backlog – BA – Đã loại bỏ",
+           "Thêm yêu cầu nhắc hạn trả vào backlog – BA – Chưa phân tích"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Thêm yêu cầu mới cũng phải ghi Change Log (ngày, ID, thay đổi, người thực hiện, trạng thái mới). Yêu cầu vừa vào backlog có trạng thái \"Chưa phân tích\"; \"Đã loại bỏ\" dùng khi bỏ yêu cầu."}
+      ]
+    },
+    "L06-p3": {
+      "lead": "Sắp xếp bố cục email, rồi chọn từng phần viết đúng.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các phần của email theo đúng bố cục.",
+         "items": [
+           "Tiêu đề",
+           "Lời chào trang trọng một người",
+           "Cảm ơn vì buổi họp",
+           "Danh sách nội dung đã thống nhất",
+           "Danh sách cần xác nhận",
+           "Nhắc hạn phản hồi",
+           "Ký tên kèm vị trí"
+         ]},
+        {"kind": "choice", "q": "2) Tiêu đề nào đạt?",
+         "options": [
+           "Chức năng bán hàng tại quầy",
+           "[Xác nhận yêu cầu] Chức năng bán hàng tại quầy – Dự án phần mềm SolasMart",
+           "Kết quả buổi họp hôm qua"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Tiêu đề theo công thức [Loại việc] + nội dung cụ thể + dự án. Hai tiêu đề kia thiếu loại việc, tên dự án hoặc không nói nội dung."},
+        {"kind": "choice", "q": "3) Điền người nhận thế nào?",
+         "options": [
+           "To: Trưởng bộ phận bán hàng tại quầy, PM phía triển khai và các nhân sự dự họp",
+           "To: Trưởng bộ phận bán hàng tại quầy. Cc: PM phía triển khai, rồi nhân sự phía SolasMart dự họp",
+           "To: PM phía triển khai. Cc: Trưởng bộ phận bán hàng tại quầy",
+           "To: Trưởng bộ phận bán hàng tại quầy. Cc: nhân sự phía SolasMart dự họp, rồi PM phía triển khai"
+         ],
+         "answer": [3], "multi": false,
+         "why": "To là một người chịu trách nhiệm cao nhất. Cc xếp khách hàng trước, đơn vị triển khai sau. Soạn xong nội dung mới điền người nhận."},
+        {"kind": "choice", "q": "4) Mở đầu nào đạt?",
+         "options": [
+           "Kính gửi chị (Trưởng bộ phận bán hàng tại quầy), em cảm ơn chị đã dành thời gian cho buổi họp ngày (ngày họp).",
+           "Chào mọi người, em gửi kết quả họp.",
+           "Kính gửi chị Trưởng bộ phận, anh PM và các anh chị dự họp,"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Dùng lời chào trang trọng, chỉ chào 1 người ở vị trí cao nhất, rồi cảm ơn vì buổi họp. \"Chào mọi người\" không trang trọng; câu thứ ba chào nhiều người."},
+        {"kind": "sort", "q": "5) Mỗi ý đưa vào danh sách nào trong nội dung email?",
+         "bins": ["Đã thống nhất", "Cần xác nhận"],
+         "items": [
+           {"t": "Hóa đơn in ra có mã vạch đơn hàng", "a": [0]},
+           {"t": "Thu ngân phải đóng ca trước khi đăng xuất", "a": [0]},
+           {"t": "Khách có được thanh toán một đơn bằng cả tiền mặt và thẻ không?", "a": [1]}
+         ]},
+        {"kind": "choice", "q": "6) Phần kết nào đạt?",
+         "options": [
+           "Chị chốt sớm giúp em nhé. Thanks!",
+           "Nhờ chị phản hồi trước 17h00 ngày (hạn) để nhóm phát triển kịp tiến độ.\nTrân trọng,\n(Họ tên) – Chuyên viên phân tích nghiệp vụ",
+           "Mong chị phản hồi khi nào thuận tiện.\nTrân trọng."
+         ],
+         "answer": [1], "multi": false,
+         "why": "Kết thư cần nhắc hạn phản hồi lịch sự và ký tên kèm vị trí trong dự án. \"Chốt\" là văn nói; câu thứ ba không có hạn, không có tên và vị trí."}
+      ]
+    },
+    "L06-p4": {
+      "lead": "Sắp xếp các bước và thư mục, kéo từng file vào đúng thư mục, rồi phân quyền.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước dựng cây thư mục.",
+         "items": [
+           "Tạo thư mục gốc, ví dụ \"15. FoodNow\"",
+           "Tạo 8 thư mục con từ 01. PROJECT_INITIATION đến 08. REPORT",
+           "Đặt từng file theo nội dung thư mục",
+           "Phân quyền Read-Only / Editor / Admin theo vai trò"
+         ]},
+        {"kind": "order", "q": "2) Sắp xếp 8 thư mục con theo đúng số thứ tự 01 → 08.",
+         "items": ["PROJECT_INITIATION", "REQUIREMENTS", "DESIGN", "DEVELOPMENT", "TESTING", "DEPLOYMENT", "CHANGE LOGS", "REPORT"]},
+        {"kind": "sort", "q": "3) Mỗi file đặt vào thư mục nào?",
+         "bins": ["01. PROJECT_INITIATION", "02. REQUIREMENTS", "03. DESIGN", "04. DEVELOPMENT", "05. TESTING", "06. DEPLOYMENT", "07. CHANGE LOGS", "08. REPORT"],
+         "items": [
+           {"t": "Biên bản kick-off", "a": [0]},
+           {"t": "SRS v1.0", "a": [1]},
+           {"t": "Sơ đồ ERD", "a": [2], "why": "ERD là mô hình dữ liệu, thuộc DESIGN."},
+           {"t": "Test plan", "a": [4]},
+           {"t": "Hướng dẫn cài đặt", "a": [5]},
+           {"t": "Phiếu CR đặt cọc", "a": [6]}
+         ]},
+        {"kind": "sort", "q": "4) Phân quyền cho từng người.",
+         "bins": ["Read-Only", "Editor", "Admin"],
+         "items": [
+           {"t": "BA phụ trách cập nhật tài liệu yêu cầu", "a": [1]},
+           {"t": "Dev", "a": [0]},
+           {"t": "Khách hàng", "a": [0]},
+           {"t": "PM quản lý quyền và cấu trúc thư mục", "a": [2]}
+         ]}
+      ]
     }
   }
 }

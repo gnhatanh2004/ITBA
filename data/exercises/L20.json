@@ -182,6 +182,193 @@
            {"t": "KhachHang —— DonHang: đầu DonHang", "a": [3]}
          ]}
       ]
+    },
+    "L20-p1": {
+      "lead": "Sắp xếp các bước vẽ ERD, rồi kéo thả và chọn để dựng ERD thư viện.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước làm theo đúng thứ tự.",
+         "items": [
+           "Gạch chân danh từ để tìm thực thể ứng viên",
+           "Liệt kê thuộc tính và đánh dấu loại thuộc tính",
+           "Xét loại thực thể (mạnh hay yếu)",
+           "Tìm động từ để ra quan hệ",
+           "Xác định cardinality hai chiều",
+           "Tách quan hệ n-n bằng thực thể kết hợp"
+         ]},
+        {"kind": "sort", "q": "2) Trong mô tả nghiệp vụ, mỗi danh từ là thực thể hay thuộc tính?",
+         "bins": ["Thực thể", "Thuộc tính"],
+         "items": [
+           {"t": "Đầu sách", "a": [0]},
+           {"t": "Cuốn", "a": [0]},
+           {"t": "Độc giả", "a": [0]},
+           {"t": "Mã sách", "a": [1], "why": "Chỉ là giá trị mô tả đầu sách."},
+           {"t": "Tên sách", "a": [1]},
+           {"t": "Tác giả", "a": [1]},
+           {"t": "Năm xuất bản", "a": [1]},
+           {"t": "Số serial", "a": [1]},
+           {"t": "Trạng thái", "a": [1]},
+           {"t": "Số điện thoại", "a": [1]}
+         ]},
+        {"kind": "sort", "q": "3) Mỗi thuộc tính thuộc loại nào?",
+         "bins": ["Khóa", "Khóa bộ phận (của thực thể yếu)", "Đơn trị", "Đa trị"],
+         "items": [
+           {"t": "MaSach của DauSach", "a": [0]},
+           {"t": "MaDG của DocGia", "a": [0]},
+           {"t": "Serial của Cuon", "a": [1], "why": "Cuon chỉ phân biệt được bằng MaSach + Serial."},
+           {"t": "SoDienThoai của DocGia (nhiều số)", "a": [3], "why": "Một độc giả có nhiều số điện thoại: elip đôi."},
+           {"t": "TenSach của DauSach", "a": [2]},
+           {"t": "TrangThai của Cuon", "a": [2]}
+         ]},
+        {"kind": "sort", "q": "4) Mỗi thực thể thuộc loại nào?",
+         "bins": ["Mạnh", "Yếu", "Kết hợp"],
+         "items": [
+           {"t": "DauSach", "a": [0]},
+           {"t": "Cuon", "a": [1], "why": "Không tồn tại nếu không có DauSach, chỉ phân biệt bằng MaSach + Serial: khung đôi."},
+           {"t": "DocGia", "a": [0]},
+           {"t": "MuonSach", "a": [2], "why": "Sinh ra khi tách quan hệ n-n giữa DocGia và Cuon."}
+         ]},
+        {"kind": "choice", "q": "5) Quan hệ “độc giả mượn cuốn” là gì và xử lý thế nào?",
+         "options": [
+           "1-n: thêm MaDG (FK) vào Cuon",
+           "n-n: tách qua thực thể kết hợp MuonSach(MaDG, MaSach + Serial, NgayMuon, NgayTra)",
+           "1-1: gộp Cuon vào DocGia",
+           "n-n: thêm NgayMuon, NgayTra vào DocGia"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Một độc giả mượn nhiều cuốn, một cuốn được nhiều độc giả mượn qua các lần: n-n. Tách thành MuonSach chứa NgayMuon, NgayTra và hai khóa ngoại."},
+        {"kind": "sort", "q": "6) Ở mỗi đầu đường nối, dùng ký hiệu nào?",
+         "bins": ["Một và bắt buộc phải có một (hai gạch)", "Một hoặc nhiều (gạch + chân chim)", "Không hoặc nhiều (vòng tròn + chân chim)"],
+         "items": [
+           {"t": "DauSach —— Cuon: đầu DauSach", "a": [0]},
+           {"t": "DauSach —— Cuon: đầu Cuon", "a": [1], "why": "Một đầu sách có một hoặc nhiều cuốn."},
+           {"t": "DocGia —— MuonSach: đầu DocGia", "a": [0]},
+           {"t": "DocGia —— MuonSach: đầu MuonSach", "a": [2], "why": "Một độc giả có không hoặc nhiều lần mượn."},
+           {"t": "Cuon —— MuonSach: đầu Cuon", "a": [0]},
+           {"t": "Cuon —— MuonSach: đầu MuonSach", "a": [2], "why": "Một cuốn có không hoặc nhiều lần được mượn."}
+         ]}
+      ]
+    },
+    "L20-p2": {
+      "lead": "Sắp xếp các bước, rồi kéo thả và chọn để dựng ERD đặt bàn FoodNow.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước làm theo đúng thứ tự.",
+         "items": [
+           "Xác định thực thể: NhaHang, Ban, KhachHang, DonDatBan",
+           "Liệt kê thuộc tính và khóa của từng thực thể",
+           "Xét thuộc tính dẫn xuất (số lượt đặt)",
+           "Xác định các quan hệ 1-n",
+           "Xác định quan hệ n-n và tách bằng thực thể kết hợp"
+         ]},
+        {"kind": "sort", "q": "2) Mỗi thuộc tính thuộc thực thể nào?",
+         "bins": ["NhaHang", "Ban", "KhachHang", "DonDatBan"],
+         "items": [
+           {"t": "TenNH", "a": [0]},
+           {"t": "DiaChi", "a": [0]},
+           {"t": "SoBan", "a": [1]},
+           {"t": "SoGhe", "a": [1]},
+           {"t": "Ten (tên khách)", "a": [2]},
+           {"t": "SoDienThoai", "a": [2]},
+           {"t": "Email", "a": [2]},
+           {"t": "NgayGio", "a": [3]},
+           {"t": "SoNguoi", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "3) “Số lượt đặt của khách” thể hiện thế nào trong ERD?",
+         "options": [
+           "Thực thể riêng LuotDat nối với KhachHang",
+           "Thuộc tính đa trị của KhachHang (elip đôi)",
+           "Thuộc tính dẫn xuất SoLuotDat của KhachHang (elip nét đứt), đếm từ DonDatBan, không cần lưu",
+           "Thuộc tính khóa của DonDatBan (elip gạch chân)"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Số lượt đặt đếm được từ DonDatBan nên là thuộc tính dẫn xuất của KhachHang, vẽ elip nét đứt."},
+        {"kind": "choice", "q": "4) Một đơn gồm nhiều bàn, một bàn nằm trong nhiều đơn (ở các thời điểm khác nhau). Xử lý thế nào?",
+         "options": [
+           "Tách qua thực thể kết hợp DonDatBan_Ban chứa MaDon, MaBan",
+           "Thêm MaDon (FK) vào Ban",
+           "Thêm MaBan (FK) vào DonDatBan",
+           "Gộp Ban vào DonDatBan"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Đây là quan hệ n-n nên phải tách: DonDatBan 1 — n DonDatBan_Ban n — 1 Ban."},
+        {"kind": "sort", "q": "5) Mỗi khóa ngoại đặt trong thực thể nào?",
+         "bins": ["NhaHang", "Ban", "KhachHang", "DonDatBan", "DonDatBan_Ban"],
+         "items": [
+           {"t": "MaNH (FK)", "a": [1], "why": "NhaHang – Ban là 1-n, khóa ngoại đặt ở phía n."},
+           {"t": "MaKH (FK)", "a": [3], "why": "KhachHang – DonDatBan là 1-n, khóa ngoại đặt ở phía n."},
+           {"t": "MaDon (FK)", "a": [4]},
+           {"t": "MaBan (FK)", "a": [4]}
+         ]},
+        {"kind": "sort", "q": "6) Ở mỗi đầu đường nối, dùng ký hiệu nào?",
+         "bins": ["Một và bắt buộc phải có một (hai gạch)", "Một hoặc nhiều (gạch + chân chim)", "Không hoặc nhiều (vòng tròn + chân chim)"],
+         "items": [
+           {"t": "NhaHang —— Ban: đầu NhaHang", "a": [0]},
+           {"t": "NhaHang —— Ban: đầu Ban", "a": [1]},
+           {"t": "KhachHang —— DonDatBan: đầu KhachHang", "a": [0]},
+           {"t": "KhachHang —— DonDatBan: đầu DonDatBan", "a": [2], "why": "Một khách có không hoặc nhiều đơn."}
+         ]}
+      ]
+    },
+    "L20-p3": {
+      "lead": "Sắp xếp các bước, rồi kéo thả và chọn để dựng ERD bán hàng tại quầy, chú ý chỗ tùy chọn.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước làm theo đúng thứ tự.",
+         "items": [
+           "Xác định thực thể: NhanVien, HoaDonBanLe, HangHoa, KhachHangThanhVien",
+           "Liệt kê thuộc tính và khóa",
+           "Tách quan hệ n-n giữa hóa đơn và hàng hóa thành DongHoaDon",
+           "Xét bắt buộc hay tùy chọn ở từng quan hệ",
+           "Đặt khóa ngoại ở phía “n”"
+         ]},
+        {"kind": "sort", "q": "2) Mỗi thuộc tính thuộc loại nào?",
+         "bins": ["Khóa", "Đơn trị", "Dẫn xuất"],
+         "items": [
+           {"t": "SoHD của HoaDonBanLe", "a": [0]},
+           {"t": "MaHang của HangHoa", "a": [0]},
+           {"t": "NgayLap của HoaDonBanLe", "a": [1]},
+           {"t": "TenHang của HangHoa", "a": [1]},
+           {"t": "SoLuong của DongHoaDon", "a": [1]},
+           {"t": "TongTien của HoaDonBanLe", "a": [2]},
+           {"t": "ThanhTien của DongHoaDon", "a": [2], "why": "Tính từ SoLuong * DonGia."}
+         ]},
+        {"kind": "choice", "q": "3) Hóa đơn có nhiều hàng hóa, một hàng hóa có trong nhiều hóa đơn. Xử lý thế nào?",
+         "options": [
+           "Thêm MaHang (FK) vào HoaDonBanLe",
+           "Thêm SoHD (FK) vào HangHoa",
+           "Gộp HangHoa vào HoaDonBanLe",
+           "Tạo DongHoaDon(SoHD, MaHang, SoLuong, DonGia, ThanhTien)"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Hóa đơn – hàng hóa là n-n, nên tách qua DongHoaDon; mỗi dòng là một hàng hóa với số lượng, đơn giá, thành tiền."},
+        {"kind": "choice", "q": "4) Khách có thể là thành viên hoặc vãng lai (không lưu thông tin). Thể hiện thế nào?",
+         "options": [
+           "Phía KhachHangThanhVien là “không hoặc một” (vòng tròn + gạch); khách vãng lai thì MaKH trong hóa đơn để trống",
+           "Phía KhachHangThanhVien là “một và bắt buộc” (hai gạch)",
+           "Phía KhachHangThanhVien là “không hoặc nhiều” (vòng tròn + chân chim): một hóa đơn có nhiều khách",
+           "Tạo thực thể KhachVangLai để lưu thông tin khách vãng lai"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Hóa đơn có không hoặc một khách thành viên, vì khách vãng lai không có bản ghi."},
+        {"kind": "sort", "q": "5) Mỗi khóa ngoại đặt trong thực thể nào?",
+         "bins": ["NhanVien", "KhachHangThanhVien", "HoaDonBanLe", "HangHoa", "DongHoaDon"],
+         "items": [
+           {"t": "MaNV (FK)", "a": [2]},
+           {"t": "MaKH (FK)", "a": [2]},
+           {"t": "SoHD (FK)", "a": [4]},
+           {"t": "MaHang (FK)", "a": [4]}
+         ]},
+        {"kind": "sort", "q": "6) Ở mỗi đầu đường nối, dùng ký hiệu nào?",
+         "bins": ["Một và bắt buộc phải có một (hai gạch)", "Không hoặc một (vòng tròn + gạch)", "Một hoặc nhiều (gạch + chân chim)", "Không hoặc nhiều (vòng tròn + chân chim)"],
+         "items": [
+           {"t": "NhanVien —— HoaDonBanLe: đầu NhanVien", "a": [0], "why": "Hóa đơn bắt buộc có đúng một nhân viên lập."},
+           {"t": "NhanVien —— HoaDonBanLe: đầu HoaDonBanLe", "a": [3]},
+           {"t": "KhachHangThanhVien —— HoaDonBanLe: đầu KhachHangThanhVien", "a": [1], "why": "Khách vãng lai không có bản ghi."},
+           {"t": "KhachHangThanhVien —— HoaDonBanLe: đầu HoaDonBanLe", "a": [3]},
+           {"t": "HoaDonBanLe —— DongHoaDon: đầu HoaDonBanLe", "a": [0]},
+           {"t": "HoaDonBanLe —— DongHoaDon: đầu DongHoaDon", "a": [2], "why": "Một hóa đơn phải có ít nhất một dòng."},
+           {"t": "HangHoa —— DongHoaDon: đầu HangHoa", "a": [0]},
+           {"t": "HangHoa —— DongHoaDon: đầu DongHoaDon", "a": [3]}
+         ]}
+      ]
     }
   }
 }

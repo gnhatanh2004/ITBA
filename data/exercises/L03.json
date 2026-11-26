@@ -138,6 +138,115 @@
            {"t": "Viết yêu cầu thành mục backlog có tiêu chí chấp nhận", "a": [2, 0], "why": "Đáp án mẫu giao cho BA, để PO xếp ưu tiên và nhóm ước tính được. BA thường hỗ trợ PO viết mục backlog nên chọn PO cũng được chấp nhận."}
          ]}
       ]
+    },
+    "L03-p1": {
+      "lead": "Kéo người thực hiện, hoạt động và kết quả vào đúng bước SDLC của phần mềm thư viện, rồi rà lại bảng.",
+      "parts": [
+        {"kind": "sort", "q": "1) Người thực hiện này thuộc bước nào?",
+         "bins": ["Lập kế hoạch", "Phân tích", "Thiết kế", "Lập trình", "Kiểm thử", "Bảo trì"],
+         "items": [
+           {"t": "PM", "a": [0]},
+           {"t": "BA, thủ thư, ban giám hiệu", "a": [1]},
+           {"t": "Kiến trúc sư, dev cấp cao", "a": [2]},
+           {"t": "Lập trình viên", "a": [3]},
+           {"t": "Tester, BA, thủ thư", "a": [4]},
+           {"t": "Hỗ trợ kỹ thuật, dev", "a": [5]}
+         ]},
+        {"kind": "sort", "q": "2) Hoạt động này của phần mềm thư viện thuộc bước nào?",
+         "bins": ["Lập kế hoạch", "Phân tích", "Thiết kế", "Lập trình", "Kiểm thử", "Bảo trì"],
+         "items": [
+           {"t": "Ước tính nỗ lực, rủi ro \"dữ liệu sách cũ nằm trong Excel\", phân công", "a": [0]},
+           {"t": "Phỏng vấn thủ thư, khảo sát sinh viên", "a": [1]},
+           {"t": "Ghi quy định mượn trả, phạt trễ hạn", "a": [1]},
+           {"t": "Thiết kế CSDL Sách, Độc giả, Phiếu mượn", "a": [2]},
+           {"t": "Thiết kế giao diện tra cứu", "a": [2]},
+           {"t": "Viết chức năng mượn, trả, tra cứu; review code; unit test", "a": [3]},
+           {"t": "Kịch bản \"mượn quá số cuốn cho phép\", \"trả trễ hạn\"; theo dõi lỗi", "a": [4]},
+           {"t": "Hỗ trợ thủ thư, sửa lỗi, thêm gia hạn online", "a": [5]}
+         ]},
+        {"kind": "sort", "q": "3) Kết quả này là đầu ra của bước nào?",
+         "bins": ["Lập kế hoạch", "Phân tích", "Thiết kế", "Lập trình", "Kiểm thử", "Bảo trì"],
+         "items": [
+           {"t": "Master plan, kế hoạch rủi ro", "a": [0]},
+           {"t": "Biên bản khảo sát, BRD, SRS", "a": [1]},
+           {"t": "Tài liệu kiến trúc, tài liệu CSDL", "a": [2]},
+           {"t": "Mã nguồn chạy đúng yêu cầu", "a": [3]},
+           {"t": "Báo cáo kiểm thử", "a": [4]},
+           {"t": "Phần mềm chạy ổn định, cập nhật định kỳ", "a": [5]}
+         ]},
+        {"kind": "choice", "q": "4) Khi rà lại bảng, dòng nào ghi sai kết quả?",
+         "options": [
+           "Lập kế hoạch → Master plan, kế hoạch rủi ro",
+           "Phân tích → Biên bản khảo sát, SRS",
+           "Thiết kế → BRD",
+           "Kiểm thử → Báo cáo kiểm thử"
+         ],
+         "answer": [2], "multi": false,
+         "why": "BRD là đầu ra của bước Phân tích, không thuộc Thiết kế. Thiết kế cho ra tài liệu kiến trúc và tài liệu CSDL."}
+      ]
+    },
+    "L03-p2": {
+      "lead": "Sắp xếp các bước làm, chọn các đặc điểm ủng hộ mô hình, rồi chọn mô hình và rủi ro cần để ý.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước chọn mô hình theo thứ tự làm mẫu.",
+         "items": [
+           "Gạch chân các đặc điểm của dự án",
+           "Đối chiếu từng đặc điểm với bảng \"Phù hợp / Không phù hợp\" của Waterfall và nhược điểm của Agile",
+           "Đếm xem mỗi đặc điểm ủng hộ mô hình nào",
+           "Kết luận và nêu một rủi ro cần để ý của mô hình đã chọn"
+         ]},
+        {"kind": "choice", "q": "2) Đặc điểm nào có trong dự án chấm công và ủng hộ Waterfall? (chọn tất cả ý đúng)",
+         "options": [
+           "Cần ra mắt sớm để lấy phản hồi người dùng",
+           "Quy định chấm công đã có văn bản rõ, ít thay đổi",
+           "Quy mô dự án nhỏ",
+           "Chưa rõ giải pháp tối ưu, mang tính thử nghiệm",
+           "Ngân sách và hạn chót cố định",
+           "Phòng nhân sự chỉ tham gia lúc đầu và lúc nghiệm thu"
+         ],
+         "answer": [1, 2, 4, 5], "multi": true,
+         "why": "Yêu cầu rõ, ổn định và quy mô nhỏ đến vừa là điều kiện phù hợp của Waterfall. Thời gian, ngân sách cố định hợp Waterfall, còn Agile không phù hợp dự án cố định về thời gian và chi phí. Waterfall không cần khách hàng tham gia liên tục, Agile thì cần. Ra mắt sớm và chưa rõ giải pháp không có trong đề, và là lý do chọn Agile."},
+        {"kind": "choice", "q": "3) Dự án chấm công nên chọn mô hình nào?",
+         "options": ["Agile (Scrum)", "Waterfall"],
+         "answer": [1], "multi": false,
+         "why": "Cả bốn đặc điểm (yêu cầu rõ, quy mô nhỏ, ngân sách và hạn chót cố định, khách hàng ít tham gia) đều ủng hộ Waterfall."},
+        {"kind": "choice", "q": "4) Rủi ro nào cần để ý khi chọn Waterfall cho dự án này?",
+         "options": [
+           "Khó kiểm soát tổng thể vì sản phẩm làm dần qua từng Sprint",
+           "Phòng nhân sự phải tham gia góp ý sau mỗi Sprint",
+           "Tài liệu không rõ ràng, khó lập kế hoạch",
+           "Lỗi phát hiện muộn và khó đổi yêu cầu, nên BA rà kỹ tài liệu yêu cầu với phòng nhân sự trước khi chốt"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Nhược điểm của Waterfall là phát hiện lỗi muộn và khó thay đổi yêu cầu. Khó kiểm soát tổng thể và cần khách hàng tham gia thường xuyên là nhược điểm của Agile; tài liệu rõ ràng, lập kế hoạch dễ lại là ưu điểm của Waterfall."}
+      ]
+    },
+    "L03-p3": {
+      "lead": "Kéo mỗi việc vào nhóm vai trò, artifact hay event, rồi ghép với đúng phần của khung Scrum.",
+      "parts": [
+        {"kind": "sort", "q": "1) Việc này thuộc nhóm nào của khung Scrum?",
+         "bins": ["Vai trò", "Artifact", "Event"],
+         "items": [
+           {"t": "Danh sách tất cả tính năng đã xếp hạng ưu tiên", "a": [1]},
+           {"t": "Cuộc họp 15 phút mỗi sáng", "a": [2]},
+           {"t": "Người quyết định làm \"thanh toán ví điện tử\" trước \"đánh giá món\"", "a": [0]},
+           {"t": "Cuộc họp cuối Sprint để trình diễn sản phẩm cho khách hàng", "a": [2]},
+           {"t": "Người gỡ vướng mắc khi nhóm chưa có tài khoản thử cổng thanh toán", "a": [0]},
+           {"t": "Danh sách task nhóm cam kết làm trong 2 tuần này", "a": [1]},
+           {"t": "Cuộc họp cuối Sprint để bàn cách làm việc tốt hơn", "a": [2]}
+         ]},
+        {"kind": "sort", "q": "2) Việc này ứng với phần nào của Scrum?",
+         "bins": ["Product Owner", "Scrum Master", "Development Team", "Product Backlog", "Sprint Backlog", "Daily Scrum", "Sprint Review", "Sprint Retrospective"],
+         "items": [
+           {"t": "Danh sách tất cả tính năng đã xếp hạng ưu tiên", "a": [3], "why": "Danh sách của cả sản phẩm là Product Backlog."},
+           {"t": "Cuộc họp 15 phút mỗi sáng", "a": [5]},
+           {"t": "Người quyết định làm \"thanh toán ví điện tử\" trước \"đánh giá món\"", "a": [0], "why": "PO quản lý backlog và tối ưu giá trị."},
+           {"t": "Cuộc họp cuối Sprint để trình diễn sản phẩm cho khách hàng", "a": [6], "why": "Cuối Sprint, xem sản phẩm là Review."},
+           {"t": "Người gỡ vướng mắc khi nhóm chưa có tài khoản thử cổng thanh toán", "a": [1], "why": "Scrum Master quản lý quy trình và gỡ trở ngại."},
+           {"t": "Danh sách task nhóm cam kết làm trong 2 tuần này", "a": [4], "why": "Danh sách riêng một Sprint là Sprint Backlog."},
+           {"t": "Cuộc họp cuối Sprint để bàn cách làm việc tốt hơn", "a": [7], "why": "Cuối Sprint, xem cách làm việc là Retrospective."}
+         ]}
+      ]
     }
   }
 }

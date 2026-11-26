@@ -307,6 +307,173 @@
          "answer": [0, 2, 4], "multi": true,
          "why": "ma_tv và ma_km là khóa ngoại tùy chọn nên được NULL; khóa chính không bao giờ NULL. Để đạt 3NF, tên sản phẩm chỉ ở SanPham, tên thành viên chỉ ở ThanhVien, tên nhân viên lấy qua ca làm việc."}
       ]
+    },
+    "L21-p1": {
+      "lead": "Sắp các bước chuẩn hóa, kéo từng cột vào đúng bảng và kiểu, rồi chọn cách xử lý total_amount.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước tách bảng đơn hàng gộp tới 3NF.",
+         "items": ["Tìm ô không nguyên tử (address chứa \"Ha Noi, Hung Yen\")", "Tìm nhóm lặp (tên, số điện thoại khách lặp ở mỗi đơn)", "Xác định khóa của phần đơn hàng còn lại", "Kiểm 2NF: tìm phụ thuộc bộ phận", "Kiểm 3NF: tìm phụ thuộc bắc cầu, giá trị suy ra được", "Chọn kiểu dữ liệu cho từng cột"]},
+        {"kind": "sort", "q": "2) Phần đơn hàng có khóa (order_id, product_id). Mỗi cột phụ thuộc vào phần nào của khóa?",
+         "bins": ["Chỉ order_id", "Chỉ product_id", "Cả (order_id, product_id)"],
+         "items": [
+           {"t": "order_date", "a": [0]},
+           {"t": "customer_id", "a": [0]},
+           {"t": "description", "a": [1]},
+           {"t": "quantity", "a": [2]},
+           {"t": "unit_price", "a": [2]}
+         ]},
+        {"kind": "sort", "q": "3) Sau khi tách, mỗi cột nằm ở bảng nào?",
+         "bins": ["customers", "addresses", "products", "orders", "order_items"],
+         "items": [
+           {"t": "customer_name", "a": [0]},
+           {"t": "phone", "a": [0]},
+           {"t": "address (mỗi địa chỉ một dòng)", "a": [1]},
+           {"t": "description", "a": [2]},
+           {"t": "order_date", "a": [3]},
+           {"t": "quantity", "a": [4]},
+           {"t": "unit_price", "a": [4]}
+         ]},
+        {"kind": "choice", "q": "4) total_amount = quantity × unit_price. Khi kiểm 3NF, xử lý cột này thế nào?",
+         "options": [
+           "Chuyển sang bảng customers",
+           "Dùng làm khóa chính của order_items",
+           "Bỏ vì suy ra được, hoặc giữ có chủ đích để tối ưu truy vấn (ngoại lệ của nguyên tắc #1)",
+           "Tách mỗi giá trị total_amount thành một bảng riêng"
+         ],
+         "answer": [2], "multi": false,
+         "why": "total_amount là giá trị suy ra từ quantity × unit_price. Có thể bỏ, hoặc giữ có chủ đích để tối ưu truy vấn, đây là ngoại lệ dư thừa được chấp nhận."},
+        {"kind": "sort", "q": "5) Chọn kiểu dữ liệu cho mỗi cột (không dùng int như hình minh họa trên slide).",
+         "bins": ["INT", "VARCHAR(n)", "NVARCHAR(n)", "DATE", "DECIMAL(12,2)"],
+         "items": [
+           {"t": "order_id", "a": [0]},
+           {"t": "quantity", "a": [0]},
+           {"t": "phone", "a": [1], "why": "Giữ số 0 đầu, không dùng để tính toán."},
+           {"t": "customer_name", "a": [2]},
+           {"t": "description", "a": [2]},
+           {"t": "order_date", "a": [3]},
+           {"t": "unit_price", "a": [4], "why": "Tiền dùng DECIMAL."}
+         ]}
+      ]
+    },
+    "L21-p2": {
+      "lead": "Kéo mỗi trường của bảng bookings vào kiểu SQL Server phù hợp, rồi chọn lý do.",
+      "parts": [
+        {"kind": "sort", "q": "1) Chọn kiểu cho từng trường.",
+         "bins": ["INT", "TINYINT", "DECIMAL(12,2)", "BIT", "VARCHAR(15)", "NVARCHAR(n)", "DATETIME2", "DATETIMEOFFSET"],
+         "items": [
+           {"t": "booking_id (mã đặt bàn, khóa chính)", "a": [0], "why": "Tăng mãi nên INT (hoặc BIGINT nếu rất nhiều)."},
+           {"t": "restaurant_id (khóa ngoại)", "a": [0]},
+           {"t": "guests (số khách một bàn)", "a": [1], "why": "Không quá 255 nên TINYINT."},
+           {"t": "deposit (tiền cọc)", "a": [2], "why": "Tiền dùng DECIMAL, không dùng FLOAT."},
+           {"t": "is_confirmed (đã xác nhận hay chưa)", "a": [3]},
+           {"t": "phone", "a": [4]},
+           {"t": "customer_name", "a": [5]},
+           {"t": "note (ghi chú)", "a": [5]},
+           {"t": "arrival_time (ngày giờ đến)", "a": [6], "why": "Cần cả ngày và giờ; SMALLDATETIME cũng được nếu chỉ cần tới phút."},
+           {"t": "created_at (hệ thống cho khách nhiều quốc gia)", "a": [7], "why": "Cần lưu múi giờ."}
+         ]},
+        {"kind": "choice", "q": "2) Vì sao số điện thoại dùng VARCHAR mà không dùng INT?",
+         "options": [
+           "Vì số điện thoại có dấu tiếng Việt",
+           "Vì là chuỗi chỉ gồm chữ số, cần giữ số 0 đầu",
+           "Vì VARCHAR là chuỗi độ dài cố định",
+           "Vì INT không lưu được số âm"
+         ],
+         "answer": [1], "multi": false,
+         "why": "INT làm mất số 0 đầu. Số điện thoại không có dấu nên không cần N; độ dài cố định là CHAR; INT có lưu được số âm."},
+        {"kind": "choice", "q": "3) Thời điểm tạo của hệ thống chạy cho khách ở nhiều quốc gia nên dùng kiểu nào?",
+         "options": [
+           "DATE",
+           "TIME",
+           "DATETIME",
+           "DATETIMEOFFSET"
+         ],
+         "answer": [3], "multi": false,
+         "why": "DATETIMEOFFSET lưu ngày giờ kèm múi giờ, hợp hệ thống đa quốc gia. DATE chỉ có ngày, TIME chỉ có giờ, DATETIME không có múi giờ."}
+      ]
+    },
+    "L21-p3": {
+      "lead": "Ghép từng yêu cầu với phần câu lệnh, sắp các mệnh đề, rồi chọn câu SQL đúng.",
+      "parts": [
+        {"kind": "sort", "q": "1) Mỗi yêu cầu của đề ứng với phần nào trong câu SQL?",
+         "bins": ["INNER JOIN stores", "WHERE", "GROUP BY", "SUM(s.amount)", "COUNT(*)", "MAX(s.amount)", "HAVING", "ORDER BY … DESC"],
+         "items": [
+           {"t": "Kèm tên cửa hàng", "a": [0]},
+           {"t": "Chỉ tính trong tháng 3/2024", "a": [1], "why": "Lọc dòng trước khi nhóm."},
+           {"t": "Tính cho từng cửa hàng", "a": [2]},
+           {"t": "Tổng doanh thu", "a": [3]},
+           {"t": "Số hóa đơn", "a": [4]},
+           {"t": "Hóa đơn lớn nhất", "a": [5]},
+           {"t": "Chỉ lấy cửa hàng có tổng doanh thu trên 100 triệu", "a": [6], "why": "Điều kiện trên tổng nên dùng HAVING, không dùng WHERE."},
+           {"t": "Sắp xếp doanh thu giảm dần", "a": [7]}
+         ]},
+        {"kind": "order", "q": "2) Sắp xếp các mệnh đề theo đúng thứ tự viết.",
+         "items": ["SELECT st.store_name, SUM(s.amount) AS doanh_thu, COUNT(*) AS so_hoa_don, MAX(s.amount) AS hd_lon_nhat", "FROM sales s\nINNER JOIN stores st ON st.store_id = s.store_id", "WHERE s.sale_date BETWEEN '2024-03-01' AND '2024-03-31'", "GROUP BY st.store_id, st.store_name", "HAVING SUM(s.amount) > 100000000", "ORDER BY doanh_thu DESC"]},
+        {"kind": "choice", "q": "3) Câu nào đúng yêu cầu? (sale_date kiểu DATE)",
+         "options": [
+           "SELECT st.store_name, SUM(s.amount) AS doanh_thu,\n       COUNT(*) AS so_hoa_don, MAX(s.amount) AS hd_lon_nhat\nFROM sales s\nINNER JOIN stores st ON st.store_id = s.store_id\nWHERE s.sale_date BETWEEN '2024-03-01' AND '2024-03-31'\n  AND SUM(s.amount) > 100000000\nGROUP BY st.store_id, st.store_name\nORDER BY doanh_thu DESC;",
+           "SELECT st.store_name, SUM(s.amount) AS doanh_thu,\n       COUNT(*) AS so_hoa_don, MAX(s.amount) AS hd_lon_nhat\nFROM sales s\nINNER JOIN stores st ON st.store_id = s.store_id\nWHERE s.sale_date BETWEEN '2024-03-01' AND '2024-03-31'\nGROUP BY st.store_id, st.store_name\nHAVING SUM(s.amount) > 100000000\nORDER BY doanh_thu ASC;",
+           "SELECT st.store_name, SUM(s.amount) AS doanh_thu,\n       COUNT(*) AS so_hoa_don, MAX(s.amount) AS hd_lon_nhat\nFROM sales s\nINNER JOIN stores st ON st.store_id = s.store_id\nWHERE s.sale_date BETWEEN '2024-03-01' AND '2024-03-31'\nGROUP BY st.store_id, st.store_name\nHAVING SUM(s.amount) > 100000000\nORDER BY doanh_thu DESC;",
+           "SELECT st.store_name, SUM(s.amount) AS doanh_thu,\n       COUNT(*) AS so_hoa_don, MAX(s.amount) AS hd_lon_nhat\nFROM sales s\nINNER JOIN stores st ON st.store_id = s.store_id\nWHERE s.amount > 100000000\nGROUP BY st.store_id, st.store_name\nORDER BY doanh_thu DESC;"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Lọc tháng ở WHERE, lọc tổng doanh thu ở HAVING sau GROUP BY, sắp giảm dần bằng DESC. Đặt SUM trong WHERE là sai; ASC là tăng dần; WHERE s.amount > 100000000 lọc từng hóa đơn chứ không phải tổng, lại bỏ mất điều kiện tháng 3."},
+        {"kind": "choice", "q": "4) Nếu sale_date là DATETIME2, điều kiện nào không làm mất giao dịch trong ngày 31/3?",
+         "options": [
+           "WHERE s.sale_date >= '2024-03-01' AND s.sale_date < '2024-04-01'",
+           "WHERE s.sale_date BETWEEN '2024-03-01' AND '2024-03-31'",
+           "WHERE s.sale_date > '2024-03-01' AND s.sale_date < '2024-03-31'"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Có giờ thì '2024-03-31' là 0 giờ ngày 31/3, nên BETWEEN … '2024-03-31' bỏ sót giao dịch trong ngày 31/3. Cách thứ ba còn bỏ cả ngày 31/3 và lúc 0 giờ ngày 1/3."}
+      ]
+    },
+    "L21-p4": {
+      "lead": "Ghép mỗi yêu cầu với lệnh phù hợp, rồi chọn câu lệnh đúng cho từng yêu cầu.",
+      "parts": [
+        {"kind": "sort", "q": "1) Mỗi yêu cầu dùng lệnh nào?",
+         "bins": ["INSERT", "UPDATE", "DELETE", "TRUNCATE"],
+         "items": [
+           {"t": "(1) Thêm sách \"Cơ sở dữ liệu\" của \"Nguyễn Văn B\", năm 2020, đang có sẵn", "a": [0]},
+           {"t": "(2) Đánh dấu sách book_id = 7 đã cho mượn", "a": [1]},
+           {"t": "(3) Xóa các sách xuất bản trước năm 1990", "a": [2], "why": "Xóa có điều kiện dùng DELETE … WHERE."},
+           {"t": "(4) Xóa sạch bảng sách test và đánh số lại từ 1", "a": [3], "why": "Xóa toàn bộ và reset ID dùng TRUNCATE."}
+         ]},
+        {"kind": "choice", "q": "2) Câu nào thêm sách đúng?",
+         "options": [
+           "INSERT INTO books (title, author, year, is_available)\nVALUES ('Cơ sở dữ liệu', 'Nguyễn Văn B', 2020, 1);",
+           "INSERT INTO books (title, author, year, is_available)\nVALUES (2020, N'Cơ sở dữ liệu', N'Nguyễn Văn B', 1);",
+           "INSERT INTO books (title, author, year, is_available)\nVALUES (N'Cơ sở dữ liệu', N'Nguyễn Văn B', 2020, 1);"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Không ghi book_id vì tự tăng, giá trị theo đúng thứ tự cột, chuỗi có dấu thêm tiền tố N. Cách đầu thiếu N nên mất dấu; cách giữa sai thứ tự giá trị."},
+        {"kind": "choice", "q": "3) Câu nào đánh dấu sách book_id = 7 đã cho mượn?",
+         "options": [
+           "UPDATE books\nSET is_available = 0\nWHERE book_id = 7;",
+           "UPDATE books\nSET is_available = 0;",
+           "UPDATE books\nSET is_available = 1\nWHERE book_id = 7;",
+           "UPDATE books\nWHERE book_id = 7\nSET is_available = 0;"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Đã cho mượn là is_available = 0, luôn có WHERE theo khóa chính. Thiếu WHERE thì sửa mọi dòng; = 1 là vẫn có sẵn; WHERE đặt trước SET là sai cú pháp."},
+        {"kind": "choice", "q": "4) Câu nào xóa các sách xuất bản trước năm 1990?",
+         "options": [
+           "DELETE FROM books;",
+           "DELETE FROM books\nWHERE year < 1990;",
+           "TRUNCATE TABLE books\nWHERE year < 1990;",
+           "DELETE FROM books\nWHERE year > 1990;"
+         ],
+         "answer": [1], "multi": false,
+         "why": "Xóa có điều kiện dùng DELETE … WHERE year < 1990. Thiếu WHERE thì xóa mọi sách; TRUNCATE không có WHERE; year > 1990 xóa nhầm sách mới."},
+        {"kind": "choice", "q": "5) Câu nào xóa sạch bảng books_test và đánh số lại từ 1?",
+         "options": [
+           "DELETE FROM books_test;",
+           "DELETE FROM books_test\nWHERE book_id >= 1;",
+           "TRUNCATE TABLE books_test;"
+         ],
+         "answer": [2], "multi": false,
+         "why": "TRUNCATE xóa toàn bộ và đưa bộ đếm ID về ban đầu. DELETE không reset ID: dòng thêm sau vẫn đánh số tiếp."}
+      ]
     }
   }
 }

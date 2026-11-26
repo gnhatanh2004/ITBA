@@ -133,6 +133,145 @@
          "answer": [1], "multi": false,
          "why": "Use Case có thể không có Pre-Condition nhưng thường phải có Trigger. Trang công khai không cần điều kiện gì trước, chỉ cần hành động mở trang. ATM cần máy hoạt động, thẻ còn hiệu lực; báo cáo tự động cần đã cấu hình người nhận."}
       ]
+    },
+    "L13b-p1": {
+      "lead": "Sắp xếp các bước làm, kéo mỗi ý của \"Nổ máy xe\" vào Trigger hoặc Pre-Condition, rồi chọn cách kiểm tra chéo.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước xác định Trigger và Pre-Condition.",
+         "items": [
+           "Tìm hành động bắt đầu: người lái làm gì thì việc nổ máy bắt đầu?",
+           "Tìm các trạng thái phải có sẵn: trước khi bấm, điều gì phải đúng thì máy mới nổ được?",
+           "Kiểm tra chéo: ý Trigger phải là hành động, ý Pre-Condition phải là trạng thái"
+         ],
+         "why": "Tìm hành động trước, rồi liệt kê trạng thái dạng \"đã…/đang có…\", cuối cùng kiểm tra chéo."},
+        {"kind": "sort", "q": "2) Mỗi ý là Trigger hay Pre-Condition?",
+         "bins": ["Trigger", "Pre-Condition"],
+         "items": [
+           {"t": "Người lái vặn chìa khóa sang nấc khởi động", "a": [0], "why": "Hành động bắt đầu Use Case."},
+           {"t": "Người lái bấm nút đề (xe tay ga thường phải bóp phanh khi bấm đề)", "a": [0], "why": "Hành động bắt đầu Use Case."},
+           {"t": "Xe còn xăng", "a": [1], "why": "Trạng thái phải đúng từ trước."},
+           {"t": "Ắc quy còn điện", "a": [1]},
+           {"t": "Chìa khóa đúng của xe đã được cắm vào ổ", "a": [1], "why": "Dạng \"đã…\": trạng thái có sẵn, không phải hành động bắt đầu."},
+           {"t": "Xe ở trạng thái an toàn để khởi động (xe số đang về số 0)", "a": [1]}
+         ]},
+        {"kind": "choice", "q": "3) Khi kiểm tra chéo, một ý trong danh sách Pre-Condition có động từ hành động (\"bấm\", \"vặn\"). Làm gì?",
+         "options": [
+           "Giữ ở Pre-Condition vì nó xảy ra trước khi máy nổ",
+           "Chuyển nó sang Post-Condition",
+           "Chuyển nó sang Trigger",
+           "Ghi nó vào Business Rules"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Trigger là hành động, Pre-Condition là trạng thái đã đúng từ trước. Ý có động từ hành động như \"bấm\", \"vặn\" thuộc Trigger."}
+      ]
+    },
+    "L13b-p2": {
+      "lead": "Dựng Main Flow của \"Chuyển tiền trên App\", rồi kéo các ý vào Trigger/Pre-Condition và Alternative/Exception.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp Main Flow (\"xương sống\") theo đúng thứ tự.",
+         "items": [
+           "Người dùng bấm \"Chuyển tiền\"",
+           "Nhập số tài khoản người nhận",
+           "Hệ thống hiện tên người nhận",
+           "Nhập số tiền, nội dung",
+           "Xác nhận bằng OTP",
+           "Hệ thống trừ tiền và báo thành công"
+         ],
+         "why": "Main Flow bắt đầu từ Trigger và đi theo kịch bản thành công thường gặp nhất."},
+        {"kind": "sort", "q": "2) Mỗi ý là Trigger hay Pre-Condition?",
+         "bins": ["Trigger", "Pre-Condition"],
+         "items": [
+           {"t": "Người dùng bấm chức năng \"Chuyển tiền\" trên app", "a": [0], "why": "Trigger là bước đầu tiên của Main Flow."},
+           {"t": "Người dùng đã đăng nhập app", "a": [1]},
+           {"t": "Tài khoản nguồn đang hoạt động (không bị khóa)", "a": [1]},
+           {"t": "Đã đăng ký phương thức xác thực (OTP hoặc sinh trắc học)", "a": [1]}
+         ]},
+        {"kind": "choice", "q": "3) Có nên đưa \"số dư đủ\" vào Pre-Condition không?",
+         "options": [
+           "Không, vì chỉ biết đủ hay không sau khi người dùng nhập số tiền; đó là chỗ rẽ sang Exception",
+           "Có, vì không đủ tiền thì không chuyển được",
+           "Có, và ghi nó thành Trigger luôn",
+           "Không, vì số dư là yêu cầu phi chức năng"
+         ],
+         "answer": [0], "multi": false,
+         "why": "Pre-Condition phải đúng trước khi Use Case bắt đầu. Số dư chỉ kiểm được sau khi nhập số tiền, nên \"số dư không đủ\" là một Exception."},
+        {"kind": "sort", "q": "4) Mỗi nhánh là Alternative (cách khác vẫn chuyển được tiền) hay Exception (lỗi làm tiền không chuyển được)?",
+         "bins": ["Alternative Flow", "Exception Flow"],
+         "items": [
+           {"t": "Chọn người nhận từ danh bạ đã lưu thay vì nhập số tài khoản", "a": [0]},
+           {"t": "Quét mã QR của người nhận", "a": [0]},
+           {"t": "Xác thực bằng vân tay/khuôn mặt thay vì OTP", "a": [0]},
+           {"t": "Số tài khoản người nhận không tồn tại", "a": [1]},
+           {"t": "Số dư không đủ", "a": [1]},
+           {"t": "Số tiền vượt hạn mức trong ngày", "a": [1]},
+           {"t": "Nhập sai OTP quá số lần cho phép hoặc OTP hết hạn", "a": [1]},
+           {"t": "Mất kết nối, giao dịch không thực hiện được", "a": [1]}
+         ]},
+        {"kind": "choice", "q": "5) Nhánh rẽ được đánh số theo bước của Main Flow ở câu 1. Nhánh \"Số dư không đủ\" ghi số nào?",
+         "options": ["2a", "3a", "4a", "6a"],
+         "answer": [2], "multi": false,
+         "why": "Số dư được kiểm khi nhập số tiền ở bước 4, nên nhánh rẽ là 4a (số bước + chữ cái)."}
+      ]
+    },
+    "L13b-p3": {
+      "lead": "Dựng đặc tả \"Đặt món\": sắp xếp các bước làm, kéo nội dung vào đúng trường, sắp xếp Main Flow, rồi tách nhánh.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước viết đặc tả theo cách làm mẫu.",
+         "items": [
+           "Nhận diện: Name, ID, Actor, Priority, Description",
+           "Goal và Post-Condition",
+           "Trigger và Pre-Condition",
+           "Main Flow: 6–8 bước xen kẽ Khách hàng và Hệ thống, bắt đầu từ Trigger",
+           "Alternative và Exception: đi qua từng bước, đánh số theo bước",
+           "Business Rules, NFR, Related Documents"
+         ],
+         "why": "Đây là thứ tự của cách làm mẫu: nhận diện, mục tiêu và kết quả, điểm bắt đầu, luồng chính, các nhánh, cuối cùng là luật và tài liệu."},
+        {"kind": "sort", "q": "2) Nhận diện và điều kiện: mỗi nội dung thuộc trường nào?",
+         "bins": ["Use Case Name", "Use Case ID", "Description", "Actor", "Priority", "Goal", "Trigger", "Pre-Condition"],
+         "items": [
+           {"t": "Đặt món", "a": [0]},
+           {"t": "UC05", "a": [1]},
+           {"t": "Khách hàng đặt các món trong giỏ hàng, chọn địa chỉ giao và phương thức thanh toán để tạo đơn gửi tới nhà hàng.", "a": [2]},
+           {"t": "Khách hàng", "a": [3]},
+           {"t": "Nhà hàng", "a": [3]},
+           {"t": "High", "a": [4], "why": "Chức năng tạo doanh thu."},
+           {"t": "Khách hàng đặt thành công đơn món ăn", "a": [5], "why": "Goal theo góc nhìn khách."},
+           {"t": "Khách hàng bấm \"Đặt hàng\" trong màn hình Giỏ hàng", "a": [6], "why": "Hành động kích hoạt."},
+           {"t": "Khách hàng đã đăng nhập", "a": [7]},
+           {"t": "Giỏ hàng có ít nhất 1 món", "a": [7]}
+         ]},
+        {"kind": "sort", "q": "3) Kết quả và ràng buộc: mỗi nội dung thuộc trường nào?",
+         "bins": ["Post-Condition", "Frequency of Use", "Business Rules", "Non-Functional Requirement", "Related Documents"],
+         "items": [
+           {"t": "Đơn hàng được lưu với trạng thái \"Chờ nhà hàng nhận\" và được gửi tới nhà hàng; khách nhận được mã đơn", "a": [0], "why": "Trạng thái hệ thống sau khi xong."},
+           {"t": "Rất cao, cao điểm giờ trưa và tối", "a": [1]},
+           {"t": "Giá trị đơn tối thiểu 50.000đ", "a": [2]},
+           {"t": "Chỉ nhận đơn trong giờ mở cửa của nhà hàng", "a": [2]},
+           {"t": "Tạo đơn trong ≤ 3 giây", "a": [3]},
+           {"t": "Dữ liệu thanh toán được mã hóa", "a": [3]},
+           {"t": "Sơ đồ Use Case hệ thống đặt đồ ăn; Activity Diagram \"Đặt món\"; BRD mục đặt hàng và thanh toán", "a": [4]}
+         ]},
+        {"kind": "order", "q": "4) Sắp xếp các bước của Main Flow (thanh toán ví điện tử) theo đúng thứ tự.",
+         "items": [
+           "Khách hàng bấm \"Đặt hàng\"",
+           "Hệ thống hiển thị màn hình xác nhận: món, địa chỉ giao mặc định, phí giao, tổng tiền",
+           "Khách hàng chọn phương thức thanh toán ví điện tử và bấm \"Xác nhận\"",
+           "Hệ thống kiểm tra món còn bán và địa chỉ trong vùng giao",
+           "Hệ thống chuyển sang ví điện tử để thanh toán",
+           "Ví điện tử báo thanh toán thành công",
+           "Hệ thống tạo đơn, gửi đơn tới nhà hàng và hiển thị mã đơn cho khách"
+         ],
+         "why": "Luồng chính bắt đầu từ Trigger, các bước xen kẽ Actor làm và hệ thống phản hồi."},
+        {"kind": "sort", "q": "5) Mỗi nhánh thuộc Alternative Flow hay Exception Flow?",
+         "bins": ["Alternative Flow", "Exception Flow"],
+         "items": [
+           {"t": "2a. Khách đổi địa chỉ giao khác, hệ thống tính lại phí giao, quay về bước 2", "a": [0]},
+           {"t": "3a. Khách chọn tiền mặt khi nhận hàng: bỏ qua bước 5–6, sang bước 7", "a": [0], "why": "Cách khác mà vẫn đặt được đơn."},
+           {"t": "4a. Có món đã hết: hệ thống báo và yêu cầu bỏ món khỏi giỏ", "a": [1]},
+           {"t": "4b. Địa chỉ ngoài vùng giao: hệ thống báo không giao được", "a": [1]},
+           {"t": "6a. Thanh toán thất bại: hệ thống báo lỗi, đơn không được tạo", "a": [1], "why": "Lỗi làm đơn không được tạo."}
+         ]}
+      ]
     }
   }
 }

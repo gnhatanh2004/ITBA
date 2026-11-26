@@ -409,7 +409,7 @@ def attach_exercises(c, lessons, course=None):
     """Gắn cách làm tương tác (data/exercises/<ID>.json) vào bài tập; trả số bài tập được gắn."""
     import exercises as ex
     n = 0
-    targets = [(d["id"], d.get("exercises") or []) for d in lessons]
+    targets = [(d["id"], (d.get("exercises") or []) + (d.get("practice") or [])) for d in lessons]
     if course:
         targets.append(("CS", (course.get("case_study") or {}).get("exercises") or []))
     for lid, arr in targets:
@@ -482,7 +482,7 @@ def build():
     c.near_dupes([q for d in lessons for q in d.get("quiz") or []] + cq)
     n_listen = attach_listen(c, lessons)
     n_ex = attach_exercises(c, lessons, course)
-    if report(c, f"Dữ liệu OK ({n_listen} bài có Nghe giảng, {n_ex} bài tập tương tác)"):
+    if report(c, f"Dữ liệu OK ({n_listen} bài có Nghe giảng, {n_ex} bài tập/thực hành tương tác)"):
         return 1
     render(course, lessons, OUT)
     return 0

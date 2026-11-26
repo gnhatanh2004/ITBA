@@ -326,3 +326,12 @@ Mỗi bài tập có 1–6 `parts`. Mọi chuỗi là văn bản thường, khô
 **Tự kiểm:** `python -B script/exercises.py --check <ID>` tới khi in `OK (n/n …)`.
 
 **Báo cáo cuối** (≤ 120 từ): số bài tập đã chuyển trên tổng số, dạng đã dùng, bài nào bỏ qua và chỗ nào không chắc.
+
+### 8.1. Bài thực hành (tab Thực hành, T11)
+
+Tab Thực hành (`practice`, id `<ID>-p1`…) cũng làm tương tác như trên, với cùng schema và cùng luật đáp án.
+- **Ghi thêm** vào file có sẵn `data/exercises/<ID>.json`, trong cùng `items`, khóa là id bài thực hành. **Không sửa, không xóa** các mục `-x` đã có.
+- Bài thực hành không có gợi ý mà có `steps` (các bước làm mẫu) và `answer`. Đáp án đúng lấy từ `steps` và `answer`.
+- Các bước làm mẫu thường thành được một `order` ("Sắp xếp các bước làm"). Nội dung từng bước thì dùng `sort` hoặc `choice`, theo đúng nguyên tắc ở §8.
+- Bài kiểu "liên hệ thực tế, kể tên…" thì chuyển thành `sort` hoặc `choice` dựa trên ví dụ trong `answer`. Phương án nhiễu phải sai rõ theo bài học.
+- Giao diện hiện các bước làm mẫu trong phần "Xem đáp án" sau khi làm.

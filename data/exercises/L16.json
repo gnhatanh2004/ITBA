@@ -269,6 +269,188 @@
          "answer": [1, 3], "multi": true,
          "why": "Tiến trình cập nhật trạng thái Đặt bàn và giải phóng bàn ở Chi tiết bàn. Config nhà hàng chỉ được đọc để lấy X; tiến trình không tạo yêu cầu thanh toán."}
       ]
+    },
+    "L16-p1": {
+      "lead": "Sắp xếp các bước làm, kéo từng việc vào trong/ngoài phạm vi, rồi chọn căn cứ và giả định.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước viết mục 4.2–4.3.",
+         "items": [
+           "Liệt kê việc trong phạm vi: mỗi nhu cầu thành một dòng “Bao gồm”",
+           "Liệt kê việc ngoài phạm vi, ghi kèm lý do",
+           "Ghi căn cứ phạm vi: ngân sách, nguồn lực, timeline đã được stakeholder duyệt",
+           "Viết giả định về người dùng, thiết bị, mạng, dữ liệu đầu vào",
+           "Tự kiểm: giả định kiểm chứng được, mục “không bao gồm” đã có lý do"
+         ],
+         "why": "Xác định phạm vi trước (trong rồi ngoài), ghi căn cứ để chặn thay đổi scope, sau đó mới viết giả định và tự kiểm."},
+        {"kind": "sort", "q": "2) Việc này thuộc Bao gồm hay Không bao gồm ở giai đoạn 1?",
+         "bins": ["Bao gồm", "Không bao gồm"],
+         "items": [
+           {"t": "Bạn đọc tra cứu sách và tình trạng sách online", "a": [0]},
+           {"t": "Bạn đọc đặt mượn trước, thủ thư xác nhận", "a": [0]},
+           {"t": "Thủ thư ghi nhận mượn, trả, gia hạn", "a": [0]},
+           {"t": "Hệ thống nhắc hạn trả qua email", "a": [0]},
+           {"t": "Thu phí phạt và hạch toán", "a": [1], "why": "Trường đã có phần mềm kế toán riêng."},
+           {"t": "Quy trình mua sách, nhập kho", "a": [1], "why": "Dự kiến làm ở phase 2."}
+         ]},
+        {"kind": "choice", "q": "3) Câu mở đầu mục 4.2 nên nêu phạm vi dựa trên căn cứ nào?",
+         "options": [
+           "Mong muốn của BA, chưa cần ai duyệt",
+           "Danh sách tính năng của phần mềm thư viện khác trên thị trường",
+           "Ngân sách và timeline giai đoạn 1 đã được Ban giám hiệu phê duyệt",
+           "Mọi yêu cầu bạn đọc gửi thêm trong quá trình làm"
+         ],
+         "answer": [2], "multi": false,
+         "why": "Phạm vi dựa trên ngân sách, nguồn lực, timeline đã được stakeholder duyệt để chặn thay đổi scope liên tục."},
+        {"kind": "choice", "q": "4) Những câu nào là giả định đúng nghĩa cho mục 4.3? (chọn tất cả ý đúng)",
+         "options": [
+           "Hệ thống nhắc hạn trả qua email",
+           "Mỗi đầu sách đã có mã vạch hoặc mã định danh duy nhất",
+           "Bạn đọc đều có email trường để nhận thông báo",
+           "Thu phí phạt và hạch toán không làm ở giai đoạn 1",
+           "Thư viện có mạng internet ổn định trong giờ mở cửa",
+           "Thủ thư biết dùng máy tính ở mức cơ bản"
+         ],
+         "answer": [1, 2, 4, 5], "multi": true,
+         "why": "Giả định là điều đang coi là đúng mà nếu sai thì dự án bị ảnh hưởng (dữ liệu đầu vào, người dùng, mạng). “Nhắc hạn qua email” là chức năng trong phạm vi; “thu phí phạt” là mục không bao gồm."}
+      ]
+    },
+    "L16-p2": {
+      "lead": "Sắp xếp các bước làm, ghép đối tượng với mô tả, rồi ghép phân hệ với actor.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước viết mục 4 và 9.1.",
+         "items": [
+           "Tìm actor là người: gạch chân mọi danh từ chỉ người dùng hệ thống",
+           "Viết bảng Tên đối tượng – Mô tả",
+           "Gom chức năng theo kênh: mỗi ứng dụng riêng là một phân hệ",
+           "Thêm phân hệ không có người dùng (API, Tiến trình)",
+           "Điền bảng STT – Kênh – Actor – Mô tả và kiểm tra mỗi đối tượng đều có ở ít nhất một phân hệ"
+         ]},
+        {"kind": "sort", "q": "2) Mô tả này viết cho đối tượng nào?",
+         "bins": ["Khách hàng", "NV nhà hàng", "Shipper", "Quản trị viên"],
+         "items": [
+           {"t": "Tìm món, đặt món, thanh toán, theo dõi đơn", "a": [0]},
+           {"t": "Nhận đơn, xác nhận hoặc từ chối, cập nhật trạng thái chuẩn bị món", "a": [1]},
+           {"t": "Nhận đơn giao, cập nhật trạng thái giao hàng", "a": [2]},
+           {"t": "Quản lý nhà hàng đối tác, tài khoản, báo cáo", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "3) Cột Mô tả của dòng Shipper nên viết thế nào?",
+         "options": [
+           "Người đi xe máy giao đồ ăn, thường là lao động tự do",
+           "Nhân viên của công ty, có hợp đồng lao động",
+           "Người có điện thoại thông minh và bằng lái xe",
+           "Nhận đơn giao, cập nhật trạng thái giao hàng"
+         ],
+         "answer": [3], "multi": false,
+         "why": "Mỗi dòng nói đối tượng làm gì trên hệ thống, không phải họ là ai ngoài đời."},
+        {"kind": "sort", "q": "4) Phân hệ này có actor nào?",
+         "bins": ["Khách hàng", "NV nhà hàng", "Shipper", "Quản trị viên", "Không có người dùng"],
+         "items": [
+           {"t": "Mobile app khách hàng", "a": [0]},
+           {"t": "Web nhà hàng", "a": [1]},
+           {"t": "Mobile app shipper", "a": [2]},
+           {"t": "Web admin", "a": [3]},
+           {"t": "API – nhận kết quả thanh toán từ ví điện tử", "a": [4]},
+           {"t": "Tiến trình – tự hủy đơn khi nhà hàng không xác nhận sau 10 phút", "a": [4]}
+         ]}
+      ]
+    },
+    "L16-p3": {
+      "lead": "Sắp xếp các bước, điền Mô tả chung và loại control bằng kéo thả, rồi xếp nội dung Business Rule.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước viết FSD Tra cứu sách.",
+         "items": [
+           "Mô tả chung: tên, mô tả, tác nhân, điều kiện, các luồng",
+           "Chọn tiêu chí tìm kiếm: tên sách, tác giả, thể loại",
+           "Mô tả màn hình: STT – Tên – Loại – Req – Mô tả",
+           "Business Rule: AND/OR, sắp xếp, mặc định, thông báo khi không có kết quả"
+         ]},
+        {"kind": "sort", "q": "2) Mỗi nội dung điền vào dòng nào của bảng Mô tả chung?",
+         "bins": ["Tên chức năng", "Mô tả", "Tác nhân", "Điều kiện kích hoạt", "Điều kiện trước", "Điều kiện sau"],
+         "items": [
+           {"t": "Tra cứu sách", "a": [0]},
+           {"t": "Bạn đọc tìm sách và xem tình trạng còn/hết", "a": [1]},
+           {"t": "Bạn đọc", "a": [2]},
+           {"t": "Chọn menu Tra cứu", "a": [3]},
+           {"t": "Đã đăng nhập", "a": [4]},
+           {"t": "Hiển thị danh sách sách theo tiêu chí", "a": [5]}
+         ]},
+        {"kind": "sort", "q": "3) Control này có Loại gì?",
+         "bins": ["Textbox", "List", "Button", "Grid"],
+         "items": [
+           {"t": "Từ khóa – nhập tên sách hoặc tác giả, tối đa 100 ký tự", "a": [0]},
+           {"t": "Thể loại – danh mục thể loại, mặc định Tất cả", "a": [1]},
+           {"t": "Tình trạng – Tất cả / Còn sách / Hết sách", "a": [1]},
+           {"t": "Tìm kiếm – thực hiện tìm theo tiêu chí", "a": [2]},
+           {"t": "Lưới kết quả – mã sách, tên sách, tác giả, thể loại, số bản còn", "a": [3]}
+         ]},
+        {"kind": "sort", "q": "4) Nội dung này thuộc rule nào?",
+         "bins": ["BR1 – Tìm kiếm", "BR2 – Sắp xếp", "BR3 – Mặc định", "Thông báo"],
+         "items": [
+           {"t": "AND các tiêu chí; trường chọn Tất cả hoặc để trống thì bỏ qua", "a": [0]},
+           {"t": "Từ khóa tìm gần đúng (LIKE) trên tên sách hoặc tác giả, không phân biệt hoa thường", "a": [0]},
+           {"t": "Theo tên sách tăng dần", "a": [1]},
+           {"t": "Hiển thị toàn bộ sách đang lưu hành, 20 dòng/trang", "a": [2]},
+           {"t": "“Không tìm thấy sách phù hợp”", "a": [3]}
+         ]},
+        {"kind": "choice", "q": "5) Business Rule của dạng tìm kiếm/danh sách cần trả lời những câu nào? (chọn tất cả ý đúng)",
+         "options": [
+           "Các tiêu chí kết hợp AND hay OR",
+           "Màu nền và cỡ chữ của lưới kết quả",
+           "Kết quả sắp xếp thế nào",
+           "Màn hình mặc định hiện gì",
+           "Dev dùng ngôn ngữ lập trình nào để tìm",
+           "Thông báo gì khi không có kết quả"
+         ],
+         "answer": [0, 2, 3, 5], "multi": true,
+         "why": "Business Rule trả lời 3 câu: AND hay OR, sắp xếp thế nào, mặc định hiện gì, cộng câu thông báo khi không có kết quả. Màu sắc và ngôn ngữ lập trình không phải rule nghiệp vụ."}
+      ]
+    },
+    "L16-p4": {
+      "lead": "Sắp xếp các bước và luồng kiểm tra, rồi kéo thả trường đầu vào/đầu ra, ràng buộc và mã lỗi.",
+      "parts": [
+        {"kind": "order", "q": "1) Sắp xếp các bước viết FSD API.",
+         "items": [
+           "Mô tả chung: Tên UC, Mục đích, Đối tượng sử dụng, Post-condition",
+           "Luồng hoạt động: các bước server kiểm tra theo thứ tự",
+           "Thông tin đầu vào: Require, Length, ràng buộc",
+           "Thông tin đầu ra: mã xử lý, mã đối tác, mã lỗi, mô tả lỗi",
+           "Danh sách mã lỗi: mỗi bước kiểm tra một dòng lỗi, cộng dòng Thành công"
+         ]},
+        {"kind": "order", "q": "2) Sắp xếp luồng hoạt động của API tra cứu trạng thái đơn.",
+         "items": [
+           "Nhận yêu cầu",
+           "Kiểm tra mã đối tác tồn tại và đang hoạt động",
+           "Kiểm tra mã đơn tồn tại",
+           "Kiểm tra đơn được giao cho đúng đối tác này",
+           "Trả về trạng thái đơn"
+         ],
+         "why": "Đúng thứ tự trong đáp án mẫu; mỗi bước kiểm tra ứng với một mã lỗi 01, 02, 03."},
+        {"kind": "sort", "q": "3) Trường này có ở đâu?",
+         "bins": ["Cả đầu vào và đầu ra", "Chỉ ở đầu ra"],
+         "items": [
+           {"t": "Mã đối tác", "a": [0]},
+           {"t": "Mã yêu cầu", "a": [0]},
+           {"t": "Mã đơn", "a": [0]},
+           {"t": "Trạng thái đơn", "a": [1]},
+           {"t": "Mã lỗi", "a": [1]},
+           {"t": "Mô tả lỗi", "a": [1]}
+         ]},
+        {"kind": "sort", "q": "4) Ghép trường đầu vào với ràng buộc.",
+         "bins": ["Do hệ thống cấp cho đối tác", "Duy nhất cho mỗi lần gọi", "Mã đơn trên hệ thống"],
+         "items": [
+           {"t": "Mã đối tác (Yes, 20)", "a": [0]},
+           {"t": "Mã yêu cầu (Yes, 36)", "a": [1]},
+           {"t": "Mã đơn (Yes, 20)", "a": [2]}
+         ]},
+        {"kind": "sort", "q": "5) Ghép trường hợp với mã lỗi.",
+         "bins": ["00 – Thành công", "01 – Mã đối tác không hợp lệ", "02 – Đơn hàng không tồn tại", "03 – Đối tác không có quyền với đơn này"],
+         "items": [
+           {"t": "Tra cứu thành công", "a": [0]},
+           {"t": "Mã đối tác không tồn tại hoặc không hoạt động", "a": [1]},
+           {"t": "Mã đơn không tồn tại", "a": [2]},
+           {"t": "Đơn không thuộc đối tác", "a": [3]}
+         ]}
+      ]
     }
   }
 }
